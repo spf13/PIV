@@ -3,7 +3,7 @@
 " Revised 2010 Steve Francia <http://spf13.com>
 
 " Including PDV
-source ~/.vim/plugin/php-doc.vim
+" source ~/.vim/plugins/php-doc.vim
 
 let PHP_autoformatcomment = 1
 
