@@ -1,9 +1,10 @@
 " .vim/ftplugin/php.vim by Tobias Schlitt <toby@php.net>.
 " No copyright, feel free to use this, as you like.
+"
 " Revised 2010 Steve Francia <http://spf13.com>
+" Brought up to date. Removed eZcomponents specific items.
+"
 
-" Including PDV
-" source ~/.vim/plugins/php-doc.vim
 
 let PHP_autoformatcomment = 1
 
@@ -50,10 +51,6 @@ setlocal keywordprg=pman
 " Map ; to "add ; to the end of the line, when missing"
 noremap <buffer> ; :s/\([^;]\)$/\1;/<cr>
 
-" DEPRECATED in favor of PDV documentation (see below!)
-" Map <CTRL>-P to run actual file with PHP CLI
-" noremap <C-P> :w!<CR>:!php5 %<CR>
-
 " Map <ctrl>+p to single line mode documentation (in insert and command mode)
 inoremap <buffer> <C-P> :call PhpDocSingle()<CR>i
 nnoremap <buffer> <C-P> :call PhpDocSingle()<CR>
@@ -68,7 +65,7 @@ vnoremap <buffer> <C-a> :call PhpAlign()<CR>
 
 " Map <CTRL>-c to (un-)comment function
 "vnoremap <buffer> <C-c> :call PhpUnComment()<CR>
-" Use NERDCommenter, it's much better
+" SPF13: Use NERDCommenter, it's much better
 
 " }}}
 
@@ -85,7 +82,7 @@ inoremap <buffer> [ []<LEFT>
 " inoremap <buffer> ( (  )<LEFT><LEFT>
 
 " Maybe this way in other coding standards
-inoremap ( ( )<LEFT><LEFT> 
+inoremap ( ()<LEFT><LEFT> 
 
 inoremap <buffer> " ""<LEFT>
 inoremap <buffer> ' ''<LEFT>
