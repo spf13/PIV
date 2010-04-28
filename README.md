@@ -21,6 +21,10 @@ This plugin can fold PHP functions and/or classes, properties with their PhpDoc,
 without manually adding marker style folds ({{{ and }}})
 [[http://www.vim.org/scripts/script.php?script_id=1623]]
 
+Can be turned off by setting 
+    let g:DisableAutoPHPFolding = 1
+in your .vimrc file.
+
 ### PHP Doc Gen
 Generate phpDocumentor conforming documentation blocks for your PHP code. 
 
@@ -57,4 +61,3 @@ The following plugins are recommended and can be found in my [vim config reposit
  * [CheckSyntax](http://www.vim.org/scripts/script.php?script_id=1431)
  * [Surrounding](http://github.com/msanders/vim-files/blob/master/plugin/surrounding.vim)
  * [AutoCloseTag](http://www.vim.org/scripts/script.php?script_id=2591)
-
