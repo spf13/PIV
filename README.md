@@ -11,6 +11,7 @@ It does not include non PHP specific functionality like commenting but rather su
 
 ### Updated Syntax
 _Updated for PHP 5.3_
+
 The list of PHP constants, functions, and classes was updated to be current with PHP 5.3.
 Many new classes were added in the 5.2 branch and the distributed version only covers up
 to 5.1.4. 
@@ -21,12 +22,24 @@ without manually adding marker style folds ({{{ and }}})
 [[http://www.vim.org/scripts/script.php?script_id=1623]]
 
 ### PHP Doc Gen
-Incorporating a solid phpdoc generation plugin. To use type ,pd
+Generate phpDocumentor conforming documentation blocks for your PHP code. 
+
+To use place cursor on line with class, function or variable definition and type ,pd (in n mode)
 
 ### Better Completion
+PHP completion script for use with omniComplete. 
+
+Completion from current file, tags and php builtin:
+	* classes (after new), 
+	* functions  
+	* variables
+	* constants 
+	* language keywords 
+
+After -> and :: options limited to funcs and vars.
 
 ### Better indenting w/automatic formatting
-
+Custom php indenting file for VIM
 
 
 ## Recommendations
