@@ -1,11 +1,10 @@
 " Vim completion script
 " Language:	PHP
 " Maintainer:	Mikolaj Machowski ( mikmach AT wp DOT pl )
-" Last Change:	2009 November 29
+" Maintainer:	Shawn Biddle ( shawn AT shawnbiddle DOT com )
+" Last Change:	2010 July 28
 "
 "   TODO:
-"   - Class aware completion:
-"      a) caching?
 "   - Switching to HTML (XML?) completion (SQL) inside of phpStrings
 "   - allow also for XML completion <- better do html_flavor for HTML
 "     completion
@@ -134,7 +133,7 @@ function! phpcomplete#CompletePHP(findstart, base)
 		" few not so subtle differences as not appending of $ and addition
 		" of 'kind' tag (not necessary in regular completion)
 
-		if scontext =~ '->$' && scontext !~ '\$this->$'
+		if scontext =~ '->$' || scontext =~ '::'
 
 			" Get name of the class
 			let classname = phpcomplete#GetClassName(scontext)
@@ -167,17 +166,15 @@ function! phpcomplete#CompletePHP(findstart, base)
 				let classcontent .= "\n".phpcomplete#GetClassContents(classfile, classname)
 				let sccontent = split(classcontent, "\n")
 
-				" YES, YES, YES! - we have whole content including extends!
-				" Now we need to get two elements: public functions and public
-				" vars
-				" NO, NO, NO! - third separate filtering looking for content
-				" :(, but all of them have differences. To squeeze them into
-				" one implementation would require many additional arguments
-				" and ifs. No good solution
-				" Functions declared with public keyword or without any
-				" keyword are public
-				let functions = filter(deepcopy(sccontent),
-						\ 'v:val =~ "^\\s*\\(static\\s\\+\\|public\\s\\+\\)*function"')
+				" limit based on context to static or normal public methods
+				if scontext =~ '::'
+					let functions = filter(deepcopy(sccontent),
+							\ 'v:val =~ "^\\s*\\(\\(public\\s\\+static\\|static\\)\\s\\+\\)*function"')
+				elseif scontext =~ '->$'
+					let functions = filter(deepcopy(sccontent),
+							\ 'v:val =~ "^\\s*\\(public\\s\\+\\)*function"')
+				endif
+
 				let jfuncs = join(functions, ' ')
 				let sfuncs = split(jfuncs, 'function\s\+')
 				let c_functions = {}
@@ -205,9 +202,26 @@ function! phpcomplete#CompletePHP(findstart, base)
 					endif
 				endfor
 
+
+				let constants = filter(deepcopy(sccontent),
+						\ 'v:val =~ "^\\s*const\\s\\+"')
+
+				let jcons = join(constants, ' ')
+				let scons = split(jcons, 'const')
+
+				let c_constants = {}
+				for i in scons
+					let c_con = matchstr(i,
+							\ '^\s*\zs[a-zA-Z_\x7f-\xff][a-zA-Z_0-9\x7f-\xff]*\ze')
+					if c_con != ''
+						let c_constants[c_con] = ''
+					endif
+				endfor
+
 				let all_values = {}
 				call extend(all_values, c_functions)
 				call extend(all_values, c_variables)
+				call extend(all_values, c_constants)
 
 				for m in sort(keys(all_values))
 					if m =~ '^'.a:base && m !~ '::'
@@ -572,36 +586,90 @@ function! phpcomplete#GetClassName(scontext) " {{{
 	" line above
 	" or line in tags file
 
-	let object = matchstr(a:scontext, '\zs[a-zA-Z_0-9\x7f-\xff]\+\ze->')
-	let i = 1
-	while i < line('.')
-		let line = getline(line('.')-i)
-		if line =~ '^\s*\*\/\?\s*$'
-			let i += 1
-			continue
-		else
-			if line =~ '@var\s\+\$'.object.'\s\+[a-zA-Z_0-9\x7f-\xff]\+'
-				let classname = matchstr(line, '@var\s\+\$'.object.'\s\+\zs[a-zA-Z_0-9\x7f-\xff]\+')
+	if a:scontext =~ '\$this->' || a:scontext =~ '\(self\|static\)::'
+		let i = 1
+		while i < line('.')
+			let line = getline(line('.')-i)
+
+			" Don't complete self:: or $this if outside of a class
+			" (assumes correct indenting)
+			if line =~ '^}'
+				return ''
+			endif
+
+			if line !~ '^class'
+				let i += 1
+				continue
+			else
+				let classname = matchstr(line, '^class \zs[a-zA-Z]\w\+\ze\(\s*\|$\)')
+				return classname
+			endif
+		endwhile
+	else
+		let object = matchstr(a:scontext, '\zs[a-zA-Z_0-9\x7f-\xff]\+\ze->')
+		let i = 1
+		while i < line('.')
+			let line = getline(line('.')-i)
+			if line =~ '^\s*\*\/\?\s*$'
+				let i += 1
+				continue
+			else
+				if line =~ '@var\s\+\$'.object.'\s\+[a-zA-Z_0-9\x7f-\xff]\+'
+					let classname = matchstr(line, '@var\s\+\$'.object.'\s\+\zs[a-zA-Z_0-9\x7f-\xff]\+')
+					return classname
+				else
+					break
+				endif
+			endif
+		endwhile
+
+		" do in-file lookup of $var = new Class
+		let i = 1
+		while i < line('.')
+			let line = getline(line('.')-i)
+			if line =~ '^\s*\$'.object.'\s*=\s*new\s\+[a-zA-Z_0-9\x7f-\xff]\+'
+
+				let classname = matchstr(line, '\$'.object.'\s*=\s*new \zs[a-zA-Z_0-9\x7f-\xff]\+')
 				return classname
 			else
-				break
+				let i += 1
+				continue
 			endif
+		endwhile
+
+		" do in-file lookup for Class::getInstance()
+		let i = 1
+		while i < line('.')
+			let line = getline(line('.')-i)
+			if line =~ '^\s*\$'.object.'\s*=&\?\s*\s\+[a-zA-Z_0-9\x7f-\xff]\+::getInstance\+'
+
+				let classname = matchstr(line, '\$'.object.'\s*=&\?\s*\zs[a-zA-Z_0-9\x7f-\xff]\+\ze::getInstance\+')
+				return classname
+			else
+				let i += 1
+				continue
+			endif
+		endwhile
+
+		" check Constant lookup
+		let constant_object = matchstr(a:scontext, '\zs[a-zA-Z_0-9\x7f-\xff]\+\ze::')
+		if constant_object != ''
+			return constant_object
 		endif
-	endwhile
 
-	" OK, first way failed, now check tags file(s)
-	let fnames = join(map(tagfiles(), 'escape(v:val, " \\#%")'))
-	exe 'silent! vimgrep /^'.object.'.*\$'.object.'.*=\s*new\s\+.*\tv\(\t\|$\)/j '.fnames
-	let qflist = getqflist()
-	if len(qflist) == 0
-		return ''
-	else
-		" In all properly managed projects it should be one item list, even if it
-		" *is* longer we cannot solve conflicts, assume it is first element
-		let classname = matchstr(qflist[0]['text'], '=\s*new\s\+\zs[a-zA-Z_0-9\x7f-\xff]\+\ze')
-		return classname
+		" OK, first way failed, now check tags file(s)
+		let fnames = join(map(tagfiles(), 'escape(v:val, " \\#%")'))
+		exe 'silent! vimgrep /^'.object.'.*\$'.object.'.*=\s*new\s\+.*\tv\(\t\|$\)/j '.fnames
+		let qflist = getqflist()
+		if len(qflist) == 0
+			return ''
+		else
+			" In all properly managed projects it should be one item list, even if it
+			" *is* longer we cannot solve conflicts, assume it is first element
+			let classname = matchstr(qflist[0]['text'], '=\s*new\s\+\zs[a-zA-Z_0-9\x7f-\xff]\+\ze')
+			return classname
+		endif
 	endif
-
 endfunction
 " }}}
 function! phpcomplete#GetClassLocation(classname) " {{{
@@ -615,6 +683,19 @@ function! phpcomplete#GetClassLocation(classname) " {{{
 	if has_key(g:php_omni_bi_classes, a:classname)
 		return 'VIMPHP_BUILTINOBJECT'
 	endif
+
+
+	" do in-file lookup for class definition
+	let i = 1
+	while i < line('.')
+		let line = getline(line('.')-i)
+		if line =~ '^\s*class ' . a:classname  . '\(\s\+\|$\)'
+			return expand('%')
+		else
+			let i += 1
+			continue
+		endif
+	endwhile
 
 	" Get class location
 	for fname in tagfiles()
@@ -663,8 +744,9 @@ function! phpcomplete#GetClassContents(file, name) " {{{
 	endif
 	call search('{')
 	normal! %
+
 	let classc = getline(cfline, ".")
-	let classcontent = join(classc, "\n")
+	let classcontent = cfile
 
 	bw! %
 	if extends_class != ''
@@ -748,7 +830,6 @@ let g:php_keywords = {
 \ 'foreach':'',
 \ 'function':'',
 \ 'global':'',
-\ 'goto':'',
 \ 'if':'',
 \ 'new':'',
 \ 'static':'',
@@ -797,7 +878,6 @@ let g:php_keywords = {
 \ 'PHP_OUTPUT_HANDLER_CONT': '',
 \ 'PHP_OUTPUT_HANDLER_END': '',
 \ 'E_ERROR': '',
-\ 'E_RECOVERABLE_ERROR': '',
 \ 'E_WARNING': '',
 \ 'E_PARSE': '',
 \ 'E_NOTICE': '',
@@ -823,7 +903,6 @@ let g:php_keywords = {
 \ 'SORT_REGULAR': '',
 \ 'SORT_NUMERIC': '',
 \ 'SORT_STRING': '',
-\ 'SORT_LOCALE_STRING': '',
 \ 'CASE_LOWER': '',
 \ 'CASE_UPPER': '',
 \ 'COUNT_NORMAL': '',
@@ -893,7 +972,6 @@ let g:php_keywords = {
 \ 'PATHINFO_DIRNAME': '',
 \ 'PATHINFO_BASENAME': '',
 \ 'PATHINFO_EXTENSION': '',
-\ 'PATHINFO_FILENAME': '',
 \ 'PATH_SEPARATOR': '',
 \ 'CHAR_MAX': '',
 \ 'LC_CTYPE': '',
@@ -1012,308 +1090,6 @@ let g:php_keywords = {
 \ 'LOG_NDELAY': '',
 \ 'LOG_NOWAIT': '',
 \ 'LOG_PERROR': '',
-\ 'IMAGETYPE_GIF': '',
-\ 'IMAGETYPE_JPEG': '',
-\ 'IMAGETYPE_PNG': '',
-\ 'IMAGETYPE_SWF': '',
-\ 'IMAGETYPE_PSD': '',
-\ 'IMAGETYPE_BMP': '',
-\ 'IMAGETYPE_TIFF_II': '',
-\ 'IMAGETYPE_TIFF_MM': '',
-\ 'IMAGETYPE_JPC': '',
-\ 'IMAGETYPE_JP2': '',
-\ 'IMAGETYPE_JPX': '',
-\ 'IMAGETYPE_JB2': '',
-\ 'IMAGETYPE_SWC': '',
-\ 'IMAGETYPE_IFF': '',
-\ 'IMAGETYPE_WBMP': '',
-\ 'IMAGETYPE_JPEG2000': '',
-\ 'IMAGETYPE_XBM': '',
-\ 'CURLOPT_AUTOREFERER': '',
-\ 'CURLOPT_BINARYTRANSFER': '',
-\ 'CURLOPT_BUFFERSIZE': '',
-\ 'CURLOPT_CAINFO': '',
-\ 'CURLOPT_CAPATH': '',
-\ 'CURLOPT_CLOSEPOLICY': '',
-\ 'CURLOPT_CONNECTTIMEOUT': '',
-\ 'CURLOPT_CONNECTTIMEOUT_MS': '',
-\ 'CURLOPT_COOKIE': '',
-\ 'CURLOPT_COOKIEFILE': '',
-\ 'CURLOPT_COOKIEJAR': '',
-\ 'CURLOPT_COOKIESESSION': '',
-\ 'CURLOPT_CRLF': '',
-\ 'CURLOPT_CUSTOMREQUEST': '',
-\ 'CURLOPT_DNS_CACHE_TIMEOUT': '',
-\ 'CURLOPT_DNS_USE_GLOBAL_CACHE': '',
-\ 'CURLOPT_EGDSOCKET': '',
-\ 'CURLOPT_ENCODING': '',
-\ 'CURLOPT_FAILONERROR': '',
-\ 'CURLOPT_FILE': '',
-\ 'CURLOPT_FILETIME': '',
-\ 'CURLOPT_FOLLOWLOCATION': '',
-\ 'CURLOPT_FORBID_REUSE': '',
-\ 'CURLOPT_FRESH_CONNECT': '',
-\ 'CURLOPT_FTPAPPEND': '',
-\ 'CURLOPT_FTPLISTONLY': '',
-\ 'CURLOPT_FTPPORT': '',
-\ 'CURLOPT_FTPSSLAUTH': '',
-\ 'CURLOPT_FTP_CREATE_MISSING_DIRS': '',
-\ 'CURLOPT_FTP_SSL': '',
-\ 'CURLOPT_FTP_USE_EPRT': '',
-\ 'CURLOPT_FTP_USE_EPSV': '',
-\ 'CURLOPT_HEADER': '',
-\ 'CURLOPT_HEADERFUNCTION': '',
-\ 'CURLOPT_HTTP200ALIASES': '',
-\ 'CURLOPT_HTTPAUTH': '',
-\ 'CURLOPT_HTTPGET': '',
-\ 'CURLOPT_HTTPHEADER': '',
-\ 'CURLOPT_HTTPPROXYTUNNEL': '',
-\ 'CURLOPT_HTTP_VERSION': '',
-\ 'CURLOPT_INFILE': '',
-\ 'CURLOPT_INFILESIZE': '',
-\ 'CURLOPT_INTERFACE': '',
-\ 'CURLOPT_KRB4LEVEL': '',
-\ 'CURLOPT_LOW_SPEED_LIMIT': '',
-\ 'CURLOPT_LOW_SPEED_TIME': '',
-\ 'CURLOPT_MAXCONNECTS': '',
-\ 'CURLOPT_MAXREDIRS': '',
-\ 'CURLOPT_NETRC': '',
-\ 'CURLOPT_NOBODY': '',
-\ 'CURLOPT_NOPROGRESS': '',
-\ 'CURLOPT_NOSIGNAL': '',
-\ 'CURLOPT_PORT': '',
-\ 'CURLOPT_POST': '',
-\ 'CURLOPT_POSTFIELDS': '',
-\ 'CURLOPT_POSTQUOTE': '',
-\ 'CURLOPT_PRIVATE': '',
-\ 'CURLOPT_PROXY': '',
-\ 'CURLOPT_PROXYAUTH': '',
-\ 'CURLOPT_PROXYPORT': '',
-\ 'CURLOPT_PROXYTYPE': '',
-\ 'CURLOPT_PROXYUSERPWD': '',
-\ 'CURLOPT_PUT': '',
-\ 'CURLOPT_QUOTE': '',
-\ 'CURLOPT_RANDOM_FILE': '',
-\ 'CURLOPT_RANGE': '',
-\ 'CURLOPT_READDATA': '',
-\ 'CURLOPT_READFUNCTION': '',
-\ 'CURLOPT_REFERER': '',
-\ 'CURLOPT_RESUME_FROM': '',
-\ 'CURLOPT_RETURNTRANSFER': '',
-\ 'CURLOPT_SSLCERT': '',
-\ 'CURLOPT_SSLCERTPASSWD': '',
-\ 'CURLOPT_SSLCERTTYPE': '',
-\ 'CURLOPT_SSLENGINE': '',
-\ 'CURLOPT_SSLENGINE_DEFAULT': '',
-\ 'CURLOPT_SSLKEY': '',
-\ 'CURLOPT_SSLKEYPASSWD': '',
-\ 'CURLOPT_SSLKEYTYPE': '',
-\ 'CURLOPT_SSLVERSION': '',
-\ 'CURLOPT_SSL_CIPHER_LIST': '',
-\ 'CURLOPT_SSL_VERIFYHOST': '',
-\ 'CURLOPT_SSL_VERIFYPEER': '',
-\ 'CURLOPT_STDERR': '',
-\ 'CURLOPT_TCP_NODELAY': '',
-\ 'CURLOPT_TIMECONDITION': '',
-\ 'CURLOPT_TIMEOUT': '',
-\ 'CURLOPT_TIMEOUT_MS': '',
-\ 'CURLOPT_TIMEVALUE': '',
-\ 'CURLOPT_TRANSFERTEXT': '',
-\ 'CURLOPT_UNRESTRICTED_AUTH': '',
-\ 'CURLOPT_UPLOAD': '',
-\ 'CURLOPT_URL': '',
-\ 'CURLOPT_USERAGENT': '',
-\ 'CURLOPT_USERPWD': '',
-\ 'CURLOPT_VERBOSE': '',
-\ 'CURLOPT_WRITEFUNCTION': '',
-\ 'CURLOPT_WRITEHEADER': '',
-\ 'FILTER_CALLBACK': '',
-\ 'FILTER_DEFAULT': '',
-\ 'FILTER_FLAG_ALLOW_FRACTION': '',
-\ 'FILTER_FLAG_ALLOW_HEX': '',
-\ 'FILTER_FLAG_ALLOW_OCTAL': '',
-\ 'FILTER_FLAG_ALLOW_SCIENTIFIC': '',
-\ 'FILTER_FLAG_ALLOW_THOUSAND': '',
-\ 'FILTER_FLAG_EMPTY_STRING_NULL': '',
-\ 'FILTER_FLAG_ENCODE_AMP': '',
-\ 'FILTER_FLAG_ENCODE_HIGH': '',
-\ 'FILTER_FLAG_ENCODE_LOW': '',
-\ 'FILTER_FLAG_HOST_REQUIRED': '',
-\ 'FILTER_FLAG_IPV4': '',
-\ 'FILTER_FLAG_IPV6': '',
-\ 'FILTER_FLAG_NONE': '',
-\ 'FILTER_FLAG_NO_ENCODE_QUOTES': '',
-\ 'FILTER_FLAG_NO_PRIV_RANGE': '',
-\ 'FILTER_FLAG_NO_RES_RANGE': '',
-\ 'FILTER_FLAG_PATH_REQUIRED': '',
-\ 'FILTER_FLAG_QUERY_REQUIRED': '',
-\ 'FILTER_FLAG_SCHEME_REQUIRED': '',
-\ 'FILTER_FLAG_STRIP_HIGH': '',
-\ 'FILTER_FLAG_STRIP_LOW': '',
-\ 'FILTER_FORCE_ARRAY': '',
-\ 'FILTER_NULL_ON_FAILURE': '',
-\ 'FILTER_REQUIRE_ARRAY': '',
-\ 'FILTER_REQUIRE_SCALAR': '',
-\ 'FILTER_SANITIZE_EMAIL': '',
-\ 'FILTER_SANITIZE_ENCODED': '',
-\ 'FILTER_SANITIZE_MAGIC_QUOTES': '',
-\ 'FILTER_SANITIZE_NUMBER_FLOAT': '',
-\ 'FILTER_SANITIZE_NUMBER_INT': '',
-\ 'FILTER_SANITIZE_SPECIAL_CHARS': '',
-\ 'FILTER_SANITIZE_STRING': '',
-\ 'FILTER_SANITIZE_STRIPPED': '',
-\ 'FILTER_SANITIZE_URL': '',
-\ 'FILTER_UNSAFE_RAW': '',
-\ 'FILTER_VALIDATE_BOOLEAN': '',
-\ 'FILTER_VALIDATE_EMAIL': '',
-\ 'FILTER_VALIDATE_FLOAT': '',
-\ 'FILTER_VALIDATE_INT': '',
-\ 'FILTER_VALIDATE_IP': '',
-\ 'FILTER_VALIDATE_REGEXP': '',
-\ 'FILTER_VALIDATE_URL': '',
-\ 'INPUT_COOKIE': '',
-\ 'INPUT_ENV': '',
-\ 'INPUT_GET': '',
-\ 'INPUT_POST': '',
-\ 'INPUT_REQUEST': '',
-\ 'INPUT_SERVER': '',
-\ 'INPUT_SESSION': '',
-\ 'HTTP_AUTH_ANY': '',
-\ 'HTTP_AUTH_BASIC': '',
-\ 'HTTP_AUTH_DIGEST': '',
-\ 'HTTP_AUTH_GSSNEG': '',
-\ 'HTTP_AUTH_NTLM': '',
-\ 'HTTP_COOKIE_HTTPONLY': '',
-\ 'HTTP_COOKIE_PARSE_RAW': '',
-\ 'HTTP_COOKIE_SECURE': '',
-\ 'HTTP_DEFLATE_LEVEL_DEF': '',
-\ 'HTTP_DEFLATE_LEVEL_MAX': '',
-\ 'HTTP_DEFLATE_LEVEL_MIN': '',
-\ 'HTTP_DEFLATE_STRATEGY_DEF': '',
-\ 'HTTP_DEFLATE_STRATEGY_FILT': '',
-\ 'HTTP_DEFLATE_STRATEGY_FIXED': '',
-\ 'HTTP_DEFLATE_STRATEGY_HUFF': '',
-\ 'HTTP_DEFLATE_STRATEGY_RLE': '',
-\ 'HTTP_DEFLATE_TYPE_GZIP': '',
-\ 'HTTP_DEFLATE_TYPE_RAW': '',
-\ 'HTTP_DEFLATE_TYPE_ZLIB': '',
-\ 'HTTP_ENCODING_STREAM_FLUSH_FULL': '',
-\ 'HTTP_ENCODING_STREAM_FLUSH_NONE': '',
-\ 'HTTP_ENCODING_STREAM_FLUSH_SYNC': '',
-\ 'HTTP_E_ENCODING': '',
-\ 'HTTP_E_HEADER': '',
-\ 'HTTP_E_INVALID_PARAM': '',
-\ 'HTTP_E_MALFORMED_HEADERS': '',
-\ 'HTTP_E_MESSAGE_TYPE': '',
-\ 'HTTP_E_QUERYSTRING': '',
-\ 'HTTP_E_REQUEST': '',
-\ 'HTTP_E_REQUEST_METHOD': '',
-\ 'HTTP_E_REQUEST_POOL': '',
-\ 'HTTP_E_RESPONSE': '',
-\ 'HTTP_E_RUNTIME': '',
-\ 'HTTP_E_SOCKET': '',
-\ 'HTTP_E_URL': '',
-\ 'HTTP_IPRESOLVE_ANY': '',
-\ 'HTTP_IPRESOLVE_V4': '',
-\ 'HTTP_IPRESOLVE_V6': '',
-\ 'HTTP_METH_ACL': '',
-\ 'HTTP_METH_BASELINE_CONTROL': '',
-\ 'HTTP_METH_CHECKIN': '',
-\ 'HTTP_METH_CHECKOUT': '',
-\ 'HTTP_METH_CONNECT': '',
-\ 'HTTP_METH_COPY': '',
-\ 'HTTP_METH_DELETE': '',
-\ 'HTTP_METH_GET': '',
-\ 'HTTP_METH_HEAD': '',
-\ 'HTTP_METH_LABEL': '',
-\ 'HTTP_METH_LOCK': '',
-\ 'HTTP_METH_MERGE': '',
-\ 'HTTP_METH_MKACTIVITY': '',
-\ 'HTTP_METH_MKCOL': '',
-\ 'HTTP_METH_MKWORKSPACE': '',
-\ 'HTTP_METH_MOVE': '',
-\ 'HTTP_METH_OPTIONS': '',
-\ 'HTTP_METH_POST': '',
-\ 'HTTP_METH_PROPFIND': '',
-\ 'HTTP_METH_PROPPATCH': '',
-\ 'HTTP_METH_PUT': '',
-\ 'HTTP_METH_REPORT': '',
-\ 'HTTP_METH_TRACE': '',
-\ 'HTTP_METH_UNCHECKOUT': '',
-\ 'HTTP_METH_UNLOCK': '',
-\ 'HTTP_METH_UPDATE': '',
-\ 'HTTP_METH_VERSION_CONTROL': '',
-\ 'HTTP_MSG_NONE': '',
-\ 'HTTP_MSG_REQUEST': '',
-\ 'HTTP_MSG_RESPONSE': '',
-\ 'HTTP_PARAMS_ALLOW_COMMA': '',
-\ 'HTTP_PARAMS_ALLOW_FAILURE': '',
-\ 'HTTP_PARAMS_DEFAULT': '',
-\ 'HTTP_PARAMS_RAISE_ERROR': '',
-\ 'HTTP_PROXY_HTTP': '',
-\ 'HTTP_PROXY_SOCKS4': '',
-\ 'HTTP_PROXY_SOCKS5': '',
-\ 'HTTP_QUERYSTRING_TYPE_ARRAY': '',
-\ 'HTTP_QUERYSTRING_TYPE_BOOL': '',
-\ 'HTTP_QUERYSTRING_TYPE_FLOAT': '',
-\ 'HTTP_QUERYSTRING_TYPE_INT': '',
-\ 'HTTP_QUERYSTRING_TYPE_OBJECT': '',
-\ 'HTTP_QUERYSTRING_TYPE_STRING': '',
-\ 'HTTP_REDIRECT': '',
-\ 'HTTP_REDIRECT_FOUND': '',
-\ 'HTTP_REDIRECT_PERM': '',
-\ 'HTTP_REDIRECT_POST': '',
-\ 'HTTP_REDIRECT_PROXY': '',
-\ 'HTTP_REDIRECT_TEMP': '',
-\ 'HTTP_SSL_VERSION_ANY': '',
-\ 'HTTP_SSL_VERSION_SSLv2': '',
-\ 'HTTP_SSL_VERSION_SSLv3': '',
-\ 'HTTP_SSL_VERSION_TLSv1': '',
-\ 'HTTP_SUPPORT': '',
-\ 'HTTP_SUPPORT_ENCODINGS': '',
-\ 'HTTP_SUPPORT_EVENTS': '',
-\ 'HTTP_SUPPORT_MAGICMIME': '',
-\ 'HTTP_SUPPORT_REQUESTS': '',
-\ 'HTTP_SUPPORT_SSLREQUESTS': '',
-\ 'HTTP_URL_FROM_ENV': '',
-\ 'HTTP_URL_JOIN_PATH': '',
-\ 'HTTP_URL_JOIN_QUERY': '',
-\ 'HTTP_URL_REPLACE': '',
-\ 'HTTP_URL_STRIP_ALL': '',
-\ 'HTTP_URL_STRIP_AUTH': '',
-\ 'HTTP_URL_STRIP_FRAGMENT': '',
-\ 'HTTP_URL_STRIP_PASS': '',
-\ 'HTTP_URL_STRIP_PATH': '',
-\ 'HTTP_URL_STRIP_PORT': '',
-\ 'HTTP_URL_STRIP_QUERY': '',
-\ 'HTTP_URL_STRIP_USER': '',
-\ 'HTTP_VERSION_1_0': '',
-\ 'HTTP_VERSION_1_1': '',
-\ 'HTTP_VERSION_ANY': '',
-\ 'HTTP_VERSION_NONE': '',
-\ 'PREG_BACKTRACK_LIMIT_ERROR': '',
-\ 'PREG_BAD_UTF8_ERROR': '',
-\ 'PREG_GREP_INVERT': '',
-\ 'PREG_INTERNAL_ERROR': '',
-\ 'PREG_NO_ERROR': '',
-\ 'PREG_OFFSET_CAPTURE': '',
-\ 'PREG_PATTERN_ORDER': '',
-\ 'PREG_RECURSION_LIMIT_ERROR': '',
-\ 'PREG_SET_ORDER': '',
-\ 'PREG_SPLIT_DELIM_CAPTURE': '',
-\ 'PREG_SPLIT_NO_EMPTY': '',
-\ 'PREG_SPLIT_OFFSET_CAPTURE': '',
-\ 'STDERR': '',
-\ 'STDIN': '',
-\ 'STDOUT': '',
-\ 'UPLOAD_ERR_CANT_WRITE': '',
-\ 'UPLOAD_ERR_EXTENSION': '',
-\ 'UPLOAD_ERR_FORM_SIZE': '',
-\ 'UPLOAD_ERR_INI_SIZE': '',
-\ 'UPLOAD_ERR_NO_FILE': '',
-\ 'UPLOAD_ERR_NO_TMP_DIR': '',
-\ 'UPLOAD_ERR_OK': '',
-\ 'UPLOAD_ERR_PARTIAL': '',
 \ }
 " }}}
 " PHP builtin functions {{{
@@ -1509,13 +1285,13 @@ let g:php_builtin_functions = {
 \ 'chunk_split(': 'string body [, int chunklen [, string end]] | string',
 \ 'class_exists(': 'string class_name [, bool autoload] | bool',
 \ 'class_implements(': 'mixed class [, bool autoload] | array',
-\ 'class_parents(': 'mixed class  [, bool autoload = true  ]  | array',
 \ 'classkit_import(': 'string filename | array',
 \ 'classkit_method_add(': 'string classname, string methodname, string args, string code [, int flags] | bool',
 \ 'classkit_method_copy(': 'string dClass, string dMethod, string sClass [, string sMethod] | bool',
 \ 'classkit_method_redefine(': 'string classname, string methodname, string args, string code [, int flags] | bool',
 \ 'classkit_method_remove(': 'string classname, string methodname | bool',
 \ 'classkit_method_rename(': 'string classname, string methodname, string newname | bool',
+\ 'class_parents(': 'mixed class [, bool autoload] | array',
 \ 'clearstatcache(': 'void  | void',
 \ 'closedir(': 'resource dir_handle | void',
 \ 'closelog(': 'void  | bool',
@@ -2771,7 +2547,6 @@ let g:php_builtin_functions = {
 \ 'is_subclass_of(': 'mixed object, string class_name | bool',
 \ 'is_uploaded_file(': 'string filename | bool',
 \ 'is_writable(': 'string filename | bool',
-\ 'iterator_apply(': 'Traversable iterator, callback function  [, array args  ]  | int',
 \ 'iterator_count(': 'IteratorAggregate iterator | int',
 \ 'iterator_to_array(': 'IteratorAggregate iterator | array',
 \ 'java_last_exception_clear(': 'void  | void',
@@ -4449,7 +4224,6 @@ let g:php_builtin_functions = {
 \ 'socket_write(': 'resource socket, string buffer [, int length] | int',
 \ 'sort(': 'array &#38;array [, int sort_flags] | bool',
 \ 'soundex(': 'string str | string',
-\ 'spl_autoload(': 'string class_name  [, string file_extensions ]  | void',
 \ 'spl_classes(': 'void  | array',
 \ 'split(': 'string pattern, string string [, int limit] | array',
 \ 'spliti(': 'string pattern, string string [, int limit] | array',
@@ -5228,14 +5002,6 @@ let g:php_builtin_object_functions = {
 \ 'DirectoryIterator::next(': 'void  | void',
 \ 'DirectoryIterator::rewind(': 'void  | void',
 \ 'DirectoryIterator::valid(': 'void  | string',
-\ 'Exception::__construct(': '[ string message [, int code [, Exception previous ]]] | Exception',
-\ 'Exception::getMessage(': 'void  | string',
-\ 'Exception::getPrevious(': 'void  | Exception',
-\ 'Exception::getCode(': 'void  | int',
-\ 'Exception::getFile(': 'void  | string',
-\ 'Exception::getLine(': 'void  | int',
-\ 'Exception::getTrace(': 'void  | array',
-\ 'Exception::getTraceAsString(': 'void  | string',
 \ 'FilterIterator::current(': 'void  | mixed',
 \ 'FilterIterator::getInnerIterator(': 'void  | Iterator',
 \ 'FilterIterator::key(': 'void  | mixed',
@@ -5318,45 +5084,11 @@ let g:php_builtin_object_functions = {
 \ 'RecursiveDirectoryIterator::rewind(': 'void  | void',
 \ 'RecursiveIteratorIterator::current(': 'void  | mixed',
 \ 'RecursiveIteratorIterator::getDepth(': 'void  | int',
-\ 'RecursiveIteratorIterator::getInnerIterator(': 'void  | Iterator',
 \ 'RecursiveIteratorIterator::getSubIterator(': 'void  | RecursiveIterator',
 \ 'RecursiveIteratorIterator::key(': 'void  | mixed',
 \ 'RecursiveIteratorIterator::next(': 'void  | void',
 \ 'RecursiveIteratorIterator::rewind(': 'void  | void',
 \ 'RecursiveIteratorIterator::valid(': 'void  | bolean',
-\ 'RecursiveIteratorIterator::endChildren(': 'void  | void',
-\ 'RecursiveIteratorIterator::endIteration(': 'void  | void',
-\ 'RecursiveIteratorIterator::getMaxDepth(': 'void  | mixed',
-\ 'RecursiveIteratorIterator::nextElement(': 'void  | void',
-\ 'RecursiveIteratorIterator::setDepth(': '[ string max_depth ]  | void',
-\ 'SplFileInfo::__construct': 'string file_name',
-\ 'SplFileInfo::getATime(': 'void  | int',
-\ 'SplFileInfo::getBasename(': '[ string suffix ]  | string',
-\ 'SplFileInfo::getCTime(': 'void  | int',
-\ 'SplFileInfo::getFileInfo(': '[ string class_name ]  | SplFileInfo',
-\ 'SplFileInfo::getFilename(': 'void  | string',
-\ 'SplFileInfo::getGroup(': 'void  | int',
-\ 'SplFileInfo::getInode(': 'void  | int',
-\ 'SplFileInfo::getLinkTarget(': 'void  | string',
-\ 'SplFileInfo::getMTime(': 'void  | int',
-\ 'SplFileInfo::getOwner(': 'void  | int',
-\ 'SplFileInfo::getPath(': 'void  | string',
-\ 'SplFileInfo::getPathInfo(': '[ string class_name ]  | SplFileInfo',
-\ 'SplFileInfo::getPathname(': 'void  | string',
-\ 'SplFileInfo::getPerms(': 'void  | int',
-\ 'SplFileInfo::getRealPath(': 'void  | string',
-\ 'SplFileInfo::getSize(': 'void  | int',
-\ 'SplFileInfo::getType(': 'void  | string',
-\ 'SplFileInfo::isDir(': 'void  | bool',
-\ 'SplFileInfo::isExecutable(': 'void  | bool',
-\ 'SplFileInfo::isFile(': 'void  | bool',
-\ 'SplFileInfo::isLink(': 'void  | bool',
-\ 'SplFileInfo::isReadable(': 'void  | bool',
-\ 'SplFileInfo::isWritable(': 'void  | bool',
-\ 'SplFileInfo::openFile(': '[ string open_mode [, bool use_include_path [, resource context ]]]  | SplFileObject',
-\ 'SplFileInfo::setFileClass(': '[ string class_name ]  | void',
-\ 'SplFileInfo::setInfoClass(': '[ string class_name ]  | void',
-\ 'SplFileInfo::__toString(': 'void  | void',
 \ 'SDO_DAS_ChangeSummary::beginLogging(': 'void  | void',
 \ 'SDO_DAS_ChangeSummary::endLogging(': 'void  | void',
 \ 'SDO_DAS_ChangeSummary::getChangedDataObjects(': 'void  | SDO_List',
