@@ -1,0 +1,10 @@
+session_decode -- Decodes session data from a string
+
+  bool session_decode(string data)~
+
+|session_decode| decodes the session data in {data}, setting variables stored
+in the session.
+
+See also |session_encode|.
+
+vim:ft=help:

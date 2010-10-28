@@ -1,0 +1,9 @@
+imagefilledrectangle -- Draw a filled rectangle
+
+  bool imagefilledrectangle(resource image, int x1, int y1, int x2, int y2, int color)~
+
+|imagefilledrectangle| creates a filled rectangle of color {color} in image
+{image} starting at upper left coordinates {x1}, {y1} and ending at bottom
+right coordinates {x2}, {y2}. 0, 0 is the top left corner of the image.
+
+vim:ft=help:

@@ -1,0 +1,29 @@
+spliti -- Split string into array by regular expression case insensitive
+
+  array spliti(string pattern, string string [, int limit])~
+
+This function is identical to |split| except that this ignores case
+distinction when matching alphabetic characters.
+
+This example splits a string using 'a' as the separator : |spliti| example
+
+<?php >
+  $string = "aBBBaCCCADDDaEEEaGGGA";
+  $chunks = spliti ("a", $string, 5);
+  print_r($chunks);
+?>
+
+The above example will output:
+
+  Array
+  (
+    [0] => 
+    [1] => BBB
+    [2] => CCC
+    [3] => DDD
+    [4] => EEEaGGGA
+  )
+
+See also |preg_split|, |split|, |explode|, and |implode|.
+
+vim:ft=help:

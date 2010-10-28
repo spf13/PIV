@@ -1,0 +1,9 @@
+imagefilltoborder -- Flood fill to specific color
+
+  bool imagefilltoborder(resource image, int x, int y, int border, int color)~
+
+|imagefilltoborder| performs a flood fill whose border color is defined by
+{border}. The starting point for the fill is {x}, {y} (top left is 0, 0) and
+the region is filled with color {color}.
+
+vim:ft=help:

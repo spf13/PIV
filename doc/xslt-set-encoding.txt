@@ -1,0 +1,9 @@
+xslt_set_encoding -- Set the encoding for the parsing of XML documents
+
+  void xslt_set_encoding(resource xh, string encoding)~
+
+Set the output encoding for the XSLT transformations. When using the Sablotron
+backend, this option is only available when you compile Sablotron with
+encoding support.
+
+vim:ft=help:

@@ -1,0 +1,33 @@
+imap_fetchstructure -- Read the structure of a particular message
+
+  object imap_fetchstructure(resource imap_stream, int msg_number [, int options])~
+
+This function fetches all the structured information for a given message. The
+optional {options} parameter only has a single option, {FT_UID}, which tells
+the function to treat the {msg_number} argument as a {UID}. The returned
+object includes the envelope, internal date, size, flags and body structure
+along with a similar object for each mime attachment. The structure of the
+returned objects is as follows:
+
+Returned Objects for |imap_fetchstructure| type Primary body type encoding
+Body transfer encoding ifsubtype TRUE if there is a subtype string subtype
+MIME subtype ifdescription TRUE if there is a description string description
+Content description string ifid TRUE if there is an identification string id
+Identification string lines Number of lines bytes Number of bytes
+ifdisposition TRUE if there is a disposition string disposition Disposition
+string ifdparameters TRUE if the dparameters array exists dparameters An
+array of objects where each object has an "attribute" and a "value" property
+corresponding to the parameters on the Content-disposition MIMEheader.
+ifparameters TRUE if the parameters array exists parameters An array of
+objects where each object has an "attribute" and a "value" property. parts An
+array of objects identical in structure to the top-level object, each of which
+corresponds to a MIME body part.
+
+Primary body type 0text 1multipart 2message 3application 4audio 5image 6video
+7other
+
+Transfer encodings 07BIT 18BIT 2BINARY 3BASE64 4QUOTED-PRINTABLE 5OTHER
+
+See also: |imap_fetchbody|.
+
+vim:ft=help:

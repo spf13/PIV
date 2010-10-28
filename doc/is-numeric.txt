@@ -1,0 +1,13 @@
+is_numeric -- Finds whether a variable is a number or a numeric string
+
+  bool is_numeric(mixed var)~
+
+Finds whether the given variable is numeric.
+
+{var} The variable being evaluated.
+
+Returns TRUE if {var} is a number or a numeric string, FALSE otherwise.
+
+|is_bool| |is_null| |is_float| |is_int| |is_string| |is_object| |is_array|
+
+vim:ft=help:

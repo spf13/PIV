@@ -1,0 +1,8 @@
+mcve_ping -- Send a ping request to MCVE
+
+  int mcve_ping(resource conn)~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

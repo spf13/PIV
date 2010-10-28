@@ -1,0 +1,58 @@
+tidyNode->isPhp -- Returns true if this node is PHP
+
+  bool tidyNode->isPhp()~
+
+Returns TRUE if the current node is PHP code, FALSE otherwise.
+
+get the PHP code from a mixed HTML/PHP document
+
+<?php >
+  $html = <<< HTML
+  <html><head>
+  <?php echo '<title>title</title>'; ?>
+  </head>
+  <body>
+<?php >
+  echo 'hello world!';
+?>
+  
+  </body></html>
+  HTML;
+  
+  
+  $tidy = tidy_parse_string($html);
+  $num = 0;
+  
+  get_php($tidy->html());
+  
+  
+  function get_php($node) {
+  
+      // check if the current node is PHP code
+      if($node->isPhp()) {
+          echo "\n\n# PHP node #" . ++$GLOBALS['num'] . "\n";
+          echo $node->value;
+      }
+  
+      // check if the current node has childrens
+      if($node->hasChildren()) {
+          foreach($node->child as $child) {
+              get_php($child);
+          }
+      }
+  }
+?>
+
+The above example will output:
+
+  # PHP node #1
+  <?php echo '<title>title</title>'; ?>
+  
+  # PHP node #2
+<?php >
+  echo 'hello world!';
+?>
+
+This function was named |tidy_node->is_php| in PHP 4/Tidy 1.
+
+vim:ft=help:

@@ -1,0 +1,119 @@
+date -- Format a local time/date
+
+  string date(string format [, int timestamp])~
+
+Returns a string formatted according to the given format string using the
+given integer {timestamp} or the current local time if no timestamp is given.
+In other words, {timestamp} is optional and defaults to the value of |time|.
+The valid range of a timestamp is typically from Fri, 13 Dec 1901 20:45:54
+GMT to Tue, 19 Jan 2038 03:14:07 GMT. (These are the dates that correspond to
+the minimum and maximum values for a 32-bit signed integer). On Windows this
+range is limited from 01-01-1970 to 19-01-2038.
+
+To generate a timestamp from a string representation of the date, you may be
+able to use |strtotime|. Additionally, some databases have functions to
+convert their date formats into timestamps (such as MySQL's UNIX_TIMESTAMP
+function).
+
+The following characters are recognized in the {format} parameter string
+{format} character Description Example returned values Day --- --- d Day of
+the month, 2 digits with leading zeros 01 to 31 D A textual representation of
+a day, three letters Mon through Sun j Day of the month without leading zeros
+1 to 31 l (lowercase 'L') A full textual representation of the day of the
+week Sunday through Saturday S English ordinal suffix for the day of the
+month, 2 characters st, nd, rd or th. Works well with j w Numeric
+representation of the day of the week 0 (for Sunday) through 6 (for Saturday)
+z The day of the year (starting from 0) 0 through 365 Week --- --- W ISO-8601
+week number of year, weeks starting on Monday (added in PHP 4.1.0) Example:
+42 (the 42nd week in the year) Month --- --- F A full textual representation
+of a month, such as January or March January through December m Numeric
+representation of a month, with leading zeros 01 through 12 M A short textual
+representation of a month, three letters Jan through Dec n Numeric
+representation of a month, without leading zeros 1 through 12 t Number of
+days in the given month 28 through 31 Year --- --- L Whether it's a leap year
+1 if it is a leap year, 0 otherwise. o ISO-8601 year number. This has the same
+value as Y, except that if the ISO week number (W) belongs to the previous or
+next year, that year is used instead. (added in PHP 5.1.0) Examples: 1999 or
+2003 Y A full numeric representation of a year, 4 digits Examples: 1999 or
+2003 y A two digit representation of a year Examples: 99 or 03 Time --- --- a
+Lowercase Ante meridiem and Post meridiem am or pm A Uppercase Ante meridiem
+and Post meridiem AM or PM B Swatch Internet time 000 through 999 g 12-hour
+format of an hour without leading zeros 1 through 12 G 24-hour format of an
+hour without leading zeros 0 through 23 h 12-hour format of an hour with
+leading zeros 01 through 12 H 24-hour format of an hour with leading zeros 00
+through 23 i Minutes with leading zeros 00 to 59 s Seconds, with leading zeros
+00 through 59 Timezone --- --- e Timezone identifier (added in PHP 5.1.0)
+Examples: UTC, GMT, Atlantic/Azores I (capital i) Whether or not the date is
+in daylights savings time 1 if Daylight Savings Time, 0 otherwise. O
+Difference to Greenwich time (GMT) in hours Example: +0200 T Timezone setting
+of this machine Examples: EST, MDT ... Z Timezone offset in seconds. The
+offset for timezones west of UTC is always negative, and for those east of
+UTC is always positive. -43200 through 43200 Full Date/Time --- --- c ISO
+8601 date (added in PHP 5) 2004-02-12T15:19:21+00:00 r RFC 2822 formatted
+date Example: Thu, 21 Dec 2000 16:01:07 +0200 U Seconds since the Unix Epoch
+(January 1 1970 00:00:00 GMT) See also |time|
+
+Unrecognized characters in the format string will be printed as-is. The Z
+format will always return 0 when using |gmdate|.
+
+|date| examples
+
+<?php >
+  // Prints something like: Wednesday
+  echo date("l");
+  
+  // Prints something like: Wednesday 15th of January 2003 05:51:38 AM
+  echo date("l dS of F Y h:i:s A");
+  
+  // Prints: July 1, 2000 is on a Saturday
+  echo "July 1, 2000 is on a " . date("l", mktime(0, 0, 0, 7, 1, 2000));
+?>
+
+You can prevent a recognized character in the format string from being
+expanded by escaping it with a preceding backslash. If the character with a
+backslash is already a special sequence, you may need to also escape the
+backslash. Escaping characters in |date|
+
+<?php >
+  // prints something like: Wednesday the 15th
+  echo date("l \\t\h\e jS");
+?>
+
+It is possible to use |date| and |mktime| together to find dates in the future
+or the past. |date| and |mktime|example
+
+<?php >
+  $tomorrow  = mktime(0, 0, 0, date("m")  , date("d")+1, date("Y"));
+  $lastmonth = mktime(0, 0, 0, date("m")-1, date("d"),   date("Y"));
+  $nextyear  = mktime(0, 0, 0, date("m"),   date("d"),   date("Y")+1);
+?>
+
+This can be more reliable than simply adding or subtracting the number of
+seconds in a day or month to a timestamp because of daylight savings time.
+
+Some examples of |date| formatting. Note that you should escape any other
+characters, as any which currently have a special meaning will produce
+undesirable results, and other characters may be assigned meaning in future
+PHP versions. When escaping, be sure to use single quotes to prevent
+characters like \n from becoming newlines. |date| Formatting
+
+<?php >
+  // Assuming today is: March 10th, 2001, 5:16:18 pm
+  
+  $today = date("F j, Y, g:i a");                 // March 10, 2001, 5:16 pm
+  $today = date("m.d.y");                         // 03.10.01
+  $today = date("j, n, Y");                       // 10, 3, 2001
+  $today = date("Ymd");                           // 20010310
+  $today = date('h-i-s, j-m-y, it is w Day z ');  // 05-16-17, 10-03-01, 1631 1618 6 Fripm01
+  $today = date('\i\t \i\s \t\h\e jS \d\a\y.');   // It is the 10th day.
+  $today = date("D M j G:i:s T Y");               // Sat Mar 10 15:16:08 MST 2001
+  $today = date('H:m:s \m \i\s\ \m\o\n\t\h');     // 17:03:17 m is month
+  $today = date("H:i:s");                         // 17:16:17
+?>
+
+To format dates in other languages, you should use the |setlocale| and
+|strftime| functions.
+
+See also |getlastmod|, |gmdate|, |mktime|, |strftime| and |time|.
+
+vim:ft=help:

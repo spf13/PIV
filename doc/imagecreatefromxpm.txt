@@ -1,0 +1,18 @@
+imagecreatefromxpm -- Create a new image from file or URL
+
+  resource imagecreatefromxpm(string filename)~
+
+|imagecreatefromxpm| returns an image identifier representing the image
+obtained from the given filename.
+
+This function is only available if PHP is compiled with the bundled version of
+the GD library.
+
+You can use a URL as a filename with this function if the fopen wrappers have
+been enabled. See |fopen| for more details on how to specify the filename and
+for a list of supported URL protocols.
+
+Windows versions of PHP prior to PHP 4.3.0 do not support accessing remote
+files via this function, even if allow_url_fopen is enabled.
+
+vim:ft=help:

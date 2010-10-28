@@ -1,0 +1,8 @@
+posix_isatty -- Determine if a file descriptor is an interactive terminal
+
+  bool posix_isatty(int fd)~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

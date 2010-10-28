@@ -1,0 +1,12 @@
+ibase_close -- Close a connection to an InterBase database
+
+  bool ibase_close([resource connection_id])~
+
+Closes the link to an InterBase database that's associated with a connection
+id returned from |ibase_connect|. If the connection id is omitted, the last
+opened link is assumed. Default transaction on link is committed, other
+transactions are rolled back. Returns TRUE on success or FALSE on failure.
+
+See also |ibase_connect| and |ibase_pconnect|.
+
+vim:ft=help:

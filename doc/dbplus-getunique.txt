@@ -1,0 +1,17 @@
+dbplus_getunique -- Get an id number unique to a relation
+
+  int dbplus_getunique(resource relation, int uniqueid)~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+|dbplus_getunique| will obtain a number guaranteed to be unique for the given
+{relation} and will pass it back in the variable given as {uniqueid}.
+
+The function will return zero (aka. DBPLUS_ERR_NOERR) on success or a db++
+error code on failure. See |dbplus_errcode| or the introduction to this
+chapter for more information on db++ error codes.
+
+vim:ft=help:

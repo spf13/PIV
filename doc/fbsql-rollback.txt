@@ -1,0 +1,13 @@
+fbsql_rollback -- Rollback a transaction to the database
+
+  bool fbsql_rollback([resource link_identifier])~
+
+Returns TRUE on success or FALSE on failure.
+
+|fbsql_rollback| ends the current transaction by rolling back all statements
+issued since last commit. This command is only needed if autocommit is set to
+false.
+
+See also: |fbsql_autocommit| and |fbsql_commit|
+
+vim:ft=help:

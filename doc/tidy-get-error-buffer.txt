@@ -1,0 +1,32 @@
+tidy_get_error_buffer -- Return warnings and errors which occurred parsing the
+specified document
+
+Procedural style:
+
+  string tidy_get_error_buffer(tidy object)~
+
+Object oriented style (property):
+
+|tidy_get_error_buffer| returns warnings and errors which occurred parsing the
+specified document.
+
+|tidy_get_error_buffer| example
+
+<?php >
+  $html = '<p>paragraph</p>';
+  
+  $tidy = tidy_parse_string($html);
+  
+  echo tidy_get_error_buffer($tidy);
+  /* or in OO: */
+  echo $tidy->errorBuffer;
+?>
+
+The above example will output:
+
+  line 1 column 1 - Warning: missing <!DOCTYPE> declaration
+  line 1 column 1 - Warning: inserting missing 'title' element
+
+See also |tidy_access_count|, |tidy_error_count| and |tidy_warning_count|.
+
+vim:ft=help:

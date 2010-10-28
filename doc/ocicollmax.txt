@@ -1,0 +1,9 @@
+ocicollmax -- Gets the maximum number of elements in the collection
+
+  int ocicollmax()~
+
+This function was renamed to |oci_collection_max| after PHP >= 5.0.0. For
+downward compatibility |ocicollmax| can also be used. This is deprecated,
+however.
+
+vim:ft=help:

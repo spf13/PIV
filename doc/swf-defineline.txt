@@ -1,0 +1,10 @@
+swf_defineline -- Define a line
+
+  void swf_defineline(int objid, float x1, float y1, float x2, float y2, float width)~
+
+The |swf_defineline| defines a line starting from the x coordinate given by
+{x1} and the y coordinate given by {y1 } parameter. Up to the x coordinate
+given by the {x2} parameter and the y coordinate given by the {y2} parameter.
+It will have a width defined by the {width} parameter.
+
+vim:ft=help:

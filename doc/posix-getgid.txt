@@ -1,0 +1,9 @@
+posix_getgid -- Return the real group ID of the current process
+
+  int posix_getgid()~
+
+Return the numeric real group ID of the current process. See also
+|posix_getgrgid| for information on how to convert this into a useable group
+name.
+
+vim:ft=help:

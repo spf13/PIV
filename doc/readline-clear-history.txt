@@ -1,0 +1,7 @@
+readline_clear_history -- Clears the history
+
+  bool readline_clear_history()~
+
+This function clears the entire command line history.
+
+vim:ft=help:

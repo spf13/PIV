@@ -1,0 +1,20 @@
+expm1 -- Returns exp(number) - 1, computed in a way that is accurate even when
+the value of number is close to zero
+
+  float expm1(float number)~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+|expm1| returns the equivalent to 'exp({number}) - 1' computed in a way that
+is accurate even if the value of {number} is near zero, a case where 'exp
+({number}) - 1' would be inaccurate due to subtraction of two numbers that
+are nearly equal.
+
+This function is not implemented on Windows platforms.
+
+See also |log1p| and |exp|.
+
+vim:ft=help:

@@ -1,0 +1,14 @@
+imap_listscan -- Read the list of mailboxes, takes a string to search for in
+the text of the mailbox
+
+  array imap_listscan(resource imap_stream, string ref, string pattern, string content)~
+
+Returns an array containing the names of the mailboxes that have {content} in
+the text of the mailbox.
+
+This function is similar to |imap_listmailbox|, but it will additionally check
+for the presence of the string {content} inside the mailbox data.
+
+See |imap_getmailboxes| for a description of {ref} and {pattern}.
+
+vim:ft=help:

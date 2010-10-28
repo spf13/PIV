@@ -1,0 +1,8 @@
+cpdf_closepath -- Close path
+
+  bool cpdf_closepath(int pdf_document)~
+
+The |cpdf_closepath| function closes the current path. Returns TRUE on success
+or FALSE on failure.
+
+vim:ft=help:

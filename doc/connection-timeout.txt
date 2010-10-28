@@ -1,0 +1,14 @@
+connection_timeout -- Return TRUE if script timed out
+
+  bool connection_timeout()~
+
+Returns TRUE if script timed out.
+
+This function is deprecated, and doesn't even exist anymore as of 4.0.5.
+
+See the Connection Handling description in the Features chapter for a complete
+explanation.
+
+See also |connection_status|.
+
+vim:ft=help:

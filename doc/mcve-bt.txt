@@ -1,0 +1,8 @@
+mcve_bt -- Get unsettled batch totals
+
+  int mcve_bt(resource conn, string username, string password)~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

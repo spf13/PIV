@@ -1,0 +1,9 @@
+DirectoryIterator::getChildren -- Returns an iterator for the current entry if
+it is a directory
+
+  RecursiveDirectoryIterator DirectoryIterator::getChildren()~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

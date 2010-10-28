@@ -1,0 +1,35 @@
+imagepsbbox -- Give the bounding box of a text rectangle using PostScript
+Type1 fonts
+
+  array imagepsbbox(string text, int font, int size [, int space, int tightness, float angle])~
+
+{size} is expressed in pixels.
+
+{space} allows you to change the default value of a space in a font. This
+amount is added to the normal value and can also be negative.
+
+{tightness} allows you to control the amount of white space between
+characters. This amount is added to the normal character width and can also
+be negative.
+
+{angle} is in degrees.
+
+Parameters {space} and {tightness} are expressed in character space units,
+where 1 unit is 1/1000th of an em-square.
+
+Parameters {space}, {tightness}, and {angle} are optional.
+
+The bounding box is calculated using information available from character
+metrics, and unfortunately tends to differ slightly from the results achieved
+by actually rasterizing the text. If the angle is 0 degrees, you can expect
+the text to need 1 pixel more to every direction.
+
+This function is only available if PHP is compiled using --with-t1lib[=DIR].
+
+This function returns an array containing the following elements: 0 lower left
+x-coordinate 1 lower left y-coordinate 2 upper right x-coordinate 3 upper
+right y-coordinate
+
+See also |imagepstext|.
+
+vim:ft=help:

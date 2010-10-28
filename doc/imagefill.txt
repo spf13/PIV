@@ -1,0 +1,8 @@
+imagefill -- Flood fill
+
+  bool imagefill(resource image, int x, int y, int color)~
+
+|imagefill| performs a flood fill starting at coordinate {x}, {y} (top left is
+0, 0) with color {color} in the image {image}.
+
+vim:ft=help:

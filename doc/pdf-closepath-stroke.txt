@@ -1,0 +1,9 @@
+pdf_closepath_stroke -- Closes path and draws line along path
+
+  bool pdf_closepath_stroke(resource pdfdoc)~
+
+Close the path, and stroke it. Returns TRUE on success or FALSE on failure.
+
+See also |pdf_closepath| and |pdf_closepath_fil_stroke|.
+
+vim:ft=help:

@@ -1,0 +1,12 @@
+ora_parse -- Parse an SQL statement with Oracle
+
+  bool ora_parse(resource cursor, string sql_statement [, int defer])~
+
+This function parses an SQL statement or a PL/SQL block and associates it with
+the given cursor.
+
+Returns TRUE on success or FALSE on failure.
+
+See also |ora_exec|, |ora_fetch|, and |ora_do|.
+
+vim:ft=help:

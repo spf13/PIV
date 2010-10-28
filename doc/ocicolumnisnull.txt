@@ -1,0 +1,13 @@
+ocicolumnisnull -- Test whether a result column is NULL
+
+  bool ocicolumnisnull(resource stmt, mixed col)~
+
+|ocicolumnisnull| returns TRUE if the returned column {column} in the result
+from the statement {stmt} is NULL. You can either use the column-number
+(1-Based) or the column-name, in uppercase, for the {col} parameter.
+
+This function was renamed to |oci_field_is_null| after PHP >= 5.0.0. For
+downward compatibility |ocicolumnisnull| can also be used. This is
+deprecated, however.
+
+vim:ft=help:

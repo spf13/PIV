@@ -1,0 +1,59 @@
+microtime -- Return current Unix timestamp with microseconds
+
+  mixed microtime([bool get_as_float])~
+
+|microtime| returns the current Unix timestamp with microseconds. This
+function is only available on operating systems that support the
+gettimeofday() system call.
+
+When called without the optional argument, this function returns the string
+"msec sec" where sec is the current time measured in the number of seconds
+since the Unix Epoch (0:00:00 January 1, 1970 GMT), and msec is the
+microseconds part. Both portions of the string are returned in units of
+seconds.
+
+When {get_as_float} is given, and evaluates to TRUE, |microtime| will return a
+float.
+
+The {get_as_float} parameter was added as of PHP 5.0.0.
+
+Timing script execution with |microtime|
+
+<?php >
+  /**
+   * Simple function to replicate PHP 5 behaviour
+   */
+  function microtime_float()
+  {
+      list($usec, $sec) = explode(" ", microtime());
+      return ((float)$usec + (float)$sec);
+  }
+  
+  $time_start = microtime_float();
+  
+  // Sleep for a while
+  usleep(100);
+  
+  $time_end = microtime_float();
+  $time = $time_end - $time_start;
+  
+  echo "Did nothing in $time seconds\n";
+?>
+
+Timing script execution in PHP 5
+
+<?php >
+  $time_start = microtime(true);
+  
+  // Sleep for a while
+  usleep(100);
+  
+  $time_end = microtime(true);
+  $time = $time_end - $time_start;
+  
+  echo "Did nothing in $time seconds\n";
+?>
+
+See also |time|.
+
+vim:ft=help:

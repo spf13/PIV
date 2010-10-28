@@ -1,0 +1,79 @@
+preg_split -- Split string by a regular expression
+
+  array preg_split(string pattern, string subject [, int limit [, int flags]])~
+
+Returns an array containing substrings of {subject} split along boundaries
+matched by {pattern}.
+
+If {limit} is specified, then only substrings up to {limit} are returned, and
+if {limit} is -1, it actually means "no limit", which is useful for
+specifying the {flags}.
+
+{flags} can be any combination of the following flags (combined with bitwise |
+operator): PREG_SPLIT_NO_EMPTY If this flag is set, only non-empty pieces will
+be returned by |preg_split|.
+
+PREG_SPLIT_DELIM_CAPTURE If this flag is set, parenthesized expression in the
+delimiter pattern will be captured and returned as well. This flag was added
+for 4.0.5.
+
+PREG_SPLIT_OFFSET_CAPTURE If this flag is set, for every occurring match the
+appendant string offset will also be returned. Note that this changes the
+return value in an array where every element is an array consisting of the
+matched string at offset 0 and its string offset into {subject} at offset 1.
+This flag is available since PHP 4.3.0 .
+
+|preg_split| example : Get the parts of a search string
+
+<?php >
+  // split the phrase by any number of commas or space characters,
+  // which include " ", \r, \t, \n and \f
+  $keywords = preg_split("/[\s,]+/", "hypertext language, programming");
+?>
+
+Splitting a string into component characters
+
+<?php >
+  $str = 'string';
+  $chars = preg_split('//', $str, -1, PREG_SPLIT_NO_EMPTY);
+  print_r($chars);
+?>
+
+Splitting a string into matches and their offsets
+
+<?php >
+  $str = 'hypertext language programming';
+  $chars = preg_split('/ /', $str, -1, PREG_SPLIT_OFFSET_CAPTURE);
+  print_r($chars);
+?>
+
+will yield:
+
+  Array
+  (
+      [0] => Array
+          (
+              [0] => hypertext
+              [1] => 0
+          )
+  
+      [1] => Array
+          (
+              [0] => language
+              [1] => 10
+          )
+  
+      [2] => Array
+          (
+              [0] => programming
+              [1] => 19
+          )
+  
+  )
+
+Parameter {flags} was added in PHP 4 Beta 3.
+
+See also |spliti|, |split|, |implode|, |preg_match|, |preg_match_all|, and
+|preg_replace|.
+
+vim:ft=help:

@@ -1,0 +1,5 @@
+gmp_cmp -- Compare numbers
+
+  int gmp_cmp(resource a, resource b)~
+
+vim:ft=help:

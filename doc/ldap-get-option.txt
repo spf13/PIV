@@ -1,0 +1,30 @@
+ldap_get_option -- Get the current value for given option
+
+  bool ldap_get_option(resource link_identifier, int option, mixed retval)~
+
+Sets {retval} to the value of the specified option. Returns TRUE on success or
+FALSE on failure.
+
+The parameter {option} can be one of: LDAP_OPT_DEREF, LDAP_OPT_SIZELIMIT,
+LDAP_OPT_TIMELIMIT, LDAP_OPT_PROTOCOL_VERSION, LDAP_OPT_ERROR_NUMBER,
+LDAP_OPT_REFERRALS, LDAP_OPT_RESTART, LDAP_OPT_HOST_NAME,
+LDAP_OPT_ERROR_STRING, LDAP_OPT_MATCHED_DN. These are described in
+draft-ietf-ldapext-ldap-c-api-xx.txt
+
+This function is only available when using OpenLDAP 2.x.x OR Netscape
+Directory SDK x.x, and was added in PHP 4.0.4
+
+Check protocol version
+
+<?php >
+  // $ds is a valid link identifier for a directory server
+  if (ldap_get_option($ds, LDAP_OPT_PROTOCOL_VERSION, $version)) {
+      echo "Using protocol version $version\n";
+  } else {
+      echo "Unable to determine protocol version\n";
+  }
+?>
+
+See also |ldap_set_option|.
+
+vim:ft=help:

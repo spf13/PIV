@@ -1,0 +1,50 @@
+DOMDocument->saveXML() -- Dumps the internal XML tree back into a string
+
+  string saveXML([DOMNode node])~
+
+Creates an XML document from the DOM representation. This function is usually
+called after building a new dom document from scratch as in the example
+below.
+
+{node} Use this parameter to output only a specific node without XML
+declaration rather than the entire document.
+
+Returns the XML, or FALSE if an error occurred.
+
+DOM_WRONG_DOCUMENT_ERR Raised if {node} is from another document.
+
+Saving a DOM tree into a string
+
+<?php >
+  $doc = new DOMDocument('1.0');
+  // we want a nice output
+  $doc->formatOutput = true;
+  
+  $root = $doc->createElement('book');
+  $root = $doc->appendChild($root);
+  
+  $title = $doc->createElement('title');
+  $title = $root->appendChild($title);
+  
+  $text = $doc->createTextNode('This is the title');
+  $text = $title->appendChild($text);
+  
+  echo "Retrieving all the document:\n";
+  echo $doc->saveXML() . "\n";
+  
+  echo "Retrieving only the title part:\n";
+  echo $doc->saveXML($title);
+?>
+
+The above example will output:
+
+  Retrieving all the document:
+  <?xml version="1.0"?>
+  <book>
+    <title>This is the title</title>
+  </book>
+  
+  Retrieving only the title part:
+  <title>This is the title</title>
+
+vim:ft=help:

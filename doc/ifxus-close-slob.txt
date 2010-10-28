@@ -1,0 +1,8 @@
+ifxus_close_slob -- Deletes the slob object
+
+  int ifxus_close_slob(int bid)~
+
+Deletes the slob object on the given slob object-id {bid}. Returns TRUE on
+success or FALSE on failure.
+
+vim:ft=help:

@@ -1,0 +1,20 @@
+msql_select_db -- Select mSQL database
+
+  bool msql_select_db(string database_name [, resource link_identifier])~
+
+|msql_select_db| sets the current active database on the server that's
+associated with the specified {link_identifier}.
+
+Subsequent calls to |msql_query| will be made on the active database.
+
+{database_name} The database name.
+
+{ link_identifier}The mSQL connection. If not specified, the last link opened
+by |msql_connect| is assumed. If no such link is found, the function will try
+to establish a link as if |msql_connect| was called, and use it.
+
+Returns TRUE on success or FALSE on failure.
+
+|msql_connect| |msql_pconnect| |msql_query|
+
+vim:ft=help:

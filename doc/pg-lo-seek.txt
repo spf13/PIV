@@ -1,0 +1,38 @@
+pg_lo_seek -- Seeks position within a large object
+
+  bool pg_lo_seek(resource large_object, int offset [, int whence])~
+
+|pg_lo_seek| seeks a position within a large object resource.
+
+To use the large object interface, it is necessary to enclose it within a
+transaction block.
+
+{large_object} PostgreSQL large object (LOB) resource, returned by
+|pg_lo_open|.
+
+{offset} The number of bytes to seek.
+
+{whence} One of the constants PGSQL_SEEK_SET (seek from object start),
+PGSQL_SEEK_CUR (seek from current position) or PGSQL_SEEK_END (seek from
+object end) .
+
+Returns TRUE on success or FALSE on failure.
+
+|pg_lo_seek| example
+
+<?php >
+     $doc_oid = 189762345;
+     $database = pg_connect("dbname=jacarta");
+     pg_query($database, "begin");
+     $handle = pg_lo_open($database, $doc_oid, "r");
+     // Skip first 50000 bytes
+     pg_lo_seek($handle, 50000, PGSQL_SEEK_SET);
+     // Read the next 10000 bytes
+     $data = pg_lo_read($handle, 10000);
+     pg_query($database, "commit");
+     echo $data;
+?>
+
+|pg_lo_tell|
+
+vim:ft=help:

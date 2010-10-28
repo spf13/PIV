@@ -1,0 +1,11 @@
+XSLTProcessor->importStylesheet() -- Import stylesheet
+
+  void importStylesheet(DOMDocument stylesheet)~
+
+This method import the stylesheet into the XSLTProcessor for transformations.
+
+{stylesheet} The imported style sheet as a DOMDocument object.
+
+No value is returned.
+
+vim:ft=help:

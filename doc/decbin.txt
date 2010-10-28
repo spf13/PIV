@@ -1,0 +1,23 @@
+decbin -- Decimal to binary
+
+  string decbin(int number)~
+
+Returns a string containing a binary representation of the given {number}
+argument. The largest number that can be converted is 4294967295 in decimal
+resulting to a string of 32 1's.
+
+|decbin| example
+
+<?php >
+  echo decbin(12) . "\n";
+  echo decbin(26);
+?>
+
+The above example will output:
+
+  1100
+  11010
+
+See also |bindec|, |decoct|, |dechex| and |base_convert|.
+
+vim:ft=help:

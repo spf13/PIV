@@ -1,0 +1,7 @@
+hw_Free_Document -- Frees hw_document
+
+  bool hw_free_document(int hw_document)~
+
+Frees the memory occupied by the Hyperwave document.
+
+vim:ft=help:

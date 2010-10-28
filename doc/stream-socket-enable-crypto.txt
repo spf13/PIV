@@ -1,0 +1,56 @@
+stream_socket_enable_crypto -- Turns encryption on/off on an already connected
+socket
+
+  mixed stream_socket_enable_crypto(resource stream, bool enable [, int crypto_type [, resource session_stream]])~
+
+When called with the {crypto_type} parameter, |stream_socket_enable_crypto|
+will setup encryption on the stream using the specified method.
+
+Valid values for {crypto_type} STREAM_CRYPTO_METHOD_SSLv2_CLIENT
+
+STREAM_CRYPTO_METHOD_SSLv3_CLIENT
+
+STREAM_CRYPTO_METHOD_SSLv23_CLIENT
+
+STREAM_CRYPTO_METHOD_TLS_CLIENT
+
+STREAM_CRYPTO_METHOD_SSLv2_SERVER
+
+STREAM_CRYPTO_METHOD_SSLv3_SERVER
+
+STREAM_CRYPTO_METHOD_SSLv23_SERVER
+
+STREAM_CRYPTO_METHOD_TLS_SERVER
+
+Once the crypto settings are established, cryptography can be turned on and
+off dynamically by passing TRUE or FALSE in the {enable} parameter.
+
+If this stream should be seeded with settings from an already established
+crypto enabled stream, pass that stream's resource variable in the fourth
+parameter.
+
+Returns TRUE on success, FALSE if negotiation has failed or 0 if there isn't
+enough data and you should try again (only for non-blocking sockets).
+
+|stream_socket_enable_crypto| Example
+
+<?php >
+  $fp = stream_socket_client("tcp://myproto.example.com:31337", $errno, $errstr, 30);
+  if (!$fp) {
+    die("Unable to connect: $errstr ($errno)");
+  }
+  /* Turn on encryption for login phase */
+  stream_socket_enable_crypto($fp, true, STREAM_CRYPTO_METHOD_SSLv23_CLIENT);
+  fwrite($fp, "USER god\r\n");
+  fwrite($fp, "PASS secret\r\n");
+  /* Turn off encryption for the rest */
+  stream_socket_enable_crypto($fp, false);
+  while ($motd = fgets($fp)) {
+    echo $motd;
+  }
+  fclose($fp);
+?>
+
+, and
+
+vim:ft=help:

@@ -1,0 +1,12 @@
+fbsql_select_db -- Select a FrontBase database
+
+  bool fbsql_select_db([string database_name [, resource link_identifier]])~
+
+|fbsql_select_db| sets the current active database on the server that's
+associated with the specified link identifier. If no link identifier is
+specified, the last opened link is assumed. If no link is open, the function
+will try to establish a link as if |fbsql_connect| was called, and use it.
+
+Returns TRUE on success or FALSE on failure.
+
+vim:ft=help:

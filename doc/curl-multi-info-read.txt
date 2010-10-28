@@ -1,0 +1,10 @@
+curl_multi_info_read -- Get information about the current transfers
+
+  array curl_multi_info_read(resource mh)~
+
+This function is currently not documented; only the argument list is
+available.
+
+See also |curl_multi_init|.
+
+vim:ft=help:

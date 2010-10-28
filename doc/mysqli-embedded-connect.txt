@@ -1,0 +1,8 @@
+mysqli_embedded_connect -- Open a connection to an embedded mysql server
+
+  mysqli mysqli_embedded_connect([string dbname])~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

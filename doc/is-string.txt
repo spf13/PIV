@@ -1,0 +1,13 @@
+is_string -- Finds whether a variable is a string
+
+  bool is_string(mixed var)~
+
+Finds whether the given variable is a string.
+
+{var} The variable being evaluated.
+
+Returns TRUE if {var} is a string, FALSE otherwise.
+
+|is_float| |is_int| |is_bool| |is_object| |is_array|
+
+vim:ft=help:

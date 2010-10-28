@@ -1,0 +1,13 @@
+openal_buffer_loadwav -- Load a .wav file into a buffer
+
+  bool openal_buffer_loadwav(resource buffer, string wavfile)~
+
+An Open AL(Buffer) resource (previously created by |openal_buffer_create|).
+
+Path to .WAV file on local file system.
+
+Returns TRUE on success or FALSE on failure.
+
+|openal_buffer_data| |openal_stream|
+
+vim:ft=help:

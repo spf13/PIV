@@ -1,0 +1,5 @@
+ifx_error -- Returns error code of last Informix call
+
+  string ifx_error()~
+
+vim:ft=help:

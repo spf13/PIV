@@ -1,0 +1,7 @@
+mcal_week_of_year -- Returns the week number of the given date
+
+  int mcal_week_of_year(int day, int month, int year)~
+
+|mcal_week_of_year| returns the week number of the given date.
+
+vim:ft=help:

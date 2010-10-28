@@ -1,0 +1,52 @@
+phpcredits -- Prints out the credits for PHP
+
+  bool phpcredits([int flag])~
+
+This function prints out the credits listing the PHP developers, modules, etc.
+It generates the appropriate HTML codes to insert the information in a page.
+{flag} is optional, and it defaults to CREDITS_ALL. To generate a custom
+credits page, you may want to use the {flag} parameter. For example to print
+the general credits, you will use somewhere in your code:
+
+<?php >
+  phpcredits(CREDITS_GENERAL);
+?>
+
+And if you want to print the core developers and the documentation group, in a
+page of its own, you will use:
+
+<?php >
+  phpcredits(CREDITS_GROUP + CREDITS_DOCS + CREDITS_FULLPAGE);
+?>
+
+And if you feel like embedding all the credits in your page, then code like
+the one below will do it:
+
+  <html>
+   <head>
+    <title>My credits page</title>
+   </head>
+   <body>
+<?php >
+  // some code of your own
+  phpcredits(CREDITS_ALL - CREDITS_FULLPAGE);
+  // some more code
+?>
+   </body>
+  </html>
+
+Pre-defined |phpcredits| flags name description CREDITS_ALL All the credits,
+equivalent to using: CREDITS_DOCS + CREDITS_GENERAL + CREDITS_GROUP +
+CREDITS_MODULES + CREDITS_FULLPAGE. It generates a complete stand-alone HTML
+page with the appropriate tags. CREDITS_DOCS The credits for the
+documentation team CREDITS_FULLPAGE Usually used in combination with the
+other flags. Indicates that a complete stand-alone HTML page needs to be
+printed including the information indicated by the other flags.
+CREDITS_GENERAL General credits: Language design and concept, PHP 4.0 authors
+and SAPI module. CREDITS_GROUP A list of the core developers CREDITS_MODULES A
+list of the extension modules for PHP, and their authors CREDITS_SAPI A list
+of the server API modules for PHP, and their authors
+
+See also |phpinfo|, |phpversion| and |php_logo_guid|.
+
+vim:ft=help:

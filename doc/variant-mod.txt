@@ -1,0 +1,9 @@
+variant_mod -- Divides two variants and returns only the remainder
+
+  mixed variant_mod(mixed left, mixed right)~
+
+Divides {left} by {right} and returns the remainder.
+
+See also |variant_div|, |variant_idiv|.
+
+vim:ft=help:

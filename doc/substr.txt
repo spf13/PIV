@@ -1,0 +1,63 @@
+substr -- Return part of a string
+
+  string substr(string string, int start [, int length])~
+
+|substr| returns the portion of {string} specified by the {start} and {length}
+parameters.
+
+If {start} is non-negative, the returned string will start at the {start}'th
+position in {string}, counting from zero. For instance, in the string
+'abcdef', the character at position 0 is 'a', the character at position 2 is
+'c', and so forth.
+
+Basic |substr| usage
+
+<?php >
+  echo substr('abcdef', 1);     // bcdef
+  echo substr('abcdef', 1, 3);  // bcd
+  echo substr('abcdef', 0, 4);  // abcd
+  echo substr('abcdef', 0, 8);  // abcdef
+  echo substr('abcdef', -1, 1); // f
+  
+  // Accessing single characters in a string
+  // can also be achived using "curly braces"
+  $string = 'abcdef';
+  echo $string{0};                 // a
+  echo $string{3};                 // d
+  echo $string{strlen($string)-1}; // f
+?>
+
+If {start} is negative, the returned string will start at the {start}'th
+character from the end of {string}.
+
+Using a negative {start}
+
+<?php >
+  $rest = substr("abcdef", -1);    // returns "f"
+  $rest = substr("abcdef", -2);    // returns "ef"
+  $rest = substr("abcdef", -3, 1); // returns "d"
+?>
+
+If {length} is given and is positive, the string returned will contain at most
+{length} characters beginning from {start} (depending on the length of
+{string}). If {string} is less than or equal to {start} characters long,
+FALSE will be returned.
+
+If {length} is given and is negative, then that many characters will be
+omitted from the end of {string} (after the start position has been
+calculated when a {start} is negative). If {start} denotes a position beyond
+this truncation, an empty string will be returned.
+
+Using a negative {length}
+
+<?php >
+  $rest = substr("abcdef", 0, -1);  // returns "abcde"
+  $rest = substr("abcdef", 2, -1);  // returns "cde"
+  $rest = substr("abcdef", 4, -4);  // returns ""
+  $rest = substr("abcdef", -3, -1); // returns "de"
+?>
+
+See also |strrchr|, |substr_replace|, |ereg|, |trim|, |mb_substr| and
+|wordwrap|.
+
+vim:ft=help:

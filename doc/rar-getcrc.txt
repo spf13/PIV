@@ -1,0 +1,14 @@
+Rar::getCrc -- Get CRC of the entry
+
+  int Rar::getCrc()~
+
+|Rar::getCrc| returns CRC of the archive entry.
+
+|Rar::getCrc| example
+
+<?php >
+?>
+
+|Rar::getCrc| returns FALSE on error.
+
+vim:ft=help:

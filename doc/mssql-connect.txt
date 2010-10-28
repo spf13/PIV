@@ -1,0 +1,20 @@
+mssql_connect -- Open MS SQL server connection
+
+  resource mssql_connect([string servername [, string username [, string password]]])~
+
+Returns: A MS SQL link identifier on success, or FALSE on error.
+
+|mssql_connect| establishes a connection to a MS SQL server. The servername
+argument has to be a valid servername that is defined in the 'interfaces'
+file.
+
+In case a second call is made to |mssql_connect| with the same arguments, no
+new link will be established, but instead, the link identifier of the already
+opened link will be returned.
+
+The link to the server will be closed as soon as the execution of the script
+ends, unless it's closed earlier by explicitly calling |mssql_close|.
+
+See also |mssql_pconnect|, |mssql_close|.
+
+vim:ft=help:

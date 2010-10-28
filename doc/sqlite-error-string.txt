@@ -1,0 +1,10 @@
+sqlite_error_string -- Returns the textual description of an error code
+
+  string sqlite_error_string(int error_code)~
+
+Returns a human readable description of the {error_code} returned from
+|sqlite_last_error|.
+
+|sqlite_last_error|
+
+vim:ft=help:

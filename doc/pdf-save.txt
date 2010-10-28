@@ -1,0 +1,7 @@
+pdf_save -- Saves the current environment
+
+  bool pdf_save(resource pdfdoc)~
+
+Save the current graphics state. Returns TRUE on success or FALSE on failure.
+
+vim:ft=help:

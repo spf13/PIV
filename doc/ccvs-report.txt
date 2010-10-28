@@ -1,0 +1,8 @@
+ccvs_report -- Return the status of the background communication process
+
+  string ccvs_report(string session, string type)~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

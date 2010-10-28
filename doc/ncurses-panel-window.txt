@@ -1,0 +1,8 @@
+ncurses_panel_window -- Returns the window associated with panel
+
+  resource ncurses_panel_window(resource panel)~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

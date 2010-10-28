@@ -1,0 +1,27 @@
+__halt_compiler -- Halts the compiler execution
+
+  void __halt_compiler()~
+
+This function halts the execution of the compiler. This can be useful to embed
+data in PHP scripts, like the installation files.
+
+|__halt_compiler| can only be used from the outermost scope.
+
+A |__halt_compiler| example
+
+<?php >
+  // open this file
+  $fp = fopen(__FILE__, 'r');
+  
+  // seek file pointer to data
+  // plus the line-feed (that will depend on the file format/OS)
+  fseek($fp, __COMPILER_HALT_OFFSET__ + strlen(PHP_EOL));
+  
+  // and output it
+  var_dump(stream_get_contents($fp));
+  
+  // the end of the script execution
+  __halt_compiler();
+  the instalation data (eg. tar, gz, etc..)
+
+vim:ft=help:

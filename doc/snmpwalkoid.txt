@@ -1,0 +1,31 @@
+snmpwalkoid -- Query for a tree of information about a network entity
+
+  array snmpwalkoid(string hostname, string community, string object_id [, int timeout [, int retries]])~
+
+Returns an associative array with object ids and their respective object value
+starting from the {object_id} as root and FALSE on error.
+
+|snmpwalkoid| function is used to read all object ids and their respective
+values from an SNMP agent specified by the {hostname}. Community specifies
+the read {community} for that agent. A NULL {object_id} is taken as the root
+of the SNMP objects tree and all objects under that tree are returned as an
+array. If {object_id} is specified, all the SNMP objects below that
+{object_id} are returned.
+
+The existence of |snmpwalkoid| and |snmpwalk| has historical reasons. Both
+functions are provided for backward compatibility.
+
+<?php >
+  $a = snmpwalkoid("127.0.0.1", "public", ""); 
+?>
+
+Above function call would return all the SNMP objects from the SNMP agent
+running on localhost. One can step through the values with a loop
+
+<?php >
+  for (reset($a); $i = key($a); next($a)) {
+      echo "$i: $a[$i]<br />\n";
+  }
+?>
+
+vim:ft=help:

@@ -1,0 +1,14 @@
+ncurses_scrl -- Scroll window content up or down without changing current
+position
+
+  int ncurses_scrl(int count)~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

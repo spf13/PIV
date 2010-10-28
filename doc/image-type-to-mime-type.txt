@@ -1,0 +1,28 @@
+image_type_to_mime_type -- Get Mime-Type for image-type returned by
+getimagesize, exif_read_data, exif_thumbnail, exif_imagetype
+
+  string image_type_to_mime_type(int imagetype)~
+
+The |image_type_to_mime_type| function will determine the Mime-Type for an
+IMAGETYPE constant. image_type_to_mime_type (file)
+
+<?php >
+  header("Content-type: " . image_type_to_mime_type(IMAGETYPE_PNG));
+?>
+
+The returned values are as follows Returned values Constants {imagetype}
+Returned value IMAGETYPE_GIF image/gif IMAGETYPE_JPEG image/jpeg
+IMAGETYPE_PNG image/png IMAGETYPE_SWF application/x-shockwave-flash
+IMAGETYPE_PSD image/psd IMAGETYPE_BMP image/bmp IMAGETYPE_TIFF_II (intel byte
+order) image/tiff IMAGETYPE_TIFF_MM (motorola byte order) image/tiff
+IMAGETYPE_JPC application/octet-stream IMAGETYPE_JP2 image/jp2 IMAGETYPE_JPX
+application/octet-stream IMAGETYPE_JB2 application/octet-stream IMAGETYPE_SWC
+application/x-shockwave-flash IMAGETYPE_IFF image/iff IMAGETYPE_WBMP
+image/vnd.wap.wbmp IMAGETYPE_XBM image/xbm
+
+This function does not require the GD image library.
+
+See also |getimagesize|, |exif_imagetype|, |exif_read_data| and
+|exif_thumbnail|.
+
+vim:ft=help:

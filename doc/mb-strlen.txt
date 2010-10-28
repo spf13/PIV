@@ -1,0 +1,13 @@
+mb_strlen -- Get string length
+
+  int mb_strlen(string str [, string encoding])~
+
+|mb_strlen| returns number of characters in string {str} having character
+encoding {encoding}. A multi-byte character is counted as 1.
+
+{encoding} is character encoding for {str}. If {encoding} is omitted, internal
+character encoding is used.
+
+See also |mb_internal_encoding|, |strlen|.
+
+vim:ft=help:

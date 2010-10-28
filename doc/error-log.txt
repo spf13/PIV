@@ -1,0 +1,51 @@
+error_log -- Send an error message somewhere
+
+  bool error_log(string message [, int message_type [, string destination [, string extra_headers]]])~
+
+Sends an error message to the web server's error log, a TCP port or to a file.
+
+{message} The error message that should be logged.
+
+{message_type} Says where the error should go. The possible message types are
+as follows:
+
+|error_log| log types 0 {message} is sent to PHP's system logger, using the
+Operating System's system logging mechanism or a file, depending on what the
+error_log configuration directive is set to. This is the default option. 1
+{message} is sent by email to the address in the {destination} parameter.
+This is the only message type where the fourth parameter, {extra_headers} is
+used. 2 {message} is sent through the PHP debugging connection. This option
+is only available if remote debugging has been enabled. In this case, the
+{destination} parameter specifies the host name or IP address and optionally,
+port number, of the socket receiving the debug information. This option is
+only available in PHP 3. 3 {message} is appended to the file {destination}. A
+newline is not automatically added to the end of the {message} string.
+
+{destination} The destination. Its meaning depends on the {message} parameter
+as described above.
+
+{extra_headers} The extra headers. It's used when the {message} parameter is
+set to 1. This message type uses the same internal function as |mail| does.
+
+|error_log| examples
+
+<?php >
+  // Send notification through the server log if we can not
+  // connect to the database.
+  if (!Ora_Logon($username, $password)) {
+      error_log("Oracle database not available!", 0);
+  }
+  
+  // Notify administrator by email if we run out of FOO
+  if (!($foo = allocate_new_foo())) {
+      error_log("Big trouble, we're all out of FOOs!", 1,
+                 "operator@example.com");
+  }
+  
+  // other ways of calling error_log():
+  error_log("You messed up!", 2, "127.0.0.1:7000");
+  error_log("You messed up!", 2, "loghost");
+  error_log("You messed up!", 3, "/var/tmp/my-errors.log");
+?>
+
+vim:ft=help:

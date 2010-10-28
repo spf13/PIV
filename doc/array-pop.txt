@@ -1,0 +1,32 @@
+array_pop -- Pop the element off the end of array
+
+  mixed array_pop(array array)~
+
+|array_pop| pops and returns the last value of the {array}, shortening the
+{array} by one element. If {array} is empty (or is not an array), NULL will
+be returned.
+
+This function will |reset| the array pointer after use.
+
+|array_pop| example
+
+<?php >
+  $stack = array("orange", "banana", "apple", "raspberry");
+  $fruit = array_pop($stack);
+  print_r($stack);
+?>
+
+After this, $stack will have only 3 elements:
+
+  Array
+  (
+      [0] => orange
+      [1] => banana
+      [2] => apple
+  )
+
+and raspberry will be assigned to $fruit.
+
+See also |array_push|, |array_shift|, and |array_unshift|.
+
+vim:ft=help:

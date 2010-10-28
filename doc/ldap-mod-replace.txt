@@ -1,0 +1,13 @@
+ldap_mod_replace -- Replace attribute values with new ones
+
+  bool ldap_mod_replace(resource link_identifier, string dn, array entry)~
+
+Returns TRUE on success or FALSE on failure.
+
+This function replaces attribute(s) from the specified {dn}. It performs the
+modification at the attribute level as opposed to the object level.
+Object-level modifications are done by the |ldap_modify| function.
+
+This function is binary-safe.
+
+vim:ft=help:

@@ -1,0 +1,10 @@
+cpdf_setgray_fill -- Sets filling color to gray value
+
+  bool cpdf_setgray_fill(int pdf_document, float value)~
+
+The |cpdf_setgray_fill| function sets the current gray {value} to fill a path.
+Returns TRUE on success or FALSE on failure.
+
+See also |cpdf_setrgbcolor_fill|.
+
+vim:ft=help:

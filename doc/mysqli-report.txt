@@ -1,0 +1,38 @@
+mysqli_report -- Enables or disables internal report functions
+
+  bool mysqli_report(int flags)~
+
+|mysqli_report| is a powerful function to improve your queries and code during
+development and testing phase. Depending on the flags it reports errors from
+mysqli function calls or queries which don't use an index (or use a bad
+index).
+
+Returns TRUE on success or FALSE on failure.
+
+|mysqli_debug| and |mysqli_dump_debug_info|.
+
+Object oriented style
+
+<?php >
+  /* activate reporting */
+  mysqli_report(MYSQLI_REPORT_ALL);
+  
+  $mysqli = new mysqli("localhost", "my_user", "my_password", "world");
+  
+  /* check connection */
+  if (mysqli_connect_errno()) {
+      printf("Connect failed: %s\n", mysqli_connect_error());
+      exit();
+  }
+  
+  /* this query should report an error */
+  $result = $mysqli->query("SELECT Name FROM Nonexistingtable WHERE population > 50000");
+  
+  /* this query should report a warning */
+  $result = $mysqli->query("SELECT Name FROM City WHERE population > 50000");
+  $result->close();
+  
+  $mysqli->close();
+?>
+
+vim:ft=help:

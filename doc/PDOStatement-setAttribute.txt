@@ -1,0 +1,10 @@
+PDOStatement::setAttribute -- Set a statement attribute
+
+  bool PDOStatement::setAttribute(int attribute, mixed value)~
+
+This function is currently not documented; only the argument list is
+available.
+
+|PDO::getAttribute| |PDO::setAttribute| |PDOStatement::getAttribute|
+
+vim:ft=help:

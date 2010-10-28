@@ -1,0 +1,8 @@
+ovrimos_cursor -- Returns the name of the cursor
+
+  string ovrimos_cursor(int result_id)~
+
+|ovrimos_cursor| returns the name of the cursor. Useful when wishing to
+perform positioned updates or deletes.
+
+vim:ft=help:

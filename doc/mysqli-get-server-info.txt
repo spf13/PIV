@@ -1,0 +1,57 @@
+mysqli->server_info -- Returns the version of the MySQL server
+
+Procedural style:
+
+  string mysqli_get_server_info(mysqli link)~
+
+Object oriented style (property):
+
+Returns a string representing the version of the MySQL server that the MySQLi
+extension is connected to (represented by the {link} parameter).
+
+A character string representing the server version.
+
+|mysqli_get_client_info|, |mysqli_get_client_version| and
+|mysqli_get_server_version|.
+
+Object oriented style
+
+<?php >
+  $mysqli = new mysqli("localhost", "my_user", "my_password");
+  
+  /* check connection */
+  if (mysqli_connect_errno()) {
+      printf("Connect failed: %s\n", mysqli_connect_error());
+      exit();
+  }
+  
+  /* print server version */
+  printf("Server version: %s\n", $mysqli->server_info);
+  
+  /* close connection */
+  $mysqli->close();
+?>
+
+Procedural style
+
+<?php >
+  $link = mysqli_connect("localhost", "my_user", "my_password");
+  
+  /* check connection */
+  if (mysqli_connect_errno()) {
+      printf("Connect failed: %s\n", mysqli_connect_error());
+      exit();
+  }
+  
+  /* print server version */
+  printf("Server version: %s\n", mysqli_get_server_info($link));
+  
+  /* close connection */
+  mysqli_close($link);
+?>
+
+The above example will output:
+
+  Server version: 4.1.2-alpha-debug
+
+vim:ft=help:

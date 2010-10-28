@@ -1,0 +1,7 @@
+filepro_fieldname -- Gets the name of a field
+
+  string filepro_fieldname(int field_number)~
+
+Returns the name of the field corresponding to {field_number}.
+
+vim:ft=help:

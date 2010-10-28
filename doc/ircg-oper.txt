@@ -1,0 +1,9 @@
+ircg_oper -- Elevates privileges to IRC OPER
+
+  bool ircg_oper(resource connection, string name, string password)~
+
+|ircg_oper| will authenticate the logged in user on {connection} as an IRC
+operator. {name} and {password} must match a registered IRC operator account.
+Returns TRUE on success or FALSE on failure.
+
+vim:ft=help:

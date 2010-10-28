@@ -1,0 +1,15 @@
+Rar::getFileTime -- Get entry last modification time
+
+  string Rar::getFileTime()~
+
+|Rar::getFileTime| returns entry last modification time as string in format
+YYYY-MM-DD HH:II:SS.
+
+|Rar::| example
+
+<?php >
+?>
+
+|Rar::getFileTime| returns FALSE on error.
+
+vim:ft=help:

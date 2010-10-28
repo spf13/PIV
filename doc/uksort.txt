@@ -1,0 +1,46 @@
+uksort -- Sort an array by keys using a user-defined comparison function
+
+  bool uksort(array array, callback cmp_function)~
+
+|uksort| will sort the keys of an array using a user-supplied comparison
+function. If the array you wish to sort needs to be sorted by some
+non-trivial criteria, you should use this function.
+
+Function {cmp_function} should accept two parameters which will be filled by
+pairs of {array} keys. The comparison function must return an integer less
+than, equal to, or greater than zero if the first argument is considered to
+be respectively less than, equal to, or greater than the second.
+
+Returns TRUE on success or FALSE on failure.
+
+|uksort| example
+
+<?php >
+  function cmp($a, $b) 
+  {
+      if ($a == $b) {
+          return 0;
+      }
+      return ($a > $b) ? -1 : 1;
+  }
+  
+  $a = array(4 => "four", 3 => "three", 20 => "twenty", 10 => "ten");
+  
+  uksort($a, "cmp");
+  
+  foreach ($a as $key => $value) {
+      echo "$key: $value\n";
+  }
+?>
+
+The above example will output:
+
+  20: twenty
+  10: ten
+  4: four
+  3: three
+
+See also |usort|, |uasort|, |sort|, |asort|, |arsort|, |ksort|, |natsort|, and
+|rsort|.
+
+vim:ft=help:

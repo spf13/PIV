@@ -1,0 +1,23 @@
+mssql_fetch_array -- Fetch a result row as an associative array, a numeric
+array, or both
+
+  array mssql_fetch_array(resource result [, int result_type])~
+
+Returns: An array that corresponds to the fetched row, or FALSE if there are
+no more rows.
+
+|mssql_fetch_array| is an extended version of |mssql_fetch_row|. In addition
+to storing the data in the numeric indices of the result array, it also
+stores the data in associative indices, using the field names as keys.
+
+An important thing to note is that using |mssql_fetch_array| is NOT
+significantly slower than using |mssql_fetch_row|, while it provides a
+significant added value.
+
+Field names returned by this function are case-sensitive.
+
+This function sets NULL fields to PHP NULL value.
+
+For further details, also see |mssql_fetch_row|.
+
+vim:ft=help:

@@ -1,0 +1,34 @@
+mysql_field_table -- Get name of the table the specified field is in
+
+  string mysql_field_table(resource result, int field_offset)~
+
+Returns the name of the table that the specified field is in.
+
+{ result}The result resource that is being evaluated. This result comes from a
+call to |mysql_query|.
+
+{ field_offset}The numerical field offset. The {field_offset} starts at 0. If
+{field_offset} does not exist, an error of level E_WARNING is also issued.
+
+The name of the table on success.
+
+A |mysql_field_table| example
+
+<?php >
+  $result = mysql_query("SELECT name,comment FROM people,comments");
+  if (!$result) {
+      echo 'Could not run query: ' . mysql_error();
+      exit;
+  }
+  
+  // Assuming name is in the people table
+  $table = mysql_field_table($result, 'name');
+  echo $table; // people
+?>
+
+For downward compatibility, the following deprecated alias may be used:
+|mysql_fieldtable|
+
+|mysql_list_tables|
+
+vim:ft=help:

@@ -1,0 +1,9 @@
+RecursiveIteratorIterator::valid -- Check whether the current position is
+valid
+
+  bolean RecursiveIteratorIterator::valid()~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

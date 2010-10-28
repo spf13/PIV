@@ -1,0 +1,29 @@
+sybase_connect -- Opens a Sybase server connection
+
+  resource sybase_connect([string servername [, string username [, string password [, string charset [, string appname]]]]])~
+
+Returns a positive Sybase link identifier on success, or FALSE on failure.
+
+|sybase_connect| establishes a connection to a Sybase server. The servername
+argument has to be a valid servername that is defined in the 'interfaces'
+file.
+
+In case a second call is made to |sybase_connect| with the same arguments, no
+new link will be established, but instead, the link identifier of the already
+opened link will be returned.
+
+The link to the server will be closed as soon as the execution of the script
+ends, unless it's closed earlier by explicitly calling |sybase_close|.
+
+|sybase_connect| example
+
+<?php >
+  $link = sybase_connect('SYBASE', '', '')
+          or die("Could not connect !");
+  echo "Connected successfully";
+  sybase_close($link);
+?>
+
+See also |sybase_pconnect| and |sybase_close|.
+
+vim:ft=help:

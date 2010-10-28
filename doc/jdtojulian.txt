@@ -1,0 +1,8 @@
+JDToJulian -- Converts a Julian Day Count to a Julian Calendar Date
+
+  string jdtojulian(int julianday)~
+
+Converts Julian Day Count to a string containing the Julian Calendar Date in
+the format of "month/day/year".
+
+vim:ft=help:

@@ -1,0 +1,8 @@
+yp_all -- Traverse the map and call a function on each entry
+
+  void yp_all(string domain, string map, string callback)~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

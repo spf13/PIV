@@ -1,0 +1,72 @@
+stream_socket_server -- Create an Internet or Unix domain server socket
+
+  resource stream_socket_server(string local_socket [, int errno [, string errstr [, int flags [, resource context]]]])~
+
+Creates a stream or datagram socket on the specified {local_socket}. The type
+of socket created is determined by the transport specified using standard URL
+formatting: transport://target. For Internet Domain sockets (AF_INET) such as
+TCP and UDP, the target portion of the {remote_socket} parameter should
+consist of a hostname or IP address followed by a colon and a port number.
+For Unix domain sockets, the {target} portion should point to the socket file
+on the filesystem. {flags} is a bitmask field which may be set to any
+combination of socket creation flags. The default value of flags is
+STREAM_SERVER_BIND | STREAM_SERVER_LISTEN.
+
+For UDP sockets, you must use STREAM_SERVER_BIND as the {flags} parameter.
+
+This function only creates a socket, to begin accepting connections use
+|stream_socket_accept|.
+
+If the call fails, it will return FALSE and if the optional {errno} and
+{errstr} arguments are present they will be set to indicate the actual system
+level error that occurred in the system-level socket(), bind(), and listen()
+calls. If the value returned in {errno} is 0 and the function returned FALSE,
+it is an indication that the error occurred before the bind() call. This is
+most likely due to a problem initializing the socket. Note that the {errno}
+and {errstr} arguments will always be passed by reference.
+
+Depending on the environment, Unix domain sockets may not be available. A list
+of available transports can be retrieved using |stream_get_transports|. See
+for a list of bulitin transports.
+
+Using TCP server sockets
+
+<?php >
+  $socket = stream_socket_server("tcp://0.0.0.0:8000", $errno, $errstr);
+  if (!$socket) {
+    echo "$errstr ($errno)<br />\n";
+  } else {
+    while ($conn = stream_socket_accept($socket)) {
+      fwrite($conn, 'The local time is ' . date('n/j/Y g:i a') . "\n");
+      fclose($conn);
+    }
+    fclose($socket);
+  }
+?>
+
+The example below shows how to act as a time server which can respond to time
+queries as shown in an example on |stream_socket_client|. Most systems
+require root access to create a server socket on a port below 1024.
+
+Using UDP server sockets
+
+<?php >
+  $socket = stream_socket_server("udp://127.0.0.1:1113", $errno, $errstr, STREAM_SERVER_BIND);
+  if (!$socket) {
+      die("$errstr ($errno)");
+  }
+  
+  do {
+      $pkt = stream_socket_recvfrom($socket, 1, 0, $peer);
+      echo "$peer\n";
+      stream_socket_sendto($socket, date("D M j H:i:s Y\r\n"), 0, $peer);
+  } while ($pkt !== false);
+?>
+
+When specifying a numerical IPv6 address (e.g. fe80::1) you must enclose the
+IP in square brackets. For example, tcp://[fe80::1]:80.
+
+See also |stream_socket_client|, |stream_set_blocking|, |stream_set_timeout|,
+|fgets|, |fgetss|, |fwrite|, |fclose|, |feof|, and the Curl extension.
+
+vim:ft=help:

@@ -1,0 +1,25 @@
+pg_connection_reset -- Reset connection (reconnect)
+
+  bool pg_connection_reset(resource connection)~
+
+|pg_connection_reset| resets the connection. It is useful for error recovery.
+
+{connection} PostgreSQL database connection resource.
+
+Returns TRUE on success or FALSE on failure.
+
+|pg_connection_reset| example
+
+<?php >
+    $dbconn = pg_connect("dbname=publisher") or die("Could not connect");
+    $dbconn2 = pg_connection_reset($dbconn);
+    if ($dbconn2) {
+        echo "reset successful\n";
+    } else {
+        echo "reset failed\n";
+    }
+?>
+
+|pg_connect| |pg_pconnect| |pg_connection_status|
+
+vim:ft=help:

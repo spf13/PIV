@@ -1,0 +1,10 @@
+odbc_field_precision -- Synonym for odbc_field_len
+
+  int odbc_field_precision(resource result_id, int field_number)~
+
+|odbc_field_precision| will return the precision of the field referenced by
+number in the given ODBC result identifier.
+
+See also: |odbc_field_scale| to get the scale of a floating point number.
+
+vim:ft=help:

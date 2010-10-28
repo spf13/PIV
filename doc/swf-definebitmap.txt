@@ -1,0 +1,9 @@
+swf_definebitmap -- Define a bitmap
+
+  void swf_definebitmap(int objid, string image_name)~
+
+The |swf_definebitmap| function defines a bitmap given a GIF, JPEG, RGB or FI
+image. The image will be converted into a Flash JPEG or Flash color map
+format.
+
+vim:ft=help:

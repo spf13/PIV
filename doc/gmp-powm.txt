@@ -1,0 +1,19 @@
+gmp_powm -- Raise number into power with modulo
+
+  resource gmp_powm(resource base, resource exp, resource mod)~
+
+Calculate ({base} raised into power {exp}) modulo {mod}. If {exp} is negative,
+result is undefined.
+
+|gmp_powm| example
+
+<?php >
+  $pow1 = gmp_powm("2", "31", "2147483649");
+  echo gmp_strval($pow1) . "\n";
+?>
+
+The printout of the above program will be:
+
+  2147483648
+
+vim:ft=help:

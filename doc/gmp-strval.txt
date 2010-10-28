@@ -1,0 +1,15 @@
+gmp_strval -- Convert GMP number to string
+
+  string gmp_strval(resource gmpnumber [, int base])~
+
+Convert GMP number to string representation in base {base}. The default base
+is 10. Allowed values for the base are from 2 to 36.
+
+Converting a GMP number to a string
+
+<?php >
+  $a = gmp_init("0x41682179fbf5");
+  printf("Decimal: %s, 36-based: %s", gmp_strval($a), gmp_strval($a,36));
+?>
+
+vim:ft=help:

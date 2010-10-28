@@ -1,0 +1,21 @@
+getenv -- Gets the value of an environment variable
+
+  string getenv(string varname)~
+
+Returns the value of the environment variable {varname}, or FALSE on an error.
+
+<?php >
+  // Example use of getenv()
+  $ip = getenv('REMOTE_ADDR');
+  
+  // Or simply use a Superglobal ($_SERVER or $_ENV)
+  $ip = $_SERVER['REMOTE_ADDR'];
+?>
+
+You can see a list of all the environmental variables by using |phpinfo|. You
+can find out what many of them mean by taking a look at the CGI
+specification, specifically the page on environmental variables.
+
+See also |putenv|, |apache_getenv| and Superglobals.
+
+vim:ft=help:

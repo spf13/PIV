@@ -1,0 +1,56 @@
+imap_getmailboxes -- Read the list of mailboxes, returning detailed
+information on each one
+
+  array imap_getmailboxes(resource imap_stream, string ref, string pattern)~
+
+Returns an array of objects containing mailbox information. Each object has
+the attributes {name}, specifying the full name of the mailbox; {delimiter},
+which is the hierarchy delimiter for the part of the hierarchy this mailbox
+is in; and {attributes}. {Attributes} is a bitmask that can be tested
+against: LATT_NOINFERIORS - This mailbox has no "children" (there are no
+mailboxes below this one).
+
+LATT_NOSELECT - This is only a container, not a mailbox - you cannot open it.
+
+LATT_MARKED - This mailbox is marked. Only used by UW-IMAPD.
+
+LATT_UNMARKED - This mailbox is not marked. Only used by UW-IMAPD.
+
+Mailbox names containing international Characters outside the printable ASCII
+range will be encoded and may be decoded by |imap_utf7_decode|.
+
+{ref} should normally be just the server specification as described in
+|imap_open|, and {pattern} specifies where in the mailbox hierarchy to start
+searching. If you want all mailboxes, pass '*' for {pattern}.
+
+There are two special characters you can pass as part of the {pattern}: '*'
+and '%'. '*' means to return all mailboxes. If you pass {pattern} as '*', you
+will get a list of the entire mailbox hierarchy. '%' means to return the
+current level only. '%' as the {pattern} parameter will return only the top
+level mailboxes; '~/mail/%' on UW_IMAPD will return every mailbox in the
+~/mail directory, but none in subfolders of that directory.
+
+|imap_getmailboxes| example
+
+<?php >
+  $mbox = imap_open("{your.imap.host}", "username", "password", OP_HALFOPEN)
+        or die("can't connect: " . imap_last_error());
+   
+  $list = imap_getmailboxes($mbox, "{your.imap.host}", "*");
+  if (is_array($list)) {
+      foreach ($list as $key => $val) {
+          echo "($key) ";
+          echo imap_utf7_decode($val->name) . ",";
+          echo "'" . $val->delimiter . "',";
+          echo $val->attributes . "<br />\n";
+      }
+  } else {
+      echo "imap_getmailboxes failed: " . imap_last_error() . "\n";
+  }
+   
+  imap_close($mbox);
+?>
+
+See also |imap_getsubscribed|.
+
+vim:ft=help:

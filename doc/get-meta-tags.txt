@@ -1,0 +1,6 @@
+get_meta_tags -- Extracts all meta tag content attributes from a file and
+returns an array
+
+  array get_meta_tags(string filename [, bool use_include_path])~
+
+vim:ft=help:

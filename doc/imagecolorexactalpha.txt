@@ -1,0 +1,13 @@
+imagecolorexactalpha -- Get the index of the specified color + alpha
+
+  int imagecolorexactalpha(resource image, int red, int green, int blue, int alpha)~
+
+Returns the index of the specified color+alpha in the palette of the image.
+
+If the color does not exist in the image's palette, -1 is returned.
+
+This function requires GD 2.0.1 or later.
+
+See also |imagecolorclosestalpha|.
+
+vim:ft=help:

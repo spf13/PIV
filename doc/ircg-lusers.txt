@@ -1,0 +1,12 @@
+ircg_lusers -- IRC network statistics
+
+  bool ircg_lusers(resource connection)~
+
+|ircg_lusers| will request a statistical breakdown of users on the network
+connected to on {connection}. The answer is sent to the output defined by
+|ircg_set_file| or |ircg_set_current|. Returns TRUE on success or FALSE on
+failure.
+
+See also: |ircg_set_file|, and |ircg_set_current|.
+
+vim:ft=help:

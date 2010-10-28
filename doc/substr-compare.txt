@@ -1,0 +1,9 @@
+substr_compare -- Binary safe optionally case insensitive comparison of 2
+strings from an offset, up to length characters
+
+  int substr_compare(string main_str, string str, int offset [, int length [, bool case_insensitivity]])~
+
+|substr_compare| compares {main_str} from position {offset} with {str} up to
+{length} characters.
+
+vim:ft=help:

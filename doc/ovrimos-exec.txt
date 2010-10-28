@@ -1,0 +1,9 @@
+ovrimos_exec -- Executes an SQL statement
+
+  int ovrimos_exec(int connection_id, string query)~
+
+|ovrimos_exec| executes an SQL statement (query or update) and returns a
+result_id or FALSE. Evidently, the SQL statement should not contain
+parameters.
+
+vim:ft=help:

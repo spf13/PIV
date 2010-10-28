@@ -1,0 +1,21 @@
+yp_match -- Returns the matched line
+
+  string yp_match(string domain, string map, string key)~
+
+|yp_match| returns the value associated with the passed key out of the
+specified map or FALSE. This key must be exact.
+
+Example for NIS match
+
+<?php >
+  $entry = yp_match($domain, "passwd.byname", "joe");
+  echo "Matched entry is: " . $entry;
+?>
+
+The above code will produce :
+
+  joe:##joe:11111:100:Joe User:/home/j/joe:/usr/local/bin/bash
+
+See also |yp_get_default_domain|.
+
+vim:ft=help:

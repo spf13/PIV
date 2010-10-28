@@ -1,0 +1,14 @@
+imagecolorresolve -- Get the index of the specified color or its closest
+possible alternative
+
+  int imagecolorresolve(resource image, int red, int green, int blue)~
+
+This function is guaranteed to return a color index for a requested color,
+either the exact color or the closest possible alternative.
+
+If you created the image from a file, only colors used in the image are
+resolved. Colors present only in the pallete are not resolved.
+
+See also |imagecolorclosest|.
+
+vim:ft=help:

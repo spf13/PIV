@@ -1,0 +1,13 @@
+swf_addcolor -- Set the global add color to the rgba value specified
+
+  void swf_addcolor(float r, float g, float b, float a)~
+
+The |swf_addcolor| function sets the global add color to the {rgba} color
+specified. This color is then used (implicitly) by the |swf_placeobject|,
+|swf_modifyobject| and the |swf_addbuttonrecord| functions. The color of the
+object will be add by the {rgba} values when the object is written to the
+screen.
+
+The {rgba} values can be either positive or negative.
+
+vim:ft=help:

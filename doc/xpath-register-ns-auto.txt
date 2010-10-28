@@ -1,0 +1,13 @@
+xpath_register_ns_auto -- Register the given namespace in the passed XPath
+context
+
+  bool xpath_register_ns_auto(XPathContext xpath_context [, object context_node])~
+
+This function is currently not documented; only the argument list is
+available.
+
+Returns TRUE on success or FALSE on failure.
+
+|xpath_register_ns|
+
+vim:ft=help:

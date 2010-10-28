@@ -1,0 +1,18 @@
+get_cfg_var -- Gets the value of a PHP configuration option
+
+  string get_cfg_var(string varname)~
+
+Returns the current value of the PHP configuration variable specified by
+{varname}, or FALSE if an error occurs.
+
+It will not return configuration information set when the PHP was compiled, or
+read from an Apache configuration file (using the php3_configuration_option
+directives).
+
+To check whether the system is using a configuration file, try retrieving the
+value of the cfg_file_path configuration setting. If this is available, a
+configuration file is being used.
+
+See also |ini_get|.
+
+vim:ft=help:

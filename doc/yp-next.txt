@@ -1,0 +1,26 @@
+yp_next -- Returns the next key-value pair in the named map
+
+  array yp_next(string domain, string map, string key)~
+
+|yp_next| returns the next key-value pair in the named map after the specified
+key or FALSE.
+
+Example for NIS next
+
+<?php >
+  $entry = yp_next($domain, "passwd.byname", "joe");
+  
+  if (!$entry) {
+      echo "No more entries found\n";
+      echo "<!--" . yp_errno() . ": " . yp_err_string() . "-->";
+  }
+  
+  $key = key($entry);
+  
+  echo "The next entry after joe has key " . $key 
+        . " and value " . $entry[$key];
+?>
+
+See also |yp_first| and |yp_get_default_domain|.
+
+vim:ft=help:

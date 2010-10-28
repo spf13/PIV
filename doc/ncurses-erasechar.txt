@@ -1,0 +1,14 @@
+ncurses_erasechar -- Returns current erase character
+
+  string ncurses_erasechar()~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+|ncurses_erasechar| returns the current erase char character.
+
+See also: |ncurses_killchar|
+
+vim:ft=help:

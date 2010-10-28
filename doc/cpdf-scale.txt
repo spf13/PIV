@@ -1,0 +1,8 @@
+cpdf_scale -- Sets scaling
+
+  bool cpdf_scale(int pdf_document, float x_scale, float y_scale)~
+
+The |cpdf_scale| function set the scaling factor in both directions. Returns
+TRUE on success or FALSE on failure.
+
+vim:ft=help:

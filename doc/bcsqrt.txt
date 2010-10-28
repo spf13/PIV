@@ -1,0 +1,16 @@
+bcsqrt -- Get the square root of an arbitrary precision number
+
+  string bcsqrt(string operand [, int scale])~
+
+Return the square root of the {operand}. The optional {scale} parameter sets
+the number of digits after the decimal place in the result.
+
+|bcsqrt| example
+
+<?php >
+  echo bcsqrt('2', 3); // 1.414
+?>
+
+|bcpow|.
+
+vim:ft=help:

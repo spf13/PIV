@@ -1,0 +1,8 @@
+pdf_rotate -- Sets rotation
+
+  bool pdf_rotate(resource pdfdoc, float phi)~
+
+Rotate the coordinate system by {phi} degrees. Returns TRUE on success or
+FALSE on failure.
+
+vim:ft=help:

@@ -1,0 +1,29 @@
+pg_field_prtlen -- Returns the printed length
+
+  int pg_field_prtlen(resource result, int row_number, mixed field_name_or_number)~
+
+  int pg_field_prtlen(resource result, int row_number, mixed field_name_or_number, resource result, mixed field_name_or_number)~
+
+|pg_field_prtlen| returns the actual printed length (number of characters) of
+a specific value in a PostgreSQL {result}. Row numbering starts at 0. This
+function will return -1 on an error.
+
+{field_name_or_number} can be passed either as an integer or as a string. If
+it is passed as an integer, PHP recognises it as the field number, otherwise
+as field name.
+
+See the example given at the |pg_field_name| page.
+
+This function used to be called |pg_fieldprtlen|.
+
+{result} PostgreSQL query result resource, returned by |pg_query|,
+|pg_query_params| or |pg_execute| (among others).
+
+{row} Row number in result. Rows are numbered from 0 upwards. If omitted,
+current row is fetched.
+
+The field printed length, or FALSE on error.
+
+|pg_field_size|
+
+vim:ft=help:

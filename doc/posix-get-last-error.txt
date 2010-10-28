@@ -1,0 +1,12 @@
+posix_get_last_error -- Retrieve the error number set by the last posix
+function that failed
+
+  int posix_get_last_error()~
+
+Returns the errno (error number) set by the last posix function that failed.
+If no errors exist, 0 is returned. If you're wanting the system error message
+associated with the errno, use |posix_strerror|.
+
+See also |posix_strerror|.
+
+vim:ft=help:

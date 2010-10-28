@@ -1,0 +1,12 @@
+mb_ereg_search_setpos -- Set start point of next regular expression match
+
+  bool mb_ereg_search_setpos(int position)~
+
+|mb_ereg_search_setpos| sets the starting point of match for |mb_ereg_search|.
+
+The internal encoding or the character encoding specified in
+|mb_regex_encoding| will be used as character encoding.
+
+See also: |mb_regex_encoding|, |mb_ereg_search_init|.
+
+vim:ft=help:

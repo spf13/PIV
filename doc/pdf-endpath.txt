@@ -1,0 +1,6 @@
+pdf_endpath -- Deprecated: Ends current path
+
+This function is deprecated, use one of the |pdf_stroke|, |pdf_clip| or
+|pdf_closepath_fill_stroke| functions instead.
+
+vim:ft=help:

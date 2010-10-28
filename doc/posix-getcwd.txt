@@ -1,0 +1,8 @@
+posix_getcwd -- Pathname of current directory
+
+  string posix_getcwd()~
+
+|posix_getcwd| returns the absolute pathname of the script's current working
+directory. |posix_getcwd| returns FALSE on error.
+
+vim:ft=help:

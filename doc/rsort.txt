@@ -1,0 +1,33 @@
+rsort -- Sort an array in reverse order
+
+  bool rsort(array array [, int sort_flags])~
+
+This function sorts an array in reverse order (highest to lowest).
+
+Returns TRUE on success or FALSE on failure.
+
+|rsort| example
+
+<?php >
+  $fruits = array("lemon", "orange", "banana", "apple");
+  rsort($fruits);
+  foreach ($fruits as $key => $val) {
+      echo "$key = $val\n";
+  }
+?>
+
+The above example will output:
+
+  0 = orange
+  1 = lemon
+  2 = banana
+  3 = apple
+
+The fruits have been sorted in reverse alphabetical order.
+
+You may modify the behavior of the sort using the optional parameter
+{sort_flags}, for details see |sort|.
+
+See also |arsort|, |asort|, |ksort|, |sort|, and |usort|.
+
+vim:ft=help:

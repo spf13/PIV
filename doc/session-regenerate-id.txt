@@ -1,0 +1,37 @@
+session_regenerate_id -- Update the current session id with a newly generated
+one
+
+  bool session_regenerate_id([bool delete_old_session])~
+
+|session_regenerate_id| will replace the current session id with a new one,
+and keep the current session information.
+
+{delete_old_session} Whether to delete the old associated session file or not.
+Defaults to FALSE.
+
+Returns TRUE on success or FALSE on failure.
+
+Version Description 4.3.3 Since then, if session cookies are enabled, use of
+|session_regenerate_id| will also submit a new session cookie with the new
+session id. 5.1.0 Added the {delete_old_session} parameter.
+
+A |session_regenerate_id| example
+
+<?php >
+  session_start();
+  
+  $old_sessionid = session_id();
+  
+  session_regenerate_id();
+  
+  $new_sessionid = session_id();
+  
+  echo "Old Session: $old_sessionid<br />";
+  echo "New Session: $new_sessionid<br />";
+  
+  print_r($_SESSION);
+?>
+
+|session_id| |session_start| |session_name|
+
+vim:ft=help:

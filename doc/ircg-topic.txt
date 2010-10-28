@@ -1,0 +1,8 @@
+ircg_topic -- Set topic for channel on server
+
+  bool ircg_topic(resource connection, string channel, string new_topic)~
+
+Change the topic for channel {channel} on the server connected to by
+{connection} to {new_topic}.
+
+vim:ft=help:

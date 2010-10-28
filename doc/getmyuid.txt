@@ -1,0 +1,10 @@
+getmyuid -- Gets PHP script owner's UID
+
+  int getmyuid()~
+
+Returns the user ID of the current script, or FALSE on error.
+
+See also |getmygid|, |getmypid|, |get_current_user|, |getmyinode|, and
+|getlastmod|.
+
+vim:ft=help:

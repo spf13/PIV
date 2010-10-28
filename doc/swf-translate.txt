@@ -1,0 +1,8 @@
+swf_translate -- Translate the current transformations
+
+  void swf_translate(float x, float y, float z)~
+
+The |swf_translate| function translates the current transformation by the {x},
+{y}, and {z} values given.
+
+vim:ft=help:

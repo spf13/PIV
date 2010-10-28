@@ -1,0 +1,8 @@
+ccvs_new -- Create a new, blank transaction
+
+  string ccvs_new(string session, string invoice)~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

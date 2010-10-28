@@ -1,0 +1,5 @@
+hw_Info -- Info about connection
+
+  string hw_info(int connection)~
+
+vim:ft=help:

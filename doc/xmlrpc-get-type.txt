@@ -1,0 +1,15 @@
+xmlrpc_get_type -- Gets xmlrpc type for a PHP value
+
+  string xmlrpc_get_type(mixed value)~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+This function is especially useful for base64 and datetime strings.
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

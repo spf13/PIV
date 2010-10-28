@@ -1,0 +1,11 @@
+fbsql_stop_db -- Stop a database on local or remote server
+
+  bool fbsql_stop_db(string database_name [, resource link_identifier])~
+
+Returns TRUE on success or FALSE on failure.
+
+|fbsql_stop_db|
+
+See also: |fbsql_db_status| and |fbsql_start_db|.
+
+vim:ft=help:

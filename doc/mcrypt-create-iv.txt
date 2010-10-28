@@ -1,0 +1,36 @@
+mcrypt_create_iv -- Create an initialization vector (IV) from a random source
+
+  string mcrypt_create_iv(int size [, int source])~
+
+|mcrypt_create_iv| is used to create an IV.
+
+Parameter {size} determines the size of the IV, parameter {source} (defaults
+to random value) specifies the source of the IV.
+
+The source can be MCRYPT_RAND (system random number generator),
+MCRYPT_DEV_RANDOM (read data from /dev/random) and MCRYPT_DEV_URANDOM (read
+data from /dev/urandom). MCRYPT_RAND is the only one supported on Windows
+because Windows (of course) doesn't have /dev/random or /dev/urandom.
+
+When using MCRYPT_RAND, remember to call |srand| before |mcrypt_create_iv| to
+initialize the random number generator; it is not seeded automatically like
+|rand| is.
+
+|mcrypt_create_iv| example
+
+<?php >
+      $size = mcrypt_get_iv_size(MCRYPT_CAST_256, MCRYPT_MODE_CFB);
+      $iv = mcrypt_create_iv($size, MCRYPT_DEV_RANDOM);
+?>
+
+The IV is only meant to give an alternative seed to the encryption routines.
+This IV does not need to be secret at all, though it can be desirable. You
+even can send it along with your ciphertext without losing security.
+
+More information can be found at
+http://www.ciphersbyritter.com/GLOSSARY.HTM#IV,
+http://fn2.freenet.edmonton.ab.ca/~jsavard/crypto/co0409.htm and in chapter
+9.3 of Applied Cryptography by Schneier (ISBN 0-471-11709-9) for a discussion
+of this topic.
+
+vim:ft=help:

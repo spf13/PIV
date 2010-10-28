@@ -1,0 +1,14 @@
+cybermut_creerreponsecm -- Generate the delivery's acknowledgement of the
+payment's confirmation
+
+  string cybermut_creerreponsecm(string sentence)~
+
+The parameter is "OK" if the message of confirmation of the payment were
+correctly authenticated by |cybermut_testmac|. Any other chain is regarded as
+an error message.
+
+Returns a string containing the message of acknowledgement of delivery.
+
+|cybermut_creerformulairecm| |cybermut_testmac|
+
+vim:ft=help:

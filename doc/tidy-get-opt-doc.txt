@@ -1,0 +1,45 @@
+tidy_get_opt_doc -- Returns the documentation for the given option name
+
+Procedural style:
+
+  string tidy_get_opt_doc(tidy object, string optname)~
+
+Object oriented style:
+
+  string tidy->getOptDoc(tidy object, string optname, string optname)~
+
+|tidy_get_opt_doc| returns the documentation for the given option name.
+
+You need at least libtidy from 25 April, 2005 for this function be available.
+
+{object} A tidy object
+
+{optname} The option name
+
+Returns a string if the option exists and has documentation available, or
+FALSE otherwise.
+
+Print all options along with their documentation and default value
+
+<?php >
+  $tidy = new tidy;
+  $config = $tidy->getConfig();
+  
+  ksort($config);
+  
+  foreach ($config as $opt => $val) {
+  
+      if (!$doc = $tidy->getOptDoc($opt))
+          $doc = 'no documentation available!';
+  
+      $val = ($tidy->getOpt($opt) === true)  ? 'true'  : $val;
+      $val = ($tidy->getOpt($opt) === false) ? 'false' : $val;
+  
+      echo "<p><b>$opt</b> (default: '$val')<br />".
+           "$doc</p><hr />\n";
+  }
+?>
+
+|tidy_get_config| |tidy_getopt|
+
+vim:ft=help:

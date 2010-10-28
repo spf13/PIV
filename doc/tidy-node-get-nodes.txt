@@ -1,0 +1,9 @@
+tidy_node->get_nodes -- Return an array of nodes under this node with the
+specified id
+
+  array tidy_node->get_nodes(int node_id)~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

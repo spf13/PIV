@@ -1,0 +1,16 @@
+simplexml_load_file -- Interprets an XML file into an object
+
+  object simplexml_load_file(string filename [, string class_name [, int options]])~
+
+This function will convert the well-formed XML document in the file specified
+by {filename} to an object of class SimpleXMLElement. If any errors occur
+during file access or interpretation, the function returns FALSE.
+
+You may use the optional {class_name} parameter so that |simplexml_load_file|
+will return an object of the specified class. That class should extend the
+SimpleXMLElement class.
+
+Since PHP 5.1.0 and Libxml 2.6.0, you may also use the {options} parameter to
+specify additional Libxml parameters.
+
+vim:ft=help:

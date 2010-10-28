@@ -1,0 +1,11 @@
+fdf_errno -- Return error code for last fdf operation
+
+  int fdf_errno()~
+
+|fdf_errno| returns the error code set by the last FDF function call. This is
+zero for a successfull operation or a non-zero error code on failure. A
+textual description may be obtained using the |fdf_error| function.
+
+See also |fdf_error|.
+
+vim:ft=help:

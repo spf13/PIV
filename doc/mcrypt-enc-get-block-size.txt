@@ -1,0 +1,8 @@
+mcrypt_enc_get_block_size -- Returns the blocksize of the opened algorithm
+
+  int mcrypt_enc_get_block_size(resource td)~
+
+This function returns the block size of the algorithm specified by the
+encryption descriptor {td} in bytes.
+
+vim:ft=help:

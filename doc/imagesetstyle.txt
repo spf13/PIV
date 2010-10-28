@@ -1,0 +1,43 @@
+imagesetstyle -- Set the style for line drawing
+
+  bool imagesetstyle(resource image, array style)~
+
+|imagesetstyle| sets the style to be used by all line drawing functions (such
+as |imageline| and |imagepolygon|) when drawing with the special color
+IMG_COLOR_STYLED or lines of images with color IMG_COLOR_STYLEDBRUSHED.
+Returns TRUE on success or FALSE on failure.
+
+The {style} parameter is an array of pixels. Following example script draws a
+dashed line from upper left to lower right corner of the canvas:
+|imagesetstyle| example
+
+<?php >
+  header("Content-type: image/jpeg");
+  $im  = imagecreate(100, 100);
+  $w   = imagecolorallocate($im, 255, 255, 255);
+  $red = imagecolorallocate($im, 255, 0, 0);
+  
+  /* Draw a dashed line, 5 red pixels, 5 white pixels */
+  $style = array($red, $red, $red, $red, $red, $w, $w, $w, $w, $w);
+  imagesetstyle($im, $style);
+  imageline($im, 0, 0, 100, 100, IMG_COLOR_STYLED);
+  
+  /* Draw a line of happy faces using imagesetbrush() with imagesetstyle */
+  $style = array($w, $w, $w, $w, $w, $w, $w, $w, $w, $w, $w, $w, $red);
+  imagesetstyle($im, $style);
+  
+  $brush = imagecreatefrompng("http://www.libpng.org/pub/png/images/smile.happy.png");
+  $w2 = imagecolorallocate($brush, 255, 255, 255);
+  imagecolortransparent($brush, $w2);
+  imagesetbrush($im, $brush);
+  imageline($im, 100, 0, 0, 100, IMG_COLOR_STYLEDBRUSHED);
+  
+  imagejpeg($im);
+  imagedestroy($im);
+?>
+
+See also |imagesetbrush|, |imageline|.
+
+This function was added in PHP 4.0.6
+
+vim:ft=help:

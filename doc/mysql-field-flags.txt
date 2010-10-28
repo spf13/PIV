@@ -1,0 +1,50 @@
+mysql_field_flags -- Get the flags associated with the specified field in a
+result
+
+  string mysql_field_flags(resource result, int field_offset)~
+
+|mysql_field_flags| returns the field flags of the specified field. The flags
+are reported as a single word per flag separated by a single space, so that
+you can split the returned value using |explode|.
+
+{ result}The result resource that is being evaluated. This result comes from a
+call to |mysql_query|.
+
+{ field_offset}The numerical field offset. The {field_offset} starts at 0. If
+{field_offset} does not exist, an error of level E_WARNING is also issued.
+
+Returns a string of flags associated with the result, or FALSE on failure.
+
+The following flags are reported, if your version of MySQL is current enough
+to support them: "not_null", "primary_key", "unique_key", "multiple_key",
+"blob", "unsigned", "zerofill", "binary", "enum", "auto_increment" and
+"timestamp".
+
+A |mysql_field_flags| example
+
+<?php >
+  $result = mysql_query("SELECT id,email FROM people WHERE id = '42'");
+  if (!$result) {
+      echo 'Could not run query: ' . mysql_error();
+      exit;
+  }
+  $flags = mysql_field_flags($result, 0);
+  
+  echo $flags;
+  print_r(explode(' ', $flags));
+?>
+
+The above example will output something similar to:
+
+  not_null primary_key auto_increment
+  Array
+  (
+      [0] => not_null
+      [1] => primary_key
+      [2] => auto_increment
+  )
+
+For downward compatibility, the following deprecated alias may be used:
+|mysql_fieldflags|
+
+vim:ft=help:

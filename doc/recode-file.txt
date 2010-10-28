@@ -1,0 +1,20 @@
+recode_file -- Recode from file to file according to recode request
+
+  bool recode_file(string request, resource input, resource output)~
+
+Recode the file referenced by file handle {input} into the file referenced by
+file handle {output} according to the recode {request}. Returns FALSE, if
+unable to comply, TRUE otherwise.
+
+This function does not currently process filehandles referencing remote files
+(URLs). Both filehandles must refer to local files.
+
+Basic |recode_file| example
+
+<?php >
+  $input = fopen('input.txt', 'r');
+  $output = fopen('output.txt', 'w');
+  recode_file("us..flat", $input, $output);
+?>
+
+vim:ft=help:

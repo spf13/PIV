@@ -1,0 +1,14 @@
+fbsql_fetch_lengths -- Get the length of each output in a result
+
+  array fbsql_fetch_lengths(resource result)~
+
+Returns: An array that corresponds to the lengths of each field in the last
+row fetched by |fbsql_fetch_row|, or FALSE on error.
+
+|fbsql_fetch_lengths| stores the lengths of each result column in the last row
+returned by |fbsql_fetch_row|, |fbsql_fetch_array| and |fbsql_fetch_object| in
+an array, starting at offset 0.
+
+See also: |fbsql_fetch_row|.
+
+vim:ft=help:

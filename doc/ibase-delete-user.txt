@@ -1,0 +1,14 @@
+ibase_delete_user -- Delete a user from a security database (only for IB6 or
+later)
+
+  bool ibase_delete_user(resource service_handle, string user_name)~
+
+PHP 4 uses {server}, {dba_user_name} and {dba_user_password} instead of
+{service_handle} parameter.
+
+This function is currently not documented; only the argument list is
+available.
+
+See also |ibase_add_user| and |ibase_modify_user|.
+
+vim:ft=help:

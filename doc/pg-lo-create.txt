@@ -1,0 +1,39 @@
+pg_lo_create -- Create a large object
+
+  int pg_lo_create([resource connection])~
+
+|pg_lo_create| creates a large object and returns the OID of the large object.
+PostgreSQL access modes INV_READ, INV_WRITE, and INV_ARCHIVE are not
+supported, the object is created always with both read and write access.
+INV_ARCHIVE has been removed from PostgreSQL itself (version 6.3 and above).
+
+To use the large object interface, it is necessary to enclose it within a
+transaction block.
+
+Instead of using the large object interface (which has no access controls and
+is cumbersome to use), try PostgreSQL's bytea column type and
+|pg_escape_bytea|.
+
+This function used to be called |pg_locreate|.
+
+{connection} PostgreSQL database connection resource. When {connection} is not
+present, the default connection is used. The default connection is the last
+connection made by |pg_connect| or |pg_pconnect|.
+
+A large object OID or FALSE on error.
+
+|pg_lo_create| example
+
+<?php >
+     $database = pg_connect("dbname=jacarta");
+     pg_query($database, "begin");
+     $oid = pg_lo_create($database);
+     echo "$oid\n";
+     $handle = pg_lo_open($database, $oid, "w");
+     echo "$handle\n";
+     pg_lo_write($handle, "large object data");
+     pg_lo_close($handle);
+     pg_query($database, "commit");
+?>
+
+vim:ft=help:

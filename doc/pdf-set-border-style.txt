@@ -1,0 +1,8 @@
+pdf_set_border_style -- Sets style of border around links and annotations
+
+  bool pdf_set_border_style(resource pdfdoc, string style, float width)~
+
+Sets the border style for all kinds of annotations. {style} is {solid} or
+{dashed}. Returns TRUE on success or FALSE on failure.
+
+vim:ft=help:

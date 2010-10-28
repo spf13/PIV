@@ -1,0 +1,9 @@
+imagecolorstotal -- Find out the number of colors in an image's palette
+
+  int imagecolorstotal(resource image)~
+
+This returns the number of colors in the specified image's palette.
+
+See also |imagecolorat| and |imagecolorsforindex|.
+
+vim:ft=help:

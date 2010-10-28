@@ -1,0 +1,18 @@
+rewind -- Rewind the position of a file pointer
+
+  bool rewind(resource handle)~
+
+Sets the file position indicator for {handle} to the beginning of the file
+stream.
+
+Returns TRUE on success or FALSE on failure.
+
+The file pointer must be valid, and must point to a file successfully opened
+by |fopen|.
+
+If you have opened the file in append ("a" or "a+") mode, any data you write
+to the file will always be appended, regardless of the file position.
+
+See also |fseek| and |ftell|.
+
+vim:ft=help:

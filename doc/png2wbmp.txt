@@ -1,0 +1,13 @@
+png2wbmp -- Convert PNG image file to WBMP image file
+
+  int png2wbmp(string pngname, string wbmpname, int d_height, int d_width, int threshold)~
+
+Converts the {pngname} PNG file to WBMP format, and saves it as {wbmpname}.
+With the {d_height} and {d_width} you specify the height and width of the
+destination image.
+
+WBMP support is only available if PHP was compiled against GD-1.8 or later.
+
+See also |jpeg2wbmp|.
+
+vim:ft=help:

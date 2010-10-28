@@ -1,0 +1,9 @@
+swf_definefont -- Defines a font
+
+  void swf_definefont(int fontid, string fontname)~
+
+The |swf_definefont| function defines a font given by the {fontname} parameter
+and gives it the id specified by the {fontid} parameter. It then sets the font
+given by { fontname} to the current font.
+
+vim:ft=help:

@@ -1,0 +1,14 @@
+SWFText->moveTo -- Moves the pen
+
+  void swftext->moveto(int x, int y)~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+|swftext->moveto| moves the pen (or cursor, if that makes more sense) to
+({x},{y}) in text object's coordinate space. If either is zero, though, value
+in that dimension stays the same. Annoying, should be fixed.
+
+vim:ft=help:

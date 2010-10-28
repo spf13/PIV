@@ -1,0 +1,24 @@
+openssl_pkcs7_verify -- Verifies the signature of an S/MIME signed message
+
+  mixed openssl_pkcs7_verify(string filename, int flags [, string outfilename [, array cainfo [, string extracerts]]])~
+
+|openssl_pkcs7_verify| reads the S/MIME message contained in the filename
+specified by {filename} and examines the digital signature. It returns TRUE
+if the signature is verified, FALSE if it is not correct (the message has
+been tampered with, or the signing certificate is invalid), or -1 on error.
+
+{flags} can be used to affect how the signature is verified - see PKCS7
+constants for more information.
+
+If the {outfilename} is specified, it should be a string holding the name of a
+file into which the certificates of the persons that signed the messages will
+be stored in PEM format.
+
+If the {cainfo} is specified, it should hold information about the trusted CA
+certificates to use in the verification process - see certificate
+verification for more information about this parameter.
+
+If the {extracerts} is specified, it is the filename of a file containing a
+bunch of certificates to use as untrusted CAs.
+
+vim:ft=help:

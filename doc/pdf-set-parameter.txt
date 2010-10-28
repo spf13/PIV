@@ -1,0 +1,10 @@
+pdf_set_parameter -- Sets certain parameters
+
+  bool pdf_set_parameter(resource pdfdoc, string key, string value)~
+
+Sets some PDFlib parameters with string type. Returns TRUE on success or FALSE
+on failure.
+
+See also |pdf_set_value|.
+
+vim:ft=help:

@@ -1,0 +1,10 @@
+DomNode->attributes -- Returns list of attributes
+
+  array DomNode->attributes()~
+
+This function only returns an array of attributes if the node is of type
+XML_ELEMENT_NODE.
+
+(PHP >= 4.3 only) If no attributes are found, NULL is returned.
+
+vim:ft=help:

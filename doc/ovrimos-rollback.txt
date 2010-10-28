@@ -1,0 +1,8 @@
+ovrimos_rollback -- Rolls back the transaction
+
+  bool ovrimos_rollback(int connection_id)~
+
+|ovrimos_rollback| is used to roll back the transaction. Returns TRUE on
+success or FALSE on failure.
+
+vim:ft=help:

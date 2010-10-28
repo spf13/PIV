@@ -1,0 +1,38 @@
+ocifetchinto -- Fetches the next row into an array
+
+  int ocifetchinto(resource statement, array result [, int mode])~
+
+This function is deprecated. Recommended alternatives: |oci_fetch_array|,
+|oci_fetch_object|, |oci_fetch_assoc| and |oci_fetch_row|.
+
+|ocifetchinto| fetches the next row of SELECT statement into the {result}
+array. |ocifetchinto| overwrites previous content of {result}. By default
+{result} will contain a zero-based array of all columns that are not NULL.
+
+The {mode} parameter allows you to change the default behaviour. You can
+specify more the one flag by simply adding them up (e.g.
+OCI_ASSOC+OCI_RETURN_NULLS). Valid values are: OCI_ASSOC - return an
+associative array. OCI_NUM - return a numeric array starting with zero
+(default behaviour). OCI_RETURN_NULLS - return the empty values for column,
+which values is NULL. OCI_RETURN_LOBS - return the value of a LOB instead of
+the descriptor.
+
+|ocifetchinto| example
+
+<?php >
+  $conn = ocilogon("username", "password");
+  
+  $query = "SELECT apples FROM oranges";
+  
+  $statement = OCIParse ($conn, $query);
+  OCIExecute ($statement);
+  
+  while (OCIFetchInto ($statement, $row, OCI_ASSOC)) {
+      echo $row['apples'];
+  }
+?>
+
+See also |oci_fetch_array|, |oci_fetch_object|, |oci_fetch_assoc|,
+|oci_fetch_row|, |oci_fetch| and |oci_execute|.
+
+vim:ft=help:

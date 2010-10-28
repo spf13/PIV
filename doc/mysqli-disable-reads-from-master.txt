@@ -1,0 +1,14 @@
+mysqli->disable_reads_from_master -- Disable reads from master
+
+Procedural style:
+
+  bool mysqli_disable_reads_from_master(mysqli link)~
+
+Object oriented style (method):
+
+  void disable_reads_from_master(mysqli link)~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

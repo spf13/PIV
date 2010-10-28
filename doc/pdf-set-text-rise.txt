@@ -1,0 +1,5 @@
+pdf_set_text_rise -- Deprecated: Sets the text rise
+
+This function is deprecated, use |pdf_set_value| instead.
+
+vim:ft=help:

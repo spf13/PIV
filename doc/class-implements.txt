@@ -1,0 +1,53 @@
+class_implements -- Return the interfaces which are implemented by the given
+class
+
+  array class_implements(mixed class [, bool autoload])~
+
+This function returns an array with the names of the interfaces that the given
+{class} implements.
+
+{class} An object (class instance) or a string (class name).
+
+{autoload} Whether to allow this function to load the class automatically
+through the __autoload magic method. Defaults to TRUE.
+
+Returns an array or FALSE on error.
+
+Version Description 5.1.0 Added the option to pass the {class} parameter as a
+string. Added the {autoload} parameter.
+
+|class_implements| example
+
+<?php >
+  interface foo { }
+  class bar implements foo {}
+  
+  print_r(class_implements(new bar));
+  
+  // since PHP 5.1 you may also specify the parameter as a string
+  print_r(class_implements('bar'));
+  
+  
+  function __autoload($class_name) {
+     require_once $class_name . '.php';
+  }
+  
+  // use __autoload to load the 'not_loaded' class
+  print_r(class_implements('not_loaded', true));
+?>
+
+The above example will output something similar to:
+
+  Array
+  (
+      [foo] => foo
+  )
+  
+  Array
+  (
+      [interface_of_not_loaded] => interface_of_not_loaded
+  )
+
+|class_parents|
+
+vim:ft=help:

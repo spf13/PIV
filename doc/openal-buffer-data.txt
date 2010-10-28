@@ -1,0 +1,18 @@
+openal_buffer_data -- Load a buffer with data
+
+  bool openal_buffer_data(resource buffer, int format, string data, int freq)~
+
+An Open AL(Buffer) resource (previously created by |openal_buffer_create|).
+
+Format of {data}, one of: AL_FORMAT_MONO8, AL_FORMAT_MONO16, AL_FORMAT_STEREO8
+and AL_FORMAT_STEREO16
+
+Block of binary audio data in the {format} and {freq} specified.
+
+Frequency of {data} given in Hz.
+
+Returns TRUE on success or FALSE on failure.
+
+|openal_buffer_loadwav| |openal_stream|
+
+vim:ft=help:

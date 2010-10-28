@@ -1,0 +1,16 @@
+mb_http_input -- Detect HTTP input character encoding
+
+  mixed mb_http_input([string type])~
+
+|mb_http_input| returns result of HTTP input character encoding detection.
+
+{type}: Input string specifies input type. "G" for GET, "P" for POST, "C" for
+COOKIE, "S" for string, "L" for list, "I" for whole list (will return array).
+If type is omitted, it returns last input type processed.
+
+Return Value: Character encoding name. If |mb_http_input| does not process
+specified HTTP input, it returns FALSE.
+
+See also |mb_internal_encoding|, |mb_http_output|, |mb_detect_order|.
+
+vim:ft=help:

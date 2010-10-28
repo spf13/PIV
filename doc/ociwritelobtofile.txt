@@ -1,0 +1,9 @@
+ociwritelobtofile -- Saves a large object file
+
+  bool ociwritelobtofile([string filename [, int start [, int length]]])~
+
+This function was renamed to |oci_lob_export| after PHP >= 5.0.0. For downward
+compatibility |ociwritelobtofile| can also be used. This is deprecated,
+however.
+
+vim:ft=help:

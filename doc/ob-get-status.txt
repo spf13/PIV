@@ -1,0 +1,10 @@
+ob_get_status -- Get status of output buffers
+
+  array ob_get_status([bool full_status])~
+
+This will return the current status of output buffers. It returns array
+contains buffer status or FALSE for error.
+
+See also |ob_get_level|.
+
+vim:ft=help:

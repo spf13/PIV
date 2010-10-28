@@ -1,0 +1,7 @@
+ifx_get_blob -- Return the content of a blob object
+
+  int ifx_get_blob(int bid)~
+
+Returns the content of the blob object for the given blob object-id {bid}.
+
+vim:ft=help:

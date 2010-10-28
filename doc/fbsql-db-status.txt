@@ -1,0 +1,33 @@
+fbsql_db_status -- Get the status for a given database
+
+  int fbsql_db_status(string database_name [, resource link_identifier])~
+
+Returns: An integer value with the current status.
+
+|fbsql_db_status| requests the current status of the database specified by
+{database_name}. If the {link_identifier} is omitted the default
+link_identifier will be used.
+
+The return value can be one of the following constants: FALSE - The exec
+handler for the host was invalid. This error will occur when the
+link_identifier connects directly to a database by using a port number.
+FBExec can be available on the server but no connection has been made for it.
+
+FBSQL_UNKNOWN - The Status is unknown.
+
+FBSQL_STOPPED - The database is not running. Use |fbsql_start_db| to start the
+database.
+
+FBSQL_STARTING - The database is starting.
+
+FBSQL_RUNNING - The database is running and can be used to perform SQL
+operations.
+
+FBSQL_STOPPING - The database is stopping.
+
+FBSQL_NOEXEC - FBExec is not running on the server and it is not possible to
+get the status of the database.
+
+See also: |fbsql_start_db| and |fbsql_stop_db|.
+
+vim:ft=help:

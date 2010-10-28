@@ -1,0 +1,11 @@
+hw_api->dstanchors -- Returns a list of all destination anchors
+
+  array hw_api->dstanchors(array parameter)~
+
+Retrieves all destination anchors of an object. The parameter array contains
+the required element 'objectIdentifier' and the optional elements
+'attributeSelector' and 'objectQuery'.
+
+See also |hwapi_srcanchors|.
+
+vim:ft=help:

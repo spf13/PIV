@@ -1,0 +1,5 @@
+mcal_date_compare -- Compares two dates
+
+  int mcal_date_compare(int a_year, int a_month, int a_day, int b_year, int b_month, int b_day)~
+
+vim:ft=help:

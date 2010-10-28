@@ -1,0 +1,8 @@
+mcve_initconn -- Create and initialize an MCVE_CONN structure
+
+  resource mcve_initconn()~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

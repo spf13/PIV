@@ -1,0 +1,14 @@
+apd_croak -- Throw an error, a callstack and then exit
+
+  void apd_croak(string warning [, string delimiter])~
+
+Behaves like perl's Carp::croak. Throw an error, a callstack and then exit.
+The default line delimiter is "\n".
+
+|apd_croak| example
+
+<?php >
+  apd_croak("Some Warning","<P>");
+?>
+
+vim:ft=help:

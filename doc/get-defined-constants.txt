@@ -1,0 +1,89 @@
+get_defined_constants -- Returns an associative array with the names of all
+the constants and their values
+
+  array get_defined_constants([mixed categorize])~
+
+This function returns the names and values of all the constants currently
+defined. This includes those created by extensions as well as those created
+with the |define| function.
+
+For example the line below:
+
+<?php >
+  print_r(get_defined_constants());
+?>
+
+will print a list like:
+
+  Array
+  (
+      [E_ERROR] => 1
+      [E_WARNING] => 2
+      [E_PARSE] => 4
+      [E_NOTICE] => 8
+      [E_CORE_ERROR] => 16
+      [E_CORE_WARNING] => 32
+      [E_COMPILE_ERROR] => 64
+      [E_COMPILE_WARNING] => 128
+      [E_USER_ERROR] => 256
+      [E_USER_WARNING] => 512
+      [E_USER_NOTICE] => 1024
+      [E_ALL] => 2047
+      [TRUE] => 1
+  )
+
+As of PHP 5, an additional parameter, {categorize}, may be passed, causing
+this function to return a multi-dimensional array with categories in the keys
+of the first dimension and constants and their values in the second dimension.
+
+<?php >
+  define("MY_CONSTANT", 1);
+  print_r(get_defined_constants(true));
+?>
+
+The above example will output something similar to:
+
+  Array
+  (
+      [internal] => Array
+          (
+              [E_ERROR] => 1
+              [E_WARNING] => 2
+              [E_PARSE] => 4
+              [E_NOTICE] => 8
+              [E_CORE_ERROR] => 16
+              [E_CORE_WARNING] => 32
+              [E_COMPILE_ERROR] => 64
+              [E_COMPILE_WARNING] => 128
+              [E_USER_ERROR] => 256
+              [E_USER_WARNING] => 512
+              [E_USER_NOTICE] => 1024
+              [E_ALL] => 2047
+              [TRUE] => 1
+          )
+  
+      [pcre] => Array
+          (
+              [PREG_PATTERN_ORDER] => 1
+              [PREG_SET_ORDER] => 2
+              [PREG_OFFSET_CAPTURE] => 256
+              [PREG_SPLIT_NO_EMPTY] => 1
+              [PREG_SPLIT_DELIM_CAPTURE] => 2
+              [PREG_SPLIT_OFFSET_CAPTURE] => 4
+              [PREG_GREP_INVERT] => 1
+          )
+  
+      [user] => Array
+          (
+              [MY_CONSTANT] => 1
+          )
+  
+  )
+
+The value of the {categorize} parameter is irrelevant, only its presence is
+considered.
+
+See also |defined|, |get_loaded_extensions|, |get_defined_functions|, and
+|get_defined_vars|.
+
+vim:ft=help:

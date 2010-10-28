@@ -1,0 +1,8 @@
+posix_getgrnam -- Return info about a group by name
+
+  array posix_getgrnam(string name)~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

@@ -1,0 +1,5 @@
+pdf_set_word_spacing -- Deprecated: Sets spacing between words
+
+This function is deprecated, use |pdf_set_value| instead.
+
+vim:ft=help:

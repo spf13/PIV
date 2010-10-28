@@ -1,0 +1,11 @@
+curl_error -- Return a string containing the last error for the current
+session
+
+  string curl_error(resource ch)~
+
+Returns a clear text error message for the last cURL operation on the resource
+{ch}, or '' (the empty string) if no error occurred.
+
+See also |curl_errno| and Curl error codes.
+
+vim:ft=help:

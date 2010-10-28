@@ -1,0 +1,27 @@
+Memcache::pconnect -- Open memcached server persistent connection
+
+  bool Memcache::pconnect(string host [, int port [, int timeout]])~
+
+|Memcache::pconnect| is similar to |Memcache::connect| with the difference,
+that the connection it establishes is persistent. This connection is not
+closed after the end of script execution and by |Memcache::close| function.
+
+Also you can use |memcache_pconnect| function. See example below.
+
+|Memcache::pconnect| example
+
+<?php >
+  /* procedural API */
+  $memcache_obj = memcache_pconnect('memcache_host', 11211);
+  
+  /* OO API */
+  
+  $memcache_obj = new Memcache;
+  $memcache_obj->pconnect('memcache_host', 11211);
+?>
+
+Returns TRUE on success or FALSE on failure.
+
+See also |Memcache::connect|.
+
+vim:ft=help:

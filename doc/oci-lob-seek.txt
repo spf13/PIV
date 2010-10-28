@@ -1,0 +1,14 @@
+lob->seek -- Sets the internal pointer of the large object
+
+  bool lob->seek(int offset [, int whence])~
+
+Sets the internal pointer of the large object. Parameter {offset} indicates
+the amount of bytes, on which internal pointer should be moved from the
+position, pointed by {whence}: OCI_SEEK_SET - sets the position equal to
+{offset} OCI_SEEK_CUR - adds {offset} bytes to the current position
+OCI_SEEK_END - adds {offset} bytes to the end of large object (use negative
+value to move to a position before the end of large object)
+
+See also |oci_lob_rewind| and |oci_lob_tell|.
+
+vim:ft=help:

@@ -1,0 +1,14 @@
+dba_nextkey -- Fetch next key
+
+  string dba_nextkey(resource handle)~
+
+|dba_nextkey| returns the next key of the database and advances the internal
+key pointer.
+
+{handle} The database handler, returned by |dba_open| or |dba_popen|.
+
+Returns the key on success, or FALSE on failure.
+
+|dba_firstkey| |dba_key_split| Example 2 in the DBA examples
+
+vim:ft=help:

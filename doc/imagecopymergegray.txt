@@ -1,0 +1,18 @@
+imagecopymergegray -- Copy and merge part of an image with gray scale
+
+  bool imagecopymergegray(resource dst_im, resource src_im, int dst_x, int dst_y, int src_x, int src_y, int src_w, int src_h, int pct)~
+
+|imagecopymergegray| copy a part of {src_im} onto {dst_im} starting at the x,y
+coordinates {src_x}, {src_y } with a width of {src_w} and a height of {src_h}.
+The portion defined will be copied onto the x,y coordinates, {dst_x} and
+{dst_y}. The two images will be merged according to {pct} which can range
+from 0 to 100. When {pct} = 0, no action is taken, when 100 this function
+behaves identically to |imagecopy|.
+
+This function is identical to |imagecopymerge| except that when merging it
+preserves the hue of the source by converting the destination pixels to gray
+scale before the copy operation.
+
+This function was added in PHP 4.0.6
+
+vim:ft=help:

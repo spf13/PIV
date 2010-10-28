@@ -1,0 +1,12 @@
+OCI-Collection->assign -- Assigns a value to the collection from another
+existing collection
+
+  bool OCI-Collection->assign(OCI-Collection from)~
+
+Assigns a value to the collection from another, previously created collection.
+Both collections must be created with |oci_new_collection| prior to using
+them.
+
+Returns TRUE on success or FALSE on failure.
+
+vim:ft=help:

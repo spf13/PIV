@@ -1,0 +1,18 @@
+oci_parse -- Prepares Oracle statement for execution
+
+  resource oci_parse(resource connection, string query)~
+
+|oci_parse| prepares the {query} using {connection} and returns the statement
+identifier, which can be used with |oci_bind_by_name|, |oci_execute| and
+other functions.
+
+This function does not validate {query}. The only way to find out if {query}
+is valid SQL or PL/SQL statement - is to execute it.
+
+|oci_parse| returns FALSE on error.
+
+In PHP versions before 5.0.0 you must use |ociparse| instead. This name still
+can be used, it was left as alias of |oci_parse| for downwards compatability.
+This, however, is deprecated and not recommended.
+
+vim:ft=help:

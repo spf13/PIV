@@ -1,0 +1,9 @@
+fdf_get_file -- Get the value of the /F key
+
+  string fdf_get_file(resource fdf_document)~
+
+The |fdf_set_file| returns the value of the /F key.
+
+See also |fdf_set_file|.
+
+vim:ft=help:

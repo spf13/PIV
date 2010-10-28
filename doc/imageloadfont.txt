@@ -1,0 +1,34 @@
+imageloadfont -- Load a new font
+
+  int imageloadfont(string file)~
+
+|imageloadfont| loads a user-defined bitmap font and returns an identifier for
+the font (that is always greater than 5, so it will not conflict with the
+built-in fonts). It returns FALSE in case of error.
+
+The font file format is currently binary and architecture dependent. This
+means you should generate the font files on the same type of CPU as the
+machine you are running PHP on.
+
+Font file format byte position C data type description byte 0-3 int number of
+characters in the font byte 4-7 int value of first character in the font
+(often 32 for space) byte 8-11 int pixel width of each character byte 12-15
+int pixel height of each character byte 16- char array with character data,
+one byte per pixel in each character, for a total of (nchars*width*height)
+bytes.
+
+Using imageloadfont
+
+<?php >
+  $im = imagecreate(50, 20);
+  $black = imagecolorallocate($im, 0, 0, 0);
+  $white = imagecolorallocate($im, 255, 255, 255);
+  imagefilledrectangle($im, 0, 0, 49, 19, $white);
+  $font = imageloadfont("04b.gdf");
+  imagestring($im, $font, 0, 0, "Hello", $black);
+  imagepng($im);
+?>
+
+See also |imagefontwidth| and |imagefontheight|.
+
+vim:ft=help:

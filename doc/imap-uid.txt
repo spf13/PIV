@@ -1,0 +1,15 @@
+imap_uid -- This function returns the UID for the given message sequence
+number
+
+  int imap_uid(resource imap_stream, int msgno)~
+
+This function returns the UID for the given message sequence number. An UID is
+an unique identifier that will not change over time while a message sequence
+number may change whenever the content of the mailbox changes. This function
+is the inverse of |imap_msgno|.
+
+This is not supported by POP3 mailboxes.
+
+See also: |imap_msgno|.
+
+vim:ft=help:

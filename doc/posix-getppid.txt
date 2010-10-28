@@ -1,0 +1,7 @@
+posix_getppid -- Return the parent process identifier
+
+  int posix_getppid()~
+
+Return the process identifier of the parent process of the current process.
+
+vim:ft=help:

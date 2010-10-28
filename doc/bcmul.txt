@@ -1,0 +1,18 @@
+bcmul -- Multiply two arbitrary precision number
+
+  string bcmul(string left_operand, string right_operand [, int scale])~
+
+Multiply the {left_operand} by the {right_operand} and returns the result. The
+optional {scale} sets the number of digits after the decimal place in the
+result.
+
+|bcmul| example
+
+<?php >
+  echo bcmul('1.34747474747', '35', 3); // 47.162
+  echo bcmul('2', '4'); // 8
+?>
+
+|bcdiv|.
+
+vim:ft=help:

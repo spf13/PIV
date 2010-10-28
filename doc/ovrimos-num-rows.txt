@@ -1,0 +1,7 @@
+ovrimos_num_rows -- Returns the number of rows affected by update operations
+
+  int ovrimos_num_rows(int result_id)~
+
+|ovrimos_num_rows| returns the number of rows affected by update operations.
+
+vim:ft=help:

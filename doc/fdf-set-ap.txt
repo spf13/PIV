@@ -1,0 +1,9 @@
+fdf_set_ap -- Set the appearance of a field
+
+  bool fdf_set_ap(resource fdf_document, string field_name, int face, string filename, int page_number)~
+
+The |fdf_set_ap| function sets the appearance of a field (i.e. the value of
+the /AP key). The possible values of {face} are FDFNormalAP, FDFRolloverAP
+and FDFDownAP.
+
+vim:ft=help:

@@ -1,0 +1,8 @@
+SoapServer->fault() -- Issue SoapServer fault indicating an error
+
+  void fault(string code, string string [, string actor [, mixed details [, string name]]])~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

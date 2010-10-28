@@ -1,0 +1,45 @@
+ldap_add -- Add entries to LDAP directory
+
+  bool ldap_add(resource link_identifier, string dn, array entry)~
+
+Returns TRUE on success or FALSE on failure.
+
+The |ldap_add| function is used to add entries in the LDAP directory. The DN
+of the entry to be added is specified by {dn}. Array {entry} specifies the
+information about the entry. The values in the entries are indexed by
+individual attributes. In case of multiple values for an attribute, they are
+indexed using integers starting with 0.
+
+<?php >
+  $entree["attribut1"] = "value";
+  $entree["attribut2"][0] = "value1";
+  $entree["attribut2"][1] = "value2";
+?>
+
+Complete example with authenticated bind
+
+<?php >
+  $ds=ldap_connect("localhost");  // assuming the LDAP server is on this host
+  
+  if ($ds) {
+      // bind with appropriate dn to give update access
+      $r=ldap_bind($ds, "cn=root, o=My Company, c=US", "secret");
+  
+      // prepare data
+      $info["cn"]="John Jones";
+      $info["sn"]="Jones";
+      $info["mail"]="jonj@example.com";
+      $info["objectclass"]="person";
+  
+      // add data to directory
+      $r=ldap_add($ds, "cn=John Jones, o=My Company, c=US", $info);
+  
+      ldap_close($ds);
+  } else {
+      echo "Unable to connect to LDAP server"; 
+  }
+?>
+
+This function is binary-safe.
+
+vim:ft=help:

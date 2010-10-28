@@ -1,0 +1,8 @@
+DirectoryIterator::getGroup -- Get file group
+
+  int DirectoryIterator::getGroup()~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

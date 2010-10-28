@@ -1,0 +1,10 @@
+mcal_event_set_recur_daily -- Sets the recurrence of the streams global event
+structure
+
+  void mcal_event_set_recur_daily(int stream, int year, int month, int day, int interval)~
+
+|mcal_event_set_recur_daily| sets the streams global event structure's
+recurrence to the given value to be reoccurring on a daily basis, ending at
+the given date.
+
+vim:ft=help:

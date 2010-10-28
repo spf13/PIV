@@ -1,0 +1,12 @@
+lob->truncate -- Truncates large object
+
+  bool lob->truncate([int length])~
+
+If parameter {length} is given, |lob->truncate| truncates large object to
+{length} bytes. Otherwise, |lob->truncate| will purge the LOB completely.
+
+Returns TRUE on success or FALSE on failure.
+
+See also |oci_lob_erase|.
+
+vim:ft=help:

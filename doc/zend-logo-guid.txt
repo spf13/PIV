@@ -1,0 +1,17 @@
+zend_logo_guid -- Gets the Zend guid
+
+  string zend_logo_guid()~
+
+This function returns the ID which can be used to display the Zend logo using
+the built-in image.
+
+|zend_logo_guid| example
+
+<?php >
+  echo '<img src="' . $_SERVER['PHP_SELF'] .
+       '?=' . zend_logo_guid() . '" alt="Zend Logo !" />';
+?>
+
+See also |php_logo_guid|.
+
+vim:ft=help:

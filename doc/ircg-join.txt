@@ -1,0 +1,8 @@
+ircg_join -- Join a channel on a connected server
+
+  bool ircg_join(resource connection, string channel [, string key])~
+
+Join the channel {channel} on the server connected to by {connection}. IRCG
+will optionally pass the room key {key}.
+
+vim:ft=help:

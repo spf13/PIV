@@ -1,0 +1,8 @@
+snmp_read_mib -- Reads and parses a MIB file into the active MIB tree
+
+  bool snmp_read_mib(string filename)~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

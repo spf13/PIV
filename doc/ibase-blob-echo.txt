@@ -1,0 +1,13 @@
+ibase_blob_echo -- Output blob contents to browser
+
+  bool ibase_blob_echo(resource link_identifier, string blob_id)~
+
+  bool ibase_blob_echo(resource link_identifier, string blob_id, string blob_id)~
+
+This function opens a BLOB for reading and sends its contents directly to
+standard output (the browser, in most cases). Returns TRUE on success or
+FALSE on failure.
+
+See also |ibase_blob_open|, |ibase_blob_close| and |ibase_blob_get|.
+
+vim:ft=help:

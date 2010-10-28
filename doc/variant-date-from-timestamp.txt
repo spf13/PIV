@@ -1,0 +1,13 @@
+variant_date_from_timestamp -- Returns a variant date representation of a unix
+timestamp
+
+  variant variant_date_from_timestamp(int timestamp)~
+
+Converts {timestamp} from a unix timestamp value into a variant of type
+VT_DATE. This allows easier interopability between the unix-ish parts of PHP
+and COM.
+
+See also |variant_date_to_timestamp| for the inverse of this operation,
+|mktime|, |time|.
+
+vim:ft=help:

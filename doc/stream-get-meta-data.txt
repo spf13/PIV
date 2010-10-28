@@ -1,0 +1,58 @@
+stream_get_meta_data -- Retrieves header/meta data from streams/file pointers
+
+  array stream_get_meta_data(resource stream)~
+
+Returns information about an existing {stream}. The stream can be any stream
+created by |fopen|, |fsockopen| and |pfsockopen|. The result array contains
+the following items:
+
+{timed_out} (bool) - TRUE if the stream timed out while waiting for data on
+the last call to |fread| or |fgets|.
+
+{blocked} (bool) - TRUE if the stream is in blocking IO mode. See
+|stream_set_blocking|.
+
+{eof} (bool) - TRUE if the stream has reached end-of-file. Note that for
+socket streams this member can be TRUE even when {unread_bytes} is non-zero.
+To determine if there is more data to be read, use |feof| instead of reading
+this item.
+
+{unread_bytes} (int) - the number of bytes currently contained in the PHP's
+own internal buffer.
+
+You shouldn't use this value in a script.
+
+The following items were added in PHP 4.3:
+
+{stream_type} (string) - a label describing the underlying implementation of
+the stream.
+
+{wrapper_type} (string) - a label describing the protocol wrapper
+implementation layered over the stream. See for more information about
+wrappers.
+
+{wrapper_data} (mixed) - wrapper specific data attached to this stream. See
+for more information about wrappers and their wrapper data.
+
+{filters} (array) - and array containing the names of any filters that have
+been stacked onto this stream. Documentation on filters can be found in the
+Filters appendix.
+
+This function was introduced in PHP 4.3, but prior to this version,
+|socket_get_status| could be used to retrieve the first four items, for
+socket based streams only.
+
+In PHP 4.3 and later, |socket_get_status| is an alias for this function.
+
+This function does NOT work on sockets created by the Socket extension.
+
+The following items were added in PHP 5.0:
+
+{mode} (string) - the type of access required for this stream (see Table 1 of
+the fopen() reference)
+
+{seekable} (bool) - whether the current stream can be seeked.
+
+{uri} (string) - the URI/filename associated with this stream.
+
+vim:ft=help:

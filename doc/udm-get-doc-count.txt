@@ -1,0 +1,11 @@
+udm_get_doc_count -- Get total number of documents in database
+
+  int udm_get_doc_count(resource agent)~
+
+|udm_get_doc_count| returns the number of documents in the database.
+
+{agent} - link to agent identifier, received after call to |udm_alloc_agent|.
+
+This function is supported only in mnoGoSearch 3.1.11 or later.
+
+vim:ft=help:

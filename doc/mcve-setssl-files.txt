@@ -1,0 +1,9 @@
+mcve_setssl_files -- Set certificate key files and certificates if server
+requires client certificate verification
+
+  int mcve_setssl_files(string sslkeyfile, string sslcertfile)~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

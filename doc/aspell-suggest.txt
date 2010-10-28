@@ -1,0 +1,21 @@
+aspell_suggest -- Suggest spellings of a word [deprecated]
+
+  array aspell_suggest(int dictionary_link, string word)~
+
+|aspell_suggest| returns an array of possible spellings for the given word.
+
+|aspell_suggest|
+
+<?php >
+  $aspell_link = aspell_new("english");
+  
+  if (!aspell_check($aspell_link, "test")) {
+      $suggestions = aspell_suggest($aspell_link, "test");
+  
+      foreach ($suggestions as $suggestion) {
+          echo "Possible spelling: $suggestion<br />\n"; 
+      }
+  }
+?>
+
+vim:ft=help:

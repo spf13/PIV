@@ -1,0 +1,67 @@
+preg_match_all -- Perform a global regular expression match
+
+  int preg_match_all(string pattern, string subject, array matches [, int flags [, int offset]])~
+
+Searches {subject} for all matches to the regular expression given in
+{pattern} and puts them in {matches} in the order specified by {flags}.
+
+After the first match is found, the subsequent searches are continued on from
+end of the last match.
+
+{flags} can be a combination of the following flags (note that it doesn't make
+sense to use PREG_PATTERN_ORDER together with PREG_SET_ORDER):
+PREG_PATTERN_ORDER Orders results so that $matches[0] is an array of full
+pattern matches, $matches[1] is an array of strings matched by the first
+parenthesized subpattern, and so on.
+
+<?php >
+  preg_match_all("|<[^>]+>(.*)</[^>]+>|U", 
+      "<b>example: </b><div align=left>this is a test</div>", 
+      $out, PREG_PATTERN_ORDER);
+  echo $out[0][0] . ", " . $out[0][1] . "\n";
+  echo $out[1][0] . ", " . $out[1][1] . "\n";
+?>
+
+This example will produce:
+
+  <b>example: </b>, <div align=left>this is a test</div>
+  example: , this is a test
+
+So, $out[0] contains array of strings that matched full pattern, and $out[1]
+contains array of strings enclosed by tags.
+
+PREG_SET_ORDER Orders results so that $matches[0] is an array of first set of
+matches, $matches[1] is an array of second set of matches, and so on.
+
+<?php >
+  preg_match_all("|<[^>]+>(.*)</[^>]+>|U", 
+      "<b>example: </b><div align=\"left\">this is a test</div>", 
+      $out, PREG_SET_ORDER);
+  echo $out[0][0] . ", " . $out[0][1] . "\n";
+  echo $out[1][0] . ", " . $out[1][1] . "\n";
+?>
+
+This example will produce:
+
+  <b>example: </b>, example: 
+  <div align="left">this is a test</div>, this is a test
+
+In this case, $matches[0] is the first set of matches, and $matches[0][0] has
+text matched by full pattern, $matches[0][1] has text matched by first
+subpattern and so on. Similarly, $matches[1] is the second set of matches,
+etc.
+
+PREG_OFFSET_CAPTURE If this flag is passed, for every occurring match the
+appendant string offset will also be returned. Note that this changes the
+return value in an array where every element is an array consisting of the
+matched string at offset 0 and its string offset into {subject} at offset 1.
+This flag is available since PHP 4.3.0 .
+
+If no order flag is given, PREG_PATTERN_ORDER is assumed.
+
+Normally, the search starts from the beginning of the subject string. The
+optional parameter {offset} can be used to specify the alternate place from
+which to start the search. The {offset} parameter is available since PHP
+4.3.3.
+
+vim:ft=help:

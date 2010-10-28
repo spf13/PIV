@@ -1,0 +1,11 @@
+openal_source_rewind -- Rewind the source
+
+  bool openal_source_rewind(resource source)~
+
+An Open AL(Source) resource (previously created by |openal_source_create|).
+
+Returns TRUE on success or FALSE on failure.
+
+|openal_source_stop| |openal_source_pause| |openal_source_play|
+
+vim:ft=help:

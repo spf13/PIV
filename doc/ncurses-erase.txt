@@ -1,0 +1,16 @@
+ncurses_erase -- Erase terminal screen
+
+  bool ncurses_erase()~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+|ncurses_erase| fills the terminal screen with blanks. Created blanks have the
+current background rendition, set by |ncurses_bkgd|. Returns TRUE on success
+or FALSE on failure.
+
+See also |ncurses_bkgd|, and |ncurses_clear|
+
+vim:ft=help:

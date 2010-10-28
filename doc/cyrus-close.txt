@@ -1,0 +1,8 @@
+cyrus_close -- Close connection to a Cyrus IMAP server
+
+  bool cyrus_close(resource connection)~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

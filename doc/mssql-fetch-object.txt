@@ -1,0 +1,22 @@
+mssql_fetch_object -- Fetch row as object
+
+  object mssql_fetch_object(resource result)~
+
+Returns: An object with properties that correspond to the fetched row, or
+FALSE if there are no more rows.
+
+|mssql_fetch_object| is similar to |mssql_fetch_array|, with one difference -
+an object is returned, instead of an array. Indirectly, that means that you
+can only access the data by the field names, and not by their offsets
+(numbers are illegal property names).
+
+Field names returned by this function are case-sensitive.
+
+This function sets NULL fields to PHP NULL value.
+
+Speed-wise, the function is identical to |mssql_fetch_array|, and almost as
+quick as |mssql_fetch_row| (the difference is insignificant).
+
+See also |mssql_fetch_array|, and |mssql_fetch_row|.
+
+vim:ft=help:

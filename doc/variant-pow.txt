@@ -1,0 +1,10 @@
+variant_pow -- Returns the result of performing the power function with two
+variants
+
+  mixed variant_pow(mixed left, mixed right)~
+
+Returns the result of {left} to the power of {right}.
+
+See also |pow|.
+
+vim:ft=help:

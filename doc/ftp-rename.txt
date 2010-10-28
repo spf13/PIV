@@ -1,0 +1,38 @@
+ftp_rename -- Renames a file or a directory on the FTP server
+
+  bool ftp_rename(resource ftp_stream, string oldname, string newname)~
+
+|ftp_rename| renames a file or a directory on the FTP server.
+
+{ftp_stream} The link identifier of the FTP connection.
+
+{oldname} The old file/directory name.
+
+{newname} The new name.
+
+Returns TRUE on success or FALSE on failure.
+
+|ftp_rename| example
+
+<?php >
+  $old_file = 'somefile.txt.bak';
+  $new_file = 'somefile.txt';
+  
+  // set up basic connection
+  $conn_id = ftp_connect($ftp_server);
+  
+  // login with username and password
+  $login_result = ftp_login($conn_id, $ftp_user_name, $ftp_user_pass);
+  
+  // try to rename $olf_file to $new_file
+  if (ftp_rename($conn_id, $old_file, $new_file)) {
+   echo "successfully renamed $old_file to $new_file\n";
+  } else {
+   echo "There was a problem while renaming $old_file to $new_file\n";
+  }
+  
+  // close the connection
+  ftp_close($conn_id);
+?>
+
+vim:ft=help:

@@ -1,0 +1,17 @@
+mb_ereg -- Regular expression match with multibyte support
+
+  int mb_ereg(string pattern, string string [, array regs])~
+
+|mb_ereg| executes the regular expression match with multibyte support, and
+returns 1 if matches are found. If the optional third parameter was
+specified, the function returns the byte length of matched part, and the
+array {regs} will contain the substring of matched string. The functions
+returns 1 if it matches with the empty string. If no matches found or error
+happend, FALSE will be returned.
+
+The internal encoding or the character encoding specified in
+|mb_regex_encoding| will be used as character encoding.
+
+See also: |mb_regex_encoding|, |mb_eregi|
+
+vim:ft=help:

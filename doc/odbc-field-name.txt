@@ -1,0 +1,9 @@
+odbc_field_name -- Get the columnname
+
+  string odbc_field_name(resource result_id, int field_number)~
+
+|odbc_field_name| will return the name of the field occupying the given column
+number in the given ODBC result identifier. Field numbering starts at 1. FALSE
+is returned on error.
+
+vim:ft=help:

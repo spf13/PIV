@@ -1,0 +1,13 @@
+mb_regex_set_options -- Set/Get the default options for mbregex functions
+
+  string mb_regex_set_options([string options])~
+
+|mb_regex_set_options| sets the default options described by {options} for
+multibyte regex functions.
+
+Returns the previous options. If {options} is omitted, it returns the string
+that describes the current options.
+
+See also |mb_split|, |mb_ereg| and |mb_eregi|
+
+vim:ft=help:

@@ -1,0 +1,8 @@
+tidy_node->get_attr -- Return the attribute with the provided attribute id
+
+  tidy_attr tidy_node->get_attr(int attrib_id)~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

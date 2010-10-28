@@ -1,0 +1,18 @@
+printer_write -- Write data to the printer
+
+  bool printer_write(resource handle, string content)~
+
+Writes {content} directly to the printer. Returns TRUE on success or FALSE on
+failure.
+
+{handle} must be a valid handle to a printer.
+
+|printer_write| example
+
+<?php >
+  $handle = printer_open();
+  printer_write($handle, "Text to print");
+  printer_close($handle);
+?>
+
+vim:ft=help:

@@ -1,0 +1,38 @@
+DOMXPath->evaluate() -- Evaluates the given XPath expression and returns a
+typed result if possible.
+
+  mixed evaluate(string expression [, DOMNode contextnode])~
+
+Executes the given XPath {expression} and returns a typed result if possible.
+
+{expression} The XPath expression to execute.
+
+{contextnode} The optional {contextnode} can be specified for doing relative
+XPath queries. By default, the queries are relative to the root element.
+
+Returns a typed result if possible or a DOMNodeList containing all nodes
+matching the given XPath {expression}.
+
+Getting the count of all the english books
+
+<?php >
+  $doc = new DOMDocument;
+  
+  $doc->load('book.xml');
+  
+  $xpath = new DOMXPath($doc);
+  
+  $tbody = $doc->getElementsByTagName('tbody')->item(0);
+  
+  // our query is relative to the tbody node
+  $query = 'count(row/entry[. = "en"])';
+  
+  $entries = $xpath->evaluate($query, $tbody);
+  echo "There are $entries english books\n";
+?>
+
+The above example will output:
+
+  There are 2 english books
+
+vim:ft=help:

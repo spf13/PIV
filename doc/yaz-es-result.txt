@@ -1,0 +1,10 @@
+yaz_es_result -- Inspects Extended Services Result
+
+  array yaz_es_result(resource id)~
+
+This function is currently not documented; only the argument list is
+available.
+
+{id} The connection resource returned by |yaz_connect|.
+
+vim:ft=help:

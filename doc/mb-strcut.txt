@@ -1,0 +1,20 @@
+mb_strcut -- Get part of string
+
+  string mb_strcut(string str, int start [, int length [, string encoding]])~
+
+|mb_strcut| returns the portion of {str} specified by the {start} and {length}
+parameters.
+
+|mb_strcut| performs equivalent operation as |mb_substr| with different
+method. If {start} position is multi-byte character's second byte or larger,
+it starts from first byte of multi-byte character.
+
+It subtracts string from {str} that is shorter than {length} AND character
+that is not part of multi-byte string or not being middle of shift sequence.
+
+{encoding} is character encoding. If it is not set, internal character
+encoding is used.
+
+See also |mb_substr|, |mb_internal_encoding|.
+
+vim:ft=help:

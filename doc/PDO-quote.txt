@@ -1,0 +1,79 @@
+PDO::quote -- Quotes a string for use in a query.
+
+  string PDO::quote(string string [, int parameter_type])~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+|PDO::quote| places quotes around the input string and escapes and single
+quotes within the input string, using a quoting style appropriate to the
+underlying driver.
+
+If you're using this function to build SQL, it is recommended that you using
+prepared statements and bound parameters instead, as it is not only more
+convenient, but often much faster.
+
+Not all PDO drivers implement this method (notably PDO_ODBC). Consider using
+prepared statements instead.
+
+{string} The string to be quoted.
+
+{parameter_type} Provides a data type hint for drivers that have alternate
+quoting styles. The default value is PDO_PARAM_STR.
+
+Returns a quoted string that is theoretically safe to pass into an SQL
+statement. Returns FALSE if the driver does not support quoting in this way.
+
+Quoting a normal string
+
+<?php >
+  $conn = new PDO('sqlite:/home/lynn/music.sql3');
+  
+  /* Simple string */
+  $string = 'Nice';
+  print "Unquoted string: $string\n";
+  print "Quoted string: " . $conn->quote($string) . "\n";
+?>
+
+The above example will output:
+
+  Unquoted string: Nice
+  Quoted string: 'Nice'
+
+Quoting a dangerous string
+
+<?php >
+  $conn = new PDO('sqlite:/home/lynn/music.sql3');
+  
+  /* Dangerous string */
+  $string = 'Naughty \' string';
+  print "Unquoted string: $string\n";
+  print "Quoted string:" . $conn->quote($string) . "\n";
+?>
+
+The above example will output:
+
+  Unquoted string: Naughty ' string
+  Quoted string: 'Naughty '' string'
+
+Quoting a complex string
+
+<?php >
+  $conn = new PDO('sqlite:/home/lynn/music.sql3');
+  
+  /* Complex string */
+  $string = "Co'mpl''ex \"st'\"ring";
+  print "Unquoted string: $string\n";
+  print "Quoted string: " . $conn->quote($string) . "\n";
+?>
+
+The above example will output:
+
+  Unquoted string: Co'mpl''ex "st'"ring
+  Quoted string: 'Co''mpl''''ex "st''"ring'
+
+|PDO::prepare| |PDOStatement::execute|
+
+vim:ft=help:

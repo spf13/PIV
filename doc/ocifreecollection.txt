@@ -1,0 +1,9 @@
+ocifreecollection -- Deletes collection object
+
+  bool ocifreecollection()~
+
+This function was renamed to |oci_free_collection| after PHP >= 5.0.0. For
+downward compatibility |ocifreecollection| can also be used. This is
+deprecated, however.
+
+vim:ft=help:

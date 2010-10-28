@@ -1,0 +1,14 @@
+SWFTextField->setbounds -- Sets the text field width and height
+
+  void swftextfield->setbounds(int width, int height)~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+|swftextfield->setbounds| sets the text field width to {width} and height to
+{height}. If you don't set the bounds yourself, Ming makes a poor guess at
+what the bounds are.
+
+vim:ft=help:

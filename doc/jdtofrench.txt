@@ -1,0 +1,7 @@
+JDToFrench -- Converts a Julian Day Count to the French Republican Calendar
+
+  string jdtofrench(int juliandaycount)~
+
+Converts a Julian Day Count to the French Republican Calendar.
+
+vim:ft=help:

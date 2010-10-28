@@ -1,0 +1,26 @@
+readline -- Reads a line
+
+  string readline(string prompt)~
+
+This function returns a single string from the user. You may specify a string
+with which to prompt the user. The line returned has the ending newline
+removed. You must add this line to the history yourself using
+|readline_add_history|.
+
+|readline|
+
+<?php >
+  //get 3 commands from user
+  for ($i=0; $i < 3; $i++) {
+          $line = readline("Command: ");
+          readline_add_history($line);
+  }
+  
+  //dump history
+  print_r(readline_list_history());
+  
+  //dump variables
+  print_r(readline_info());
+?>
+
+vim:ft=help:

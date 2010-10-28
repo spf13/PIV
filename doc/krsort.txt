@@ -1,0 +1,32 @@
+krsort -- Sort an array by key in reverse order
+
+  bool krsort(array array [, int sort_flags])~
+
+Sorts an array by key in reverse order, maintaining key to data correlations.
+This is useful mainly for associative arrays.
+
+Returns TRUE on success or FALSE on failure.
+
+|krsort| example
+
+<?php >
+  $fruits = array("d"=>"lemon", "a"=>"orange", "b"=>"banana", "c"=>"apple");
+  krsort($fruits);
+  foreach ($fruits as $key => $val) {
+      echo "$key = $val\n";
+  }
+?>
+
+The above example will output:
+
+  d = lemon
+  c = apple
+  b = banana
+  a = orange
+
+You may modify the behavior of the sort using the optional parameter
+{sort_flags}, for details see |sort|.
+
+See also |asort|, |arsort|, |ksort|, |sort|, |natsort|, and |rsort|.
+
+vim:ft=help:

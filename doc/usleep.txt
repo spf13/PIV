@@ -1,0 +1,30 @@
+usleep -- Delay execution in microseconds
+
+  void usleep(int micro_seconds)~
+
+The |usleep| function delays program execution for the given number of
+{micro_seconds}. A microsecond is one millionth of a second.
+
+|usleep| example
+
+<?php >
+  // Current time
+  echo date('h:i:s') . "\n";
+  
+  // wait for 2 secondes
+  usleep(2000000);
+  
+  // back!
+  echo date('h:i:s') . "\n";
+?>
+
+This script will output :
+
+  11:13:28
+  11:13:30
+
+This function did not work on Windows systems until PHP 5.0.0
+
+See also |sleep| and |set_time_limit|.
+
+vim:ft=help:

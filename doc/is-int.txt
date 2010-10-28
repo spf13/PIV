@@ -1,0 +1,16 @@
+is_int -- Find whether a variable is an integer
+
+  bool is_int(mixed var)~
+
+Finds whether the given variable is an integer.
+
+To test if a variable is a number or a numeric string (such as form input,
+which is always a string), you must use |is_numeric|.
+
+{var} The variable being evaluated.
+
+Returns TRUE if {var} is an integer, FALSE otherwise.
+
+|is_bool| |is_float| |is_numeric| |is_string| |is_array| |is_object|
+
+vim:ft=help:

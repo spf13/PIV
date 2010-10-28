@@ -1,0 +1,6 @@
+iis_get_service_state -- Returns the state for the service defined by
+ServiceId
+
+  int iis_get_service_state(string service_id)~
+
+vim:ft=help:

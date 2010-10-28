@@ -1,0 +1,66 @@
+mysql_list_fields -- List MySQL table fields
+
+  resource mysql_list_fields(string database_name, string table_name [, resource link_identifier])~
+
+Retrieves information about the given table name.
+
+This function is deprecated. It is preferable to use |mysql_query| to issue a
+SQL SHOW COLUMNS FROM table [LIKE 'name'] statement instead.
+
+{database_name} The name of the database that's being queried.
+
+{table_name} The name of the table that's being queried.
+
+{ link_identifier}The MySQL connection. If the link identifier is not
+specified, the last link opened by |mysql_connect| is assumed. If no such
+link is found, it will try to create one as if |mysql_connect| was called
+with no arguments. If by chance no connection is found or established, an
+E_WARNING level warning is generated.
+
+A result pointer resource on success, or FALSE on failure.
+
+The returned result can be used with |mysql_field_flags|, |mysql_field_len|,
+|mysql_field_name| and |mysql_field_type|.
+
+Alternate to deprecated |mysql_list_fields|
+
+<?php >
+  $result = mysql_query("SHOW COLUMNS FROM sometable");
+  if (!$result) {
+      echo 'Could not run query: ' . mysql_error();
+      exit;
+  }
+  if (mysql_num_rows($result) > 0) {
+      while ($row = mysql_fetch_assoc($result)) {
+          print_r($row);
+      }
+  }
+?>
+
+The above example will output something similar to:
+
+  Array
+  (
+      [Field] => id
+      [Type] => int(7)
+      [Null] =>  
+      [Key] => PRI
+      [Default] =>
+      [Extra] => auto_increment
+  )
+  Array
+  (
+      [Field] => email
+      [Type] => varchar(100)
+      [Null] =>
+      [Key] =>
+      [Default] =>
+      [Extra] =>
+  )
+
+For downward compatibility, the following deprecated alias may be used:
+|mysql_listfields|
+
+|mysql_field_flags| |mysql_info|
+
+vim:ft=help:

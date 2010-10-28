@@ -1,0 +1,8 @@
+pspell_add_to_session -- Add the word to the wordlist in the current session
+
+  bool pspell_add_to_session(int dictionary_link, string word)~
+
+|pspell_add_to_session| adds a word to the wordlist associated with the
+current session. It is very similar to |pspell_add_to_personal|
+
+vim:ft=help:

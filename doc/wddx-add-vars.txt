@@ -1,0 +1,9 @@
+wddx_add_vars -- Add variables to a WDDX packet with the specified ID
+
+  bool wddx_add_vars(int packet_id, mixed name_var [, mixed ...])~
+
+|wddx_add_vars| is used to serialize passed variables and add the result to
+the packet specified by the {packet_id}. The variables to be serialized are
+specified in exactly the same way as |wddx_serialize_vars|.
+
+vim:ft=help:

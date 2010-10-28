@@ -1,0 +1,121 @@
+usort -- Sort an array by values using a user-defined comparison function
+
+  bool usort(array array, callback cmp_function)~
+
+This function will sort an array by its values using a user-supplied
+comparison function. If the array you wish to sort needs to be sorted by some
+non-trivial criteria, you should use this function.
+
+The comparison function must return an integer less than, equal to, or greater
+than zero if the first argument is considered to be respectively less than,
+equal to, or greater than the second.
+
+If two members compare as equal, their order in the sorted array is undefined.
+Up to PHP 4.0.6 the user defined functions would keep the original order for
+those elements, but with the new sort algorithm introduced with 4.1.0 this is
+no longer the case as there is no solution to do so in an efficient way.
+
+Returns TRUE on success or FALSE on failure.
+
+|usort| example
+
+<?php >
+  function cmp($a, $b) 
+  {
+      if ($a == $b) {
+          return 0;
+      }
+      return ($a < $b) ? -1 : 1;
+  }
+  
+  $a = array(3, 2, 5, 6, 1);
+  
+  usort($a, "cmp");
+  
+  foreach ($a as $key => $value) {
+      echo "$key: $value\n";
+  }
+?>
+
+The above example will output:
+
+  0: 1
+  1: 2
+  2: 3
+  3: 5
+  4: 6
+
+Obviously in this trivial case the |sort| function would be more appropriate.
+
+|usort| example using multi-dimensional array
+
+<?php >
+  function cmp($a, $b) 
+  {
+      return strcmp($a["fruit"], $b["fruit"]);
+  }
+  
+  $fruits[0]["fruit"] = "lemons";
+  $fruits[1]["fruit"] = "apples";
+  $fruits[2]["fruit"] = "grapes";
+  
+  usort($fruits, "cmp");
+  
+  while (list($key, $value) = each($fruits)) {
+      echo "\$fruits[$key]: " . $value["fruit"] . "\n";
+  }
+?>
+
+When sorting a multi-dimensional array, $a and $b contain references to the
+first index of the array.
+
+The above example will output:
+
+  $fruits[0]: apples
+  $fruits[1]: grapes
+  $fruits[2]: lemons
+
+|usort| example using a member function of an object
+
+<?php >
+  class TestObj {
+      var $name;
+  
+      function TestObj($name) 
+      {
+          $this->name = $name;
+      }
+  
+      /* This is the static comparing function: */
+      function cmp_obj($a, $b) 
+      {
+          $al = strtolower($a->name);
+          $bl = strtolower($b->name);
+          if ($al == $bl) {
+              return 0;
+          }
+          return ($al > $bl) ? +1 : -1;
+      }
+  }
+  
+  $a[] = new TestObj("c");
+  $a[] = new TestObj("b");
+  $a[] = new TestObj("d");
+  
+  usort($a, array("TestObj", "cmp_obj"));
+  
+  foreach ($a as $item) {
+      echo $item->name . "\n";
+  }
+?>
+
+The above example will output:
+
+  b
+  c
+  d
+
+See also |uasort|, |uksort|, |sort|, |asort|, |arsort|,|ksort|, |natsort|, and
+|rsort|.
+
+vim:ft=help:

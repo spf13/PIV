@@ -1,0 +1,14 @@
+lob->write -- Writes data to the large object
+
+  int lob->write(string data [, int length])~
+
+Writes data from the parameter {data} into the current position of LOB's
+internal pointer. If the parameter {length} is given, writing will stop after
+{length} bytes have been written or the end of {data} is reached, whichever
+comes first.
+
+|lob->write| returns the number of bytes written or FALSE in case of error.
+
+See also |oci_lob_read|.
+
+vim:ft=help:

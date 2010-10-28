@@ -1,0 +1,12 @@
+SWFFill->moveTo -- Moves fill origin
+
+  void swffill->moveto(int x, int y)~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+|swffill->moveto| moves fill's origin to ({x},{y}) in global coordinates.
+
+vim:ft=help:

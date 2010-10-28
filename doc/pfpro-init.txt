@@ -1,0 +1,11 @@
+pfpro_init -- Initialises the Payflow Pro library
+
+  bool pfpro_init()~
+
+|pfpro_init| is used to initialise the Payflow Pro library. You may omit this
+call, in which case this extension will automatically call |pfpro_init|
+before the first transaction.
+
+See also |pfpro_cleanup|.
+
+vim:ft=help:

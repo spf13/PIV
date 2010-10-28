@@ -1,0 +1,10 @@
+fam_pending -- Check for pending FAM events
+
+  int fam_pending(resource fam)~
+
+|fam_pending| returns non-zero if events are available to be fetched using
+|fam_next_event|.
+
+See also |fam_next_event|.
+
+vim:ft=help:

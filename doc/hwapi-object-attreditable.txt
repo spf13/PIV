@@ -1,0 +1,5 @@
+hw_api_object->attreditable -- Checks whether an attribute is editable
+
+  bool hw_api_object->attreditable(array parameter)~
+
+vim:ft=help:

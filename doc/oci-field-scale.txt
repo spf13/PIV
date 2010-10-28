@@ -1,0 +1,17 @@
+oci_field_scale -- Tell the scale of the field
+
+  int oci_field_scale(resource statement, int field)~
+
+Returns scale of the column with {field} index (1-based) or FALSE if there is
+no such field.
+
+For FLOAT columns, precision is nonzero and scale is -127. If precision is 0,
+then column is NUMBER. Else it's NUMBER(precision, scale).
+
+In PHP versions before 5.0.0 you must use |ocicolumnscale| instead. This name
+still can be used, it was left as alias of |oci_field_scale| for downwards
+compatability. This, however, is deprecated and not recommended.
+
+See also |oci_field_precision| and |oci_field_type|.
+
+vim:ft=help:

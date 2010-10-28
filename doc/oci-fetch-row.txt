@@ -1,0 +1,16 @@
+oci_fetch_row -- Returns the next row from the result data as a numeric array
+
+  array oci_fetch_row(resource statement)~
+
+Calling |oci_fetch_row| is identical to |oci_fetch_array| with OCI_NUM flag
+and returns the next row from the result data as a numeric array.
+
+This function sets NULL fields to PHP NULL value.
+
+Subsequent calls to |oci_fetch_row| will return the next row from the result
+data or FALSE if there is no more rows.
+
+See also |oci_fetch_array|, |oci_fetch_object|, |oci_fetch_assoc| and
+|oci_fetch_all|.
+
+vim:ft=help:

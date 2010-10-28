@@ -1,0 +1,12 @@
+FrenchToJD -- Converts a date from the French Republican Calendar to a Julian
+Day Count
+
+  int frenchtojd(int month, int day, int year)~
+
+Converts a date from the French Republican Calendar to a Julian Day Count.
+
+These routines only convert dates in years 1 through 14 (Gregorian dates 22
+September 1792 through 22 September 1806). This more than covers the period
+when the calendar was in use.
+
+vim:ft=help:

@@ -1,0 +1,14 @@
+qdom_error -- Returns the error string from the last QDOM operation or FALSE
+if no errors occurred
+
+  string qdom_error()~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

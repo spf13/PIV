@@ -1,0 +1,13 @@
+pdf_add_locallink -- Add a link annotation for current page
+
+  bool pdf_add_locallink(resource pdfdoc, float lowerleftx, float lowerlefty, float upperrightx, float upperrighty, int page, string dest)~
+
+Add a link annotation to a target within the current PDF file. Returns TRUE on
+success or FALSE on failure.
+
+{dest} is the zoom setting on the destination page, it can be one of retain,
+fitpage, fitwidth, fitheight or fitbbox.
+
+See also |pdf_add_launchlink|.
+
+vim:ft=help:

@@ -1,0 +1,9 @@
+dbmfirstkey -- Retrieves the first key from a DBM database
+
+  string dbmfirstkey(resource dbm_identifier)~
+
+Returns the first key in the database. Note that no particular order is
+guaranteed since the database may be built using a hash-table, which doesn't
+guarantee any ordering.
+
+vim:ft=help:

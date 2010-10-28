@@ -1,0 +1,9 @@
+wddx_deserialize -- Deserializes a WDDX packet
+
+  mixed wddx_deserialize(string packet)~
+
+|wddx_deserialize| takes a {packet} string and deserializes it. It returns the
+result which can be string, number, or array. Note that structures are
+deserialized into associative arrays.
+
+vim:ft=help:

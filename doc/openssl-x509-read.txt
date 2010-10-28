@@ -1,0 +1,9 @@
+openssl_x509_read -- Parse an X.509 certificate and return a resource
+identifier for it
+
+  resource openssl_x509_read(mixed x509certdata)~
+
+|openssl_x509_read| parses the certificate supplied by {x509certdata} and
+returns a resource identifier for it.
+
+vim:ft=help:

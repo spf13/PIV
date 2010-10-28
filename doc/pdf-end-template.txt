@@ -1,0 +1,7 @@
+pdf_end_template -- Finish template
+
+  bool pdf_end_template(resource pdfdoc)~
+
+Finish the template definition. Returns TRUE on success or FALSE on failure.
+
+vim:ft=help:

@@ -1,0 +1,27 @@
+xdiff_file_diff -- Make unified diff of two files
+
+  bool xdiff_file_diff(string file1, string file2, string dest [, int context [, bool minimal]])~
+
+|xdiff_file_diff| makes unified diff of files {file1} and {file2} and stores
+result in file {dest}. {context} indicated how many lines of context you want
+to include in diff result. Set {minimal} to TRUE if you want to minimalize
+size of diff (can take a long time). Resulting file is human-readable.
+
+This function doesn't work well with binary files. To make diff of binary
+files use |xdiff_file_diff_binary|.
+
+Returns TRUE on success or FALSE on failure.
+
+|xdiff_file_diff| example The following code makes unified diff of two php
+files.
+
+<?php >
+  $old_version = 'my_script.php';
+  $new_version = 'my_new_script.php';
+  
+  xdiff_file_diff($old_version, $new_version, 'my_script.diff', 2);
+?>
+
+See also |xdiff_string_diff|.
+
+vim:ft=help:

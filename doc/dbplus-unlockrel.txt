@@ -1,0 +1,13 @@
+dbplus_unlockrel -- Give up write lock on relation
+
+  int dbplus_unlockrel(resource relation)~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+|dbplus_unlockrel| will release a write lock previously obtained by
+|dbplus_lockrel|.
+
+vim:ft=help:

@@ -1,0 +1,21 @@
+rmdir -- Removes directory
+
+  bool rmdir(string dirname [, resource context])~
+
+Attempts to remove the directory named by {dirname}. The directory must be
+empty, and the relevant permissions must permit this. Returns TRUE on success
+or FALSE on failure.
+
+As of PHP 5.0.0 |rmdir| can also be used with some URL wrappers. Refer to for
+a listing of which wrappers support |rmdir|.
+
+Context support was added with PHP 5.0.0. For a description of contexts, refer
+to .
+
+When safe mode is enabled, PHP checks whether the directory in which you are
+about to operate has the same UID (owner) as the script that is being
+executed.
+
+See also |mkdir| and |unlink|.
+
+vim:ft=help:

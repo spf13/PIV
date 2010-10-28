@@ -1,0 +1,11 @@
+xdiff_string_diff_binary -- Make binary diff of two strings
+
+  string xdiff_string_diff_binary(string str1, string str2)~
+
+|xdiff_string_diff_binary| makes binary diff of strings {str1} and {str2}.
+
+Returns string with result or FALSE if an internal error happened.
+
+See also |xdiff_file_diff_binary|.
+
+vim:ft=help:

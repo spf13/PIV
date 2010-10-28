@@ -1,0 +1,16 @@
+bcmod -- Get modulus of an arbitrary precision number
+
+  string bcmod(string left_operand, string modulus)~
+
+Get the modulus of the {left_operand} using {modulus}.
+
+|bcmod| example
+
+<?php >
+  echo bcmod('4', '2'); // 0
+  echo bcmod('2', '4'); // 2
+?>
+
+|bcdiv|.
+
+vim:ft=help:

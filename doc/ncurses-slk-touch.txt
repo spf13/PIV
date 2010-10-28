@@ -1,0 +1,13 @@
+ncurses_slk_touch -- Forces output when ncurses_slk_noutrefresh is performed
+
+  bool ncurses_slk_touch()~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+The |ncurses_slk_touch| function forces all the soft labels to be output the
+next time a |ncurses_slk_noutrefresh| is performed.
+
+vim:ft=help:

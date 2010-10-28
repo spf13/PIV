@@ -1,0 +1,10 @@
+mssql_init -- Initializes a stored procedure or a remote stored procedure
+
+  resource mssql_init(string sp_name [, resource conn_id])~
+
+This function is currently not documented; only the argument list is
+available.
+
+See also |mssql_bind|, |mssql_execute|, and |mssql_free_statement|
+
+vim:ft=help:

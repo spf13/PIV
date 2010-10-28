@@ -1,0 +1,71 @@
+PDOStatement::bindColumn -- Bind a column to a PHP variable
+
+  bool PDOStatement::bindColumn(mixed column, mixed param [, int type])~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+|PDOStatement::bindColumn| arranges to have a particular variable bound to a
+given column in the result-set from a query. Each call to
+|PDOStatement::fetch| or |PDOStatement::fetchAll| will update all the
+variables that are bound to columns.
+
+Since information about the columns is not always available to PDO until the
+statement is executed, portable applications should call this function after
+|PDO::execute|.
+
+{column} Number of the column (1-indexed) or name of the column in the result
+set. If using the column name, be aware that the name should match the case
+of the column, as returned by the driver.
+
+{param} Name of the PHP variable to which the column will be bound.
+
+{type} Data type of the parameter, specified by the PDO_PARAM_* constants.
+
+Binding result set output to PHP variables Binding columns in the result set
+to PHP variables is an effective way to make the data contained in each row
+immediately available to your application. The following example demonstrates
+how PDO allows you to bind and retrieve columns with a variety of options and
+with intelligent defaults.
+
+<?php >
+  function readData($dbh) {
+    $sql = 'SELECT name, colour, calories FROM fruit';
+    try {
+      $stmt = $dbh->prepare($sql);
+      $stmt->execute();
+  
+      /* Bind by column number */
+      $stmt->bindColumn(1, $name);
+      $stmt->bindColumn(2, $colour);
+      
+      /* Bind by column name */
+      $stmt->bindColumn('calories', $cals);
+  
+      while ($row = $stmt->fetch(PDO_FETCH_BOUND)) {
+        $data = $name . "\t" . $colour . "\t" . $cals . "\n";
+        print $data;
+      }
+    }
+    catch (PDOException $e) {
+      print $e->getMessage();
+    }
+  }
+  readData($dbh);
+?>
+
+The above example will output:
+
+  apple   red     150
+  banana  yellow  175
+  kiwi    green   75
+  orange  orange  150
+  mango   red     200
+  strawberry      red     25
+
+|PDOStatement::execute| |PDOStatement::fetch| |PDOStatement::fetchAll|
+|PDOStatement::fetchColumn|
+
+vim:ft=help:

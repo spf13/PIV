@@ -1,0 +1,13 @@
+ncurses_slk_attr -- Returns current soft label key attribute
+
+  bool ncurses_slk_attr()~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+|ncurses_slk_attr| returns the current soft label key attribute. On error
+returns TRUE, otherwise FALSE.
+
+vim:ft=help:

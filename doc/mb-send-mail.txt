@@ -1,0 +1,31 @@
+mb_send_mail -- Send encoded mail
+
+  bool mb_send_mail(string to, string subject, string message [, string additional_headers [, string additional_parameter]])~
+
+|mb_send_mail| sends email. Headers and message are converted and encoded
+according to |mb_language| setting. |mb_send_mail| is wrapper function of
+|mail|. See |mail| for details.
+
+{to} is mail addresses send to. Multiple recipients can be specified by
+putting a comma between each address in to. This parameter is not
+automatically encoded.
+
+{subject} is subject of mail.
+
+{message} is mail message.
+
+{additional_headers} is inserted at the end of the header. This is typically
+used to add extra headers. Multiple extra headers are separated with a
+newline ("\n").
+
+Content-Type and Content-Transfer-Encoding headers can be redefined as of PHP
+5.0.0. In PHP 4, values defined by |mb_language| are always used.
+
+{additional_parameter} is a MTA command line parameter. It is useful when
+setting the correct Return-Path header when using sendmail.
+
+Returns TRUE on success or FALSE on failure.
+
+See also |mail|, |mb_encode_mimeheader|, and |mb_language|.
+
+vim:ft=help:

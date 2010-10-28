@@ -1,0 +1,23 @@
+stream_socket_accept -- Accept a connection on a socket created by
+stream_socket_server
+
+  resource stream_socket_accept(resource server_socket [, float timeout [, string peername]])~
+
+Accept a connection on a socket previously created by |stream_socket_server|.
+If {timeout} is specified, the default socket accept timeout will be
+overridden with the time specified in seconds. The name (address) of the
+client which connected will be passed back in {peername} if included and
+available from the selected transport.
+
+{peername} can also be determined later using |stream_socket_get_name|.
+
+If the call fails, it will return FALSE.
+
+This function should not be used with UDP server sockets. Instead, use
+|stream_socket_recvfrom| and |stream_socket_sendto|.
+
+See also |stream_socket_server|, |stream_socket_get_name|,
+|stream_set_blocking|, |stream_set_timeout|, |fgets|, |fgetss|, |fwrite|,
+|fclose|, |feof|, and the Curl extension.
+
+vim:ft=help:

@@ -1,0 +1,38 @@
+openlog -- Open connection to system logger
+
+  bool openlog(string ident, int option, int facility)~
+
+|openlog| opens a connection to the system logger for a program. The string
+{ident} is added to each message. Values for {option} and {facility} are
+given below. The {option} argument is used to indicate what logging options
+will be used when generating a log message. The {facility} argument is used
+to specify what type of program is logging the message. This allows you to
+specify (in your machine's syslog configuration) how messages coming from
+different facilities will be handled. The use of |openlog| is optional. It
+will automatically be called by |syslog| if necessary, in which case {ident}
+will default to FALSE.
+
+|openlog| Options Constant Description LOG_CONS if there is an error while
+sending data to the system logger, write directly to the system console
+LOG_NDELAY open the connection to the logger immediately LOG_ODELAY (default)
+delay opening the connection until the first message is logged LOG_PERROR
+print log message also to standard error LOG_PID include PID with each
+message You can use one or more of this options. When using multiple options
+you need to OR them, i.e. to open the connection immediately, write to the
+console and include the PID in each message, you will use: LOG_CONS |
+LOG_NDELAY | LOG_PID
+
+|openlog| Facilities Constant Description LOG_AUTH security/authorization
+messages (use LOG_AUTHPRIV instead in systems where that constant is defined)
+LOG_AUTHPRIV security/authorization messages (private) LOG_CRON clock daemon
+(cron and at) LOG_DAEMON other system daemons LOG_KERN kernel messages
+LOG_LOCAL0 ... LOG_LOCAL7 reserved for local use, these are not available in
+Windows LOG_LPR line printer subsystem LOG_MAIL mail subsystem LOG_NEWS
+USENET news subsystem LOG_SYSLOG messages generated internally by syslogd
+LOG_USER generic user-level messages LOG_UUCP UUCP subsystem
+
+LOG_USER is the only valid log type under Windows operating systems
+
+See also |define_syslog_variables|, |syslog| and |closelog|.
+
+vim:ft=help:

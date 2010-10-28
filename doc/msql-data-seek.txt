@@ -1,0 +1,18 @@
+msql_data_seek -- Move internal row pointer
+
+  bool msql_data_seek(resource result, int row_number)~
+
+|msql_data_seek| moves the internal row pointer of the mSQL result associated
+with the specified query identifier to point to the specified row number. The
+next call to |msql_fetch_row| would return that row.
+
+{ result}The result resource that is being evaluated. This result comes from a
+call to |msql_query|.
+
+{row_number} The seeked row number.
+
+Returns TRUE on success or FALSE on failure.
+
+|msql_fetch_array| |msql_fetch_object| |msql_fetch_row| |msql_result|
+
+vim:ft=help:

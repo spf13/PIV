@@ -1,0 +1,40 @@
+xattr_list -- Get a list of extended attributes
+
+  array xattr_list(string filename [, int flags])~
+
+This functions gets a list of names of extended attributes of a file.
+
+Extended attributes have two different namespaces: user and root namespace.
+User namespace is available for all users while root namespace is available
+only for user with root privileges. xattr operates on user namespace by
+default, but you can change that using {flags} argument.
+
+{filename} The path of the file.
+
+{flags} Supported xattr flags XATTR_DONTFOLLOW Do not follow the symbolic link
+but operate on symbolic link itself. XATTR_ROOT Set attribute in root
+(trusted) namespace. Requires root privileges.
+
+This function returns an array with names of extended attributes.
+
+Prints names of all extended attributes of file
+
+<?php >
+  $file = 'some_file';
+  $root_attributes = xattr_list($file, XATTR_ROOT);
+  $user_attributes = xattr_list($file);
+  
+  echo "Root attributes: \n";
+  foreach ($root_attributes as $attr_name) {
+      printf("%s\n", $attr_name);
+  }
+  
+  echo "\n User attributes: \n";
+  foreach ($attributes as $attr_name) {
+      printf("%s\n", $attr_name);
+  }
+?>
+
+|xattr_get|
+
+vim:ft=help:

@@ -1,0 +1,13 @@
+fbsql_commit -- Commits a transaction to the database
+
+  bool fbsql_commit([resource link_identifier])~
+
+Returns TRUE on success or FALSE on failure.
+
+|fbsql_commit| ends the current transaction by writing all inserts, updates
+and deletes to the disk and unlocking all row and table locks held by the
+transaction. This command is only needed if autocommit is set to false.
+
+See also: |fbsql_autocommit| and |fbsql_rollback|
+
+vim:ft=help:

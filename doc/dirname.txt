@@ -1,0 +1,40 @@
+dirname -- Returns directory name component of path
+
+  string dirname(string path)~
+
+Given a string containing a path to a file, this function will return the name
+of the directory.
+
+On Windows, both slash (/) and backslash (\) are used as directory separator
+character. In other environments, it is the forward slash (/).
+
+|dirname| example
+
+<?php >
+  $path = "/etc/passwd";
+  $file = dirname($path); // $file is set to "/etc"
+?>
+
+In PHP 4.0.3, |dirname| was fixed to be POSIX-compliant. Essentially, this
+means that if there are no slashes in {path} , a dot ('.') is returned,
+indicating the current directory. Otherwise, the returned string is {path}
+with any trailing /component removed. Note that this means that you will
+often get a slash or a dot back from |dirname| in situations where the older
+functionality would have given you the empty string.
+
+|dirname| has changed its behaviour in PHP 4.3.0. Check the following
+examples:
+
+<?php >
+  //before PHP 4.3.0
+  dirname('c:/'); // returned '.'
+  
+  //after PHP 4.3.0
+  dirname('c:/'); // returns 'c:'
+?>
+
+|dirname| has been binary safe since PHP 5.0.0
+
+See also |basename|, |pathinfo|, and |realpath|.
+
+vim:ft=help:

@@ -1,0 +1,10 @@
+ldap_delete -- Delete an entry from a directory
+
+  bool ldap_delete(resource link_identifier, string dn)~
+
+Returns TRUE on success or FALSE on failure.
+
+|ldap_delete| function delete a particular entry in LDAP directory specified
+by {dn}.
+
+vim:ft=help:

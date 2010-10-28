@@ -1,0 +1,20 @@
+linkinfo -- Gets information about a link
+
+  int linkinfo(string path)~
+
+|linkinfo| returns the st_dev field of the Unix C stat structure returned by
+the lstat system call. This function is used to verify if a link (pointed to
+by {path}) really exists (using the same method as the S_ISLNK macro defined
+in stat.h). Returns 0 or FALSE in case of error.
+
+|linkinfo| example
+
+<?php >
+  echo linkinfo('/vmlinuz'); // 835
+?>
+
+This function is not implemented on Windows platforms.
+
+See also |symlink|, |link|, and |readlink|.
+
+vim:ft=help:

@@ -1,0 +1,9 @@
+pdf_open_pdi -- Opens a PDF file
+
+  int pdf_open_pdi(resource pdfdoc, string filename, string stringparam, int intparam)~
+
+Opens an existing PDF document and prepares it for later use.
+
+See also |pdf_close_pdi|.
+
+vim:ft=help:

@@ -1,0 +1,14 @@
+preg_quote -- Quote regular expression characters
+
+  string preg_quote(string str [, string delimiter])~
+
+|preg_quote| takes {str} and puts a backslash in front of every character that
+is part of the regular expression syntax. This is useful if you have a
+run-time string that you need to match in some text and the string may
+contain special regex characters.
+
+If the optional {delimiter} is specified, it will also be escaped. This is
+useful for escaping the delimiter that is required by the PCRE functions. The
+/ is the most commonly used delimiter.
+
+vim:ft=help:

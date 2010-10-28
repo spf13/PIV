@@ -1,0 +1,47 @@
+oci_error -- Returns the last error found
+
+  array oci_error([resource source])~
+
+For most errors, the parameter is the most appropriate resource handle. For
+connection errors with |oci_connect|, |oci_new_connect| or |oci_pconnect|, do
+not pass a parameter. If no error is found, |oci_error| returns FALSE.
+|oci_error| returns the error as an associative array. In this array, code
+consists the oracle error code and message the oracle error string.
+
+offset and sqltext will also be included in the return array to indicate the
+location of the error and the original SQL text which caused it.
+
+Displaying the Oracle error message after a connection error
+
+  $conn = @oci_connect("scott", "tiger", "mydb");
+  if (!$conn) {
+    $e = oci_error();   // For oci_connect errors pass no handle
+    echo htmlentities($e['message']);
+  }
+
+Displaying the Oracle error message after a parsing error
+
+  $stmt = @oci_parse($conn, "select ' from dual");  // note mismatched quote
+  if (!$stmt) {
+    $e = oci_error($conn);  // For oci_parse errors pass the connection handle
+    echo htmlentities($e['message']);
+  }
+
+Displaying the Oracle error message and problematic statement after an
+execution error
+
+  $r = oci_execute($stmt);
+  if (!$r) {
+    $e = oci_error($stmt); // For oci_execute errors pass the statementhandle
+    echo htmlentities($e['message']);
+    echo "<pre>";
+    echo htmlentities($e['sqltext']);
+    printf("\n%".($e['offset']+1)."s", "^");
+    echo "</pre>";
+  }
+
+In PHP versions before 5.0.0 you must use |ocierror| instead. This name still
+can be used, it was left as alias of |oci_error| for downwards compatability.
+This, however, is deprecated and not recommended.
+
+vim:ft=help:

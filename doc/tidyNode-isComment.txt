@@ -1,0 +1,10 @@
+tidyNode->isComment -- Returns true if this node represents a comment
+
+  bool tidyNode->isComment()~
+
+This function is currently not documented; only the argument list is
+available.
+
+This function was named |tidy_node->is_comment| in PHP 4/Tidy 1.
+
+vim:ft=help:

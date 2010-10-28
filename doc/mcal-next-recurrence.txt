@@ -1,0 +1,10 @@
+mcal_next_recurrence -- Returns the next recurrence of the event
+
+  object mcal_next_recurrence(int stream, int weekstart, array next)~
+
+|mcal_next_recurrence| returns an object filled with the next date the event
+occurs, on or after the supplied date. Returns empty date field if event does
+not occur or something is invalid. Uses weekstart to determine what day is
+considered the beginning of the week.
+
+vim:ft=help:

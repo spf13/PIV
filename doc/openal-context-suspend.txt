@@ -1,0 +1,11 @@
+openal_context_suspend -- Suspend the specified context
+
+  bool openal_context_suspend(resource context)~
+
+An Open AL(Context) resource (previously created by |openal_context_create|).
+
+Returns TRUE on success or FALSE on failure.
+
+|openal_context_create| |openal_context_current| |openal_context_process|
+
+vim:ft=help:

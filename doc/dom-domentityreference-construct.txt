@@ -1,0 +1,16 @@
+DOMAttr->__construct() -- Creates a new DOMEntityReference object
+
+Creates a new DOMEntityReference object.
+
+{name} The name of the entity reference.
+
+Creating a new DOMEntityReference
+
+<?php >
+  $dom = new DOMDocument('1.0', 'iso-8859-1');
+  $element = $dom->appendChild(new DOMElement('root'));
+  $entity = $element->appendChild(new DOMEntityReference('nbsp'));
+  echo $dom->saveXML(); /* <?xml version="1.0" encoding="iso-8859-1"?><root>&amp;nbsp;</root> */
+?>
+
+vim:ft=help:

@@ -1,0 +1,11 @@
+ldap_count_entries -- Count the number of entries in a search
+
+  int ldap_count_entries(resource link_identifier, resource result_identifier)~
+
+Returns number of entries in the result or FALSE on error.
+
+|ldap_count_entries| returns the number of entries stored in the result of
+previous search operations. {result_identifier} identifies the internal ldap
+result.
+
+vim:ft=help:

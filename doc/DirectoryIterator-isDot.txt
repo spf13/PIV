@@ -1,0 +1,8 @@
+DirectoryIterator::isDot -- Returns true if current entry is '.' or '..'
+
+  bool DirectoryIterator::isDot()~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

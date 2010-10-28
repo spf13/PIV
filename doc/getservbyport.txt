@@ -1,0 +1,11 @@
+getservbyport -- Get Internet service which corresponds to port and protocol
+
+  string getservbyport(int port, string protocol)~
+
+|getservbyport| returns the Internet service associated with {port} for the
+specified {protocol} as per /etc/services. {protocol} is either "tcp" or
+"udp" (in lowercase).
+
+See also: |getservbyname|.
+
+vim:ft=help:

@@ -1,0 +1,8 @@
+SimpleXMLIterator::current -- Return current SimpleXML entry
+
+  mixed SimpleXMLIterator::current()~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

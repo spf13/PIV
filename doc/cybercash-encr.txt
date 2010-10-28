@@ -1,0 +1,9 @@
+cybercash_encr -- Cybercash encrypt
+
+  array cybercash_encr(string wmk, string sk, string inbuff)~
+
+The function returns an associative array with the elements "errcode" and, if
+"errcode" is FALSE, "outbuff" (string), "outLth" (long) and "macbuff"
+(string).
+
+vim:ft=help:

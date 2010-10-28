@@ -1,0 +1,39 @@
+Memcache::decrement -- Decrement item's value
+
+  int Memcache::decrement(string key [, int value])~
+
+|Memcache::decrement| decrements value of the item by {value}. Similarly to
+|Memcache::increment|, current value of the item is being converted to
+numerical and after that {value} is substracted.
+
+Parameter {value} is optional. It's default is 1.
+
+New item's value will not be less than zero.
+
+Do not use |Memcache::decrement| with item, which was stored compressed,
+because consequent call to |Memcache::get| will fail.
+
+Also you can use |memcache_decrement| function. See example below.
+
+|Memcache::decrement| example
+
+<?php >
+  /* procedural API */
+  $memcache_obj = memcache_connect('memcache_host', 11211);
+  /* decrement item by 2 */
+  $new_value = memcache_decrement($memcache_obj, 'test_item', 2);
+  
+  /* OO API */
+  $memcache_obj = new Memcache;
+  $memcache_obj->connect('memcache_host', 11211);
+  /* decrement item by 3 */
+  $new_value = $memcache_obj->decrement('test_item', 3);
+?>
+
+|Memcache::decrement| does not create an item if it didn't exist.
+
+|Memcache::decrement| returns item's new value on success or FALSE on failure.
+
+See also |Memcache::increment|, |Memcache::replace|.
+
+vim:ft=help:

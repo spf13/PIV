@@ -1,0 +1,8 @@
+ibase_free_result -- Free a result set
+
+  bool ibase_free_result(resource result_identifier)~
+
+Frees a result set that has been created by |ibase_query| or |ibase_execute|.
+Returns TRUE on success or FALSE on failure.
+
+vim:ft=help:

@@ -1,0 +1,8 @@
+ncurses_wattroff -- Turns off attributes for a window
+
+  int ncurses_wattroff(resource window, int attrs)~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

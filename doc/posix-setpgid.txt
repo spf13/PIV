@@ -1,0 +1,9 @@
+posix_setpgid -- Set process group id for job control
+
+  bool posix_setpgid(int pid, int pgid)~
+
+Let the process {pid} join the process group {pgid}. See POSIX.1 and the
+setsid(2) manual page on your POSIX system for more informations on process
+groups and job control. Returns TRUE on success or FALSE on failure.
+
+vim:ft=help:

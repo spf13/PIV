@@ -1,0 +1,107 @@
+hw_Modifyobject -- Modifies object record
+
+  bool hw_modifyobject(int connection, int object_to_change, array remove, array add [, int mode])~
+
+This command allows to remove, add, or modify individual attributes of an
+object record. The object is specified by the Object ID {object_to_change}.
+The first array {remove} is a list of attributes to remove. The second array
+{add} is a list of attributes to add. In order to modify an attribute one
+will have to remove the old one and add a new one. |hw_modifyobject| will
+always remove the attributes before it adds attributes unless the value of
+the attribute to remove is not a string or array.
+
+The last parameter determines if the modification is performed recursively. 1
+means recursive modification. If some of the objects cannot be modified they
+will be skipped without notice. |hw_error| may not indicate an error though
+some of the objects could not be modified.
+
+The keys of both arrays are the attributes name. The value of each array
+element can either be an array, a string or anything else. If it is an array
+each attribute value is constructed by the key of each element plus a colon
+and the value of each element. If it is a string it is taken as the attribute
+value. An empty string will result in a complete removal of that attribute. If
+the value is neither a string nor an array but something else, e.g. an
+integer, no operation at all will be performed on the attribute. This is
+necessary if you want to add a completely new attribute not just a new value
+for an existing attribute. If the remove array contained an empty string for
+that attribute, the attribute would be tried to be removed which would fail
+since it doesn't exist. The following addition of a new value for that
+attribute would also fail. Setting the value for that attribute to e.g. 0
+would not even try to remove it and the addition will work.
+
+If you would like to change the attribute 'Name' with the current value
+'books' into 'articles' you will have to create two arrays and call
+|hw_modifyobject|. modifying an attribute
+
+<?php >
+         // $connect is an existing connection to the Hyperwave server
+         // $objid is the ID of the object to modify
+         $remarr = array("Name" => "books");
+         $addarr = array("Name" => "articles");
+         $hw_modifyobject($connect, $objid, $remarr, $addarr);
+?>
+
+In order to delete/add a name=value pair from/to the object record just pass
+the remove/add array and set the last/third parameter to an empty array. If
+the attribute is the first one with that name to add, set attribute value in
+the remove array to an integer. adding a completely new attribute
+
+<?php >
+         // $connect is an existing connection to the Hyperwave server
+         // $objid is the ID of the object to modify
+         $remarr = array("Name" => 0);
+         $addarr = array("Name" => "articles");
+         $hw_modifyobject($connect, $objid, $remarr, $addarr);
+?>
+
+Multilingual attributes, e.g. 'Title', can be modified in two ways. Either by
+providing the attributes value in its native form 'language':'title' or by
+providing an array with elements for each language as described above. The
+above example would than be:
+
+modifying Title attribute
+
+<?php >
+         $remarr = array("Title" => "en:Books");
+         $addarr = array("Title" => "en:Articles");
+         $hw_modifyobject($connect, $objid, $remarr, $addarr);
+?>
+
+or modifying Title attribute
+
+<?php >
+         $remarr = array("Title" => array("en" => "Books"));
+         $addarr = array("Title" => array("en" => "Articles", "ge"=>"Artikel"));
+         $hw_modifyobject($connect, $objid, $remarr, $addarr);
+?>
+
+This removes the English title 'Books' and adds the English title 'Articles'
+and the German title 'Artikel'. removing attribute
+
+<?php >
+         $remarr = array("Title" => "");
+         $addarr = array("Title" => "en:Articles");
+         $hw_modifyobject($connect, $objid, $remarr, $addarr);
+?>
+
+This will remove all attributes with the name 'Title' and adds a new 'Title'
+attribute. This comes in handy if you want to remove attributes recursively.
+
+If you need to delete all attributes with a certain name you will have to pass
+an empty string as the attribute value.
+
+Only the attributes 'Title', 'Description' and 'Keyword' will properly handle
+the language prefix. If those attributes don't carry a language prefix, the
+prefix 'xx' will be assigned.
+
+The 'Name' attribute is somewhat special. In some cases it cannot be complete
+removed. You will get an error message 'Change of base attribute' (not clear
+when this happens). Therefore you will always have to add a new Name first
+and than remove the old one.
+
+You may not surround this function by calls to |hw_getandlock| and
+|hw_unlock|. |hw_modifyobject| does this internally.
+
+Returns TRUE on success or FALSE on failure.
+
+vim:ft=help:

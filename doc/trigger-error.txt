@@ -1,0 +1,33 @@
+trigger_error -- Generates a user-level error/warning/notice message
+
+  bool trigger_error(string error_msg [, int error_type])~
+
+Used to trigger a user error condition, it can be used by in conjunction with
+the built-in error handler, or with a user defined function that has been set
+as the new error handler (|set_error_handler|).
+
+This function is useful when you need to generate a particular response to an
+exception at runtime.
+
+{error_msg} The designated error message for this error. It's limited to 1024
+characters in length. Any additional characters beyond 1024 will be
+truncated.
+
+{error_type} The designated error type for this error. It only works with the
+E_USER family of constants, and will default to E_USER_NOTICE.
+
+This function returns FALSE if wrong {error_type} is specified, TRUE
+otherwise.
+
+|trigger_error| example See |set_error_handler| for a more extensive example.
+
+<?php >
+  if (assert($divisor == 0)) {
+      trigger_error("Cannot divide by zero", E_USER_ERROR);
+  }
+?>
+
+|error_reporting| |set_error_handler| |restore_error_handler| The error level
+constants
+
+vim:ft=help:

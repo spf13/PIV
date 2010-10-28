@@ -1,0 +1,16 @@
+bcpow -- Raise an arbitrary precision number to another
+
+  string bcpow(string x, string y [, int scale])~
+
+Raise {x} to the power {y}. The optional {scale} can be used to set the number
+of digits after the decimal place in the result.
+
+|bcpow| example
+
+<?php >
+  echo bcpow('4.2', '3', 2); // 74.08
+?>
+
+|bcpowmod| and |bcsqrt|.
+
+vim:ft=help:

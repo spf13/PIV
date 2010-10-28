@@ -1,0 +1,96 @@
+result->lengths -- Returns the lengths of the columns of the current row in
+the result set
+
+Procedural style:
+
+  array mysqli_fetch_lengths(mysqli_result result)~
+
+Object oriented style (property):
+
+The |mysqli_fetch_lengths| function returns an array containing the lengths of
+every column of the current row within the result set represented by the
+{result} parameter. If successful, a numerically indexed array representing
+the lengths of each column is returned or FALSE on failure.
+
+An array of integers representing the size of each column (not including any
+terminating null characters). FALSE if an error occurred.
+
+|mysqli_fetch_lengths| is valid only for the current row of the result set. It
+returns FALSE if you call it before calling mysqli_fetch_row/array/object or
+after retrieving all rows in the result.
+
+Object oriented style
+
+<?php >
+  $mysqli = new mysqli("localhost", "my_user", "my_password", "world");
+  
+  /* check connection */
+  if (mysqli_connect_errno()) {
+      printf("Connect failed: %s\n", mysqli_connect_error());
+      exit();
+  }
+  
+  $query = "SELECT * from Country ORDER BY Code LIMIT 1";
+  
+  if ($result = $mysqli->query($query)) {
+  
+      $row = $result->fetch_row();
+  
+      /* display column lengths */
+      foreach ($result->lengths as $i => $val) {
+          printf("Field %2d has Length %2d\n", $i+1, $val);
+      }
+      $result->close();
+  }
+  
+  /* close connection */
+  $mysqli->close();
+?>
+
+Procedural style
+
+<?php >
+  $link = mysqli_connect("localhost", "my_user", "my_password", "world");
+  
+  /* check connection */
+  if (mysqli_connect_errno()) {
+      printf("Connect failed: %s\n", mysqli_connect_error());
+      exit();
+  }
+  
+  $query = "SELECT * from Country ORDER BY Code LIMIT 1";
+  
+  if ($result = mysqli_query($link, $query)) {
+  
+      $row = mysqli_fetch_row($result);
+  
+      /* display column lengths */
+      foreach (mysqli_fetch_lengths($result) as $i => $val) {
+          printf("Field %2d has Length %2d\n", $i+1, $val);
+      }
+      mysqli_free_result($result);
+  }
+  
+  /* close connection */
+  mysqli_close($link);
+?>
+
+The above example will output:
+
+  Field  1 has Length  3
+  Field  2 has Length  5
+  Field  3 has Length 13
+  Field  4 has Length  9
+  Field  5 has Length  6
+  Field  6 has Length  1
+  Field  7 has Length  6
+  Field  8 has Length  4
+  Field  9 has Length  6
+  Field 10 has Length  6
+  Field 11 has Length  5
+  Field 12 has Length 44
+  Field 13 has Length  7
+  Field 14 has Length  3
+  Field 15 has Length  2
+
+vim:ft=help:

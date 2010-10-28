@@ -1,0 +1,27 @@
+time_sleep_until -- Make the script sleep until the specified time
+
+  bool time_sleep_until(float timestamp)~
+
+This function will make the script sleep until the specified {timestamp}. If
+the specified {timestamp} is in the past, |time_sleep_until| will generate a
+E_WARNING and return FALSE.
+
+This function is not implemented on Windows platforms.
+
+{timestamp} The timestamp when the script should wake.
+
+Returns TRUE on success or FALSE on failure.
+
+A |time_sleep_until| example
+
+<?php >
+  //returns false and generates a warning
+  var_dump(time_sleep_until(time()-1));
+  
+  // may only work on faster computers, will sleep up to 0.2 seconds
+  var_dump(time_sleep_until(time()+0.2));
+?>
+
+|sleep| |usleep| |time_nanosleep|
+
+vim:ft=help:

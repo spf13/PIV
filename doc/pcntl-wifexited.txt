@@ -1,0 +1,12 @@
+pcntl_wifexited -- Returns TRUE if status code represents a successful exit
+
+  bool pcntl_wifexited(int status)~
+
+Returns TRUE if the child status code represents a successful exit.
+
+The parameter {status} is the status parameter supplied to a successfull call
+to |pcntl_waitpid|.
+
+See also |pcntl_waitpid| and |pcntl_wexitstatus|.
+
+vim:ft=help:

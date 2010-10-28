@@ -1,0 +1,77 @@
+mysqli() -- Open a new connection to the MySQL server
+
+Procedural style
+
+  mysqli mysqli_connect([string host [, string username [, string passwd [, string dbname [, int port [, string socket]]]]]])~
+
+Object oriented style (constructor):
+
+The |mysqli_connect| function attempts to open a connection to the MySQL
+Server running on {host} which can be either a host name or an IP address.
+Passing the NULL value or the string "localhost" to this parameter, the local
+host is assumed. When possible, pipes will be used instead of the TCP/IP
+protocol. If successful, the |mysqli_connect| will return an object
+representing the connection to the database, or FALSE on failure.
+
+The {username} and {password} parameters specify the username and password
+under which to connect to the MySQL server. If the password is not provided
+(the NULL value is passed), the MySQL server will attempt to authenticate the
+user against those user records which have no password only. This allows one
+username to be used with different permissions (depending on if a password as
+provided or not).
+
+The {dbname} parameter if provided will specify the default database to be
+used when performing queries.
+
+The {port} and {socket} parameters are used in conjunction with the {host}
+parameter to further control how to connect to the database server. The
+{port} parameter specifies the port number to attempt to connect to the MySQL
+server on, while the {socket} parameter specifies the socket or named pipe
+that should be used.
+
+Specifying the {socket} parameter will not explicitly determine the type of
+connection to be used when connecting to the MySQL server. How the connection
+is made to the MySQL database is determined by the {host} parameter.
+
+Returns a object which represents the connection to a MySQL Server or FALSE if
+the connection failed.
+
+Object oriented style
+
+<?php >
+  $mysqli = new mysqli("localhost", "my_user", "my_password", "world");
+  
+  /* check connection */ 
+  if (mysqli_connect_errno()) {
+      printf("Connect failed: %s\n", mysqli_connect_error());
+      exit();
+  }
+  
+  printf("Host information: %s\n", $mysqli->host_info);
+  
+  /* close connection */
+  $mysqli->close();
+?>
+
+Procedural style
+
+<?php >
+  $link = mysqli_connect("localhost", "my_user", "my_password", "world");
+  
+  /* check connection */ 
+  if (!$link) {
+      printf("Connect failed: %s\n", mysqli_connect_error());
+      exit();
+  }
+  
+  printf("Host information: %s\n", mysqli_get_host_info($link));
+  
+  /* close connection */
+  mysqli_close($link);
+?>
+
+The above example will output:
+
+  Host information: Localhost via UNIX socket
+
+vim:ft=help:

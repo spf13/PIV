@@ -1,0 +1,42 @@
+dio_open -- Opens a new filename with specified permissions of flags and
+creation permissions of mode
+
+  resource dio_open(string filename, int flags [, int mode])~
+
+|dio_open| opens a file and returns a new file descriptor for it.
+
+{filename} The opened file.
+
+{flags} The {flags} parameter can also include any combination of the
+following flags: O_CREAT - creates the file, if it doesn't already exist.
+
+O_EXCL - if both, O_CREAT and O_EXCL are set, |dio_open| fails, if the file
+already exists.
+
+O_TRUNC - if the file exists, and its opened for write access, the file will
+be truncated to zero length.
+
+O_APPEND - write operations write data at the end of the file.
+
+O_NONBLOCK - sets non blocking mode.
+
+{mode} If {flags} is O_CREAT, {mode} will set the mode of the file (creation
+permissions). O_RDONLY - opens the file for read access.
+
+O_WRONLY - opens the file for write access.
+
+O_RDWR - opens the file for both reading and writing.
+
+A file descriptor or FALSE on error.
+
+Opening a file descriptor
+
+<?php >
+  $fd = dio_open('/dev/ttyS0', O_RDWR | O_NOCTTY | O_NONBLOCK);
+  
+  dio_close($fd);
+?>
+
+|dio_close|
+
+vim:ft=help:

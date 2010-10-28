@@ -1,0 +1,9 @@
+posix_getuid -- Return the real user ID of the current process
+
+  int posix_getuid()~
+
+Return the numeric real user ID of the current process. See also
+|posix_getpwuid| for information on how to convert this into a useable
+username.
+
+vim:ft=help:

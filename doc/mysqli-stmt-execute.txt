@@ -1,0 +1,139 @@
+stmt->execute -- Executes a prepared Query
+
+Procedural style:
+
+  bool mysqli_stmt_execute(mysqli_stmt stmt)~
+
+Object oriented style (method):
+
+  bool execute(mysqli_stmt stmt)~
+
+The |mysqli_stmt_execute| function executes a query that has been previously
+prepared using the |mysqli_prepare| function represented by the {stmt}
+object. When executed any parameter markers which exist will automatically be
+replaced with the appropiate data.
+
+If the statement is UPDATE, DELETE, or INSERT, the total number of affected
+rows can be determined by using the |mysqli_stmt_affected_rows| function.
+Likewise, if the query yields a result set the |mysqli_stmt_fetch| function
+is used.
+
+When using |mysqli_stmt_execute|, the |mysqli_stmt_fetch| function must be
+used to fetch the data prior to performing any additional queries.
+
+Returns TRUE on success or FALSE on failure.
+
+|mysqli_prepare| and |mysqli_stmt_bind_param|.
+
+Object oriented style
+
+<?php >
+  $mysqli = new mysqli("localhost", "my_user", "my_password", "world");
+     
+  /* check connection */
+  if (mysqli_connect_errno()) {
+      printf("Connect failed: %s\n", mysqli_connect_error());
+      exit();
+  }
+     
+  $mysqli->query("CREATE TABLE myCity LIKE City");
+   
+  /* Prepare an insert statement */
+  $query = "INSERT INTO myCity (Name, CountryCode, District) VALUES (?,?,?)";
+  $stmt = $mysqli->prepare($query);
+  
+  $stmt->bind_param("sss", $val1, $val2, $val3);
+  
+  $val1 = 'Stuttgart';
+  $val2 = 'DEU';
+  $val3 = 'Baden-Wuerttemberg';
+      
+  /* Execute the statement */
+  $stmt->execute();
+  
+  $val1 = 'Bordeaux';
+  $val2 = 'FRA';
+  $val3 = 'Aquitaine';
+      
+  /* Execute the statement */
+  $stmt->execute();
+  
+  /* close statement */
+  $stmt->close();
+  
+  /* retrieve all rows from myCity */
+  $query = "SELECT Name, CountryCode, District FROM myCity";
+  if ($result = $mysqli->query($query)) {
+      while ($row = $result->fetch_row()) {
+          printf("%s (%s,%s)\n", $row[0], $row[1], $row[2]);
+      }
+      /* free result set */
+      $result->close();
+  }
+  
+  /* remove table */
+  $mysqli->query("DROP TABLE myCity");
+  
+  /* close connection */    
+  $mysqli->close(); 
+?>
+
+Procedural style
+
+<?php >
+  $link = mysqli_connect("localhost", "my_user", "my_password", "world");
+     
+  /* check connection */
+  if (mysqli_connect_errno()) {
+      printf("Connect failed: %s\n", mysqli_connect_error());
+      exit();
+  }
+     
+  mysqli_query($link, "CREATE TABLE myCity LIKE City");
+   
+  /* Prepare an insert statement */
+  $query = "INSERT INTO myCity (Name, CountryCode, District) VALUES (?,?,?)";
+  $stmt = mysqli_prepare($link, $query);
+  
+  mysqli_stmt_bind_param($stmt, "sss", $val1, $val2, $val3);
+  
+  $val1 = 'Stuttgart';
+  $val2 = 'DEU';
+  $val3 = 'Baden-Wuerttemberg';
+      
+  /* Execute the statement */
+  mysqli_stmt_execute($stmt);
+  
+  $val1 = 'Bordeaux';
+  $val2 = 'FRA';
+  $val3 = 'Aquitaine';
+      
+  /* Execute the statement */
+  mysqli_stmt_execute($stmt);
+  
+  /* close statement */
+  mysqli_stmt_close($stmt);
+  
+  /* retrieve all rows from myCity */
+  $query = "SELECT Name, CountryCode, District FROM myCity";
+  if ($result = mysqli_query($link, $query)) {
+      while ($row = mysqli_fetch_row($result)) {
+          printf("%s (%s,%s)\n", $row[0], $row[1], $row[2]);
+      }
+      /* free result set */
+      mysqli_free_result($result);
+  }
+  
+  /* remove table */
+  mysqli_query($link, "DROP TABLE myCity");
+  
+  /* close connection */    
+  mysqli_close($link); 
+?>
+
+The above example will output:
+
+  Stuttgart (DEU,Baden-Wuerttemberg)
+  Bordeaux (FRA,Aquitaine)
+
+vim:ft=help:

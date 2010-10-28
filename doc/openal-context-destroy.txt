@@ -1,0 +1,11 @@
+openal_context_destroy -- Destroys a context
+
+  bool openal_context_destroy(resource context)~
+
+An Open AL(Context) resource (previously created by |openal_context_create|).
+
+Returns TRUE on success or FALSE on failure.
+
+|openal_context_create|
+
+vim:ft=help:

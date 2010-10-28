@@ -1,0 +1,10 @@
+hw_Output_Document -- Prints hw_document
+
+  bool hw_output_document(int hw_document)~
+
+Prints the document without the BODY tag.
+
+For backward compatibility, |hw_outputdocument| is also accepted. This is
+deprecated, however.
+
+vim:ft=help:

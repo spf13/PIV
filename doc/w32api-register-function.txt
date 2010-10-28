@@ -1,0 +1,17 @@
+w32api_register_function -- Registers function function_name from library with
+PHP
+
+  bool w32api_register_function(string library, string function_name, string return_type)~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+This function tries to find the {function_name} function in {libary}, and
+tries to import it into PHP. The function will be registered with the given
+{return_type}. This type can be a generic PHP type, or a type defined with
+|w32api_deftype|. All type names are case sensitive. Built in type names
+should be provided in lowercase. Returns TRUE on success or FALSE on failure.
+
+vim:ft=help:

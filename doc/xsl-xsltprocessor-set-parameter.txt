@@ -1,0 +1,47 @@
+XSLTProcessor->setParameter() -- Set value for a parameter
+
+  bool setParameter(string namespace, string name, string value)~
+
+  bool setParameter(string namespace, string name, string value, string namespace, array options)~
+
+Sets the value of one or more parameters to be used in subsequent
+transformations with XSLTProcessor. If the parameter doesn't exist in the
+stylesheet it will be ignored.
+
+{namespace} The namespace URI of the XSLT parameter.
+
+{name} The local name of the XSLT parameter.
+
+{value} The new value of the XSLT parameter.
+
+{options} An array of name => value pairs. This syntax is available since PHP
+5.1.0.
+
+Returns TRUE on success or FALSE on failure.
+
+Changing the owner before the transformation
+
+<?php >
+  $collections = array(
+      'Marc Rutkowski' => 'marc',
+      'Olivier Parmentier' => 'olivier'
+  );
+  
+  $xsl = new DOMDocument;
+  $xsl->load('collection.xsl');
+  
+  // Configure the transformer
+  $proc = new XSLTProcessor;
+  $proc->importStyleSheet($xsl); // attach the xsl rules
+  
+  foreach ($collections as $name => $file) {
+      // Load the XML source
+      $xml = new DOMDocument;
+      $xml->load('collection_' . $file . '.xml');
+  
+      $proc->setParameter('', 'owner', $name);
+      $proc->transformToURI($xml, 'file:///tmp/' . $file . '.html');
+  }
+?>
+
+vim:ft=help:

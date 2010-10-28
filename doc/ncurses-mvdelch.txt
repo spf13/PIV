@@ -1,0 +1,13 @@
+ncurses_mvdelch -- Move position and delete character, shift rest of line left
+
+  int ncurses_mvdelch(int y, int x)~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

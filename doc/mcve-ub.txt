@@ -1,0 +1,8 @@
+mcve_ub -- Get a list of all Unsettled batches
+
+  int mcve_ub(resource conn, string username, string password)~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

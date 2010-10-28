@@ -1,0 +1,5 @@
+pdf_get_image_width -- Deprecated: Returns width of an image
+
+This function is deprecated, use |pdf_get_value| instead.
+
+vim:ft=help:

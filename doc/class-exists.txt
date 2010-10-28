@@ -1,0 +1,43 @@
+class_exists -- Checks if the class has been defined
+
+  bool class_exists(string class_name [, bool autoload])~
+
+This function returns TRUE if the class given by {class_name} has been
+defined, FALSE otherwise.
+
+|class_exists| example
+
+<?php >
+  // Check the class exists before trying to use it
+  if (class_exists('MyClass')) {
+      $myclass = new MyClass();
+  }
+?>
+
+|class_exists| will attempt to call __autoload by default, if you don't want
+|class_exists| to call __autoload, you can set the parameter {autoload} to
+FALSE.
+
+{autoload} parameter example
+
+<?php >
+  function __autoload($class)
+  {
+      include($class . '.php');
+  
+      // Check to see if the include declared the class
+      if (!class_exists($class, false)) {
+          trigger_error("Unable to load class: $class", E_USER_WARNING);
+      }
+  }
+      
+  if (class_exists('MyClass')) {
+      $myclass = new MyClass();
+  }
+?>
+
+The {autoload} parameter was added in PHP 5
+
+See also |interface_exists|, and |get_declared_classes|.
+
+vim:ft=help:

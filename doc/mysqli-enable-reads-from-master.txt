@@ -1,0 +1,8 @@
+mysqli_enable_reads_from_master -- Enable reads from master
+
+  bool mysqli_enable_reads_from_master(mysqli link)~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

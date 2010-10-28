@@ -1,0 +1,16 @@
+mb_get_info -- Get internal settings of mbstring
+
+  mixed mb_get_info([string type])~
+
+|mb_get_info| returns internal setting parameter of mbstring.
+
+If {type} isn't specified or is specified to "all", an array having the
+elements "internal_encoding", "http_output", "http_input", "func_overload"
+will be returned.
+
+If {type} is specified for "http_output", "http_input", "internal_encoding",
+"func_overload", the specified setting parameter will be returned.
+
+See also |mb_internal_encoding|, |mb_http_output|.
+
+vim:ft=help:

@@ -1,0 +1,9 @@
+swf_definetext -- Define a text string
+
+  void swf_definetext(int objid, string str, int docenter)~
+
+Define a text string (the {str} parameter) using the current font and font
+size. The {docenter} is where the word is centered, if {docenter} is 1, then
+the word is centered in x.
+
+vim:ft=help:

@@ -1,0 +1,18 @@
+floor -- Round fractions down
+
+  float floor(float value)~
+
+Returns the next lowest integer value by rounding down {value} if necessary.
+The return value of |floor| is still of type float because the value range of
+float is usually bigger than that of integer.
+
+|floor| example
+
+<?php >
+  echo floor(4.3);   // 4
+  echo floor(9.999); // 9
+?>
+
+See also |ceil| and |round|.
+
+vim:ft=help:

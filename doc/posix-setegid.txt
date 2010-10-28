@@ -1,0 +1,11 @@
+posix_setegid -- Set the effective GID of the current process
+
+  bool posix_setegid(int gid)~
+
+Set the effective group ID of the current process. This is a privileged
+function and you need appropriate privileges (usually root) on your system to
+be able to perform this function.
+
+Returns TRUE on success or FALSE on failure.
+
+vim:ft=help:

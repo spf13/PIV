@@ -1,0 +1,10 @@
+ifxus_open_slob -- Opens an slob object
+
+  int ifxus_open_slob(int bid, int mode)~
+
+Opens an slob object. {bid} should be an existing slob id. Modes: 1 =
+LO_RDONLY, 2 = LO_WRONLY, 4 = LO_APPEND, 8 = LO_RDWR, 16 = LO_BUFFER, 32 =
+LO_NOBUFFER -> or-mask. Returns FALSE on error otherwise the new slob
+object-id.
+
+vim:ft=help:

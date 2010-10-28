@@ -1,0 +1,44 @@
+SWFDisplayItem->multColor -- Multiplies the item's color transform
+
+  void swfdisplayitem->multcolor(int red, int green, int blue [, int a])~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+|swfdisplayitem->multcolor| multiplies the item's color transform by the given
+values.
+
+The object may be a |swfshape|, a |swfbutton|, a |swftext| or a |swfsprite|
+object. It must have been added using the |swfmovie->add|.
+
+This simple example will modify your picture's atmosphere to Halloween (use a
+landscape or bright picture). |swfdisplayitem->multcolor| example
+
+<?php >
+    $b = new SWFBitmap(file_get_contents("backyard.jpg"));
+    // note use your own picture :-)
+    $s = new SWFShape();
+    $s->setRightFill($s->addFill($b));
+    $s->drawLine($b->getWidth(), 0);
+    $s->drawLine(0, $b->getHeight());
+    $s->drawLine(-$b->getWidth(), 0);
+    $s->drawLine(0, -$b->getHeight());
+  
+    $m = new SWFMovie();
+    $m->setDimension($b->getWidth(), $b->getHeight());
+  
+    $i = $m->add($s);
+  
+    for ($n=0; $n<=20; ++$n) {
+      $i->multColor(1.0-$n/10, 1.0, 1.0);
+      $i->addColor(0xff*$n/20, 0, 0);
+      $m->nextFrame();
+    }
+  
+    header('Content-type: application/x-shockwave-flash');
+    $m->output();
+?>
+
+vim:ft=help:

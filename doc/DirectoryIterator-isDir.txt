@@ -1,0 +1,8 @@
+DirectoryIterator::isDir -- Returns true if file is directory
+
+  bool DirectoryIterator::isDir()~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

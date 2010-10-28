@@ -1,0 +1,16 @@
+imagepng -- Output a PNG image to either the browser or a file
+
+  bool imagepng(resource image [, string filename])~
+
+The |imagepng| outputs a GD image stream ({image}) in PNG format to standard
+output (usually the browser) or, if a filename is given by the {filename} it
+outputs the image to the file.
+
+<?php >
+  $im = imagecreatefrompng("test.png");
+  imagepng($im);
+?>
+
+See also |imagegif|, |imagewbmp|, |imagejpeg|, |imagetypes|.
+
+vim:ft=help:

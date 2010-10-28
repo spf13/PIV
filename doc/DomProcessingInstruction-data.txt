@@ -1,0 +1,12 @@
+DomProcessingInstruction->data -- Returns the data of ProcessingInstruction
+node
+
+  string data()~
+
+This method gets the data of the ProcessingInstruction node.
+
+Returns the data of the Processing Instruction.
+
+Use the data property of DOMProcessingInstruction.
+
+vim:ft=help:

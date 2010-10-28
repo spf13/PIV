@@ -1,0 +1,10 @@
+cybermut_creerformulairecm -- Generate HTML form of request for payment
+
+  string cybermut_creerformulairecm(string url_cm, string version, string tpe, string price, string ref_command, string text_free, string url_return, string url_return_ok, string url_return_err, string language, string code_company, string text_button)~
+
+|cybermut_creerformulairecm| is used to generate the HTML form of request for
+payment.
+
+|cybermut_testmac| |cybermut_creerreponsecm|
+
+vim:ft=help:

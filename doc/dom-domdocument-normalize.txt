@@ -1,0 +1,9 @@
+DOMDocument->normalize() -- Normalizes the document
+
+  void normalize()~
+
+Normalizes the document.
+
+No value is returned.
+
+vim:ft=help:

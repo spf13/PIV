@@ -1,0 +1,32 @@
+fbsql_fetch_object -- Fetch a result row as an object
+
+  object fbsql_fetch_object(resource result [, int result_type])~
+
+Returns an object with properties that correspond to the fetched row, or FALSE
+if there are no more rows.
+
+|fbsql_fetch_object| is similar to |fbsql_fetch_array|, with one difference -
+an object is returned, instead of an array. Indirectly, that means that you
+can only access the data by the field names, and not by their offsets
+(numbers are illegal property names).
+
+The optional argument {result_type} is a constant and can take the following
+values: FBSQL_ASSOC, FBSQL_NUM, and FBSQL_BOTH.
+
+Speed-wise, the function is identical to |fbsql_fetch_array|, and almost as
+quick as |fbsql_fetch_row| (the difference is insignificant).
+|fbsql_fetch_object| example
+
+<?php >
+  fbsql_connect($host, $user, $password);
+  $result = fbsql_db_query("database", "select * from table");
+  while ($row = fbsql_fetch_object($result)) {
+      echo $row->user_id;
+      echo $row->fullname;
+  }
+  fbsql_free_result($result);
+?>
+
+See also: |fbsql_fetch_array| and |fbsql_fetch_row|.
+
+vim:ft=help:

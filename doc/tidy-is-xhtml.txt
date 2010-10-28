@@ -1,0 +1,17 @@
+tidy_is_xhtml -- Indicates if the document is a XHTML document
+
+Procedural style:
+
+  bool tidy_is_xhtml(tidy object)~
+
+Object oriented style:
+
+  bool tidy->isXhtml(tidy object)~
+
+This function returns TRUE if the specified tidy {object} is a XHTML document,
+or FALSE otherwise.
+
+This function is not yet implemented in the Tidylib itself, so it always
+return FALSE.
+
+vim:ft=help:

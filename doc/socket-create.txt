@@ -1,0 +1,32 @@
+socket_create -- Create a socket (endpoint for communication)
+
+  resource socket_create(int domain, int type, int protocol)~
+
+Creates and returns a socket resource, also referred to as an endpoint of
+communication. A typical network connection is made up of 2 sockets, one
+performing the role of the client, and another performing the role of the
+server.
+
+The {domain} parameter specifies the protocol family to be used by the socket.
+
+The {type} parameter selects the type of communication to be used by the
+socket.
+
+The {protocol} parameter sets the specific protocol within the specified
+{domain} to be used when communicating on the returned socket. The proper
+value can be retrieved by name by using |getprotobyname|. If the desired
+protocol is TCP, or UDP the corresponding constants SOL_TCP, and SOL_UDP can
+also be used.
+
+|socket_create| Returns a socket resource on success, or FALSE on error. The
+actual error code can be retrieved by calling |socket_last_error|. This error
+code may be passed to |socket_strerror| to get a textual explanation of the
+error.
+
+If an invalid {domain} or {type} is given, |socket_create| defaults to AF_INET
+and SOCK_STREAM respectively and additionally emits an E_WARNING message.
+
+See also |socket_accept|, |socket_bind|, |socket_connect|, |socket_listen|,
+|socket_last_error|, and |socket_strerror|.
+
+vim:ft=help:

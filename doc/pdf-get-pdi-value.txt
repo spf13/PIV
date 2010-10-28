@@ -1,0 +1,7 @@
+pdf_get_pdi_value -- Gets some PDI numerical parameters
+
+  float pdf_get_pdi_value(resource pdfdoc, string key, int doc, int page, int index)~
+
+Get the contents of some PDI document parameter with numerical type.
+
+vim:ft=help:

@@ -1,0 +1,16 @@
+ifx_do -- Execute a previously prepared SQL-statement
+
+  int ifx_do(int result_id)~
+
+Returns TRUE on success or FALSE on failure.
+
+Executes a previously prepared query or opens a cursor for it.
+
+Does NOT free {result_id} on error.
+
+Also sets the real number of |ifx_affected_rows| for non-select statements for
+retrieval by |ifx_affected_rows|
+
+See also: |ifx_prepare|.
+
+vim:ft=help:

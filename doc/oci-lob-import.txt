@@ -1,0 +1,13 @@
+lob->import -- Imports file data to the LOB
+
+  bool lob->import(string filename)~
+
+Writes data from {filename} in to the current position of large object.
+
+Returns TRUE on success or FALSE on failure.
+
+In PHP versions before 5.0.0 you must use |ocisavelobfile| instead. This name
+still can be used, it was left as alias of |oci_lob_import| for downwards
+compatability. This, however, is deprecated and not recommended.
+
+vim:ft=help:

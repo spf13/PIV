@@ -1,0 +1,10 @@
+OCI-Collection->append -- Appends an object to the collection
+
+  bool OCI-Collection->append(mixed value)~
+
+Appends an object to the end of the collection. Parameter {value} can be a
+string or a number.
+
+Returns TRUE on success or FALSE on failure.
+
+vim:ft=help:

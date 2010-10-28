@@ -1,0 +1,9 @@
+hw_Close -- Closes the Hyperwave connection
+
+  bool hw_close(int connection)~
+
+Returns FALSE if connection is not a valid connection index, otherwise TRUE.
+Closes down the connection to a Hyperwave server with the given connection
+index.
+
+vim:ft=help:

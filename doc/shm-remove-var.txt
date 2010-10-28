@@ -1,0 +1,9 @@
+shm_remove_var -- Removes a variable from shared memory
+
+  bool shm_remove_var(int shm_identifier, int variable_key)~
+
+Removes a variable with a given {variable_key} and frees the occupied memory.
+
+See also |shm_remove|.
+
+vim:ft=help:

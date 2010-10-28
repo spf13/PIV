@@ -1,0 +1,9 @@
+wddx_serialize_value -- Serialize a single value into a WDDX packet
+
+  string wddx_serialize_value(mixed var [, string comment])~
+
+|wddx_serialize_value| is used to create a WDDX packet from a single given
+value. It takes the value contained in {var}, and an optional {comment}
+string that appears in the packet header, and returns the WDDX packet.
+
+vim:ft=help:

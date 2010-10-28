@@ -1,0 +1,28 @@
+fnmatch -- Match filename against a pattern
+
+  bool fnmatch(string pattern, string string [, int flags])~
+
+|fnmatch| checks if the passed {string} would match the given shell wildcard
+{pattern}.
+
+This is especially useful for filenames, but may also be used on regular
+strings. The average user may be used to shell patterns or at least in their
+simplest form to '?' and '*' wildcards so using |fnmatch| instead of |ereg|
+or |preg_match| for frontend search expression input may be way more
+convenient for non-programming users.
+
+Checking a color name against a shell wildcard pattern.
+
+<?php >
+  if (fnmatch("*gr[ae]y", $color)) {
+    echo "some form of gray ...";
+  }
+?>
+
+For now this function is not available on Windows or other non-POSIX compliant
+systems.
+
+See also |glob|, |ereg|, |preg_match| and the Unix manpage on fnmatch(3) for
+flag names (as long as they are not documented here ).
+
+vim:ft=help:

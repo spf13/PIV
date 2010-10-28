@@ -1,0 +1,5 @@
+msql_fieldlen -- Alias of msql_field_len
+
+This function is an alias of |msql_field_len|.
+
+vim:ft=help:

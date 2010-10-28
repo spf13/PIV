@@ -1,0 +1,19 @@
+crack_closedict -- Closes an open CrackLib dictionary
+
+  bool crack_closedict([resource dictionary])~
+
+|crack_closedict| closes the specified {dictionary} identifier.
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+{dictionary} The dictionary to close. If not specified, the current directory
+is closed.
+
+Returns TRUE on success or FALSE on failure.
+
+|crack_opendict|
+
+vim:ft=help:

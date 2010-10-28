@@ -1,0 +1,8 @@
+chop -- Alias of rtrim
+
+This function is an alias of: |rtrim|.
+
+|chop| is different than the Perl chop() function, which removes the last
+character in the string.
+
+vim:ft=help:

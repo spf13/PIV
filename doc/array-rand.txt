@@ -1,0 +1,29 @@
+array_rand -- Pick one or more random entries out of an array
+
+  mixed array_rand(array input [, int num_req])~
+
+|array_rand| is rather useful when you want to pick one or more random entries
+out of an array. It takes an {input} array and an optional argument {num_req}
+which specifies how many entries you want to pick - if not specified, it
+defaults to 1.
+
+If you are picking only one entry, |array_rand| returns the key for a random
+entry. Otherwise, it returns an array of keys for the random entries. This is
+done so that you can pick random keys as well as values out of the array.
+
+As of PHP 4.2.0, there is no need to seed the random number generator with
+|srand| or |mt_srand| as this is now done automatically.
+
+|array_rand| example
+
+<?php >
+  srand((float) microtime() * 10000000);
+  $input = array("Neo", "Morpheus", "Trinity", "Cypher", "Tank");
+  $rand_keys = array_rand($input, 2);
+  echo $input[$rand_keys[0]] . "\n";
+  echo $input[$rand_keys[1]] . "\n";
+?>
+
+See also |shuffle|.
+
+vim:ft=help:

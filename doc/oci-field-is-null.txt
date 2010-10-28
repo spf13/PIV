@@ -1,0 +1,13 @@
+oci_field_is_null -- Checks if the field is NULL
+
+  bool oci_field_is_null(resource stmt, mixed field)~
+
+|oci_field_is_null| returns TRUE if field {field} from the {statement} is
+NULL. Parameter {field} could be a field's index or a field's name
+(uppercased).
+
+In PHP versions before 5.0.0 you must use |ocicolumnisnull| instead. This name
+still can be used, it was left as alias of |oci_field_is_null| for downwards
+compatability. This, however, is deprecated and not recommended.
+
+vim:ft=help:

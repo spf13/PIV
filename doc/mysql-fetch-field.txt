@@ -1,0 +1,86 @@
+mysql_fetch_field -- Get column information from a result and return as an
+object
+
+  object mysql_fetch_field(resource result [, int field_offset])~
+
+Returns an object containing field information. This function can be used to
+obtain information about fields in the provided query result.
+
+{ result}The result resource that is being evaluated. This result comes from a
+call to |mysql_query|.
+
+{field_offset} The numerical field offset. If the field offset is not
+specified, the next field that was not yet retrieved by this function is
+retrieved. The {field_offset} starts at 0.
+
+Returns an object containing field information. The properties of the object
+are:
+
+name - column name
+
+table - name of the table the column belongs to
+
+max_length - maximum length of the column
+
+not_null - 1 if the column cannot be NULL
+
+primary_key - 1 if the column is a primary key
+
+unique_key - 1 if the column is a unique key
+
+multiple_key - 1 if the column is a non-unique key
+
+numeric - 1 if the column is numeric
+
+blob - 1 if the column is a BLOB
+
+type - the type of the column
+
+unsigned - 1 if the column is unsigned
+
+zerofill - 1 if the column is zero-filled
+
+|mysql_fetch_field| example
+
+<?php >
+  $conn = mysql_connect('localhost:3306', 'user', 'password');
+  if (!$conn) {
+      die('Could not connect: ' . mysql_error());
+  }
+  mysql_select_db('database');
+  $result = mysql_query('select * from table');
+  if (!$result) {
+      die('Query failed: ' . mysql_error());
+  }
+  /* get column metadata */
+  $i = 0;
+  while ($i < mysql_num_fields($result)) {
+      echo "Information for column $i:<br />\n";
+      $meta = mysql_fetch_field($result, $i);
+      if (!$meta) {
+          echo "No information available<br />\n";
+      }
+      echo "<pre>
+  blob:         $meta->blob
+  max_length:   $meta->max_length
+  multiple_key: $meta->multiple_key
+  name:         $meta->name
+  not_null:     $meta->not_null
+  numeric:      $meta->numeric
+  primary_key:  $meta->primary_key
+  table:        $meta->table
+  type:         $meta->type
+  unique_key:   $meta->unique_key
+  unsigned:     $meta->unsigned
+  zerofill:     $meta->zerofill
+  </pre>";
+      $i++;
+  }
+  mysql_free_result($result);
+?>
+
+Field names returned by this function are case-sensitive.
+
+|mysql_field_seek|
+
+vim:ft=help:

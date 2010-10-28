@@ -1,0 +1,10 @@
+pdf_open_image_file -- Reads an image from a file
+
+  int pdf_open_image_file(resource pdfdoc, string imagetype, string filename, string stringparam, int intparam)~
+
+Open an image file. Supported types are jpeg, tiff, gif, and png.
+{stringparam} is either empty, mask, masked, or page. {intparam} is either 0,
+the image id of the applied mask, or the page. Parameters {stringparam} and
+{intparam} are optional before PHP 4.3.5 or with PDFlib less than 5.
+
+vim:ft=help:

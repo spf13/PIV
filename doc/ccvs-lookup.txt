@@ -1,0 +1,8 @@
+ccvs_lookup -- Look up an item of a particular type in the database #
+
+  string ccvs_lookup(string session, string invoice, int inum)~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

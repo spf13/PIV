@@ -1,0 +1,11 @@
+ibase_blob_add -- Add data into a newly created blob
+
+  void ibase_blob_add(resource blob_handle, string data)~
+
+|ibase_blob_add| adds data into a blob created with |ibase_blob_create|.
+Returns NULL on success or FALSE on failure.
+
+See also |ibase_blob_cancel|, |ibase_blob_close|, |ibase_blob_create| and
+|ibase_blob_import|.
+
+vim:ft=help:

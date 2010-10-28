@@ -1,0 +1,14 @@
+dbplus_freerlocks -- Free all tuple locks on given relation
+
+  int dbplus_freerlocks(resource relation)~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+|dbplus_freerlocks| will free all tuple locks held on the given {relation}.
+
+See also |dbplus_getlock|, |dbplus_freelock|, and |dbplus_freealllocks|.
+
+vim:ft=help:

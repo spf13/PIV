@@ -1,0 +1,61 @@
+mysql_db_query -- Send a MySQL query
+
+  resource mysql_db_query(string database, string query [, resource link_identifier])~
+
+|mysql_db_query| selects a database, and executes a query on it.
+
+{database} The name of the database that will be selected.
+
+{query} The MySQL query.
+
+{ link_identifier}The MySQL connection. If the link identifier is not
+specified, the last link opened by |mysql_connect| is assumed. If no such
+link is found, it will try to create one as if |mysql_connect| was called
+with no arguments. If by chance no connection is found or established, an
+E_WARNING level warning is generated.
+
+Returns a positive MySQL result resource to the query result, or FALSE on
+error. The function also returns TRUE/FALSE for INSERT/UPDATE/DELETE queries
+to indicate success/failure.
+
+Version Description 4.0.6 This function is deprecated, do not use this
+function. Use |mysql_select_db| and |mysql_query| instead.
+
+|mysql_db_query| alternative example
+
+<?php >
+  if (!$link = mysql_connect('mysql_host', 'mysql_user', 'mysql_password')) {
+      echo 'Could not connect to mysql';
+      exit;
+  }
+  
+  if (!mysql_select_db('mysql_dbname', $link)) {
+      echo 'Could not select database';
+      exit;
+  }
+  
+  $sql    = 'SELECT foo FROM bar WHERE id = 42';
+  $result = mysql_query($sql, $link);
+  
+  if (!$result) {
+      echo "DB Error, could not query the database\n";
+      echo 'MySQL Error: ' . mysql_error();
+      exit;
+  }
+  
+  while ($row = mysql_fetch_assoc($result)) {
+      echo $row['foo'];
+  }
+  
+  mysql_free_result($result);
+?>
+
+Be aware that this function does NOT switch back to the database you were
+connected before. In other words, you can't use this function to temporarily
+run a sql query on another database, you would have to manually switch back.
+Users are strongly encouraged to use the database.table syntax in their sql
+queries or |mysql_select_db| instead of this function.
+
+|mysql_query| |mysql_select_db|
+
+vim:ft=help:

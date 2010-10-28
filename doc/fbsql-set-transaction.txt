@@ -1,0 +1,8 @@
+fbsql_set_transaction -- Set the transaction locking and isolation
+
+  void fbsql_set_transaction(resource link_identifier, int Locking, int Isolation)~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

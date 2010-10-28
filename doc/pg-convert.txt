@@ -1,0 +1,35 @@
+pg_convert -- Convert associative array values into suitable for SQL statement
+
+  array pg_convert(resource connection, string table_name, array assoc_array [, int options])~
+
+|pg_convert| checks and converts the values in {assoc_array} into suitable
+values for use in a SQL statement. Precondition for |pg_convert| is the
+existence of a table {table_name} which has at least as many columns as
+{assoc_array} has elements. The fieldnames in {table_name} must match the
+indices in {assoc_array} and the corresponding datatypes must be compatible.
+Returns an array with the converted values on success, FALSE otherwise.
+
+If there are boolean fields in {table_name} don't use the constant TRUE in
+{assoc_array}. It will be converted to the string 'TRUE' which is no valid
+entry for boolean fields in PostgreSQL. Use one of t, true, 1, y, yes
+instead.
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+{connection} PostgreSQL database connection resource.
+
+{table_name} Name of the table against which to convert types.
+
+{assoc_array} Data to be converted.
+
+{options} Any number of PGSQL_CONV_IGNORE_DEFAULT, PGSQL_CONV_FORCE_NULL or
+PGSQL_CONV_IGNORE_NOT_NULL, combined.
+
+An array of converted values, or FALSE on error.
+
+|pg_meta_data|
+
+vim:ft=help:

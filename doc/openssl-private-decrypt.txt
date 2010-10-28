@@ -1,0 +1,18 @@
+openssl_private_decrypt -- Decrypts data with private key
+
+  bool openssl_private_decrypt(string data, string decrypted, mixed key [, int padding])~
+
+|openssl_private_decrypt| decrypts {data} that was previous encrypted via
+|openssl_public_encrypt| and stores the result into {decrypted}. {key} must
+be the private key corresponding that was used to encrypt the data. {padding}
+defaults to OPENSSL_PKCS1_PADDING, but can also be one of
+OPENSSL_SSLV23_PADDING, OPENSSL_PKCS1_OAEP_PADDING, OPENSSL_NO_PADDING.
+
+Returns TRUE on success or FALSE on failure.
+
+You can use this function e.g. to decrypt data which were supposed only to
+you.
+
+See also |openssl_public_encrypt| and |openssl_public_decrypt|.
+
+vim:ft=help:

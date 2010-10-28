@@ -1,0 +1,21 @@
+imap_fetchbody -- Fetch a particular section of the body of the message
+
+  string imap_fetchbody(resource imap_stream, int msg_number, string part_number [, int options])~
+
+This function causes a fetch of a particular section of the body of the
+specified messages as a text string and returns that text string. The section
+specification is a string of integers delimited by period which index into a
+body part list as per the IMAP4 specification. Body parts are not decoded by
+this function.
+
+The {options} for |imap_fetchbody| is a bitmask with one or more of the
+following: FT_UID - The {msg_number} is a UID
+
+FT_PEEK - Do not set the \Seen flag if not already set
+
+FT_INTERNAL - The return string is in internal format, will not canonicalize
+to CRLF.
+
+See also: |imap_fetchstructure|.
+
+vim:ft=help:

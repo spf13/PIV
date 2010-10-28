@@ -1,0 +1,12 @@
+imap_undelete -- Unmark the message which is marked deleted
+
+  bool imap_undelete(resource imap_stream, int msg_number [, int flags])~
+
+This function removes the deletion flag for a specified message, which is set
+by |imap_delete| or |imap_mail_move|.
+
+Returns TRUE on success or FALSE on failure.
+
+See also: |imap_delete|, and |imap_mail_move|.
+
+vim:ft=help:

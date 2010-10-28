@@ -1,0 +1,8 @@
+ArrayObject::count -- Return the number of elements in the Iterator
+
+  int ArrayObject::count()~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

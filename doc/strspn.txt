@@ -1,0 +1,29 @@
+strspn -- Find length of initial segment matching mask
+
+  int strspn(string str1, string str2 [, int start [, int length]])~
+
+Returns the length of the initial segment of {str1} which consists entirely of
+characters in {str2}.
+
+The line of code:
+
+<?php >
+  $var = strspn("42 is the answer, what is the question ...", "1234567890");
+?>
+
+will assign 2 to $var, because the string "42" will be the longest segment
+containing characters from "1234567890".
+
+As of PHP 4.3.0, |strspn| accepts two optional integer parameters that can be
+used to define the {start} position and the {length} of the string to
+examine.
+
+<?php >
+  echo strspn("foo", "o", 1, 2); // 2
+?>
+
+This function is binary-safe.
+
+See also |strcspn|.
+
+vim:ft=help:

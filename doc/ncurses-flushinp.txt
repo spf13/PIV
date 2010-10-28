@@ -1,0 +1,13 @@
+ncurses_flushinp -- Flush keyboard input buffer
+
+  bool ncurses_flushinp()~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+The |ncurses_flushinp| throws away any typeahead that has been typed and has
+not yet been read by your program. Returns FALSE on success, otherwise TRUE.
+
+vim:ft=help:

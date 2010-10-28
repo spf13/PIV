@@ -1,0 +1,10 @@
+ifx_num_fields -- Returns the number of columns in the query
+
+  int ifx_num_fields(int result_id)~
+
+Returns the number of columns in query for {result_id} or FALSE on error
+
+After preparing or executing a query, this call gives you the number of
+columns in the query.
+
+vim:ft=help:

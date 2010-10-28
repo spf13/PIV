@@ -1,0 +1,7 @@
+ircg_part -- Leave a channel on server
+
+  bool ircg_part(resource connection, string channel)~
+
+Leave the channel {channel} on the server connected to by {connection}.
+
+vim:ft=help:

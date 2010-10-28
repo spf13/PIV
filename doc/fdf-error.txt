@@ -1,0 +1,12 @@
+fdf_error -- Return error description for fdf error code
+
+  string fdf_error([int error_code])~
+
+|fdf_error| returns a textual description for the fdf error code given in
+{error_code}. The function uses the internal error code set by the last
+operation if no {error_code} is given, so fdf_error() is a convenient
+shortcut for fdf_error(fdf_errno()).
+
+See also |fdf_errno|.
+
+vim:ft=help:

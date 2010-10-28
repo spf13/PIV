@@ -1,0 +1,47 @@
+fgets -- Gets line from file pointer
+
+  string fgets(resource handle [, int length])~
+
+Returns a string of up to {length} - 1 bytes read from the file pointed to by
+{handle}. Reading ends when {length} - 1 bytes have been read, on a newline
+(which is included in the return value), or on EOF (whichever comes first).
+If no length is specified, the length defaults to 1k, or 1024 bytes.
+
+If an error occurs, returns FALSE.
+
+Common Pitfalls:
+
+People used to the 'C' semantics of |fgets| should note the difference in how
+EOF is returned.
+
+The file pointer must be valid, and must point to a file successfully opened
+by |fopen| or |fsockopen|.
+
+A simple example follows: Reading a file line by line
+
+<?php >
+  $handle = fopen("/tmp/inputfile.txt", "r");
+  while (!feof($handle)) {
+      $buffer = fgets($handle, 4096);
+      echo $buffer;
+  }
+  fclose($handle);
+?>
+
+The {length} parameter became optional in PHP 4.2.0, if omitted, it would
+assume 1024 as the line length. As of PHP 4.3, omitting {length} will keep
+reading from the stream until it reaches the end of the line. If the majority
+of the lines in the file are all larger than 8KB, it is more resource
+efficient for your script to specify the maximum line length.
+
+This function is binary safe as of PHP 4.3. Earlier versions were not binary
+safe.
+
+If you are having problems with PHP not recognizing the line endings when
+reading files either on or created by a Macintosh computer, you might want to
+enable the auto_detect_line_endings run-time configuration option.
+
+See also |fread|, |fgetc|, |stream_get_line|, |fopen|, |popen|, |fsockopen|,
+and |stream_set_timeout|.
+
+vim:ft=help:

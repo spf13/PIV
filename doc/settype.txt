@@ -1,0 +1,36 @@
+settype -- Set the type of a variable
+
+  bool settype(mixed var, string type)~
+
+Set the type of variable {var} to {type}.
+
+Possibles values of {type} are: "boolean" (or, since PHP 4.2.0, "bool")
+
+"integer" (or, since PHP 4.2.0, "int")
+
+"float" (only possible since PHP 4.2.0, for older versions use the deprecated
+variant "double")
+
+"string"
+
+"array"
+
+"object"
+
+"null" (since PHP 4.2.0)
+
+Returns TRUE on success or FALSE on failure.
+
+|settype| example
+
+<?php >
+  $foo = "5bar"; // string
+  $bar = true;   // boolean
+  
+  settype($foo, "integer"); // $foo is now 5   (integer)
+  settype($bar, "string");  // $bar is now "1" (string)
+?>
+
+See also |gettype|, type-casting and type-juggling.
+
+vim:ft=help:

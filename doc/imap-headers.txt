@@ -1,0 +1,8 @@
+imap_headers -- Returns headers for all messages in a mailbox
+
+  array imap_headers(resource imap_stream)~
+
+Returns an array of string formatted with header info. One element per mail
+message.
+
+vim:ft=help:

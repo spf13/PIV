@@ -1,0 +1,20 @@
+DOMAttr->__construct() -- Creates a new DOMAttr object
+
+Creates a new DOMAttr object. This object is read only. It may be appended to
+a document, but additional nodes may not be appended to this node until the
+node is associated with a document. To create a writeable node, use .
+
+{name} The tag name of the attribute.
+
+{value} The value of the attribute.
+
+Creating a new DOMAttr
+
+<?php >
+  $dom = new DOMDocument('1.0', 'iso-8859-1');
+  $element = $dom->appendChild(new DOMElement('root'));
+  $attr = $element->setAttributeNode(new DOMAttr('attr', 'attrvalue'));
+  echo $dom->saveXML(); /* <?xml version="1.0" encoding="iso-8859-1"?><root attr="attrvalue" /> */
+?>
+
+vim:ft=help:

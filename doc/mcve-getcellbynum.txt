@@ -1,0 +1,9 @@
+mcve_getcellbynum -- Get a specific cell from a comma delimited response by
+column number
+
+  string mcve_getcellbynum(resource conn, int identifier, int column, int row)~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

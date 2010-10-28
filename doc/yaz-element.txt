@@ -1,0 +1,20 @@
+yaz_element -- Specifies Element-Set Name for retrieval
+
+  bool yaz_element(resource id, string elementset)~
+
+This function sets the element set name for retrieval.
+
+Call this function before |yaz_search| or |yaz_present| to specify the element
+set name for records to be retrieved.
+
+If this function seems effectless, see the description of the piggybacking
+option in |yaz_connect|.
+
+{id} The connection resource returned by |yaz_connect|.
+
+{elementset} Most servers support F (for full records) and B (for brief
+records).
+
+Returns TRUE on success or FALSE on failure.
+
+vim:ft=help:

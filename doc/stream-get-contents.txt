@@ -1,0 +1,42 @@
+stream_get_contents -- Reads remainder of a stream into a string
+
+  string stream_get_contents(resource handle [, int maxlength [, int offset]])~
+
+Identical to |file_get_contents|, except that |stream_get_contents| operates
+on an already open stream resource and returns the remaining contents in a
+string, up to {maxlength} bytes and starting at the specified {offset}.
+
+{handle} (resource) A stream resource (e.g. returned from |fopen|)
+
+{maxlength} (integer) The maximum bytes to read. Defaults to -1 (read all the
+remaining buffer).
+
+{offset} (integer) Seek to the specified offset before reading. Added in PHP
+5.1.0.
+
+Returns a string, or FALSE on failure.
+
+|stream_get_contents| example
+
+<?php >
+  if ($stream = fopen('http://www.example.com', 'r')) {
+      // print all the page starting at the offset 10
+      echo stream_get_contents($stream, -1, 10);
+  
+      fclose($stream);
+  }
+  
+  
+  if ($stream = fopen('http://www.example.net', 'r')) {
+      // print the first 5 bytes
+      echo stream_get_contents($stream, 5);
+  
+      fclose($stream);
+  }
+?>
+
+|fgets| |fread| |fpassthru|
+
+This function is binary-safe.
+
+vim:ft=help:

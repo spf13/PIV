@@ -1,0 +1,60 @@
+ldap_bind -- Bind to LDAP directory
+
+  bool ldap_bind(resource link_identifier [, string bind_rdn [, string bind_password]])~
+
+Binds to the LDAP directory with specified RDN and password. Returns TRUE on
+success or FALSE on failure.
+
+|ldap_bind| does a bind operation on the directory. {bind_rdn} and
+{bind_password} are optional. If not specified, anonymous bind is attempted.
+
+Using LDAP Bind
+
+<?php >
+  // using ldap bind
+  $ldaprdn  = 'uname';     // ldap rdn or dn
+  $ldappass = 'password';  // associated password
+  
+  // connect to ldap server
+  $ldapconn = ldap_connect("ldap.example.com")
+      or die("Could not connect to LDAP server.");
+  
+  if ($ldapconn) {
+  
+      // binding to ldap server
+      $ldapbind = ldap_bind($ldapconn, $ldaprdn, $ldappass);
+  
+      // verify binding
+      if ($ldapbind) {
+          echo "LDAP bind successful...";
+      } else {
+          echo "LDAP bind failed...";
+      }
+          
+  }
+?>
+
+Using LDAP Bind Anonymously
+
+<?php >
+  //using ldap bind anonymously
+  
+  // connect to ldap server
+  $ldapconn = ldap_connect("ldap.example.com")
+      or die("Could not connect to LDAP server.");
+  
+  if ($ldapconn) {
+  
+      // binding anonymously
+      $ldapbind = ldap_bind($ldapconn);
+  
+      if ($ldapbind) {
+          echo "LDAP bind anonymous successful...";
+      } else {
+          echo "LDAP bind anonymous failed...";
+      }
+   
+  }
+?>
+
+vim:ft=help:

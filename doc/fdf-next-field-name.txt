@@ -1,0 +1,22 @@
+fdf_next_field_name -- Get the next field name
+
+  string fdf_next_field_name(resource fdf_document [, string fieldname])~
+
+The |fdf_next_field_name| function returns the name of the field after the
+field in {fieldname} or the field name of the first field if the second
+parameter is NULL.
+
+Detecting all fieldnames in a FDF
+
+<?php >
+  $fdf = fdf_open($HTTP_FDF_DATA);
+  for ($field = fdf_next_field_name($fdf); 
+      $field != ""; 
+      $field = fdf_next_field_name($fdf, $field)) {
+    echo "field: $field\n";
+  } 
+?>
+
+See also |fdf_enum_fields| and |fdf_get_value|.
+
+vim:ft=help:

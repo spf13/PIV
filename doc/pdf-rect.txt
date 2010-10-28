@@ -1,0 +1,8 @@
+pdf_rect -- Draws a rectangle
+
+  bool pdf_rect(resource pdfdoc, float x, float y, float width, float height)~
+
+Draw a ({width} * {height}) rectangle at lower left ({x}, {y}). Returns TRUE
+on success or FALSE on failure.
+
+vim:ft=help:

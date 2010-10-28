@@ -1,0 +1,57 @@
+file -- Reads entire file into an array
+
+  array file(string filename [, int use_include_path [, resource context]])~
+
+Identical to |readfile|, except that |file| returns the file in an array. Each
+element of the array corresponds to a line in the file, with the newline still
+attached. Upon failure, |file| returns FALSE.
+
+You can use the optional {use_include_path} parameter and set it to "1", if
+you want to search for the file in the include_path, too.
+
+<?php >
+  // Get a file into an array.  In this example we'll go through HTTP to get 
+  // the HTML source of a URL.
+  $lines = file('http://www.example.com/');
+  
+  // Loop through our array, show HTML source as HTML source; and line numbers too.
+  foreach ($lines as $line_num => $line) {
+      echo "Line #<b>{$line_num}</b> : " . htmlspecialchars($line) . "<br />\n";
+  }
+  
+  // Another example, let's get a web page into a string.  See also file_get_contents().
+  $html = implode('', file('http://www.example.com/'));
+?>
+
+You can use a URL as a filename with this function if the fopen wrappers have
+been enabled. See |fopen| for more details on how to specify the filename and
+for a list of supported URL protocols.
+
+Each line in the resulting array will include the line ending, so you still
+need to use |rtrim| if you do not want the line ending present.
+
+If you are having problems with PHP not recognizing the line endings when
+reading files either on or created by a Macintosh computer, you might want to
+enable the auto_detect_line_endings run-time configuration option.
+
+As of PHP 4.3.0 you can use |file_get_contents| to return the contents of a
+file as a string.
+
+In PHP 4.3.0 |file| became binary safe.
+
+Context support was added with PHP 5.0.0. For a description of contexts, refer
+to .
+
+When using SSL, Microsoft IIS will violate the protocol by closing the
+connection without sending a close_notify indicator. PHP will report this as
+"SSL: Fatal Protocol Error" when you reach the end of the data. To workaround
+this, you should lower your error_reporting level not to include warnings. PHP
+4.3.7 and higher can detect buggy IIS server software when you open the stream
+using the https:// wrapper and will suppress the warning for you. If you are
+using |fsockopen| to create an ssl:// socket, you are responsible for
+detecting and suppressing the warning yourself.
+
+See also |readfile|, |fopen|, |fsockopen|, |popen|, |file_get_contents|, and
+|include|.
+
+vim:ft=help:

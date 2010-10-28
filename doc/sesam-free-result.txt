@@ -1,0 +1,8 @@
+sesam_free_result -- Releases resources for the query
+
+  int sesam_free_result(string result_id)~
+
+Releases resources for the query associated with {result_id}. Returns FALSE on
+error.
+
+vim:ft=help:

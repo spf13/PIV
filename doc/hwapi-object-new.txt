@@ -1,0 +1,7 @@
+hw_api_object -- Creates a new instance of class hw_api_object
+
+  hw_api_object hw_api_object(array parameter)~
+
+See also |hwapi_lock|.
+
+vim:ft=help:

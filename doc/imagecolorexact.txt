@@ -1,0 +1,14 @@
+imagecolorexact -- Get the index of the specified color
+
+  int imagecolorexact(resource image, int red, int green, int blue)~
+
+Returns the index of the specified color in the palette of the image.
+
+If the color does not exist in the image's palette, -1 is returned.
+
+If you created the image from a file, only colors used in the image are
+resolved. Colors present only in the pallete are not resolved.
+
+See also |imagecolorclosest|.
+
+vim:ft=help:

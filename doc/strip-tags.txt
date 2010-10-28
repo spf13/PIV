@@ -1,0 +1,43 @@
+strip_tags -- Strip HTML and PHP tags from a string
+
+  string strip_tags(string str [, string allowable_tags])~
+
+This function tries to return a string with all HTML and PHP tags stripped
+from a given {str}. It uses the same tag stripping state machine as the
+|fgetss| function.
+
+You can use the optional second parameter to specify tags which should not be
+stripped. {allowable_tags} was added in PHP 3.0.13 and PHP 4.0b3.
+
+Since PHP 4.3.0, HTML comments are also stripped. This is hardcoded and can
+not be changed with {allowable_tags}.
+
+Because |strip_tags| does not actually validate the HTML, partial, or broken
+tags can result in the removal of more text/data than expected.
+
+This function does not modify any attributes on the tags that you allow using
+{allowable_tags}, including the style and onmouseover attributes that a
+mischievous user may abuse when posting text that will be shown to other
+users.
+
+|strip_tags| example
+
+<?php >
+  $text = '<p>Test paragraph.</p><!-- Comment --> Other text';
+  echo strip_tags($text);
+  echo "\n";
+  
+  // Allow <p>
+  echo strip_tags($text, '<p>');
+?>
+
+The above example will output:
+
+  Test paragraph. Other text
+  <p>Test paragraph.</p> Other text
+
+|strip_tags| has been binary safe since PHP 5.0.0
+
+See also |htmlspecialchars|.
+
+vim:ft=help:

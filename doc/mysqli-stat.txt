@@ -1,0 +1,57 @@
+mysqli->stat -- Gets the current system status
+
+Procedural style:
+
+  string mysqli_stat(mysqli link)~
+
+Object oriented style (method):
+
+  string stat(mysqli link)~
+
+|mysqli_stat| returns a string containing information similar to that provided
+by the 'mysqladmin status' command. This includes uptime in seconds and the
+number of running threads, questions, reloads, and open tables.
+
+A string describing the server status. FALSE if an error occurred.
+
+|mysqli_get_server_info|.
+
+Object oriented style
+
+<?php >
+  $mysqli = new mysqli("localhost", "my_user", "my_password", "world");
+  
+  /* check connection */
+  if (mysqli_connect_errno()) {
+      printf("Connect failed: %s\n", mysqli_connect_error());
+      exit();
+  }
+  
+  printf ("System status: %s\n", $mysqli->stat());
+  
+  $mysqli->close();
+?>
+
+Procedural style
+
+<?php >
+  $link = mysqli_connect("localhost", "my_user", "my_password", "world");
+  
+  /* check connection */
+  if (mysqli_connect_errno()) {
+      printf("Connect failed: %s\n", mysqli_connect_error());
+      exit();
+  }
+  
+  printf("System status: %s\n", mysqli_stat($link));
+  
+  mysqli_close($link);
+?>
+
+The above example will output:
+
+  System status: Uptime: 272  Threads: 1  Questions: 5340  Slow queries: 0
+  Opens: 13  Flush tables: 1  Open tables: 0  Queries per second avg: 19.632
+  Memory in use: 8496K  Max memory used: 8560K
+
+vim:ft=help:

@@ -1,0 +1,26 @@
+xdiff_file_diff_binary -- Make binary diff of two files
+
+  bool xdiff_file_diff_binary(string file1, string file2, string dest)~
+
+|xdiff_file_diff_binary| makes binary diff of files {file1} and {file2} and
+stores result in file {dest}. This function works with both text and binary
+files. Resulting file is in binary format.
+
+Both files will be loaded into memory so ensure that your memory_limit is set
+high enough.
+
+Returns TRUE on success or FALSE on failure.
+
+|xdiff_file_diff_binary| example The following code makes binary diff of two
+archives.
+
+<?php >
+  $old_version = 'my_script_1.0.tgz';
+  $new_version = 'my_script_1.1.tgz';
+  
+  xdiff_file_diff_binary($old_version, $new_version, 'my_script.bdiff');
+?>
+
+See also |xdiff_string_diff_binary|.
+
+vim:ft=help:

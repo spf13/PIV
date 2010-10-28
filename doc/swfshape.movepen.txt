@@ -1,0 +1,17 @@
+SWFShape->movePen -- Moves the shape's pen (relative)
+
+  void swfshape->movepen(int dx, int dy)~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+|swfshape->setrightfill| move the shape's pen from coordinates (current
+x,current y) to (current x + {dx}, current y + {dy}) in the shape's
+coordinate space.
+
+See also |swfshape->movepento|, |swfshape->drawcurveto|,
+|swfshape->drawlineto| and |swfshape->drawline|.
+
+vim:ft=help:

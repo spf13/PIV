@@ -1,0 +1,8 @@
+swf_textwidth -- Get the width of a string
+
+  float swf_textwidth(string str)~
+
+The |swf_textwidth| function gives the width of the string, {str}, in pixels,
+using the current font and font size.
+
+vim:ft=help:

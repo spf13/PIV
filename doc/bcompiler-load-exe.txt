@@ -1,0 +1,19 @@
+bcompiler_load_exe -- Reads and creates classes from a bcompiler exe file
+
+  bool bcompiler_load_exe(string filename)~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+Reads data from a bcompiler exe file and creates classes from the bytecodes.
+
+|bcompiler_load| example
+
+<?php >
+  bcompiler_load_exe("/tmp/example.exe");
+  print_r(get_defined_classes());
+?>
+
+vim:ft=help:

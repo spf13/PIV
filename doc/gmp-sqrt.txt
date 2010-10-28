@@ -1,0 +1,25 @@
+gmp_sqrt -- Calculate square root
+
+  resource gmp_sqrt(resource a)~
+
+Calculates square root of {a} and returns the integer portion of the result.
+
+|gmp_sqrt| example
+
+<?php >
+  $sqrt1 = gmp_sqrt("9");
+  $sqrt2 = gmp_sqrt("7");
+  $sqrt3 = gmp_sqrt("1524157875019052100");
+  
+  echo gmp_strval($sqrt1) . "\n";
+  echo gmp_strval($sqrt2) . "\n";
+  echo gmp_strval($sqrt3) . "\n";
+?>
+
+The printout of the above program will be:
+
+  3
+  2
+  1234567890
+
+vim:ft=help:

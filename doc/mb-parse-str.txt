@@ -1,0 +1,18 @@
+mb_parse_str -- Parse GET/POST/COOKIE data and set global variable
+
+  bool mb_parse_str(string encoded_string [, array result])~
+
+|mb_parse_str| parses GET/POST/COOKIE data and sets global variables. Since
+PHP does not provide raw POST/COOKIE data, it can only used for GET data for
+now. It preses URL encoded data, detects encoding, converts coding to
+internal encoding and set values to {result} array or global variables.
+
+{encoded_string}: URL encoded data.
+
+{result}: Array contains decoded and character encoding converted values.
+
+Return Value: It returns TRUE for success or FALSE for failure.
+
+See also |mb_detect_order|, |mb_internal_encoding|.
+
+vim:ft=help:

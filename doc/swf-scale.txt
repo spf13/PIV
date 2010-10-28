@@ -1,0 +1,9 @@
+swf_scale -- Scale the current transformation
+
+  void swf_scale(float x, float y, float z)~
+
+The |swf_scale| scales the x coordinate of the curve by the value of the {x}
+parameter, the y coordinate of the curve by the value of the {y} parameter,
+and the z coordinate of the curve by the value of the {z} parameter.
+
+vim:ft=help:

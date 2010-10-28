@@ -1,0 +1,20 @@
+oci_fetch_assoc -- Returns the next row from the result data as an associative
+array
+
+  array oci_fetch_assoc(resource statement)~
+
+|oci_fetch_assoc| returns the next row from the result data as an associative
+array (identical to |oci_fetch_array| call with OCI_ASSOC flag).
+
+This function sets NULL fields to PHP NULL value.
+
+Subsequent call to |oci_fetch_assoc| will return next row or FALSE if there is
+no more rows.
+
+Don't forget, that Oracle returns all field names in uppercase and associative
+indices in the result array will be uppercased too.
+
+See also |oci_fetch_array|, |oci_fetch_object|, |oci_fetch_row| and
+|oci_fetch_all|.
+
+vim:ft=help:

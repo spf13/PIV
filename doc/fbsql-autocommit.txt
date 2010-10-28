@@ -1,0 +1,13 @@
+fbsql_autocommit -- Enable or disable autocommit
+
+  bool fbsql_autocommit(resource link_identifier [, bool OnOff])~
+
+|fbsql_autocommit| returns the current autocommit status. If the optional
+OnOff parameter is given the auto commit status will be changed. With OnOff
+set to TRUE each statement will be committed automatically, if no errors was
+found. With OnOff set to FALSE the user must commit or rollback the
+transaction using either |fbsql_commit| or |fbsql_rollback|.
+
+See also: |fbsql_commit| and |fbsql_rollback|
+
+vim:ft=help:

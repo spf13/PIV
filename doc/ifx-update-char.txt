@@ -1,0 +1,9 @@
+ifx_update_char -- Updates the content of the char object
+
+  int ifx_update_char(int bid, string content)~
+
+Updates the content of the char object for the given char object {bid}.
+{content} is a string with new data. Returns TRUE on success or FALSE on
+failure.
+
+vim:ft=help:

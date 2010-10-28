@@ -1,0 +1,11 @@
+imagesetthickness -- Set the thickness for line drawing
+
+  bool imagesetthickness(resource image, int thickness)~
+
+|imagesetthickness| sets the thickness of the lines drawn when drawing
+rectangles, polygons, ellipses etc. etc. to {thickness} pixels. Returns TRUE
+on success or FALSE on failure.
+
+This function requires GD 2.0.1 or later.
+
+vim:ft=help:

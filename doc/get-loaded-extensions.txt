@@ -1,0 +1,35 @@
+get_loaded_extensions -- Returns an array with the names of all modules
+compiled and loaded
+
+  array get_loaded_extensions()~
+
+This function returns the names of all the modules compiled and loaded in the
+PHP interpreter.
+
+For example the line below
+
+<?php >
+  print_r(get_loaded_extensions());
+?>
+
+will print a list like:
+
+  Array
+  (
+     [0] => xml
+     [1] => wddx
+     [2] => standard
+     [3] => session
+     [4] => posix
+     [5] => pgsql
+     [6] => pcre
+     [7] => gd
+     [8] => ftp
+     [9] => db
+     [10] => calendar
+     [11] => bcmath
+  )
+
+See also |get_extension_funcs|, |extension_loaded|, |dl|, and |phpinfo|.
+
+vim:ft=help:

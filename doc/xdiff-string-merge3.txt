@@ -1,0 +1,14 @@
+xdiff_string_merge3 -- Merge 3 strings into one
+
+  mixed xdiff_string_merge3(string str1, string str2, string str3 [, string error])~
+
+|xdiff_string_merge3| merges strings {str1}, {str2} and {str3} into one.
+
+If {error} is passed then rejected parts are stored inside this variable.
+
+Returns merged string, FALSE if an internal error happened, or TRUE if merged
+string is empty.
+
+See also |xdiff_file_merge3|.
+
+vim:ft=help:

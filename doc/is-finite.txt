@@ -1,0 +1,10 @@
+is_finite -- Finds whether a value is a legal finite number
+
+  bool is_finite(float val)~
+
+Returns TRUE if {val} is a legal finite number within the allowed range for a
+PHP float on this platform.
+
+See also |is_infinite| and |is_nan|.
+
+vim:ft=help:

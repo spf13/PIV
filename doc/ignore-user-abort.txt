@@ -1,0 +1,14 @@
+ignore_user_abort -- Set whether a client disconnect should abort script
+execution
+
+  int ignore_user_abort([bool setting])~
+
+This function sets whether a client disconnect should cause a script to be
+aborted. It will return the previous setting and can be called without an
+argument to not change the current setting and only return the current
+setting. See the Connection Handling section in the Features chapter for a
+complete description of connection handling in PHP.
+
+See also |connection_aborted|, and |connection_status|.
+
+vim:ft=help:

@@ -1,0 +1,30 @@
+memory_get_usage -- Returns the amount of memory allocated to PHP
+
+  int memory_get_usage()~
+
+Returns the amount of memory, in bytes, that's currently being allocated to
+your PHP script.
+
+|memory_get_usage| will only be defined if your PHP is compiled with the
+--enable-memory-limit configuration option.
+
+A |memory_get_usage| example
+
+<?php >
+  // This is only an example, the numbers below will 
+  // differ depending on your system
+  
+  echo memory_get_usage() . "\n"; // 36640
+  
+  $a = str_repeat("Hello", 4242);
+  
+  echo memory_get_usage() . "\n"; // 57960
+  
+  unset($a);
+  
+  echo memory_get_usage() . "\n"; // 36744
+?>
+
+See also memory_limit.
+
+vim:ft=help:

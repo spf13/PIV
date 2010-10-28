@@ -1,0 +1,9 @@
+rar_close -- Close Rar archive and free all resources
+
+  bool rar_close(resource rar_file)~
+
+Close Rar archive and free all allocated resources.
+
+|rar_close| returns FALSE on error.
+
+vim:ft=help:

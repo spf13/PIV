@@ -1,0 +1,14 @@
+mb_regex_encoding -- Returns current encoding for multibyte regex as string
+
+  mixed mb_regex_encoding([string encoding])~
+
+|mb_regex_encoding| returns the character encoding used by multibyte regex
+functions.
+
+If the optional parameter {encoding} is specified, it is set to the character
+encoding for multibyte regex. The default value is the internal character
+encoding.
+
+See also: |mb_internal_encoding|, |mb_ereg|
+
+vim:ft=help:

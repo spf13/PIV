@@ -1,0 +1,9 @@
+ccvs_count -- Find out how many transactions of a given type are stored in the
+system
+
+  int ccvs_count(string session, string type)~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

@@ -1,0 +1,32 @@
+ctype_digit -- Check for numeric character(s)
+
+  bool ctype_digit(string text)~
+
+Checks if all of the characters in the provided string, {text}, are numerical.
+
+{text} The tested string.
+
+Returns TRUE if every character in {text} is a decimal digit, FALSE otherwise.
+
+A |ctype_digit| example
+
+<?php >
+  $strings = array('1820.20', '10002', 'wsl!12');
+  foreach ($strings as $testcase) {
+      if (ctype_digit($testcase)) {
+          echo "The string $testcase consists of all digits.\n";
+      } else {
+          echo "The string $testcase does not consist of all digits.\n";
+      }
+  }
+?>
+
+The above example will output:
+
+  The string 1820.20 does not consists of all digits.
+  The string 10002 consists of all digits.
+  The string wsl!12 does not consists of all digits.
+
+|ctype_alnum| |ctype_xdigit|
+
+vim:ft=help:

@@ -1,0 +1,12 @@
+SWFFill -- Loads SWFFill object
+
+  SWFFill swffill()~
+
+The |swffill| object allows you to transform (scale, skew, rotate) bitmap and
+gradient fills. |swffill| objects are created by the |swfshape->addfill|
+methods.
+
+SWFFill has the following methods: |swffill->moveto| and |swffill->scaleto|,
+|swffill->rotateto|, |swffill->skewxto| and |swffill->skewyto|.
+
+vim:ft=help:

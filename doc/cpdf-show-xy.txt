@@ -1,0 +1,18 @@
+cpdf_show_xy -- Output text at position
+
+  bool cpdf_show_xy(int pdf_document, string text, float x_coor, float y_coor [, int mode])~
+
+The |cpdf_show_xy| function outputs the string {text} at position with
+coordinates ({x_coor}, {y_coor}). Returns TRUE on success or FALSE on
+failure.
+
+The optional parameter {mode} determines the unit length. If it is 0 or
+omitted the default unit as specified for the page is used. Otherwise the
+coordinates are measured in postscript points disregarding the current unit.
+
+The function |cpdf_show_xy| is identical to |cpdf_text| without the optional
+parameters.
+
+See also |cpdf_text|.
+
+vim:ft=help:

@@ -1,0 +1,13 @@
+notes_mark_read -- Mark a note_id as read for the User user_name
+
+  bool notes_mark_read(string database_name, string user_name, string note_id)~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

@@ -1,0 +1,11 @@
+ldap_mod_del -- Delete attribute values from current attributes
+
+  bool ldap_mod_del(resource link_identifier, string dn, array entry)~
+
+Returns TRUE on success or FALSE on failure.
+
+This function removes attribute(s) from the specified {dn}. It performs the
+modification at the attribute level as opposed to the object level.
+Object-level deletions are done by the |ldap_delete| function.
+
+vim:ft=help:

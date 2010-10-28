@@ -1,0 +1,61 @@
+mysql_connect -- Open a connection to a MySQL Server
+
+  resource mysql_connect([string server [, string username [, string password [, bool new_link [, int client_flags]]]]])~
+
+Opens or reuses a connection to a MySQL server.
+
+{server} The MySQL server. It can also include a port number. e.g.
+"hostname:port" or a path to a local socket e.g. ":/path/to/socket" for the
+localhost.
+
+If the PHP directive mysql.default_host is undefined (default), then the
+default value is 'localhost:3306'
+
+{username} The username. Default value is the name of the user that owns the
+server process.
+
+{password} The password. Default value is an empty password.
+
+{new_link} If a second call is made to |mysql_connect| with the same
+arguments, no new link will be established, but instead, the link identifier
+of the already opened link will be returned. The {new_link} parameter
+modifies this behavior and makes |mysql_connect| always open a new link, even
+if |mysql_connect| was called before with the same parameters.
+
+{client_flags} The {client_flags} parameter can be a combination of the
+following constants: MYSQL_CLIENT_COMPRESS, MYSQL_CLIENT_IGNORE_SPACE or
+MYSQL_CLIENT_INTERACTIVE.
+
+Returns a MySQL link identifier on success, or FALSE on failure.
+
+Version Description 4.3.0 Added the {client_flags} parameter. 4.2.0 Added the
+{new_link} parameter. 3.0.10 Added support for ":/path/to/socket" with
+{server}. 3.0.0 Added support for ":port" with {server}.
+
+|mysql_connect| example
+
+<?php >
+  $link = mysql_connect('localhost', 'mysql_user', 'mysql_password');
+  if (!$link) {
+      die('Could not connect: ' . mysql_error());
+  }
+  echo 'Connected successfully';
+  mysql_close($link);
+?>
+
+Whenever you specify "localhost" or "localhost:port" as server, the MySQL
+client library will override this and try to connect to a local socket (named
+pipe on Windows). If you want to use TCP/IP, use "127.0.0.1" instead of
+"localhost". If the MySQL client library tries to connect to the wrong local
+socket, you should set the correct path as mysql.default_host in your PHP
+configuration and leave the server field blank.
+
+The link to the server will be closed as soon as the execution of the script
+ends, unless it's closed earlier by explicitly calling |mysql_close|.
+
+You can suppress the error message on failure by prepending a @ to the
+function name.
+
+|mysql_pconnect| |mysql_close|
+
+vim:ft=help:

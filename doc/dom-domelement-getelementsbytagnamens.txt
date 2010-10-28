@@ -1,0 +1,18 @@
+DOMElement->getElementsByTagNameNS() -- Get elements by namespaceURI and
+localName
+
+  DOMNodeList getElementsByTagNameNS(string namespaceURI, string localName)~
+
+This function fetch all the descendant elements with a given {localName} and
+{namespaceURI}.
+
+{namespaceURI} The namespace URI.
+
+{localName} The local name. Use * to return all elements within the element
+tree.
+
+This function returns a new instance of the class DOMNodeList of all matched
+elements in the order in which they are encountered in a preorder traversal
+of this element tree.
+
+vim:ft=help:

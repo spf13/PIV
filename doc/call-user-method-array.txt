@@ -1,0 +1,6 @@
+call_user_method_array -- Call a user method given with an array of parameters
+[deprecated]
+
+  mixed call_user_method_array(string method_name, object obj, array paramarr)~
+
+vim:ft=help:

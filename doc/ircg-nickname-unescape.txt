@@ -1,0 +1,10 @@
+ircg_nickname_unescape -- Decodes encoded nickname
+
+  string ircg_nickname_unescape(string nick)~
+
+Function |ircg_nickname_unescape| returns a decoded nickname, which is
+specified in {nick}.
+
+See also: |ircg_nickname_escape|
+
+vim:ft=help:

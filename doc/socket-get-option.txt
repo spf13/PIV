@@ -1,0 +1,17 @@
+socket_get_option -- Gets socket options for the socket
+
+  mixed socket_get_option(resource socket, int level, int optname)~
+
+The |socket_get_option| function retrieves the value for the option specified
+by the {optname} parameter for the socket specified by the {socket}
+parameter. |socket_get_option| will return FALSE on failure.
+
+The {level} parameter specifies the protocol level at which the option
+resides. For example, to retrieve options at the socket level, a {level}
+parameter of SOL_SOCKET would be used. Other levels, such as TCP, can be used
+by specifying the protocol number of that level. Protocol numbers can be found
+by using the |getprotobyname| function.
+
+This function used to be called socket_getopt() prior to PHP 4.3.0
+
+vim:ft=help:

@@ -1,0 +1,19 @@
+sem_acquire -- Acquire a semaphore
+
+  bool sem_acquire(resource sem_identifier)~
+
+|sem_acquire| blocks (if necessary) until the semaphore can be acquired. A
+process attempting to acquire a semaphore which it has already acquired will
+block forever if acquiring the semaphore would cause its maximum number of
+semaphore to be exceeded. {sem_identifier} is a semaphore ressource, obtained
+from |sem_get|.
+
+Returns TRUE on success or FALSE on failure.
+
+After processing a request, any semaphores acquired by the process but not
+explicitly released will be released automatically and a warning will be
+generated.
+
+See also |sem_get|, and |sem_release|.
+
+vim:ft=help:

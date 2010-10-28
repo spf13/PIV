@@ -1,0 +1,9 @@
+icap_delete_event -- Delete an event from an ICAP calendar
+
+  string icap_delete_event(int stream_id, int uid)~
+
+|icap_delete_event| deletes the calendar event specified by the {uid}.
+
+Returns TRUE.
+
+vim:ft=help:

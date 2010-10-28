@@ -1,0 +1,8 @@
+mcve_transactionbatch -- Get the batch number associated with the transaction
+
+  int mcve_transactionbatch(resource conn, int identifier)~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

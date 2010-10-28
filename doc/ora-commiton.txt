@@ -1,0 +1,13 @@
+ora_commiton -- Enable automatic commit
+
+  bool ora_commiton(resource conn)~
+
+This function turns on automatic commit after each |ora_exec| on the given
+connection.
+
+Returns TRUE on success or FALSE on failure. Details about the error can be
+retrieved using the |ora_error| and |ora_errorcode| functions.
+
+See also |ora_commitoff| and |ora_commit|.
+
+vim:ft=help:

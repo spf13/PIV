@@ -1,0 +1,51 @@
+simplexml_load_string -- Interprets a string of XML into an object
+
+  object simplexml_load_string(string data [, string class_name [, int options]])~
+
+This function will take the well-formed xml string {data} and return an object
+of class SimpleXMLElement with properties containing the data held within the
+xml document. If any errors occur, it returns FALSE.
+
+You may use the optional {class_name} parameter so that
+|simplexml_load_string| will return an object of the specified class. That
+class should extend the SimpleXMLElement class.
+
+Since PHP 5.1.0 and Libxml 2.6.0, you may also use the {options} parameter to
+specify additional Libxml parameters.
+
+Interpret an XML string
+
+<?php >
+  $string = <<<XML
+  <?xml version='1.0'?> 
+  <document>
+   <title>Forty What?</title>
+   <from>Joe</from>
+   <to>Jane</to>
+   <body>
+    I know that's the answer -- but what's the question?
+   </body>
+  </document>
+  XML;
+  
+  $xml = simplexml_load_string($string);
+  
+  var_dump($xml);
+?>
+
+This script will display:
+
+  SimpleXMLElement Object
+  (
+    [title] => Forty What?
+    [from] => Joe
+    [to] => Jane
+    [body] =>
+     I know that's the answer -- but what's the question?
+  )
+
+At this point, you can go about using $xml->body and such.
+
+See also: |simplexml_load_file|.
+
+vim:ft=help:

@@ -1,0 +1,18 @@
+mysqli->rpl_query_type -- Returns RPL query type
+
+Procedural style:
+
+  int mysqli_rpl_query_type(mysqli link, string query)~
+
+Object oriented style (method)
+
+  int rpl_query_type(mysqli link, string query, string query)~
+
+Returns MYSQLI_RPL_MASTER, MYSQLI_RPL_SLAVE or MYSQLI_RPL_ADMIN depending on a
+query type. INSERT, UPDATE and similar are master queries, SELECT is slave,
+and FLUSH, REPAIR and similar are admin.
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

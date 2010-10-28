@@ -1,0 +1,19 @@
+imagealphablending -- Set the blending mode for an image
+
+  bool imagealphablending(resource image, bool blendmode)~
+
+|imagealphablending| allows for two different modes of drawing on truecolor
+images. In blending mode, the alpha channel component of the color supplied
+to all drawing function, such as |imagesetpixel| determines how much of the
+underlying color should be allowed to shine through. As a result, gd
+automatically blends the existing color at that point with the drawing color,
+and stores the result in the image. The resulting pixel is opaque. In
+non-blending mode, the drawing color is copied literally with its alpha
+channel information, replacing the destination pixel. Blending mode is not
+available when drawing on palette images. If {blendmode} is TRUE, then
+blending mode is enabled, otherwise disabled. Returns TRUE on success or
+FALSE on failure.
+
+This function requires GD 2.0.1 or later.
+
+vim:ft=help:

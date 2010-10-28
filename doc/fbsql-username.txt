@@ -1,0 +1,8 @@
+fbsql_username -- Get or set the host user used with a connection
+
+  string fbsql_username(resource link_identifier [, string username])~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

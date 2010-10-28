@@ -1,0 +1,9 @@
+fbsql_warnings -- Enable or disable FrontBase warnings
+
+  bool fbsql_warnings([bool OnOff])~
+
+Returns TRUE if warnings is turned on otherwise FALSE.
+
+|fbsql_warnings| enables or disables FrontBase warnings.
+
+vim:ft=help:

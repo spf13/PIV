@@ -1,0 +1,42 @@
+SoapServer->addFunction() -- Adds one or several functions those will handle
+SOAP requests
+
+  void addFunction(mixed functions)~
+
+Exports one or more functions for remote clients.
+
+{functions} To export one function, pass the function name into this parameter
+as a string.
+
+To export several functions, pass an array of function names.
+
+To export all the functions, pass a special constant SOAP_FUNCTIONS_ALL.
+
+{functions} must receive all input arguments in the same order as defined in
+the WSDL file (They should not receive any output parameters as arguments)
+and return one or more values. To return several values they must return an
+array with named output parameters.
+
+No value is returned.
+
+Some examples
+
+<?php >
+  function echoString($inputString)
+  {
+      return $inputString;
+  }
+  
+  $server->addFunction("echoString");
+  
+  function echoTwoStrings($inputString1, $inputString2)
+  {
+      return array("outputString1" => $inputString1,
+                   "outputString2" => $inputString2);
+  }
+  $server->addFunction(array("echoString", "echoTwoStrings"));
+  
+  $server->addFunction(SOAP_FUNCTIONS_ALL);
+?>
+
+vim:ft=help:

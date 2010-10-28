@@ -1,0 +1,14 @@
+mysqli->send_query -- Send the query and return
+
+Procedural style:
+
+  bool mysqli_send_query(mysqli link, string query)~
+
+Object oriented style (method)
+
+  bool send_query(mysqli link, string query, string query)~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

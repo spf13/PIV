@@ -1,0 +1,9 @@
+snmp_set_valueretrieval -- Specify the method how the SNMP values will be
+returned
+
+  void snmp_set_valueretrieval(int method)~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

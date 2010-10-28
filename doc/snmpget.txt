@@ -1,0 +1,15 @@
+snmpget -- Fetch an SNMP object
+
+  string snmpget(string hostname, string community, string object_id [, int timeout [, int retries]])~
+
+Returns SNMP object value on success and FALSE on error.
+
+The |snmpget| function is used to read the value of an SNMP object specified
+by the {object_id}. SNMP agent is specified by the {hostname} and the read
+community is specified by the {community} parameter.
+
+<?php >
+  $syscontact = snmpget("127.0.0.1", "public", "system.SysContact.0");
+?>
+
+vim:ft=help:

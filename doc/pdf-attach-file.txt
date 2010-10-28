@@ -1,0 +1,12 @@
+pdf_attach_file -- Adds a file attachment for current page
+
+  bool pdf_attach_file(resource pdfdoc, float llx, float lly, float urx, float ury, string filename, string description, string author, string mimetype, string icon)~
+
+Add a file attachment annotation. {icon} is one of graph, paperclip, pushpin,
+or tag. Returns TRUE on success or FALSE on failure.
+
+Only the 'Full' Acrobat software will be able to display these file
+attachments. All other PDF viewers will either show nothing or display a
+question mark.
+
+vim:ft=help:

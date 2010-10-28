@@ -1,0 +1,10 @@
+ircg_ignore_del -- Remove a user from your ignore list on a server
+
+  bool ircg_ignore_del(resource connection, string nick)~
+
+This function removes user {nick} from the IRCG ignore list associated with
+{connection}.
+
+See also: |ircg_ignore_add|.
+
+vim:ft=help:

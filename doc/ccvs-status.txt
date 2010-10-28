@@ -1,0 +1,8 @@
+ccvs_status -- Check the status of an invoice
+
+  string ccvs_status(string session, string invoice)~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

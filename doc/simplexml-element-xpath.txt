@@ -1,0 +1,49 @@
+SimpleXMLElement->xpath -- Runs Xpath query on XML data
+
+  array SimpleXMLElement->xpath(string path)~
+
+The xpath method searches the SimpleXML node for children matching the Xpath
+{path}. It always returns an array of SimpleXMLElement objects.
+
+Xpath
+
+<?php >
+  $string = <<<XML
+  <a>
+   <b>
+    <c>text</c>
+    <c>stuff</c>
+   </b>
+   <d>
+    <c>code</c>
+   </d>
+  </a>
+  XML;
+  
+  $xml = simplexml_load_string($string);
+  
+  /* Search for <a><b><c> */
+  $result = $xml->xpath('/a/b/c');
+  
+  while(list( , $node) = each($result)) {
+      echo '/a/b/c: ',$node,"\n";
+  }
+  
+  /* Relative paths also work... */
+  $result = $xml->xpath('b/c');
+  
+  while(list( , $node) = each($result)) {
+      echo 'b/c: ',$node,"\n";
+  }
+?>
+
+This script will display:
+
+  /a/b/c: text
+  /a/b/c: stuff
+  b/c: text
+  b/c: stuff
+
+Notice that the two results are equal.
+
+vim:ft=help:

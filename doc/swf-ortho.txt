@@ -1,0 +1,9 @@
+swf_ortho -- Defines an orthographic mapping of user coordinates onto the
+current viewport
+
+  void swf_ortho(float xmin, float xmax, float ymin, float ymax, float zmin, float zmax)~
+
+The |swf_ortho| function defines an orthographic mapping of user coordinates
+onto the current viewport.
+
+vim:ft=help:

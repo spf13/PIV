@@ -1,0 +1,63 @@
+stripslashes -- Un-quote string quoted with addslashes
+
+  string stripslashes(string str)~
+
+Returns a string with backslashes stripped off. (\' becomes ' and so on.)
+Double backslashes (\\) are made into a single backslash (\).
+
+An example use of |stripslashes| is when the PHP directive magic_quotes_gpc is
+on (it's on by default), and you aren't inserting this data into a place (such
+as a database) that requires escaping. For example, if you're simply
+outputting data straight from an HTML form.
+
+A |stripslashes| example
+
+<?php >
+  $str = "Is your name O\'reilly?";
+  
+  // Outputs: Is your name O'reilly?
+  echo stripslashes($str);
+?>
+
+|stripslashes| is not recursive. If you want to apply this function to a
+mutli-dimensional array, you need to use a recursive function.
+
+Using |stripslashes| on an array
+
+<?php >
+  function stripslashes_deep($value)
+  {
+      $value = is_array($value) ?
+                  array_map('stripslashes_deep', $value) :
+                  stripslashes($value);
+  
+      return $value;
+  }
+  
+  // Example
+  $array = array("f\\'oo", "b\\'ar", array("fo\\'o", "b\\'ar"));
+  $array = stripslashes_deep($array);
+  
+  // Output
+  print_r($array);
+?>
+
+The above example will output:
+
+  Array
+  (
+      [0] => f'oo
+      [1] => b'ar
+      [2] => Array
+          (
+              [0] => fo'o
+              [1] => b'ar
+          )
+  
+  )
+
+For more information about "magic quotes", see |get_magic_quotes_gpc|.
+
+See also |addslashes| and |get_magic_quotes_gpc|.
+
+vim:ft=help:

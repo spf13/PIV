@@ -1,0 +1,9 @@
+pdf_set_info -- Fills a field of the document information
+
+  bool pdf_set_info(resource pdfdoc, string key, string value)~
+
+Fill document information field {key} with {value}. Returns TRUE on success or
+FALSE on failure. {key} is one of Subject, Title, Creator, Author, Keywords,
+or a user-defined key.
+
+vim:ft=help:

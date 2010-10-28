@@ -1,0 +1,15 @@
+ncurses_resetty -- Restores saved terminal state
+
+  bool ncurses_resetty()~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+Function |ncurses_resetty| restores the terminal state, which was previously
+saved by calling |ncurses_savetty|. This function always returns FALSE.
+
+See also: |ncurses_savetty|
+
+vim:ft=help:

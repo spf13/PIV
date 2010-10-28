@@ -1,0 +1,21 @@
+lstat -- Gives information about a file or symbolic link
+
+  array lstat(string filename)~
+
+Gathers the statistics of the file or symbolic link named by {filename}. This
+function is identical to the |stat| function except that if the {filename}
+parameter is a symbolic link, the status of the symbolic link is returned,
+not the status of the file pointed to by the symbolic link.
+
+See the manual page for |stat| for information on the structure of the array
+that |lstat| returns.
+
+The results of this function are cached. See |clearstatcache| for more
+details.
+
+As of PHP 5.0.0 this function can also be used with some URL wrappers. Refer
+to for a listing of which wrappers support |stat| family of functionality.
+
+See also |stat|.
+
+vim:ft=help:

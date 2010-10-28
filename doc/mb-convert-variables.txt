@@ -1,0 +1,29 @@
+mb_convert_variables -- Convert character code in variable(s)
+
+  string mb_convert_variables(string to_encoding, mixed from_encoding, mixed vars [, mixed ...])~
+
+|mb_convert_variables| convert character encoding of variables {vars} in
+encoding {from_encoding} to encoding {to_encoding}. It returns character
+encoding before conversion for success, FALSE for failure.
+
+|mb_convert_variables| join strings in Array or Object to detect encoding,
+since encoding detection tends to fail for short strings. Therefore, it is
+impossible to mix encoding in single array or object.
+
+It {from_encoding} is specified by array or comma separated string, it tries
+to detect encoding from {from-coding}. When {encoding} is omitted,
+detect_order is used.
+
+{vars (3rd and larger)} is reference to variable to be converted. String,
+Array and Object are accepted. |mb_convert_variables| assumes all parameters
+have the same encoding.
+
+|mb_convert_variables| example
+
+<?php >
+  /* Convert variables $post1, $post2 to internal encoding */
+  $interenc = mb_internal_encoding();
+  $inputenc = mb_convert_variables($interenc, "ASCII,UTF-8,SJIS-win", $post1, $post2);
+?>
+
+vim:ft=help:

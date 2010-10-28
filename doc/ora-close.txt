@@ -1,0 +1,10 @@
+ora_close -- Closes an Oracle cursor
+
+  bool ora_close(resource cursor)~
+
+This function closes a data cursor opened with |ora_open|.
+
+Returns TRUE on success or FALSE on failure. Details about the error can be
+retrieved using the |ora_error| and |ora_errorcode| functions.
+
+vim:ft=help:

@@ -1,0 +1,8 @@
+ifx_textasvarchar -- Set the default text mode
+
+  void ifx_textasvarchar(int mode)~
+
+Sets the default text mode for all select-queries. Mode "0" will return a blob
+id, and mode "1" will return a varchar with text content.
+
+vim:ft=help:

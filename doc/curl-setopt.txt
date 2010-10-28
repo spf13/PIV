@@ -1,0 +1,253 @@
+curl_setopt -- Set an option for a CURL transfer
+
+  bool curl_setopt(resource ch, int option, mixed value)~
+
+Set an option for a CURL session identified by the {ch} parameter. {option}
+specifies which option to set, and {value} specifies the value for the option
+given.
+
+{value} should be a bool for the following values of the {option} parameter:
+Option Set {value} to Notes CURLOPT_AUTOREFERER TRUE to automatically set the
+Referer: field in requests where it follows a Location: redirect. Available
+since PHP 5.1.0. CURLOPT_BINARYTRANSFER TRUE to return the raw output when
+CURLOPT_RETURNTRANSFER is used. CURLOPT_COOKIESESSION TRUE to mark this as a
+new cookie "session". It will force libcurl to ignore all cookies it is about
+to load that are "session cookies" from the previous session. By default,
+libcurl always stores and loads all cookies, independent if they are session
+cookies are not. Session cookies are cookies without expiry date and they are
+meant to be alive and existing for this "session" only. Available since PHP
+5.1.0. CURLOPT_CRLF TRUE to convert Unix newlines to CRLF newlines on
+transfers. CURLOPT_DNS_USE_GLOBAL_CACHE TRUE to use a global DNS cache. This
+option is not thread-safe and is enabled by default. CURLOPT_FAILONERROR TRUE
+to fail silently if the HTTP code returned is greater than 300. The default
+behavior is to return the page normally, ignoring the code. CURLOPT_FILETIME
+TRUE to attempt to retrieve the modification date of the remote document. You
+can then retrieve this value using the {CURLINFO_FILETIME} option with
+|curl_getinfo|. CURLOPT_FOLLOWLOCATION TRUE to follow any "Location: " header
+that the server sends as part of the HTTP header (note this is recursive, PHP
+will follow as many "Location: " headers that it is sent, unless
+CURLOPT_MAXREDIRS is set). CURLOPT_FORBID_REUSE TRUE to force the connection
+to explicitly close when it has finished processing, and not be pooled for
+reuse. CURLOPT_FRESH_CONNECT TRUE to force the use of a new connection
+instead of a cached one. CURLOPT_FTP_USE_EPRT TRUE to use EPRT (and LPRT)
+when doing active FTP downloads. Use FALSE to disable EPRT and LPRT and use
+PORT only. Added in PHP 5.0.0. CURLOPT_FTP_USE_EPSV TRUE to first try an EPSV
+command for FTP transfers before reverting back to PASV. Set to FALSE to
+disable EPSV. CURLOPT_FTPAPPEND TRUE to append to the remote file instead of
+overwriting it. CURLOPT_FTPASCII An alias of CURLOPT_TRANSFERTEXT. Use that
+instead. CURLOPT_FTPLISTONLY TRUE to only list the names of an FTP directory.
+CURLOPT_HEADER TRUE to include the header in the output. CURLOPT_HTTPGET TRUE
+to reset the HTTP request method to GET. Since GET is the default, this is
+only necessary if the request method has been changed.
+CURLOPT_HTTPPROXYTUNNEL TRUE to tunnel through a given HTTP proxy.
+CURLOPT_MUTE TRUE to be completely silent with regards to the CURL functions.
+CURLOPT_NETRC TRUE to scan your ~/.netrc file to find your username and
+password for the remote site that you're establishing a connection with.
+CURLOPT_NOBODY TRUE to exclude the body from the output. CURLOPT_NOPROGRESS
+TRUE to disable the progress meter for CURL transfers. PHP automatically sets
+this option to TRUE, this should only be changed for debugging purposes.
+
+CURLOPT_NOSIGNAL TRUE to ignore any CURL function that causes a signal to be
+sent to the PHP process. This is turned on by default in multi-threaded SAPIs
+so timeout options can still be used. Added in CURL 7.10 and PHP 5.0.0.
+CURLOPT_POST TRUE to do a regular HTTP POST. This POST is the normal
+application/x-www-form-urlencoded kind, most commonly used by HTML forms.
+CURLOPT_PUT TRUE to HTTP PUT a file. The file to PUT must be set with
+CURLOPT_INFILE and CURLOPT_INFILESIZE. CURLOPT_RETURNTRANSFER TRUE to return
+the transfer as a string of the return value of |curl_exec| instead of
+outputting it out directly. CURLOPT_SSL_VERIFYPEER FALSE to stop CURL from
+verifying the peer's certificate. Alternate certificates to verify against
+can be specified with the CURLOPT_CAINFO option or a certificate directory
+can be specified with the CURLOPT_CAPATH option. CURLOPT_SSL_VERIFYHOST may
+also need to be TRUE or FALSE if CURLOPT_SSL_VERIFYPEER is disabled (it
+defaults to 2). TRUE by default as of CURL 7.10. Default bundle installed as
+of CURL 7.10. CURLOPT_TRANSFERTEXT TRUE to use ASCII mode for FTP transfers.
+For LDAP, it retrieves data in plain text instead of HTML. On Windows
+systems, it will not set STDOUT to binary mode. CURLOPT_UNRESTRICTED_AUTH
+TRUE to keep sending the username and password when following locations
+(using CURLOPT_FOLLOWLOCATION), even when the hostname has changed. Added in
+PHP 5.0.0. CURLOPT_UPLOAD TRUE to prepare for an upload. CURLOPT_VERBOSE TRUE
+to output verbose information. Writes output to STDERR, or the file specified
+using CURLOPT_STDERR.
+
+{value} should be an integer for the following values of the {option}
+parameter: Option Set {value} to Notes CURLOPT_BUFFERSIZE The size of the
+buffer to use for each read. There is no guarantee this request will be
+fulfilled, however. Added in CURL 7.10 and PHP 5.0.0. CURLOPT_CLOSEPOLICY
+Either {CURLCLOSEPOLICY_LEAST_RECENTLY_USED} or {CURLCLOSEPOLICY_OLDEST}.
+There are three other CURLCLOSEPOLICY_ constants, but CURL does not support
+them yet. CURLOPT_CONNECTTIMEOUT The number of seconds to wait whilst trying
+to connect. Use 0 to wait indefinitely. CURLOPT_DNS_CACHE_TIMEOUT The number
+of seconds to keep DNS entries in memory. This option is set to 120 (2
+minutes) by default. CURLOPT_FTPSSLAUTH The FTP authentication method (when
+is activated): CURLFTPAUTH_SSL (try SSL first), CURLFTPAUTH_TLS (try TLS
+first), or CURLFTPAUTH_DEFAULT (let CURL decide). Added in CURL 7.12.2 and
+PHP 5.1.0. CURLOPT_HTTP_VERSION {CURL_HTTP_VERSION_NONE} (default, lets CURL
+decide which version to use), {CURL_HTTP_VERSION_1_0} (forces HTTP/1.0), or
+{CURL_HTTP_VERSION_1_1} (forces HTTP/1.1). CURLOPT_HTTPAUTH The HTTP
+authentication method(s) to use. The options are: {CURLAUTH_BASIC},
+{CURLAUTH_DIGEST}, {CURLAUTH_GSSNEGOTIATE}, {CURLAUTH_NTLM}, {CURLAUTH_ANY},
+and {CURLAUTH_ANYSAFE}.
+
+You can use the bitwise | (or) operator to combine more than one method. If
+you do this, CURL will poll the server to see what methods it supports and
+pick the best one.
+
+{CURLAUTH_ANY} is an alias for CURLAUTH_BASIC | CURLAUTH_DIGEST |
+CURLAUTH_GSSNEGOTIATE | CURLAUTH_NTLM.
+
+{CURLAUTH_ANYSAFE} is an alias for CURLAUTH_DIGEST | CURLAUTH_GSSNEGOTIATE |
+CURLAUTH_NTLM.
+
+Added in PHP 5.0.0. CURLOPT_INFILESIZE The expected size, in bytes, of the
+file when uploading a file to a remote site. CURLOPT_LOW_SPEED_LIMIT The
+transfer speed, in bytes per second, that the transfer should be below during
+CURLOPT_LOW_SPEED_TIME seconds for PHP to consider the transfer too slow and
+abort. CURLOPT_LOW_SPEED_TIME The number of seconds the transfer should be
+below CURLOPT_LOW_SPEED_LIMIT for PHP to consider the transfer too slow and
+abort. CURLOPT_MAXCONNECTS The maximum amount of persistent connections that
+are allowed. When the limit is reached, CURLOPT_CLOSEPOLICY is used to
+determine which connection to close. CURLOPT_MAXREDIRS The maximum amount of
+HTTP redirections to follow. Use this option alongside
+CURLOPT_FOLLOWLOCATION. CURLOPT_PORT An alternative port number to connect
+to. CURLOPT_PROXYAUTH The HTTP authentication method(s) to use for the proxy
+connection. Use the same bitmasks as described in CURLOPT_HTTPAUTH. For proxy
+authentication, only {CURLAUTH_BASIC} and {CURLAUTH_NTLM} are currently
+supported. Added in CURL 7.10.7 and PHP 5.1.0. CURLOPT_PROXYPORT The port
+number of the proxy to connect to. This port number can also be set in
+CURLOPT_PROXY. Added in PHP 5.0.0. CURLOPT_PROXYTYPE Either {CURLPROXY_HTTP}
+(default) or {CURLPROXY_SOCKS5}. Added in CURL 7.10 and PHP 5.0.0.
+CURLOPT_RESUME_FROM The offset, in bytes, to resume a transfer from.
+CURLOPT_SSL_VERIFYHOST 1 to check the existence of a common name in the SSL
+peer certificate. 2 to check the existence of a common name and also verify
+that it matches the hostname provided. CURLOPT_SSLVERSION The SSL version (2
+or 3) to use. By default PHP will try to determine this itself, although in
+some cases you must set this manually. CURLOPT_TIMECONDITION How
+CURLOPT_TIMEVALUE is treated. Use {CURL_TIMECOND_IFMODSINCE} to return the
+page only if it has been modified since the time specified in
+CURLOPT_TIMEVALUE. If it hasn't been modified, a "304 Not Modified" header
+will be returned assuming CURLOPT_HEADER is TRUE. Use
+{CURL_TIMECOND_ISUNMODSINCE} for the reverse effect.
+{CURL_TIMECOND_IFMODSINCE} is the default. Added in PHP 5.1.0.
+CURLOPT_TIMEOUT The maximum number of seconds to allow CURL functions to
+execute. CURLOPT_TIMEVALUE The time in seconds since January 1st, 1970. The
+time will be used by CURLOPT_TIMECONDITION. By default,
+{CURL_TIMECOND_IFMODSINCE} is used.
+
+{value} should be a string for the following values of the {option} parameter:
+Option Set {value} to Notes CURLOPT_CAINFO The name of a file holding one or
+more certificates to verify the peer with. This only makes sense when used in
+combination with CURLOPT_SSL_VERIFYPEER. CURLOPT_CAPATH A directory that holds
+multiple CA certificates. Use this option alongside CURLOPT_SSL_VERIFYPEER.
+CURLOPT_COOKIE The contents of the "Set-Cookie: " header to be used in the
+HTTP request. CURLOPT_COOKIEFILE The name of the file containing the cookie
+data. The cookie file can be in Netscape format, or just plain HTTP-style
+headers dumped into a file. CURLOPT_COOKIEJAR The name of a file to save all
+internal cookies to when the connection closes. CURLOPT_CUSTOMREQUEST A
+custom request method to use instead of "GET" or "HEAD" when doing a HTTP
+request. This is useful for doing "DELETE" or other, more obscure HTTP
+requests. Valid values are things like "GET", "POST", "CONNECT" and so on;
+i.e. Do not enter a whole HTTP request line here. For instance, entering "GET
+/index.html HTTP/1.0\r\n\r\n" would be incorrect. Don't do this without making
+sure your server supports the custom request method first.
+
+CURLOPT_EGBSOCKET Like CURLOPT_RANDOM_FILE, except a filename to an Entropy
+Gathering Daemon socket. CURLOPT_ENCODING The contents of the
+"Accept-Encoding: " header. This enables decoding of the response. Supported
+encodings are "identity", "deflate", and "gzip". If an empty string, "", is
+set, a header containing all supported encoding types is sent. Added in CURL
+7.10. CURLOPT_FTPPORT The value which will be used to get the IP address to
+use for the FTP "POST" instruction. The "POST" instruction tells the remote
+server to connect to our specified IP address. The string may be a plain IP
+address, a hostname, a network interface name (under Unix), or just a plain
+'-' to use the systems default IP address. CURLOPT_INTERFACE The name of the
+outgoing network interface to use. This can be an interface name, an IP
+address or a host name. CURLOPT_KRB4LEVEL The KRB4 (Kerberos 4) security
+level. Any of the following values (in order from least to most powerful) are
+valid: "clear", "safe", "confidential", "private".. If the string does not
+match one of these, "private" is used. Setting this option to NULL will
+disable KRB4 security. Currently KRB4 security only works with FTP
+transactions. CURLOPT_POSTFIELDS The full data to post in a HTTP "POST"
+operation. CURLOPT_PROXY The HTTP proxy to tunnel requests through.
+CURLOPT_PROXYUSERPWD A username and password formatted as
+"[username]:[password]" to use for the connection to the proxy.
+CURLOPT_RANDOM_FILE A filename to be used to seed the random number generator
+for SSL. CURLOPT_RANGE Range(s) of data to retrieve in the format "X-Y" where
+X or Y are optional. HTTP transfers also support several intervals, separated
+with commas in the format "X-Y,N-M". CURLOPT_REFERER The contents of the
+"Referer: " header to be used in a HTTP request. CURLOPT_SSL_CIPHER_LIST A
+list of ciphers to use for SSL. For example, RC4-SHA and TLSv1 are valid
+cipher lists. CURLOPT_SSLCERT The name of a file containing a PEM formatted
+certificate. CURLOPT_SSLCERTPASSWD The password required to use the
+CURLOPT_SSLCERT certificate. CURLOPT_SSLCERTTYPE The format of the
+certificate. Supported formats are "PEM" (default), "DER", and "ENG". Added
+in CURL 7.9.3 and PHP 5.0.0. CURLOPT_SSLENGINE The identifier for the crypto
+engine of the private SSL key specified in CURLOPT_SSLKEY.
+CURLOPT_SSLENGINE_DEFAULT The identifier for the crypto engine used for
+asymmetric crypto operations. CURLOPT_SSLKEY The name of a file containing a
+private SSL key. CURLOPT_SSLKEYPASSWD The secret password needed to use the
+private SSL key specified in CURLOPT_SSLKEY. Since this option contains a
+sensitive password, remember to keep the PHP script it is contained within
+safe.
+
+CURLOPT_SSLKEYTYPE The key type of the private SSL key specified in
+CURLOPT_SSLKEY. Supported key types are "PEM" (default), "DER", and "ENG".
+CURLOPT_URL The URL to fetch. You can also set this when initializing a
+session with |curl_init|. CURLOPT_USERAGENT The contents of the "User-Agent:
+" header to be used in a HTTP request. CURLOPT_USERPWD A username and
+password formatted as "[username]:[password]" to use for the connection.
+
+{value} should be an array for the following values of the {option} parameter:
+Option Set {value} to Notes CURLOPT_HTTP200ALIASES An array of HTTP 200
+responses that will be treated as valid responses and not as errors. Added in
+CURL 7.10.3 and PHP 5.0.0. CURLOPT_HTTPHEADER An array of HTTP header fields
+to set. CURLOPT_POSTQUOTE An array of FTP commands to execute on the server
+after the FTP request has been performed. CURLOPT_QUOTE An array of FTP
+commands to execute on the server prior to the FTP request.
+
+{value} should be a stream resource (using |fopen|, for example) for the
+following values of the {option} parameter: Option Set {value} to Notes
+CURLOPT_FILE The file that the transfer should be written to. The default is
+STDOUT (the browser window). CURLOPT_INFILE The file that the transfer should
+be read from when uploading. CURLOPT_STDERR An alternative location to output
+errors to instead of STDERR. CURLOPT_WRITEHEADER The file that the header
+part of the transfer is written to.
+
+{value} should be a string that is the name of a valid callback function for
+the following values of the {option} parameter: Option Set {value} to Notes
+CURLOPT_HEADERFUNCTION The name of a callback function where the callback
+function takes two parameters. The first is the CURL resource, the second is
+a string with the header data to be written. Using this callback function, it
+becomes your responsibility to write the header data. Return the number of
+bytes written. CURLOPT_PASSWDFUNCTION The name of a callback function where
+the callback function takes three parameters. The first is the CURL resource,
+the second is a string containing a password prompt, and the third is the
+maximum password length. Return the string containing the password.
+CURLOPT_READFUNCTION The name of a callback function where the callback
+function takes two parameters. The first is the CURL resource, and the second
+is a string with the data to be read. Using this callback function, it becomes
+your responsibility to read the data. Return the number of bytes read. Return
+0 to signal EOF. CURLOPT_WRITEFUNCTION The name of a callback function where
+the callback function takes two parameters. The first is the CURL resource,
+and the second is a string with the data to be written. Using this callback
+function, it becomes your responsibility to write the data. Must return the
+exact number of bytes written or this will fail.
+
+Initializing a new CURL session and fetching a webpage
+
+<?php >
+  // create a new CURL resource
+  $ch = curl_init();
+  
+  // set URL and other appropriate options
+  curl_setopt($ch, CURLOPT_URL, "http://www.example.com/");
+  curl_setopt($ch, CURLOPT_HEADER, false);
+  
+  // grab URL and pass it to the browser
+  curl_exec($ch);
+  
+  // close CURL resource, and free up system resources
+  curl_close($ch);
+?>
+
+vim:ft=help:

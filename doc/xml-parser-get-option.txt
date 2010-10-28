@@ -1,0 +1,16 @@
+xml_parser_get_option -- Get options from an XML parser
+
+  mixed xml_parser_get_option(resource parser, int option)~
+
+{parser} A reference to the XML parser to get an option from.
+
+{option} Which option to fetch. See |xml_parser_set_option| for a list of
+options.
+
+This function returns FALSE if {parser} does not refer to a valid parser or if
+{option} isn't valid (generates also a E_WARNING). Else the option's value is
+returned.
+
+See |xml_parser_set_option| for the list of options.
+
+vim:ft=help:

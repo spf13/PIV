@@ -1,0 +1,13 @@
+ncurses_mvaddch -- Move current position and add character
+
+  int ncurses_mvaddch(int y, int x, int c)~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

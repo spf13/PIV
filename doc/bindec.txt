@@ -1,0 +1,29 @@
+bindec -- Binary to decimal
+
+  number bindec(string binary_string)~
+
+Returns the decimal equivalent of the binary number represented by the
+{binary_string} argument.
+
+|bindec| converts a binary number to an integer. The largest number that can
+be converted is 31 bits of 1's or 2147483647 in decimal. As of PHP 4.1.0,
+this function can also convert larger numbers. It returns float in that case.
+
+|bindec| example
+
+<?php >
+  echo bindec('110011') . "\n";
+  echo bindec('000110011') . "\n";
+  
+  echo bindec('111');
+?>
+
+The above example will output:
+
+  51
+  51
+  7
+
+See also |decbin|, |octdec|, |hexdec| and |base_convert|.
+
+vim:ft=help:

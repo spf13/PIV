@@ -1,0 +1,9 @@
+sybase_num_fields -- Gets the number of fields in a result set
+
+  int sybase_num_fields(resource result)~
+
+|sybase_num_fields| returns the number of fields in a result set.
+
+See also |sybase_query|, |sybase_fetch_field| and |sybase_num_rows|.
+
+vim:ft=help:

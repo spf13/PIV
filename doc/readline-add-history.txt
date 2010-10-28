@@ -1,0 +1,7 @@
+readline_add_history -- Adds a line to the history
+
+  bool readline_add_history(string line)~
+
+This function adds a line to the command line history.
+
+vim:ft=help:

@@ -1,0 +1,8 @@
+yp_cat -- Return an array containing the entire map
+
+  array yp_cat(string domain, string map)~
+
+|yp_cat| returns all map entries as an array with the maps key values as array
+indices and the maps entries as array data.
+
+vim:ft=help:

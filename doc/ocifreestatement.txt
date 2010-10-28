@@ -1,0 +1,12 @@
+ocifreestatement -- Free all resources associated with a statement
+
+  bool ocifreestatement(resource stmt)~
+
+|ocifreestatement| free all resources associated with the statement {stmt}.
+Returns TRUE on success or FALSE on failure.
+
+This function was renamed to |oci_free_statement| after PHP >= 5.0.0. For
+downward compatibility |ocifreestatement| can also be used. This is
+deprecated, however.
+
+vim:ft=help:

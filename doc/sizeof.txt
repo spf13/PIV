@@ -1,0 +1,5 @@
+sizeof -- Alias of count
+
+This function is an alias of: |count|.
+
+vim:ft=help:

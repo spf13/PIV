@@ -1,0 +1,23 @@
+ibase_timefmt -- Sets the format of timestamp, date and time type columns
+returned from queries
+
+  int ibase_timefmt(string format [, int columntype])~
+
+Sets the format of timestamp, date or time type columns returned from queries.
+Internally, the columns are formatted by c-function strftime(), so refer to
+its documentation regarding to the format of the string. {columntype} is one
+of the constants IBASE_TIMESTAMP, IBASE_DATE and IBASE_TIME. If omitted,
+defaults to IBASE_TIMESTAMP for backwards compatibility.
+
+<?php >
+      /* InterBase 6 TIME-type columns will be returned in
+       * the form '05 hours 37 minutes'. */
+      ibase_timefmt("%H hours %M minutes", IBASE_TIME);
+?>
+
+You can set defaults for these formats with the PHP configuration directives
+ibase.timestampformat, ibase.dateformat and ibase.timeformat.
+
+This function has been removed from PHP 5, use |ini_set| instead.
+
+vim:ft=help:

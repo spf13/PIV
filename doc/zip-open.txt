@@ -1,0 +1,14 @@
+zip_open -- Open a ZIP file archive
+
+  resource zip_open(string filename)~
+
+Opens a new zip archive for reading.
+
+{filename} The file name of the ZIP archive to open.
+
+Returns a resource handle for later use with |zip_read| and |zip_close| or
+returns FALSE if {filename} does not exist.
+
+|zip_read| |zip_close|
+
+vim:ft=help:

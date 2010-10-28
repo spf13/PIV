@@ -1,0 +1,8 @@
+pdf_place_pdi_page -- Places an image on the page
+
+  bool pdf_place_pdi_page(resource pdfdoc, int page, float x, float y, float sx, float sy)~
+
+Place a PDI page with the lower left corner at ({x}, {y}), and scale it.
+Returns TRUE on success or FALSE on failure.
+
+vim:ft=help:

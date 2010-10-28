@@ -1,0 +1,12 @@
+posix_setgid -- Set the GID of the current process
+
+  bool posix_setgid(int gid)~
+
+Set the real group ID of the current process. This is a privileged function
+and you need appropriate privileges (usually root) on your system to be able
+to perform this function. The appropriate order of function calls is
+|posix_setgid| first, |posix_setuid| last.
+
+Returns TRUE on success or FALSE on failure.
+
+vim:ft=help:

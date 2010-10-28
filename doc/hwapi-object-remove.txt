@@ -1,0 +1,10 @@
+hw_api_object->remove -- Removes attribute
+
+  bool hw_api_object->remove(string name)~
+
+Removes the attribute with the given name. Returns TRUE on success and
+otherwise FALSE.
+
+See also |hwapi_object_insert|.
+
+vim:ft=help:

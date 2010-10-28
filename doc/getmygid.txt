@@ -1,0 +1,10 @@
+getmygid -- Get PHP script owner's GID
+
+  int getmygid()~
+
+Returns the group ID of the current script, or FALSE on error.
+
+See also |getmyuid|, |getmypid|, |get_current_user|, |getmyinode|, and
+|getlastmod|.
+
+vim:ft=help:

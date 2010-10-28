@@ -1,0 +1,10 @@
+pdf_set_value -- Sets certain numerical value
+
+  bool pdf_set_value(resource pdfdoc, string key, float value)~
+
+Set the value of some PDFlib parameter with float type. Returns TRUE on
+success or FALSE on failure.
+
+See also |pdf_set_parameter|.
+
+vim:ft=help:

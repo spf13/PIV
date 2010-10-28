@@ -1,0 +1,22 @@
+md5_file -- Calculates the md5 hash of a given file
+
+  string md5_file(string filename [, bool raw_output])~
+
+Calculates the MD5 hash of the file specified by the {filename} parameter
+using the RSA Data Security, Inc. MD5 Message-Digest Algorithm, and returns
+that hash. The hash is a 32-character hexadecimal number.
+
+{filename} The filename
+
+{raw_output} When TRUE, returns the digest in raw binary format with a length
+of 16. Defaults to FALSE.
+
+Returns a string on success, FALSE otherwise.
+
+Version Description 5.0.0 Added the {raw_output} parameter 5.1.0 Changed the
+function to use the streams API. It means that you can use it with wrappers,
+like md5_file('http://example.com/..')
+
+|md5| |sha1_file| |crc32|
+
+vim:ft=help:

@@ -1,0 +1,25 @@
+DOMElement->setAttribute() -- Adds new attribute
+
+  bool setAttribute(string name, string value)~
+
+Sets an attribute with name {name} to the given value. If the attribute does
+not exist, it will be created.
+
+{name} The name of the attribute.
+
+{value} The value of the attribute.
+
+Returns TRUE on success or FALSE on failure.
+
+DOM_NO_MODIFICATION_ALLOWED_ERR Raised if the node is readonly.
+
+Setting an attribute
+
+<?php >
+  $doc = new DOMDocument("1.0");
+  $node = $doc->createElement("para");
+  $newnode = $doc->appendChild($node);
+  $newnode->setAttribute("align", "left");
+?>
+
+vim:ft=help:

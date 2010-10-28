@@ -1,0 +1,15 @@
+ob_implicit_flush -- Turn implicit flush on/off
+
+  void ob_implicit_flush([int flag])~
+
+|ob_implicit_flush| will turn implicit flushing on or off (if no {flag} is
+given, it defaults to on). Implicit flushing will result in a flush operation
+after every output call, so that explicit calls to |flush| will no longer be
+needed.
+
+Turning implicit flushing on will disable output buffering, the output buffers
+current output will be sent as if |ob_end_flush| had been called.
+
+See also |flush|, |ob_start|, and |ob_end_flush|.
+
+vim:ft=help:

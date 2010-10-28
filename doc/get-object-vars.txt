@@ -1,0 +1,65 @@
+get_object_vars -- Returns an associative array of object properties
+
+  array get_object_vars(object obj)~
+
+This function returns an associative array of defined object properties for
+the specified object {obj}.
+
+In versions prior to PHP 4.2.0, if the variables declared in the class of
+which the {obj} is an instance, have not been assigned a value, those will
+not be returned in the array. In versions after PHP 4.2.0, the key will be
+assigned with a NULL value.
+
+Use of |get_object_vars|
+
+<?php >
+  class Point2D {
+      var $x, $y;
+      var $label;
+  
+      function Point2D($x, $y) 
+      {
+          $this->x = $x;
+          $this->y = $y;
+      }
+  
+      function setLabel($label) 
+      {
+          $this->label = $label;
+      }
+  
+      function getPoint() 
+      {
+          return array("x" => $this->x,
+                       "y" => $this->y,
+                       "label" => $this->label);
+      }
+  }
+  
+  // "$label" is declared but not defined
+  $p1 = new Point2D(1.233, 3.445);
+  print_r(get_object_vars($p1));
+  
+  $p1->setLabel("point #1");
+  print_r(get_object_vars($p1));
+?>
+
+The above example will output:
+
+  Array
+   (
+       [x] => 1.233
+       [y] => 3.445
+       [label] =>
+   )
+  
+   Array
+   (
+       [x] => 1.233
+       [y] => 3.445
+       [label] => point #1
+   )
+
+See also |get_class_methods| and |get_class_vars|.
+
+vim:ft=help:

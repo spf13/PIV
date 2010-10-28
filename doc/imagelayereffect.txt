@@ -1,0 +1,14 @@
+imagelayereffect -- Set the alpha blending flag to use the bundled libgd
+layering effects
+
+  bool imagelayereffect(resource image, int effect)~
+
+This function is currently not documented; only the argument list is
+available.
+
+This function is only available if PHP is compiled with the bundled version of
+the GD library.
+
+This function requires GD 2.0.1 or later.
+
+vim:ft=help:

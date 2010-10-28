@@ -1,0 +1,8 @@
+mssql_get_last_message -- Returns the last message from the server
+
+  string mssql_get_last_message()~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

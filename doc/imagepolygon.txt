@@ -1,0 +1,39 @@
+imagepolygon -- Draw a polygon
+
+  bool imagepolygon(resource image, array points, int num_points, int color)~
+
+|imagepolygon| creates a polygon in image id. {points} is a PHP array
+containing the polygon's vertices, i.e. points[0] = x0, points[1] = y0,
+points[2] = x1, points[3] = y1, etc. {num_points} is the total number of
+points (vertices).
+
+|imagepolygon| example
+
+<?php >
+  // create a blank image
+  $image = imagecreate(400, 300);
+  
+  // fill the background color
+  $bg = imagecolorallocate($image, 0, 0, 0);
+  
+  // choose a color for the polygon
+  $col_poly = imagecolorallocate($image, 255, 255, 255);
+  
+  // draw the polygon
+  imagepolygon($image, 
+               array (
+                      0, 0,
+                      100, 200,
+                      300, 200
+               ),
+               3,
+               $col_poly);
+  
+  // output the picture
+  header("Content-type: image/png");
+  imagepng($image);
+?>
+
+See also |imagecreate| and |imagecreatetruecolor|.
+
+vim:ft=help:

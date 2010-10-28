@@ -1,0 +1,9 @@
+imagerectangle -- Draw a rectangle
+
+  bool imagerectangle(resource image, int x1, int y1, int x2, int y2, int col)~
+
+|imagerectangle| creates a rectangle of color col in image {image} starting at
+upper left coordinate x1, y1 and ending at bottom right coordinate x2, y2. 0,
+0 is the top left corner of the image.
+
+vim:ft=help:

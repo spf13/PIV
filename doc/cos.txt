@@ -1,0 +1,16 @@
+cos -- Cosine
+
+  float cos(float arg)~
+
+|cos| returns the cosine of the {arg} parameter. The {arg} parameter is in
+radians.
+
+|cos| example
+
+<?php >
+  echo cos(M_PI); // -1
+?>
+
+See also: |acos|, |sin|, |tan|, and |deg2rad|.
+
+vim:ft=help:

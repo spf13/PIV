@@ -1,0 +1,14 @@
+socket_send -- Sends data to a connected socket
+
+  int socket_send(resource socket, string buf, int len, int flags)~
+
+The function |socket_send| sends {len} bytes to the socket {socket} from {buf}
+
+The value of {flags} can be any ORed combination of the following: possible
+values for {flags} 0x1 Process OOB (out-of-band) data 0x2 Peek at incoming
+message 0x4 Bypass routing, use direct interface 0x8 Data completes record
+0x100 Data completes transaction
+
+See also |socket_sendmsg| and |socket_sendto|.
+
+vim:ft=help:

@@ -1,0 +1,10 @@
+getprotobynumber -- Get protocol name associated with protocol number
+
+  string getprotobynumber(int number)~
+
+|getprotobynumber| returns the protocol name associated with protocol {number}
+as per /etc/protocols.
+
+See also: |getprotobyname|.
+
+vim:ft=help:

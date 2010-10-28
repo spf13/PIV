@@ -1,0 +1,156 @@
+PDO::__construct -- Creates a PDO instance representing a connection to a
+database
+
+  PDO PDO::__construct(string dsn [, string username [, string password [, array driver_options]]])~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+Creates a PDO instance to represent a connection to the requested database.
+
+dsn The Data Source Name, or DSN, contains the information required to connect
+to the database.
+
+In general, a DSN consists of the PDO driver name, followed by a colon,
+followed by the PDO driver-specific connection syntax. Examples of each
+driver are given below:
+
+PDO_DBLIB The DSN prefix is either sybase: or mssql: depending on which
+libraries it was linked against during compilation.
+
+sybase:host=localhost; dbname=testdb
+
+mssql:host=localhost; dbname=testdb
+
+PDO_FIREBIRD
+firebird:User=john;Password=mypass;Database=DATABASE.GDE;DataSource=localhost;Port=3050
+
+PDO_MYSQL mysql:host=localhost;dbname=testdb
+
+PDO_OCI To connect via tnsnames.ora, use:
+
+oci:mydb
+
+If using instantclient, use:
+
+oci:dbname=//localhost:1521/testdb
+
+PDO_ODBC odbc:DSN=SAMPLE;UID=john;PWD=mypass
+
+DSN=SAMPLE refers to the SAMPLE data source configured in the ODBC driver
+manager.
+
+PDO_PGSQL pgsql:host=localhost port=5432 dbname=testdb user=john
+password=mypass
+
+Note, by passing user and password in the DSN, the {username} and {password}
+parameters become optional. If specified, they are glued to the end of the
+connection string.
+
+PDO_SQLITE sqlite:/path/to/database
+
+To create a database in memory, use:
+
+sqlite::memory:
+
+sqlite (version 2) sqlite2:/path/to/database
+
+To create a database in memory, use:
+
+sqlite2::memory:
+
+The SQLite 2 PDO driver provides access to old SQLite 2 databases that you may
+have created with earlier versions of PHP. It is recommended that you migrate
+to SQLite 3 (the PDO_SQLITE driver), as it has superior features and
+performance.
+
+The {dsn} parameter supports three different methods of specifying the
+arguments required to create a database connection:
+
+Driver invocation {dsn} contains the full DSN.
+
+URI invocation {dsn} consists of uri: followed by a URI that defines the
+location of a file containing the DSN string. The URI can specify a local
+file or a remote URL.
+
+uri:file:///path/to/dsnfile
+
+Aliasing {dsn} consists of a name {name} that maps to pdo.dsn.{name} in
+php.ini defining the DSN string.
+
+The alias must be defined in php.ini, and not .htaccess or httpd.conf
+
+username The user name for the DSN string. This parameter is optional for some
+PDO drivers.
+
+password The password for the DSN string. This parameter is optional for some
+PDO drivers.
+
+driver_options A key=>value array of driver-specific connection options.
+
+Returns a PDO object on success.
+
+|PDO::construct| throws a PDOException if the attempt to connect to the
+requested database fails.
+
+Create a PDO instance via driver invocation
+
+<?php >
+  // Connect to an ODBC database using driver invocation
+  $dsn = 'mysql:dbname=testdb;host=127.0.0.1';
+  $user = 'dbuser';
+  $password = 'dbpass';
+  
+  try {
+      $dbh = new PDO($dsn, $user, $password);
+  } catch (PDOException $e) {
+      echo 'Connection failed: ' . $e->getMessage();
+  }
+?>
+
+Create a PDO instance via URI invocation The following example assumes that
+the file /usr/local/dbconnect exists with file permissions that enable PHP to
+read the file. The file contains the PDO DSN to connect to a DB2 database
+through the PDO_ODBC driver:
+
+  odbc:DSN=SAMPLE;UID=john;PWD=mypass
+
+The PHP script can then create a database connection by simply passing the
+uri: parameter and pointing to the file URI:
+
+<?php >
+  // Connect to an ODBC database using driver invocation
+  $dsn = 'uri:file:///usr/local/dbconnect';
+  $user = '';
+  $password = '';
+  
+  try {
+      $dbh = new PDO($dsn, $user, $password);
+  } catch (PDOException $e) {
+      echo 'Connection failed: ' . $e->getMessage();
+  }
+?>
+
+Create a PDO instance using an alias The following example assumes that
+php.ini contains the following entry to enable a connection to a MySQL
+database using only the alias mydb:
+
+  [PDO]
+  pdo.dsn.mydb="mysql:dbname=testdb;host=localhost"
+
+<?php >
+  // Connect to an ODBC database using an alias
+  $dsn = 'mydb';
+  $user = '';
+  $password = '';
+  
+  try {
+      $dbh = new PDO($dsn, $user, $password);
+  }catch (PDOException $e) {
+      echo 'Connection failed: ' . $e->getMessage();
+  }
+?>
+
+vim:ft=help:

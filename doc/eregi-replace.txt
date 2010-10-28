@@ -1,0 +1,18 @@
+eregi_replace -- Replace regular expression case insensitive
+
+  string eregi_replace(string pattern, string replacement, string string)~
+
+This function is identical to |ereg_replace| except that this ignores case
+distinction when matching alphabetic characters.
+
+Highlight search results
+
+<?php >
+  $pattern = '(>[^<]*)('. quotemeta($_GET['search']) .')';
+  $replacement = '\\1<span class="search">\\2</span>';
+  $body = eregi_replace($pattern, $replacement, $body);
+?>
+
+See also |ereg|, |eregi|, and |ereg_replace|.
+
+vim:ft=help:

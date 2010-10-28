@@ -1,0 +1,26 @@
+gmp_setbit -- Set bit
+
+  void gmp_setbit(resource a, int index [, bool set_clear])~
+
+Sets bit {index} in {a}. {set_clear} defines if the bit is set to 0 or 1. By
+default the bit is set to 1. Index starts at 0.
+
+Unlike most of the other GMP functions, |gmp_setbit| must be called with a GMP
+resource that already exists (using |gmp_init| for example). One will not be
+automatically created.
+
+|gmp_setbit| example
+
+<?php >
+  $a = gmp_init("0xfd");
+  gmp_setbit($a, 1); // index starts at 0
+  echo gmp_strval($a) . "\n";
+?>
+
+The printout of the above program will be:
+
+  255
+
+See also |gmp_clrbit|.
+
+vim:ft=help:

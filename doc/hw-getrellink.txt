@@ -1,0 +1,8 @@
+hw_getrellink -- Get link from source to dest relative to rootid
+
+  string hw_getrellink(int link, int rootid, int sourceid, int destid)~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

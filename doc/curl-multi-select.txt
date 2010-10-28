@@ -1,0 +1,11 @@
+curl_multi_select -- Get all the sockets associated with the cURL extension,
+which can then be "selected"
+
+  int curl_multi_select(resource mh [, float timeout])~
+
+This function is currently not documented; only the argument list is
+available.
+
+See also |curl_multi_init|.
+
+vim:ft=help:

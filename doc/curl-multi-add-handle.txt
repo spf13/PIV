@@ -1,0 +1,10 @@
+curl_multi_add_handle -- Add a normal cURL handle to a cURL multi handle
+
+  int curl_multi_add_handle(resource mh, resource ch)~
+
+This function is currently not documented; only the argument list is
+available.
+
+See also |curl_multi_init|, |curl_init|, and |curl_multi_remove_handle|.
+
+vim:ft=help:

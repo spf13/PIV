@@ -1,0 +1,21 @@
+base64_decode -- Decodes data encoded with MIME base64
+
+  string base64_decode(string encoded_data)~
+
+|base64_decode| decodes {encoded_data} and returns the original data or FALSE
+on failure. The returned data may be binary.
+
+|base64_decode| example
+
+<?php >
+  $str = 'VGhpcyBpcyBhbiBlbmNvZGVkIHN0cmluZw==';
+  echo base64_decode($str);
+?>
+
+This example will produce:
+
+  This is an encoded string
+
+See also |base64_encode| and RFC 2045 section 6.8.
+
+vim:ft=help:

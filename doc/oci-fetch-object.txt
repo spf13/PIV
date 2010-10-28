@@ -1,0 +1,19 @@
+oci_fetch_object -- Returns the next row from the result data as an object
+
+  object oci_fetch_object(resource statement)~
+
+|oci_fetch_object| returns the next row from the result data as an object,
+which attributes correspond to fields in statement.
+
+This function sets NULL fields to PHP NULL value.
+
+Subsequent calls to |oci_fetch_object| will return the next row from the
+result or FALSE if there is no more rows.
+
+Don't forget, that Oracle returns all field names in uppercase and attributes'
+names in the result object will be in uppercase as well.
+
+See also |oci_fetch_array|, |oci_fetch_assoc|, |oci_fetch_row| and
+|oci_fetch_all|.
+
+vim:ft=help:

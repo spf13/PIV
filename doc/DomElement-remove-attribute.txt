@@ -1,0 +1,13 @@
+DomElement->remove_attribute() -- Removes attribute
+
+  bool remove_attribute(string name)~
+
+Removes an attribute from the current DomElement node.
+
+{name} The name of the attribute to remove.
+
+Returns TRUE on success or FALSE on failure.
+
+Use .
+
+vim:ft=help:

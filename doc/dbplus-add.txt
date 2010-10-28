@@ -1,0 +1,20 @@
+dbplus_add -- Add a tuple to a relation
+
+  int dbplus_add(resource relation, array tuple)~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+This function will add a tuple to a relation. The {tuple} data is an array of
+attribute/value pairs to be inserted into the given {relation}. After
+successful execution the {tuple} array will contain the complete data of the
+newly created tuple, including all implicitly set domain fields like
+sequences.
+
+The function will return zero (aka. DBPLUS_ERR_NOERR) on success or a db++
+error code on failure. See |dbplus_errcode| or the introduction to this
+chapter for more information on db++ error codes.
+
+vim:ft=help:

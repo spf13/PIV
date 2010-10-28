@@ -1,0 +1,28 @@
+imagepsloadfont -- Load a PostScript Type 1 font from file
+
+  resource imagepsloadfont(string filename)~
+
+In the case everything went right, a valid font index will be returned and can
+be used for further purposes. Otherwise the function returns FALSE and prints
+a message describing what went wrong, which you cannot read directly, while
+the output type is image.
+
+|imagepsloadfont| example
+
+<?php >
+  header("Content-type: image/jpeg");
+  $im = imagecreate(350, 45);
+  $black = imagecolorallocate($im, 0, 0, 0);
+  $white = imagecolorallocate($im, 255, 255, 255);
+  $font = imagepsloadfont("bchbi.pfb"); // or locate your .pfb files on your machine
+  imagepstext($im, "Testing... It worked!", $font, 32, $white, $black, 32, 32);
+  imagepsfreefont($font);
+  imagejpeg($im, "", 100); //for best quality...your mileage may vary
+  imagedestroy($im);
+?>
+
+This function is only available if PHP is compiled using --with-t1lib[=DIR].
+
+See also |imagepsfreefont|.
+
+vim:ft=help:

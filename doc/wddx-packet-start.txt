@@ -1,0 +1,10 @@
+wddx_packet_start -- Starts a new WDDX packet with structure inside it
+
+  resource wddx_packet_start([string comment])~
+
+Use |wddx_packet_start| to start a new WDDX packet for incremental addition of
+variables. It takes an optional {comment} string and returns a packet ID for
+use in later functions. It automatically creates a structure definition
+inside the packet to contain the variables.
+
+vim:ft=help:

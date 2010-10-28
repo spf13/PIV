@@ -1,0 +1,15 @@
+dba_delete -- Delete DBA entry specified by key
+
+  bool dba_delete(string key, resource handle)~
+
+|dba_delete| deletes the specified entry from the database.
+
+{key} The key of the entry which is deleted.
+
+{handle} The database handler, returned by |dba_open| or |dba_popen|.
+
+Returns TRUE on success or FALSE on failure.
+
+|dba_exists| |dba_fetch| |dba_insert| |dba_replace|
+
+vim:ft=help:

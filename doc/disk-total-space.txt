@@ -1,0 +1,24 @@
+disk_total_space -- Returns the total size of a directory
+
+  float disk_total_space(string directory)~
+
+Given a string containing a directory, this function will return the total
+number of bytes on the corresponding filesystem or disk partition.
+
+|disk_total_space| example
+
+<?php >
+  // $df contains the total number of bytes available on "/"
+  $df = disk_total_space("/");
+  
+  // On Windows:
+  disk_total_space("C:");
+  disk_total_space("D:");
+?>
+
+This function will not work on remote files as the file to be examined must be
+accessible via the servers filesystem.
+
+See also |disk_free_space|
+
+vim:ft=help:

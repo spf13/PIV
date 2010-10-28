@@ -1,0 +1,16 @@
+mssql_execute -- Executes a stored procedure on a MS SQL server database
+
+  mixed mssql_execute(resource stmt [, bool skip_results])~
+
+This function is currently not documented; only the argument list is
+available.
+
+If the stored procedure returns parameters or a return value these will be
+available after the call to |mssql_execute| unless the stored procedure
+returns more than one result set. In that case use |mssql_next_result| to
+shift through the results. When the last result has been processed the output
+parameters and return values will be available.
+
+See also |mssql_bind|, |mssql_free_statement|, and |mssql_init|.
+
+vim:ft=help:

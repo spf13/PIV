@@ -1,0 +1,21 @@
+constant -- Returns the value of a constant
+
+  mixed constant(string name)~
+
+|constant| will return the value of the constant indicated by {name}.
+
+|constant| is useful if you need to retrieve the value of a constant, but do
+not know its name. i.e. It is stored in a variable or returned by a function.
+
+|constant| example
+
+<?php >
+  define("MAXSIZE", 100);
+  
+  echo MAXSIZE;
+  echo constant("MAXSIZE"); // same thing as the previous line
+?>
+
+See also |define|, |defined| and the section on Constants.
+
+vim:ft=help:

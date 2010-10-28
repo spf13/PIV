@@ -1,0 +1,17 @@
+fbsql_insert_id -- Get the id generated from the previous INSERT operation
+
+  int fbsql_insert_id([resource link_identifier])~
+
+|fbsql_insert_id| returns the ID generated for an column defined as DEFAULT
+UNIQUE by the previous INSERT query using the given {link_identifier}. If
+{link_identifier} isn't specified, the last opened link is assumed.
+
+|fbsql_insert_id| returns 0 if the previous query does not generate an DEFAULT
+UNIQUE value. If you need to save the value for later, be sure to call
+fbsql_insert_id() immediately after the query that generates the value.
+
+The value of the FrontBase SQL function |fbsql_insert_id| always contains the
+most recently generated DEFAULT UNIQUE value, and is not reset between
+queries.
+
+vim:ft=help:

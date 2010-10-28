@@ -1,0 +1,39 @@
+bcompiler_write_file -- Writes a php source file as bytecodes
+
+  bool bcompiler_write_file(resource filehandle, string filename)~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+This function complies specified source file into bytecodes, and writes them
+to the open file handle.
+
+|bcompiler_write_file| example
+
+<?php >
+  $fh = fopen("example.phb", "w");
+  
+  bcompiler_write_header($fh);
+  
+  bcompiler_write_file($fh, "example.php");
+  
+  bcompiler_write_footer($fh);
+  
+  fclose($fh);
+  
+  /* the following should be equivalent:
+  
+  include "example.php";
+  
+     and
+  
+  include "example.phb";
+  
+  */
+?>
+
+See also |bcompiler_write_header|, and |bcompiler_write_footer|.
+
+vim:ft=help:

@@ -1,0 +1,14 @@
+mb_ereg_search_getpos -- Returns start point for next regular expression match
+
+  int mb_ereg_search_getpos()~
+
+|mb_ereg_search_getpos| returns the point to start regular expression match
+for |mb_ereg_search|, |mb_ereg_search_pos|, |mb_ereg_search_regs|. The
+position is represented by bytes from the head of string.
+
+The internal encoding or the character encoding specified in
+|mb_regex_encoding| will be used as character encoding.
+
+See also: |mb_regex_encoding|, |mb_ereg_search_setpos|.
+
+vim:ft=help:

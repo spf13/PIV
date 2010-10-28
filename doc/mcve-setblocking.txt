@@ -1,0 +1,8 @@
+mcve_setblocking -- Set blocking/non-blocking mode for connection
+
+  int mcve_setblocking(resource conn, int tf)~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

@@ -1,0 +1,12 @@
+hw_GetObject -- Object record
+
+  mixed hw_getobject(int connection, mixed objectID [, string query])~
+
+Returns the object record for the object with ID {objectID} if the second
+parameter is an integer. If the second parameter is an array of integer the
+function will return an array of object records. In such a case the last
+parameter is also evaluated which is a query string.
+
+The query string has the following syntax:
+
+vim:ft=help:

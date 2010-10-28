@@ -1,0 +1,9 @@
+mcal_event_set_start -- Sets the start date and time of the streams global
+event structure
+
+  void mcal_event_set_start(int stream, int year, int month, int day [, int hour [, int min [, int sec]]])~
+
+|mcal_event_set_start| sets the streams global event structure's start date
+and time to the given values.
+
+vim:ft=help:

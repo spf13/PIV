@@ -1,0 +1,15 @@
+dbplus_xlockrel -- Request exclusive lock on relation
+
+  int dbplus_xlockrel(resource relation)~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+|dbplus_xlockrel| will request an exclusive lock on {relation} preventing even
+read access from other clients.
+
+See also |dbplus_xunlockrel|.
+
+vim:ft=help:

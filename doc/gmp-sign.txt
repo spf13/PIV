@@ -1,0 +1,26 @@
+gmp_sign -- Sign of number
+
+  int gmp_sign(resource a)~
+
+Returns 1 if {a} is positive, -1 if {a} is negative, and 0 if {a} is zero.
+
+|gmp_sign| example
+
+<?php >
+  // positive
+  echo gmp_sign("500") . "\n";
+  
+  // negative
+  echo gmp_sign("-500") . "\n";
+  
+  // zero
+  echo gmp_sign("0") . "\n";
+?>
+
+The printout of the above program will be:
+
+  1
+  -1
+  0
+
+vim:ft=help:

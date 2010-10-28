@@ -1,0 +1,9 @@
+printer_delete_pen -- Delete a pen
+
+  void printer_delete_pen(resource handle)~
+
+The function deletes the selected pen. For an example see
+|printer_select_pen|. Returns NULL on success or FALSE on failure. {handle}
+must be a valid handle to a pen.
+
+vim:ft=help:

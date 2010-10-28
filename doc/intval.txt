@@ -1,0 +1,48 @@
+intval -- Get the integer value of a variable
+
+  int intval(mixed var [, int base])~
+
+Returns the integer value of {var}, using the specified {base} for the
+conversion (the default is base 10).
+
+{var} The scalar value being converted to an integer
+
+{base} The base for the conversion (default is base 10)
+
+The integer value of {var} on success, or 0 on failure. Empty arrays and
+objects return 0, non-empty arrays and objects return 1.
+
+The maximum value depends on the system. 32 bit systems have a maximum signed
+integer range of -2147483648 to 2147483647. So for example on such a system,
+intval('1000000000000') will return 2147483647. The maximum signed integer
+value for 64 bit systems is 9223372036854775807.
+
+Strings will most likely return 0 although this depends on the leftmost
+characters of the string. The common rules of integer casting apply.
+
+|intval| examples The following examples are based on a 32 bit system.
+
+<?php >
+  echo intval(42);                      // 42
+  echo intval(4.2);                     // 4
+  echo intval('42');                    // 42
+  echo intval('+42');                   // 42
+  echo intval('-42');                   // -42
+  echo intval(042);                     // 34
+  echo intval('042');                   // 42
+  echo intval(1e10);                    // 1410065408
+  echo intval('1e10');                  // 1
+  echo intval(0x1A);                    // 26
+  echo intval(42000000);                // 42000000
+  echo intval(420000000000000000000);   // 0
+  echo intval('420000000000000000000'); // 2147483647
+  echo intval(42, 8);                   // 42
+  echo intval('42', 8);                 // 34
+?>
+
+The {base} parameter has no effect unless the {var} parameter is a string.
+
+|floatval| |strval| |settype| |is_numeric| Type juggling BCMath Arbitrary
+Precision Mathematics Functions
+
+vim:ft=help:

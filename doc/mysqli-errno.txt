@@ -1,0 +1,67 @@
+mysqli->errno -- Returns the error code for the most recent function call
+
+Procedural style:
+
+  int mysqli_errno(mysqli link)~
+
+Object oriented style (property):
+
+The |mysqli_errno| function will return the last error code for the most
+recent MySQLi function call that can succeed or fail with respect to the
+database link defined by the {link} parameter. If no errors have occured,
+this function will return zero.
+
+Client error message numbers are listed in the MySQL errmsg.h header file,
+server error message numbers are listed in mysqld_error.h. In the MySQL
+source distribution you can find a complete list of error messages and error
+numbers in the file Docs/mysqld_error.txt.
+
+An error code value for the last call, if it failed. zero means no error
+occurred.
+
+|mysqli_connect_errno|, |mysqli_connect_error|, |mysqli_error| and
+|mysqli_sqlstate|.
+
+Object oriented style
+
+<?php >
+  $mysqli = new mysqli("localhost", "my_user", "my_password", "world");
+  
+  /* check connection */
+  if (mysqli_connect_errno()) {
+      printf("Connect failed: %s\n", mysqli_connect_error());
+      exit();
+  }
+  
+  if (!$mysqli->query("SET a=1")) {
+      printf("Errorcode: %d\n", $mysqli->errno);
+  }
+  
+  /* close connection */
+  $mysqli->close();
+?>
+
+Procedural style
+
+<?php >
+  $link = mysqli_connect("localhost", "my_user", "my_password", "world");
+  
+  /* check connection */
+  if (mysqli_connect_errno()) {
+      printf("Connect failed: %s\n", mysqli_connect_error());
+      exit();
+  }
+  
+  if (!mysqli_query($link, "SET a=1")) {
+      printf("Errorcode: %d\n", mysqli_errno($link));
+  }
+  
+  /* close connection */
+  mysqli_close($link);
+?>
+
+The above example will output:
+
+  Errorcode: 1193
+
+vim:ft=help:

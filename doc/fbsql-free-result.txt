@@ -1,0 +1,13 @@
+fbsql_free_result -- Free result memory
+
+  bool fbsql_free_result(resource result)~
+
+|fbsql_free_result| will free all memory associated with the result identifier
+{result}.
+
+|fbsql_free_result| only needs to be called if you are concerned about how
+much memory is being used for queries that return large result sets. All
+associated result memory is automatically freed at the end of the script's
+execution.
+
+vim:ft=help:

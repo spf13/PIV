@@ -1,0 +1,47 @@
+empty -- Determine whether a variable is empty
+
+  bool empty(mixed var)~
+
+Determine whether a variable is considered to be empty.
+
+{var} Variable to be checked
+
+|empty| only checks variables as anything else will result in a parse error.
+In other words, the following will not work: empty(trim($name)).
+
+|empty| is the opposite of (boolean) {var}, except that no warning is
+generated when the variable is not set.
+
+Returns FALSE if {var} has a non-empty and non-zero value.
+
+The following things are considered to be empty: "" (an empty string) 0 (0 as
+an integer) "0" (0 as a string) NULL FALSE array() (an empty array) var $var;
+(a variable declared, but without a value in a class)
+
+Version Description PHP 5 As of PHP 5, objects with no properties are no
+longer considered empty.
+
+PHP 4 As of PHP 4, The string value "0" is considered empty.
+
+A simple |empty| / |isset| comparison.
+
+<?php >
+  $var = 0;
+  
+  // Evaluates to true because $var is empty
+  if (empty($var)) {
+      echo '$var is either 0, empty, or not set at all';
+  }
+  
+  // Evaluates as true because $var is set
+  if (isset($var)) {
+      echo '$var is set even though it is empty';
+  }
+?>
+
+Because this is a language construct and not a function, it cannot be called
+using variable functions
+
+|isset| |unset| |array_key_exists| |count| |strlen| The type comparison tables
+
+vim:ft=help:

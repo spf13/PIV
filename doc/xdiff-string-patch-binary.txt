@@ -1,0 +1,12 @@
+xdiff_string_patch_binary -- Patch a string with a binary diff
+
+  string xdiff_string_patch_binary(string str, string patch)~
+
+|xdiff_string_patch_binary| patches string {str} with binary patch in string
+{patch}.
+
+Returns a patched string.
+
+See also |xdiff_file_patch_binary|.
+
+vim:ft=help:

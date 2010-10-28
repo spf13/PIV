@@ -1,0 +1,9 @@
+swf_shapelinesolid -- Set the current line style
+
+  void swf_shapelinesolid(float r, float g, float b, float a, float width)~
+
+The |swf_shapelinesolid| function sets the current line style to the color of
+the {rgba} parameters and width to the {width} parameter. If 0.0 is given as
+a width then no lines are drawn.
+
+vim:ft=help:

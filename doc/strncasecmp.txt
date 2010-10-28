@@ -1,0 +1,10 @@
+strncasecmp -- Binary safe case-insensitive string comparison of the first n
+characters
+
+  int strncasecmp(string str1, string str2, int len)~
+
+This function is similar to |strcasecmp|, with the difference that you can
+specify the (upper limit of the) number of characters ({len}) from each
+string to be used in the comparison.
+
+vim:ft=help:

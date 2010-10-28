@@ -1,0 +1,9 @@
+hw_ChildrenObj -- Object records of children
+
+  array hw_childrenobj(int connection, int objectID)~
+
+Returns an array of object records. Each object record belongs to a child of
+the collection with ID {objectID}. The array contains all children both
+documents and collections.
+
+vim:ft=help:

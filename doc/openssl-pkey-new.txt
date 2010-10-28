@@ -1,0 +1,10 @@
+openssl_pkey_new -- Generates a new private key
+
+  resource openssl_pkey_new([array configargs])~
+
+|openssl_pkey_new| generates a new private and public key pair. The public
+component of the key can be obtained using |openssl_pkey_get_public|. You can
+finetune the key generation (such as specifying the number of bits) using
+{configargs}. See |openssl_csr_new| for more information about {configargs}.
+
+vim:ft=help:

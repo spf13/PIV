@@ -1,0 +1,21 @@
+bcadd -- Add two arbitrary precision numbers
+
+  string bcadd(string left_operand, string right_operand [, int scale])~
+
+Adds the {left_operand} to the {right_operand} and returns the sum in a
+string. The optional {scale} parameter is used to set the number of digits
+after the decimal place in the result.
+
+|bcadd| example
+
+<?php >
+  $a = '1.234';
+  $b = '5';
+  
+  echo bcadd($a, $b);     // 6
+  echo bcadd($a, $b, 4);  // 6.2340
+?>
+
+|bcsub|.
+
+vim:ft=help:

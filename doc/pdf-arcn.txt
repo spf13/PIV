@@ -1,0 +1,43 @@
+pdf_arcn -- Draws an arc (clockwise)
+
+  bool pdf_arcn(resource pdfdoc, float x, float y, float r, float alpha, float beta)~
+
+Add a clockwise circular arc from {alpha} to {beta} degrees with center ({x};
+{y}) and radius {r}. Actual drawing of the circle is performed by the next
+stroke or fill operation.
+
+|pdf_arcn| example
+
+<?php >
+  // prepare document
+  $pdf = pdf_new();
+  pdf_open_file($pdf, "");
+  pdf_begin_page($pdf, 595, 842);
+  
+  // an outlined arcn
+  pdf_arcn($pdf, 200, 700, 100, 0, 90);
+  pdf_stroke($pdf);
+  
+  // a filled arcn
+  pdf_arcn($pdf, 200, 700, 50, 0, 90);
+  pdf_fill($pdf);
+  
+  // an outlined and filled arcn
+  pdf_setcolor($pdf, "fill", "gray", 0.8);
+  pdf_arcn($pdf, 400, 700, 50, 0, 90);
+  pdf_fill_stroke($pdf);
+  
+  // finish document
+  pdf_end_page($pdf);
+  pdf_close($pdf);
+  
+  header("Content-type: application/pdf");
+  echo pdf_get_buffer($pdf);
+  
+  pdf_delete($pdf);
+?>
+
+See also: |pdf_arc|, |pdf_circle|, |pdf_stroke|, |pdf_fill| and
+|pdf_fillstroke|.
+
+vim:ft=help:

@@ -1,0 +1,11 @@
+ocicolumntyperaw -- Tell the raw oracle data type of a column
+
+  int ocicolumntyperaw(resource stmt, int col)~
+
+|ocicolumntyperaw| returns Oracle's raw data type of the field.
+
+This function was renamed to |oci_field_type_raw| after PHP >= 5.0.0. For
+downward compatibility |ocicolumntyperaw| can also be used. This is
+deprecated, however.
+
+vim:ft=help:

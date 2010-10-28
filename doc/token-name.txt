@@ -1,0 +1,24 @@
+token_name -- Get the symbolic name of a given PHP token
+
+  string token_name(int token)~
+
+|token_name| gets the symbolic name for a PHP {token} value.
+
+{token} The token value.
+
+The symbolic name of the given {token}. The returned name returned matches the
+name of the matching token constant.
+
+|token_name| example
+
+<?php >
+  // 260 is the token value for the T_REQUIRE token
+  echo token_name(260);        // -> "T_REQUIRE"
+  
+  // a token constant maps to its own name
+  echo token_name(T_FUNCTION); // -> "T_FUNCTION"
+?>
+
+List of Parser Tokens
+
+vim:ft=help:

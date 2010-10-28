@@ -1,0 +1,18 @@
+mysqli->close -- Closes a previously opened database connection
+
+Procedural style:
+
+  bool mysqli_close(mysqli link)~
+
+Object oriented style (method):
+
+  bool close(mysqli link)~
+
+The |mysqli_close| function closes a previously opened database connection
+specified by the {link} parameter.
+
+Returns TRUE on success or FALSE on failure.
+
+|mysqli_connect|, |mysqli_init| and |mysqli_real_connect|.
+
+vim:ft=help:

@@ -1,0 +1,164 @@
+oci_bind_by_name -- Binds the PHP variable to the Oracle placeholder
+
+  bool oci_bind_by_name(resource stmt, string ph_name, mixed variable [, int maxlength [, int type]])~
+
+|oci_bind_by_name| binds the PHP variable {variable} to the Oracle placeholder
+{ph_name}. Whether it will be used for input or output will be determined at
+run-time and the necessary storage space will be allocated. The {length}
+parameter sets the maximum length for the bind. If you set {length} to -1
+|oci_bind_by_name| will use the current length of {variable} to set the
+maximum length.
+
+If you need to bind an abstract datatype (LOB/ROWID/BFILE) you need to
+allocate it first using the |oci_new_descriptor| function. The {length} is
+not used for abstract datatypes and should be set to -1. The {type} parameter
+tells Oracle which descriptor is used. Possible values are: OCI_B_FILE - for
+BFILEs;
+
+OCI_B_CFILE - for CFILEs;
+
+OCI_B_CLOB - for CLOBs;
+
+OCI_B_BLOB - for BLOBs;
+
+OCI_B_ROWID - for ROWIDs;
+
+OCI_B_NTY - for named datatypes;
+
+OCI_B_CURSOR - for cursors, that were created before with |oci_new_cursor|.
+
+|oci_bind_by_name|example
+
+<?php >
+  /* oci_bind_by_name example thies at thieso dot net (980221)
+    inserts 3 records into emp, and uses the ROWID for updating the 
+    records just after the insert.
+  */
+  
+  $conn = oci_connect("scott", "tiger");
+  
+  $stmt = oci_parse($conn, "
+                            INSERT INTO 
+                                       emp (empno, ename) 
+                                                VALUES 
+                                       (:empno,:ename) 
+                              RETURNING 
+                                       ROWID 
+                                   INTO 
+                                       :rid
+                                           ");
+  
+  $data = array(
+                1111 => "Larry", 
+                2222 => "Bill", 
+                3333 => "Jim"
+               );
+  
+  $rowid = oci_new_descriptor($conn, OCI_D_ROWID);
+  
+  oci_bind_by_name($stmt, ":empno", $empno, 32);
+  oci_bind_by_name($stmt, ":ename", $ename, 32);
+  oci_bind_by_name($stmt, ":rid",   $rowid, -1, OCI_B_ROWID);
+  
+  $update = oci_parse($conn, "
+                              UPDATE
+                                    emp 
+                                 SET 
+                                    sal = :sal 
+                               WHERE 
+                                    ROWID = :rid
+                               ");
+  oci_bind_by_name($update, ":rid", $rowid, -1, OCI_B_ROWID);
+  oci_bind_by_name($update, ":sal", $sal,   32);
+  
+  $sal = 10000;
+  
+  foreach ($data as $empno => $ename) {
+      oci_execute($stmt);
+      oci_execute($update);
+  } 
+  
+  $rowid->free();
+  
+  oci_free_statement($update);
+  oci_free_statement($stmt);
+  
+  $stmt = oci_parse($conn, "
+                            SELECT 
+                                  * 
+                              FROM 
+                                  emp 
+                             WHERE 
+                                  empno 
+                                IN 
+                                  (1111,2222,3333)
+                                ");
+  oci_execute($stmt);
+                                
+  while ($row = oci_fetch_assoc($stmt)) {
+      var_dump($row);
+  }
+  
+  oci_free_statement($stmt);
+  
+  /* delete our "junk" from the emp table.... */
+  $stmt = oci_parse($conn, "
+                            DELETE FROM
+                                       emp 
+                                  WHERE 
+                                       empno 
+                                     IN 
+                                       (1111,2222,3333)
+                                     ");
+  oci_execute($stmt);
+  oci_free_statement($stmt);
+  
+  oci_close($conn);
+?>
+
+Remember, that this function strips trailing whitespace. See the following
+example:
+
+|oci_bind_by_name| example
+
+<?php >
+      $connection = oci_connect('apelsin','kanistra');
+      $query = "INSERT INTO test_table VALUES(:id, :text)";
+  
+      $statement = oci_parse($query);
+      oci_bind_by_name($statement, ":id", 1);
+      oci_bind_by_name($statement, ":text", "trailing spaces follow     ");
+      oci_execute($statement);
+      /*
+       This code will insert into DB string 'trailing spaces follow', without
+       trailing spaces
+      */
+?>
+
+|oci_bind_by_name| example
+
+<?php >
+      $connection = oci_connect('apelsin','kanistra');
+      $query = "INSERT INTO test_table VALUES(:id, 'trailing spaces follow      ')";
+  
+      $statement = oci_parse($query);
+      oci_bind_by_name($statement, ":id", 1);
+      oci_execute($statement);
+      /*
+       And this code will add 'trailing spaces follow      ', preserving
+       trailing whitespaces
+      */
+?>
+
+Do not use magic_quotes_gpc or |addslashes| and |oci_bind_by_name|
+simultaneously as no quoting is needed and any magically applied quotes will
+be written into your database as |oci_bind_by_name| is not able to
+distinguish magically added quotings from those added intentionally.
+
+Returns TRUE on success or FALSE on failure.
+
+In PHP versions before 5.0.0 you must use |ocibindbyname| instead. This name
+still can be used, it was left as alias of |oci_bind_by_name| for downwards
+compatability. This, however, is deprecated and not recommended.
+
+vim:ft=help:

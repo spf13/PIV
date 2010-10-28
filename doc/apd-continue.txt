@@ -1,0 +1,13 @@
+apd_continue -- Restarts the interpreter
+
+  bool apd_continue(int debug_level)~
+
+Usually sent via the socket to restart the interpreter.
+
+|apd_continue| example
+
+<?php >
+  apd_continue(0);
+?>
+
+vim:ft=help:

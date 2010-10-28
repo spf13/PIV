@@ -1,0 +1,9 @@
+readline_on_new_line -- Inform readline that the cursor has moved to a new
+line
+
+  void readline_on_new_line()~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

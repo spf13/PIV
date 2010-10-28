@@ -1,0 +1,13 @@
+SWFFill->skewXTo -- Sets fill x-skew
+
+  void swffill->skewxto(float x)~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+|swffill->skewxto| sets fill x-skew to {x}. For {x} is 1.0, it is a 45-degree
+forward slant. More is more forward, less is more backward.
+
+vim:ft=help:

@@ -1,0 +1,35 @@
+SoapServer->setClass() -- Sets class which will handle SOAP requests
+
+  void setClass(string class_name [, mixed args [, mixed ...]])~
+
+Exports all methods from specified class.
+
+The object can be made persistent across request for a given PHP session with
+the method.
+
+{class_name} The name of the exported class.
+
+{args} These optional parameters will be passed to the default class
+constructor during object creation.
+
+No value is returned.
+
+Some examples
+
+<?php >
+  class foo {
+      function foo() 
+      {
+      }
+  }
+  $server->setClass("foo");
+  
+  class bar {
+      function bar($x, $y) 
+      {
+      }
+  }
+  $server->setClass("bar", $arg1, $arg2);
+?>
+
+vim:ft=help:

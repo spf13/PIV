@@ -1,0 +1,34 @@
+array_shift -- Shift an element off the beginning of array
+
+  mixed array_shift(array array)~
+
+|array_shift| shifts the first value of the {array} off and returns it,
+shortening the {array} by one element and moving everything down. All
+numerical array keys will be modified to start counting from zero while
+literal keys won't be touched. If {array} is empty (or is not an array), NULL
+will be returned.
+
+This function will |reset| the array pointer after use.
+
+|array_shift| example
+
+<?php >
+  $stack = array("orange", "banana", "apple", "raspberry");
+  $fruit = array_shift($stack);
+  print_r($stack);
+?>
+
+This would result in $stack having 3 elements left:
+
+  Array
+  (
+      [0] => banana
+      [1] => apple
+      [2] => raspberry
+  )
+
+and orange will be assigned to $fruit.
+
+See also |array_unshift|, |array_push|, and |array_pop|.
+
+vim:ft=help:

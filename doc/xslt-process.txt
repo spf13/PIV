@@ -1,0 +1,121 @@
+xslt_process -- Perform an XSLT transformation
+
+  mixed xslt_process(resource xh, string xmlcontainer, string xslcontainer [, string resultcontainer [, array arguments [, array parameters]]])~
+
+The |xslt_process| function is the crux of the new XSLT extension. It allows
+you to perform an XSLT transformation using almost any type of input source -
+the containers. This is accomplished through the use of argument buffers -- a
+concept taken from the Sablotron XSLT processor (currently the only XSLT
+processor this extension supports). The input containers default to a
+filename 'containing' the document to be processed. The result container
+defaults to a filename for the transformed document. If the result container
+is not specified - i.e. NULL - than the result is returned.
+
+This function has changed its arguments, since version 4.0.6. Do NOT provide
+the actual XML or XSL content as 2nd and 3rd argument, as this will create a
+segmentation fault, in Sablotron versions up to and including 0.95.
+
+Containers can also be set via the {$arguments} array (see below).
+
+The simplest type of transformation with the |xslt_process| function is the
+transformation of an XML file with an XSLT file, placing the result in a
+third file containing the new XML (or HTML) document. Doing this with
+sablotron is really quite easy...
+
+Using the |xslt_process| to transform an XML file and a XSL file to a new XML
+file
+
+<?php >
+  // Allocate a new XSLT processor
+  $xh = xslt_create();
+  
+  // Process the document
+  if (xslt_process($xh, 'sample.xml', 'sample.xsl', 'result.xml')) {
+      echo "SUCCESS, sample.xml was transformed by sample.xsl into result.xml";
+      echo ", result.xml has the following contents\n<br />\n";
+      echo "<pre>\n";
+      readfile('result.xml');
+      echo "</pre>\n";
+  } else {
+      echo "Sorry, sample.xml could not be transformed by sample.xsl into";
+      echo "  result.xml the reason is that " . xslt_error($xh) . " and the ";
+      echo "error code is " . xslt_errno($xh);
+  }
+  
+  xslt_free($xh);
+?>
+
+While this functionality is great, many times, especially in a web
+environment, you want to be able to print out your results directly.
+Therefore, if you omit the third argument to the |xslt_process| function (or
+provide a NULL value for the argument), it will automatically return the
+value of the XSLT transformation, instead of writing it to a file...
+
+Using the |xslt_process| to transform an XML file and a XSL file to a variable
+containing the resulting XML data
+
+<?php >
+  // Allocate a new XSLT processor
+  $xh = xslt_create();
+  
+  // Process the document, returning the result into the $result variable
+  $result = xslt_process($xh, 'sample.xml', 'sample.xsl');
+  if ($result) {
+      echo "SUCCESS, sample.xml was transformed by sample.xsl into the \$result";
+      echo " variable, the \$result variable has the following contents\n<br />\n";
+      echo "<pre>\n";
+      echo $result;
+      echo "</pre>\n";
+  } else {
+      echo "Sorry, sample.xml could not be transformed by sample.xsl into";
+      echo "  the \$result variable the reason is that " . xslt_error($xh); 
+      echo " and the error code is " . xslt_errno($xh);
+  }
+  
+  xslt_free($xh);
+?>
+
+The above two cases are the two simplest cases there are when it comes to XSLT
+transformation and I'd dare say that they are the most common cases, however,
+sometimes you get your XML and XSLT code from external sources, such as a
+database or a socket. In these cases you'll have the XML and/or XSLT data in
+a variable -- and in production applications the overhead of dumping these to
+file may be too much. This is where XSLT's "argument" syntax, comes to the
+rescue. Instead of files as the XML and XSLT arguments to the |xslt_process|
+function, you can specify "argument place holders" which are then substituted
+by values given in the arguments array (5th parameter to the |xslt_process|
+function). The following is an example of processing XML and XSLT into a
+result variable without the use of files at all.
+
+Using the |xslt_process| to transform a variable containing XML data and a
+variable containing XSL data into a variable containing the resulting XML
+data
+
+<?php >
+  // $xml and $xsl contain the XML and XSL data
+  
+  $arguments = array(
+       '/_xml' => $xml,
+       '/_xsl' => $xsl
+  );
+  
+  // Allocate a new XSLT processor
+  $xh = xslt_create();
+  
+  // Process the document
+  $result = xslt_process($xh, 'arg:/_xml', 'arg:/_xsl', NULL, $arguments); 
+  if ($result) {
+      echo "SUCCESS, sample.xml was transformed by sample.xsl into the \$result";
+      echo " variable, the \$result variable has the following contents\n<br />\n";
+      echo "<pre>\n";
+      echo $result;
+      echo "</pre>\n";
+  } else {
+      echo "Sorry, sample.xml could not be transformed by sample.xsl into";
+      echo "  the \$result variable the reason is that " . xslt_error($xh);
+      echo " and the error code is " . xslt_errno($xh);
+  }
+  xslt_free($xh);
+?>
+
+vim:ft=help:

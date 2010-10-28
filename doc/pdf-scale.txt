@@ -1,0 +1,7 @@
+pdf_scale -- Sets scaling
+
+  bool pdf_scale(resource pdfdoc, float x_scale, float y_scale)~
+
+Scale the coordinate system. Returns TRUE on success or FALSE on failure.
+
+vim:ft=help:

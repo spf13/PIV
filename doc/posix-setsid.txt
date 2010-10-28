@@ -1,0 +1,9 @@
+posix_setsid -- Make the current process a session leader
+
+  int posix_setsid()~
+
+Make the current process a session leader. See POSIX.1 and the setsid(2)
+manual page on your POSIX system for more information on process groups and
+job control. Returns the session id.
+
+vim:ft=help:

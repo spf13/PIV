@@ -1,0 +1,11 @@
+ircg_ignore_add -- Add a user to your ignore list on a server
+
+  void ircg_ignore_add(resource connection, string nick)~
+
+This function adds user {nick} to the ignore list of connection {connection}.
+Afterwards, IRCG will suppress all messages from this user through the
+associated connection.
+
+See also: |ircg_ignore_del|.
+
+vim:ft=help:

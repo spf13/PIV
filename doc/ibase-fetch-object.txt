@@ -1,0 +1,28 @@
+ibase_fetch_object -- Get an object from a InterBase database
+
+  object ibase_fetch_object(resource result_id [, int fetch_flag])~
+
+Fetches a row as a pseudo-object from a {result_id} obtained either by
+|ibase_query| or |ibase_execute|.
+
+<?php >
+      $dbh = ibase_connect($host, $username, $password);
+      $stmt = 'SELECT * FROM tblname';
+      $sth = ibase_query($dbh, $stmt);
+      while ($row = ibase_fetch_object($sth)) {
+          echo $row->email . "\n";
+      }
+      ibase_close($dbh);
+?>
+
+Subsequent calls to |ibase_fetch_object| return the next row in the result
+set, or FALSE if there are no more rows.
+
+{fetch_flag} is a combination of the constants IBASE_TEXT and IBASE_UNIXTIME
+ORed together. Passing IBASE_TEXT will cause this function to return BLOB
+contents instead of BLOB ids. Passing IBASE_UNIXTIME will cause this function
+to return date/time values as Unix timestamps instead of as formatted strings.
+
+See also |ibase_fetch_row| and |ibase_fetch_assoc|.
+
+vim:ft=help:

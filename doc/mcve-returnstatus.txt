@@ -1,0 +1,8 @@
+mcve_returnstatus -- Check to see if the transaction was successful
+
+  int mcve_returnstatus(resource conn, int identifier)~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

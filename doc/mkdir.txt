@@ -1,0 +1,36 @@
+mkdir -- Makes directory
+
+  bool mkdir(string pathname [, int mode [, bool recursive [, resource context]]])~
+
+Attempts to create the directory specified by pathname.
+
+Note that you probably want to specify the mode as an octal number, which
+means it should have a leading zero. The mode is also modified by the current
+umask, which you can change using |umask|.
+
+Mode is ignored on Windows, and became optional in PHP 4.2.0.
+
+The mode is 0777 by default, which means the widest possible access. For more
+information on modes, read the details on the |chmod| page. |mkdir| example
+
+<?php >
+  mkdir("/path/to/my/dir", 0700);
+?>
+
+Returns TRUE on success or FALSE on failure.
+
+As of PHP 5.0.0 |mkdir| can also be used with some URL wrappers. Refer to for
+a listing of which wrappers support |mkdir|.
+
+Context support was added with PHP 5.0.0. For a description of contexts, refer
+to .
+
+The {recursive} parameter was added as of PHP 5.0.0.
+
+When safe mode is enabled, PHP checks whether the directory in which you are
+about to operate has the same UID (owner) as the script that is being
+executed.
+
+See also |rmdir|.
+
+vim:ft=help:

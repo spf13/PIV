@@ -1,0 +1,15 @@
+cpdf_page_init -- Starts new page
+
+  bool cpdf_page_init(int pdf_document, int page_number, int orientation, float height, float width [, float unit])~
+
+The |cpdf_page_init| function starts a new page with height {height} and width
+{width}. Returns TRUE on success or FALSE on failure. The page has number
+{page_number} and orientation {orientation}. {orientation} can be 0 for
+portrait and 1 for landscape. The last optional parameter {unit} sets the
+unit for the coordinate system. The value should be the number of postscript
+points per unit. Since one inch is equal to 72 points, a value of 72 would
+set the unit to one inch. The default is also 72.
+
+See also |cpdf_set_current_page|.
+
+vim:ft=help:

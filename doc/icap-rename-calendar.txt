@@ -1,0 +1,8 @@
+icap_rename_calendar -- Rename a calendar
+
+  string icap_rename_calendar(int stream_id, string old_name, string new_name)~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

@@ -1,0 +1,8 @@
+ifxus_tell_slob -- Returns the current file or seek position
+
+  int ifxus_tell_slob(int bid)~
+
+Returns the current file or seek position of an open slob object {bid} should
+be an existing slob id. Return FALSE on error otherwise the seek position.
+
+vim:ft=help:

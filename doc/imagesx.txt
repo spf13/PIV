@@ -1,0 +1,18 @@
+imagesx -- Get image width
+
+  int imagesx(resource image)~
+
+|imagesx| returns the width of the image identified by {image}.
+
+Using |imagesx|
+
+<?php >
+  // create a 300*200 image
+  $img = imagecreate(300, 200);
+  
+  echo imagesx($img); // 300
+?>
+
+See also |imagecreate|, |getimagesize| and |imagesy|.
+
+vim:ft=help:

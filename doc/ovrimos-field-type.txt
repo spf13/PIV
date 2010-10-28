@@ -1,0 +1,8 @@
+ovrimos_field_type -- Returns the (numeric) type of the output column
+
+  int ovrimos_field_type(int result_id, int field_number)~
+
+|ovrimos_field_type| returns the (numeric) type of the output column at the
+(1-based) index specified by {field_number}.
+
+vim:ft=help:

@@ -1,0 +1,65 @@
+flock -- Portable advisory file locking
+
+  bool flock(resource handle, int operation [, int wouldblock])~
+
+PHP supports a portable way of locking complete files in an advisory way
+(which means all accessing programs have to use the same way of locking or it
+will not work).
+
+|flock| is mandatory under Windows.
+
+|flock| operates on {handle} which must be an open file pointer. {operation}
+is one of the following values:
+
+To acquire a shared lock (reader), set {operation} to LOCK_SH (set to 1 prior
+to PHP 4.0.1).
+
+To acquire an exclusive lock (writer), set {operation} to LOCK_EX (set to 2
+prior to PHP 4.0.1).
+
+To release a lock (shared or exclusive), set {operation} to LOCK_UN (set to 3
+prior to PHP 4.0.1).
+
+If you don't want |flock| to block while locking, add LOCK_NB (4 prior to PHP
+4.0.1) to {operation}.
+
+|flock| allows you to perform a simple reader/writer model which can be used
+on virtually every platform (including most Unix derivatives and even
+Windows). The optional third argument is set to TRUE if the lock would block
+(EWOULDBLOCK errno condition). The lock is released also by |fclose| (which
+is also called automatically when script finished).
+
+Returns TRUE on success or FALSE on failure.
+
+|flock| example
+
+<?php >
+  $fp = fopen("/tmp/lock.txt", "w+");
+  
+  if (flock($fp, LOCK_EX)) { // do an exclusive lock
+      fwrite($fp, "Write something here\n");
+      flock($fp, LOCK_UN); // release the lock
+  } else {
+      echo "Couldn't lock the file !";
+  }
+  
+  fclose($fp);
+?>
+
+Because |flock| requires a file pointer, you may have to use a special lock
+file to protect access to a file that you intend to truncate by opening it in
+write mode (with a "w" or "w+" argument to |fopen|).
+
+|flock| will not work on NFS and many other networked file systems. Check your
+operating system documentation for more details.
+
+On some operating systems |flock| is implemented at the process level. When
+using a multithreaded server API like ISAPI you may not be able to rely on
+|flock| to protect files against other PHP scripts running in parallel
+threads of the same server instance!
+
+|flock| is not supported on antiquated filesystems like FAT and its derivates
+and will therefore always return FALSE under this environments (this is
+especially true for Windows 98 users).
+
+vim:ft=help:

@@ -1,0 +1,30 @@
+apd_set_session_trace -- Starts the session debugging
+
+  void apd_set_session_trace(int debug_level [, string dump_directory])~
+
+Starts debugging to {dump_directory}/apd_dump_{process_id}, if dump_directory
+is not set, then the apd.dumpdir setting from the php.ini file is used.
+
+debug_level is an integer which is formed by adding together the following
+values:
+
+  FUNCTION_TRACE      1
+          ARGS_TRACE          2
+          ASSIGNMENT_TRACE    4
+          STATEMENT_TRACE     8
+          MEMORY_TRACE        16
+          TIMING_TRACE        32
+          SUMMARY_TRACE       64
+
+I would seriously not recommend using MEMORY_TRACE. It is very slow and does
+not appear to be accurate (great, huh?) also ASSIGNMENT_TRACE is not
+implemented. So, to turn on all functional traces (TIMING, FUNCTIONS, ARGS
+SUMMARY (like strace -c)) use the value 99
+
+|apd_set_session_trace| example
+
+<?php >
+  apd_set_session_trace(99);
+?>
+
+vim:ft=help:

@@ -1,0 +1,18 @@
+variant_mul -- multiplies the values of the two variants and returns the
+result
+
+  mixed variant_mul(mixed left, mixed right)~
+
+Multiplies {left} by {right} and returns the result, subject to the following
+rules: Variant Multiplication Rules If Then Both expressions are of the
+string, date, character, boolean type Multiplication One expression is a
+string type and the other a character Multiplication One expression is
+numeric and the other is a string Multiplication Both expressions are numeric
+Multiplication Either expression is NULL NULL is returned Both expressions are
+empty Empty string is returned
+
+Boolean values are converted to -1 for FALSE and 0 for TRUE.
+
+See also |variant_div|, |variant_idiv|.
+
+vim:ft=help:

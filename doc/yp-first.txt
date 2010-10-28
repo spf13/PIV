@@ -1,0 +1,21 @@
+yp_first -- Returns the first key-value pair from the named map
+
+  array yp_first(string domain, string map)~
+
+|yp_first| returns the first key-value pair from the named map in the named
+domain, otherwise FALSE.
+
+Example for the NIS first
+
+<?php >
+  $entry = yp_first($domain, "passwd.byname");
+  
+  $key = key($entry);
+  $value = $entry[$key];
+  
+  echo "First entry in this map has key " . $key . " and value " . $value;
+?>
+
+See also |yp_next| and |yp_get_default_domain|.
+
+vim:ft=help:

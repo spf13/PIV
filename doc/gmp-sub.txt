@@ -1,0 +1,18 @@
+gmp_sub -- Subtract numbers
+
+  resource gmp_sub(resource a, resource b)~
+
+Subtracts {b} from {a} and returns the result.
+
+|gmp_sub| example
+
+<?php >
+  $sub = gmp_sub("281474976710656", "4294967296"); // 2^48 - 2^32
+  echo gmp_strval($sub) . "\n";
+?>
+
+The printout of the above program will be:
+
+  281470681743360
+
+vim:ft=help:

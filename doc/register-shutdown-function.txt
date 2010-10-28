@@ -1,0 +1,40 @@
+register_shutdown_function -- Register a function for execution on shutdown
+
+  void register_shutdown_function(callback function [, mixed parameter [, mixed ...]])~
+
+Registers the function named by {function} to be executed when script
+processing is complete.
+
+Multiple calls to |register_shutdown_function| can be made, and each will be
+called in the same order as they were registered. If you call |exit| within
+one registered shutdown function, processing will stop completely and no
+other registered shutdown functions will be called.
+
+In PHP 4.0.6 and earlier under Apache, the registered shutdown functions are
+called after the request has been completed (including sending any output
+buffers), so it is not possible to send output to the browser using |echo| or
+|print|, or retrieve the contents of any output buffers using
+|ob_get_contents|. Since PHP 4.1, the shutdown functions are called as the
+part of the request so that it's possible to send the output from them. There
+is currently no way to process the data with output buffering functions in the
+shutdown function. Shutdown function is called after closing all opened output
+buffers thus, for example, its output will not be compressed if
+zlib.output_compression is enabled.
+
+As of PHP 4, it is possible to pass parameters to the shutdown function by
+passing additional parameters to |register_shutdown_function|.
+
+Typically undefined functions cause fatal errors in PHP, but when the
+{function} called with |register_shutdown_function| is undefined, an error of
+level E_WARNING is generated instead. Also, for reasons internal to PHP, this
+error will refer to |Unknown| at line #0.
+
+Working directory of the script can change inside the shutdown function under
+some web servers, e.g. Apache.
+
+Shutdown function is called during the script shutdown so headers are always
+already sent.
+
+See also auto_append_file, |exit|, and the section on connection handling.
+
+vim:ft=help:

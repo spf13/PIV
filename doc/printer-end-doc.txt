@@ -1,0 +1,9 @@
+printer_end_doc -- Close document
+
+  bool printer_end_doc(resource handle)~
+
+Closes a new document in the printer spooler. The document is now ready for
+printing. For an example see |printer_start_doc|. {handle} must be a valid
+handle to a printer.
+
+vim:ft=help:

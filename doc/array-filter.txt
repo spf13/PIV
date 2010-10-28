@@ -1,0 +1,82 @@
+array_filter -- Filters elements of an array using a callback function
+
+  array array_filter(array input [, callback callback])~
+
+|array_filter| iterates over each value in the {input} array passing them to
+the {callback} function. If the { callback} function returns true, the
+current value from {input} is returned into the result array. Array keys are
+preserved.
+
+|array_filter| example
+
+<?php >
+  function odd($var) 
+  {
+      return($var % 2 == 1);
+  }
+  
+  function even($var) 
+  {
+      return($var % 2 == 0);
+  }
+  
+  $array1 = array("a"=>1, "b"=>2, "c"=>3, "d"=>4, "e"=>5);
+  $array2 = array(6, 7, 8, 9, 10, 11, 12);
+  
+  echo "Odd :\n";
+  print_r(array_filter($array1, "odd"));
+  echo "Even:\n";
+  print_r(array_filter($array2, "even"));
+?>
+
+The above example will output:
+
+  Odd :
+  Array
+  (
+      [a] => 1
+      [c] => 3
+      [e] => 5
+  )
+  Even:
+  Array
+  (
+      [0] => 6
+      [2] => 8
+      [4] => 10
+      [6] => 12
+  )
+
+Users may not change the array itself from the callback function. e.g.
+Add/delete an element, unset the array that |array_filter| is applied to. If
+the array is changed, the behavior of this function is undefined.
+
+If the {callback} function is not supplied, |array_filter| will remove all the
+entries of {input} that are equal to FALSE. See converting to boolean for more
+information.
+
+|array_filter| without {callback}
+
+<?php >
+  $entry = array(
+               0 => 'foo',
+               1 => false,
+               2 => -1,
+               3 => null,
+               4 => ''
+            );
+  
+  print_r(array_filter($entry));
+?>
+
+The above example will output:
+
+  Array
+  (
+      [0] => foo
+      [2] => -1
+  )
+
+See also |array_map|, |array_reduce|, and |array_walk|.
+
+vim:ft=help:

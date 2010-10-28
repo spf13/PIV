@@ -1,0 +1,13 @@
+SWFTextField->setHeight -- Sets the font height of this text field font
+
+  void swftextfield->setheight(int height)~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+|swftextfield->setheight| sets the font height of this text field font to the
+given height {height}. Default is 240.
+
+vim:ft=help:

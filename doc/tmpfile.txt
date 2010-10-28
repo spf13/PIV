@@ -1,0 +1,28 @@
+tmpfile -- Creates a temporary file
+
+  resource tmpfile()~
+
+Creates a temporary file with an unique name in read-write (w+) mode,
+returning a file handle similar to the one returned by |fopen|. The file is
+automatically removed when closed (using |fclose|), or when the script ends.
+
+For details, consult your system documentation on the tmpfile(3) function, as
+well as the stdio.h header file.
+
+|tmpfile| example
+
+<?php >
+  $temp = tmpfile();
+  fwrite($temp, "writing to tempfile");
+  fseek($temp, 0);
+  echo fread($temp, 1024);
+  fclose($temp); // this removes the file
+?>
+
+The above example will output:
+
+  writing to tempfile
+
+See also |tempnam|.
+
+vim:ft=help:

@@ -1,0 +1,8 @@
+hw_GetParents -- Object ids of parents
+
+  array hw_getparents(int connection, int objectID)~
+
+Returns an indexed array of object ids. Each object id belongs to a parent of
+the object with ID {objectID}.
+
+vim:ft=help:

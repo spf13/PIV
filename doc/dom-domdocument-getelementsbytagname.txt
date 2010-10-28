@@ -1,0 +1,13 @@
+DOMDocument->getElementsByTagName() -- Searches for all elements with given
+tag name
+
+  DOMNodeList getElementsByTagName(string name)~
+
+This function returns a new instance of class DOMNodeList containing the
+elements with a given tag name.
+
+{name} The name of the tag to match on. The special value * matches all tags.
+
+A new DOMNodeList object containing all the matched elements.
+
+vim:ft=help:

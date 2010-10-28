@@ -1,0 +1,94 @@
+mysqli_stmt_sqlstate -- Returns SQLSTATE error from previous statement
+operation
+
+  string mysqli_stmt_sqlstate(mysqli_stmt stmt)~
+
+Returns a string containing the SQLSTATE error code for the most recently
+invoked prepared statement function that can succeed or fail. The error code
+consists of five characters. '00000' means no error. The values are specified
+by ANSI SQL and ODBC. For a list of possible values, see
+http://dev.mysql.com/doc/mysql/en/error-handling.html.
+
+Note that not all MySQL errors are yet mapped to SQLSTATE's. The value HY000
+(general error) is used for unmapped errors.
+
+Returns a string containing the SQLSTATE error code for the last error. The
+error code consists of five characters. '00000' means no error.
+
+|mysqli_stmt_errno| and |mysqli_stmt_error|.
+
+Object oriented style
+
+<?php >
+  /* Open a connection */
+  $mysqli = new mysqli("localhost", "my_user", "my_password", "world");
+  
+  /* check connection */ 
+  if (mysqli_connect_errno()) {
+      printf("Connect failed: %s\n", mysqli_connect_error());
+      exit();
+  }
+  
+  $mysqli->query("CREATE TABLE myCountry LIKE Country");
+  $mysqli->query("INSERT INTO myCountry SELECT * FROM Country");
+  
+  
+  $query = "SELECT Name, Code FROM myCountry ORDER BY Name";
+  if ($stmt = $mysqli->prepare($query)) {
+  
+      /* drop table */
+      $mysqli->query("DROP TABLE myCountry");
+  
+      /* execute query */
+      $stmt->execute();
+  
+      printf("Error: %s.\n", $stmt->sqlstate);
+  
+      /* close statement */
+      $stmt->close();
+  }
+  
+  /* close connection */
+  $mysqli->close();
+?>
+
+Procedural style
+
+<?php >
+  /* Open a connection */
+  $link = mysqli_connect("localhost", "my_user", "my_password", "world");
+  
+  /* check connection */ 
+  if (mysqli_connect_errno()) {
+      printf("Connect failed: %s\n", mysqli_connect_error());
+      exit();
+  }
+  
+  mysqli_query($link, "CREATE TABLE myCountry LIKE Country");
+  mysqli_query($link, "INSERT INTO myCountry SELECT * FROM Country");
+  
+  
+  $query = "SELECT Name, Code FROM myCountry ORDER BY Name";
+  if ($stmt = mysqli_prepare($link, $query)) {
+  
+      /* drop table */
+      mysqli_query($link, "DROP TABLE myCountry");
+  
+      /* execute query */
+      mysqli_stmt_execute($stmt);
+  
+      printf("Error: %s.\n", mysqli_stmt_sqlstate($stmt));
+  
+      /* close statement */
+      mysqli_stmt_close($stmt);
+  }
+  
+  /* close connection */
+  mysqli_close($link);
+?>
+
+The above example will output:
+
+  Error: 42S02.
+
+vim:ft=help:

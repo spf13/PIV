@@ -1,0 +1,8 @@
+FilterIterator::valid -- Check whether the current element is valid
+
+  bool FilterIterator::valid()~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

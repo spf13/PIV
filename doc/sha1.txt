@@ -1,0 +1,26 @@
+sha1 -- Calculate the sha1 hash of a string
+
+  string sha1(string str [, bool raw_output])~
+
+Calculates the sha1 hash of {str} using the US Secure Hash Algorithm 1, and
+returns that hash. The hash is a 40-character hexadecimal number. If the
+optional {raw_output} is set to TRUE, then the sha1 digest is instead
+returned in raw binary format with a length of 20.
+
+The optional {raw_output} parameter was added in PHP 5.0.0 and defaults to
+FALSE
+
+A |sha1| example
+
+<?php >
+  $str = 'apple';
+                       
+  if (sha1($str) === 'd0be2dc421be4fcd0172e5afceea3970e2f3d940') {
+      echo "Would you like a green or red apple?";
+      exit;
+  }
+?>
+
+See also |sha1_file|, |crc32|, and |md5|
+
+vim:ft=help:

@@ -1,0 +1,17 @@
+openssl_public_decrypt -- Decrypts data with public key
+
+  bool openssl_public_decrypt(string data, string decrypted, mixed key [, int padding])~
+
+|openssl_public_decrypt| decrypts {data} that was previous encrypted via
+|openssl_private_encrypt| and stores the result into {decrypted}. {key} must
+be the public key corresponding that was used to encrypt the data. {padding}
+defaults to OPENSSL_PKCS1_PADDING, but can also be OPENSSL_NO_PADDING.
+
+Returns TRUE on success or FALSE on failure.
+
+You can use this function e.g. to check if the message was written by the
+owner of the private key.
+
+See also |openssl_private_encrypt| and |openssl_private_decrypt|.
+
+vim:ft=help:

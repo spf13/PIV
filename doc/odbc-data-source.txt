@@ -1,0 +1,13 @@
+odbc_data_source -- Returns information about a current connection
+
+  array odbc_data_source(resource connection_id, int fetch_type)~
+
+Returns FALSE on error, and an array upon success.
+
+This function will return the list of available DNS (after calling it several
+times). The {connection_id} is required to be a valid ODBC connection. The
+{fetch_type} can be one of two constant types: SQL_FETCH_FIRST,
+SQL_FETCH_NEXT. Use SQL_FETCH_FIRST the first time this function is called,
+thereafter use the SQL_FETCH_NEXT.
+
+vim:ft=help:

@@ -1,0 +1,47 @@
+pg_fetch_row -- Get a row as an enumerated array
+
+  array pg_fetch_row(resource result [, int row])~
+
+|pg_fetch_row| fetches one row of data from the result associated with the
+specified {result} resource.
+
+This function sets NULL fields to PHP NULL value.
+
+From PHP 4.1.0, {row} became optional.
+
+{result} PostgreSQL query result resource, returned by |pg_query|,
+|pg_query_params| or |pg_execute| (among others).
+
+{row} Row number in result to fetch. Rows are numbered from 0 upwards. If
+omitted, next row is fetched.
+
+An array, indexed from 0 upwards, with each value represented as a string.
+Database NULL values are returned as NULL.
+
+FALSE is returned if {row} exceeds the number of rows in the set, there are no
+more rows, or on any other error.
+
+|pg_fetch_row| example
+
+<?php >
+  $conn = pg_pconnect("dbname=publisher");
+  if (!$conn) {
+    echo "An error occured.\n";
+    exit;
+  }
+  
+  $result = pg_query($conn, "SELECT author, email FROM authors");
+  if (!$result) {
+    echo "An error occured.\n";
+    exit;
+  }
+  
+  while ($row = pg_fetch_row($result)) {
+    echo "Author: $row[0]  E-mail: $row[1]";
+    echo "<br />\n";
+  }
+?>
+
+|pg_query| |pg_fetch_array| |pg_fetch_object| |pg_fetch_result|
+
+vim:ft=help:

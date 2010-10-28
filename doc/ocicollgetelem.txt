@@ -1,0 +1,9 @@
+ocicollgetelem -- Retrieve the value at collection index ndx
+
+  string ocicollgetelem(int ndx)~
+
+This function was renamed to |oci_collection_element_get| after PHP >= 5.0.0.
+For downward compatibility |ocicollgetelem| can also be used. This is
+deprecated, however.
+
+vim:ft=help:

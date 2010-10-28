@@ -1,0 +1,9 @@
+cpdf_set_font_directories -- Sets directories to search when using external
+fonts
+
+  bool cpdf_set_font_directories(int pdfdoc, string pfmdir, string pfbdir)~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

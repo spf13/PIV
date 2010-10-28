@@ -1,0 +1,7 @@
+hw_api_reason->type -- Returns type of reason
+
+  HW_API_Reason hw_api_reason->type()~
+
+Returns the type of a reason.
+
+vim:ft=help:

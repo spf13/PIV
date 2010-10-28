@@ -1,0 +1,33 @@
+gzseek -- Seek on a gz-file pointer
+
+  int gzseek(resource zp, int offset)~
+
+Sets the file position indicator for the given file pointer to the given
+offset byte into the file stream. Equivalent to calling (in C) gzseek(zp,
+offset, SEEK_SET).
+
+If the file is opened for reading, this function is emulated but can be
+extremely slow. If the file is opened for writing, only forward seeks are
+supported; |gzseek| then compresses a sequence of zeroes up to the new
+starting position.
+
+{zp} The gz-file pointer. It must be valid, and must point to a file
+successfully opened by |gzopen|.
+
+{offset} The seeked offset.
+
+Upon success, returns 0; otherwise, returns -1. Note that seeking past EOF is
+not considered an error.
+
+|gzseek| example
+
+<?php >
+  $gz = gzopen('somefile.gz', 'r');
+  gzseek($gz,2);
+  echo gzgetc($gz);
+  gzclose($gz);
+?>
+
+|gztell| |gzrewind|
+
+vim:ft=help:

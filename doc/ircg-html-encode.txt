@@ -1,0 +1,10 @@
+ircg_html_encode -- Encodes HTML preserving output
+
+  string ircg_html_encode(string html_string [, bool auto_links [, bool conv_br]])~
+
+Encodes a HTML string {html_string} for output. This exposes the interface
+which the IRCG extension uses internally to reformat data coming from an IRC
+link. The function causes IRC color/font codes to be encoded in HTML and
+escapes certain entities.
+
+vim:ft=help:

@@ -1,0 +1,9 @@
+odbc_num_fields -- Number of columns in a result
+
+  int odbc_num_fields(resource result_id)~
+
+|odbc_num_fields| will return the number of fields (columns) in an ODBC
+result. This function will return -1 on error. The argument is a valid result
+identifier returned by |odbc_exec|.
+
+vim:ft=help:

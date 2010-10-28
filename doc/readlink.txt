@@ -1,0 +1,19 @@
+readlink -- Returns the target of a symbolic link
+
+  string readlink(string path)~
+
+|readlink| does the same as the readlink C function and returns the contents
+of the symbolic link path or FALSE in case of error.
+
+|readlink| example
+
+<?php >
+  // output e.g. /boot/vmlinux-2.4.20-xfs
+  echo readlink('/vmlinuz');
+?>
+
+This function is not implemented on Windows platforms.
+
+See also |is_link|, |symlink|, and |linkinfo|.
+
+vim:ft=help:

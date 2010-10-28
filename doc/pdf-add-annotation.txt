@@ -1,0 +1,5 @@
+pdf_add_annotation -- Deprecated: Adds annotation
+
+This function is deprecated, use |pdf_add_note| instead.
+
+vim:ft=help:

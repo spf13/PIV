@@ -1,0 +1,33 @@
+array_combine -- Creates an array by using one array for keys and another for
+its values
+
+  array array_combine(array keys, array values)~
+
+Returns an array by using the values from the {keys} array as keys and the
+values from the {values} array as the corresponding values.
+
+Returns FALSE if the number of elements for each array isn't equal or if the
+arrays are empty.
+
+A simple |array_combine| example
+
+<?php >
+  $a = array('green', 'red', 'yellow');
+  $b = array('avocado', 'apple', 'banana');
+  $c = array_combine($a, $b);
+  
+  print_r($c);
+?>
+
+The above example will output:
+
+  Array
+  (
+      [green]  => avocado
+      [red]    => apple
+      [yellow] => banana
+  )
+
+See also |array_merge|, |array_walk|, and |array_values|.
+
+vim:ft=help:

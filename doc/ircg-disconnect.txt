@@ -1,0 +1,10 @@
+ircg_disconnect -- Close connection to server
+
+  bool ircg_disconnect(resource connection, string reason)~
+
+|ircg_disconnect| will close a {connection} to a server previously established
+with |ircg_pconnect|.
+
+See also: |ircg_pconnect|.
+
+vim:ft=help:

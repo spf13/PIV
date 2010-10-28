@@ -1,0 +1,36 @@
+sesam_settransaction -- Set SESAM transaction parameters
+
+  bool sesam_settransaction(int isolation_level, int read_only)~
+
+Returns: TRUE if the values are valid, and the |settransaction| operation was
+successful, FALSE otherwise.
+
+|sesam_settransaction| overrides the default values for the "isolation level"
+and "read-only" transaction parameters (which are set in the SESAM
+configuration file), in order to optimize subsequent queries and guarantee
+database consistency. The overridden values are used for the next transaction
+only.
+
+|sesam_settransaction| can only be called before starting a transaction, not
+after the transaction has been started already.
+
+To simplify the use in PHP scripts, the following constants have been
+predefined in PHP (see SESAM handbook for detailed explanation of the
+semantics): Valid values for {"Isolation_Level"} parameter Value Constant
+Meaning 1 SESAM_TXISOL_READ_UNCOMMITTED Read Uncommitted 2
+SESAM_TXISOL_READ_COMMITTED Read Committed 3 SESAM_TXISOL_REPEATABLE_READ
+Repeatable Read 4 SESAM_TXISOL_SERIALIZABLE Serializable Valid values for
+{"Read_Only"} parameter Value Constant Meaning 0 SESAM_TXREAD_READWRITE
+Read/Write 1 SESAM_TXREAD_READONLY Read-Only
+
+The values set by |sesam_settransaction| will override the default setting
+specified in the SESAM configuration file.
+
+Setting SESAM transaction parameters
+
+<?php >
+  sesam_settransaction (SESAM_TXISOL_REPEATABLE_READ,
+                       SESAM_TXREAD_READONLY);
+?>
+
+vim:ft=help:

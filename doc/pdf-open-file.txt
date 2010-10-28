@@ -1,0 +1,34 @@
+pdf_open_file -- Opens a new pdf object
+
+  bool pdf_open_file(resource pdfdoc, string filename)~
+
+Create a new PDF file using the supplied file name. If {filename} is empty the
+PDF document will be generated in memory instead of on file. The result must
+be fetched by the client with the |pdf_get_buffer| function. Parameter
+{filename} is optional before PHP 4.3.5 or with PDFlib less than 5. Returns
+TRUE on success or FALSE on failure.
+
+The following example shows how to create a pdf document in memory and how to
+output it correctly. Creating a PDF document in memory
+
+<?php >
+  $pdf = pdf_new();
+  
+  pdf_open_file($pdf);
+  pdf_begin_page($pdf, 595, 842);
+  pdf_set_font($pdf, "Times-Roman", 30, "host");
+  pdf_set_value($pdf, "textrendering", 1);
+  pdf_show_xy($pdf, "A PDF document created in memory!", 50, 750);
+  pdf_end_page($pdf);
+  pdf_close($pdf);
+  
+  $data = pdf_get_buffer($pdf);
+  
+  header("Content-type: application/pdf");
+  header("Content-disposition: inline; filename=test.pdf");
+  header("Content-length: " . strlen($data));
+  
+  echo $data;
+?>
+
+vim:ft=help:

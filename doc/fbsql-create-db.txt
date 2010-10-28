@@ -1,0 +1,22 @@
+fbsql_create_db -- Create a FrontBase database
+
+  bool fbsql_create_db(string database_name [, resource link_identifier [, string database_options]])~
+
+|fbsql_create_db| attempts to create a new database named {database_name} on
+the server associated with the specified connection {link_identifier}.
+
+|fbsql_create_db| example
+
+<?php >
+      $link = fbsql_pconnect("localhost", "_SYSTEM", "secret")
+          or die("Could not connect");
+      if (fbsql_create_db("my_db")) {
+          echo "Database created successfully\n";
+      } else {
+          printf("Error creating database: %s\n", fbsql_error());
+      }
+?>
+
+See also: |fbsql_drop_db|.
+
+vim:ft=help:

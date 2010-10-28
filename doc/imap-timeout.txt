@@ -1,0 +1,8 @@
+imap_timeout -- Set or fetch imap timeout
+
+  mixed imap_timeout(int timeout_type [, int timeout])~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

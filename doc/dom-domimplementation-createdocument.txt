@@ -1,0 +1,23 @@
+DOMImplementation->createDocument() -- Creates a DOMDocument object of the
+specified type with its document element
+
+  DOMDocument createDocument([string namespaceURI [, string qualifiedName [, DOMDocumentType doctype]]])~
+
+Creates a DOMDocument object of the specified type with its document element.
+
+{namespaceURI} The namespace URI of the document element to create.
+
+{qualifiedName} The qualified name of the document element to create.
+
+{doctype} The type of document to create or NULL.
+
+A new DOMDocument object. If {namespaceURI}, {qualifiedName}, and {doctype}
+are null, the returned DOMDocument is empty with no document element
+
+DOM_WRONG_DOCUMENT_ERR Raised if {doctype} has already been used with a
+different document or was created from a different implementation.
+
+DOM_NAMESPACE_ERR Raised if there is an error with the namespace, as
+determined by {namespaceURI} and {qualifiedName}.
+
+vim:ft=help:

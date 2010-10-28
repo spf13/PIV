@@ -1,0 +1,8 @@
+mcve_qc -- Audit MCVE for a list of transactions in the outgoing queue
+
+  int mcve_qc(resource conn, string username, string password, string clerkid, string stationid, string comments, int ptrannum)~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

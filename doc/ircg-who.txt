@@ -1,0 +1,14 @@
+ircg_who -- Queries server for WHO information
+
+  bool ircg_who(resource connection, string mask [, bool ops_only])~
+
+|ircg_who| will request a list of users whose nickname is matching {mask} on
+connected network {connection}. The optional parameter {ops_only} will shrink
+the list to server operators only.
+
+The answer is sent to the output defined by |ircg_set_file| or
+|ircg_set_current|. Returns TRUE on success or FALSE on failure.
+
+See also: |ircg_set_file|, and |ircg_set_current|.
+
+vim:ft=help:

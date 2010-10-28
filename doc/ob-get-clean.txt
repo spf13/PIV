@@ -1,0 +1,28 @@
+ob_get_clean -- Get current buffer contents and delete current output buffer
+
+  string ob_get_clean()~
+
+This will return the contents of the output buffer and end output buffering.
+If output buffering isn't active then FALSE is returned. |ob_get_clean|
+essentially executes both |ob_get_contents| and |ob_end_clean|.
+
+A simple |ob_get_clean| example
+
+<?php >
+  ob_start();
+  
+  echo "Hello World";
+  
+  $out = ob_get_clean();
+  $out = strtolower($out);
+  
+  var_dump($out);
+?>
+
+Our example will output:
+
+  string(11) "hello world"
+
+See also |ob_start| and |ob_get_contents|.
+
+vim:ft=help:

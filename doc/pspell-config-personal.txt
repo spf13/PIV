@@ -1,0 +1,23 @@
+pspell_config_personal -- Set a file that contains personal wordlist
+
+  bool pspell_config_personal(int dictionary_link, string file)~
+
+|pspell_config_personal| should be used on a config before calling
+|pspell_new_config|. The personal wordlist will be loaded and used in
+addition to the standard one after you call |pspell_new_config|. If the file
+does not exist, it will be created. The file is also the file where
+|pspell_save_wordlist| will save personal wordlist to. The file should be
+writable by whoever PHP runs as (e.g. nobody). Please, note that this
+function will not work unless you have pspell .11.2 and aspell .32.5 or
+later.
+
+|pspell_config_personal|
+
+<?php >
+  $pspell_config = pspell_config_create("en");
+  pspell_config_personal($pspell_config, "/var/dictionaries/custom.pws");
+  $pspell_link = pspell_new_config($pspell_config);
+  pspell_check($pspell_link, "thecat");
+?>
+
+vim:ft=help:

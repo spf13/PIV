@@ -1,0 +1,37 @@
+ldap_list -- Single-level search
+
+  resource ldap_list(resource link_identifier, string base_dn, string filter [, array attributes [, int attrsonly [, int sizelimit [, int timelimit [, int deref]]]]])~
+
+Returns a search result identifier or FALSE on error.
+
+|ldap_list| performs the search for a specified {filter} on the directory with
+the scope LDAP_SCOPE_ONELEVEL.
+
+LDAP_SCOPE_ONELEVEL means that the search should only return information that
+is at the level immediately below the {base_dn} given in the call.
+(Equivalent to typing "ls" and getting a list of files and folders in the
+current working directory.)
+
+This call takes 5 optional parameters. See |ldap_search| notes. These optional
+parameters were added in 4.0.2: {attrsonly}, {sizelimit}, {timelimit},
+{deref}.
+
+Produce a list of all organizational units of an organization
+
+  // $ds is a valid link identifier for a directory server
+  
+  $basedn = "o=My Company, c=US";
+  $justthese = array("ou");
+  
+  $sr=ldap_list($ds, $basedn, "ou=*", $justthese);
+  
+  $info = ldap_get_entries($ds, $sr);
+  
+  for ($i=0; $i<$info["count"]; $i++) {
+      echo $info[$i]["ou"][0] ;
+  }
+
+From 4.0.5 on it's also possible to do parallel searches. See |ldap_search|
+for details.
+
+vim:ft=help:

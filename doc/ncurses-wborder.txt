@@ -1,0 +1,19 @@
+ncurses_wborder -- Draws a border around the window using attributed
+characters
+
+  int ncurses_wborder(resource window, int left, int right, int top, int bottom, int tl_corner, int tr_corner, int bl_corner, int br_corner)~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+|ncurses_wborder| draws the specified lines and corners around the passed
+window {window}. Each parameter expects 0 to draw a line and 1 to skip it.
+The corners are top left, top right, bottom left and bottom right.
+
+Use |ncurses_border| for borders around the main window.
+
+See also |ncurses_border|.
+
+vim:ft=help:

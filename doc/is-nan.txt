@@ -1,0 +1,9 @@
+is_nan -- Finds whether a value is not a number
+
+  bool is_nan(float val)~
+
+Returns TRUE if {val} is 'not a number', like the result of acos(1.01).
+
+See also |is_finite| and |is_infinite|.
+
+vim:ft=help:

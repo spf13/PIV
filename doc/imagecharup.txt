@@ -1,0 +1,28 @@
+imagecharup -- Draw a character vertically
+
+  bool imagecharup(resource image, int font, int x, int y, string c, int color)~
+
+|imagecharup| draws the character {c} vertically in the image identified by
+{image} at coordinates {x}, {y} (top left is 0, 0) with the color {color}. If
+{font} is 1, 2, 3, 4 or 5, a built-in font is used.
+
+|imagecharup| example
+
+<?php >
+  $im = imagecreate(100, 100);
+  
+  $string = 'Note that the first letter is a N';
+  
+  $bg = imagecolorallocate($im, 255, 255, 255);
+  $black = imagecolorallocate($im, 0, 0, 0);
+  
+  // prints a black "Z" on a white background
+  imagecharup($im, 3, 10, 10, $string, $black);
+  
+  header('Content-type: image/png');
+  imagepng($im);
+?>
+
+See also |imagechar| and |imageloadfont|.
+
+vim:ft=help:

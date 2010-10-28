@@ -1,0 +1,27 @@
+ncurses_ungetmouse -- Pushes mouse event to queue
+
+  bool ncurses_ungetmouse(array mevent)~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+|ncurses_getmouse| pushes a KEY_MOUSE event onto the unput queue and
+associates with this event the given state sata and screen-relative character
+cell coordinates, specified in {mevent}. Event options will be specified in
+associative array {mevent}: "id" : Id to distinguish multiple devices
+
+"x" : screen relative x-position in character cells
+
+"y" : screen relative y-position in character cells
+
+"z" : currently not supported
+
+"mmask" : Mouse action
+
+|ncurses_ungetmouse| returns FALSE on success, otherwise TRUE.
+
+See also: |ncurses_getmouse|
+
+vim:ft=help:

@@ -1,0 +1,11 @@
+hw_api->srcanchors -- Returns a list of all source anchors
+
+  array hw_api->srcanchors(array parameter)~
+
+Retrieves all source anchors of an object. The parameter array contains the
+required element 'objectIdentifier' and the optional elements
+'attributeSelector' and 'objectQuery'.
+
+See also |hwapi_dstanchors|.
+
+vim:ft=help:

@@ -1,0 +1,8 @@
+ifx_free_result -- Releases resources for the query
+
+  int ifx_free_result(int result_id)~
+
+Releases resources for the query associated with {result_id}. Returns TRUE on
+success or FALSE on failure.
+
+vim:ft=help:

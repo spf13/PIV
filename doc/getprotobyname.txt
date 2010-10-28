@@ -1,0 +1,23 @@
+getprotobyname -- Get protocol number associated with protocol name
+
+  int getprotobyname(string name)~
+
+|getprotobyname| returns the protocol number associated with the protocol
+{name} as per /etc/protocols.
+
+|getprotobyname| example
+
+<?php >
+  $protocol = 'tcp';
+  $get_prot = getprotobyname($protocol);
+  if ($get_prot == -1) {
+      // if nothing found, returns -1
+      echo 'Invalid Protocol';
+  } else {
+      echo 'Protocol #' . $get_prot;
+  }
+?>
+
+See also: |getprotobynumber|.
+
+vim:ft=help:

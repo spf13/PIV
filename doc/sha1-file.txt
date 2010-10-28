@@ -1,0 +1,21 @@
+sha1_file -- Calculate the sha1 hash of a file
+
+  string sha1_file(string filename [, bool raw_output])~
+
+Calculates the sha1 hash of {filename} using the US Secure Hash Algorithm 1,
+and returns that hash. The hash is a 40-character hexadecimal number.
+
+{filename} The filename
+
+{raw_output} When TRUE, returns the digest in raw binary format with a length
+of 20. Defaults to FALSE.
+
+Returns a string on success, FALSE otherwise.
+
+Version Description 5.0.0 Added the {raw_output} parameter 5.1.0 Changed the
+function to use the streams API. It means that you can use it with wrappers,
+like sha1_file('http://example.com/..')
+
+|sha1| |md5_file| |crc32|
+
+vim:ft=help:

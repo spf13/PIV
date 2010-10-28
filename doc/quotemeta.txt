@@ -1,0 +1,15 @@
+quotemeta -- Quote meta characters
+
+  string quotemeta(string str)~
+
+Returns a version of str with a backslash character (\) before every character
+that is among these:
+
+  . \ + * ? [ ^ ] ( $ )
+
+This function is binary-safe.
+
+See also |addslashes|, |htmlentities|, |htmlspecialchars|, |nl2br|, and
+|stripslashes|.
+
+vim:ft=help:

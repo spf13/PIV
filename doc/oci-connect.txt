@@ -1,0 +1,18 @@
+oci_connect -- Establishes a connection to Oracle server
+
+  resource oci_connect(string username, string password [, string db [, string charset]])~
+
+|oci_connect| returns a connection identifier needed for most other OCI calls.
+The optional third parameter can either contain the name of the local Oracle
+instance or the name of the entry in tnsnames.ora to which you want to
+connect. If the optional third parameter is not specified, PHP uses the
+environment variables ORACLE_SID (Oracle instance) or TWO_TASK (tnsnames.ora)
+to determine which database to connect to.
+
+|oci_connect| does not reestablish the connection, if a connection with such
+parameters was established before. In this case, |oci_connect| will return
+identifier of previously opened connection. This means, that you cannot use
+this function to separate transactions. To establish a distinctly new
+connection, use |oci_new_connect|.
+
+vim:ft=help:

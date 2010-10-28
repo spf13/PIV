@@ -1,0 +1,20 @@
+variant_cmp -- Compares two variants
+
+  int variant_cmp(mixed left, mixed right [, int lcid [, int flags]])~
+
+Compares {left} with {right} and returns one of the following values: Variant
+Comparision Results value meaning VARCMP_LT {left} is less than {right}
+VARCMP_EQ {left} is equal to {right} VARCMP_GT {left} is greater than {right}
+VARCMP_NULL Either {left}, {right} or both are NULL
+
+This function will only compare scalar values, not arrays or variant records.
+
+{lcid} is a valid Locale Identifier to use when comparing strings (this
+affects string collation). {flags} can be one or more of the following values
+OR'd together, and affects string comparisons: Variant Comparision Flags value
+meaning NORM_IGNORECASE Compare case insensitively NORM_IGNORENONSPACE Ignore
+nonspacing characters NORM_IGNORESYMBOLS Ignore symbols NORM_IGNOREWIDTH
+Ignore string width NORM_IGNOREKANATYPE Ignore Kana type NORM_IGNOREKASHIDA
+Ignore Arabic kashida characters
+
+vim:ft=help:

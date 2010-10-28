@@ -1,0 +1,57 @@
+iconv_mime_encode -- Composes a MIME header field
+
+  string iconv_mime_encode(string field_name, string field_value [, array preferences])~
+
+Composes and returns a string that represents a valid MIME header field, which
+looks like the following:
+
+  Subject: =?ISO-8859-1?Q?Pr=FCfung_f=FCr?= Entwerfen von einer MIME kopfzeile
+
+In the above example, "Subject" is the field name and the portion that begins
+with "=?ISO-8859-1?..." is the field value.
+
+You can control the behaviour of |iconv_mime_encode| by specifying an
+associative array that contains configuration items to the optional third
+parameter {preferences}. The items supported by |iconv_mime_encode| are
+listed below. Note that item names are treated case-sensitive. Configuration
+items supported by |iconv_mime_encode| Item Type Description Default value
+Example scheme boolean Specifies the method to encode a field value by. The
+value of this item may be either "B" or "Q", where "B" stands for base64
+encoding scheme and "Q" stands for quoted-printable encoding scheme. B B
+input-charset string Specifies the character set in which the first parameter
+{field_name} and the second parameter {field_value} are presented. If not
+given, |iconv_mime_encode| assumes those parameters are presented to it in
+the iconv.internal_charset ini setting. iconv.internal_charset ISO-8859-1
+output-charset string Specifies the character set to use to compose the MIME
+header. If not given, the same value as input-charset will be used. the same
+value as input-charset UTF-8 line-length integer Specifies the maximum length
+of the header lines. The resulting header is "folded" to a set of multiple
+lines in case the resulting header field would be longer than the value of
+this parameter, according to RFC2822 - Internet Message Format. If not given,
+the length will be limited to 76 characters. 76 996 line-break-chars string
+Specifies the sequence of characters to append to each line as an end-of-line
+sign when "folding" is performed on a long header field. If not given, this
+defaults to "\r\n" (CR LF). Note that this parameter is always treated as an
+ASCII string regardless of the value of input-charset. \r\n \n
+
+|iconv_mime_encode| example:
+
+<?php >
+  $preferences = array(
+      "input-charset" => "ISO-8859-1",
+      "output-charset" => "UTF-8",
+      "line-length" => 76,
+      "line-break-chars" => "\n"
+  );
+  $preferences["scheme"] = "Q";
+  // This yields "Subject: =?UTF-8?Q?Pr=C3=BCfung_Pr=C3=BCfung?="
+  echo iconv_mime_encode("Subject", "Prüfung Prüfung", $preferences);
+  
+  $preferences["scheme"] = "B";
+  // This yields "Subject: =?UTF-8?B?UHLDvGZ1bmcgUHLDvGZ1bmc=?="
+  echo iconv_mime_encode("Subject", "Prüfung Prüfung", $preferences);
+?>
+
+See also |imap_binary|, |mb_encode_mimeheader| and |imap_8bit|.
+
+vim:ft=help:

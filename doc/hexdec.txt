@@ -1,0 +1,25 @@
+hexdec -- Hexadecimal to decimal
+
+  number hexdec(string hex_string)~
+
+Returns the decimal equivalent of the hexadecimal number represented by the
+{hex_string} argument. |hexdec| converts a hexadecimal string to a decimal
+number. The largest number that can be converted is 7fffffff or 2147483647 in
+decimal. As of PHP 4.1.0, this function can also convert larger numbers. It
+returns float in that case.
+
+|hexdec| will ignore any non-hexadecimal characters it encounters. |hexdec|
+example
+
+<?php >
+  var_dump(hexdec("See"));
+  var_dump(hexdec("ee"));
+  // both print "int(238)"
+  
+  var_dump(hexdec("that")); // print "int(10)"
+  var_dump(hexdec("a0")); // print "int(160)"
+?>
+
+See also |dechex|, |bindec|, |octdec| and |base_convert|.
+
+vim:ft=help:

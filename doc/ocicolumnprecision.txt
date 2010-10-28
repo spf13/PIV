@@ -1,0 +1,14 @@
+ocicolumnprecision -- Tell the precision of a column
+
+  int ocicolumnprecision(resource stmt, int col)~
+
+Returns precision of the field with {col} index (1-based).
+
+For FLOAT columns precision is nonzero and scale is -127. If precision is 0,
+then columnt is NUMBER. Else it's NUMBER(precision, scale).
+
+This function was renamed to |oci_field_precision| after PHP >= 5.0.0. For
+downward compatibility |ocicolumnprecision| can also be used. This is
+deprecated, however.
+
+vim:ft=help:

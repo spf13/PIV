@@ -1,0 +1,10 @@
+mcal_snooze -- Turn off an alarm for an event
+
+  bool mcal_snooze(int stream_id, int event_id)~
+
+|mcal_snooze| turns off an alarm for a calendar event specified by the
+{stream_id} and {event_id}.
+
+Returns TRUE on success or FALSE on failure.
+
+vim:ft=help:

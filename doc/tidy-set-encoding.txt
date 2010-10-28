@@ -1,0 +1,14 @@
+tidy_set_encoding -- Set the input/output character encoding for parsing
+markup
+
+  bool tidy_set_encoding(string encoding)~
+
+Sets the encoding for input/output documents. Returns TRUE on success or FALSE
+on failure. Possible values for {encoding} are ascii, latin0, latin1, raw,
+utf8, iso2022, mac, win1252, ibm858, utf16, utf16le, utf16be, big5 and
+shiftjis
+
+This function is only avaliable in Tidy 1.0. It became obsolete in Tidy 2.0
+and thus has been removed.
+
+vim:ft=help:

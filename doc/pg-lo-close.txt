@@ -1,0 +1,33 @@
+pg_lo_close -- Close a large object
+
+  bool pg_lo_close(resource large_object)~
+
+|pg_lo_close| closes a large object. {large_object} is a resource for the
+large object from |pg_lo_open|.
+
+To use the large object interface, it is necessary to enclose it within a
+transaction block.
+
+This function used to be called |pg_loclose|.
+
+{result} PostgreSQL large object (LOB) resource, returned by |pg_lo_open|.
+
+Returns TRUE on success or FALSE on failure.
+
+|pg_lo_close| example
+
+<?php >
+     $database = pg_connect("dbname=jacarta");
+     pg_query($database, "begin");
+     $oid = pg_lo_create($database);
+     echo "$oid\n";
+     $handle = pg_lo_open($database, $oid, "w");
+     echo "$handle\n";
+     pg_lo_write($handle, "large object data");
+     pg_lo_close($handle);
+     pg_query($database, "commit");
+?>
+
+|pg_lo_open| |pg_lo_create| |pg_lo_import|
+
+vim:ft=help:

@@ -1,0 +1,5 @@
+pdf_get_fontsize -- Deprecated: font handling
+
+This function is deprecated, use |pdf_get_value| instead.
+
+vim:ft=help:

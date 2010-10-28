@@ -1,0 +1,13 @@
+openal_listener_get -- Retrieve a listener property
+
+  mixed openal_listener_get(int property)~
+
+Property to retrieve, one of: AL_GAIN (float), AL_POSITION
+(array(float,float,float)), AL_VELOCITY (array(float,float,float)) and
+AL_ORIENTATION (array(float,float,float)).
+
+Returns a float or array of floats (as appropriate), or FALSE on failure.
+
+|openal_listener_set|
+
+vim:ft=help:

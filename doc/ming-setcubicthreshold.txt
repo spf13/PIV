@@ -1,0 +1,8 @@
+ming_setcubicthreshold -- Set cubic threshold (?)
+
+  void ming_setcubicthreshold(int threshold)~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

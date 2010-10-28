@@ -1,0 +1,20 @@
+aspell_check -- Check a word [deprecated]
+
+  bool aspell_check(int dictionary_link, string word)~
+
+|aspell_check| checks the spelling of a word and returns TRUE if the spelling
+is correct, FALSE if not.
+
+|aspell_check|
+
+<?php >
+  $aspell_link = aspell_new("english");
+  
+  if (aspell_check($aspell_link, "testt")) {
+      echo "This is a valid spelling";
+  } else {
+      echo "Sorry, wrong spelling";
+  }
+?>
+
+vim:ft=help:

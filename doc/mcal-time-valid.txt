@@ -1,0 +1,9 @@
+mcal_time_valid -- Returns TRUE if the given hour, minutes and seconds is a
+valid time
+
+  bool mcal_time_valid(int hour, int minutes, int seconds)~
+
+|mcal_time_valid| Returns TRUE if the given hour, minutes and seconds is a
+valid time, FALSE if not.
+
+vim:ft=help:

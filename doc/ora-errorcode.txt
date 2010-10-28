@@ -1,0 +1,8 @@
+ora_errorcode -- Gets an Oracle error code
+
+  int ora_errorcode([resource cursor_or_connection])~
+
+Returns the numeric error code of the last executed statement on the specified
+cursor or connection. Support for connection ids was added in 3.0.4.
+
+vim:ft=help:

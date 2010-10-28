@@ -1,0 +1,42 @@
+file_put_contents -- Write a string to a file
+
+  int file_put_contents(string filename, mixed data [, int flags [, resource context]])~
+
+Identical to calling |fopen|, |fwrite|, and |fclose| successively.
+
+You can also specify the {data} parameter as an array (not multi-dimension
+arrays). This is equivalent to file_put_contents($filename, join('',
+$array)).
+
+As of PHP 5.1.0, you may also pass a stream resource to the {data} parameter.
+In result, the remaining buffer of that stream will be copied to the
+specified file. This is similar with using |stream_copy_to_stream|.
+
+{filename} The file name where to write the data
+
+{data} The data to write. Can be either a string, an array or a stream
+resource (explained above).
+
+{flags} {flags} can take FILE_USE_INCLUDE_PATH, FILE_APPEND and/or LOCK_EX
+(acquire an exclusive lock), however the FILE_USE_INCLUDE_PATH option should
+be used with caution.
+
+{context} A context resource
+
+The function returns the amount of bytes that were written to the file.
+
+Version Description 5.1.0 Added support for LOCK_EX and the ability to pass a
+stream resource to the {data} parameter
+
+This function is binary-safe.
+
+Context support was added with PHP 5.0.0. For a description of contexts, refer
+to .
+
+You can use a URL as a filename with this function if the fopen wrappers have
+been enabled. See |fopen| for more details on how to specify the filename and
+for a list of supported URL protocols.
+
+|fopen| |fwrite| |file_get_contents|
+
+vim:ft=help:

@@ -1,0 +1,24 @@
+gmp_divexact -- Exact division of numbers
+
+  resource gmp_divexact(resource n, resource d)~
+
+Divides {n} by {d}, using fast "exact division" algorithm. This function
+produces correct results only when it is known in advance that {d} divides
+{n}.
+
+|gmp_divexact| example
+
+<?php >
+  $div1 = gmp_divexact("10", "2");
+  echo gmp_strval($div1) . "\n";
+  
+  $div2 = gmp_divexact("10", "3"); // bogus result
+  echo gmp_strval($div2) . "\n";
+?>
+
+The printout of the above program will be:
+
+  5
+  2863311534
+
+vim:ft=help:

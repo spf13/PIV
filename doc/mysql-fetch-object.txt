@@ -1,0 +1,57 @@
+mysql_fetch_object -- Fetch a result row as an object
+
+  object mysql_fetch_object(resource result)~
+
+Returns an object with properties that correspond to the fetched row and moves
+the internal data pointer ahead.
+
+{ result}The result resource that is being evaluated. This result comes from a
+call to |mysql_query|.
+
+Returns an object with properties that correspond to the fetched row, or FALSE
+if there are no more rows.
+
+|mysql_fetch_row| fetches one row of data from the result associated with the
+specified result identifier. The row is returned as an array. Each result
+column is stored in an array offset, starting at offset 0.
+
+|mysql_fetch_object| example
+
+<?php >
+  mysql_connect("hostname", "user", "password");
+  mysql_select_db("mydb");
+  $result = mysql_query("select * from mytable");
+  while ($row = mysql_fetch_object($result)) {
+      echo $row->user_id;
+      echo $row->fullname;
+  }
+  mysql_free_result($result);
+?>
+
+|mysql_fetch_object| example
+
+<?php >
+  $row = mysql_fetch_object($result);
+  
+  /* this is valid */
+  echo $row->field;
+  /* this is invalid */
+  // echo $row->0;
+?>
+
+Speed-wise, the function is identical to |mysql_fetch_array|, and almost as
+quick as |mysql_fetch_row| (the difference is insignificant).
+
+|mysql_fetch_object| is similar to |mysql_fetch_array|, with one difference -
+an object is returned, instead of an array. Indirectly, that means that you
+can only access the data by the field names, and not by their offsets
+(numbers are illegal property names).
+
+Field names returned by this function are case-sensitive.
+
+This function sets NULL fields to PHP NULL value.
+
+|mysql_fetch_array| |mysql_fetch_assoc| |mysql_fetch_row| |mysql_data_seek|
+|mysql_query|
+
+vim:ft=help:

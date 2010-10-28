@@ -1,0 +1,16 @@
+hw_mv -- Moves objects
+
+  int hw_mv(int connection, array object_id_array, int source_id, int destination_id)~
+
+Moves the objects with object ids as specified in the second parameter from
+the collection with id {source_id} to the collection with the id
+{destination_id}. If the destination id is 0 the objects will be unlinked
+from the source collection. If this is the last instance of that object it
+will be deleted. If you want to delete all instances at once, use
+|hw_deleteobject|.
+
+The value returned is the number of moved objects.
+
+See also |hw_cp|, and |hw_deleteobject|.
+
+vim:ft=help:

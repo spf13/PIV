@@ -1,0 +1,13 @@
+com_isenum -- Indicates if a COM object has an IEnumVariant interface for
+iteration [deprecated]
+
+  bool com_isenum(variant com_module)~
+
+Checks to see if a COM object can be enumerated using the Next() method hack.
+Returns TRUE if it can, FALSE if it cannot. See class for more details on
+these methods.
+
+This function does not exist in PHP 5; use the more natural statement to
+iterate over the contents of COM objects. See for more details.
+
+vim:ft=help:

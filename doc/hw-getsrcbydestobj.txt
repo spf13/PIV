@@ -1,0 +1,11 @@
+hw_GetSrcByDestObj -- Returns anchors pointing at object
+
+  array hw_getsrcbydestobj(int connection, int objectID)~
+
+Returns the object records of all anchors pointing to the object with ID
+{objectID}. The object can either be a document or an anchor of type
+destination.
+
+See also |hw_getanchors|.
+
+vim:ft=help:

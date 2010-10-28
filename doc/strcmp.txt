@@ -1,0 +1,5 @@
+strcmp -- Binary safe string comparison
+
+  int strcmp(string str1, string str2)~
+
+vim:ft=help:

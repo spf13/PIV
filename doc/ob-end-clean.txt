@@ -1,0 +1,28 @@
+ob_end_clean -- Clean (erase) the output buffer and turn off output buffering
+
+  bool ob_end_clean()~
+
+This function discards the contents of the topmost output buffer and turns off
+this output buffering. If you want to further process the buffer's contents
+you have to call |ob_get_contents| before |ob_end_clean| as the buffer
+contents are discarded when |ob_end_flush| is called. The function returns
+TRUE when it successfully discarded one buffer and FALSE otherwise. Reasons
+for failure are first that you called the function without an active buffer
+or that for some reason a buffer could not be deleted (possible for special
+buffer).
+
+The following example shows an easy way to get rid of all output buffers:
+
+|ob_end_clean| example
+
+<?php >
+  while (@ob_end_clean());
+?>
+
+If the function fails it generates an E_NOTICE.
+
+The boolean return value was added in PHP 4.2.0.
+
+See also |ob_start|, |ob_get_contents|, and |ob_flush|.
+
+vim:ft=help:

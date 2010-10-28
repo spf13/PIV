@@ -1,0 +1,8 @@
+mcve_text_avs -- Get a textual representation of the return_avs
+
+  string mcve_text_avs(string code)~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

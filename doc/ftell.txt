@@ -1,0 +1,29 @@
+ftell -- Tells file pointer read/write position
+
+  int ftell(resource handle)~
+
+Returns the position of the file pointer referenced by {handle}; i.e., its
+offset into the file stream.
+
+If an error occurs, returns FALSE.
+
+The file pointer must be valid, and must point to a file successfully opened
+by |fopen| or |popen|. |ftell| gives undefined results for append-only
+streams (opened with "a" flag).
+
+|ftell| example
+
+<?php >
+  // opens a file and read some data
+  $fp = fopen("/etc/passwd", "r");
+  $data = fgets($fp, 12);
+  
+  // where are we ?
+  echo ftell($fp); // 11
+  
+  fclose($fp);
+?>
+
+See also |fopen|, |popen|, |fseek|, and |rewind|.
+
+vim:ft=help:

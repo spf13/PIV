@@ -1,0 +1,15 @@
+session_is_registered -- Find out whether a global variable is registered in a
+session
+
+  bool session_is_registered(string name)~
+
+|session_is_registered| returns TRUE if there is a global variable with the
+name {name} registered in the current session.
+
+If $_SESSION (or $HTTP_SESSION_VARS for PHP 4.0.6 or less) is used, use
+|isset| to check a variable is registered in $_SESSION.
+
+If you are using $_SESSION (or $HTTP_SESSION_VARS), do not use
+|session_register|, |session_is_registered| and |session_unregister|.
+
+vim:ft=help:

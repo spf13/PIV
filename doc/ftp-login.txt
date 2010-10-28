@@ -1,0 +1,37 @@
+ftp_login -- Logs in to an FTP connection
+
+  bool ftp_login(resource ftp_stream, string username, string password)~
+
+Logs in to the given FTP stream.
+
+{ftp_stream} The link identifier of the FTP connection.
+
+{username} The username (USER).
+
+{password} The password (PASS).
+
+Returns TRUE on success or FALSE on failure. If login fails, PHP will also
+throw a warning.
+
+|ftp_login| example
+
+<?php >
+  $ftp_server = "ftp.example.com";
+  $ftp_user = "foo";
+  $ftp_pass = "bar";
+  
+  // set up a connection or die
+  $conn_id = ftp_connect($ftp_server) or die("Couldn't connect to $ftp_server"); 
+  
+  // try to login
+  if (@ftp_login($conn_id, $ftp_user, $ftp_pass)) {
+      echo "Connected as $ftp_user@$ftp_server\n";
+  } else {
+      echo "Couldn't connect as $ftp_user\n";
+  }
+  
+  // close the connection
+  ftp_close($conn_id);  
+?>
+
+vim:ft=help:

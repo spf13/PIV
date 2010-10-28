@@ -1,0 +1,8 @@
+pdf_close_pdi_page -- Close the page handle
+
+  bool pdf_close_pdi_page(resource pdfdoc, int pagehandle)~
+
+Close the page handle, and free all page-related resources. Returns TRUE on
+success or FALSE on failure.
+
+vim:ft=help:

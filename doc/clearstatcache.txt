@@ -1,0 +1,30 @@
+clearstatcache -- Clears file status cache
+
+  void clearstatcache()~
+
+When you use |stat|, |lstat|, or any of the other functions listed in the
+affected functions list (below), PHP caches the information those functions
+return in order to provide faster performance. However, in certain cases, you
+may want to clear the cached information. For instance, if the same file is
+being checked multiple times within a single script, and that file is in
+danger of being removed or changed during that script's operation, you may
+elect to clear the status cache. In these cases, you can use the
+|clearstatcache| function to clear the information that PHP caches about a
+file.
+
+You should also note that PHP doesn't cache information about non-existent
+files. So, if you call |file_exists| on a file that doesn't exist, it will
+return FALSE until you create the file. If you create the file, it will
+return TRUE even if you then delete the file.
+
+This function caches information about specific filenames, so you only need to
+call |clearstatcache| if you are performing multiple operations on the same
+filename and require the information about that particular file to not be
+cached.
+
+Affected functions include |stat|, |lstat|, |file_exists|, |is_writable|,
+|is_readable|, |is_executable|, |is_file|, |is_dir|, |is_link|, |filectime|,
+|fileatime|, |filemtime|, |fileinode|, |filegroup|, |fileowner|, |filesize|,
+|filetype|, and |fileperms|.
+
+vim:ft=help:

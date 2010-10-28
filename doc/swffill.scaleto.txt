@@ -1,0 +1,13 @@
+SWFFill->scaleTo -- Sets fill's scale
+
+  void swffill->scaleto(int x [, int y])~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+|swffill->scaleto| sets fill's scale to {x} in the x-direction, {y} in the
+y-direction.
+
+vim:ft=help:

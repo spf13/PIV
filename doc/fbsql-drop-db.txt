@@ -1,0 +1,10 @@
+fbsql_drop_db -- Drop (delete) a FrontBase database
+
+  bool fbsql_drop_db(string database_name [, resource link_identifier])~
+
+Returns TRUE on success or FALSE on failure.
+
+|fbsql_drop_db| attempts to drop (remove) an entire database from the server
+associated with the specified link identifier.
+
+vim:ft=help:

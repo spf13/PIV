@@ -1,0 +1,8 @@
+ncurses_wmove -- Moves windows output position
+
+  int ncurses_wmove(resource window, int y, int x)~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

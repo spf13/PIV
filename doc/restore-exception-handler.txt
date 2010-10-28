@@ -1,0 +1,15 @@
+restore_exception_handler -- Restores the previously defined exception handler
+function
+
+  bool restore_exception_handler()~
+
+Used after changing the exception handler function using
+|set_exception_handler|, to revert to the previous exception handler (which
+could be the built-in or a user defined function).
+
+This function always returns TRUE
+
+|set_exception_handler| |set_error_handler| |restore_error_handler|
+|error_reporting|
+
+vim:ft=help:

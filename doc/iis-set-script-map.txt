@@ -1,0 +1,5 @@
+iis_set_script_map -- Sets script mapping on a virtual directory
+
+  int iis_set_script_map(int server_instance, string virtual_path, string script_extension, string engine_path, int allow_scripting)~
+
+vim:ft=help:

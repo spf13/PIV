@@ -1,0 +1,34 @@
+mysqli->options -- Set options
+
+Procedural style:
+
+  bool mysqli_options(mysqli link, int option, mixed value)~
+
+Object oriented style (method)
+
+  bool options(mysqli link, int option, mixed value, int option, mixed value)~
+
+|mysqli_options| can be used to set extra connect options and affect behavior
+for a connection.
+
+This function may be called multiple times to set several options.
+
+|mysqli_options| should be called after |mysqli_init| and before
+|mysqli_real_connect|.
+
+The parameter {option} is the option that you want to set, the {value} is the
+value for the option. The parameter {option} can be one of the following
+values: Valid options Name Description MYSQLI_OPT_CONNECT_TIMEOUT connection
+timeout in seconds MYSQLI_OPT_LOCAL_INFILE enable/disable use of LOAD LOCAL
+INFILE MYSQLI_INIT_CMD command to execute after when connecting to MySQL
+server MYSQLI_READ_DEFAULT_FILE Read options from named option file instead
+of my.cnf MYSQLI_READ_DEFAULT_GROUP Read options from the named group from
+my.cnf or the file specified with MYSQL_READ_DEFAULT_FILE.
+
+Returns TRUE on success or FALSE on failure.
+
+|mysqli_init| and |mysqli_real_connect|.
+
+See |mysqli_real_connect|.
+
+vim:ft=help:

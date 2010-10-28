@@ -1,0 +1,71 @@
+localtime -- Get the local time
+
+  array localtime([int timestamp [, bool is_associative]])~
+
+The |localtime| function returns an array identical to that of the structure
+returned by the C function call. The first argument to |localtime| is the
+timestamp, if this is not given the current time as returned from |time| is
+used. The second argument to the |localtime| is the {is_associative}, if this
+is set to FALSE or not supplied than the array is returned as a regular,
+numerically indexed array. If the argument is set to TRUE then |localtime| is
+an associative array containing all the different elements of the structure
+returned by the C function call to localtime. The names of the different keys
+of the associative array are as follows: "tm_sec" - seconds
+
+"tm_min" - minutes
+
+"tm_hour" - hour
+
+"tm_mday" - day of the month
+
+"tm_mon" - month of the year, starting with 0 for January
+
+"tm_year" - Years since 1900
+
+"tm_wday" - Day of the week
+
+"tm_yday" - Day of the year
+
+"tm_isdst" - Is daylight savings time in effect
+
+Months are from 0 (Jan) to 11 (Dec) and days of the week are from 0 (Sun) to 6
+(Sat).
+
+|time| example
+
+<?php >
+  $localtime = localtime();
+  $localtime_assoc = localtime(time(), true);
+  print_r($localtime);
+  print_r($localtime_assoc);
+?>
+
+The above example will output something similar to:
+
+  Array
+  (
+      [0] => 24
+      [1] => 3
+      [2] => 19
+      [3] => 3
+      [4] => 3
+      [5] => 105
+      [6] => 0
+      [7] => 92
+      [9] => 1
+  )
+  
+  Array
+  (
+      [tm_sec] => 24
+      [tm_min] => 3
+      [tm_hour] => 19
+      [tm_mday] => 3
+      [tm_mon] => 3
+      [tm_year] => 105
+      [tm_wday] => 0
+      [tm_yday] => 92
+      [tm_isdst] => 1
+  )
+
+vim:ft=help:

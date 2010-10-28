@@ -1,0 +1,12 @@
+socket_shutdown -- Shuts down a socket for receiving, sending, or both
+
+  bool socket_shutdown(resource socket [, int how])~
+
+The |socket_shutdown| function allows you to stop incoming, outgoing or all
+data (the default) from being sent through the {socket}
+
+The value of {how} can be one of the following: possible values for {how} 0
+Shutdown socket reading 1 Shutdown socket writing 2 Shutdown socket reading
+and writing
+
+vim:ft=help:

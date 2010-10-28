@@ -1,0 +1,60 @@
+isset -- Determine whether a variable is set
+
+  bool isset(mixed var [, mixed var [, mixed ...]])~
+
+Returns TRUE if {var} exists; FALSE otherwise.
+
+If a variable has been unset with |unset|, it will no longer be set. |isset|
+will return FALSE if testing a variable that has been set to NULL. Also note
+that a NULL byte ("\0") is not equivalent to the PHP NULL constant.
+
+|isset| only works with variables as passing anything else will result in a
+parse error. For checking if constants are set use the |defined| function.
+
+<?php >
+  $var = '';
+  
+  // This will evaluate to TRUE so the text will be printed.
+  if (isset($var)) {
+      echo "This var is set so I will print.";
+  }
+  
+  // In the next examples we'll use var_dump to output
+  // the return value of isset().
+  
+  $a = "test";
+  $b = "anothertest";
+  
+  var_dump(isset($a));      // TRUE
+  var_dump(isset($a, $b)); // TRUE
+  
+  unset ($a);
+  
+  var_dump(isset($a));     // FALSE
+  var_dump(isset($a, $b)); // FALSE
+  
+  $foo = NULL;
+  var_dump(isset($foo));   // FALSE
+?>
+
+This also work for elements in arrays:
+
+<?php >
+  $a = array ('test' => 1, 'hello' => NULL);
+  
+  var_dump(isset($a['test']));            // TRUE
+  var_dump(isset($a['foo']));             // FALSE
+  var_dump(isset($a['hello']));           // FALSE
+  
+  // The key 'hello' equals NULL so is considered unset
+  // If you want to check for NULL key values then try: 
+  var_dump(array_key_exists('hello', $a)); // TRUE
+?>
+
+Because this is a language construct and not a function, it cannot be called
+using variable functions
+
+See also |empty|, |unset|, |defined|, the type comparison tables,
+|array_key_exists|, and the error control @ operator.
+
+vim:ft=help:

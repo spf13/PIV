@@ -1,0 +1,14 @@
+imageinterlace -- Enable or disable interlace
+
+  int imageinterlace(resource image [, int interlace])~
+
+|imageinterlace| turns the interlace bit on or off. If interlace is 1 the
+image will be interlaced, and if interlace is 0 the interlace bit is turned
+off.
+
+If the interlace bit is set and the image is used as a JPEG image, the image
+is created as a progressive JPEG.
+
+This function returns whether the interlace bit is set for the image.
+
+vim:ft=help:

@@ -1,0 +1,23 @@
+fbsql_num_rows -- Get number of rows in result
+
+  int fbsql_num_rows(resource result)~
+
+|fbsql_num_rows| returns the number of rows in a result set. This command is
+only valid for SELECT statements. To retrieve the number of rows returned
+from a INSERT, UPDATE or DELETE query, use |fbsql_affected_rows|.
+|fbsql_num_rows| example
+
+<?php >
+  $link = fbsql_connect("localhost", "username", "password"); 
+  fbsql_select_db("database", $link);
+  
+  $result = fbsql_query("SELECT * FROM table1;", $link); 
+  $num_rows = fbsql_num_rows($result); 
+  
+  echo "$num_rows Rows\n";
+?>
+
+See also: |fbsql_affected_rows|, |fbsql_connect|, |fbsql_select_db|, and
+|fbsql_query|.
+
+vim:ft=help:

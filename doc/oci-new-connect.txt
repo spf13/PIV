@@ -1,0 +1,12 @@
+oci_new_connect -- Establishes a new connection to the Oracle server
+
+  resource oci_new_connect(string username, string password [, string db [, string charset]])~
+
+|oci_new_connect| creates a new connection to an Oracle server and logs on.
+The optional third parameter can either contain the name of the local Oracle
+instance or the name of the entry in tnsnames.ora. If the third parameter is
+not specified, PHP uses environment variables ORACLE_SID and TWO_TASK to
+determine the name of local Oracle instance and location of tnsnames.ora
+accordingly.
+
+vim:ft=help:

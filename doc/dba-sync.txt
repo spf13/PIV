@@ -1,0 +1,14 @@
+dba_sync -- Synchronize database
+
+  bool dba_sync(resource handle)~
+
+|dba_sync| synchronizes the database. This will probably trigger a physical
+write to the disk, if supported.
+
+{handle} The database handler, returned by |dba_open| or |dba_popen|.
+
+Returns TRUE on success or FALSE on failure.
+
+|dba_optimize|
+
+vim:ft=help:

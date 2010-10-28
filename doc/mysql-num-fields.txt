@@ -1,0 +1,31 @@
+mysql_num_fields -- Get number of fields in result
+
+  int mysql_num_fields(resource result)~
+
+Retrieves the number of fields from a query.
+
+{ result}The result resource that is being evaluated. This result comes from a
+call to |mysql_query|.
+
+Returns the number of fields in the result set resource on success, or FALSE
+on failure.
+
+A |mysql_num_fields| example
+
+<?php >
+  $result = mysql_query("SELECT id,email FROM people WHERE id = '42'");
+  if (!$result) {
+      echo 'Could not run query: ' . mysql_error();
+      exit;
+  }
+  
+  /* returns 2 because id,email === two fields */
+  echo mysql_num_fields($result);
+?>
+
+For downward compatibility, the following deprecated alias may be used:
+|mysql_numfields|
+
+|mysql_select_db| |mysql_query| |mysql_fetch_field| |mysql_num_rows|
+
+vim:ft=help:

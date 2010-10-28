@@ -1,0 +1,55 @@
+readdir -- Read entry from directory handle
+
+  string readdir(resource dir_handle)~
+
+Returns the filename of the next file from the directory. The filenames are
+returned in the order in which they are stored by the filesystem.
+
+{dir_handle} The directory handle resource previously opened with |opendir|.
+
+Returns the filename on success, or FALSE on failure.
+
+List all files in a directory Please note the fashion in which |readdir|'s
+return value is checked in the examples below. We are explicitly testing
+whether the return value is identical to (equal to and of the same type
+as--see Comparison Operators for more information) FALSE since otherwise, any
+directory entry whose name evaluates to FALSE will stop the loop (e.g. a
+directory named "0").
+
+<?php >
+  // Note that !== did not exist until 4.0.0-RC2
+  
+  if ($handle = opendir('/path/to/files')) {
+      echo "Directory handle: $handle\n";
+      echo "Files:\n";
+  
+      /* This is the correct way to loop over the directory. */
+      while (false !== ($file = readdir($handle))) {
+          echo "$file\n";
+      }
+  
+      /* This is the WRONG way to loop over the directory. */
+      while ($file = readdir($handle)) {
+          echo "$file\n";
+      }
+  
+      closedir($handle);
+  }
+?>
+
+List all files in the current directory and strip out . and ..
+
+<?php >
+  if ($handle = opendir('.')) {
+      while (false !== ($file = readdir($handle))) {
+          if ($file != "." &amp;& $file != "..") {
+              echo "$file\n";
+          }
+      }
+      closedir($handle);
+  }
+?>
+
+|is_dir| |glob|
+
+vim:ft=help:

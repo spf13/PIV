@@ -1,0 +1,64 @@
+SWFGradient -- Creates a gradient object
+
+  SWFGradient swfgradient()~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+|swfgradient| creates a new SWFGradient object.
+
+After you've added the entries to your gradient, you can use the gradient in a
+shape fill with the |swfshape->addfill| method.
+
+SWFGradient has the following methods : |swfgradient->addentry|.
+
+This simple example will draw a big black-to-white gradient as background, and
+a reddish disc in its center. |swfgradient| example
+
+<?php >
+    $m = new SWFMovie();
+    $m->setDimension(320, 240);
+  
+    $s = new SWFShape();
+  
+    // first gradient- black to white
+    $g = new SWFGradient();
+    $g->addEntry(0.0, 0, 0, 0);
+    $g->addEntry(1.0, 0xff, 0xff, 0xff);
+  
+    $f = $s->addFill($g, SWFFILL_LINEAR_GRADIENT);
+    $f->scaleTo(0.01);
+    $f->moveTo(160, 120);
+    $s->setRightFill($f);
+    $s->drawLine(320, 0);
+    $s->drawLine(0, 240);
+    $s->drawLine(-320, 0);
+    $s->drawLine(0, -240);
+  
+    $m->add($s);
+  
+    $s = new SWFShape();
+  
+    // second gradient- radial gradient from red to transparent
+    $g = new SWFGradient();
+    $g->addEntry(0.0, 0xff, 0, 0, 0xff);
+    $g->addEntry(1.0, 0xff, 0, 0, 0);
+  
+    $f = $s->addFill($g, SWFFILL_RADIAL_GRADIENT);
+    $f->scaleTo(0.005);
+    $f->moveTo(160, 120);
+    $s->setRightFill($f);
+    $s->drawLine(320, 0);
+    $s->drawLine(0, 240);
+    $s->drawLine(-320, 0);
+    $s->drawLine(0, -240);
+  
+    $m->add($s);
+  
+    header('Content-type: application/x-shockwave-flash');
+    $m->output();
+?>
+
+vim:ft=help:

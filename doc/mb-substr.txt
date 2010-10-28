@@ -1,0 +1,19 @@
+mb_substr -- Get part of string
+
+  string mb_substr(string str, int start [, int length [, string encoding]])~
+
+|mb_substr| returns the portion of {str} specified by the {start} and {length}
+parameters.
+
+|mb_substr| performs multi-byte safe |substr| operation based on number of
+characters. Position is counted from the beginning of {str}. First
+character's position is 0. Second character position is 1, and so on.
+
+If {encoding} is omitted, internal encoding is assumed.
+
+{encoding} is character encoding. If it is omitted, internal character
+encoding is used.
+
+See also |mb_strcut|, |mb_internal_encoding|.
+
+vim:ft=help:

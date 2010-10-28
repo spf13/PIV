@@ -1,0 +1,14 @@
+mailparse_stream_encode -- Streams data from source file pointer, apply
+encoding and write to destfp
+
+  bool mailparse_stream_encode(resource sourcefp, resource destfp, string encoding)~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

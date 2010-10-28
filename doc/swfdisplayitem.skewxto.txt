@@ -1,0 +1,20 @@
+SWFDisplayItem->skewXTo -- Sets the X-skew
+
+  void swfdisplayitem->skewxto(float degrees)~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+|swfdisplayitem->skewxto| sets the x-skew to {degrees}. For {degrees} is 1.0,
+it means a 45-degree forward slant. More is more forward, less is more
+backward.
+
+The object may be a |swfshape|, a |swfbutton|, a |swftext| or a |swfsprite|
+object. It must have been added using the |swfmovie->add|.
+
+See also |swfdisplayitem->skewx|, |swfdisplayitem->skewy| and
+|swfdisplayitem->skewyto|.
+
+vim:ft=help:

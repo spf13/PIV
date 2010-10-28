@@ -1,0 +1,50 @@
+wordwrap -- Wraps a string to a given number of characters using a string
+break character
+
+  string wordwrap(string str [, int width [, string break [, bool cut]]])~
+
+Returns a string with {str} wrapped at the column number specified by the
+optional {width} parameter. The line is broken using the (optional) {break}
+parameter.
+
+|wordwrap| will automatically wrap at column 75 and break using '\n' (newline)
+if {width} or {break} are not given.
+
+If the {cut} is set to 1, the string is always wrapped at the specified width.
+So if you have a word that is larger than the given width, it is broken apart.
+(See second example). The optional {cut} parameter was added in PHP 4.0.3
+
+|wordwrap| example
+
+<?php >
+  $text = "The quick brown fox jumped over the lazy dog.";
+  $newtext = wordwrap($text, 20, "<br />\n");
+  
+  echo $newtext;
+?>
+
+This example would display:
+
+  The quick brown fox<br />
+  jumped over the lazy<br />
+  dog.
+
+|wordwrap| example
+
+<?php >
+  $text = "A very long woooooooooooord.";
+  $newtext = wordwrap($text, 8, "\n", 1);
+  
+  echo "$newtext\n";
+?>
+
+This example would display:
+
+  A very
+  long
+  wooooooo
+  ooooord.
+
+See also |nl2br| and |chunk_split|.
+
+vim:ft=help:

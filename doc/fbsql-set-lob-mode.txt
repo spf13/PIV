@@ -1,0 +1,25 @@
+fbsql_set_lob_mode -- Set the LOB retrieve mode for a FrontBase result set
+
+  bool fbsql_set_lob_mode(resource result, string database_name)~
+
+Returns: TRUE on success, FALSE on error.
+
+|fbsql_set_lob_mode| sets the mode for retrieving LOB data from the database.
+When BLOB and CLOB data is stored in FrontBase it can be stored direct or
+indirect. Direct stored LOB data will always be fetched no matter the setting
+of the lob mode. If the LOB data is less than 512 bytes it will always be
+stored directly. FBSQL_LOB_DIRECT - LOB data is retrieved directly. When data
+is fetched from the database with |fbsql_fetch_row|, and other fetch
+functions, all CLOB and BLOB columns will be returned as ordinary columns.
+This is the default value on a new FrontBase result.
+
+FBSQL_LOB_HANDLE - LOB data is retrieved as handles to the data. When data is
+fetched from the database with |fbsql_fetch_row |, and other fetch functions,
+LOB data will be returned as a handle to the data if the data is stored
+indirect or the data if it is stored direct. If a handle is returned it will
+be a 27 byte string formatted as "@'000000000000000000000000'".
+
+See also: |fbsql_create_blob|, |fbsql_create_clob|, |fbsql_read_blob|, and
+|fbsql_read_clob|.
+
+vim:ft=help:

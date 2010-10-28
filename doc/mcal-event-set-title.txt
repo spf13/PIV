@@ -1,0 +1,8 @@
+mcal_event_set_title -- Sets the title of the streams global event structure
+
+  void mcal_event_set_title(int stream, string title)~
+
+|mcal_event_set_title| sets the streams global event structure's title to the
+given string.
+
+vim:ft=help:

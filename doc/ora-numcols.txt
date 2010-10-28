@@ -1,0 +1,10 @@
+ora_numcols -- Returns the number of columns
+
+  int ora_numcols(resource cursor)~
+
+|ora_numcols| returns the number of columns in a result. Only returns
+meaningful values after an parse/exec/fetch sequence.
+
+See also |ora_parse|,|ora_exec|, |ora_fetch|, and |ora_do|.
+
+vim:ft=help:

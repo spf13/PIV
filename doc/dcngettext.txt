@@ -1,0 +1,10 @@
+dcngettext -- Plural version of dcgettext
+
+  string dcngettext(string domain, string msgid1, string msgid2, int n, int category)~
+
+This function allows you to override the current domain for a single plural
+message lookup. It also allows you to specify a {category}.
+
+See also |ngettext|.
+
+vim:ft=help:

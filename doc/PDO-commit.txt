@@ -1,0 +1,30 @@
+PDO::commit -- Commits a transaction
+
+  bool PDO::commit()~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+Commits a transaction, returning the database connection to autocommit mode
+until the next call to |PDO::beginTransaction| starts a new transaction.
+
+Commit a transaction
+
+<?php >
+  /* Begin a transaction, turning off autocommit */
+  $dbh->beginTransaction();
+  
+  /* Change the database schema */
+  $sth = $dbh->exec("DROP TABLE fruit");
+  
+  /* Commit the changes */
+  $dbh->commit();
+  
+  /* Database connection is now back in autocommit mode */
+?>
+
+|PDO::beginTransaction| |PDO::rollBack|
+
+vim:ft=help:

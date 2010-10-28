@@ -1,0 +1,24 @@
+getmxrr -- Get MX records corresponding to a given Internet host name
+
+  bool getmxrr(string hostname, array mxhosts [, array weight])~
+
+Searches DNS for MX records corresponding to {hostname}. Returns TRUE if any
+records are found; returns FALSE if no records were found or if an error
+occurred.
+
+A list of the MX records found is placed into the array {mxhosts}. If the
+{weight} array is given, it will be filled with the weight information
+gathered.
+
+This function should not be used for the purposes of address verification.
+Only the mailexchangers found in DNS are returned, however, according to RFC
+2821 when no mail exchangers are listed, {hostname} itself should be used as
+the only mail exchanger with a priority of 0.
+
+This function is not implemented on Windows platforms. Try the PEAR class
+Net_DNS.
+
+See also |checkdnsrr|, |dns_get_record|, |gethostbyname|, |gethostbynamel|,
+|gethostbyaddr|, and the named(8) manual page.
+
+vim:ft=help:

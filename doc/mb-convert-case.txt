@@ -1,0 +1,37 @@
+mb_convert_case -- Perform case folding on a string
+
+  string mb_convert_case(string str, int mode [, string encoding])~
+
+|mb_convert_case| returns case folded version of {string} converted in the way
+specified by {mode}.
+
+{mode} can be one of MB_CASE_UPPER, MB_CASE_LOWER or MB_CASE_TITLE.
+
+{encoding} specifies the encoding of {str}; if omitted, the internal character
+encoding value will be used.
+
+The return value is str with the appropriate case folding applied.
+
+By contrast to the standard case folding functions such as |strtolower| and
+|strtoupper|, case folding is performed on the basis of the Unicode character
+properties. Thus the behaviour of this function is not affected by locale
+settings and it can convert any characters that have 'alphabetic' property,
+such as A-umlaut (&Auml;).
+
+For more information about the Unicode properties, please see
+http://www.unicode.org/unicode/reports/tr21/.
+
+|mb_convert_case| example
+
+<?php >
+  $str = "mary had a Little lamb and she loved it so";
+  $str = mb_convert_case($str, MB_CASE_UPPER, "UTF-8");
+  echo $str; // Prints MARY HAD A LITTLE LAMB AND SHE LOVED IT SO
+  $str = mb_convert_case($str, MB_CASE_TITLE, "UTF-8");
+  echo $str; // Prints Mary Had A Little Lamb And She Loved It So
+?>
+
+See also |mb_strtolower|, |mb_strtoupper|, |strtolower|, |strtoupper|,
+|ucfirst| and |ucwords|
+
+vim:ft=help:

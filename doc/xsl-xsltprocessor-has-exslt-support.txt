@@ -1,0 +1,20 @@
+XSLTProcessor->hasExsltSupport() -- Determine if PHP has EXSLT support
+
+  bool hasExsltSupport()~
+
+This method determine if PHP was built with the EXSLT library.
+
+Returns TRUE on success or FALSE on failure.
+
+Testing EXSLT support
+
+<?php >
+  $proc = new XSLTProcessor;
+  if (!$proc->hasExsltSupport()) {
+      die('EXSLT support not available');
+  }
+  
+  // do EXSLT stuff here ..
+?>
+
+vim:ft=help:

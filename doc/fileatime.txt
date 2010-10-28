@@ -1,0 +1,34 @@
+fileatime -- Gets last access time of file
+
+  int fileatime(string filename)~
+
+Returns the time the file was last accessed, or FALSE in case of an error. The
+time is returned as a Unix timestamp.
+
+Note: The atime of a file is supposed to change whenever the data blocks of a
+file are being read. This can be costly performance-wise when an application
+regularly accesses a very large number of files or directories. Some Unix
+filesystems can be mounted with atime updates disabled to increase the
+performance of such applications; USENET news spools are a common example. On
+such filesystems this function will be useless.
+
+The results of this function are cached. See |clearstatcache| for more
+details.
+
+As of PHP 5.0.0 this function can also be used with some URL wrappers. Refer
+to for a listing of which wrappers support |stat| family of functionality.
+
+|fileatime| example
+
+<?php >
+  // outputs e.g.  somefile.txt was last accessed: December 29 2002 22:16:23.
+  
+  $filename = 'somefile.txt';
+  if (file_exists($filename)) {
+      echo "$filename was last accessed: " . date("F d Y H:i:s.", fileatime($filename));
+  }
+?>
+
+See also |filemtime|, |fileinode|, and |date|.
+
+vim:ft=help:

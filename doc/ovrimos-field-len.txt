@@ -1,0 +1,8 @@
+ovrimos_field_len -- Returns the length of the output column
+
+  int ovrimos_field_len(int result_id, int field_number)~
+
+|ovrimos_field_len| is used to get the length of the output column with number
+{field_number} (1-based), in result {result_id}.
+
+vim:ft=help:

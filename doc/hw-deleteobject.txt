@@ -1,0 +1,12 @@
+hw_Deleteobject -- Deletes object
+
+  bool hw_deleteobject(int connection, int object_to_delete)~
+
+Deletes the object with the given object id in the second parameter. It will
+delete all instances of the object.
+
+Returns TRUE if no error occurs otherwise FALSE.
+
+See also |hw_mv|.
+
+vim:ft=help:

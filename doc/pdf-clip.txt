@@ -1,0 +1,8 @@
+pdf_clip -- Clips to current path
+
+  bool pdf_clip(resource pdfdoc)~
+
+Use the current path as clipping path. Returns TRUE on success or FALSE on
+failure.
+
+vim:ft=help:

@@ -1,0 +1,10 @@
+ifxus_create_slob -- Creates an slob object and opens it
+
+  int ifxus_create_slob(int mode)~
+
+Creates an slob object and opens it. Modes: 1 = LO_RDONLY, 2 = LO_WRONLY, 4 =
+LO_APPEND, 8 = LO_RDWR, 16 = LO_BUFFER, 32 = LO_NOBUFFER -> or-mask. You can
+also use constants named IFX_LO_RDONLY, IFX_LO_WRONLY etc. Return FALSE on
+error otherwise the new slob object-id.
+
+vim:ft=help:

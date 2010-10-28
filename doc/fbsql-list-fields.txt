@@ -1,0 +1,35 @@
+fbsql_list_fields -- List FrontBase result fields
+
+  resource fbsql_list_fields(string database_name, string table_name [, resource link_identifier])~
+
+|fbsql_list_fields| retrieves information about the given tablename. Arguments
+are the database name and the table name. A result pointer is returned which
+can be used with |fbsql_field_flags|, |fbsql_field_len|, |fbsql_field_name|,
+and |fbsql_field_type|.
+
+A result identifier is a positive integer. The function returns FALSE if an
+error occurs. A string describing the error will be placed in $phperrmsg, and
+unless the function was called as @fbsql() then this error string will also be
+printed out.
+
+|fbsql_list_fields| example
+
+<?php >
+  $link = fbsql_connect('localhost', 'myname', 'secret');
+  
+  $fields = fbsql_list_fields("database1", "table1", $link);
+  $columns = fbsql_num_fields($fields);
+  
+  for ($i = 0; $i < $columns; $i++) {
+      echo fbsql_field_name($fields, $i) . "\n";;
+  }
+?>
+
+The above example will output:
+
+  field1
+  field2
+  field3
+  ...
+
+vim:ft=help:

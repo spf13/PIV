@@ -1,0 +1,8 @@
+swf_startshape -- Start a complex shape
+
+  void swf_startshape(int objid)~
+
+The |swf_startshape| function starts a complex shape, with an object id given
+by the {objid} parameter.
+
+vim:ft=help:

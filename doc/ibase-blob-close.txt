@@ -1,0 +1,14 @@
+ibase_blob_close -- Close blob
+
+  mixed ibase_blob_close(resource blob_handle)~
+
+This function closes a BLOB that has either been opened for reading by
+|ibase_open_blob| or has been opened for writing by |ibase_create_blob|. If
+the BLOB was being read, this function returns TRUE on success, if the BLOB
+was being written to, this function returns a string containing the BLOB id
+that has been assigned to it by the database. On failure, this function
+returns FALSE.
+
+See also |ibase_blob_cancel| and |ibase_blob_open|.
+
+vim:ft=help:

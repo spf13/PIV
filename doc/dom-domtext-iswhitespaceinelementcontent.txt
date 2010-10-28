@@ -1,0 +1,12 @@
+DOMText->isWhitespaceInElementContent() -- Indicates whether this text node
+contains whitespace
+
+  bool isWhitespaceInElementContent()~
+
+Indicates whether this text node contains whitespace. The text node is
+determined to contain whitespace in element content during the load of the
+document.
+
+Returns TRUE on success or FALSE on failure.
+
+vim:ft=help:

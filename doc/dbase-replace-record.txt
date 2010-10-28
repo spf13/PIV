@@ -1,0 +1,45 @@
+dbase_replace_record -- Replaces a record in a database
+
+  bool dbase_replace_record(int dbase_identifier, array record, int record_number)~
+
+Replaces the given record in the database with the given data.
+
+{dbase_identifier} The database link identifier, returned by |dbase_open| or
+|dbase_create|.
+
+{record} An indexed array of data. The number of items must be equal to the
+number of fields in the database, otherwise |dbase_add_record| will fail.
+
+If you're using |dbase_get_record| return value for this parameter, remember
+to reset the key named deleted.
+
+{record_number} An integer which spans from 1 to the number of records in the
+database (as returned by |dbase_numrecords|).
+
+Returns TRUE on success or FALSE on failure.
+
+Updating a record in the database
+
+<?php >
+  // open in read-write mode
+  $db = dbase_open('/tmp/test.dbf', 2);
+  
+  if ($db) {
+    // gets the old row
+    $row = dbase_get_record_with_names($db, 1);
+    
+    // remove the 'deleted' entry
+    unset($row['deleted']);
+    
+    // Update the date field with the current timestamp
+    $row['date'] = date('Ymd');
+    
+    // Replace the record
+    dbase_replace_record($db, $row, 1);
+    dbase_close($db);
+  }
+?>
+
+|dbase_add_record| |dbase_delete_record|
+
+vim:ft=help:

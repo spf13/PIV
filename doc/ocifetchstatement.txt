@@ -1,0 +1,12 @@
+ocifetchstatement -- Fetch all rows of result data into an array
+
+  int ocifetchstatement(resource stmt, array output [, int skip [, int maxrows [, int flags]]])~
+
+In PHP 5.0.0 this function became an alias for |oci_fetch_all|. This name
+still can be used, it was left as alias of |oci_fetch_all| for downwards
+compatability. This, however, is deprecated and not recommended.
+
+See also |oci_fetch_array|, |oci_fetch_assoc|, |oci_fetch_object|,
+|oci_fetch_row|.
+
+vim:ft=help:

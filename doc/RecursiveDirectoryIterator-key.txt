@@ -1,0 +1,9 @@
+RecursiveDirectoryIterator::key -- Return path and filename of current dir
+entry
+
+  string RecursiveDirectoryIterator::key()~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

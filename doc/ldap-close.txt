@@ -1,0 +1,5 @@
+ldap_close -- Alias of ldap_unbind
+
+This function is an alias of: |ldap_unbind|.
+
+vim:ft=help:

@@ -1,0 +1,5 @@
+iis_get_dir_security -- Gets Directory Security
+
+  int iis_get_dir_security(int server_instance, string virtual_path)~
+
+vim:ft=help:

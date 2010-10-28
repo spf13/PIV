@@ -1,0 +1,19 @@
+Rar::getUnpackedSize -- Get unpacked size of the entry
+
+  int Rar::getUnpackedSize()~
+
+Get unpacked size of the archive entry.
+
+|Rar::getUnpackedSize| example
+
+<?php >
+  $rar_file = rar_open('example.rar') or die("Failed to open Rar archive");
+  
+  $entry = rar_entry_get($rar_file, 'Dir/file.txt') or die("Failed to find such entry");
+  
+  echo "Unpacked size of " . $entry->getName() . " = " . $entry->getPackedSize() . " bytes";
+?>
+
+|Rar::getUnpackedSize| returns FALSE on error.
+
+vim:ft=help:

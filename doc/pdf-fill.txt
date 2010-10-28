@@ -1,0 +1,10 @@
+pdf_fill -- Fills current path
+
+  bool pdf_fill(resource pdfdoc)~
+
+Fill the interior of the path with the current fill color. Returns TRUE on
+success or FALSE on failure.
+
+See also |pdf_setcolor|.
+
+vim:ft=help:

@@ -1,0 +1,8 @@
+variant_not -- Performs bitwise not negation on a variant
+
+  mixed variant_not(mixed variant)~
+
+Performs bitwise not negation on {variant} and returns the result. If
+{variant} is NULL, the result will also be NULL.
+
+vim:ft=help:

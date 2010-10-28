@@ -1,0 +1,9 @@
+imap_bodystruct -- Read the structure of a specified body section of a
+specific message
+
+  object imap_bodystruct(resource stream_id, int msg_no, string section)~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

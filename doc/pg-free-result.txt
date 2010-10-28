@@ -1,0 +1,39 @@
+pg_free_result -- Free result memory
+
+  bool pg_free_result(resource result)~
+
+|pg_free_result| frees the memory and data associated with the specified
+PostgreSQL query result resource.
+
+This function need only be called if memory consumption during script
+execution is a problem. Otherwise, all result memory will be automatically
+freed when the script ends.
+
+This function used to be called |pg_freeresult|.
+
+{result} PostgreSQL query result resource, returned by |pg_query|,
+|pg_query_params| or |pg_execute| (among others).
+
+Returns TRUE on success or FALSE on failure.
+
+|pg_free_result| example
+
+<?php >
+  $db = pg_connect("dbname=users user=me") || die();
+  
+  $res = pg_query($db, "SELECT 1 UNION ALL SELECT 2");
+  
+  $val = pg_fetch_result($res, 1, 0);
+  
+  echo "First field in the second row is: ", $val, "\n";
+  
+  pg_free_result($res);
+?>
+
+The above example will output:
+
+  First field in the second row is: 2
+
+|pg_query| |pg_query_params| |pg_execute|
+
+vim:ft=help:

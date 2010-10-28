@@ -1,0 +1,5 @@
+pdf_set_text_matrix -- Deprecated: Sets the text matrix
+
+This function is deprecated, use |pdf_set_parameter| instead.
+
+vim:ft=help:

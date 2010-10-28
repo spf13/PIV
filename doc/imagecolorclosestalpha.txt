@@ -1,0 +1,13 @@
+imagecolorclosestalpha -- Get the index of the closest color to the specified
+color + alpha
+
+  int imagecolorclosestalpha(resource image, int red, int green, int blue, int alpha)~
+
+Returns the index of the color in the palette of the image which is "closest"
+to the specified RGB value and {alpha} level.
+
+This function requires GD 2.0.1 or later.
+
+See also |imagecolorexactalpha|.
+
+vim:ft=help:

@@ -1,0 +1,12 @@
+memcache_debug -- Turn debug output on/off
+
+  bool memcache_debug(int on_off)~
+
+|memcache_debug| turns on debug output if parameter {on_off} is equal to 1 and
+turns off if it's 0.
+
+|memcache_debug| is accessible only if PHP was built with --enable-debug
+option and always returns TRUE in this case. Otherwise, this function has no
+effect and always returns FALSE.
+
+vim:ft=help:

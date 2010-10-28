@@ -1,0 +1,11 @@
+imap_unsubscribe -- Unsubscribe from a mailbox
+
+  bool imap_unsubscribe(string imap_stream, string mbox)~
+
+Unsubscribe from a specified mailbox.
+
+Returns TRUE on success or FALSE on failure.
+
+See also: |imap_subscribe|.
+
+vim:ft=help:

@@ -1,0 +1,9 @@
+log10 -- Base-10 logarithm
+
+  float log10(float arg)~
+
+Returns the base-10 logarithm of {arg}.
+
+See Also: |log|
+
+vim:ft=help:

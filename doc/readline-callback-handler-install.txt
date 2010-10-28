@@ -1,0 +1,53 @@
+readline_callback_handler_install -- Initializes the readline callback
+interface and terminal, prints the prompt and returns immediately
+
+  bool readline_callback_handler_install(string prompt, callback callback)~
+
+Sets up a readline callback interface then prints {prompt} and immediately
+returns. The {callback} function takes one parameter; the user input
+returned. Calling this function twice without removing the previous callback
+interface will automatically and conveniently overwrite the old interface.
+
+The callback feature is useful when combined with |stream_select| as it allows
+interleaving of IO and user input, unlike |readline|.
+
+Returns TRUE on success or FALSE on failure.
+
+Readline Callback Interface Example
+
+<?php >
+  function rl_callback($ret)
+  {
+      global $c, $prompting;
+  
+      echo "You entered: $ret\n";
+      $c++;
+  
+      if ($c > 10) {
+          $prompting = false;
+          readline_callback_handler_remove();
+      } else {
+          readline_callback_handler_install("[$c] Enter something: ", 'rl_callback');
+      }
+  }
+  
+  $c = 1;
+  $prompting = true;
+  
+  readline_callback_handler_install("[$c] Enter something: ", 'rl_callback');
+  
+  while ($prompting) {
+      $n = stream_select($r = array(STDIN), $w = null, $e = null, null);
+      if ($n &amp;& in_array(STDIN, $r)) {
+          // read a character, will call the callback when a newline is entered
+          readline_callback_read_char();
+      }
+  }
+  
+  echo "Prompting disabled. All done.\n";
+?>
+
+|readline_callback_handler_remove|, |readline_callback_read_char| and
+|stream_select|.
+
+vim:ft=help:

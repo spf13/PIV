@@ -1,0 +1,18 @@
+dbplus_rcrtexact -- Creates an exact but empty copy of a relation including
+indices
+
+  mixed dbplus_rcrtexact(string name, resource relation [, bool overwrite])~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+|dbplus_rcrtexact| will create an exact but empty copy of the given {relation}
+under a new {name}. An existing relation by the same {name} will only be
+overwritten if {overwrite} is TRUE and no other process is currently using
+the relation.
+
+Returns resource on success or DBPLUS_ERR_UNKNOWN on failure.
+
+vim:ft=help:

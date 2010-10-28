@@ -1,0 +1,7 @@
+dbmclose -- Closes a dbm database
+
+  bool dbmclose(resource dbm_identifier)~
+
+Unlocks and closes the specified database.
+
+vim:ft=help:

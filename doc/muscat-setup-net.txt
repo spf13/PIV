@@ -1,0 +1,15 @@
+muscat_setup_net -- Creates a new muscat session and returns the handle
+
+  resource muscat_setup_net(string muscat_host)~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+|muscat_setup_net| creates a new muscat session and returns the handle.
+
+{muscat_host} is the hostname to connect to. {port} is the port number to
+connect to.
+
+vim:ft=help:

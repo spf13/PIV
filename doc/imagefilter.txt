@@ -1,0 +1,86 @@
+imagefilter -- Applies a filter to an image
+
+  bool imagefilter(resource src_im, int filtertype [, int arg1 [, int arg2 [, int arg3]]])~
+
+|imagefilter| applies the filter {filtertype} to the image, using {arg1},
+{arg2} and {arg3} where necessary.
+
+{filtertype} can be one of the following: {IMG_FILTER_NEGATE}: Reverses all
+colors of the image.
+
+{IMG_FILTER_GRAYSCALE}: Converts the image into grayscale.
+
+{IMG_FILTER_BRIGHTNESS}: Changes the brightness of the image. Use {arg1} to
+set the level of brightness.
+
+{IMG_FILTER_CONTRAST}: Changes the contrast of the image. Use {arg1} to set
+the level of contrast.
+
+{IMG_FILTER_COLORIZE}: Like {IMG_FILTER_GRAYSCALE}, except you can specify the
+color. Use {arg1}, {arg2} and {arg3} in the form of {red}, {blue}, {green}.
+The range for each color is 0 to 255.
+
+{IMG_FILTER_EDGEDETECT}: Uses edge detection to highlight the edges in the
+image.
+
+{IMG_FILTER_EMBOSS}: Embosses the image.
+
+{IMG_FILTER_GAUSSIAN_BLUR}: Blurs the image using the Gaussian method.
+
+{IMG_FILTER_SELECTIVE_BLUR}: Blurs the image.
+
+{IMG_FILTER_MEAN_REMOVAL}: Uses mean removal to achieve a "sketchy" effect.
+
+{IMG_FILTER_SMOOTH}: Makes the image smoother. Use {arg1} to set the level of
+smoothness.
+
+This function is only available if PHP is compiled with the bundled version of
+the GD library.
+
+Returns TRUE on success or FALSE on failure.
+
+|imagefilter| grayscale example
+
+<?php >
+  $im = imagecreatefrompng('dave.png');
+  if ($im &amp;& imagefilter($im, IMG_FILTER_GRAYSCALE)) {
+      echo 'Image converted to grayscale.';
+      imagepng($im, 'dave.png');
+  } else {
+      echo 'Conversion to grayscale failed.';
+  }
+  
+  imagedestroy($im);
+?>
+
+|imagefilter| brightness example
+
+<?php >
+  $im = imagecreatefrompng('sean.png');
+  if ($im &amp;& imagefilter($im, IMG_FILTER_BRIGHTNESS, 20)) {
+      echo 'Image brightness changed.';
+      imagepng($im, 'sean.png');
+  } else {
+      echo 'Image brightness change failed.';
+  }
+  
+  imagedestroy($im);
+?>
+
+|imagefilter| colorize example
+
+<?php >
+  $im = imagecreatefrompng('philip.png');
+  
+  /* R, G, B, so 0, 255, 0 is green */
+  if ($im &amp;& imagefilter($im, IMG_FILTER_COLORIZE, 0, 255, 0)) {
+      echo 'Image successfully shaded green.';
+      imagepng($im, 'philip.png');
+  } else {
+      echo 'Green shading failed.';
+  }
+  
+  imagedestroy($im);
+?>
+
+vim:ft=help:

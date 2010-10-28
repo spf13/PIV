@@ -1,0 +1,7 @@
+pdf_open_ccitt -- Opens a new image file with raw CCITT data
+
+  int pdf_open_ccitt(resource pdfdoc, string filename, int width, int height, int BitReverse, int k, int Blackls1)~
+
+Open a raw CCITT image.
+
+vim:ft=help:

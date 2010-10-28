@@ -1,0 +1,9 @@
+mcve_verifyconnection -- Set whether or not to PING upon connect to verify
+connection
+
+  bool mcve_verifyconnection(resource conn, int tf)~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

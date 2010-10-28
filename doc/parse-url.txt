@@ -1,0 +1,53 @@
+parse_url -- Parse a URL and return its components
+
+  array parse_url(string url)~
+
+This function returns an associative array containing any of the various
+components of the URL that are present. If one of them is missing, no entry
+will be created for it. The components are : scheme - e.g. http
+
+host
+
+port
+
+user
+
+pass
+
+path
+
+query - after the question mark ?
+
+fragment - after the hashmark #
+
+This function is not meant to validate the given URL, it only breaks it up
+into the above listed parts. Partial URLs are also accepted, |parse_url|
+tries its best to parse them correctly.
+
+This function doesn't work with relative URLs.
+
+|parse_url| example
+
+  $ php -r 'print_r(parse_url("http://username:password@hostname/path?arg=value#anchor"));'
+  Array
+  (
+      [scheme] => http
+      [host] => hostname
+      [user] => username
+      [pass] => password
+      [path] => /path
+      [query] => arg=value
+      [fragment] => anchor
+  )
+  
+  $ php -r 'print_r(parse_url("http://invalid_host..name/"));'
+  Array
+  (
+      [scheme] => http
+      [host] => invalid_host..name
+      [path] => /
+  )
+
+See also |pathinfo|, |parse_str|, |dirname|, and |basename|.
+
+vim:ft=help:

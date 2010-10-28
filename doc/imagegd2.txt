@@ -1,0 +1,23 @@
+imagegd2 -- Output GD2 image to browser or file
+
+  bool imagegd2(resource image [, string filename [, int chunk_size [, int type]]])~
+
+|imagegd2| outputs a GD2 image to {filename}. The {image} parameter is the
+return from the |imagecreate| function.
+
+The {filename} parameter is optional, and if left off, the raw image stream
+will be output directly.
+
+The optional {type} parameter is either IMG_GD2_RAW or IMG_GD2_COMPRESSED.
+Default is IMG_GD2_RAW.
+
+The optional {chunk_size} and {type} parameters became available in PHP 4.3.2.
+
+The GD2 format is commonly used to allow fast loading of parts of images. Note
+that the GD2 format is only usable in GD2-compatible applications.
+
+This function requires GD 2.0.1 or later.
+
+See also |imagegd|
+
+vim:ft=help:

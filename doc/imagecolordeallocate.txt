@@ -1,0 +1,15 @@
+imagecolordeallocate -- De-allocate a color for an image
+
+  bool imagecolordeallocate(resource image, int color)~
+
+The |imagecolordeallocate| function de-allocates a color previously allocated
+with |imagecolorallocate| or |imagecolorallocatealpha|.
+
+<?php >
+  $white = imagecolorallocate($im, 255, 255, 255);
+  imagecolordeallocate($im, $white);
+?>
+
+See also |imagecolorallocate| and |imagecolorallocatealpha|.
+
+vim:ft=help:

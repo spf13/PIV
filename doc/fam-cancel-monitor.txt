@@ -1,0 +1,12 @@
+fam_cancel_monitor -- Terminate monitoring
+
+  bool fam_cancel_monitor(resource fam, resource fam_monitor)~
+
+|fam_cancel_monitor| terminates monitoring on a resource previously requested
+using one of the fam_monitor_ functions. In addition an FAMAcknowledge event
+occurs.
+
+See also |fam_monitor_file|, |fam_monitor_directory|,
+|fam_monitor_collection|, and |fam_suspend_monitor|
+
+vim:ft=help:

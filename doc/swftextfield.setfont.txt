@@ -1,0 +1,13 @@
+SWFTextField->setFont -- Sets the text field font
+
+  void swftextfield->setfont(string font)~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+|swftextfield->setfont| sets the text field font to the [browser-defined?]
+{font} font.
+
+vim:ft=help:

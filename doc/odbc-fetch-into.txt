@@ -1,0 +1,61 @@
+odbc_fetch_into -- Fetch one result row into array
+
+  int odbc_fetch_into(resource result_id, array result_array [, int rownumber])~
+
+  bool odbc_fetch_into(resource result_id, array result_array [, int rownumber, resource result_id [, int rownumber, array result_array]])~
+
+Returns the number of columns in the result; FALSE on error. {result_array}
+must be passed by reference, but it can be of any type since it will be
+converted to type array. The array will contain the column values starting at
+array index 0.
+
+As of PHP 4.0.5 the {result_array} does not need to be passed by reference any
+longer.
+
+As of PHP 4.0.6 the {rownumber} cannot be passed as a constant, but rather as
+a variable.
+
+As of PHP 4.2.0 the {result_array} and {rownumber} have been swapped. This
+allows the rownumber to be a constant again. This change will also be the
+last one to this function.
+
+|odbc_fetch_into| pre 4.0.6 example
+
+<?php >
+  $rc = odbc_fetch_into($res_id, $my_array);
+?>
+
+or
+
+<?php >
+  $rc = odbc_fetch_into($res_id, $row, $my_array);
+         
+  $rc = odbc_fetch_into($res_id, 1, $my_array);
+?>
+
+|odbc_fetch_into| 4.0.6 example
+
+<?php >
+  $rc = odbc_fetch_into($res_id, $my_array);
+?>
+
+or
+
+<?php >
+  $row = 1;
+  $rc = odbc_fetch_into($res_id, $row, $my_array);
+?>
+
+|odbc_fetch_into| 4.2.0 example
+
+<?php >
+  $rc = odbc_fetch_into($res_id, $my_array);
+?>
+
+or
+
+<?php >
+  $rc = odbc_fetch_into($res_id, $my_array, 2);
+?>
+
+vim:ft=help:

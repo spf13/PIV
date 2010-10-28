@@ -1,0 +1,51 @@
+syslog -- Generate a system log message
+
+  bool syslog(int priority, string message)~
+
+|syslog| generates a log message that will be distributed by the system
+logger. {priority} is a combination of the facility and the level, values for
+which are given in the next section. The remaining argument is the message to
+send, except that the two characters %m will be replaced by the error message
+string (strerror) corresponding to the present value of errno.
+
+|syslog| Priorities (in descending order) Constant Description LOG_EMERG
+system is unusable LOG_ALERT action must be taken immediately LOG_CRIT
+critical conditions LOG_ERR error conditions LOG_WARNING warning conditions
+LOG_NOTICE normal, but significant, condition LOG_INFO informational message
+LOG_DEBUG debug-level message
+
+Using |syslog|
+
+<?php >
+  define_syslog_variables();
+  // open syslog, include the process ID and also send
+  // the log to standard error, and use a user defined
+  // logging mechanism
+  openlog("myScriptLog", LOG_PID | LOG_PERROR, LOG_LOCAL0);
+  
+  // some code
+  
+  if (authorized_client()) {
+      // do something
+  } else {
+      // unauthorized client!
+      // log the attempt
+      $access = date("Y/m/d H:i:s");
+      syslog(LOG_WARNING, "Unauthorized client: $access $_SERVER[REMOTE_ADDR] ($_SERVER[HTTP_USER_AGENT])");
+  }
+  
+  closelog();
+?>
+
+For information on setting up a user defined log handler, see the syslog.conf
+5 Unix manual page. More information on the syslog facilities and option can
+be found in the man pages for syslog 3 on Unix machines.
+
+On Windows NT, the syslog service is emulated using the Event Log.
+
+Use of LOG_LOCAL0 through LOG_LOCAL7 for the {facility} parameter of |openlog|
+is not available in Windows.
+
+See also |define_syslog_variables|, |openlog| and |closelog|.
+
+vim:ft=help:

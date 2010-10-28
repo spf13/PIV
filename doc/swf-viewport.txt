@@ -1,0 +1,9 @@
+swf_viewport -- Select an area for future drawing
+
+  void swf_viewport(float xmin, float xmax, float ymin, float ymax)~
+
+The |swf_viewport| function selects an area for future drawing for {xmin} to
+{xmax} and {ymin} to {ymax}, if this function is not called the area defaults
+to the size of the screen.
+
+vim:ft=help:

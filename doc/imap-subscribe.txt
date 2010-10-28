@@ -1,0 +1,11 @@
+imap_subscribe -- Subscribe to a mailbox
+
+  bool imap_subscribe(resource imap_stream, string mbox)~
+
+Subscribe to a new mailbox.
+
+Returns TRUE on success or FALSE on failure.
+
+See also: |imap_unsubscribe|.
+
+vim:ft=help:

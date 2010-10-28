@@ -1,0 +1,8 @@
+FilterIterator::getInnerIterator -- Get the inner iterator
+
+  Iterator FilterIterator::getInnerIterator()~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

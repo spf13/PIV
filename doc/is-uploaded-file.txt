@@ -1,0 +1,37 @@
+is_uploaded_file -- Tells whether the file was uploaded via HTTP POST
+
+  bool is_uploaded_file(string filename)~
+
+Returns TRUE if the file named by {filename} was uploaded via HTTP POST. This
+is useful to help ensure that a malicious user hasn't tried to trick the
+script into working on files upon which it should not be working--for
+instance, /etc/passwd.
+
+This sort of check is especially important if there is any chance that
+anything done with uploaded files could reveal their contents to the user, or
+even to other users on the same system.
+
+For proper working, the function |is_uploaded_file| needs an argument like
+$_FILES['userfile']['tmp_name'], - the name of the uploaded file on the
+clients machine $_FILES['userfile']['name'] does not work.
+
+|is_uploaded_file| example
+
+<?php >
+  if (is_uploaded_file($_FILES['userfile']['tmp_name'])) {
+     echo "File ". $_FILES['userfile']['name'] ." uploaded successfully.\n";
+     echo "Displaying contents\n";
+     readfile($_FILES['userfile']['tmp_name']);
+  } else {
+     echo "Possible file upload attack: ";
+     echo "filename '". $_FILES['userfile']['tmp_name'] . "'.";
+  }
+?>
+
+|is_uploaded_file| is available only in versions of PHP 3 after PHP 3.0.16,
+and in versions of PHP 4 after 4.0.2. If you are stuck using an earlier
+version, you can use the following function to help protect yourself: The
+following example will not work in versions of PHP 4 after 4.0.2. It depends
+on internal functionality of PHP which changed after that version.
+
+vim:ft=help:

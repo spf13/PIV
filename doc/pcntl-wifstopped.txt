@@ -1,0 +1,14 @@
+pcntl_wifstopped -- Returns TRUE if child process is currently stopped
+
+  bool pcntl_wifstopped(int status)~
+
+Returns TRUE if the child process which caused the return is currently
+stopped; this is only possible if the call to |pcntl_waitpid| was done using
+the option WUNTRACED.
+
+The parameter {status} is the status parameter supplied to a successfull call
+to |pcntl_waitpid|.
+
+See also |pcntl_waitpid|.
+
+vim:ft=help:

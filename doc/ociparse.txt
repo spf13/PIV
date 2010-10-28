@@ -1,0 +1,12 @@
+ociparse -- Parse a query and return an Oracle statement
+
+  resource ociparse(resource conn, string query)~
+
+|ociparse| parses the {query} using {conn}. It returns the statement identity
+if the {query} is valid, FALSE if not. The {query} can be any valid SQL
+statement or PL/SQL block.
+
+This function was renamed to |oci_parse| after PHP >= 5.0.0. For downward
+compatibility |ociparse| can also be used. This is deprecated, however.
+
+vim:ft=help:

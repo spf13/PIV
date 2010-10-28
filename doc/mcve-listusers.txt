@@ -1,0 +1,8 @@
+mcve_listusers -- List all users on MCVE system
+
+  int mcve_listusers(resource conn, string admin_password)~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

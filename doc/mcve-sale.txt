@@ -1,0 +1,8 @@
+mcve_sale -- Send a SALE to MCVE
+
+  int mcve_sale(resource conn, string username, string password, string trackdata, string account, string expdate, float amount, string street, string zip, string cv, string comments, string clerkid, string stationid, int ptrannum)~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

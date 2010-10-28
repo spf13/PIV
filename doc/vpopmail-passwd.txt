@@ -1,0 +1,13 @@
+vpopmail_passwd -- Change a virtual user's password
+
+  bool vpopmail_passwd(string user, string domain, string password [, bool apop])~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

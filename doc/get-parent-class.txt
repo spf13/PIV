@@ -1,0 +1,48 @@
+get_parent_class -- Retrieves the parent class name for object or class
+
+  string get_parent_class([mixed obj])~
+
+If {obj} is an object, returns the name of the parent class of the class of
+which {obj} is an instance.
+
+If {obj} is a string, returns the name of the parent class of the class with
+that name. This functionality was added in PHP 4.0.5.
+
+Since PHP 5, {obj} is optional if called from the object's method.
+
+Using |get_parent_class|
+
+<?php >
+  class dad {
+      function dad() 
+      {
+      // implements some logic
+      }
+  }
+  
+  class child extends dad {
+      function child() 
+      {
+          echo "I'm " , get_parent_class($this) , "'s son\n";
+      }
+  }
+  
+  class child2 extends dad {
+      function child2() 
+      {
+          echo "I'm " , get_parent_class('child2') , "'s son too\n";
+      }
+  }
+  
+  $foo = new child();
+  $bar = new child2();
+?>
+
+The above example will output:
+
+  I'm dad's son
+  I'm dad's son too
+
+See also |get_class| and |is_subclass_of|.
+
+vim:ft=help:

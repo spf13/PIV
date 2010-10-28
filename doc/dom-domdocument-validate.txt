@@ -1,0 +1,31 @@
+DOMDocument->validate() -- Validates the document based on its DTD
+
+  bool validate()~
+
+Validates the document based on its DTD.
+
+You can also use the validateOnParse property of DOMDocument to make a DTD
+validation.
+
+Returns TRUE on success or FALSE on failure. If the document have no DTD
+attached, this method will return FALSE.
+
+Example of DTD validation
+
+<?php >
+  $dom = new DOMDocument;
+  $dom->Load('book.xml');
+  if ($dom->validate()) {
+      echo "This document is valid!\n";
+  }
+?>
+
+You can also validate your XML file while loading it:
+
+<?php >
+  $dom = new DOMDocument;
+  $dom->validateOnParse = true;
+  $dom->Load('book.xml');
+?>
+
+vim:ft=help:

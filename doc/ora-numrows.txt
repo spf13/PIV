@@ -1,0 +1,7 @@
+ora_numrows -- Returns the number of rows
+
+  int ora_numrows(resource cursor)~
+
+|ora_numrows| returns the number of rows in a result.
+
+vim:ft=help:

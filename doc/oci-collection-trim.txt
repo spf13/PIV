@@ -1,0 +1,11 @@
+OCI-Collection->trim -- Trims elements from the end of the collection
+
+  bool OCI-Collection->trim(int num)~
+
+Trims {num} of elements from the end of the collection.
+
+Returns TRUE on success or FALSE on failure.
+
+See also |oci_collection_size|.
+
+vim:ft=help:

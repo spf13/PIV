@@ -1,0 +1,12 @@
+SWFTextField->setMargins -- Sets the margins width of the text field
+
+  void swftextfield->setmargins(int left, int right)~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+|swftextfield->setmargins| set both margins at once, for the man on the go.
+
+vim:ft=help:

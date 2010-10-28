@@ -1,0 +1,13 @@
+w32api_set_call_method -- Sets the calling method used
+
+  void w32api_set_call_method(int method)~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+This function sets the method call type. The parameter can be one of the
+constants DC_CALL_CDECL or DC_CALL_STD. The extension default is DC_CALL_STD.
+
+vim:ft=help:

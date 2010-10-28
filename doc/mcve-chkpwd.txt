@@ -1,0 +1,8 @@
+mcve_chkpwd -- Verify Password
+
+  int mcve_chkpwd(resource conn, string username, string password)~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

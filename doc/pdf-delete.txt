@@ -1,0 +1,10 @@
+pdf_delete -- Deletes a PDF object
+
+  bool pdf_delete(resource pdfdoc)~
+
+Delete the PDF resource, and free all internal resources. Returns TRUE on
+success or FALSE on failure.
+
+See also |pdf_new|.
+
+vim:ft=help:

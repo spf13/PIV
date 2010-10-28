@@ -1,0 +1,12 @@
+mssql_data_seek -- Moves internal row pointer
+
+  bool mssql_data_seek(resource result_identifier, int row_number)~
+
+Returns TRUE on success or FALSE on failure.
+
+|mssql_data_seek| moves the internal row pointer of the MS SQL result
+associated with the specified result identifier to point to the specified row
+number, first row being number 0. The next call to |mssql_fetch_row| would
+return that row.
+
+vim:ft=help:

@@ -1,0 +1,17 @@
+com_set -- Assigns a value to a COM component's property
+
+  void com_set(resource com_object, string property, mixed value)~
+
+Sets the value of the {property} of the COM component referenced by
+{com_object}. Returns the newly set value if succeeded, FALSE on error.
+
+Don't use com_set(), use OO syntax instead
+
+<?php >
+  // do this
+  $obj->property = $value;
+  // instead of this:
+  com_set($obj, 'property', $value);
+?>
+
+vim:ft=help:

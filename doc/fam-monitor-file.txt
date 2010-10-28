@@ -1,0 +1,15 @@
+fam_monitor_file -- Monitor a regular file for changes
+
+  resource fam_monitor_file(resource fam, string filename)~
+
+|fam_monitor_file| requests monitoring for a single file. A FAM event will be
+generated whenever the file status (i.e. the result of function |stat| on
+that file) changes.
+
+The possible event codes are described in detail in the constants part of this
+section.
+
+See also |fam_monitor_directory|, |fam_monitor_collection|,
+|fam_cancel_monitor|, |fam_suspend_monitor|, and |fam_resume_monitor|.
+
+vim:ft=help:

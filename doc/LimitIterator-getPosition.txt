@@ -1,0 +1,8 @@
+LimitIterator::getPosition -- Return the current position
+
+  int LimitIterator::getPosition()~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

@@ -1,0 +1,33 @@
+posix_mknod -- Create a special or ordinary file (POSIX.1)
+
+  bool posix_mknod(string pathname, int mode [, int major [, int minor]])~
+
+|posix_mknod| creates a special or ordinary file.
+
+{pathname} The file to create
+
+{mode} This parameter is constructed by a bitwise OR between file type (one of
+the following constants: POSIX_S_IFREG, POSIX_S_IFCHR, POSIX_S_IFBLK,
+POSIX_S_IFIFO or POSIX_S_IFSOCK) and permissions.
+
+{major} The major device kernel identifier
+
+{minor} The minor device kernel identifier
+
+Returns TRUE on success or FALSE on failure.
+
+A |posix_mknod| example
+
+<?php >
+  $file = '/tmp/tmpfile';  // file name
+  $type = POSIX_S_IFBLOCK; // file type
+  $permissions = 0777;     // octal
+  
+  if (!posix_mknod($file, $type | $permissions)) {
+      die('Error ' . posix_get_last_error() . ': ' . posix_strerror(posix_get_last_error()));
+  }
+?>
+
+|posix_mkfifo|
+
+vim:ft=help:

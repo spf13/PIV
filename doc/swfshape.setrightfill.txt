@@ -1,0 +1,21 @@
+SWFShape->setRightFill -- Sets right rasterizing color
+
+  void swfshape->setrightfill(swfgradient fill)~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+  void swfshape->setrightfill(swfgradient fill, int red, int green, int blue [, int a])~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+See also |swfshape->setleftfill|.
+
+Shortcut for swfshape->setrightfill($s->addfill($r, $g, $b [, $a]));.
+
+vim:ft=help:

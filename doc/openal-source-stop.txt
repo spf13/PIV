@@ -1,0 +1,11 @@
+openal_source_stop -- Stop playing the source
+
+  bool openal_source_stop(resource source)~
+
+An Open AL(Source) resource (previously created by |openal_source_create|).
+
+Returns TRUE on success or FALSE on failure.
+
+|openal_source_play| |openal_source_pause| |openal_source_rewind|
+
+vim:ft=help:

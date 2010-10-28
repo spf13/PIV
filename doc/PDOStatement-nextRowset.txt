@@ -1,0 +1,67 @@
+PDOStatement::nextRowset -- Advances to the next rowset in a multi-rowset
+statement handle
+
+  bool PDOStatement::nextRowset()~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+Some database servers support stored procedures that return more than one
+rowset (also known as a result set). |PDOStatement::nextRowSet| enables you
+to access the second and subsequent rowsets associated with a PDOStatement
+object. Each rowset can have a different set of columns from the preceding
+rowset.
+
+Returns TRUE on success or FALSE on failure.
+
+Fetching multiple rowsets returned from a stored procedure The following
+example shows how to call a stored procedure, MULTIPLE_RESULTS, that returns
+three rowsets. We use a do / while loop to loop over the
+|PDOStatement::nextRowset| method, which returns false and terminates the
+loop when no more rowsets can be returned.
+
+<?php >
+  $sql = 'CALL multiple_rowsets()';
+  $stmt = $conn->query($sql);
+  $i = 1;
+  do {
+      $rowset = $stmt->fetchAll(PDO_FETCH_NUM);
+      if ($rowset) {
+          printResultSet($rowset, $i);
+      }
+      $i++;
+  } while ($stmt->nextRowset());
+  
+  function printResultSet(&amp;$rowset, $i) {
+      print "Result set $i:\n";
+      foreach ($rowset as $row) {
+          foreach ($row as $col) {
+              print $col . "\t";
+          }
+          print "\n";
+      }
+      print "\n";
+  }
+?>
+
+The above example will output:
+
+  Result set 1:
+  apple    red
+  banana   yellow
+  
+  Result set 2:
+  orange   orange    150
+  banana   yellow    175
+  
+  Result set 3:
+  lime     green
+  apple    red
+  banana   yellow
+
+|PDOStatement::columnCount| |PDOStatement::execute|
+|PDOStatement::getColumnMeta| |PDOStatement::query|
+
+vim:ft=help:

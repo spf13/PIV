@@ -1,0 +1,18 @@
+uasort -- Sort an array with a user-defined comparison function and maintain
+index association
+
+  bool uasort(array array, callback cmp_function)~
+
+This function sorts an array such that array indices maintain their
+correlation with the array elements they are associated with. This is used
+mainly when sorting associative arrays where the actual element order is
+significant. The comparison function is user-defined.
+
+Returns TRUE on success or FALSE on failure.
+
+Please see |usort| and |uksort| for examples of user-defined comparison
+functions.
+
+See also |usort|, |uksort|, |sort|, |asort|, |arsort|, |ksort|, and |rsort|.
+
+vim:ft=help:

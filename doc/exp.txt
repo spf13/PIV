@@ -1,0 +1,24 @@
+exp -- Calculates the exponent of e (the Neperian or Natural logarithm base)
+
+  float exp(float arg)~
+
+Returns e raised to the power of {arg}.
+
+'e' is the base of the natural system of logarithms, or approximately
+2.718282.
+
+|exp| example
+
+<?php >
+  echo exp(12) . "\n";
+  echo exp(5.7);
+?>
+
+The above example will output:
+
+  1.6275E+005
+  298.87
+
+See also |log| and |pow|.
+
+vim:ft=help:

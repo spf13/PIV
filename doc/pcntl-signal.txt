@@ -1,0 +1,73 @@
+pcntl_signal -- Installs a signal handler
+
+  bool pcntl_signal(int signo, callback handle [, bool restart_syscalls])~
+
+The |pcntl_signal| function installs a new signal handler for the signal
+indicated by {signo}. The signal handler is set to {handler} which may be the
+name of a user created function, or either of the two global constants SIG_IGN
+or SIG_DFL. The optional {restart_syscalls} specifies whether system call
+restarting should be used when this signal arrives and defaults to TRUE.
+
+Returns TRUE on success or FALSE on failure.
+
+The optional {restart_syscalls} parameter became available in PHP 4.3.0.
+
+The ability to use an object method as a callback became available in PHP
+4.3.0. Note that when you set a handler to an object method, that object's
+reference count is increased which makes it persist until you either change
+the handler to something else, or your script ends.
+
+|pcntl_signal| example
+
+<?php >
+  // tick use required as of PHP 4.3.0
+  declare(ticks = 1);
+  
+  // signal handler function
+  function sig_handler($signo) 
+  {
+  
+       switch ($signo) {
+           case SIGTERM:
+               // handle shutdown tasks
+               exit;
+               break;
+           case SIGHUP:
+               // handle restart tasks
+               break;
+           case SIGUSR1:
+               echo "Caught SIGUSR1...\n";
+               break;
+           default:
+               // handle all other signals
+       }
+  
+  }
+  
+  echo "Installing signal handler...\n";
+  
+  // setup signal handlers
+  pcntl_signal(SIGTERM, "sig_handler");
+  pcntl_signal(SIGHUP,  "sig_handler");
+  pcntl_signal(SIGUSR1, "sig_handler");
+  
+  // or use an object, available as of PHP 4.3.0
+  // pcntl_signal(SIGUSR1, array($obj, "do_something");
+  
+  echo"Generating signal SIGTERM to self...\n";
+  
+  // send SIGUSR1 to current process id
+  posix_kill(posix_getpid(), SIGUSR1);
+  
+  echo "Done\n"
+?>
+
+As of PHP 4.3.0 PCNTL uses ticks as the signal handle callback mechanism,
+which is much faster than the previous mechanism. This change follows the
+same semantics as using "user ticks". You must use the declare() statement to
+specify the locations in your program where callbacks are allowed to occur for
+the signal handler to function properly (as used in the above example).
+
+See also |pcntl_fork| and |pcntl_waitpid|.
+
+vim:ft=help:

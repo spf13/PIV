@@ -1,0 +1,13 @@
+pdf_begin_pattern -- Starts new pattern
+
+  int pdf_begin_pattern(resource pdfdoc, float width, float height, float xstep, float ystep, int painttype)~
+
+Starts a new pattern definition and returns a pattern handle. {width}, and
+{height} define the bounding box for the pattern. {xstep} and {ystep} give
+the repeated pattern offsets. {painttype}=1 means that the pattern has its
+own colour settings whereas a value of 2 indicates that the current colour is
+used when the pattern is applied.
+
+See also |pdf_end_pattern|.
+
+vim:ft=help:

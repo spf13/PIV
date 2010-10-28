@@ -1,0 +1,8 @@
+swf_endsymbol -- End the definition of a symbol
+
+  void swf_endsymbol()~
+
+The |swf_endsymbol| function ends the definition of a symbol that was started
+by the |swf_startsymbol| function.
+
+vim:ft=help:

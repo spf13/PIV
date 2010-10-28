@@ -1,0 +1,98 @@
+mysqli->fetch_assoc -- Fetch a result row as an associative array
+
+Procedural style:
+
+  array mysqli_fetch_assoc(mysqli_result result)~
+
+Object oriented style (method):
+
+  array fetch_assoc(mysqli_result result)~
+
+Returns an associative array that corresponds to the fetched row or NULL if
+there are no more rows.
+
+The |mysqli_fetch_assoc| function is used to return an associative array
+representing the next row in the result set for the result represented by the
+{result} parameter, where each key in the array represents the name of one of
+the result set's columns.
+
+If two or more columns of the result have the same field names, the last
+column will take precedence. To access the other column(s) of the same name,
+you either need to access the result with numeric indices by using
+|mysqli_fetch_row| or add alias names.
+
+Field names returned by this function are case-sensitive.
+
+This function sets NULL fields to PHP NULL value.
+
+Returns an array that corresponds to the fetched row or NULL if there are no
+more rows in resultset.
+
+|mysqli_fetch_array|, |mysqli_fetch_row|, |mysqli_fetch_object|,
+|mysqli_query| and |mysqli_data_seek|.
+
+Object oriented style
+
+<?php >
+  $mysqli = new mysqli("localhost", "my_user", "my_password", "world");
+  
+  /* check connection */
+  if (mysqli_connect_errno()) {
+      printf("Connect failed: %s\n", mysqli_connect_error());
+      exit();
+  }
+   
+  $query = "SELECT Name, CountryCode FROM City ORDER by ID DESC LIMIT 50,5";
+  
+  if ($result = $mysqli->query($query)) {
+  
+      /* fetch associative array */
+      while ($row = $result->fetch_assoc()) {
+          printf ("%s (%s)\n", $row["Name"], $row["CountryCode"]);
+      }
+  
+      /* free result set */
+      $result->close();
+  }
+  
+  /* close connection */
+  $mysqli->close();
+?>
+
+Procedural style
+
+<?php >
+  $link = mysqli_connect("localhost", "my_user", "my_password", "world");
+  
+  /* check connection */
+  if (mysqli_connect_errno()) {
+      printf("Connect failed: %s\n", mysqli_connect_error());
+      exit();
+  }
+  
+  $query = "SELECT Name, CountryCode FROM City ORDER by ID DESC LIMIT 50,5";
+  
+  if ($result = mysqli_query($link, $query)) {
+  
+      /* fetch associative array */
+      while ($row = mysqli_fetch_assoc($result)) {
+          printf ("%s (%s)\n", $row["Name"], $row["CountryCode"]);
+      }
+  
+      /* free result set */
+      mysqli_free_result($result);
+  }
+  
+  /* close connection */
+  mysqli_close($link);
+?>
+
+The above example will output:
+
+  Pueblo (USA)
+  Arvada (USA)
+  Cape Coral (USA)
+  Green Bay (USA)
+  Santa Clara (USA)
+
+vim:ft=help:

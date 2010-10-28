@@ -1,0 +1,49 @@
+PDO::query -- Executes an SQL statement, returning a result set as a
+PDOStatement object
+
+  PDOStatement PDO::query(string statement)~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+|PDO::query| executes an SQL statement in a single function call, returning
+the result set (if any) returned by the statement as a PDOStatement object.
+
+For a query that you need to issue multiple times, you will realize better
+performance if you prepare a PDOStatement object using |PDO::prepare| and
+issue the statement with multiple calls to |PDOStatement::execute|.
+
+{statement} The SQL statement to prepare and execute.
+
+|PDO::query| returns a PDOStatement object.
+
+Demonstrate PDO::query A nice feature of |PDO::query| is that it enables you
+to iterate over the rowset returned by a successfully executed SELECT
+statement.
+
+<?php >
+  function getFruit($conn) {
+      $sql = 'SELECT name, colour, calories FROM fruit ORDER BY name';
+      foreach ($conn->query($sql) as $row) {
+          print $row['NAME'] . "\t";
+          print $row['COLOUR'] . "\t";
+          print $row['CALORIES'] . "\n";
+      }
+  }
+?>
+
+The above example will output:
+
+  apple   red     150
+  banana  yellow  250
+  kiwi    brown   75
+  lemon   yellow  25
+  orange  orange  300
+  pear    green   150
+  watermelon      pink    90
+
+|PDO::exec| |PDO::prepare| |PDOStatement::execute|
+
+vim:ft=help:

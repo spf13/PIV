@@ -1,0 +1,13 @@
+ncurses_init -- Initialize ncurses
+
+  void ncurses_init()~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+|ncurses_init| initializes the ncurses interface and must be used before any
+other ncurses function.
+
+vim:ft=help:

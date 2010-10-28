@@ -1,0 +1,8 @@
+mysqli_rpl_probe -- RPL probe
+
+  bool mysqli_rpl_probe(mysqli link)~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

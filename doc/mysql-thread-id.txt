@@ -1,0 +1,33 @@
+mysql_thread_id -- Return the current thread ID
+
+  int mysql_thread_id([resource link_identifier])~
+
+Retrieves the current thread ID. If the connection is lost, and a reconnect
+with |mysql_ping| is executed, the thread ID will change. This means only
+retrieve the thread ID when needed.
+
+{ link_identifier}The MySQL connection. If the link identifier is not
+specified, the last link opened by |mysql_connect| is assumed. If no such
+link is found, it will try to create one as if |mysql_connect| was called
+with no arguments. If by chance no connection is found or established, an
+E_WARNING level warning is generated.
+
+The thread ID on success, or FALSE on failure.
+
+|mysql_thread_id| example
+
+<?php >
+  $link = mysql_connect('localhost', 'mysql_user', 'mysql_password');
+  $thread_id = mysql_thread_id($link);
+  if ($thread_id){
+      printf("current thread id is %d\n", $thread_id);
+  }
+?>
+
+The above example will output something similar to:
+
+  current thread id is 73
+
+|mysql_ping| |mysql_list_processes|
+
+vim:ft=help:

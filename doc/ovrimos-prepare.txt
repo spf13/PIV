@@ -1,0 +1,35 @@
+ovrimos_prepare -- Prepares an SQL statement
+
+  int ovrimos_prepare(int connection_id, string query)~
+
+|ovrimos_prepare| prepares an SQL statement and returns a result_id (or FALSE
+on failure).
+
+Connect to Ovrimos SQL Server and prepare a statement
+
+<?php >
+  $conn=ovrimos_connect("db_host", "8001", "admin", "password");
+  if ($conn!=0) {
+      echo "Connection ok!";
+      $res=ovrimos_prepare($conn, "select table_id, table_name 
+                                    from sys.tables where table_id=1");
+      if ($res != 0) {
+          echo "Prepare ok!";
+          if (ovrimos_execute($res)) {
+              echo "Execute ok!\n";
+              ovrimos_result_all($res);
+          } else {
+              echo "Execute not ok!";
+          }
+          ovrimos_free_result($res);
+      } else {
+          echo "Prepare not ok!\n";
+      }
+      ovrimos_close($conn);
+  }
+?>
+
+This will connect to Ovrimos SQL Server, prepare a statement and the execute
+it.
+
+vim:ft=help:

@@ -1,0 +1,8 @@
+imagepalettecopy -- Copy the palette from one image to another
+
+  void imagepalettecopy(resource destination, resource source)~
+
+|imagepalettecopy| copies the palette from the {source} image to the
+{destination} image.
+
+vim:ft=help:

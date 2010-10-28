@@ -1,0 +1,9 @@
+CachingRecursiveIterator::hasChildren -- Check whether the current element of
+the inner iterator has children
+
+  bolean CachingRecursiveIterator::hasChildren()~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

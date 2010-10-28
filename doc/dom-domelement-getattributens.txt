@@ -1,0 +1,15 @@
+DOMElement->getAttributeNS() -- Returns value of attribute
+
+  string getAttributeNS(string namespaceURI, string localName)~
+
+Gets the value of the attribute in namespace {namespaceURI} with local name
+{localName} for the current node.
+
+{namespaceURI} The namespace URI.
+
+{localName} The local name.
+
+The value of the attribute, or an empty string if no attribute with the given
+{localName} and {namespaceURI} is found.
+
+vim:ft=help:

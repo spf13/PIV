@@ -1,0 +1,28 @@
+SWFFont -- Loads a font definition
+
+  SWFFont swffont(string filename)~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+If {filename} is the name of an FDB file (i.e., it ends in ".fdb"), load the
+font definition found in said file. Otherwise, create a browser-defined font
+reference.
+
+FDB ("font definition block") is a very simple wrapper for the SWF DefineFont2
+block which contains a full description of a font. One may create FDB files
+from SWT Generator template files with the included makefdb utility- look in
+the util directory off the main ming distribution directory.
+
+Browser-defined fonts don't contain any information about the font other than
+its name. It is assumed that the font definition will be provided by the
+movie player. The fonts _serif, _sans, and _typewriter should always be
+available. For example:
+
+<?php >
+  $f = newSWFFont("_sans"); 
+?>
+
+vim:ft=help:

@@ -1,0 +1,12 @@
+atanh -- Inverse hyperbolic tangent
+
+  float atanh(float arg)~
+
+Returns the inverse hyperbolic tangent of {arg}, i.e. the value whose
+hyperbolic tangent is {arg}.
+
+This function is not implemented on Windows platforms.
+
+See also: |atan|, |asinh|, and |acosh|.
+
+vim:ft=help:

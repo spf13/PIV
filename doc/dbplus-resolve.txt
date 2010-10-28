@@ -1,0 +1,17 @@
+dbplus_resolve -- Resolve host information for relation
+
+  array dbplus_resolve(string relation_name)~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+|dbplus_resolve| will try to resolve the given {relation_name} and find out
+internal server id, real hostname and the database path on this host. The
+function will return an array containing these values under the keys 'sid',
+'host' and 'host_path' or FALSE on error.
+
+See also |dbplus_tcl|.
+
+vim:ft=help:

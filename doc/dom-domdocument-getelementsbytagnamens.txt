@@ -1,0 +1,51 @@
+DOMDocument->getElementsByTagNameNS() -- Searches for all elements with given
+tag name in specified namespace
+
+  DOMNodeList getElementsByTagNameNS(string namespaceURI, string localName)~
+
+Returns a DOMNodeList of all elements with a given local name and a namespace
+URI.
+
+{namespaceURI} The namespace URI of the elements to match on. The special
+value * matches all namespaces.
+
+{localName} The local name of the elements to match on. The special value *
+matches all local names.
+
+A new DOMNodeList object containing all the matched elements.
+
+Get all the XInclude elements
+
+<?php >
+  $xml = <<<EOD
+  <?xml version="1.0" ?>
+  <chapter xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Books of the other guy..</title>
+  <para>
+   <xi:include href="book.xml">
+    <xi:fallback>
+     <error>xinclude: book.xml not found</error>
+    </xi:fallback>
+   </xi:include>
+   <include>
+    This is another namespace
+   </include>
+  </para>
+  </chapter>
+  EOD;
+  $dom = new DOMDocument;
+  
+  // load the XML string defined above
+  $dom->loadXML($xml);
+  
+  foreach ($dom->getElementsByTagNameNS('http://www.w3.org/2001/XInclude', '*') as $element) {
+      echo 'local name: ', $element->localName, ', prefix: ', $element->prefix, "\n";
+  }
+?>
+
+The above example will output:
+
+  local name: include, prefix: xi
+  local name: fallback, prefix: xi
+
+vim:ft=help:

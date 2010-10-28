@@ -1,0 +1,23 @@
+mb_strpos -- Find position of first occurrence of string in a string
+
+  int mb_strpos(string haystack, string needle [, int offset [, string encoding]])~
+
+|mb_strpos| returns the numeric position of the first occurrence of {needle}
+in the {haystack} string. If {needle} is not found, it returns FALSE.
+
+|mb_strpos| performs multi-byte safe |strpos| operation based on number of
+characters. {needle} position is counted from the beginning of the
+{haystack}. First character's position is 0. Second character position is 1,
+and so on.
+
+If {encoding} is omitted, internal character encoding is used. |mb_strrpos|
+accepts string for {needle} where |strrpos| accepts only character.
+
+{offset} is search offset. If it is not specified, 0 is used.
+
+{encoding} is character encoding name. If it is omitted, internal character
+encoding is used.
+
+See also |mb_strrpos|, |mb_internal_encoding|, |strpos|
+
+vim:ft=help:

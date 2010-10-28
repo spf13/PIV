@@ -1,0 +1,21 @@
+urldecode -- Decodes URL-encoded string
+
+  string urldecode(string str)~
+
+Decodes any %## encoding in the given string. The decoded string is returned.
+|urldecode| example
+
+<?php >
+  $a = explode('&amp;', $QUERY_STRING);
+  $i = 0;
+  while ($i < count($a)) {
+      $b = split('=', $a[$i]);
+      echo 'Value for parameter ', htmlspecialchars(urldecode($b[0])),
+           ' is ', htmlspecialchars(urldecode($b[1])), "<br />\n";
+      $i++;
+  }
+?>
+
+See also |urlencode|, |rawurlencode| and |rawurldecode|.
+
+vim:ft=help:

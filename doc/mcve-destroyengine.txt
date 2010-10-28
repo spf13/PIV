@@ -1,0 +1,8 @@
+mcve_destroyengine -- Free memory associated with IP/SSL connectivity
+
+  void mcve_destroyengine()~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

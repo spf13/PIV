@@ -1,0 +1,21 @@
+mb_ereg_replace -- Replace regular expression with multibyte support
+
+  string mb_ereg_replace(string pattern, string replacement, string string [, string option])~
+
+|mb_ereg_replace| scans {string} for matches to {pattern}, then replaces the
+matched text with {replacement} and returns the result string or FALSE on
+error. Multibyte character can be used in {pattern}.
+
+Matching condition can be set by {option} parameter. If i is specified for
+this parameter, the case will be ignored. If x is specified, white space will
+be ignored. If m is specified, match will be executed in multiline mode and
+line break will be included in '.'. If p is specified, match will be executed
+in POSIX mode, line break will be considered as normal character. If e is
+specified, {replacement} string will be evaluated as PHP expression.
+
+The internal encoding or the character encoding specified in
+|mb_regex_encoding| will be used as character encoding.
+
+See also: |mb_regex_encoding|, |mb_eregi_replace|.
+
+vim:ft=help:

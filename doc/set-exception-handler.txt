@@ -1,0 +1,34 @@
+set_exception_handler -- Sets a user-defined exception handler function
+
+  string set_exception_handler(callback exception_handler)~
+
+Sets the default exception handler if an exception is not caught within a
+try/catch block. Execution will stop after the {exception_handler} is called.
+
+The {exception_handler} must be defined before calling
+|set_exception_handler|. This handler function needs to accept one parameter,
+which will be the exception object that was thrown.
+
+{exception_handler} Name of the function to be called when an uncaught
+exception occurs.
+
+Returns the name of the previously defined exception handler, or FALSE on
+error. If no previous handler was defined, an empty string is returned.
+
+|set_exception_handler| example
+
+<?php >
+  function exception_handler($exception) {
+    echo "Uncaught exception: " , $exception->getMessage(), "\n";
+  }
+  
+  set_exception_handler('exception_handler');
+  
+  throw new Exception('Uncaught Exception');
+  echo "Not Executed\n";
+?>
+
+|restore_exception_handler|, |restore_error_handler|, |error_reporting|,
+information about the callback type, and PHP 5 Exceptions.
+
+vim:ft=help:

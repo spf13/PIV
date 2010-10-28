@@ -1,0 +1,19 @@
+gmp_mod -- Modulo operation
+
+  resource gmp_mod(resource n, resource d)~
+
+Calculates {n} modulo {d}. The result is always non-negative, the sign of {d}
+is ignored.
+
+|gmp_mod| example
+
+<?php >
+  $mod = gmp_mod("8", "3");
+  echo gmp_strval($mod) . "\n";
+?>
+
+The printout of the above program will be:
+
+  2
+
+vim:ft=help:

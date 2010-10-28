@@ -1,0 +1,24 @@
+octdec -- Octal to decimal
+
+  number octdec(string octal_string)~
+
+Returns the decimal equivalent of the octal number represented by the
+{octal_string} argument. The largest number that can be converted is
+17777777777 or 2147483647 in decimal. As of PHP 4.1.0, this function can also
+convert larger numbers. It returns float in that case.
+
+|octdec| example
+
+<?php >
+  echo octdec('77') . "\n";
+  echo octdec(decoct(45));
+?>
+
+The above example will output:
+
+  63
+  45
+
+See also: |decoct|, |bindec|, |hexdec|, and |base_convert|.
+
+vim:ft=help:

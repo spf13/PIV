@@ -1,0 +1,9 @@
+variant_round -- Rounds a variant to the specified number of decimal places
+
+  mixed variant_round(mixed variant, int decimals)~
+
+Returns the value of {variant} rounded to {decimals} decimal places.
+
+See also |round|.
+
+vim:ft=help:

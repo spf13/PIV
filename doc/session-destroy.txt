@@ -1,0 +1,41 @@
+session_destroy -- Destroys all data registered to a session
+
+  bool session_destroy()~
+
+|session_destroy| destroys all of the data associated with the current
+session. It does not unset any of the global variables associated with the
+session, or unset the session cookie.
+
+In order to kill the session altogether, like to log the user out, the session
+id must also be unset. If a cookie is used to propagate the session id
+(default behavior), then the session cookie must be deleted. |setcookie| may
+be used for that.
+
+Returns TRUE on success or FALSE on failure.
+
+Destroying a session with $_SESSION
+
+<?php >
+  // Initialize the session.
+  // If you are using session_name("something"), don't forget it now!
+  session_start();
+  
+  // Unset all of the session variables.
+  $_SESSION = array();
+  
+  // If it's desired to kill the session, also delete the session cookie.
+  // Note: This will destroy the session, and not just the session data!
+  if (isset($_COOKIE[session_name()])) {
+      setcookie(session_name(), '', time()-42000, '/');
+  }
+  
+  // Finally, destroy the session.
+  session_destroy();
+?>
+
+Only use |session_unset| for older deprecated code that does not use
+$_SESSION.
+
+See also |unset| and |setcookie|.
+
+vim:ft=help:

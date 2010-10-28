@@ -1,0 +1,18 @@
+proc_nice -- Change the priority of the current process
+
+  bool proc_nice(int increment)~
+
+|proc_nice| changes the priority of the current process by the amount
+specified in {increment}. A positive {increment} will lower the priority of
+the current process, whereas a negative {increment} will raise the priority.
+
+|proc_nice| is not related to |proc_open| and its associated functions in any
+way.
+
+{increment} The increment value of the priority change.
+
+Returns TRUE on success or FALSE on failure. If an error occurs, like the user
+lacks permission to change the priority, an error of level E_WARNING is also
+generated.
+
+vim:ft=help:

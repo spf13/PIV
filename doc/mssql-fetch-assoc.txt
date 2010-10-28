@@ -1,0 +1,9 @@
+mssql_fetch_assoc -- Returns an associative array of the current row in the
+result set specified by result_id
+
+  array mssql_fetch_assoc(resource result_id)~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

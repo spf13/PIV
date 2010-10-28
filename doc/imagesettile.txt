@@ -1,0 +1,18 @@
+imagesettile -- Set the tile image for filling
+
+  bool imagesettile(resource image, resource tile)~
+
+|imagesettile| sets the tile image to be used by all region filling functions
+(such as |imagefill| and |imagefilledpolygon|) when filling with the special
+color IMG_COLOR_TILED.
+
+A tile is an image used to fill an area with a repeated pattern. Any GD image
+can be used as a tile, and by setting the transparent color index of the tile
+image with |imagecolortransparent|, a tile allows certain parts of the
+underlying area to shine through can be created.
+
+You need not take special action when you are finished with a tile, but if you
+destroy the tile image, you must not use the IMG_COLOR_TILED color until you
+have set a new tile image!
+
+vim:ft=help:

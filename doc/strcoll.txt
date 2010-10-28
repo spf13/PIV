@@ -1,0 +1,5 @@
+strcoll -- Locale based string comparison
+
+  int strcoll(string str1, string str2)~
+
+vim:ft=help:

@@ -1,0 +1,10 @@
+pdf_close_pdi -- Close the input PDF document
+
+  bool pdf_close_pdi(resource pdfdoc, int dochandle)~
+
+Close all open page handles, and close the input PDF document. Returns TRUE on
+success or FALSE on failure.
+
+See also |pdf_open_pdi|.
+
+vim:ft=help:

@@ -1,0 +1,285 @@
+stream_wrapper_register -- Register a URL wrapper implemented as a PHP class
+
+  bool stream_wrapper_register(string protocol, string classname)~
+
+|stream_wrapper_register| allows you to implement your own protocol handlers
+and streams for use with all the other filesystem functions (such as |fopen|,
+|fread| etc.).
+
+To implement a wrapper, you need to define a class with a number of member
+functions, as defined below. When someone fopens your stream, PHP will create
+an instance of {classname} and then call methods on that instance. You must
+implement the methods exactly as described below - doing otherwise will lead
+to undefined behaviour.
+
+As of PHP 5.0.0 the instance of {classname} will be populated with a {context}
+property referencing a Context Resource which may be accessed with
+|stream_context_get_options|. If no context was passed to the stream creation
+function, {context} will be set to NULL.
+
+|stream_wrapper_register| will return FALSE if the {protocol} already has a
+handler.
+
+  bool stream_open(string protocol, string classname, string path, string mode, int options, string opened_path)~
+
+This method is called immediately after your stream object is created. {path}
+specifies the URL that was passed to |fopen| and that this object is expected
+to retrieve. You can use |parse_url| to break it apart.
+
+{mode} is the mode used to open the file, as detailed for |fopen|. You are
+responsible for checking that {mode} is valid for the {path} requested.
+
+{options} holds additional flags set by the streams API. It can hold one or
+more of the following values OR'd together. Flag Description STREAM_USE_PATH
+If {path} is relative, search for the resource using the include_path.
+STREAM_REPORT_ERRORS If this flag is set, you are responsible for raising
+errors using |trigger_error| during opening of the stream. If this flag is
+not set, you should not raise any errors.
+
+If the {path} is opened successfully, and STREAM_USE_PATH is set in {options},
+you should set {opened_path} to the full path of the file/resource that was
+actually opened.
+
+If the requested resource was opened successfully, you should return TRUE,
+otherwise you should return FALSE
+
+  void stream_close(string protocol, string classname, string path, string mode, int options, string opened_path)~
+
+This method is called when the stream is closed, using |fclose|. You must
+release any resources that were locked or allocated by the stream.
+
+  string stream_read(string protocol, string classname, string path, string mode, int options, string opened_path, int count)~
+
+This method is called in response to |fread| and |fgets| calls on the stream.
+You must return up-to {count} bytes of data from the current read/write
+position as a string. If there are less than {count} bytes available, return
+as many as are available. If no more data is available, return either FALSE
+or an empty string. You must also update the read/write position of the
+stream by the number of bytes that were successfully read.
+
+  int stream_write(string protocol, string classname, string path, string mode, int options, string opened_path, int count, string data)~
+
+This method is called in response to |fwrite| calls on the stream. You should
+store {data} into the underlying storage used by your stream. If there is not
+enough room, try to store as many bytes as possible. You should return the
+number of bytes that were successfully stored in the stream, or 0 if none
+could be stored. You must also update the read/write position of the stream
+by the number of bytes that were successfully written.
+
+  bool stream_eof(string protocol, string classname, string path, string mode, int options, string opened_path, int count, string data)~
+
+This method is called in response to |feof| calls on the stream. You should
+return TRUE if the read/write position is at the end of the stream and if no
+more data is available to be read, or FALSE otherwise.
+
+  int stream_tell(string protocol, string classname, string path, string mode, int options, string opened_path, int count, string data)~
+
+This method is called in response to |ftell| calls on the stream. You should
+return the current read/write position of the stream.
+
+  bool stream_seek(string protocol, string classname, string path, string mode, int options, string opened_path, int count, string data, int offset, int whence)~
+
+This method is called in response to |fseek| calls on the stream. You should
+update the read/write position of the stream according to {offset} and
+{whence}. See |fseek| for more information about these parameters. Return
+TRUE if the position was updated, FALSE otherwise.
+
+  bool stream_flush(string protocol, string classname, string path, string mode, int options, string opened_path, int count, string data, int offset, int whence)~
+
+This method is called in response to |fflush| calls on the stream. If you have
+cached data in your stream but not yet stored it into the underlying storage,
+you should do so now. Return TRUE if the cached data was successfully stored
+(or if there was no data to store), or FALSE if the data could not be stored.
+
+  array stream_stat(string protocol, string classname, string path, string mode, int options, string opened_path, int count, string data, int offset, int whence)~
+
+This method is called in response to |fstat| calls on the stream and should
+return an array containing the same values as appropriate for the stream.
+
+  bool unlink(string protocol, string classname, string path, string mode, int options, string opened_path, int count, string data, int offset, int whence, string path)~
+
+This method is called in response to |unlink| calls on URL paths associated
+with the wrapper and should attempt to delete the item specified by {path}.
+It should return TRUE on success or FALSE on failure. In order for the
+appropriate error message to be returned, do not define this method if your
+wrapper does not support unlinking.
+
+Userspace wrapper unlink method is not supported prior to PHP 5.0.0.
+
+  bool rename(string protocol, string classname, string path, string mode, int options, string opened_path, int count, string data, int offset, int whence, string path, string path_from, string path_to)~
+
+This method is called in response to |rename| calls on URL paths associated
+with the wrapper and should attempt to rename the item specified by
+{path_from} to the specification given by {path_to}. It should return TRUE on
+success or FALSE on failure. In order for the appropriate error message to be
+returned, do not define this method if your wrapper does not support
+renaming.
+
+Userspace wrapper rename method is not supported prior to PHP 5.0.0.
+
+  bool mkdir(string protocol, string classname, string path, string mode, int options, string opened_path, int count, string data, int offset, int whence, string path, string path_from, string path_to, string path, int mode, int options)~
+
+This method is called in response to |mkdir| calls on URL paths associated
+with the wrapper and should attempt to create the directory specified by
+{path}. It should return TRUE on success or FALSE on failure. In order for
+the appropriate error message to be returned, do not define this method if
+your wrapper does not support creating directories. Posible values for
+{options} include STREAM_REPORT_ERRORS and STREAM_MKDIR_RECURSIVE.
+
+Userspace wrapper mkdir method is not supported prior to PHP 5.0.0.
+
+  bool rmdir(string protocol, string classname, string path, string mode, int options, string opened_path, int count, string data, int offset, int whence, string path, string path_from, string path_to, string path, int mode, int options, string path, int options)~
+
+This method is called in response to |rmdir| calls on URL paths associated
+with the wrapper and should attempt to remove the directory specified by
+{path}. It should return TRUE on success or FALSE on failure. In order for
+the appropriate error message to be returned, do not define this method if
+your wrapper does not support removing directories. Possible values for
+{options} include STREAM_REPORT_ERRORS.
+
+Userspace wrapper rmdir method is not supported prior to PHP 5.0.0.
+
+  bool dir_opendir(string protocol, string classname, string path, string mode, int options, string opened_path, int count, string data, int offset, int whence, string path, string path_from, string path_to, string path, int mode, int options, string path, int options, string path, int options)~
+
+This method is called immediately when your stream object is created for
+examining directory contents with |opendir|. {path} specifies the URL that
+was passed to |opendir| and that this object is expected to explore. You can
+use |parse_url| to break it apart.
+
+  array url_stat(string protocol, string classname, string path, string mode, int options, string opened_path, int count, string data, int offset, int whence, string path, string path_from, string path_to, string path, int mode, int options, string path, int options, string path, int options, string path, int flags)~
+
+This method is called in response to |stat| calls on the URL paths associated
+with the wrapper and should return as many elements in common with the system
+function as possible. Unknown or unavailable values should be set to a
+rational value (usually 0).
+
+{flags} holds additional flags set by the streams API. It can hold one or more
+of the following values OR'd together. Flag Description STREAM_URL_STAT_LINK
+For resources with the ability to link to other resource (such as an HTTP
+Location: forward, or a filesystem symlink). This flag specified that only
+information about the link itself should be returned, not the resource
+pointed to by the link. This flag is set in response to calls to |lstat|,
+|is_link|, or |filetype|. STREAM_URL_STAT_QUIET If this flag is set, your
+wrapper should not raise any errors. If this flag is not set, you are
+responsible for reporting errors using the |trigger_error| function during
+stating of the path.
+
+  string dir_readdir(string protocol, string classname, string path, string mode, int options, string opened_path, int count, string data, int offset, int whence, string path, string path_from, string path_to, string path, int mode, int options, string path, int options, string path, int options, string path, int flags)~
+
+This method is called in response to |readdir| and should return a string
+representing the next filename in the location opened by |dir_opendir|.
+
+  bool dir_rewinddir(string protocol, string classname, string path, string mode, int options, string opened_path, int count, string data, int offset, int whence, string path, string path_from, string path_to, string path, int mode, int options, string path, int options, string path, int options, string path, int flags)~
+
+This method is called in response to |rewinddir| and should reset the output
+generated by |dir_readdir|. i.e.: The next call to |dir_readdir| should
+return the first entry in the location returned by |dir_opendir|.
+
+  bool dir_closedir(string protocol, string classname, string path, string mode, int options, string opened_path, int count, string data, int offset, int whence, string path, string path_from, string path_to, string path, int mode, int options, string path, int options, string path, int options, string path, int flags)~
+
+This method is called in response to |closedir|. You should release any
+resources which were locked or allocated during the opening and use of the
+directory stream.
+
+The example below implements a var:// protocol handler that allows read/write
+access to a named global variable using standard filesystem stream functions
+such as |fread|. The var:// protocol implemented below, given the URL
+"var://foo" will read/write data to/from $GLOBALS["foo"]. A Stream for
+reading/writing global variables
+
+<?php >
+  class VariableStream {
+      var $position;
+      var $varname;
+     
+      function stream_open($path, $mode, $options, &amp;$opened_path) 
+      {
+          $url = parse_url($path);
+          $this->varname = $url["host"];
+          $this->position = 0;
+          
+          return true;
+      }
+  
+      function stream_read($count) 
+      {
+          $ret = substr($GLOBALS[$this->varname], $this->position, $count);
+          $this->position += strlen($ret);
+          return $ret;
+      }
+  
+      function stream_write($data) 
+      {
+          $left = substr($GLOBALS[$this->varname], 0, $this->position);
+          $right = substr($GLOBALS[$this->varname], $this->position + strlen($data));
+          $GLOBALS[$this->varname] = $left . $data . $right;
+          $this->position += strlen($data);
+          return strlen($data);
+      }
+  
+      function stream_tell() 
+      {
+          return $this->position;
+      }
+  
+      function stream_eof() 
+      {
+          return $this->position >= strlen($GLOBALS[$this->varname]);
+      }
+  
+      function stream_seek($offset, $whence) 
+      {
+          switch ($whence) {
+              case SEEK_SET:
+                  if ($offset < strlen($GLOBALS[$this->varname]) &amp;& $offset >= 0) {
+                       $this->position = $offset;
+                       return true;
+                  } else {
+                       return false;
+                  }
+                  break;
+                  
+              case SEEK_CUR:
+                  if ($offset >= 0) {
+                       $this->position += $offset;
+                       return true;
+                  } else {
+                       return false;
+                  }
+                  break;
+                  
+              case SEEK_END:
+                  if (strlen($GLOBALS[$this->varname]) + $offset >= 0) {
+                       $this->position = strlen($GLOBALS[$this->varname]) + $offset;
+                       return true;
+                  } else {
+                       return false;
+                  }
+                  break;
+                  
+              default:
+                  return false;
+          }
+      }
+  }
+  
+  stream_wrapper_register("var", "VariableStream")
+      or die("Failed to register protocol");
+  
+  $myvar = "";
+      
+  $fp = fopen("var://myvar", "r+");
+  
+  fwrite($fp, "line1\n");
+  fwrite($fp, "line2\n");
+  fwrite($fp, "line3\n");
+  
+  rewind($fp);
+  while (!feof($fp)) {
+      echo fgets($fp);
+  }
+  fclose($fp);
+  var_dump($myvar);
+?>
+
+vim:ft=help:

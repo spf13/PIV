@@ -1,0 +1,13 @@
+ircg_set_on_die -- Set action to be executed when connection dies
+
+  bool ircg_set_on_die(resource connection, string host, int port, string data)~
+
+In case of the termination of connection {connection} IRCG will connect to
+{host} at {port} (Note: host must be an IPv4 address, IRCG does not resolve
+host-names due to blocking issues), send {data} to the new host connection
+and will wait until the remote part closes connection. This can be used to
+trigger a PHP script for example.
+
+This feature requires IRCG 3.
+
+vim:ft=help:

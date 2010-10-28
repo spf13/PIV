@@ -1,0 +1,10 @@
+DomDocumentType->notations() -- Returns list of notations
+
+  array notations()~
+
+This function is currently not documented; only the argument list is
+available.
+
+Use the notations property of the DOMDocumentType object.
+
+vim:ft=help:

@@ -1,0 +1,8 @@
+xslt_set_scheme_handlers -- Set the scheme handlers for the XSLT processor
+
+  void xslt_set_scheme_handlers(resource processor, array handlers)~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

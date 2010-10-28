@@ -1,0 +1,12 @@
+imageftbbox -- Give the bounding box of a text using fonts via freetype2
+
+  array imageftbbox(float size, float angle, string font_file, string text [, array extrainfo])~
+
+This function is currently not documented; only the argument list is
+available.
+
+This function requires GD 2.0.1 or later.
+
+Parameter {extrainfo} is optional since PHP 4.3.5.
+
+vim:ft=help:

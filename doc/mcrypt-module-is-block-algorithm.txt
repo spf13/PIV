@@ -1,0 +1,10 @@
+mcrypt_module_is_block_algorithm -- This function checks whether the specified
+algorithm is a block algorithm
+
+  bool mcrypt_module_is_block_algorithm(string algorithm [, string lib_dir])~
+
+This function returns TRUE if the specified algorithm is a block algorithm, or
+FALSE is it is a stream algorithm. The optional {lib_dir} parameter can
+contain the location where the algorithm module is on the system.
+
+vim:ft=help:

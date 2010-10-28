@@ -1,0 +1,22 @@
+socket_connect -- Initiates a connection on a socket
+
+  bool socket_connect(resource socket, string address [, int port])~
+
+Initiates a connection using the socket resource {socket}, which must be a
+valid socket resource created with |socket_create|.
+
+The {address} parameter is either an IP address in dotted-quad notation (e.g.
+127.0.0.1), if the socket is of the AF_INET family; or the pathname of a Unix
+domain socket, if the socket family is AF_UNIX.
+
+The {port} parameter is only used when connecting to an AF_INET socket, and
+designates the port on the remote host to which a connection should be made.
+
+Returns TRUE on success or FALSE on failure. The error code can be retrieved
+with |socket_last_error|. This code may be passed to |socket_strerror| to get
+a textual explanation of the error.
+
+See also |socket_bind|, |socket_listen|, |socket_create|, |socket_last_error|
+and |socket_strerror|.
+
+vim:ft=help:

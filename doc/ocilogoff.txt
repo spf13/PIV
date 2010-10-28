@@ -1,0 +1,14 @@
+ocilogoff -- Disconnects from Oracle server
+
+  bool ocilogoff(resource connection)~
+
+|ocilogoff| closes the Oracle connection {connection}.
+
+Using |ocilogoff| isn't usually necessary, as non-persistent open links are
+automatically closed at the end of the script's execution. See also freeing
+resources.
+
+This function was renamed to |oci_close| after PHP >= 5.0.0. For downward
+compatibility |ocilogoff| can also be used. This is deprecated, however.
+
+vim:ft=help:

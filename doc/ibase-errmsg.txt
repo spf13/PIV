@@ -1,0 +1,10 @@
+ibase_errmsg -- Return error messages
+
+  string ibase_errmsg()~
+
+Returns the error message that resulted from the most recent InterBase
+function call. Returns FALSE if no error occurred.
+
+See also |ibase_errcode|.
+
+vim:ft=help:

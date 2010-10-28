@@ -1,0 +1,23 @@
+Rar::extract -- Extract entry from the archive
+
+  bool Rar::extract(string dir [, string filepath])~
+
+|Rar::extract| extracts entry's data to the {dir}. It will create new file in
+the specified {dir} with the name identical to the entry's name. If parameter
+{filepath} is specified instead {dir}, |Rar::extract| will extract entry's
+data to the specified file.
+
+|Rar::extract| example
+
+<?php >
+  $rar_file = rar_open('example.rar') or die("Failed to open Rar archive");
+  
+  $entry = rar_entry_get($rar_file, 'Dir/file.txt') or die("Failed to find such entry");
+  
+  $entry->extract('/dir/to'); // create /dir/to/Dir/file.txt
+  $entry->extract(false, '/dir/to/new_name.txt'); // create /dir/to/new_name.txt
+?>
+
+Returns TRUE on success or FALSE on failure.
+
+vim:ft=help:

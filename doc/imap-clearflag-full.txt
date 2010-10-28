@@ -1,0 +1,15 @@
+imap_clearflag_full -- Clears flags on messages
+
+  bool imap_clearflag_full(resource stream, string sequence, string flag [, string options])~
+
+This function causes a store to delete the specified {flag} to the flags set
+for the messages in the specified {sequence}. The flags which you can unset
+are "\\Seen", "\\Answered", "\\Flagged", "\\Deleted", and "\\Draft" (as
+defined by RFC2060). Returns TRUE on success or FALSE on failure..
+
+{options} are a bit mask and may contain the single option: ST_UID - The
+sequence argument contains UIDs instead of sequence numbers
+
+See also: |imap_setflag_full|.
+
+vim:ft=help:

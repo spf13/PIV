@@ -1,0 +1,11 @@
+imagepsfreefont -- Free memory used by a PostScript Type 1 font
+
+  bool imagepsfreefont(resource fontindex)~
+
+|imagepsfreefont| frees memory used by a PostScript Type 1 font.
+
+This function is only available if PHP is compiled using --with-t1lib[=DIR].
+
+See also |imagepsloadfont|.
+
+vim:ft=help:

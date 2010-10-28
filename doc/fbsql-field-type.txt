@@ -1,0 +1,31 @@
+fbsql_field_type -- Get the type of the specified field in a result
+
+  string fbsql_field_type(resource result [, int field_offset])~
+
+|fbsql_field_type| is similar to the |fbsql_field_name| function. The
+arguments are identical, but the field type is returned instead. The field
+type will be one of "int", "real", "string", "blob", and others as detailed
+in the FrontBase documentation. |fbsql_field_type| example
+
+<?php >
+  fbsql_connect("localhost", "_SYSTEM", "");
+  fbsql_select_db("wisconsin");
+  $result = fbsql_query("SELECT * FROM onek;");
+  $fields = fbsql_num_fields($result);
+  $rows   = fbsql_num_rows($result);
+  $i = 0;
+  $table = fbsql_field_table($result, $i);
+  echo "Your '" . $table . "' table has " . $fields . " fields and " . $rows . " records <br />";
+  echo "The table has the following fields <br />"; 
+  while ($i < $fields) {
+      $type  = fbsql_field_type($result, $i);
+      $name  = fbsql_field_name($result, $i);
+      $len   = fbsql_field_len($result, $i);
+      $flags = fbsql_field_flags($result, $i);
+      echo $type . " " . $name . " " . $len . " " . $flags . "<br />";
+      $i++;
+  }
+  fbsql_close();
+?>
+
+vim:ft=help:

@@ -1,0 +1,10 @@
+PDOStatement::getAttribute -- Retrieve a statement attribute
+
+  mixed PDOStatement::getAttribute(int attribute)~
+
+This function is currently not documented; only the argument list is
+available.
+
+|PDO::getAttribute| |PDO::setAttribute| |PDOStatement::setAttribute|
+
+vim:ft=help:

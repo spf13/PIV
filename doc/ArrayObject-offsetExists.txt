@@ -1,0 +1,8 @@
+ArrayObject::offsetExists -- Returns whether the requested $index exists
+
+  bool ArrayObject::offsetExists(mixed index)~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

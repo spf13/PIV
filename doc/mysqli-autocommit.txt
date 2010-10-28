@@ -1,0 +1,74 @@
+mysqli->autocommit -- Turns on or off auto-commiting database modifications
+
+Procedural style:
+
+  bool mysqli_autocommit(mysqli link, bool mode)~
+
+Object oriented style (method)
+
+  bool autocommit(mysqli link, bool mode, bool mode)~
+
+|mysqli_autocommit| is used to turn on or off auto-commit mode on queries for
+the database connection represented by the {link} object.
+
+|mysqli_autocommit| doesn't work with non transactional table types (like
+MyISAM or ISAM).
+
+To determine the current state of autocommit use the SQL command 'SELECT
+@@autocommit'.
+
+Returns TRUE on success or FALSE on failure.
+
+|mysqli_commit| and |mysqli_rollback|.
+
+Object oriented style
+
+<?php >
+  $mysqli = new mysqli("localhost", "my_user", "my_password", "world");
+  
+  if (mysqli_connect_errno()) {
+      printf("Connect failed: %s\n", mysqli_connect_error());
+      exit();
+  }
+  
+  /* turn autocommit on */
+  $mysqli->autocommit(TRUE);
+  
+  if ($result = $mysqli->query("SELECT @@autocommit")) {
+      $row = $result->fetch_row();
+      printf("Autocommit is %s\n", $row[0]);
+      $result->free();
+  }
+  
+  /* close connection */
+  $mysqli->close();
+?>
+
+Procedural style
+
+<?php >
+  $link = mysqli_connect("localhost", "my_user", "my_password", "world");
+  
+  if (!$link) {
+      printf("Can't connect to localhost. Error: %s\n", mysqli_connect_error());
+      exit();
+  }
+  
+  /* turn autocommit on */
+  mysqli_autocommit($link, TRUE);
+  
+  if ($result = mysqli_query($link, "SELECT @@autocommit")) {
+      $row = mysqli_fetch_row($result);
+      printf("Autocommit is %s\n", $row[0]);
+      mysqli_free_result($result);
+  }
+  
+  /* close connection */
+  mysqli_close($link);
+?>
+
+The above example will output:
+
+  Autocommit is 1
+
+vim:ft=help:

@@ -1,0 +1,15 @@
+DOMElement->removeAttributeNode() -- Removes attribute
+
+  bool removeAttributeNode(DOMAttr oldnode)~
+
+Removes attribute {oldnode} from the element.
+
+{oldnode} The attribute node.
+
+Returns TRUE on success or FALSE on failure.
+
+DOM_NO_MODIFICATION_ALLOWED_ERR Raised if the node is readonly.
+
+DOM_NOT_FOUND_ERROR Raised if {oldnode} is not an attribute of the element.
+
+vim:ft=help:

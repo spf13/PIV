@@ -1,0 +1,9 @@
+ocinewcollection -- Initialize a new collection
+
+  OCI-Collection ocinewcollection(resource connection, string tdo [, string schema])~
+
+This function was renamed to |oci_new_collection| after PHP >= 5.0.0. For
+downward compatibility |ocinewcollection| can also be used. This is
+deprecated, however.
+
+vim:ft=help:

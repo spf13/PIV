@@ -1,0 +1,9 @@
+DOMNode->hasChildNodes() -- Checks if node has children
+
+  bool hasChildNodes()~
+
+This function checks if the node has children.
+
+Returns TRUE on success or FALSE on failure.
+
+vim:ft=help:

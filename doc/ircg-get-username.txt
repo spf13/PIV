@@ -1,0 +1,8 @@
+ircg_get_username -- Get username for connection
+
+  string ircg_get_username(resource connection)~
+
+Function |ircg_get_username| returns the username for the specified connection
+{connection}. Returns FALSE if {connection} died or is not valid.
+
+vim:ft=help:

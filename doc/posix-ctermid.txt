@@ -1,0 +1,8 @@
+posix_ctermid -- Get path name of controlling terminal
+
+  string posix_ctermid()~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

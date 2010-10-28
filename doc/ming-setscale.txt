@@ -1,0 +1,8 @@
+ming_setscale -- Set scale (?)
+
+  void ming_setscale(int scale)~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

@@ -1,0 +1,21 @@
+gmp_or -- Logical OR
+
+  resource gmp_or(resource a, resource b)~
+
+Calculates logical inclusive OR of two GMP numbers.
+
+|gmp_or| example
+
+<?php >
+  $or1 = gmp_or("0xfffffff2", "4");
+  echo gmp_strval($or1, 16) . "\n";
+  $or2 = gmp_or("0xfffffff2", "2");
+  echo gmp_strval($or2, 16) . "\n";
+?>
+
+The printout of the above program will be:
+
+  fffffff6
+  fffffff2
+
+vim:ft=help:

@@ -1,0 +1,10 @@
+stripcslashes -- Un-quote string quoted with addcslashes
+
+  string stripcslashes(string str)~
+
+Returns a string with backslashes stripped off. Recognizes C-like \n, \r ...,
+octal and hexadecimal representation.
+
+See also |addcslashes|.
+
+vim:ft=help:

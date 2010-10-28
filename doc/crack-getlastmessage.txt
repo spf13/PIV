@@ -1,0 +1,16 @@
+crack_getlastmessage -- Returns the message from the last obscure check
+
+  string crack_getlastmessage()~
+
+|crack_getlastmessage| returns the message from the last obscure check.
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+The message from the last obscure check.
+
+|crack_check|
+
+vim:ft=help:

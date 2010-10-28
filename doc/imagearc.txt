@@ -1,0 +1,34 @@
+imagearc -- Draw a partial ellipse
+
+  bool imagearc(resource image, int cx, int cy, int w, int h, int s, int e, int color)~
+
+|imagearc| draws a partial ellipse centered at {cx}, {cy} (top left is 0, 0)
+in the image represented by {image}. {W} and {h} specifies the ellipse's
+width and height respectively while the start and end points are specified in
+degrees indicated by the {s} and {e} arguments. 0&deg; is located at the
+three-o'clock position, and the arc is drawn clockwise.
+
+Drawing a circle with |imagearc|
+
+<?php >
+  // create a 200*200 image
+  $img = imagecreate(200, 200);
+  
+  // allocate some colors
+  $white = imagecolorallocate($img, 255, 255, 255);
+  $black = imagecolorallocate($img, 0, 0, 0);
+     
+  // draw a black circle 
+  imagearc($img, 100, 100, 150, 150, 0, 360, $black);
+  
+  // output image in the browser
+  header("Content-type: image/png");
+  imagepng($img);
+     
+  // free memory
+  imagedestroy($img);
+?>
+
+See also |imageellipse|, |imagefilledellipse|, and |imagefilledarc|.
+
+vim:ft=help:

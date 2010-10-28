@@ -1,0 +1,28 @@
+gmdate -- Format a GMT/UTC date/time
+
+  string gmdate(string format [, int timestamp])~
+
+Identical to the |date| function except that the time returned is Greenwich
+Mean Time (GMT). For example, when run in Finland (GMT +0200), the first line
+below prints "Jan 01 1998 00:00:00", while the second prints "Dec 31 1997
+22:00:00". |gmdate| example
+
+<?php >
+  echo date("M d Y H:i:s", mktime(0, 0, 0, 1, 1, 1998));
+  echo gmdate("M d Y H:i:s", mktime(0, 0, 0, 1, 1, 1998));
+?>
+
+In the Microsoft Windows series of Operating Systems the system libraries
+implementing this function are broken, so |gmdate| does not support negative
+values for the {timestamp}. For details see bug reports: #22620, #22457, and
+#14391.
+
+This problem does not occur in Unix/Linux Operating Systems, as the system
+libraries behave as expected.
+
+PHP cannot fix broken system libraries. Contact your OS vendor for a fix to
+this and similar problems.
+
+See also |date|, |mktime|, |gmmktime| and |strftime|.
+
+vim:ft=help:

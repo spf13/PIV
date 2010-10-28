@@ -1,0 +1,8 @@
+stream_context_set_params -- Set parameters for a stream/wrapper/context
+
+  bool stream_context_set_params(resource stream_or_context, array params)~
+
+{params} should be an associative array of the structure: $params['paramname']
+= "paramvalue";.
+
+vim:ft=help:

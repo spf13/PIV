@@ -1,0 +1,165 @@
+PDOStatement::fetch -- Fetches the next row from a result set
+
+  mixed PDOStatement::fetch([int fetch_style [, int cursor_orientation [, int cursor_offset]]])~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+Fetches a row from a result set associated with a PDOStatement object.
+
+{fetch_style} Controls how the next row will be returned to the caller. This
+value must be one of the PDO_FETCH_* constants, defaulting to PDO_FETCH_BOTH.
+PDO_FETCH_ASSOC: returns an array indexed by column name as returned in your
+result set
+
+PDO_FETCH_BOTH (default): returns an array indexed by both column name and
+column number as returned in your result set
+
+PDO_FETCH_BOUND: returns TRUE and assigns the values of the columns in your
+result set to the PHP variables to which they were bound with the
+|PDOStatement::bindParam| method
+
+PDO_FETCH_LAZY: combines PDO_FETCH_BOTH and PDO_FETCH_OBJ, creating the object
+variable names as they are accessed
+
+PDO_FETCH_OBJ: returns an anonymous object with property names that correspond
+to the column names returned in your result set
+
+PDO_FETCH_NUM: returns an array indexed by column number as returned in your
+result set, starting at column 0
+
+{cursor_orientation} For a PDOStatement object representing a scrollable
+cursor, this value determines which row will be returned to the caller. This
+value must be one of the PDO_FETCH_ORI_* constants, defaulting to
+PDO_FETCH_ORI_NEXT.
+
+{offset} For a PDOStatement object representing a scrollable cursor for which
+the cursor_orientation parameter is set to PDO_FETCH_ORI_ABS, this value
+specifies the absolute number of the row in the result set that shall be
+fetched.
+
+For a PDOStatement object representing a scrollable cursor for which the
+cursor_orientation parameter is set to PDO_FETCH_ORI_REL, this value
+specifies the row to fetch relative to the cursor position before
+|PDOStatement::fetch| was called.
+
+Fetching rows using different fetch styles
+
+<?php >
+  $sth = $dbh->prepare("SELECT name, colour FROM fruit");
+  $sth->execute();
+  
+  /* Exercise PDOStatement::fetch styles */
+  print("PDO_FETCH_ASSOC: ");
+  print("Return next row as an array indexed by column name\n");
+  $result = $sth->fetch(PDO_FETCH_ASSOC);
+  print_r($result);
+  print("\n");
+  
+  print("PDO_FETCH_BOTH: ");
+  print("Return next row as an array indexed by both column name and number\n");
+  $result = $sth->fetch(PDO_FETCH_BOTH);
+  print_r($result);
+  print("\n");
+  
+  print("PDO_FETCH_LAZY: ");
+  print("Return next row as an anonymous object with column names as properties\n");
+  $result = $sth->fetch(PDO_FETCH_LAZY);
+  print_r($result);
+  print("\n");
+  
+  print("PDO_FETCH_OBJ: ");
+  print("Return next row as an anonymous object with column names as properties\n");
+  $result = $sth->fetch(PDO_FETCH_OBJ);
+  print $result->NAME;
+  print("\n");
+?>
+
+The above example will output:
+
+  PDO_FETCH_ASSOC: Return next row as an array indexed by column name
+  Array
+  (
+      [NAME] => apple
+      [COLOUR] => red
+  )
+  
+  PDO_FETCH_BOTH: Return next row as an array indexed by both column name and number
+  Array
+  (
+      [NAME] => banana
+      [0] => banana
+      [COLOUR] => yellow
+      [1] => yellow
+  )
+  
+  PDO_FETCH_LAZY: Return next row as an anonymous object with column names as properties
+  PDORow Object
+  (
+      [NAME] => orange
+      [COLOUR] => orange
+  )
+  
+  PDO_FETCH_OBJ: Return next row as an anonymous object with column names as properties
+  kiwi
+
+Fetching rows with a scrollable cursor
+
+<?php >
+  function readDataForwards($dbh) {
+    $sql = 'SELECT hand, won, bet FROM mynumbers ORDER BY BET';
+    try {
+      $stmt = $dbh->prepare($sql, array(PDO_ATTR_CURSOR, PDO_CURSOR_SCROLL));
+      $stmt->execute();
+      while ($row = $stmt->fetch(PDO_FETCH_NUM, PDO_FETCH_ORI_NEXT)) {
+        $data = $row[0] . "\t" . $row[1] . "\t" . $row[2] . "\n";
+        print $data;
+      }
+      $stmt = null;
+    }
+    catch (PDOException $e) {
+      print $e->getMessage();
+    }
+  }
+  function readDataBackwards($dbh) {
+    $sql = 'SELECT hand, won, bet FROM mynumbers ORDER BY bet';
+    try {
+      $stmt = $dbh->prepare($sql, array(PDO_ATTR_CURSOR, PDO_CURSOR_SCROLL));
+      $stmt->execute();
+      $row = $stmt->fetch(PDO_FETCH_NUM, PDO_FETCH_ORI_LAST);
+      do {
+        $data = $row[0] . "\t" . $row[1] . "\t" . $row[2] . "\n";
+        print $data;
+      } while ($row = $stmt->fetch(PDO_FETCH_NUM, PDO_FETCH_ORI_PRIOR));
+      $stmt = null;
+    }
+    catch (PDOException $e) {
+      print $e->getMessage();
+    }
+  }
+  
+  print "Reading forwards:\n";
+  readDataForwards($conn);
+  
+  print "Reading backwards:\n";
+  readDataBackwards($conn);
+?>
+
+The above example will output:
+
+  Reading forwards:
+  21    10    5
+  16    0     5
+  19    20    10
+  
+  Reading backwards:
+  19    20    10
+  16    0     5
+  21    10    5
+
+|PDO::query| |PDOStatement::fetchAll| |PDOStatement::fetchColumn|
+|PDOStatement::prepare| |PDOStatement::setFetchMode|
+
+vim:ft=help:

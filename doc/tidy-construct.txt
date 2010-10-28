@@ -1,0 +1,56 @@
+tidy::__construct -- Constructs a new tidy object
+
+  tidy tidy::__construct([string filename [, mixed config [, string encoding [, bool use_include_path]]]])~
+
+|tidy::__construct| constructs a new tidy object.
+
+If the {filename} parameter is given, this function will also read that file
+and initialize the object with the file, acting like |tidy_parse_file|.
+
+The {config} parameter can be passed either as an array or as a string. If you
+pass it as a string, it means the name of the configuration file, otherwise it
+is interpreted as the options themselves. Check
+http://tidy.sourceforge.net/docs/quickref.html for an explanation about each
+option.
+
+The {encoding} parameter sets the encoding for input/output documents. The
+possible values for {encoding} are: ascii, latin0, latin1, raw, utf8,
+iso2022, mac, win1252, ibm858, utf16, utf16le, utf16be, big5 and shiftjis.
+
+|tidy::__construct| example
+
+<?php >
+  $html = <<< HTML
+  
+  <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+  
+  <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+  <head><title>title</title></head>
+  <body>
+  <p>paragraph <bt />
+  text</p>
+  </body></html>
+  
+  HTML;
+  
+  $tidy = new tidy;
+  $tidy->parseString($html);
+  
+  $tidy->CleanRepair();
+  
+  if ($tidy->errorBuffer) {
+      echo "The following errors were detected:\n";
+      echo $tidy->errorBuffer;
+  }
+?>
+
+The above example will output:
+
+  The following errors were detected:
+  line 8 column 14 - Error: <bt> is not recognized!
+  line 8 column 14 - Warning: discarding unexpected <bt>
+
+See also |tidy_parse_file| and |tidy_parse_string|.
+
+vim:ft=help:

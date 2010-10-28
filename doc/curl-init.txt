@@ -1,0 +1,29 @@
+curl_init -- Initialize a CURL session
+
+  resource curl_init([string url])~
+
+The |curl_init| will initialize a new session and return a CURL handle for use
+with the |curl_setopt|, |curl_exec|, and |curl_close| functions. If the
+optional {url} parameter is supplied then the CURLOPT_URL option will be set
+to the value of the parameter. You can manually set this using the
+|curl_setopt| function. Initializing a new CURL session and fetching a
+webpage
+
+<?php >
+  // create a new curl resource
+  $ch = curl_init();
+  
+  // set URL and other appropriate options
+  curl_setopt($ch, CURLOPT_URL, "http://www.example.com/");
+  curl_setopt($ch, CURLOPT_HEADER, 0);
+  
+  // grab URL and pass it to the browser
+  curl_exec($ch);
+  
+  // close curl resource, and free up system resources
+  curl_close($ch);
+?>
+
+See also: |curl_close|, |curl_setopt|
+
+vim:ft=help:

@@ -1,0 +1,7 @@
+readline_write_history -- Writes the history
+
+  bool readline_write_history([string filename])~
+
+This function writes the command history to a file.
+
+vim:ft=help:

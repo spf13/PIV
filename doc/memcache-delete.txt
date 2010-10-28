@@ -1,0 +1,28 @@
+Memcache::delete -- Delete item from the server
+
+  bool Memcache::delete(string key [, int timeout])~
+
+|Memcache::delete| deletes item with the {key}. If parameter {timeout} is
+specified, the item will expire after {timeout} seconds.
+
+Also you can use |memcache_delete| function. See example below.
+
+|Memcache::delete| example
+
+<?php >
+  /* procedural API */
+  $memcache_obj = memcache_connect('memcache_host', 11211);
+  
+  /* after 10 seconds item will be deleted by the server */
+  memcache_delete('key_to_delete', 10);
+  
+  /* OO API */
+  $memcache_obj = new Memcache;
+  $memcache_obj->connect('memcache_host', 11211);
+  
+  $memcache_obj->delete('key_to_delete', 10);
+?>
+
+Returns TRUE on success or FALSE on failure.
+
+vim:ft=help:

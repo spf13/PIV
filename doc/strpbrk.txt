@@ -1,0 +1,22 @@
+strpbrk -- Search a string for any of a set of characters
+
+  string strpbrk(string haystack, string char_list)~
+
+|strpbrk| searches the {haystack} string for a {char_list}, and returns a
+string starting from the character found (or FALSE if it is not found).
+
+The {char_list} parameter is case sensitive.
+
+|strpbrk| example
+
+<?php >
+  $text = 'This is a Simple text.';
+  
+  // this echoes "is is a Simple text." because 'i' is matched first
+  echo strpbrk($text, 'mi');
+  
+  // this echoes "Simple text." because chars are case sensitive
+  echo strpbrk($text, 'S');
+?>
+
+vim:ft=help:

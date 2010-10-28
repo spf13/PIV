@@ -1,0 +1,51 @@
+natsort -- Sort an array using a "natural order" algorithm
+
+  bool natsort(array array)~
+
+This function implements a sort algorithm that orders alphanumeric strings in
+the way a human being would while maintaining key/value associations. This is
+described as a "natural ordering". An example of the difference between this
+algorithm and the regular computer string sorting algorithms (used in |sort|)
+can be seen below:
+
+Returns TRUE on success or FALSE on failure.
+
+|natsort| example
+
+<?php >
+  $array1 = $array2 = array("img12.png", "img10.png", "img2.png", "img1.png");
+  
+  sort($array1);
+  echo "Standard sorting\n";
+  print_r($array1);
+  
+  natsort($array2);
+  echo "\nNatural order sorting\n";
+  print_r($array2);
+?>
+
+The above example will output:
+
+  Standard sorting
+  Array
+  (
+      [0] => img1.png
+      [1] => img10.png
+      [2] => img12.png
+      [3] => img2.png
+  )
+  
+  Natural order sorting
+  Array
+  (
+      [3] => img1.png
+      [2] => img2.png
+      [1] => img10.png
+      [0] => img12.png
+  )
+
+For more information see: Martin Pool's Natural Order String Comparison page.
+
+See also |natcasesort|, |strnatcmp|, and |strnatcasecmp|.
+
+vim:ft=help:

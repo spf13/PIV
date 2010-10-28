@@ -1,0 +1,13 @@
+imageantialias -- Should antialias functions be used or not
+
+  bool imageantialias(resource im, bool on)~
+
+This function is currently not documented; only the argument list is
+available.
+
+This function is only available if PHP is compiled with the bundled version of
+the GD library.
+
+See also |imagecreatetruecolor|.
+
+vim:ft=help:

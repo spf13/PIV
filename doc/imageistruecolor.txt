@@ -1,0 +1,11 @@
+imageistruecolor -- Finds whether an image is a truecolor image
+
+  bool imageistruecolor(resource image)~
+
+|imageistruecolor| finds whether the image {image} is a truecolor image.
+
+This function requires GD 2.0.1 or later.
+
+See also |imagecreatetruecolor|.
+
+vim:ft=help:

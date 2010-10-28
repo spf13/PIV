@@ -1,0 +1,11 @@
+fflush -- Flushes the output to a file
+
+  bool fflush(resource handle)~
+
+This function forces a write of all buffered output to the resource pointed to
+by the file handle {handle}. Returns TRUE on success or FALSE on failure.
+
+The file pointer must be valid, and must point to a file successfully opened
+by |fopen| or |fsockopen|.
+
+vim:ft=help:

@@ -1,0 +1,7 @@
+hw_DocByAnchorObj -- Object record object belonging to anchor
+
+  string hw_docbyanchorobj(int connection, int anchorID)~
+
+Returns an th object record of the document to which {anchorID} belongs.
+
+vim:ft=help:

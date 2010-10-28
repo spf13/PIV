@@ -1,0 +1,19 @@
+cpdf_end_text -- Ends text section
+
+  bool cpdf_end_text(int pdf_document)~
+
+The |cpdf_end_text| function ends a text section which was started with
+|cpdf_begin_text|. Returns TRUE on success or FALSE on failure.
+
+Text output
+
+<?php >
+  cpdf_begin_text($pdf);
+  cpdf_set_font($pdf, 16, "Helvetica", "WinAnsiEncoding");
+  cpdf_text($pdf, 100, 100, "Some text");
+  cpdf_end_text($pdf)
+?>
+
+See also |cpdf_begin_text|.
+
+vim:ft=help:

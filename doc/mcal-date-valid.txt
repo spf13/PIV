@@ -1,0 +1,8 @@
+mcal_date_valid -- Returns TRUE if the given year, month, day is a valid date
+
+  bool mcal_date_valid(int year, int month, int day)~
+
+|mcal_date_valid| Returns TRUE if the given year, month and day is a valid
+date, FALSE if not.
+
+vim:ft=help:

@@ -1,0 +1,8 @@
+ifx_nullformat -- Sets the default return value on a fetch row
+
+  void ifx_nullformat(int mode)~
+
+Sets the default return value of a NULL-value on a fetch row. Mode "0" returns
+"", and mode "1" returns "NULL".
+
+vim:ft=help:

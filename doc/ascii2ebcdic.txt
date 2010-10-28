@@ -1,0 +1,16 @@
+ascii2ebcdic -- Translate string from ASCII to EBCDIC
+
+  int ascii2ebcdic(string ascii_str)~
+
+|ascii2ebcdic| is an Apache-specific function which is available only on
+EBCDIC based operating systems (OS/390, BS2000). It translates the ASCII
+encoded string {ascii_str} to its equivalent EBCDIC representation (binary
+safe), and returns the result.
+
+{ascii_str} The ASCII string that will be translated.
+
+The EBCDIC representation of an ASCII string.
+
+|ebcdic2ascii|
+
+vim:ft=help:

@@ -1,0 +1,16 @@
+openal_stream -- Begin streaming on a source
+
+  resource openal_stream(resource source, int format, int rate)~
+
+An Open AL(Source) resource (previously created by |openal_source_create|).
+
+Format of {data}, one of: AL_FORMAT_MONO8, AL_FORMAT_MONO16, AL_FORMAT_STEREO8
+and AL_FORMAT_STEREO16
+
+Frequency of data to stream given in Hz.
+
+Returns a stream resource on success, or FALSE on failure.
+
+|openal_source_create| |fwrite|
+
+vim:ft=help:

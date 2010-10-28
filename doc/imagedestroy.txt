@@ -1,0 +1,8 @@
+imagedestroy -- Destroy an image
+
+  bool imagedestroy(resource image)~
+
+|imagedestroy| frees any memory associated with image {image}. {image} is the
+image identifier returned by the |imagecreate| function.
+
+vim:ft=help:

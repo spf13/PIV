@@ -1,0 +1,44 @@
+ovrimos_fetch_into -- Fetches a row from the result set
+
+  bool ovrimos_fetch_into(int result_id, array result_array [, string how [, int rownumber]])~
+
+|ovrimos_fetch_into| fetches a row from the result set into {result_array},
+which should be passed by reference. Which row is fetched is determined by
+the two last parameters. {how} is one of Next (default), Prev, First, Last,
+Absolute, corresponding to forward direction from current position, backward
+direction from current position, forward direction from the start, backward
+direction from the end and absolute position from the start (essentially
+equivalent to 'first' but needs 'rownumber'). Case is not significant.
+{rownumber} is optional except for absolute positioning. Returns TRUE on
+success or FALSE on failure.
+
+A fetch into example
+
+<?php >
+  $conn=ovrimos_connect("neptune", "8001", "admin", "password");
+  if ($conn!=0) {
+      echo "Connection ok!";
+      $res=ovrimos_exec($conn, "select table_id, table_name from sys.tables");
+      if ($res != 0) {
+          echo "Statement ok!";
+          if (ovrimos_fetch_into($res, &amp;$row)) {
+              list($table_id, $table_name) = $row;
+              echo "table_id=" . $table_id . ", table_name=" . $table_name . "\n";
+              if (ovrimos_fetch_into($res, &amp;$row)) {
+                  list($table_id, $table_name) = $row;
+                  echo "table_id=" . $table_id . ", table_name=" . $table_name . "\n";
+              } else {
+                  echo "Next: error\n";
+              }
+          } else {
+              echo "First: error\n";
+          }
+          ovrimos_free_result($res);
+      }
+      ovrimos_close($conn);
+  }
+?>
+
+This example will fetch a row.
+
+vim:ft=help:

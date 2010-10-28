@@ -1,0 +1,12 @@
+DOMNode->isSameNode() -- Indicates if two nodes are the same node
+
+  bool isSameNode(DOMNode node)~
+
+This function indicates if two nodes are the same node. The comparison is not
+based on content
+
+{node} The compared node.
+
+Returns TRUE on success or FALSE on failure.
+
+vim:ft=help:

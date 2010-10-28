@@ -1,0 +1,56 @@
+mysqli->protocol_version -- Returns the version of the MySQL protocol used
+
+Procedural style:
+
+  int mysqli_get_proto_info(mysqli link)~
+
+Object oriented style (property):
+
+Returns an integer representing the MySQL protocol version used by the
+connection represented by the {link} parameter.
+
+Returns an integer representing the protocol version.
+
+|mysqli_get_host_info|.
+
+Object oriented style
+
+<?php >
+  $mysqli = new mysqli("localhost", "my_user", "my_password");
+  
+  /* check connection */
+  if (mysqli_connect_errno()) {
+      printf("Connect failed: %s\n", mysqli_connect_error());
+      exit();
+  }
+  
+  /* print protocol version */
+  printf("Protocol version: %d\n", $mysqli->protocol_version);
+  
+  /* close connection */
+  $mysqli->close();
+?>
+
+Procedural style
+
+<?php >
+  $link = mysqli_connect("localhost", "my_user", "my_password");
+  
+  /* check connection */
+  if (mysqli_connect_errno()) {
+      printf("Connect failed: %s\n", mysqli_connect_error());
+      exit();
+  }
+  
+  /* print protocol version */
+  printf("Protocol version: %d\n", mysqli_get_proto_info($link));
+  
+  /* close connection */
+  mysqli_close($link);
+?>
+
+The above example will output:
+
+  Protocol version: 10
+
+vim:ft=help:

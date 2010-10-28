@@ -1,0 +1,9 @@
+swf_fontslant -- Set the font slant
+
+  void swf_fontslant(float slant)~
+
+Set the current font slant to the angle indicated by the {slant} parameter.
+Positive values create a forward slant, negative values create a negative
+slant.
+
+vim:ft=help:

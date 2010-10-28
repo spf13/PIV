@@ -1,0 +1,5 @@
+pdf_open_gif -- Deprecated: Opens a GIF image
+
+This function is deprecated, use |pdf_open_image| instead.
+
+vim:ft=help:

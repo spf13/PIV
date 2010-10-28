@@ -1,0 +1,8 @@
+ncurses_color_content -- Gets the RGB value for color
+
+  int ncurses_color_content(int color, int r, int g, int b)~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

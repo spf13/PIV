@@ -1,0 +1,12 @@
+ovrimos_execute -- Executes a prepared SQL statement
+
+  bool ovrimos_execute(int result_id [, array parameters_array])~
+
+|ovrimos_execute| executes a prepared statement. Returns TRUE on success or
+FALSE on failure. If the prepared statement contained parameters (question
+marks in the statement), the correct number of parameters should be passed in
+an array. Notice that I don't follow the PHP convention of placing just the
+name of the optional parameter inside square brackets. I couldn't bring
+myself on liking it.
+
+vim:ft=help:

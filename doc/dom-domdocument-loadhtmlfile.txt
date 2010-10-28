@@ -1,0 +1,27 @@
+DOMDocument->loadHTMLFile() -- Load HTML from a file
+
+  bool loadHTMLFile(string filename)~
+
+The function parses the HTML document in the file named {filename}. Unlike
+loading XML, HTML does not have to be well-formed to load.
+
+This function may also be called statically to load and create a DOMDocument
+object. The static invocation may be used when no DOMDocument properties need
+to be set prior to loading.
+
+{filename} The path to the HTML file.
+
+Returns TRUE on success or FALSE on failure.
+
+Creating a Document
+
+<?php >
+  $doc = DOMDocument::loadHTMLFile("filename.html");
+  print $doc->saveHTML();
+  
+  $doc = new DOMDocument();
+  $doc->loadHTMLFile("filename.html");
+  print $doc->saveHTML();
+?>
+
+vim:ft=help:

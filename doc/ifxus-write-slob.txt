@@ -1,0 +1,9 @@
+ifxus_write_slob -- Writes a string into the slob object
+
+  int ifxus_write_slob(int bid, string content)~
+
+Writes a string into the slob object. {bid} is an existing slob id and
+{content} the content to write. Return FALSE on error otherwise bytes
+written.
+
+vim:ft=help:

@@ -1,0 +1,16 @@
+fam_monitor_directory -- Monitor a directory for changes
+
+  resource fam_monitor_directory(resource fam, string dirname)~
+
+|fam_monitor_directory| requests monitoring for a directory and all contained
+files. A FAM event will be generated whenever the status of the directory
+(i.e. the result of function |stat| on that directory) or its content (i.e.
+the results of |readdir|) change.
+
+The possible event codes are described in detail in the constants part of this
+section.
+
+See also |fam_monitor_file|, |fam_monitor_collection|, |fam_cancel_monitor|,
+|fam_suspend_monitor|, and |fam_resume_monitor|.
+
+vim:ft=help:

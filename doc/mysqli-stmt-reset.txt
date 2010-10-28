@@ -1,0 +1,21 @@
+stmt->reset -- Resets a prepared statement
+
+Procedural style:
+
+  bool mysqli_stmt_reset(mysqli_stmt stmt)~
+
+Object oriented style (method):
+
+  bool reset(mysqli_stmt stmt)~
+
+The |mysqli_stmt_reset| resets a prepared statement on client and server to
+state after prepare. For now this is mainly used to reset data sent with
+|mysqli_stmt_send_long_data|.
+
+To prepare a statement with another query use function |mysqli_stmt_prepare|.
+
+Returns TRUE on success or FALSE on failure.
+
+|mysqli_prepare|.
+
+vim:ft=help:

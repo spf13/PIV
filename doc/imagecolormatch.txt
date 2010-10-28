@@ -1,0 +1,21 @@
+imagecolormatch -- Makes the colors of the palette version of an image more
+closely match the true color version
+
+  bool imagecolormatch(resource image1, resource image2)~
+
+This function is currently not documented; only the argument list is
+available.
+
+{image1} must be Truecolor, {image2} must be Palette, and both {image1} and
+{image2} must be the same size.
+
+Returns TRUE on success or FALSE on failure.
+
+This function is only available if PHP is compiled with the bundled version of
+the GD library.
+
+This function requires GD 2.0.1 or later.
+
+See also |imagecreatetruecolor|.
+
+vim:ft=help:

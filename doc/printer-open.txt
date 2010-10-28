@@ -1,0 +1,21 @@
+printer_open -- Open connection to a printer
+
+  resource printer_open([string devicename])~
+
+This function tries to open a connection to the printer {devicename}, and
+returns a handle on success or FALSE on failure.
+
+If no parameter was given it tries to open a connection to the default printer
+(if not specified in php.ini as printer.default_printer, PHP tries to detect
+it).
+
+|printer_open| also starts a device context.
+
+|printer_open| example
+
+<?php >
+  $handle = printer_open("HP Deskjet 930c");
+  $handle = printer_open();
+?>
+
+vim:ft=help:

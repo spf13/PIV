@@ -1,0 +1,7 @@
+swf_enddoaction -- End the current action
+
+  void swf_enddoaction()~
+
+Ends the current action started by the |swf_startdoaction| function.
+
+vim:ft=help:

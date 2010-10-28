@@ -1,0 +1,11 @@
+ocirollback -- Rolls back outstanding transactions
+
+  bool ocirollback(resource connection)~
+
+|ocirollback| rolls back all outstanding statements for Oracle connection
+{connection}. Returns TRUE on success or FALSE on failure.
+
+This function was renamed to |oci_rollback| after PHP >= 5.0.0. For downward
+compatibility |ocirollback| can also be used. This is deprecated, however.
+
+vim:ft=help:

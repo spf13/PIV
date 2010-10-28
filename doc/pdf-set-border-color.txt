@@ -1,0 +1,8 @@
+pdf_set_border_color -- Sets color of border around links and annotations
+
+  bool pdf_set_border_color(resource pdfdoc, float red, float green, float blue)~
+
+Set the border color for all kinds of annotations. Returns TRUE on success or
+FALSE on failure.
+
+vim:ft=help:

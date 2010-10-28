@@ -1,0 +1,18 @@
+ncurses_cbreak -- Switch of input buffering
+
+  bool ncurses_cbreak()~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+|ncurses_cbreak| disables line buffering and character processing (interrupt
+and flow control characters are unaffected), making characters typed by the
+user immediately available to the program.
+
+|ncurses_cbreak| returns TRUE or NCURSES_ERR if any error occurred.
+
+See also: |ncurses_nocbreak|
+
+vim:ft=help:

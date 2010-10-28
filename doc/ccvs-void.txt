@@ -1,0 +1,8 @@
+ccvs_void -- Perform a full reversal on a completed transaction
+
+  string ccvs_void(string session, string invoice)~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

@@ -1,0 +1,20 @@
+ircg_fetch_error_msg -- Returns the error from previous IRCG operation
+
+  array ircg_fetch_error_msg(resource connection)~
+
+|ircg_fetch_error_msg| returns the error from a failed connection.
+
+Error code is stored in first array element, error text in second. The error
+code is equivalent to IRC reply codes as defined by RFC 2812.
+
+|ircg_fetch_error_msg| example
+
+<?php >
+  if (!ircg_join ($id, "#php")) {
+      $error = ircg_fetch_error_msg($id);
+      echo "Can't join channel #php. Error code: 
+            $error[0] Description: $error[1]";
+  }
+?>
+
+vim:ft=help:

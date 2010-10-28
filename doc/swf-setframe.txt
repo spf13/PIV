@@ -1,0 +1,8 @@
+swf_setframe -- Switch to a specified frame
+
+  void swf_setframe(int framenumber)~
+
+The |swf_setframe| changes the active frame to the frame specified by
+{framenumber}.
+
+vim:ft=help:

@@ -1,0 +1,8 @@
+ccvs_add -- Add data to a transaction
+
+  string ccvs_add(string session, string invoice, string argtype, string argval)~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

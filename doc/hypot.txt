@@ -1,0 +1,9 @@
+hypot -- Calculate the length of the hypotenuse of a right-angle triangle
+
+  float hypot(float x, float y)~
+
+|hypot| returns the length of the hypotenuse of a right-angle triangle with
+sides of length {x} and {y}, or the distance of the point ({x}, {y}) from the
+origin. This is equivalent to sqrt(x*x + y*y).
+
+vim:ft=help:

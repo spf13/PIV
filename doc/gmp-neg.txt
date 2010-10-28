@@ -1,0 +1,21 @@
+gmp_neg -- Negate number
+
+  resource gmp_neg(resource a)~
+
+Returns -{a}.
+
+|gmp_neg| example
+
+<?php >
+  $neg1 = gmp_neg("1"); 
+  echo gmp_strval($neg1) . "\n";
+  $neg2 = gmp_neg("-1");
+  echo gmp_strval($neg2) . "\n";
+?>
+
+The printout of the above program will be:
+
+  -1
+  1
+
+vim:ft=help:

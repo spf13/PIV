@@ -1,0 +1,8 @@
+SimpleXMLIterator::rewind -- Rewind SimpleXML back to the start
+
+  void SimpleXMLIterator::rewind()~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

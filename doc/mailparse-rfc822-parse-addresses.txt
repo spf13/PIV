@@ -1,0 +1,14 @@
+mailparse_rfc822_parse_addresses -- Parse addresses and returns a hash
+containing that data
+
+  array mailparse_rfc822_parse_addresses(string addresses)~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

@@ -1,0 +1,29 @@
+mcrypt_get_block_size -- Get the block size of the specified cipher
+
+  int mcrypt_get_block_size(int cipher)~
+
+  int mcrypt_get_block_size(int cipher, string cipher, string module)~
+
+The first prototype is when linked against libmcrypt 2.2.x, the second when
+linked against libmcrypt 2.4.x or 2.5.x.
+
+|mcrypt_get_block_size| is used to get the size of a block of the specified
+{cipher} (in combination with an encryption mode).
+
+It is more useful to use the |mcrypt_enc_get_block_size| function as this uses
+the resource returned by |mcrypt_module_open|.
+
+This example shows how to use this function when linked against libmcrypt
+2.4.x and 2.5.x. |mcrypt_get_block_size| example
+
+<?php >
+      echo mcrypt_get_block_size('tripledes', 'ecb');
+?>
+  
+  Prints:
+  8
+
+See also: |mcrypt_get_key_size|, |mcrypt_enc_get_block_size| and
+|mcrypt_encrypt|.
+
+vim:ft=help:

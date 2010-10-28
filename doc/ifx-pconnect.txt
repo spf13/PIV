@@ -1,0 +1,24 @@
+ifx_pconnect -- Open persistent Informix connection
+
+  int ifx_pconnect([string database [, string userid [, string password]]])~
+
+Returns: A positive Informix persistent link identifier on success, or FALSE
+on error
+
+|ifx_pconnect| acts very much like |ifx_connect| with two major differences.
+
+This function behaves exactly like |ifx_connect| when PHP is not running as an
+Apache module. First, when connecting, the function would first try to find a
+(persistent) link that's already open with the same host, username and
+password. If one is found, an identifier for it will be returned instead of
+opening a new connection.
+
+Second, the connection to the SQL server will not be closed when the execution
+of the script ends. Instead, the link will remain open for future use
+(|ifx_close| will not close links established by |ifx_pconnect|).
+
+This type of links is therefore called 'persistent'.
+
+See also: |ifx_connect|.
+
+vim:ft=help:

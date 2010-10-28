@@ -1,0 +1,17 @@
+DOMDocument->createProcessingInstruction() -- Creates new PI node
+
+  DOMProcessingInstruction createProcessingInstruction(string target [, string data])~
+
+This function creates a new instance of class DOMProcessingInstruction. This
+node will not show up in the document unless it is inserted with e.g.
+DOMNode->appendChild().
+
+{target} The target of the processing instruction.
+
+{data} The content of the processing instruction.
+
+The new DOMProcessingInstruction or FALSE if an error occured.
+
+DOM_INVALID_CHARACTER_ERR Raised if {target} contains an invalid character.
+
+vim:ft=help:

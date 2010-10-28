@@ -1,0 +1,8 @@
+fribidi_log2vis -- Convert a logical string to a visual one
+
+  string fribidi_log2vis(string str, string direction, int charset)~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

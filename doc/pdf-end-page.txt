@@ -1,0 +1,9 @@
+pdf_end_page -- Ends a page
+
+  bool pdf_end_page(resource pdfdoc)~
+
+Finish the page. Returns TRUE on success or FALSE on failure.
+
+See also |pdf_begin_page|.
+
+vim:ft=help:

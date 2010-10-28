@@ -1,0 +1,29 @@
+printer_draw_line -- Draw a line
+
+  void printer_draw_line(resource printer_handle, int from_x, int from_y, int to_x, int to_y)~
+
+The function simply draws a line from position {from_x}, {from_y} to position
+{to_x}, {to_y} using the selected pen. {printer_handle} must be a valid
+handle to a printer.
+
+|printer_draw_line| example
+
+<?php >
+  $handle = printer_open();
+  printer_start_doc($handle, "My Document");
+  printer_start_page($handle);
+  
+  $pen = printer_create_pen(PRINTER_PEN_SOLID, 30, "000000");
+  printer_select_pen($handle, $pen);
+  
+  printer_draw_line($handle, 1, 10, 1000, 10);
+  printer_draw_line($handle, 1, 60, 500, 60);
+  
+  printer_delete_pen($pen);
+  
+  printer_end_page($handle);
+  printer_end_doc($handle);
+  printer_close($handle);
+?>
+
+vim:ft=help:

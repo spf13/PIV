@@ -1,0 +1,16 @@
+sybase_select_db -- Selects a Sybase database
+
+  bool sybase_select_db(string database_name [, resource link_identifier])~
+
+|sybase_select_db| sets the current active database on the server that's
+associated with the specified link identifier. If no link identifier is
+specified, the last opened link is assumed. If no link is open, the function
+will try to establish a link as if |sybase_connect| was called, and use it.
+
+Returns TRUE on success or FALSE on failure.
+
+Every subsequent call to |sybase_query| will be made on the active database.
+
+See also |sybase_connect|, |sybase_pconnect| and |sybase_query|
+
+vim:ft=help:

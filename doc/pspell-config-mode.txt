@@ -1,0 +1,26 @@
+pspell_config_mode -- Change the mode number of suggestions returned
+
+  bool pspell_config_mode(int dictionary_link, int mode)~
+
+|pspell_config_mode| should be used on a config before calling
+|pspell_new_config|. This function determines how many suggestions will be
+returned by |pspell_suggest|.
+
+The mode parameter is the mode in which spellchecker will work. There are
+several modes available: PSPELL_FAST - Fast mode (least number of
+suggestions)
+
+PSPELL_NORMAL - Normal mode (more suggestions)
+
+PSPELL_BAD_SPELLERS - Slow mode (a lot of suggestions)
+
+|pspell_config_mode|
+
+<?php >
+  $pspell_config = pspell_config_create("en");
+  pspell_config_mode($pspell_config, PSPELL_FAST);
+  $pspell_link = pspell_new_config($pspell_config);
+  pspell_check($pspell_link, "thecat");
+?>
+
+vim:ft=help:

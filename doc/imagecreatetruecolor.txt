@@ -1,0 +1,26 @@
+imagecreatetruecolor -- Create a new true color image
+
+  resource imagecreatetruecolor(int x_size, int y_size)~
+
+|imagecreatetruecolor| returns an image identifier representing a black image
+of size {x_size} by {y_size}.
+
+Creating a new GD image stream and outputting an image.
+
+<?php >
+  header ("Content-type: image/png");
+  $im = @imagecreatetruecolor(50, 100)
+        or die("Cannot Initialize new GD image stream");
+  $text_color = imagecolorallocate($im, 233, 14, 91);
+  imagestring($im, 1, 5, 5,  "A Simple Text String", $text_color);
+  imagepng($im);
+  imagedestroy($im);
+?>
+
+This function requires GD 2.0.1 or later.
+
+This function will not work with GIF file formats.
+
+See also |imagedestroy| and |imagecreate|.
+
+vim:ft=help:

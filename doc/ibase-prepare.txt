@@ -1,0 +1,13 @@
+ibase_prepare -- Prepare a query for later binding of parameter placeholders
+and execution
+
+  resource ibase_prepare(string query)~
+
+  resource ibase_prepare(string query, resource link_identifier, string query)~
+
+  resource ibase_prepare(string query, resource link_identifier, string query, resource link_identifier, string trans, string query)~
+
+Prepare a query for later binding of parameter placeholders and execution (via
+|ibase_execute|).
+
+vim:ft=help:

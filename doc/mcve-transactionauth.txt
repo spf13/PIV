@@ -1,0 +1,9 @@
+mcve_transactionauth -- Get the authorization number returned for the
+transaction (alpha-numeric)
+
+  string mcve_transactionauth(resource conn, int identifier)~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

@@ -1,0 +1,33 @@
+fdf_add_doc_javascript -- Adds javascript code to the FDF document
+
+  bool fdf_add_doc_javascript(resource fdfdoc, string script_name, string script_code)~
+
+Adds a script to the FDF, which Acrobat then adds to the doc-level scripts of
+a document, once the FDF is imported into it. It is strongly suggested to use
+'\r' for linebreaks within {script_code}.
+
+Adding JavaScript code to a FDF
+
+<?php >
+  $fdf = fdf_create();
+  fdf_add_doc_javascript($fdf, "PlusOne", "function PlusOne(x)\r{\r  return x+1;\r}\r");
+  fdf_save($fdf);
+?>
+
+will create a FDF like this:
+
+  %FDF-1.2
+  %‚„œ”
+  1 0 obj
+  << 
+  /FDF << /JavaScript << /Doc [ (PlusOne)(function PlusOne\(x\)\r{\r  return x+1;\r}\r)] >> >> 
+  >> 
+  endobj
+  trailer
+  <<
+  /Root 1 0 R 
+  
+  >>
+  %%EOF
+
+vim:ft=help:

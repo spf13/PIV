@@ -1,0 +1,15 @@
+imagecreatefromgd -- Create a new image from GD file or URL
+
+  resource imagecreatefromgd(string filename)~
+
+This function is currently not documented; only the argument list is
+available.
+
+You can use a URL as a filename with this function if the fopen wrappers have
+been enabled. See |fopen| for more details on how to specify the filename and
+for a list of supported URL protocols.
+
+Windows versions of PHP prior to PHP 4.3.0 do not support accessing remote
+files via this function, even if allow_url_fopen is enabled.
+
+vim:ft=help:

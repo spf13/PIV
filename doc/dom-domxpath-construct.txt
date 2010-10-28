@@ -1,0 +1,7 @@
+DOMXPath->__construct() -- Creates a new DOMXPath object
+
+Creates a new DOMXPath object.
+
+{doc} The DOMDocument associated with the DOMXPath.
+
+vim:ft=help:

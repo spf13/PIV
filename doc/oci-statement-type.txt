@@ -1,0 +1,49 @@
+oci_statement_type -- Returns the type of an OCI statement
+
+  string oci_statement_type(resource statement)~
+
+|oci_statement_type| returns the query type of statement {statement} as one of
+the following values: SELECT
+
+UPDATE
+
+DELETE
+
+INSERT
+
+CREATE
+
+DROP
+
+ALTER
+
+BEGIN
+
+DECLARE
+
+UNKNOWN
+
+Parameter {statement} is a valid OCI statement identifier, returned from
+|oci_parse|.
+
+|oci_statement_type| example
+
+<?php >
+      $conn = oci_connect("scott", "tiger");
+      $sql  = "delete from emp where deptno = 10";
+     
+      $stmt = oci_parse($conn, $sql);
+      if (oci_statement_type($stmt) == "DELETE") {
+          die("You are not allowed to delete from this table<br />");
+      }
+     
+      oci_close($conn);
+?>
+
+|oci_statement_type| returns FALSE on error.
+
+In PHP versions before 5.0.0 you must use |ocistatementtype| instead. This
+name still can be used, it was left as alias of |oci_statement_type| for
+downwards compatability. This, however, is deprecated and not recommended.
+
+vim:ft=help:

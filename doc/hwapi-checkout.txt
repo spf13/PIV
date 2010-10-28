@@ -1,0 +1,17 @@
+hw_api->checkout -- Checks out an object
+
+  bool hw_api->checkout(array parameter)~
+
+This function checks out an object or a whole hierarchy of objects. The
+parameters array contains the required element 'objectIdentifier' and the
+optional element 'version', 'mode' and 'objectQuery'. 'mode' can be one of
+the following values: HW_API_CHECKIN_NORMAL Checks out an object. The object
+must be a document.
+
+HW_API_CHECKIN_RECURSIVE If the object to check out is a collection, all
+children will be checked out recursively if they are documents. Trying to
+check out a collection would result in an error.
+
+See also |hwapi_checkin|.
+
+vim:ft=help:

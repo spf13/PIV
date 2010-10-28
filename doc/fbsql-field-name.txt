@@ -1,0 +1,33 @@
+fbsql_field_name -- Get the name of the specified field in a result
+
+  string fbsql_field_name(resource result [, int field_index])~
+
+|fbsql_field_name| returns the name of the specified field index. {result}
+must be a valid result identifier and {field_index} is the numerical offset
+of the field.
+
+{field_index} starts at 0.
+
+e.g. The index of the third field would actually be 2, the index of the fourth
+field would be 3 and so on.
+
+|fbsql_field_name| example
+
+<?php >
+  // The users table consists of three fields: 
+  //   user_id
+  //   username
+  //   password.
+  
+  $res = fbsql_db_query("users", "select * from users", $link);
+  
+  echo fbsql_field_name($res, 0) . "\n";
+  echo fbsql_field_name($res, 2);
+?>
+
+The above example will output:
+
+  user_id
+  password
+
+vim:ft=help:

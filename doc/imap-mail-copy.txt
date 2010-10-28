@@ -1,0 +1,17 @@
+imap_mail_copy -- Copy specified messages to a mailbox
+
+  bool imap_mail_copy(resource imap_stream, string msglist, string mbox [, int options])~
+
+Copies mail messages specified by {msglist} to specified mailbox. Returns TRUE
+on success or FALSE on failure..
+
+{msglist} is a range not just message numbers (as described in RFC2060).
+
+{options} is a bitmask of one or more of CP_UID - the sequence numbers contain
+UIDS
+
+CP_MOVE - Delete the messages from the current mailbox after copying
+
+See also |imap_mail_move|.
+
+vim:ft=help:

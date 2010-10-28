@@ -1,0 +1,9 @@
+tidyNode->isAsp -- Returns true if this node is ASP
+
+  bool tidyNode->isAsp()~
+
+This functions returns TRUE if the current node is ASP, or FALSE otherwise.
+
+This function was named |tidy_node->is_asp| in PHP 4/Tidy 1.
+
+vim:ft=help:

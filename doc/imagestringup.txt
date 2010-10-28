@@ -1,0 +1,11 @@
+imagestringup -- Draw a string vertically
+
+  bool imagestringup(resource image, int font, int x, int y, string s, int col)~
+
+|imagestringup| draws the string {s} vertically in the image identified by
+{image} at coordinates {x}, {y} (top left is 0, 0) in color {col}. If font is
+1, 2, 3, 4 or 5, a built-in font is used.
+
+See also |imageloadfont|.
+
+vim:ft=help:

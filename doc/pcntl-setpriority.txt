@@ -1,0 +1,17 @@
+pcntl_setpriority -- Change the priority of any process
+
+  bool pcntl_setpriority(int priority [, int pid [, int process_identifier]])~
+
+|pcntl_setpriority| sets the priority of {pid} to {priority}. If {pid} is not
+specified, the pid of the current process is used.
+
+{priority} is generally a value in the range -20 to 20. The default priority
+is 0 while a lower numerical value causes more favorable scheduling. Because
+priority levels can differ between system types and kernel versions, please
+see your system's setpriority(2) man page for specific details.
+
+{process_identifier} is one of PRIO_PGRP, PRIO_USER or PRIO_PROCESS.
+
+Returns TRUE on success or FALSE on failure.
+
+vim:ft=help:

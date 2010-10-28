@@ -1,0 +1,7 @@
+nl2br -- Inserts HTML line breaks before all newlines in a string
+
+  string nl2br(string string)~
+
+Returns {string} with '' inserted before all newlines.
+
+vim:ft=help:

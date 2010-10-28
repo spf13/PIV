@@ -1,0 +1,30 @@
+imap_sort -- Sort an array of message headers
+
+  array imap_sort(resource stream, int criteria, int reverse [, int options [, string search_criteria [, string charset]]])~
+
+Returns an array of message numbers sorted by the given parameters.
+
+{Reverse} is 1 for reverse-sorting.
+
+Criteria can be one (and only one) of the following: SORTDATE - message Date
+
+SORTARRIVAL - arrival date
+
+SORTFROM - mailbox in first From address
+
+SORTSUBJECT - message subject
+
+SORTTO - mailbox in first To address
+
+SORTCC - mailbox in first cc address
+
+SORTSIZE - size of message in octets
+
+The flags are a bitmask of one or more of the following: SE_UID - Return UIDs
+instead of sequence numbers
+
+SE_NOPREFETCH - Don't prefetch searched messages
+
+Parameter {charset} was added in PHP 4.3.3.
+
+vim:ft=help:

@@ -1,0 +1,9 @@
+ldap_unbind -- Unbind from LDAP directory
+
+  bool ldap_unbind(resource link_identifier)~
+
+Returns TRUE on success or FALSE on failure.
+
+|ldap_unbind| function unbinds from the LDAP directory.
+
+vim:ft=help:

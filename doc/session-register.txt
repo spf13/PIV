@@ -1,0 +1,35 @@
+session_register -- Register one or more global variables with the current
+session
+
+  bool session_register(mixed name [, mixed ...])~
+
+|session_register| accepts a variable number of arguments, any of which can be
+either a string holding the name of a variable or an array consisting of
+variable names or other arrays. For each name, |session_register| registers
+the global variable with that name in the current session.
+
+If you want your script to work regardless of register_globals, you need to
+instead use the $_SESSION array as $_SESSION entries are automatically
+registered. If your script uses |session_register|, it will not work in
+environments where the PHP directive register_globals is disabled.
+
+Since PHP 4.2.0, the default value for the PHP directive register_globals is
+off. The PHP community encourages all to not rely on this directive but
+instead use other means, such as the superglobals.
+
+This registers a global variable. If you want to register a session variable
+from within a function, you need to make sure to make it global using the
+global keyword or the $GLOBALS[] array, or use the special session arrays as
+noted below.
+
+If you are using $_SESSION (or $HTTP_SESSION_VARS), do not use
+|session_register|, |session_is_registered|, and |session_unregister|.
+
+This function returns TRUE when all of the variables are successfully
+registered with the session.
+
+If |session_start| was not called before this function is called, an implicit
+call to |session_start| with no parameters will be made. $_SESSION does not
+mimic this behavior and requires |session_start| before use.
+
+vim:ft=help:

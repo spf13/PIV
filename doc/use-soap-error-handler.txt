@@ -1,0 +1,9 @@
+use_soap_error_handler -- Set whether to use the SOAP error handler and return
+the former value
+
+  bool use_soap_error_handler([bool handler])~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

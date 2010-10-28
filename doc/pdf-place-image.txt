@@ -1,0 +1,8 @@
+pdf_place_image -- Places an image on the page
+
+  bool pdf_place_image(resource pdfdoc, int image, float x, float y, float scale)~
+
+Place an image with the lower left corner at ({x}, {y}), and scale it. Returns
+TRUE on success or FALSE on failure.
+
+vim:ft=help:

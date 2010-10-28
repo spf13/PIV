@@ -1,0 +1,18 @@
+imagecreatefromgd2part -- Create a new image from a given part of GD2 file or
+URL
+
+  resource imagecreatefromgd2part(string filename, int srcX, int srcY, int width, int height)~
+
+This function is currently not documented; only the argument list is
+available.
+
+This function requires GD 2.0.1 or later.
+
+You can use a URL as a filename with this function if the fopen wrappers have
+been enabled. See |fopen| for more details on how to specify the filename and
+for a list of supported URL protocols.
+
+Windows versions of PHP prior to PHP 4.3.0 do not support accessing remote
+files via this function, even if allow_url_fopen is enabled.
+
+vim:ft=help:

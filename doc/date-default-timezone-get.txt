@@ -1,0 +1,22 @@
+date_default_timezone_get -- Gets the default timezone used by all date/time
+functions in a script
+
+  string date_default_timezone_get()~
+
+This functions returns the default timezone, using the following "guess"
+order: The timezone set using the |date_default_timezone_set| function (if
+any)
+
+The TZ environment variable (if non empty)
+
+The date.timezone ini option (if set)
+
+"magical" guess (if the operating system supports it)
+
+If none of the above options succeeds, falback to UTC
+
+Returns a string.
+
+|date_default_timezone_set|
+
+vim:ft=help:

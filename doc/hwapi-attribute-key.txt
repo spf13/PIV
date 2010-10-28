@@ -1,0 +1,9 @@
+hw_api_attribute->key -- Returns key of the attribute
+
+  string hw_api_attribute->key()~
+
+Returns the name of the attribute.
+
+See also |hwapi_attribute_value|.
+
+vim:ft=help:

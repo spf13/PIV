@@ -1,0 +1,23 @@
+mysqli_debug -- Performs debugging operations
+
+  bool mysqli_debug(string debug)~
+
+The |mysqli_debug| function is used to perform debugging operations using the
+Fred Fish debugging library. The {debug} parameter is a string representing
+the debugging operation to perform.
+
+To use the |mysqli_debug| function you must complile the MySQL client library
+to support debugging.
+
+|mysqli_debug| doesn't return any value.
+
+|mysqli_dump_debug_info| and |mysqli_report|.
+
+Generating a Trace File
+
+<?php >
+  /* Create a trace file in '/tmp/client.trace' on the local (client) machine: */
+  mysqli_debug("d:t:0,/tmp/client.trace");
+?>
+
+vim:ft=help:

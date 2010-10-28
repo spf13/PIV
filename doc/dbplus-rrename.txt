@@ -1,0 +1,12 @@
+dbplus_rrename -- Rename a relation
+
+  int dbplus_rrename(resource relation, string name)~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+|dbplus_rrename| will change the name of {relation} to {name}.
+
+vim:ft=help:

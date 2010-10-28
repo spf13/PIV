@@ -1,0 +1,36 @@
+mysql_info -- Get information about the most recent query
+
+  string mysql_info([resource link_identifier])~
+
+Returns detailed information about the last query.
+
+{ link_identifier}The MySQL connection. If the link identifier is not
+specified, the last link opened by |mysql_connect| is assumed. If no such
+link is found, it will try to create one as if |mysql_connect| was called
+with no arguments. If by chance no connection is found or established, an
+E_WARNING level warning is generated.
+
+Returns information about the statement on success, or FALSE on failure. See
+the example below for which statements provide information, and what the
+returned value may look like. Statements that aren't listed will return FALSE
+
+Relevant MySQL Statements Statements that return string values. The numbers
+are only for illustrating purpose; their values will correspond to the query.
+
+  INSERT INTO ... SELECT ...
+  String format: Records: 23 Duplicates: 0 Warnings: 0 
+  INSERT INTO ... VALUES (...),(...),(...)...
+  String format: Records: 37 Duplicates: 0 Warnings: 0 
+  LOAD DATA INFILE ...
+  String format: Records: 42 Deleted: 0 Skipped: 0 Warnings: 0 
+  ALTER TABLE
+  String format: Records: 60 Duplicates: 0 Warnings: 0 
+  UPDATE
+  String format: Rows matched: 65 Changed: 65 Warnings: 0
+
+|mysql_info| returns a non-FALSE value for the INSERT ... VALUES statement
+only if multiple value lists are specified in the statement.
+
+|mysql_affected_rows| |mysql_insert_id| |mysql_stat|
+
+vim:ft=help:

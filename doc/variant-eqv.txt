@@ -1,0 +1,8 @@
+variant_eqv -- Performs a bitwise equivalence on two variants
+
+  mixed variant_eqv(mixed left, mixed right)~
+
+If each bit in {left} is equal to the corresponding bit in {right} then TRUE
+is returned, otherwise FALSE is returned.
+
+vim:ft=help:

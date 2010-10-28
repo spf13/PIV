@@ -1,0 +1,18 @@
+ocinlogon -- Establishes a new connection to Oracle
+
+  resource ocinlogon(string username, string password [, string db [, string charset]])~
+
+|ocinlogon| creates a new connection to an Oracle 8 database and logs on. The
+optional third parameter can either contain the name of the local Oracle
+instance or the name of the entry in tnsnames.ora to which you want to
+connect. If the optional third parameter is not specified, PHP uses the
+environment variables ORACLE_SID (Oracle instance) or TWO_TASK (tnsnames.ora)
+to determine which database to connect to.
+
+|ocinlogon| forces a new connection. This should be used if you need to
+isolate a set of transactions. By default, connections are shared at the page
+level if using |ocilogon| or at the web server process level if using
+|ociplogon|. If you have multiple connections open using |ocinlogon|, all
+commits and rollbacks apply to the specified connection only.
+
+vim:ft=help:

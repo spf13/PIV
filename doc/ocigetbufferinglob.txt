@@ -1,0 +1,10 @@
+lob->getBuffering -- Returns current state of buffering for large object
+
+  bool lob->getBuffering()~
+
+Returns FALSE if buffering for the large object is off and TRUE if buffering
+is used.
+
+See also |ocisetbufferinglob|.
+
+vim:ft=help:

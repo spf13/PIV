@@ -1,0 +1,40 @@
+mt_rand -- Generate a better random value
+
+  int mt_rand([int min, int max])~
+
+Many random number generators of older libcs have dubious or unknown
+characteristics and are slow. By default, PHP uses the libc random number
+generator with the |rand| function. The |mt_rand| function is a drop-in
+replacement for this. It uses a random number generator with known
+characteristics using the Mersenne Twister, which will produce random numbers
+four times faster than what the average libc rand() provides.
+
+If called without the optional {min}, {max} arguments |mt_rand| returns a
+pseudo-random value between 0 and RAND_MAX. If you want a random number
+between 5 and 15 (inclusive), for example, use mt_rand (5, 15).
+
+|mt_rand| example
+
+<?php >
+  echo mt_rand() . "\n";
+  echo mt_rand() . "\n";
+  
+  echo mt_rand(5, 15);
+?>
+
+The above example will output something similar to:
+
+  1604716014
+  1478613278
+  6
+
+As of PHP 4.2.0, there is no need to seed the random number generator with
+|srand| or |mt_srand| as this is now done automatically.
+
+In versions before 3.0.7 the meaning of {max} was {range}. To get the same
+results in these versions the short example should be mt_rand (5, 11) to get
+a random number between 5 and 15.
+
+See also: |mt_srand|, |mt_getrandmax|, and |rand|.
+
+vim:ft=help:

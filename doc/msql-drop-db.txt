@@ -1,0 +1,17 @@
+msql_drop_db -- Drop (delete) mSQL database
+
+  bool msql_drop_db(string database_name [, resource link_identifier])~
+
+|msql_drop_db| attempts to drop (remove) a database from the mSQL server.
+
+{database_name} The name of the database.
+
+{ link_identifier}The mSQL connection. If not specified, the last link opened
+by |msql_connect| is assumed. If no such link is found, the function will try
+to establish a link as if |msql_connect| was called, and use it.
+
+Returns TRUE on success or FALSE on failure.
+
+|msql_create_db|
+
+vim:ft=help:

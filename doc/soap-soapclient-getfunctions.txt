@@ -1,0 +1,18 @@
+SoapClient->__getFunctions() -- Returns list of SOAP functions
+
+  array __getFunctions()~
+
+Returns the list of SOAP functions.
+
+This function works only in WSDL mode.
+
+The list of SOAP functions.
+
+SoapClient->__getFunctions() example
+
+<?php >
+  $client = SoapClient("some.wsdl");
+  var_dump($client->__getFunctions());
+?>
+
+vim:ft=help:

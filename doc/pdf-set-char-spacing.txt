@@ -1,0 +1,5 @@
+pdf_set_char_spacing -- Deprecated: Sets character spacing
+
+This function is deprecated, use |pdf_set_value| instead.
+
+vim:ft=help:

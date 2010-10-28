@@ -1,0 +1,8 @@
+mcve_getuserparam -- Get a user response parameter
+
+  string mcve_getuserparam(resource conn, int identifier, int key)~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

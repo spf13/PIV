@@ -1,0 +1,24 @@
+readfile -- Outputs a file
+
+  int readfile(string filename [, bool use_include_path [, resource context]])~
+
+Reads a file and writes it to the output buffer.
+
+Returns the number of bytes read from the file. If an error occurs, FALSE is
+returned and unless the function was called as @|readfile|, an error message
+is printed.
+
+You can use a URL as a filename with this function if the fopen wrappers have
+been enabled. See |fopen| for more details on how to specify the filename and
+for a list of supported URL protocols.
+
+You can use the optional second parameter and set it to TRUE, if you want to
+search for the file in the include_path, too.
+
+Context support was added with PHP 5.0.0. For a description of contexts, refer
+to .
+
+See also |fpassthru|, |file|, |fopen|, |include|, |require|, |virtual|,
+|file_get_contents|, and .
+
+vim:ft=help:

@@ -1,0 +1,13 @@
+hw_Document_BodyTag -- Body tag of hw_document
+
+  string hw_document_bodytag(int hw_document [, string prefix])~
+
+Returns the BODY tag of the document. If the document is an HTML document the
+BODY tag should be printed before the document.
+
+See also |hw_document_attributes|, and |hw_document_size|.
+
+For backward compatibility, |hw_documentbodytag| is also accepted. This is
+deprecated, however.
+
+vim:ft=help:

@@ -1,0 +1,22 @@
+snmp_get_quick_print -- Fetches the current value of the UCD library's
+quick_print setting
+
+  bool snmp_get_quick_print()~
+
+Returns the current value stored in the UCD Library for quick_print.
+quick_print is off by default. |snmp_get_quick_print| example
+
+<?php >
+    $quickprint = snmp_get_quick_print();
+?>
+
+Above function call would return FALSE if quick_print is off, and TRUE if
+quick_print is on.
+
+|snmp_get_quick_print| is only available when using the UCD SNMP library. This
+function is not available when using the Windows SNMP library.
+
+See also |snmp_set_quick_print| for a full description of what quick_print
+does.
+
+vim:ft=help:

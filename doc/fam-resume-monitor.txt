@@ -1,0 +1,10 @@
+fam_resume_monitor -- Resume suspended monitoring
+
+  bool fam_resume_monitor(resource fam, resource fam_monitor)~
+
+|fam_resume_monitor| resumes monitoring of a resource previously suspend using
+|fam_suspend_monitor|.
+
+See also |fam_suspend_monitor|.
+
+vim:ft=help:

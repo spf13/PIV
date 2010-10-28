@@ -1,0 +1,18 @@
+w32api_deftype -- Defines a type for use with other w32api_functions
+
+  bool w32api_deftype(string typename, string member1_type, string member1_name [, string ... [, string ...]])~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+If you would like to define a type for a w32api call, you need to call
+|w32api_deftype|. This function takes 2n+1 arguments, where n is the number
+of members the type has. The first argument is the name of the type. After
+that is the type of the member followed by the members name (in pairs). A
+member type can be a user defined type. All the type names are case
+sensitive. Built in type names should be provided in lowercase. Returns TRUE
+on success or FALSE on failure.
+
+vim:ft=help:

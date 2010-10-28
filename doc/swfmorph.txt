@@ -1,0 +1,69 @@
+SWFMorph -- Creates a new SWFMorph object
+
+  SWFMorph swfmorph()~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+|swfmorph| creates a new SWFMorph object.
+
+Also called a "shape tween". This thing lets you make those tacky twisting
+things that make your computer choke. Oh, joy!
+
+The methods here are sort of weird. It would make more sense to just have
+newSWFMorph(shape1, shape2);, but as things are now, shape2 needs to know
+that it's the second part of a morph. (This, because it starts writing its
+output as soon as it gets drawing commands- if it kept its own description of
+its shapes and wrote on completion this and some other things would be much
+easier.)
+
+SWFMorph has the following methods : |swfmorph->getshape1| and
+|swfmorph->getshape1|.
+
+This simple example will morph a big red square into a smaller blue
+black-bordered square. |swfmorph| example
+
+<?php >
+    $p = new SWFMorph();
+  
+    $s = $p->getShape1();
+    $s->setLine(0, 0, 0, 0);
+  
+    /* Note that this is backwards from normal shapes (left instead of right).
+       I have no idea why, but this seems to work.. */
+  
+    $s->setLeftFill($s->addFill(0xff, 0, 0));
+    $s->movePenTo(-1000,-1000);
+    $s->drawLine(2000,0);
+    $s->drawLine(0,2000);
+    $s->drawLine(-2000,0);
+    $s->drawLine(0,-2000);
+  
+    $s = $p->getShape2();
+    $s->setLine(60,0,0,0);
+    $s->setLeftFill($s->addFill(0, 0, 0xff));
+    $s->movePenTo(0,-1000);
+    $s->drawLine(1000,1000);
+    $s->drawLine(-1000,1000);
+    $s->drawLine(-1000,-1000);
+    $s->drawLine(1000,-1000);
+  
+    $m = new SWFMovie();
+    $m->setDimension(3000,2000);
+    $m->setBackground(0xff, 0xff, 0xff);
+  
+    $i = $m->add($p);
+    $i->moveTo(1500,1000);
+  
+    for ($r=0.0; $r<=1.0; $r+=0.1) {
+      $i->setRatio($r);
+      $m->nextFrame();
+    }
+  
+    header('Content-type: application/x-shockwave-flash');
+    $m->output();
+?>
+
+vim:ft=help:

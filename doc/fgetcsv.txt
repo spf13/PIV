@@ -1,0 +1,55 @@
+fgetcsv -- Gets line from file pointer and parse for CSV fields
+
+  array fgetcsv(resource handle [, int length [, string delimiter [, string enclosure]]])~
+
+{handle} A valid file pointer to a file successfully opened by |fopen|,
+|popen|, or |fsockopen|.
+
+{length} (Optional) Must be greater than the longest line (in characters) to
+be found in the CSV file (allowing for trailing line-end characters). It
+became optional in PHP 5. Omitting this parameter (or setting it to 0 in PHP
+5.0.4 and later) the maximum line length is not limited, which is slightly
+slower.
+
+{delimiter} (Optional) Set the field delimiter (one character only). Defaults
+as a comma.
+
+{enclosure} (Optional) Set the field enclosure character (one character only).
+Defaults as a double quotation mark. Added in PHP 4.3.0.
+
+Similar to |fgets| except that |fgetcsv| parses the line it reads for fields
+in CSV format and returns an array containing the fields read.
+
+|fgetcsv| returns FALSE on error, including end of file.
+
+A blank line in a CSV file will be returned as an array comprising a single
+null field, and will not be treated as an error.
+
+Read and print the entire contents of a CSV file
+
+<?php >
+  $row = 1;
+  $handle = fopen("test.csv", "r");
+  while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+      $num = count($data);
+      echo "<p> $num fields in line $row: <br /></p>\n";
+      $row++;
+      for ($c=0; $c < $num; $c++) {
+          echo $data[$c] . "<br />\n";
+      }
+  }
+  fclose($handle);
+?>
+
+|fgetcsv| has been binary safe since PHP 4.3.5
+
+Locale setting is taken into account by this function. If LANG is e.g.
+en_US.UTF-8, files in one-byte encoding are read wrong by this function.
+
+If you are having problems with PHP not recognizing the line endings when
+reading files either on or created by a Macintosh computer, you might want to
+enable the auto_detect_line_endings run-time configuration option.
+
+See also |explode|, |file|, |pack| and |fputcsv|.
+
+vim:ft=help:

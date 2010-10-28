@@ -1,0 +1,10 @@
+pdf_add_pdflink -- Adds file link annotation for current page
+
+  bool pdf_add_pdflink(resource pdfdoc, float bottom_left_x, float bottom_left_y, float up_right_x, float up_right_y, string filename, int page, string dest)~
+
+Add a file link annotation (to a PDF target). Returns TRUE on success or FALSE
+on failure.
+
+See also |pdf_add_locallink| and |pdf_add_weblink|.
+
+vim:ft=help:

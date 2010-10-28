@@ -1,0 +1,8 @@
+swf_popmatrix -- Restore a previous transformation matrix
+
+  void swf_popmatrix()~
+
+The |swf_popmatrix| function pushes the current transformation matrix back
+onto the stack.
+
+vim:ft=help:

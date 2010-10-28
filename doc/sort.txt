@@ -1,0 +1,52 @@
+sort -- Sort an array
+
+  bool sort(array array [, int sort_flags])~
+
+This function sorts an array. Elements will be arranged from lowest to highest
+when this function has completed.
+
+This function assigns new keys for the elements in {array}. It will remove any
+existing keys you may have assigned, rather than just reordering the keys.
+
+Returns TRUE on success or FALSE on failure.
+
+|sort| example
+
+<?php >
+  $fruits = array("lemon", "orange", "banana", "apple");
+  sort($fruits);
+  foreach ($fruits as $key => $val) {
+      echo "fruits[" . $key . "] = " . $val . "\n";
+  }
+?>
+
+The above example will output:
+
+  fruits[0] = apple
+  fruits[1] = banana
+  fruits[2] = lemon
+  fruits[3] = orange
+
+The fruits have been sorted in alphabetical order.
+
+The optional second parameter {sort_flags} may be used to modify the sorting
+behavior using these values:
+
+Sorting type flags: SORT_REGULAR - compare items normally (don't change types)
+
+SORT_NUMERIC - compare items numerically
+
+SORT_STRING - compare items as strings
+
+SORT_LOCALE_STRING - compare items as strings, based on the current locale.
+Added in PHP 4.4.0 and 5.0.2.
+
+The second parameter was added in PHP 4.
+
+Be careful when sorting arrays with mixed types values because |sort| can
+produce unpredictable results.
+
+See also |arsort|, |asort|, |ksort|, |natsort|, |natcasesort|, |rsort|,
+|usort|, |array_multisort|, and |uksort|.
+
+vim:ft=help:

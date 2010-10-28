@@ -1,0 +1,11 @@
+cal_to_jd -- Converts from a supported calendar to Julian Day Count
+
+  int cal_to_jd(int calendar, int month, int day, int year)~
+
+|cal_to_jd| calculates the Julian day count for a date in the specified
+{calendar}. Supported {calendar}s are CAL_GREGORIAN, CAL_JULIAN, CAL_JEWISH
+and CAL_FRENCH.
+
+See also |cal_from_jd|.
+
+vim:ft=help:

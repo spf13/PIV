@@ -1,0 +1,9 @@
+xslt_getopt -- Get options on a given xsl processor
+
+  int xslt_getopt(resource processor)~
+
+|xslt_getopt| returns the options on the given {processor}.
+
+|xslt_setopt|.
+
+vim:ft=help:

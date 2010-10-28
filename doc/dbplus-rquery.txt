@@ -1,0 +1,14 @@
+dbplus_rquery -- Perform local (raw) AQL query
+
+  resource dbplus_rquery(string query [, string dbpath])~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+|dbplus_rquery| performs a local (raw) AQL query using an AQL interpreter
+embedded into the db++ client library. |dbplus_rquery| is faster than
+|dbplus_aql| but will work on local data only.
+
+vim:ft=help:

@@ -1,0 +1,28 @@
+checkdate -- Validate a Gregorian date
+
+  bool checkdate(int month, int day, int year)~
+
+Returns TRUE if the date given is valid; otherwise returns FALSE. Checks the
+validity of the date formed by the arguments. A date is considered valid if:
+year is between 1 and 32767 inclusive
+
+month is between 1 and 12 inclusive
+
+{Day} is within the allowed number of days for the given {month}. Leap {year}s
+are taken into consideration.
+
+|checkdate| example
+
+<?php >
+  var_dump(checkdate(12, 31, 2000));
+  var_dump(checkdate(2, 29, 2001));
+?>
+
+The above example will output:
+
+  bool(true)
+  bool(false)
+
+See also |mktime| and |strtotime|.
+
+vim:ft=help:

@@ -1,0 +1,16 @@
+mailparse_uudecode_all -- Scans the data from fp and extract each embedded
+uuencoded file
+
+  array mailparse_uudecode_all(resource fp)~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+This function is currently not documented; only the argument list is
+available.
+
+Returns an array listing filename information.
+
+vim:ft=help:

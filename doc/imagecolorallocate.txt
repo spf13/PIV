@@ -1,0 +1,32 @@
+imagecolorallocate -- Allocate a color for an image
+
+  int imagecolorallocate(resource image, int red, int green, int blue)~
+
+|imagecolorallocate| returns a color identifier representing the color
+composed of the given RGB components. The {image} argument is the return from
+the |imagecreate| function. {red}, {green} and {blue} are the values of the
+red, green and blue component of the requested color respectively. These
+parameters are integers between 0 and 255 or hexadecimals between 0x00 and
+0xFF. |imagecolorallocate| must be called to create each color that is to be
+used in the image represented by {image}.
+
+The first call to |imagecolorallocate| fills the background color.
+
+<?php >
+  // sets background to red
+  $background = imagecolorallocate($im, 255, 0, 0);
+  
+  // sets some colors
+  $white = imagecolorallocate($im, 255, 255, 255);
+  $black = imagecolorallocate($im, 0, 0, 0);
+  
+  // hexadecimal way
+  $white = imagecolorallocate($im, 0xFF, 0xFF, 0xFF);
+  $black = imagecolorallocate($im, 0x00, 0x00, 0x00);
+?>
+
+Returns -1 if the allocation failed.
+
+See also |imagecolorallocatealpha| and |imagecolordeallocate|.
+
+vim:ft=help:

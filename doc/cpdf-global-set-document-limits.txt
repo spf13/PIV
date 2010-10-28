@@ -1,0 +1,12 @@
+cpdf_global_set_document_limits -- Sets document limits for any pdf document
+
+  bool cpdf_global_set_document_limits(int maxpages, int maxfonts, int maximages, int maxannotations, int maxobjects)~
+
+The |cpdf_global_set_document_limits| function sets several document limits.
+This function has to be called before |cpdf_open| to take effect. It sets the
+limits for any document open afterwards. Returns TRUE on success or FALSE on
+failure.
+
+See also |cpdf_open|.
+
+vim:ft=help:

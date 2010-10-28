@@ -1,0 +1,11 @@
+fdf_save -- Save a FDF document
+
+  bool fdf_save(resource fdf_document [, string filename])~
+
+The |fdf_save| function saves a FDF document. The resulting FDF will be
+written to {filename}. Without a {filename} |fdf_save| will write the FDF to
+the default PHP output stream.
+
+See also |fdf_save_string|, |fdf_create| and |fdf_close|.
+
+vim:ft=help:

@@ -1,0 +1,18 @@
+log1p -- Returns log(1 + number), computed in a way that is accurate even when
+the value of number is close to zero
+
+  float log1p(float number)~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+|log1p| returns log(1 + {number}) computed in a way that is accurante even
+when the value of {number} is close to zero.
+
+This function is not implemented on Windows platforms.
+
+See also |expm1| and |log|.
+
+vim:ft=help:

@@ -1,0 +1,8 @@
+pdf_add_weblink -- Adds weblink for current page
+
+  bool pdf_add_weblink(resource pdfdoc, float lowerleftx, float lowerlefty, float upperrightx, float upperrighty, string url)~
+
+Add a weblink annotation to a target {url} on the Web. Returns TRUE on success
+or FALSE on failure.
+
+vim:ft=help:

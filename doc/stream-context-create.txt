@@ -1,0 +1,34 @@
+stream_context_create -- Create a streams context
+
+  resource stream_context_create([array options])~
+
+Creates and returns a stream context with any options supplied in {options}
+preset.
+
+{options} must be an associative array of associative arrays in the format
+$arr['wrapper']['option'] = $value. It defaults to an empty array.
+
+Using |stream_context_create|
+
+<?php >
+  $opts = array(
+    'http'=>array(
+      'method'=>"GET",
+      'header'=>"Accept-language: en\r\n" . 
+                "Cookie: foo=bar\r\n"
+    )
+  );
+  
+  $context = stream_context_create($opts);
+  
+  /* Sends an http request to www.example.com
+     with additional headers shown above */
+  $fp = fopen('http://www.example.com', 'r', false, $context);
+  fpassthru($fp);
+  fclose($fp);
+?>
+
+See also |stream_context_set_option|, and Listing of supported wrappers with
+context options ().
+
+vim:ft=help:

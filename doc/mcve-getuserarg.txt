@@ -1,0 +1,8 @@
+mcve_getuserarg -- Grab a value from usersetup structure
+
+  string mcve_getuserarg(resource usersetup, int argtype)~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

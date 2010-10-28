@@ -1,0 +1,19 @@
+rar_entry_get -- Get entry object from the Rar archive
+
+  RarEntry rar_entry_get(resource rar_file, string entry_name)~
+
+Get entry object from the Rar archive.
+
+|Rar::| example
+
+<?php >
+  $rar_file = rar_open('example.rar') or die("Failed to open Rar archive");
+  
+  $entry = rar_entry_get($rar_file, 'Dir/file.txt') or die("Failed to find such entry");
+  
+  print_r($entry);
+?>
+
+|rar_get_entry| returns entry object or FALSE on error.
+
+vim:ft=help:

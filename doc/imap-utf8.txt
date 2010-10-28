@@ -1,0 +1,8 @@
+imap_utf8 -- Converts MIME-encoded text to UTF-8
+
+  string imap_utf8(string mime_encoded_text)~
+
+Converts the given {mime_encoded_text} to UTF-8. MIME encoding method and the
+UTF-8 specification are described in RFC2047 and RFC2044 respectively.
+
+vim:ft=help:

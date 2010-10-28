@@ -1,0 +1,26 @@
+fbsql_errno -- Returns the numerical value of the error message from previous
+FrontBase operation
+
+  int fbsql_errno([resource link_identifier])~
+
+Returns the error number from the last fbsql function, or 0 (zero) if no error
+occurred.
+
+Errors coming back from the fbsql database backend don't issue warnings.
+Instead, use |fbsql_errno| to retrieve the error code. Note that this
+function only returns the error code from the most recently executed fbsql
+function (not including |fbsql_error| and |fbsql_errno|), so if you want to
+use it, make sure you check the value before calling another fbsql function.
+
+<?php >
+  fbsql_connect("marliesle");
+  echo fbsql_errno() . ": " . fbsql_error() . "<br />";
+  fbsql_select_db("nonexistentdb");
+  echo fbsql_errno() . ": " . fbsql_error() . "<br />";
+  $conn = fbsql_query("SELECT * FROM nonexistenttable;");
+  echo fbsql_errno() . ": " . fbsql_error() . "<br />";
+?>
+
+See also: |fbsql_error| and |fbsql_warnings|.
+
+vim:ft=help:

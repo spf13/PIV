@@ -1,0 +1,23 @@
+stmt->send_long_data -- Send data in blocks
+
+Procedural style:
+
+  bool mysqli_stmt_send_long_data(mysqli_stmt stmt, int param_nr, string data)~
+
+Object oriented style (method)
+
+  bool send_long_data(mysqli_stmt stmt, int param_nr, string data, int param_nr, string data)~
+
+Allows to send parameter data to the server in pieces (or chunks), e.g. if the
+size of a blob exceeds the size of max_allowed_packet. This function can be
+called multiple times to send the parts of a character or binary data value
+for a column, which must be one of the TEXT or BLOB datatypes.
+
+{param_nr} indicates which parameter to associate the data with. Parameters
+are numbered beginning with 0. {data} is a string containing data to be sent.
+
+Returns TRUE on success or FALSE on failure.
+
+|mysqli_prepare| and |mysqli_stmt_bind_param|.
+
+vim:ft=help:

@@ -1,0 +1,26 @@
+bcpowmod -- Raise an arbitrary precision number to another, reduced by a
+specified modulus
+
+  string bcpowmod(string x, string y, string modulus [, int scale])~
+
+Use the fast-exponentiation method to raise {x} to the power {y} with respect
+to the modulus {modulus}. The optional {scale} can be used to set the number
+of digits after the decimal place in the result.
+
+Because this method uses the modulus operation, non-natural numbers may give
+unexpected results. A natural number is any positive non-zero integer.
+
+The following two statements are functionally identical. The |bcpowmod|
+version however, executes in less time and can accept larger parameters.
+
+<?php >
+  $a = bcpowmod($x, $y, $mod);
+  
+  $b = bcmod(bcpow($x, $y), $mod);
+  
+  // $a and $b are equal to each other. 
+?>
+
+|bcpow| and |bcmod|.
+
+vim:ft=help:

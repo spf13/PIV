@@ -1,0 +1,13 @@
+cpdf_finalize_page -- Ends page
+
+  bool cpdf_finalize_page(int pdf_document, int page_number)~
+
+The |cpdf_finalize_page| function ends the page with page number
+{page_number}. Returns TRUE on success or FALSE on failure.
+
+This function is only for saving memory. A finalized page takes less memory
+but cannot be modified anymore.
+
+See also |cpdf_page_init|.
+
+vim:ft=help:

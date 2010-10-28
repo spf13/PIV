@@ -1,0 +1,17 @@
+SWFMovie->save -- Saves your movie in a file
+
+  int swfmovie->save(string filename [, int compression])~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+|swfmovie->save| saves your movie to the file named {filename}.
+
+The {compression} level can be a value between 0 and 9, defining the swf
+compression similar to gzip compression.
+
+See also |swfmovie->output|.
+
+vim:ft=help:

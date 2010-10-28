@@ -1,0 +1,5 @@
+pdf_set_info_keywords -- Deprecated: Fills the keywords field of the document
+
+This function is deprecated, use |pdf_set_info| instead.
+
+vim:ft=help:

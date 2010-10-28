@@ -1,0 +1,5 @@
+ircg_msg -- Send message to channel or user on server
+
+  bool ircg_msg(resource connection, string recipient, string message [, bool suppress])~
+
+vim:ft=help:

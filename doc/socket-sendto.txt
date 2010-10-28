@@ -1,0 +1,30 @@
+socket_sendto -- Sends a message to a socket, whether it is connected or not
+
+  int socket_sendto(resource socket, string buf, int len, int flags, string addr [, int port])~
+
+The function |socket_sendto| sends {len} bytes from {buf} through the socket
+{socket} to the {port} at the address {addr}
+
+The value of {flags} can be one of the following: possible values for {flags}
+0x1 Process OOB (out-of-band) data. 0x2 Peek at incoming message. 0x4 Bypass
+routing, use direct interface. 0x8 Data completes record. 0x100 Data
+completes transaction.
+
+|socket_sendto| Example
+
+<?php >
+      $sh = socket_create(AF_INET, SOCK_STREAM, SOL_TCP);
+      if (socket_bind($sh, '127.0.0.1', 4242)) {
+          echo "Socket bound correctly";
+      }
+      $buf = 'Test Message';
+      $len = strlen($buf);
+      if (socket_sendto($sh, $buf, $len, 0x100, '192.168.0.2', 4242) !== false) {
+          echo "Message sent correctly";
+      }
+      socket_close($sh);
+?>
+
+See also |socket_send| and |socket_sendmsg|.
+
+vim:ft=help:

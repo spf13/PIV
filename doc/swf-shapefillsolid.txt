@@ -1,0 +1,8 @@
+swf_shapefillsolid -- Set the current fill style to the specified color
+
+  void swf_shapefillsolid(float r, float g, float b, float a)~
+
+The |swf_shapefillsolid| function sets the current fill style to solid, and
+then sets the fill color to the values of the {rgba} parameters.
+
+vim:ft=help:

@@ -1,0 +1,49 @@
+ini_get_all -- Gets all configuration options
+
+  array ini_get_all([string extension])~
+
+Returns all the registered configuration options as an associative array. If
+the optional {extension} parameter is set, returns only options specific for
+that extension.
+
+The returned array uses the directive name as the array key, with elements of
+that array being global_value (set in php.ini), local_value (perhaps set with
+|ini_set| or .htaccess), and access (the access level). See the manual section
+on configuration changes for information on what access levels mean.
+
+It's possible for a directive to have multiple access levels, which is why
+access shows the appropriate bitmask values.
+
+A |ini_get_all| example
+
+<?php >
+  $inis = ini_get_all();
+  
+  print_r($inis);
+?>
+
+Partial output may look like:
+
+  Array
+  (
+      [allow_call_time_pass_reference] => Array
+      (
+          [global_value] => 1
+          [local_value] => 1
+          [access] => 6
+      )
+      [allow_url_fopen] => Array
+      (
+          [global_value] => 1
+          [local_value] => 1
+          [access] => 7
+      )
+  
+      ...
+  
+  )
+
+See also: |ini_get|, |ini_restore|, |ini_set|, |get_loaded_extensions|, and
+|phpinfo|.
+
+vim:ft=help:

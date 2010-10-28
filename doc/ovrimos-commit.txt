@@ -1,0 +1,8 @@
+ovrimos_commit -- Commits the transaction
+
+  bool ovrimos_commit(int connection_id)~
+
+|ovrimos_commit| is used to commit the transaction. Returns TRUE on success or
+FALSE on failure.
+
+vim:ft=help:

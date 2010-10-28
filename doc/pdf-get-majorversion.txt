@@ -1,0 +1,9 @@
+pdf_get_majorversion -- Returns the major version number of the PDFlib
+
+  int pdf_get_majorversion()~
+
+Returns the major version number of the PDFlib.
+
+See also |pdf_get_minorversion|.
+
+vim:ft=help:

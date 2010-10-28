@@ -1,0 +1,14 @@
+pdf_stringwidth -- Returns width of text using current font
+
+  float pdf_stringwidth(resource pdfdoc, string text, int font, float size)~
+
+Returns the width of {text} using the parameters {font} and {size}. Please
+note that {font} is a font handle returned by |pdf_findfont|. Parameters
+{font} and {size} are optional before PHP 4.3.5 or with PDFlib less than 5.
+If they are not specified, the font set by |pdf_setfont| is used.
+
+Both the {font} and {size} parameters must be used together.
+
+See also |pdf_setfont| and |pdf_findfont|.
+
+vim:ft=help:

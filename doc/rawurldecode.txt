@@ -1,0 +1,19 @@
+rawurldecode -- Decode URL-encoded strings
+
+  string rawurldecode(string str)~
+
+Returns a string in which the sequences with percent (%) signs followed by two
+hex digits have been replaced with literal characters.
+
+|rawurldecode| example
+
+<?php >
+  echo rawurldecode('foo%20bar%40baz'); // foo bar@baz
+?>
+
+|rawurldecode| does not decode plus symbols ('+') into spaces. |urldecode|
+does.
+
+See also |rawurlencode|, |urldecode| and |urlencode|.
+
+vim:ft=help:

@@ -1,0 +1,8 @@
+mssql_guid_string -- Converts a 16 byte binary GUID to a string
+
+  string mssql_guid_string(string binary [, int short_format])~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

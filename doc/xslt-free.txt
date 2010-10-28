@@ -1,0 +1,9 @@
+xslt_free -- Free XSLT processor
+
+  void xslt_free(resource xh)~
+
+Free the XSLT processor identified by the given handle.
+
+|xslt_create|
+
+vim:ft=help:

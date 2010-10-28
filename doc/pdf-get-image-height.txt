@@ -1,0 +1,5 @@
+pdf_get_image_height -- Deprecated: returns height of an image
+
+This function is deprecated, use |pdf_get_value| instead.
+
+vim:ft=help:

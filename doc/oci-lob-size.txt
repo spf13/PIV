@@ -1,0 +1,8 @@
+lob->size -- Returns size of large object
+
+  int lob->size()~
+
+Returns length of large object value or FALSE in case of error. Empty objects
+have zero length.
+
+vim:ft=help:

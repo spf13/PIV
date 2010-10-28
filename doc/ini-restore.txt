@@ -1,0 +1,9 @@
+ini_restore -- Restores the value of a configuration option
+
+  void ini_restore(string varname)~
+
+Restores a given configuration option to its original value.
+
+See also |ini_get|, |ini_get_all|, and |ini_set|.
+
+vim:ft=help:

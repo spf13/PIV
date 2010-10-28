@@ -1,0 +1,12 @@
+DomNode->set_namespace -- Sets namespace of a node
+
+  void DomNode->set_namespace(string uri [, string prefix])~
+
+Sets the namespace of a node to {uri}. If there is already a namespace
+declaration with the same uri in one of the parent nodes of the node, the
+prefix of this is taken, otherwise it will take the one provided in the
+optional parameter {prefix} or generate a random one.
+
+See also |domdocument_create_element_ns|, and |domnode_add_namespace|
+
+vim:ft=help:

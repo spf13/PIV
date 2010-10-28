@@ -1,0 +1,29 @@
+func_num_args -- Returns the number of arguments passed to the function
+
+  int func_num_args()~
+
+Returns the number of arguments passed into the current user-defined function.
+|func_num_args| will generate a warning if called from outside of a
+user-defined function. This function cannot be used directly as a function
+parameter. Instead, its result may be assigned to a variable, which can then
+be passed to the function.
+
+Because this function depends on the current scope to determine parameter
+details, it cannot be used as a function parameter. If you must pass this
+value, assign the results to a variable, and pass the variable.
+
+<?php >
+  function foo() 
+  {
+      $numargs = func_num_args();
+      echo "Number of arguments: $numargs\n";
+  } 
+  
+  foo(1, 2, 3);    // Prints 'Number of arguments: 3'
+?>
+
+|func_num_args| may be used in conjunction with |func_get_arg| and
+|func_get_args| to allow user-defined functions to accept variable-length
+argument lists.
+
+vim:ft=help:

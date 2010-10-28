@@ -1,0 +1,11 @@
+tidy_load_config -- Load an ASCII Tidy configuration file with the specified
+encoding
+
+  void tidy_load_config(string filename, string encoding)~
+
+This function loads a Tidy configuration file, with the specified {encoding}.
+
+This function is only avaliable in Tidy 1.0. It became obsolete in Tidy 2.0
+and thus has been removed.
+
+vim:ft=help:

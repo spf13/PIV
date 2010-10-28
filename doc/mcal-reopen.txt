@@ -1,0 +1,11 @@
+mcal_reopen -- Reopens an MCAL connection
+
+  bool mcal_reopen(int mcal_stream, string calendar [, int options])~
+
+Reopens an MCAL stream to a new calendar.
+
+|mcal_reopen| reopens an MCAL connection to the specified {calendar} store. If
+the optional {options} is specified, passes the {options} to that mailbox
+also.
+
+vim:ft=help:

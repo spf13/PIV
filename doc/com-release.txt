@@ -1,0 +1,11 @@
+com_release -- Decreases the components reference counter [deprecated]
+
+  void com_release()~
+
+Decreases the components reference counter.
+
+You should never need to use this function.
+
+This function has gone away in PHP 5.
+
+vim:ft=help:

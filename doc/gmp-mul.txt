@@ -1,0 +1,18 @@
+gmp_mul -- Multiply numbers
+
+  resource gmp_mul(resource a, resource b)~
+
+Multiplies {a} by {b} and returns the result.
+
+|gmp_mul| example
+
+<?php >
+  $mul = gmp_mul("12345678", "2000");
+  echo gmp_strval($mul) . "\n";
+?>
+
+The printout of the above program will be:
+
+  24691356000
+
+vim:ft=help:

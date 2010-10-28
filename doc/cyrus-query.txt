@@ -1,0 +1,8 @@
+cyrus_query -- Send a query to a Cyrus IMAP server
+
+  array cyrus_query(resource connection, string query)~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

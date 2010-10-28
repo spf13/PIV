@@ -1,0 +1,8 @@
+mcal_day_of_week -- Returns the day of the week of the given date
+
+  int mcal_day_of_week(int year, int month, int day)~
+
+|mcal_day_of_week| returns the day of the week of the given date. Possible
+return values range from 0 for Sunday through 6 for Saturday.
+
+vim:ft=help:

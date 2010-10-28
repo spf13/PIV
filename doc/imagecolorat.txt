@@ -1,0 +1,23 @@
+imagecolorat -- Get the index of the color of a pixel
+
+  int imagecolorat(resource image, int x, int y)~
+
+Returns the index of the color of the pixel at the specified location in the
+image specified by {image}.
+
+If PHP is compiled against GD library 2.0 or higher and the image is a
+truecolor image, this function returns the RGB value of that pixel as
+integer. Use bitshifting and masking to access the distinct red, green and
+blue component values: Access distinct RGB values
+
+<?php >
+  $im = ImageCreateFromPng("rockym.png");
+  $rgb = ImageColorAt($im, 100, 100);
+  $r = ($rgb >> 16) &amp; 0xFF;
+  $g = ($rgb >> 8) &amp; 0xFF;
+  $b = $rgb &amp; 0xFF;
+?>
+
+See also |imagecolorset| and |imagecolorsforindex|.
+
+vim:ft=help:

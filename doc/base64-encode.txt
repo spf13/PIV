@@ -1,0 +1,25 @@
+base64_encode -- Encodes data with MIME base64
+
+  string base64_encode(string data)~
+
+|base64_encode| returns {data} encoded with base64. This encoding is designed
+to make binary data survive transport through transport layers that are not
+8-bit clean, such as mail bodies.
+
+Base64-encoded data takes about 33% more space than the original data.
+
+|base64_encode| example
+
+<?php >
+    $str = 'This is an encoded string';
+    echo base64_encode($str);
+?>
+
+This example will produce:
+
+  VGhpcyBpcyBhbiBlbmNvZGVkIHN0cmluZw==
+
+See also |base64_decode|, |chunk_split|, |convert_uuencode| and RFC 2045
+section 6.8.
+
+vim:ft=help:

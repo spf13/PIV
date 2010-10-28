@@ -1,0 +1,8 @@
+ovrimos_num_fields -- Returns the number of columns
+
+  int ovrimos_num_fields(int result_id)~
+
+|ovrimos_num_fields| returns the number of columns in a {result_id} resulting
+from a query.
+
+vim:ft=help:

@@ -1,0 +1,9 @@
+hw_api_object->insert -- Inserts new attribute
+
+  bool hw_api_object->insert(HW_API_Attribute attribute)~
+
+Adds an attribute to the object. Returns TRUE on success and otherwise FALSE.
+
+See also |hwapi_object_remove|.
+
+vim:ft=help:

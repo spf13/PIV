@@ -1,0 +1,16 @@
+lob->save -- Saves data to the large object
+
+  bool lob->save(string data [, int offset])~
+
+Saves {data} to the large object. Parameter {offset} can be used to indicate
+offset from the beginning of the large object.
+
+Returns TRUE on success or FALSE on failure.
+
+In PHP versions before 5.0.0 you must use |ocisavelob| instead. This name
+still can be used, it was left as alias of |oci_lob_save| for downwards
+compatability. This, however, is deprecated and not recommended.
+
+See also |oci_lob_write| and |oci_lob_import|.
+
+vim:ft=help:

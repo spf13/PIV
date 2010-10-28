@@ -1,0 +1,8 @@
+ifx_num_rows -- Count the rows already fetched from a query
+
+  int ifx_num_rows(int result_id)~
+
+Gives the number of rows fetched so far for a query with {result_id} after a
+|ifx_query| or |ifx_do| query.
+
+vim:ft=help:

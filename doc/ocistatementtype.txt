@@ -1,0 +1,43 @@
+ocistatementtype -- Return the type of an OCI statement
+
+  string ocistatementtype(resource stmt)~
+
+|ocistatementtype| returns one of the following values: SELECT
+
+UPDATE
+
+DELETE
+
+INSERT
+
+CREATE
+
+DROP
+
+ALTER
+
+BEGIN
+
+DECLARE
+
+UNKNOWN
+
+|ocistatementtype| examples
+
+<?php >
+      $conn = OCILogon("scott", "tiger");
+      $sql  = "delete from emp where deptno = 10";
+     
+      $stmt = OCIParse($conn, $sql);
+      if (OCIStatementType($stmt) == "DELETE") {
+          die("You are not allowed to delete from this table<br />");
+      }
+     
+      OCILogoff($conn);
+?>
+
+This function was renamed to |oci_statement_type| after PHP >= 5.0.0. For
+downward compatibility |ocistatementtype| can also be used. This is
+deprecated, however.
+
+vim:ft=help:

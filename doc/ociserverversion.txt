@@ -1,0 +1,17 @@
+ociserverversion -- Return a string containing server version information
+
+  string ociserverversion(resource conn)~
+
+|ociserverversion| example
+
+<?php >
+     $conn = OCILogon("scott", "tiger");
+     echo "Server Version: " . OCIServerVersion($conn);
+     OCILogOff($conn);
+?>
+
+This function was renamed to |oci_server_version| after PHP >= 5.0.0. For
+downward compatibility |ociserverversion| can also be used. This is
+deprecated, however.
+
+vim:ft=help:

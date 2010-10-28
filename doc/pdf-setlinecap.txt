@@ -1,0 +1,7 @@
+pdf_setlinecap -- Sets linecap parameter
+
+  bool pdf_setlinecap(resource pdfdoc, int linecap)~
+
+Set the {linecap} parameter to a value between 0 and 2 inclusive.
+
+vim:ft=help:

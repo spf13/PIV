@@ -1,0 +1,13 @@
+dbplus_rchperm -- Change relation permissions
+
+  int dbplus_rchperm(resource relation, int mask, string user, string group)~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+|dbplus_rchperm| will change access permissions as specified by {mask}, {user}
+and {group}. The values for these are operating system specific.
+
+vim:ft=help:

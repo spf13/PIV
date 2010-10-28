@@ -1,0 +1,14 @@
+ncurses_slk_attron -- Turn on the given attributes for soft function-key
+labels
+
+  int ncurses_slk_attron(int intarg)~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

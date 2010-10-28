@@ -1,0 +1,19 @@
+mb_substr_count -- Count the number of substring occurrences
+
+  int mb_substr_count(string haystack, string needle [, string encoding])~
+
+|mb_substr_count| returns the number of times the {needle} substring occurs in
+the {haystack} string.
+
+{encoding} specifies the encoding for {needle} and {haystack}. If omitted,
+internal character encoding is used.
+
+|mb_substr_count| example
+
+<?php >
+  echo mb_substr_count("This is a test", "is"); // prints out 2
+?>
+
+See also |substr_count|, |mb_strpos|, |mb_substr|.
+
+vim:ft=help:

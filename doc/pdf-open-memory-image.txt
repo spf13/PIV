@@ -1,0 +1,21 @@
+pdf_open_memory_image -- Opens an image created with PHP's image functions
+
+  int pdf_open_memory_image(resource pdfdoc, resource image)~
+
+The |pdf_open_memory_image| function takes an {image} created with the PHP's
+image functions and makes it available for the pdf resource. The function
+returns a pdf image identifier. Including a memory image
+
+<?php >
+  $im = imagecreate(100, 100);
+  $col = imagecolorallocate($im, 80, 45, 190);
+  imagefill($im, 10, 10, $col);
+  $pim = pdf_open_memory_image($pdf, $im);
+  imagedestroy($im);
+  pdf_place_image($pdf, $pim, 100, 100, 1);
+  pdf_close_image($pdf, $pim);
+?>
+
+See also |pdf_close_image| and |pdf_place_image|.
+
+vim:ft=help:

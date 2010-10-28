@@ -1,0 +1,8 @@
+ovrimos_field_name -- Returns the output column name
+
+  string ovrimos_field_name(int result_id, int field_number)~
+
+|ovrimos_field_name| returns the output column name at the (1-based) index
+specified.
+
+vim:ft=help:

@@ -1,0 +1,43 @@
+imap_check -- Check current mailbox
+
+  object imap_check(resource imap_stream)~
+
+Returns information about the current mailbox. Returns FALSE on failure.
+
+The |imap_check| function checks the current mailbox status on the server and
+returns the information in an object with following properties:
+
+Date - current system time formatted according to RFC822
+
+Driver - protocol used to access this mailbox: POP3, IMAP, NNTP
+
+Mailbox - the mailbox name
+
+Nmsgs - number of messages in the mailbox
+
+Recent - number of recent messages in the mailbox
+
+|imap_check| example
+
+<?php >
+  $imap_obj = imap_check($imap_stream);
+  var_dump($imap_obj);
+?>
+
+this will output :
+
+  object(stdClass)(5) {
+    ["Date"]=>
+    string(37) "Wed, 10 Dec 2003 17:56:54 +0100 (CET)"
+    ["Driver"]=>
+    string(4) "imap"
+    ["Mailbox"]=>
+    string(54)
+    "{www.example.com:143/imap/user="foo@example.com"}INBOX"
+    ["Nmsgs"]=>
+    int(1)
+    ["Recent"]=>
+    int(0)
+  }
+
+vim:ft=help:

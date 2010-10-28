@@ -1,0 +1,9 @@
+pdf_add_note -- Sets annotation for current page
+
+  bool pdf_add_note(resource pdfdoc, float llx, float lly, float urx, float ury, string contents, string title, string icon, int open)~
+
+Sets an annotation for the current page. {icon} is one of comment, insert,
+note, paragraph, newparagraph, key, or help. Returns TRUE on success or FALSE
+on failure.
+
+vim:ft=help:

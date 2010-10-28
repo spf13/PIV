@@ -1,0 +1,22 @@
+gmp_abs -- Absolute value
+
+  resource gmp_abs(resource a)~
+
+Returns absolute value of {a}.
+
+|gmp_abs| example
+
+<?php >
+  $abs1 = gmp_abs("274982683358");
+  $abs2 = gmp_abs("-274982683358");
+  
+  echo gmp_strval($abs1) . "\n";
+  echo gmp_strval($abs2) . "\n";
+?>
+
+The printout of the above program will be:
+
+  274982683358
+  274982683358
+
+vim:ft=help:

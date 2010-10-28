@@ -1,0 +1,33 @@
+odbc_connect -- Connect to a datasource
+
+  resource odbc_connect(string dsn, string user, string password [, int cursor_type])~
+
+Returns an ODBC connection id or 0 (FALSE) on error.
+
+The connection id returned by this functions is needed by other ODBC
+functions. You can have multiple connections open at once as long as they
+either use different db or different credentials. The optional fourth
+parameter sets the type of cursor to be used for this connection. This
+parameter is not normally needed, but can be useful for working around
+problems with some ODBC drivers.
+
+With some ODBC drivers, executing a complex stored procedure may fail with an
+error similar to: "Cannot open a cursor on a stored procedure that has
+anything other than a single select statement in it". Using SQL_CUR_USE_ODBC
+may avoid that error. Also, some drivers don't support the optional
+row_number parameter in |odbc_fetch_row|. SQL_CUR_USE_ODBC might help in that
+case, too.
+
+The following constants are defined for cursortype:
+
+SQL_CUR_USE_IF_NEEDED
+
+SQL_CUR_USE_ODBC
+
+SQL_CUR_USE_DRIVER
+
+SQL_CUR_DEFAULT
+
+For persistent connections see |odbc_pconnect|.
+
+vim:ft=help:

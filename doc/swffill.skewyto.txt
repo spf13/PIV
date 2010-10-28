@@ -1,0 +1,13 @@
+SWFFill->skewYTo -- Sets fill y-skew
+
+  void swffill->skewyto(float y)~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+|swffill->skewyto| sets fill y-skew to {y}. For {y} is 1.0, it is a 45-degree
+upward slant. More is more upward, less is more downward.
+
+vim:ft=help:

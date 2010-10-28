@@ -1,0 +1,11 @@
+imagexbm -- Output XBM image to browser or file
+
+  bool imagexbm(resource image, string filename [, int foreground])~
+
+This function is currently not documented; only the argument list is
+available.
+
+This function is only available if PHP is compiled with the bundled version of
+the GD library.
+
+vim:ft=help:

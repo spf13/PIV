@@ -1,0 +1,18 @@
+dba_replace -- Replace or insert entry
+
+  bool dba_replace(string key, string value, resource handle)~
+
+|dba_replace| replaces or inserts the entry described with {key} and {value}
+into the database specified by {handle}.
+
+{key} The key of the entry to be replaced.
+
+{value} The value to be replaced.
+
+{handle} The database handler, returned by |dba_open| or |dba_popen|.
+
+Returns TRUE on success or FALSE on failure.
+
+|dba_exists| |dba_delete| |dba_fetch| |dba_insert|
+
+vim:ft=help:

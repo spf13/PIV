@@ -1,0 +1,7 @@
+swf_actionplay -- Start playing the flash movie from the current frame
+
+  void swf_actionplay()~
+
+Start playing the flash movie from the current frame.
+
+vim:ft=help:

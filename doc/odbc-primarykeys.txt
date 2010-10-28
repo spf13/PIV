@@ -1,0 +1,21 @@
+odbc_primarykeys -- Returns a result identifier that can be used to fetch the
+column names that comprise the primary key for a table
+
+  resource odbc_primarykeys(resource connection_id, string qualifier, string owner, string table)~
+
+Returns the column names that comprise the primary key for a table. Returns an
+ODBC result identifier or FALSE on failure.
+
+The result set has the following columns: TABLE_QUALIFIER
+
+TABLE_OWNER
+
+TABLE_NAME
+
+COLUMN_NAME
+
+KEY_SEQ
+
+PK_NAME
+
+vim:ft=help:

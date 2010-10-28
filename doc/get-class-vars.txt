@@ -1,0 +1,53 @@
+get_class_vars -- Returns an array of default properties of the class
+
+  array get_class_vars(string class_name)~
+
+This function will return an associative array of default public properties of
+the class. The resulting array elements are in the form of {varname => value}.
+
+Prior to PHP 4.2.0, Uninitialized class variables will not be reported by
+|get_class_vars|.
+
+|get_class_vars| example
+
+<?php >
+  class myclass {
+  
+      var $var1; // this has no default value...
+      var $var2 = "xyz";
+      var $var3 = 100;
+      private $var4; // PHP 5
+      
+      // constructor
+      function myclass() {
+          // change some properties
+          $this->var1 = "foo";
+          $this->var2 = "bar";
+          return true;
+      }
+  
+  }
+  
+  $my_class = new myclass();
+  
+  $class_vars = get_class_vars(get_class($my_class));
+  
+  foreach ($class_vars as $name => $value) {
+      echo "$name : $value\n";
+  }
+?>
+
+The above example will output:
+
+  // Before PHP 4.2.0
+  var2 : xyz
+  var3 : 100
+  
+  // As of PHP 4.2.0
+  var1 :
+  var2 : xyz
+  var3 : 100
+
+See also |get_class_methods|, |get_object_vars|
+
+vim:ft=help:

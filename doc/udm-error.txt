@@ -1,0 +1,11 @@
+udm_error -- Get mnoGoSearch error message
+
+  string udm_error(resource agent)~
+
+|udm_error| returns mnoGoSearch error message, empty string if no error.
+
+{agent} - link to agent identifier, received after call to |udm_alloc_agent|.
+
+Receiving agent error message.
+
+vim:ft=help:

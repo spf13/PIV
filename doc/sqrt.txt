@@ -1,0 +1,17 @@
+sqrt -- Square root
+
+  float sqrt(float arg)~
+
+Returns the square root of {arg}.
+
+|sqrt| example
+
+<?php >
+  // Precision depends on your precision directive
+  echo sqrt(9); // 3
+  echo sqrt(10); // 3.16227766 ...
+?>
+
+See also |pow|.
+
+vim:ft=help:

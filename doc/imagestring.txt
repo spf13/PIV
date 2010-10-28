@@ -1,0 +1,29 @@
+imagestring -- Draw a string horizontally
+
+  bool imagestring(resource image, int font, int x, int y, string s, int col)~
+
+|imagestring| draws the string {s} in the image identified by {image} with the
+upper-left corner at coordinates {x}, {y} (top left is 0, 0) in color {col}.
+If font is 1, 2, 3, 4 or 5, a built-in font is used.
+
+|imagestring| example
+
+<?php >
+  // create a 100*30 image
+  $im = imagecreate(100, 30);
+  
+  // white background and blue text
+  $bg = imagecolorallocate($im, 255, 255, 255);
+  $textcolor = imagecolorallocate($im, 0, 0, 255);
+  
+  // write the string at the top left
+  imagestring($im, 5, 0, 0, "Hello world!", $textcolor);
+  
+  // output the image
+  header("Content-type: image/jpeg");
+  imagejpeg($im);
+?>
+
+See also |imageloadfont|, and |imagettftext|.
+
+vim:ft=help:

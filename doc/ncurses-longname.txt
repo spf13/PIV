@@ -1,0 +1,16 @@
+ncurses_longname -- Returns terminals description
+
+  string ncurses_longname()~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+|ncurses_longname| returns a verbose description of the terminal. The
+description is truncated to 128 characters. On Error |ncurses_longname|
+returns NULL.
+
+See also: |ncurses_termname|
+
+vim:ft=help:

@@ -1,0 +1,23 @@
+gmp_div_r -- Remainder of the division of numbers
+
+  resource gmp_div_r(resource n, resource d [, int round])~
+
+Calculates remainder of the integer division of {n} by {d}. The remainder has
+the sign of the {n} argument, if not zero.
+
+|gmp_div_r| example
+
+<?php >
+  $div = gmp_div_r("105", "20");
+  echo gmp_strval($div) . "\n";
+?>
+
+The printout of the above program will be:
+
+  5
+
+See the |gmp_div_q| function for description of the {round} argument.
+
+See also |gmp_div_q|, |gmp_div_qr|
+
+vim:ft=help:

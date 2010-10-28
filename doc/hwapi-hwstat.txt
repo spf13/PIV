@@ -1,0 +1,7 @@
+hw_api->hwstat -- Returns statistics about Hyperwave server
+
+  hw_api_object hw_api->hwstat(array parameter)~
+
+See also |hwapi_dcstat|, |hwapi_dbstat|, |hwapi_ftstat|.
+
+vim:ft=help:

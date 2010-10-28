@@ -1,0 +1,10 @@
+tidyNode->hasSiblings -- Returns true if this node has siblings
+
+  bool tidyNode->hasSiblings()~
+
+This function is currently not documented; only the argument list is
+available.
+
+This function was named |tidy_node->has_siblings| in PHP 4/Tidy 1.
+
+vim:ft=help:

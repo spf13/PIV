@@ -1,0 +1,7 @@
+pdf_translate -- Sets origin of coordinate system
+
+  bool pdf_translate(resource pdfdoc, float tx, float ty)~
+
+Translate the origin of the coordinate system.
+
+vim:ft=help:

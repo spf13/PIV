@@ -1,0 +1,26 @@
+DOMElement->__construct() -- Creates a new DOMElement object
+
+Creates a new DOMElement object. This object is read only. It may be appended
+to a document, but additional nodes may not be appended to this node until
+the node is associated with a document. To create a writeable node, use or .
+
+{name} The tag name of the element. When also passing in namespaceURI, the
+element name may take a prefix to be associated with the URI.
+
+{value} The value of the element.
+
+{namespaceURI} A namespace URI to create the element within a specific
+namespace.
+
+Creating a new DOMElement
+
+<?php >
+  $dom = new DOMDocument('1.0', 'iso-8859-1');
+  $element = $dom->appendChild(new DOMElement('root'));
+  $element_ns = new DOMElement('pr:node1', 'thisvalue', 'http://xyz');
+  $element->appendChild($element_ns);
+  echo $dom->saveXML(); /* <?xml version="1.0" encoding="iso-8859-1"?>
+  <root><pr:node1 xmlns:pr="http://xyz">thisvalue</pr:node1></root> */
+?>
+
+vim:ft=help:

@@ -1,0 +1,8 @@
+ming_useswfversion -- Use SWF version (?)
+
+  void ming_useswfversion(int version)~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

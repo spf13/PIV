@@ -1,0 +1,15 @@
+vprintf -- Output a formatted string
+
+  int vprintf(string format, array args)~
+
+Display array values as a formatted string according to {format} (which is
+described in the documentation for |sprintf|).
+
+Operates as |printf| but accepts an array of arguments, rather than a variable
+number of arguments.
+
+Returns the length of the outputted string.
+
+See also |printf|, |sprintf|, |vsprintf|
+
+vim:ft=help:

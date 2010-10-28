@@ -1,0 +1,22 @@
+ora_logon -- Open an Oracle connection
+
+  resource ora_logon(string user, string password)~
+
+Establishes a connection between PHP and an Oracle database with the given
+username {user} and password {password}.
+
+Connections can be made using SQL*Net by supplying the TNS name to {user} like
+this:
+
+<?php >
+  $conn = Ora_Logon("user@TNSNAME", "pass");
+?>
+
+If you have character data with non-ASCII characters, you should make sure
+that NLS_LANG is set in your environment. For server modules, you should set
+it in the server's environment before starting the server.
+
+Returns a connection index on success, or FALSE on failure. Details about the
+error can be retrieved using the |ora_error| and |ora_errorcode| functions.
+
+vim:ft=help:

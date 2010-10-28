@@ -1,0 +1,7 @@
+pdf_begin_template -- Starts new template
+
+  int pdf_begin_template(resource pdfdoc, float width, float height)~
+
+Start a new template definition.
+
+vim:ft=help:

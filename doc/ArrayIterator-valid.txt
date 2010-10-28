@@ -1,0 +1,23 @@
+ArrayIterator::valid -- Check whether array contains more entries
+
+  bool ArrayIterator::valid()~
+
+This function checks if the array contains any more entries.
+
+|ArrayIterator::valid| example
+
+<?php >
+  $array = array('1' => 'one');
+  
+  $arrayobject = new ArrayObject($array);
+  $iterator = $arrayobject->getIterator();
+  
+  var_dump($iterator->valid()); //bool(true)
+  
+  $iterator->next(); // advance to the next item
+  
+  //bool(false) because there is only one array element
+  var_dump($iterator->valid());
+?>
+
+vim:ft=help:

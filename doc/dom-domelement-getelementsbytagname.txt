@@ -1,0 +1,14 @@
+DOMElement->getElementsByTagName() -- Gets elements by tagname
+
+  DOMNodeList getElementsByTagName(string name)~
+
+This function returns a new instance of the class DOMNodeList of all
+descendant elements with a given tag {name}, in the order in which they are
+encountered in a preorder traversal of this element tree.
+
+{name} The tag name. Use * to return all elements within the element tree.
+
+This function returns a new instance of the class DOMNodeList of all matched
+elements.
+
+vim:ft=help:

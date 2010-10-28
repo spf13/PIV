@@ -1,0 +1,8 @@
+mcve_transnew -- Start a new transaction
+
+  int mcve_transnew(resource conn)~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

@@ -1,0 +1,11 @@
+imap_close -- Close an IMAP stream
+
+  bool imap_close(resource imap_stream [, int flag])~
+
+Closes the imap stream. Takes an optional {flag} CL_EXPUNGE, which will
+silently expunge the mailbox before closing, removing all messages marked for
+deletion.
+
+See also: |imap_open|.
+
+vim:ft=help:

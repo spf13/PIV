@@ -1,0 +1,21 @@
+str_repeat -- Repeat a string
+
+  string str_repeat(string input, int multiplier)~
+
+Returns {input_str} repeated {multiplier} times. {multiplier} has to be
+greater than or equal to 0. If the {multiplier} is set to 0, the function
+will return an empty string.
+
+|str_repeat| example
+
+<?php >
+  echo str_repeat("-=", 10);
+?>
+
+The above example will output:
+
+  -=-=-=-=-=-=-=-=-=-=
+
+See also for, |str_pad|, and |substr_count|.
+
+vim:ft=help:

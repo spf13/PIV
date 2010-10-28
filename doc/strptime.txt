@@ -1,0 +1,58 @@
+strptime -- Parse a time/date generated with strftime
+
+  array strptime(string timestamp, string format)~
+
+|strptime| returns an array with the {timestamp} parsed, or FALSE on error.
+
+Month and weekday names and other language dependent strings respect the
+current locale set with |setlocale| (LC_TIME).
+
+{timestamp} (string) A timestamp (e.g. returned from |strftime|)
+
+{format} (string) The format used in {timestamp} (e.g. the same as used in
+|strftime|).
+
+For more information about the format options, read the |strftime| page.
+
+Returns an array, or FALSE on failure.
+
+The following parameters are returned in the array parameters Description
+tm_sec Seconds after the minute (0-61) tm_min Minutes after the hour (0-59)
+tm_hour Hour since midnight (0-23) tm_mday Day of the month (1-31) tm_mon
+Months since January (0-11) tm_year Years since 1900 tm_wday Days since
+Sunday (0-6) tm_yday Days since January 1 (0-365) unparsed the {timestamp}
+part which was not recognized using the specified {format}
+
+|strptime| example
+
+<?php >
+  $format = '%d/%m/%Y %H:%M:%S';
+  $strf = strftime($format);
+  
+  echo "$strf\n";
+  
+  print_r(strptime($strf, $format));
+?>
+
+The above example will output something similar to:
+
+  03/10/2004 15:54:19
+  
+  Array
+  (
+      [tm_sec] => 19
+      [tm_min] => 54
+      [tm_hour] => 15
+      [tm_mday] => 3
+      [tm_mon] => 9
+      [tm_year] => 104
+      [tm_wday] => 0
+      [tm_yday] => 276
+      [unparsed] =>
+  )
+
+|strftime|
+
+This function is not implemented on Windows platforms.
+
+vim:ft=help:

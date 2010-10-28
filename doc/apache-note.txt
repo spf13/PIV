@@ -1,0 +1,17 @@
+apache_note -- Get and set apache request notes
+
+  string apache_note(string note_name [, string note_value])~
+
+|apache_note| is an Apache-specific function which gets and sets values in a
+request's notes table.
+
+{note_name} The name of the note.
+
+{note_value} The value of the note.
+
+If called with one argument, it returns the current value of note note_name.
+If called with two arguments, it sets the value of note note_name to
+note_value and returns the previous value of note note_name. If the note
+cannot be retrieved, FALSE is returned.
+
+vim:ft=help:

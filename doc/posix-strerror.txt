@@ -1,0 +1,12 @@
+posix_strerror -- Retrieve the system error message associated with the given
+errno
+
+  string posix_strerror(int errno)~
+
+Returns the POSIX system error message associated with the given errno. If
+{errno} is 0, then the string "Success" is returned. The function
+|posix_get_last_error| is used for retrieving the last POSIX errno.
+
+See also |posix_get_last_error|.
+
+vim:ft=help:

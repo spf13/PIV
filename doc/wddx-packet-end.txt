@@ -1,0 +1,8 @@
+wddx_packet_end -- Ends a WDDX packet with the specified ID
+
+  string wddx_packet_end(resource packet_id)~
+
+|wddx_packet_end| ends the WDDX packet specified by the {packet_id} and
+returns the string with the packet.
+
+vim:ft=help:

@@ -1,0 +1,13 @@
+mailparse_msg_get_part -- Returns a handle on a given section in a mimemessage
+
+  resource mailparse_msg_get_part(resource rfc2045, string mimesection)~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

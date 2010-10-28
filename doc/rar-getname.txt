@@ -1,0 +1,19 @@
+Rar::getName -- Get name of the entry
+
+  string Rar::getName()~
+
+|Rar::getName| returns full name of the archive entry.
+
+|Rar::getName| example
+
+<?php >
+  $rar_file = rar_open('example.rar') or die("Failed to open Rar archive");
+  
+  $entry = rar_entry_get($rar_file, 'Dir/file.txt') or die("Failed to find such entry");
+  
+  echo "Entry name: " . $entry->getName();
+?>
+
+|Rar::getName| returns FALSE on error.
+
+vim:ft=help:

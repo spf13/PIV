@@ -1,0 +1,8 @@
+cyrus_unbind -- Unbind ...
+
+  bool cyrus_unbind(resource connection, string trigger_name)~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

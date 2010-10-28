@@ -1,0 +1,9 @@
+DomNode->child_nodes -- Returns children of node
+
+  array DomNode->child_nodes()~
+
+Returns all children of the node.
+
+See also |domnode_next_sibling|, and |domnode_previous_sibling|.
+
+vim:ft=help:

@@ -1,0 +1,29 @@
+imagechar -- Draw a character horizontally
+
+  bool imagechar(resource image, int font, int x, int y, string c, int color)~
+
+|imagechar| draws the first character of {c} in the image identified by
+{image} with its upper-left at {x},{y} (top left is 0, 0) with the color
+{color}. If {font} is 1, 2, 3, 4 or 5, a built-in font is used (with higher
+numbers corresponding to larger fonts).
+
+|imagechar| example
+
+<?php >
+  $im = imagecreate(100, 100);
+  
+  $string = 'PHP';
+  
+  $bg = imagecolorallocate($im, 255, 255, 255);
+  $black = imagecolorallocate($im, 0, 0, 0);
+  
+  // prints a black "P" in the top left corner
+  imagechar($im, 1, 0, 0, $string, $black);
+  
+  header('Content-type: image/png');
+  imagepng($im);
+?>
+
+See also |imagecharup| and |imageloadfont|.
+
+vim:ft=help:

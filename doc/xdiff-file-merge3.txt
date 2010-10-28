@@ -1,0 +1,27 @@
+xdiff_file_merge3 -- Merge 3 files into one
+
+  mixed xdiff_file_merge3(string file1, string file2, string file3, string dest)~
+
+|xdiff_file_merge3| merges files {file1}, {file2} and {file3} into one and
+stores result in file {dest}.
+
+Returns TRUE if merge was successful, string with rejected chunks if it was
+not or FALSE if an internal error happened.
+
+|xdiff_file_merge3| example The following code merges three files into one.
+
+<?php >
+  $old_version = 'original_script.php';
+  $fix1 = 'script_with_fix1.php';
+  $fix2 = 'script_with_fix2.php';
+  
+  $errors = xdiff_file_merge3($old_version, $fix1, $fix2, 'fixed_script.php');
+  if (is_string($errors)) {
+      echo "Rejects:\n";
+      echo $errors;
+  }
+?>
+
+See also |xdiff_string_merge3|.
+
+vim:ft=help:

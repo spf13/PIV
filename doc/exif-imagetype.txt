@@ -1,0 +1,40 @@
+exif_imagetype -- Determine the type of an image
+
+  int exif_imagetype(string filename)~
+
+|exif_imagetype| reads the first bytes of an image and checks its signature.
+
+|exif_imagetype| can be used to avoid calls to other exif functions with
+unsupported file types or in conjunction with $_SERVER['HTTP_ACCEPT'] to
+check whether or not the viewer is able to see a specific image in the
+browser.
+
+{filename} The image being checked.
+
+When a correct signature is found, the appropriate constant value will be
+returned otherwise the return value is FALSE. The return value is the same
+value that |getimagesize| returns in index 2 but |exif_imagetype| is much
+faster.
+
+Version Description 4.3.2 Support for JPC, JP2, JPX, JB2, XBM, and WBMP 4.3.0
+Support for SWC
+
+The following constants are defined, and represent possible |exif_imagetype|
+return values: Imagetype Constants Value Constant 1 IMAGETYPE_GIF 2
+IMAGETYPE_JPEG 3 IMAGETYPE_PNG 4 IMAGETYPE_SWF 5 IMAGETYPE_PSD 6
+IMAGETYPE_BMP 7 IMAGETYPE_TIFF_II (intel byte order) 8 IMAGETYPE_TIFF_MM
+(motorola byte order) 9 IMAGETYPE_JPC 10 IMAGETYPE_JP2 11 IMAGETYPE_JPX 12
+IMAGETYPE_JB2 13 IMAGETYPE_SWC 14 IMAGETYPE_IFF 15 IMAGETYPE_WBMP 16
+IMAGETYPE_XBM
+
+|exif_imagetype| example
+
+<?php >
+  if (exif_imagetype('image.gif') != IMAGETYPE_GIF) {
+      echo 'The picture is not a gif';
+  }
+?>
+
+|getimagesize|
+
+vim:ft=help:

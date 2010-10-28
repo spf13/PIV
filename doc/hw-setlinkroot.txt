@@ -1,0 +1,8 @@
+hw_setlinkroot -- Set the id to which links are calculated
+
+  int hw_setlinkroot(int link, int rootid)~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

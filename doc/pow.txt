@@ -1,0 +1,28 @@
+pow -- Exponential expression
+
+  number pow(number base, number exp)~
+
+Returns {base} raised to the power of {exp}. If possible, this function will
+return an integer.
+
+If the power cannot be computed, a warning will be issued, and |pow| will
+return FALSE. Since PHP 4.2.0 |pow| doesn't issue any warning.
+
+PHP cannot handle negative {base}s.
+
+Some examples of |pow|
+
+<?php >
+  var_dump(pow(2, 8)); // int(256)
+  echo pow(-1, 20); // 1
+  echo pow(0, 0); // 1
+  
+  echo pow(-1, 5.5); // error
+?>
+
+In PHP 4.0.6 and earlier |pow| always returned a float, and did not issue
+warnings.
+
+See also: |exp|, |sqrt|, |bcpow|, and |gmp_pow|,
+
+vim:ft=help:

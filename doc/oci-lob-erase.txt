@@ -1,0 +1,15 @@
+lob->erase -- Erases a specified portion of the internal LOB data
+
+  int lob->erase([int offset [, int length]])~
+
+Erases a specified portion of the internal LOB data starting at a specified
+{offset}. Parameters {length} and {offset} are optional. |lob->erase| erases
+all LOB data by default.
+
+For BLOBs, erasing means that the existing LOB value is overwritten with
+zero-bytes. For CLOBs, the existing LOB value is overwritten with spaces.
+
+|lob->erase| returns the actual number of characters/bytes erased or FALSE in
+case of error.
+
+vim:ft=help:

@@ -1,0 +1,8 @@
+swf_actiongotoframe -- Play a frame and then stop
+
+  void swf_actiongotoframe(int framenumber)~
+
+The |swf_actiongotoframe| function will go to the frame specified by
+{framenumber}, play it, and then stop.
+
+vim:ft=help:

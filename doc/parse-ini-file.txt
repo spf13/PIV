@@ -1,0 +1,91 @@
+parse_ini_file -- Parse a configuration file
+
+  array parse_ini_file(string filename [, bool process_sections])~
+
+|parse_ini_file| loads in the ini file specified in {filename}, and returns
+the settings in it in an associative array. By setting the last
+{process_sections} parameter to TRUE, you get a multidimensional array, with
+the section names and settings included. The default for {process_sections}
+is FALSE
+
+This function has nothing to do with the php.ini file. It is already
+processed, the time you run your script. This function can be used to read in
+your own application's configuration files.
+
+If a value in the ini file contains any non-alphanumeric characters it needs
+to be enclosed in double-quotes (").
+
+Since PHP 4.2.1 this function is also affected by safe mode and open_basedir.
+
+As of PHP 5.0 this function also handles new lines in values.
+
+There are reserved words which must not be used as keys for ini files. These
+include: null, yes, no, true, and false. Characters |&~![()" must not be used
+anywhere in the key and have a special meaning in the value.
+
+The structure of the ini file is similar to that of the php.ini's.
+
+Constants may also be parsed in the ini file so if you define a constant as an
+ini value before running |parse_ini_file|, it will be integrated into the
+results. Only ini values are evaluated. For example:
+
+Contents of sample.ini
+
+  ; This is a sample configuration file
+  ; Comments start with ';', as in php.ini
+  
+  [first_section]
+  one = 1
+  five = 5
+  animal = BIRD
+  
+  [second_section]
+  path = /usr/local/bin
+  URL = "http://www.example.com/~username"
+
+|parse_ini_file| example
+
+<?php >
+  define('BIRD', 'Dodo bird');
+  
+  // Parse without sections
+  $ini_array = parse_ini_file("sample.ini");
+  print_r($ini_array);
+  
+  // Parse with sections
+  $ini_array = parse_ini_file("sample.ini", true);
+  print_r($ini_array);
+?>
+
+Would produce:
+
+  Array
+  (
+      [one] => 1
+      [five] => 5
+      [animal] => Dodo bird
+      [path] => /usr/local/bin
+      [URL] => http://www.example.com/~username
+  )
+  Array
+  (
+      [first_section] => Array
+          (
+              [one] => 1
+              [five] => 5
+              [animal] = Dodo bird
+          )
+  
+      [second_section] => Array
+          (
+              [path] => /usr/local/bin
+              [URL] => http://www.example.com/~username
+          )
+  
+  )
+
+Keys and section names consisting from numbers are evaluated as PHP integers
+thus numbers starting by 0 are evaluated as octals and numbers starting by 0x
+are evaluated as hexadecimals.
+
+vim:ft=help:

@@ -1,0 +1,13 @@
+SWFText->getWidth -- Computes string's width
+
+  float swftext->getwidth(string string)~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+|swftext->addstring| returns the rendered width of the {string} string at the
+text object's current font, scale, and spacing settings.
+
+vim:ft=help:

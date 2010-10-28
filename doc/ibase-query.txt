@@ -1,0 +1,35 @@
+ibase_query -- Execute a query on an InterBase database
+
+  resource ibase_query([resource link_identifier, string query [, int bind_args]])~
+
+Performs a query on an InterBase database. If the query raises an error,
+returns FALSE. If it is successful and there is a (possibly empty) result set
+(such as with a SELECT query), returns a result identifier. If the query was
+successful and there were no results, returns TRUE.
+
+|ibase_query| example
+
+<?php >
+      $host = 'localhost:/path/to/your.gdb';
+  
+      $dbh = ibase_connect($host, $username, $password);
+      $stmt = 'SELECT * FROM tblname';
+  
+      $sth = ibase_query($dbh, $stmt) or die(ibase_errmsg());
+?>
+
+In PHP 5.0.0 and up, this function will return the number of rows affected by
+the query for INSERT, UPDATE and DELETE statements. In order to retain
+backward compatibility, it will return TRUE for these statements if the query
+succeeded without affecting any rows.
+
+If you get some error like "arithmetic exception, numeric overflow, or string
+truncation. Cannot transliterate character between character sets" (this
+occurs when you try use some character with accents) when using this and
+after |ibase_query| you must set the character set (i.e. ISO8859_1 or your
+current character set).
+
+See also |ibase_errmsg|, |ibase_fetch_row|, |ibase_fetch_object|, and
+|ibase_free_result|.
+
+vim:ft=help:

@@ -1,0 +1,10 @@
+SoapClient->__getLastRequestHeaders() -- Returns last SOAP request headers
+
+  string __getLastRequestHeaders()~
+
+This method works only if the SoapClient object was created with the trace
+option.
+
+The last SOAP request headers.
+
+vim:ft=help:

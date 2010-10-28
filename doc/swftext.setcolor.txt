@@ -1,0 +1,13 @@
+SWFText->setColor -- Sets the current font color
+
+  void swftext->setcolor(int red, int green, int blue [, int a])~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+|swftext->setspacing| changes the current text color. Default is black. I
+think. Color is represented using the RGB system.
+
+vim:ft=help:

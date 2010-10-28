@@ -1,0 +1,33 @@
+apd_set_socket_session_trace -- Starts the remote session debugging
+
+  bool apd_set_socket_session_trace(string ip_address_or_unix_socket_file, int socket_type, int port, int debug_level)~
+
+Connects to the tcp server (eg. tcplisten) specified IP or Unix Domain socket
+(like a file), and sends debugging data to the socket. You can use any port,
+but higher numbers are better as most of the lower numbers may be used by
+other system services.
+
+the socket_type can be APD_AF_UNIX (for file based sockets) or APD_AF_INET
+(for standard tcp/ip)
+
+debug_level is an integer which is formed by adding together the following
+values:
+
+  FUNCTION_TRACE      1
+          ARGS_TRACE          2
+          ASSIGNMENT_TRACE    4
+          STATEMENT_TRACE     8
+          MEMORY_TRACE        16
+          TIMING_TRACE        32
+          SUMMARY_TRACE       64
+
+I would seriously not recommend setting the value to 'zero' to start with, and
+use the breakpoint methods to start debugging at a specific place in the file.
+
+|apd_set_socket_session_trace| example
+
+<?php >
+    apd_set_socket_session_trace("127.0.0.1",APD_AF_INET,7112,0);
+?>
+
+vim:ft=help:

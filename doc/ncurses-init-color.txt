@@ -1,0 +1,13 @@
+ncurses_init_color -- Set new RGB value for color
+
+  int ncurses_init_color(int color, int r, int g, int b)~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

@@ -1,0 +1,26 @@
+imagejpeg -- Output image to browser or file
+
+  bool imagejpeg(resource image [, string filename [, int quality]])~
+
+|imagejpeg| creates the JPEG file in filename from the image {image}. The
+{image} argument is the return from the |imagecreate| function.
+
+The filename argument is optional, and if left off, the raw image stream will
+be output directly. To skip the filename argument in order to provide a
+quality argument just use an empty string (''). By sending an image/jpeg
+content-type using |header|, you can create a PHP script that outputs JPEG
+images directly.
+
+JPEG support is only available if PHP was compiled against GD-1.8 or later.
+
+{quality} is optional, and ranges from 0 (worst quality, smaller file) to 100
+(best quality, biggest file). The default is the default IJG quality value
+(about 75).
+
+If you want to output Progressive JPEGs, you need to set interlacing on with
+|imageinterlace|.
+
+See also |imagepng|, |imagegif|, |imagewbmp|, |imageinterlace| and
+|imagetypes|.
+
+vim:ft=help:

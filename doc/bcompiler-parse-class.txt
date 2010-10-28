@@ -1,0 +1,21 @@
+bcompiler_parse_class -- Reads the bytecodes of a class and calls back to a
+user function
+
+  bool bcompiler_parse_class(string class, string callback)~
+
+This function has been removed from bcompiler and is no longer available as of
+bcompiler 0.5.
+
+Reads the bytecodes of a class and calls back to a user function.
+
+|bcompiler_parse_class| example
+
+<?php >
+  function readByteCodes($data) {
+    print_r($data);
+  }
+  
+  bcompiler_parse_class("DB","readByteCodes");
+?>
+
+vim:ft=help:

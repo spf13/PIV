@@ -1,0 +1,13 @@
+hw_InsertDocument -- Upload any document
+
+  int hw_insertdocument(int connection, int parent_id, int hw_document)~
+
+Uploads a document into the collection with {parent_id}. The document has to
+be created before with |hw_new_document|. Make sure that the object record of
+the new document contains at least the attributes: Type, DocumentType, Title
+and Name. Possibly you also want to set the MimeType. The functions returns
+the object id of the new document or FALSE.
+
+See also |hw_pipedocument|.
+
+vim:ft=help:

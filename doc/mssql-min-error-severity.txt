@@ -1,0 +1,8 @@
+mssql_min_error_severity -- Sets the lower error severity
+
+  void mssql_min_error_severity(int severity)~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

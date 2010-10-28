@@ -1,0 +1,39 @@
+is_a -- Returns TRUE if the object is of this class or has this class as one
+of its parents
+
+  bool is_a(object object, string class_name)~
+
+This function returns TRUE if the object is of this class or has this class as
+one of its parents, FALSE otherwise.
+
+|is_a| example
+
+<?php >
+  // define a class
+  class WidgetFactory
+  {
+    var $oink = 'moo';
+  }
+  
+  // create a new object
+  $WF = new WidgetFactory();
+  
+  if (is_a($WF, 'WidgetFactory')) {
+    echo "yes, \$WF is still a WidgetFactory\n";
+  }
+?>
+
+The |is_a| function is deprecated as of PHP 5 in favor of the instanceof type
+operator. In the above example we could use the following in PHP 5:
+
+Using the instanceof operator in PHP 5
+
+<?php >
+  if ($WF instanceof WidgetFactory) {
+      echo 'Yes, $WF is a WidgetFactory';
+  }
+?>
+
+See also |get_class|, |get_parent_class|, and |is_subclass_of|.
+
+vim:ft=help:

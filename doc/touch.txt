@@ -1,0 +1,27 @@
+touch -- Sets access and modification time of file
+
+  bool touch(string filename [, int time [, int atime]])~
+
+Attempts to set the access and modification time of the file named by
+{filename} to the value given by {time}. If the parameter {time} is not
+given, uses the present time. This is equivalent to what utime (sometimes
+referred to as utimes) does. If the third parameter {atime} is present, the
+access time of the given filename is set to the value of {atime}. Note that
+the access time is always modified, regardless of the number of parameters.
+
+If the file does not exist, it is created. Returns TRUE on success or FALSE on
+failure.
+
+|touch| example
+
+<?php >
+  if (touch($FileName)) {
+      echo "$FileName modification time has been changed to present time";
+  
+  } else {
+      echo "Sorry, could not change modification time of $FileName";
+  
+  }
+?>
+
+vim:ft=help:

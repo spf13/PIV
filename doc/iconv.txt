@@ -1,0 +1,21 @@
+iconv -- Convert string to requested character encoding
+
+  string iconv(string in_charset, string out_charset, string str)~
+
+Performs a character set conversion on the string {str} from {in_charset} to
+{out_charset}. Returns the converted string or FALSE on failure.
+
+If you append the string //TRANSLIT to {out_charset} transliteration is
+activated. This means that when a character can't be represented in the
+target charset, it can be approximated through one or several similarly
+looking characters. If you append the string //IGNORE, characters that cannot
+be represented in the target charset are silently discarded. Otherwise, {str}
+is cut from the first illegal character.
+
+|iconv| example:
+
+<?php >
+  echo iconv("ISO-8859-1", "UTF-8", "This is a test.");
+?>
+
+vim:ft=help:

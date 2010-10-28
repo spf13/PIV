@@ -1,0 +1,8 @@
+pdf_initgraphics -- Resets graphic state
+
+  bool pdf_initgraphics(resource pdfdoc)~
+
+Reset all implicit color and graphics state parameters to their defaults.
+Returns TRUE on success or FALSE on failure.
+
+vim:ft=help:

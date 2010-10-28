@@ -1,0 +1,27 @@
+prev -- Rewind the internal array pointer
+
+  mixed prev(array array)~
+
+Returns the array value in the previous place that's pointed to by the
+internal array pointer, or FALSE if there are no more elements. If the array
+contains empty elements then this function will return FALSE for these
+elements as well. To properly traverse an array which may contain empty
+elements see the |each| function.
+
+|prev| behaves just like |next|, except it rewinds the internal array pointer
+one place instead of advancing it.
+
+Example use of |prev| and friends
+
+<?php >
+  $transport = array('foot', 'bike', 'car', 'plane');
+  $mode = current($transport); // $mode = 'foot';
+  $mode = next($transport);    // $mode = 'bike';
+  $mode = next($transport);    // $mode = 'car';
+  $mode = prev($transport);    // $mode = 'bike';
+  $mode = end($transport);     // $mode = 'plane';
+?>
+
+See also |current|, |end|, |next|, and |reset|.
+
+vim:ft=help:

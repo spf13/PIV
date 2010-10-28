@@ -1,0 +1,12 @@
+ncurses_inch -- Get character and attribute at current position
+
+  string ncurses_inch()~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+|ncurses_inch| returns the character from the current position.
+
+vim:ft=help:

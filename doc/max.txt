@@ -1,0 +1,39 @@
+max -- Find highest value
+
+  mixed max(number arg1, number arg2 [, number ...])~
+
+  mixed max(number arg1, number arg2 [, number ..., array numbers])~
+
+|max| returns the numerically highest of the parameter values.
+
+If the first and only parameter is an array, |max| returns the highest value
+in that array. If the first parameter is an integer, string or float, you
+need at least two parameters and |max| returns the biggest of these values.
+You can compare an unlimited number of values.
+
+PHP will evaluate a non-numeric string as 0, but still return the string if
+it's seen as the numerically highest value. If multiple arguments evaluate to
+0, |max| will use the first one it sees (the leftmost value).
+
+Example uses of |max|
+
+<?php >
+  echo max(1, 3, 5, 6, 7);  // 7
+  echo max(array(2, 4, 5)); // 5
+  
+  echo max(0, 'hello');     // 0
+  echo max('hello', 0);     // hello
+  echo max(-1, 'hello');    // hello
+  
+  // With multiple arrays, max compares from left to right
+  // so in our example: 2 == 2, but 4 < 5
+  $val = max(array(2, 4, 8), array(2, 5, 7)); // array(2, 5, 7)
+  
+  // If both an array and non-array are given, the array
+  // is always returned as it's seen as the largest
+  $val = max('string', array(2, 5, 7), 42);   // array(2, 5, 7)
+?>
+
+See also |min| and |count|.
+
+vim:ft=help:

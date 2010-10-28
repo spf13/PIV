@@ -1,0 +1,14 @@
+imageconvolution -- Apply a 3x3 convolution matrix, using coefficient div and
+offset
+
+  bool imageconvolution(resource image, array matrix3x3, float div, float offset)~
+
+Returns TRUE on success or FALSE on failure.
+
+This function is currently not documented; only the argument list is
+available.
+
+This function is only available if PHP is compiled with the bundled version of
+the GD library.
+
+vim:ft=help:

@@ -1,0 +1,48 @@
+fread -- Binary-safe file read
+
+  string fread(resource handle, int length)~
+
+|fread| reads up to {length} bytes from the file pointer referenced by
+{handle}. Reading stops when {length} bytes have been read, EOF (end of file)
+is reached, or (for network streams) when a packet becomes available,
+whichever comes first.
+
+<?php >
+  // get contents of a file into a string
+  $filename = "/usr/local/something.txt";
+  $handle = fopen($filename, "r");
+  $contents = fread($handle, filesize($filename));
+  fclose($handle);
+?>
+
+On systems which differentiate between binary and text files (i.e. Windows)
+the file must be opened with 'b' included in |fopen| mode parameter.
+
+<?php >
+  $filename = "c:\\files\\somepic.gif";
+  $handle = fopen($filename, "rb");
+  $contents = fread($handle, filesize($filename));
+  fclose($handle);
+?>
+
+When reading from network streams or pipes, such as those returned when
+reading remote files or from |popen| and |fsockopen|, reading will stop after
+a packet is available. This means that you should collect the data together in
+chunks as shown in the example below.
+
+<?php >
+  $handle = fopen("http://www.example.com/", "rb");
+  $contents = '';
+  while (!feof($handle)) {
+    $contents .= fread($handle, 8192);
+  }
+  fclose($handle);
+?>
+
+If you just want to get the contents of a file into a string, use
+|file_get_contents| as it has much better performance than the code above.
+
+See also |fwrite|, |fopen|, |fsockopen|, |popen|, |fgets|, |fgetss|, |fscanf|,
+|file|, and |fpassthru|.
+
+vim:ft=help:

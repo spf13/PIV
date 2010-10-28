@@ -1,0 +1,11 @@
+swf_lookat -- Define a viewing transformation
+
+  void swf_lookat(float view_x, float view_y, float view_z, float reference_x, float reference_y, float reference_z, float twist)~
+
+The |swf_lookat| function defines a viewing transformation by giving the
+viewing position (the parameters {view_x}, {view_y}, and {view_z}) and the
+coordinates of a reference point in the scene, the reference point is defined
+by the {reference_x}, {reference_y }, and {reference_z} parameters. The {twist
+} controls the rotation along with viewer's z axis.
+
+vim:ft=help:

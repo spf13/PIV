@@ -1,0 +1,7 @@
+odbc_cursor -- Get cursorname
+
+  string odbc_cursor(resource result_id)~
+
+odbc_cursor will return a cursorname for the given result_id.
+
+vim:ft=help:

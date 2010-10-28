@@ -1,0 +1,50 @@
+pg_query -- Execute a query
+
+  resource pg_query(string query)~
+
+  resource pg_query(string query, resource connection, string query)~
+
+|pg_query| executes the {query} on the specified database {connection}.
+
+If an error occurs, and FALSE is returned, details of the error can be
+retrieved using the |pg_last_error| function if the connection is valid.
+
+Although {connection} can be omitted, it is not recommended, since it can be
+the cause of hard to find bugs in scripts.
+
+This function used to be called |pg_exec|. |pg_exec| is still available for
+compatibility reasons, but users are encouraged to use the newer name.
+
+{connection} PostgreSQL database connection resource. When {connection} is not
+present, the default connection is used. The default connection is the last
+connection made by |pg_connect| or |pg_pconnect|.
+
+{query} The SQL statement or statements to be executed.
+
+A query result resource on success, or FALSE on failure.
+
+|pg_query| example
+
+<?php >
+  $conn = pg_pconnect("dbname=publisher");
+  if (!$conn) {
+    echo "An error occured.\n";
+    exit;
+  }
+  
+  $result = pg_query($conn, "SELECT author, email FROM authors");
+  if (!$result) {
+    echo "An error occured.\n";
+    exit;
+  }
+  
+  while ($row = pg_fetch_row($result)) {
+    echo "Author: $row[0]  E-mail: $row[1]";
+    echo "<br />\n";
+  }
+?>
+
+|pg_connect| |pg_pconnect| |pg_fetch_array| |pg_fetch_object| |pg_num_rows|
+|pg_affected_rows|
+
+vim:ft=help:

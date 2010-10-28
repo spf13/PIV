@@ -1,0 +1,10 @@
+pdf_close -- Closes a pdf resource
+
+  bool pdf_close(resource pdfdoc)~
+
+Close the generated PDF file, and free all document-related resources. Returns
+TRUE on success or FALSE on failure.
+
+See also |pdf_new|.
+
+vim:ft=help:

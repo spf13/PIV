@@ -1,0 +1,65 @@
+array_chunk -- Split an array into chunks
+
+  array array_chunk(array input, int size [, bool preserve_keys])~
+
+|array_chunk| splits the array into several arrays with {size} values in them.
+You may also have an array with less values at the end. You get the arrays as
+members of a multidimensional array indexed with numbers starting from zero.
+
+By setting the optional {preserve_keys} parameter to TRUE, you can force PHP
+to preserve the original keys from the input array. If you specify FALSE new
+number indices will be used in each resulting array with indices starting
+from zero. The default is FALSE.
+
+|array_chunk| example
+
+<?php >
+  $input_array = array('a', 'b', 'c', 'd', 'e');
+  print_r(array_chunk($input_array, 2));
+  print_r(array_chunk($input_array, 2, true));
+?>
+
+The above example will output:
+
+  Array
+  (
+      [0] => Array
+          (
+              [0] => a
+              [1] => b
+          )
+  
+      [1] => Array
+          (
+              [0] => c
+              [1] => d
+          )
+  
+      [2] => Array
+          (
+              [0] => e
+          )
+  
+  )
+  Array
+  (
+      [0] => Array
+          (
+              [0] => a
+              [1] => b
+          )
+  
+      [1] => Array
+          (
+              [2] => c
+              [3] => d
+          )
+  
+      [2] => Array
+          (
+              [4] => e
+          )
+  
+  )
+
+vim:ft=help:

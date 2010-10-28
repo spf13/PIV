@@ -1,0 +1,21 @@
+aggregate_methods_by_list -- Selective dynamic class methods aggregation to an
+object
+
+  void aggregate_methods_by_list(object object, string class_name, array methods_list [, bool exclude])~
+
+Aggregates methods from a class to an existing object using a list of method
+names. The optional parameter {exclude} is used to decide whether the list
+contains the names of methods to include in the aggregation (i.e. {exclude}
+is FALSE, which is the default value), or to exclude from the aggregation
+({exclude} is TRUE).
+
+The class constructor or methods whose names start with an underscore
+character (_), which are considered private to the aggregated class, are
+always excluded.
+
+See also |aggregate|, |aggregate_info|, |aggregate_methods|,
+|aggregate_methods_by_regexp|, |aggregate_properties|,
+|aggregate_properties_by_list|, |aggregate_properties_by_regexp|,
+|deaggregate|
+
+vim:ft=help:

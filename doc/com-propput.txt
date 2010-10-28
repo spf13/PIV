@@ -1,0 +1,5 @@
+com_propput -- Alias of com_set
+
+This function is an alias of: |com_set|.
+
+vim:ft=help:

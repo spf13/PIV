@@ -1,0 +1,8 @@
+readline_list_history -- Lists the history
+
+  array readline_list_history()~
+
+This function returns an array of the entire command line history. The
+elements are indexed by integers starting at zero.
+
+vim:ft=help:

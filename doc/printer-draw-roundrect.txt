@@ -1,0 +1,44 @@
+printer_draw_roundrect -- Draw a rectangle with rounded corners
+
+  void printer_draw_roundrect(resource handle, int ul_x, int ul_y, int lr_x, int lr_y, int width, int height)~
+
+The function simply draws a rectangle with rounded corners.
+
+{handle} must be a valid handle to a printer.
+
+{ul_x} is the upper left x coordinate of the rectangle.
+
+{ul_y} is the upper left y coordinate of the rectangle.
+
+{lr_x} is the lower right x coordinate of the rectangle.
+
+{lr_y} is the lower right y coordinate of the rectangle.
+
+{width} is the width of the ellipse.
+
+{height} is the height of the ellipse.
+
+|printer_draw_roundrect| example
+
+<?php >
+  $handle = printer_open();
+  printer_start_doc($handle, "My Document");
+  printer_start_page($handle);
+  
+  $pen = printer_create_pen(PRINTER_PEN_SOLID, 2, "000000");
+  printer_select_pen($handle, $pen);
+  
+  $brush = printer_create_brush(PRINTER_BRUSH_SOLID, "2222FF");
+  printer_select_brush($handle, $brush);
+  
+  printer_draw_roundrect($handle, 1, 1, 500, 500, 200, 200);
+  
+  printer_delete_brush($brush);
+  printer_delete_pen($pen);
+  
+  printer_end_page($handle);
+  printer_end_doc($handle);
+  printer_close($handle);
+?>
+
+vim:ft=help:

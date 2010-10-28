@@ -1,0 +1,19 @@
+mb_ereg_search_pos -- Return position and length of matched part of multibyte
+regular expression for predefined multibyte string
+
+  array mb_ereg_search_pos([string pattern [, string option]])~
+
+|mb_ereg_search_pos| returns an array including position of matched part for
+multibyte regular expression. The first element of the array will be the
+beginning of matched part, the second element will be length (bytes) of
+matched part. It returns FALSE on error.
+
+The string for match is specified by |mb_ereg_search_init|. If it is not
+specified, the previous one will be used.
+
+The internal encoding or the character encoding specified in
+|mb_regex_encoding| will be used as character encoding.
+
+See also: |mb_regex_encoding|, |mb_ereg_search_init|.
+
+vim:ft=help:

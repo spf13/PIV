@@ -1,0 +1,11 @@
+mhash_get_block_size -- Get the block size of the specified hash
+
+  int mhash_get_block_size(int hash)~
+
+|mhash_get_block_size| is used to get the size of a block of the specified
+{hash}.
+
+|mhash_get_block_size| takes one argument, the {hash} and returns the size in
+bytes or FALSE, if the {hash} does not exist.
+
+vim:ft=help:

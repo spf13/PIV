@@ -1,0 +1,19 @@
+dbplus_open -- Open relation file
+
+  resource dbplus_open(string name)~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+The relation file {name} will be opened. {name} can be either a file name or a
+relative or absolute path name. This will be mapped in any case to an absolute
+relation file path on a specific host machine and server.
+
+On success a relation file resource (cursor) is returned which must be used in
+any subsequent commands referencing the relation. Failure leads to a zero
+return value, the actual error code may be asked for by calling
+|dbplus_errno|.
+
+vim:ft=help:

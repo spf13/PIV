@@ -1,0 +1,14 @@
+mb_http_output -- Set/Get HTTP output character encoding
+
+  mixed mb_http_output([string encoding])~
+
+If {encoding} is set, |mb_http_output| sets HTTP output character encoding to
+{encoding}. Output after this function is converted to {encoding}.
+|mb_http_output| returns TRUE for success and FALSE for failure.
+
+If {encoding} is omitted, |mb_http_output| returns current HTTP output
+character encoding.
+
+See also |mb_internal_encoding|, |mb_http_input|, |mb_detect_order|.
+
+vim:ft=help:

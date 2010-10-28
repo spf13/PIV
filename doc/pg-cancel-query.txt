@@ -1,0 +1,39 @@
+pg_cancel_query -- Cancel an asynchronous query
+
+  bool pg_cancel_query(resource connection)~
+
+|pg_cancel_query| cancels an asynchronous query sent with |pg_send_query|,
+|pg_send_query_params| or |pg_send_execute|. You cannot cancel a query
+executed using |pg_query|.
+
+{connection} PostgreSQL database connection resource.
+
+Returns TRUE on success or FALSE on failure.
+
+|pg_cancel_query| example
+
+<?php >
+    $dbconn = pg_connect("dbname=publisher") or die("Could not connect");
+  
+    if (!pg_connection_busy($dbconn)) {
+        pg_send_query($dbconn, "select * from authors; select count(*) from authors;");
+    }
+    
+    $res1 = pg_get_result($dbconn);
+    echo "First call to pg_get_result(): $res1\n";
+    $rows1 = pg_num_rows($res1);
+    echo "$res1 has $rows1 records\n\n";
+    
+    // Cancel the currently running query.  Will be the second query if it is
+    // still running.
+    pg_cancel_query($dbconn);
+?>
+
+The above example will output:
+
+  First call to pg_get_result(): Resource id #3
+  Resource id #3 has 3 records
+
+|pg_send_query| |pg_connection_busy|
+
+vim:ft=help:

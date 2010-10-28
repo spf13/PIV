@@ -1,0 +1,10 @@
+pdf_setrgbcolor -- Sets drawing and filling color to rgb color value
+
+  bool pdf_setrgbcolor(resource pdfdoc, float red_value, float green_value, float blue_value)~
+
+Set the current fill and stroke color to the supplied RGB values. Returns TRUE
+on success or FALSE on failure.
+
+PDFlib V4.0: Deprecated, use |pdf_setcolor| instead.
+
+vim:ft=help:

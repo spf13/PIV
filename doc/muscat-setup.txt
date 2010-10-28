@@ -1,0 +1,17 @@
+muscat_setup -- Creates a new muscat session and returns the handle
+
+  resource muscat_setup(int size [, string muscat_dir])~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+This function is currently not documented; only the argument list is
+available.
+
+{size} is the amount of memory in bytes to allocate for muscat. {muscat_dir}
+is the muscat installation dir e.g. "/usr/local/empower", it defaults to the
+compile time muscat directory.
+
+vim:ft=help:

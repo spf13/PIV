@@ -1,0 +1,15 @@
+ncurses_echo -- Activate keyboard input echo
+
+  bool ncurses_echo()~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+|ncurses_echo| enables echo mode. All characters typed by user are echoed by
+|ncurses_getch|. Returns FALSE on success, TRUE if any error occurred.
+
+To disable echo mode use |ncurses_noecho|.
+
+vim:ft=help:

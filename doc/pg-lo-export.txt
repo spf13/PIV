@@ -1,0 +1,41 @@
+pg_lo_export -- Export a large object to file
+
+  bool pg_lo_export(resource connection, int oid, string pathname)~
+
+  bool pg_lo_export(resource connection, int oid, string pathname, int oid, string pathname)~
+
+|pg_lo_export| takes a large object in a PostgreSQL database and saves its
+contents to a file on the local filesystem.
+
+To use the large object interface, it is necessary to enclose it within a
+transaction block.
+
+This function used to be called |pg_loexport|.
+
+{connection} PostgreSQL database connection resource. When {connection} is not
+present, the default connection is used. The default connection is the last
+connection made by |pg_connect| or |pg_pconnect|.
+
+{oid} The OID of the large object in the database.
+
+{pathname} The full path and file name of the file in which to write the large
+object on the client filesystem.
+
+Returns TRUE on success or FALSE on failure.
+
+|pg_lo_export| example
+
+<?php >
+     $database = pg_connect("dbname=jacarta");
+     pg_query($database, "begin");
+     $oid = pg_lo_create($database);
+     $handle = pg_lo_open($database, $oid, "w");
+     pg_lo_write($handle, "large object data");
+     pg_lo_close($handle);
+     pg_lo_export($database, $oid, '/tmp/lob.dat');
+     pg_query($database, "commit");
+?>
+
+|pg_lo_import|
+
+vim:ft=help:

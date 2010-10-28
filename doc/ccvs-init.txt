@@ -1,0 +1,8 @@
+ccvs_init -- Initialize CCVS for use
+
+  string ccvs_init(string name)~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

@@ -1,0 +1,9 @@
+imagegammacorrect -- Apply a gamma correction to a GD image
+
+  bool imagegammacorrect(resource image, float inputgamma, float outputgamma)~
+
+The |imagegammacorrect| function applies gamma correction to a gd image stream
+({image}) given an input gamma, the parameter {inputgamma} and an output
+gamma, the parameter {outputgamma}.
+
+vim:ft=help:

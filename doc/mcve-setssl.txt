@@ -1,0 +1,8 @@
+mcve_setssl -- Set the connection method to SSL
+
+  int mcve_setssl(resource conn, string host, int port)~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

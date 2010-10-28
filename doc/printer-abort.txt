@@ -1,0 +1,17 @@
+printer_abort -- Deletes the printer's spool file
+
+  void printer_abort(resource handle)~
+
+This function deletes the printers spool file.
+
+{handle} must be a valid handle to a printer.
+
+|printer_abort| example
+
+<?php >
+  $handle = printer_open();
+  printer_abort($handle);
+  printer_close($handle);
+?>
+
+vim:ft=help:

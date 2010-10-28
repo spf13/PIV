@@ -1,0 +1,8 @@
+odbc_next_result -- Checks if multiple results are available
+
+  bool odbc_next_result(resource result_id)~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

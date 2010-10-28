@@ -1,0 +1,7 @@
+pdf_get_pdi_parameter -- Get some PDI string parameters
+
+  string pdf_get_pdi_parameter(resource pdfdoc, string key, int document, int page, int index)~
+
+Get the contents of some PDI {document} parameter with string type.
+
+vim:ft=help:

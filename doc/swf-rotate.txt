@@ -1,0 +1,9 @@
+swf_rotate -- Rotate the current transformation
+
+  void swf_rotate(float angle, string axis)~
+
+The |swf_rotate| rotates the current transformation by the angle given by the
+{angle} parameter around the axis given by the {axis} parameter. Valid values
+for the axis are 'x' (the x axis), 'y' (the y axis) or 'z' (the z axis).
+
+vim:ft=help:

@@ -1,0 +1,20 @@
+mhash_count -- Get the highest available hash id
+
+  int mhash_count()~
+
+|mhash_count| returns the highest available hash id. Hashes are numbered from
+0 to this hash id.
+
+Traversing all hashes
+
+<?php >
+  $nr = mhash_count();
+  
+  for ($i = 0; $i <= $nr; $i++) {
+      echo sprintf("The blocksize of %s is %d\n", 
+          mhash_get_hash_name($i),
+          mhash_get_block_size($i));
+  }
+?>
+
+vim:ft=help:

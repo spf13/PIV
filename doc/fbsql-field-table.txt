@@ -1,0 +1,7 @@
+fbsql_field_table -- Get name of the table the specified field is in
+
+  string fbsql_field_table(resource result [, int field_offset])~
+
+Returns the name of the table that the specified field is in.
+
+vim:ft=help:

@@ -1,0 +1,8 @@
+mcve_deleteresponse -- Delete specified transaction from MCVE_CONN structure
+
+  bool mcve_deleteresponse(resource conn, int identifier)~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

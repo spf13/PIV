@@ -1,0 +1,8 @@
+ncurses_newpad -- Creates a new pad (window)
+
+  resource ncurses_newpad(int rows, int cols)~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

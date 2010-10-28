@@ -1,0 +1,10 @@
+cpdf_set_word_spacing -- Sets spacing between words
+
+  bool cpdf_set_word_spacing(int pdf_document, float space)~
+
+The |cpdf_set_word_spacing| function sets the spacing between words. Returns
+TRUE on success or FALSE on failure.
+
+See also |cpdf_set_char_spacing| and |cpdf_set_leading|.
+
+vim:ft=help:

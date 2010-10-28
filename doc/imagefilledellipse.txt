@@ -1,0 +1,36 @@
+imagefilledellipse -- Draw a filled ellipse
+
+  bool imagefilledellipse(resource image, int cx, int cy, int w, int h, int color)~
+
+|imagefilledellipse| draws an ellipse centered at {cx}, {cy} (top left is 0,
+0) in the image represented by {image}. {W} and {h} specifies the ellipse's
+width and height respectively. The ellipse is filled using {color}. Returns
+TRUE on success or FALSE on failure.
+
+This function was added in PHP 4.0.6 and requires GD 2.0.1 or later
+
+|imagefilledellipse| example
+
+<?php >
+  // create a blank image
+  $image = imagecreate(400, 300);
+  
+  // fill the background color
+  $bg = imagecolorallocate($image, 0, 0, 0);
+  
+  // choose a color for the ellipse
+  $col_ellipse = imagecolorallocate($image, 255, 255, 255);
+  
+  // draw the white ellipse
+  imagefilledellipse($image, 200, 150, 300, 200, $col_ellipse);
+  
+  // output the picture
+  header("Content-type: image/png");
+  imagepng($image);
+?>
+
+This function requires GD 2.0.1 or later.
+
+See also |imageellipse| and |imagefilledarc|.
+
+vim:ft=help:

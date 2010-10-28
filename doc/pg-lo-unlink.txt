@@ -1,0 +1,34 @@
+pg_lo_unlink -- Delete a large object
+
+  bool pg_lo_unlink(resource connection, int oid)~
+
+|pg_lo_unlink| deletes a large object with the {oid}. Returns TRUE on success
+or FALSE on failure.
+
+To use the large object interface, it is necessary to enclose it within a
+transaction block.
+
+This function used to be called |pg_lounlink|.
+
+{connection} PostgreSQL database connection resource. When {connection} is not
+present, the default connection is used. The default connection is the last
+connection made by |pg_connect| or |pg_pconnect|.
+
+{oid} The OID of the large object in the database.
+
+Returns TRUE on success or FALSE on failure.
+
+|pg_lo_unlink| example
+
+<?php >
+     // OID of the large object to delete
+     $doc_oid = 189762345;
+     $database = pg_connect("dbname=jacarta");
+     pg_query($database, "begin");
+     pg_lo_unlink($database, $doc_oid);
+     pg_query($database, "commit");
+?>
+
+|pg_lo_create| |pg_lo_import|
+
+vim:ft=help:

@@ -1,0 +1,34 @@
+easter_date -- Get Unix timestamp for midnight on Easter of a given year
+
+  int easter_date([int year])~
+
+Returns the Unix timestamp corresponding to midnight on Easter of the given
+year.
+
+Since PHP 4.3.0, the {year} parameter is optional and defaults to the current
+year according to the localtime if omitted.
+
+|easter_date| example
+
+<?php >
+  echo date("M-d-Y", easter_date(1999));        // Apr-04-1999
+  echo date("M-d-Y", easter_date(2000));        // Apr-23-2000
+  echo date("M-d-Y", easter_date(2001));        // Apr-15-2001
+?>
+
+This function will generate a warning if the year is outside of the range for
+Unix timestamps (i.e. before 1970 or after 2037).
+
+The date of Easter Day was defined by the Council of Nicaea in AD325 as the
+Sunday after the first full moon which falls on or after the Spring Equinox.
+The Equinox is assumed to always fall on 21st March, so the calculation
+reduces to determining the date of the full moon and the date of the
+following Sunday. The algorithm used here was introduced around the year 532
+by Dionysius Exiguus. Under the Julian Calendar (for years before 1753) a
+simple 19-year cycle is used to track the phases of the Moon. Under the
+Gregorian Calendar (for years after 1753 - devised by Clavius and Lilius, and
+introduced by Pope Gregory XIII in October 1582, and into Britain and its then
+colonies in September 1752) two correction factors are added to make the cycle
+more accurate.
+
+vim:ft=help:

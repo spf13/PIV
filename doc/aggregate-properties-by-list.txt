@@ -1,0 +1,19 @@
+aggregate_properties_by_list -- Selective dynamic class properties aggregation
+to an object
+
+  void aggregate_properties_by_list(object object, string class_name, array properties_list [, bool exclude])~
+
+Aggregates properties from a class to an existing object using a list of
+property names. The optional parameter {exclude} is used to decide whether
+the list contains the names of class properties to include in the aggregation
+(i.e. {exclude} is FALSE, which is the default value), or to exclude from the
+aggregation ({exclude} is TRUE).
+
+The properties whose names start with an underscore character (_), which are
+considered private to the aggregated class, are always excluded.
+
+See also |aggregate|, |aggregate_methods|, |aggregate_methods_by_list|,
+|aggregate_methods_by_regexp|, |aggregate_properties|,
+|aggregate_properties_by_regexp|, |aggregate_info|, |deaggregate|
+
+vim:ft=help:

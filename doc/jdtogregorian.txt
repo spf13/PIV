@@ -1,0 +1,8 @@
+JDToGregorian -- Converts Julian Day Count to Gregorian date
+
+  string jdtogregorian(int julianday)~
+
+Converts Julian Day Count to a string containing the Gregorian date in the
+format of "month/day/year".
+
+vim:ft=help:

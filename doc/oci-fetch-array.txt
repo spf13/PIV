@@ -1,0 +1,97 @@
+oci_fetch_array -- Returns the next row from the result data as an associative
+or numeric array, or both
+
+  array oci_fetch_array(resource statement [, int mode])~
+
+Returns an array, which corresponds to the next result row or FALSE in case of
+error or there is no more rows in the result.
+
+|oci_fetch_array| returns an array with both associative and numeric indices.
+
+This function sets NULL fields to PHP NULL value.
+
+Optional second parameter can be any combination of the following constants:
+OCI_BOTH - return an array with both associative and numeric indices (the
+same as OCI_ASSOC + OCI_NUM). This is the default behavior. OCI_ASSOC -
+return an associative array (as |oci_fetch_assoc| works). OCI_NUM - return a
+numeric array, (as |oci_fetch_row| works). OCI_RETURN_NULLS - create empty
+elements for the NULL fields. OCI_RETURN_LOBS - return the value of a LOB of
+the descriptor. Default {mode} is OCI_BOTH.
+
+It should be mentioned here, that |oci_fetch_array| is insignificantly slower,
+than |oci_fetch_row|, but much more handy.
+
+Don't forget, that Oracle returns all field names in uppercase and associative
+indices in the result array will be uppercased too.
+
+|oci_fetch_array| with OCI_BOTH example
+
+<?php >
+  $connection = oci_connect("apelsin", "kanistra");
+  
+  $query = "SELECT id, name FROM fruits";
+  
+  $statement = oci_parse ($connection, $query);
+  oci_execute ($statement);
+  
+  while ($row = oci_fetch_array ($statement, OCI_BOTH)) {
+      echo $row[0]." and ".$row['ID']." is the same<br>";
+      echo $row[1]." and ".$row['NAME']." is the same<br>";
+  }
+?>
+
+|oci_fetch_array| with OCI_NUM example
+
+<?php >
+  $connection = oci_connect("user", "password");
+  
+  $query = "SELECT id, name, lob_field FROM fruits";
+  
+  $statement = oci_parse ($connection, $query);
+  oci_execute ($statement);
+  
+  while ($row = oci_fetch_array ($statement, OCI_NUM)) {
+      echo $row[0]."<br>";
+      echo $row[1]."<br>";
+      echo $row[2]->read(100)."<br>";  //this will output first 100 bytes from LOB
+  }
+?>
+
+|oci_fetch_array| with OCI_ASSOC example
+
+<?php >
+  $connection = oci_connect("user", "password");
+  
+  $query = "SELECT id, name, lob_field FROM fruits";
+  
+  $statement = oci_parse ($connection, $query);
+  oci_execute ($statement);
+  
+  while ($row = oci_fetch_array ($statement, OCI_NUM)) {
+      echo $row['ID']."<br>";
+      echo $row['NAME']."<br>";
+      echo $row['LOB_FIELD']."<br>";  //this will output "Object id #1"
+  }
+?>
+
+|oci_fetch_array| with OCI_RETURN_LOBS example
+
+<?php >
+  $connection = oci_connect("user", "password");
+  
+  $query = "SELECT id, name, lob_field FROM fruits";
+  
+  $statement = oci_parse ($connection, $query);
+  oci_execute ($statement);
+  
+  while ($row = oci_fetch_array ($statement, OCI_NUM)) {
+      echo $row[0]."<br>";
+      echo $row[1]."<br>";
+      echo $row['LOB_FIELD']."<br>";  //this will output LOB's content
+  }
+?>
+
+See also |oci_fetch_assoc|, |oci_fetch_object|, |oci_fetch_row| and
+|oci_fetch_all|.
+
+vim:ft=help:

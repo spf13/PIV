@@ -1,0 +1,16 @@
+ftruncate -- Truncates a file to a given length
+
+  bool ftruncate(resource handle, int size)~
+
+Takes the filepointer, {handle}, and truncates the file to length, {size}.
+Returns TRUE on success or FALSE on failure.
+
+The file pointer is changed only in append mode. In write mode, additional
+|fseek| call is needed.
+
+Prior to PHP 4.3.3, |ftruncate| returns an integer value of 1 on success,
+instead of boolean TRUE.
+
+See also |fopen| and |fseek|.
+
+vim:ft=help:

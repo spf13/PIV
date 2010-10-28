@@ -1,0 +1,10 @@
+pdf_setfont -- Set the current font
+
+  bool pdf_setfont(resource pdfdoc, int font, float size)~
+
+Set the current font in the given {size}, using a {font} handle returned by
+|pdf_findfont|. Returns TRUE on success or FALSE on failure.
+
+See also |pdf_findfont|.
+
+vim:ft=help:

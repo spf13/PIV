@@ -1,0 +1,22 @@
+gmp_fact -- Factorial
+
+  resource gmp_fact(int a)~
+
+Calculates factorial (a!) of {a}.
+
+|gmp_fact| example
+
+<?php >
+  $fact1 = gmp_fact(5); // 5 * 4 * 3 * 2 * 1
+  echo gmp_strval($fact1) . "\n";
+  
+  $fact2 = gmp_fact(50); // 50 * 49 * 48, ... etc
+  echo gmp_strval($fact2) . "\n";
+?>
+
+The printout of the above program will be:
+
+  120
+  30414093201713378043612608166064768844377641568960512000000000000
+
+vim:ft=help:

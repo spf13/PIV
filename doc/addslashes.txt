@@ -1,0 +1,34 @@
+addslashes -- Quote string with slashes
+
+  string addslashes(string str)~
+
+Returns a string with backslashes before characters that need to be quoted in
+database queries etc. These characters are single quote ('), double quote
+("), backslash (\) and NUL (the NULL byte).
+
+An example use of |addslashes| is when you're entering data into a database.
+For example, to insert the name O'reilly into a database, you will need to
+escape it. Most databases do this with a \ which would mean O\'reilly. This
+would only be to get the data into the database, the extra \ will not be
+inserted. Having the PHP directive magic_quotes_sybase set to on will mean '
+is instead escaped with another '.
+
+The PHP directive magic_quotes_gpc is on by default, and it essentially runs
+|addslashes| on all GET, POST, and COOKIE data. Do not use |addslashes| on
+strings that have already been escaped with magic_quotes_gpc as you'll then
+do double escaping. The function |get_magic_quotes_gpc| may come in handy for
+checking this.
+
+An |addslashes| example
+
+<?php >
+  $str = "Is your name O'reilly?";
+  
+  // Outputs: Is your name O\'reilly?
+  echo addslashes($str);
+?>
+
+See also |stripslashes|, |htmlspecialchars|, |quotemeta|, and
+|get_magic_quotes_gpc|.
+
+vim:ft=help:

@@ -1,0 +1,13 @@
+vpopmail_auth_user -- Attempt to validate a username/domain/password
+
+  bool vpopmail_auth_user(string user, string domain, string password [, string apop])~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

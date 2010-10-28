@@ -1,0 +1,27 @@
+bcompiler_write_function -- Writes an defined function as bytecodes
+
+  bool bcompiler_write_function(resource filehandle, string functionName)~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+This reads the bytecodes from PHP for an existing function, and writes them to
+the open file handle. Order is not important, (eg. if function b uses function
+a, and you compile it like the example below, it will work perfectly OK).
+
+|bcompiler_write_function| example
+
+<?php >
+  $fh = fopen("/tmp/example","w");
+  bcompiler_write_header($fh);
+  bcompiler_write_function($fh,"my_function_a");
+  bcompiler_write_function($fh,"my_function_b");
+  bcompiler_write_footer($fh);
+  fclose($fh);
+?>
+
+See also |bcompiler_write_header|, and |bcompiler_write_footer|.
+
+vim:ft=help:

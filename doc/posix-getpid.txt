@@ -1,0 +1,7 @@
+posix_getpid -- Return the current process identifier
+
+  int posix_getpid()~
+
+Return the process identifier of the current process.
+
+vim:ft=help:

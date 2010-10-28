@@ -1,0 +1,92 @@
+http_build_query -- Generate URL-encoded query string
+
+  string http_build_query(array formdata [, string numeric_prefix])~
+
+Generates a URL-encoded query string from the associative (or indexed) array
+provided. {formdata} may be an array or object containing properties. A
+{formdata} array may be a simple one-dimensional structure, or an array of
+arrays (who in turn may contain other arrays). If numeric indices are used in
+the base array and a {numeric_prefix} is provided, it will be prepended to the
+numeric index for elements in the base array only. This is to allow for legal
+variable names when the data is decoded by PHP or another CGI application
+later on.
+
+arg_separator.output is used to separate arguments.
+
+Simple usage of |http_build_query|
+
+<?php >
+  $data = array('foo'=>'bar',
+                'baz'=>'boom',
+                'cow'=>'milk',
+                'php'=>'hypertext processor');
+                
+  echo http_build_query($data); // foo=bar&amp;baz=boom&cow=milk&php=hypertext+processor
+?>
+
+|http_build_query| with numerically index elements.
+
+<?php >
+  $data = array('foo', 'bar', 'baz', 'boom', 'cow' => 'milk', 'php' =>'hypertext processor');
+                
+  echo http_build_query($data);
+  /* Outputs:
+        0=foo&amp;1=bar&2=baz&3=boom&cow=milk&php=hypertext+processor
+   */
+   
+  echo http_build_query($data, 'myvar_');
+  /* Outputs:
+        myvar_0=foo&amp;myvar_1=bar&myvar_2=baz&myvar_3=boom&cow=milk&php=hypertext+processor
+   */
+?>
+
+|http_build_query| with complex arrays
+
+<?php >
+  $data = array('user'=>array('name'=>'Bob Smith',
+                              'age'=>47,
+                              'sex'=>'M',
+                              'dob'=>'5/12/1956'),
+                'pastimes'=>array('golf', 'opera', 'poker', 'rap'),
+                'children'=>array('bobby'=>array('age'=>12,
+                                                 'sex'=>'M'),
+                                  'sally'=>array('age'=>8,
+                                                 'sex'=>'F')),
+                'CEO');
+                                                 
+  echo http_build_query($data, 'flags_');
+?>
+
+this will output : (word wrapped for readability)
+
+  user[name]=Bob+Smith&amp;user[age]=47&user[sex]=M&user[dob]=5%1F12%1F1956&
+  pastimes[0]=golf&pastimes[1]=opera&pastimes[2]=poker&pastimes[3]=rap&
+  children[bobby][age]=12&children[bobby][sex]=M&children[sally][age]=8&
+  children[sally][sex]=F&flags_0=CEO
+
+Only the numerically indexed element in the base array "CEO" received a
+prefix. The other numeric indices, found under pastimes, do not require a
+string prefix to be legal variable names.
+
+Using |http_build_query| with an object
+
+<?php >
+  class myClass {
+    var $foo;
+    var $baz;
+    
+    function myClass() 
+    {
+      $this->foo = 'bar';
+      $this->baz = 'boom';
+    }
+  }
+  
+  $data = new myClass();
+  
+  echo http_build_query($data); // foo=bar&baz=boom
+?>
+
+See also: |parse_str|, |parse_url|, |urlencode|, and |array_walk|
+
+vim:ft=help:

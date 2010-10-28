@@ -1,0 +1,20 @@
+mb_strrpos -- Find position of last occurrence of a string in a string
+
+  int mb_strrpos(string haystack, string needle [, string encoding])~
+
+|mb_strrpos| returns the numeric position of the last occurrence of {needle}
+in the {haystack} string. If {needle} is not found, it returns FALSE.
+
+|mb_strrpos| performs multi-byte safe |strrpos| operation based on number of
+characters. {needle} position is counted from the beginning of {haystack}.
+First character's position is 0. Second character position is 1.
+
+If {encoding} is omitted, internal encoding is assumed. |mb_strrpos| accepts
+string for {needle} where |strrpos| accepts only character.
+
+{encoding} is character encoding. If it is not specified, internal character
+encoding is used.
+
+See also |mb_strpos|, |mb_internal_encoding|, |strrpos|.
+
+vim:ft=help:

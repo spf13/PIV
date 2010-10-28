@@ -1,0 +1,22 @@
+mysqli->stmt_init -- Initializes a statement and returns an object for use
+with mysqli_stmt_prepare
+
+Procedural style :
+
+  mysqli_stmt mysqli_stmt_init(mysqli link)~
+
+Object oriented style (property):
+
+  mysqli_stmt stmt_init(mysqli link)~
+
+Allocates and initializes a statement object suitable for
+|mysqli_stmt_prepare|.
+
+Any subsequent calls to any mysqli_stmt function will fail until
+|mysqli_stmt_prepare| was called.
+
+Returns an object.
+
+|mysqli_stmt_prepare|.
+
+vim:ft=help:

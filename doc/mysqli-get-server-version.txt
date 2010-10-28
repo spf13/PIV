@@ -1,0 +1,61 @@
+mysqli_get_server_version -- Returns the version of the MySQL server as an
+integer
+
+Procedural style:
+
+  int mysqli_get_server_version(mysqli link)~
+
+Object oriented style (property):
+
+The |mysqli_get_server_version| function returns the version of the server
+connected to (represented by the {link} parameter) as an integer.
+
+The form of this version number is main_version * 10000 + minor_version * 100
++ sub_version (i.e. version 4.1.0 is 40100).
+
+An integer representing the server version.
+
+|mysqli_get_client_info|, |mysqli_get_client_version| and
+|mysqli_get_server_info|.
+
+Object oriented style
+
+<?php >
+  $mysqli = new mysqli("localhost", "my_user", "my_password");
+  
+  /* check connection */
+  if (mysqli_connect_errno()) {
+      printf("Connect failed: %s\n", mysqli_connect_error());
+      exit();
+  }
+  
+  /* print server version */
+  printf("Server version: %d\n", $mysqli->server_version);
+  
+  /* close connection */
+  $mysqli->close();
+?>
+
+Procedural style
+
+<?php >
+  $link = mysqli_connect("localhost", "my_user", "my_password");
+  
+  /* check connection */
+  if (mysqli_connect_errno()) {
+      printf("Connect failed: %s\n", mysqli_connect_error());
+      exit();
+  }
+  
+  /* print server version */
+  printf("Server version: %d\n", mysqli_get_server_version($link));
+  
+  /* close connection */
+  mysqli_close($link);
+?>
+
+The above example will output:
+
+  Server version: 40102
+
+vim:ft=help:

@@ -1,0 +1,24 @@
+SQLiteResult->key -- Returns the current row index
+
+  int sqlite_key(resource result)~
+
+Object oriented style (method):
+
+  int key(resource result)~
+
+|sqlite_key| returns the current row index of the buffered result set
+{result}.
+
+{result} The SQLite result resource. This parameter is not required when using
+the object-oriented method.
+
+This function cannot be used with unbuffered result handles.
+
+Returns the current row index of the buffered result set {result}.
+
+Version Description 5.0.4 Prior to PHP 5.0.4, |sqlite_key| was only able to be
+called as a method on a SQLiteResult object, not procedurally.
+
+|sqlite_next| |sqlite_current| |sqlite_rewind|
+
+vim:ft=help:

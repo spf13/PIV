@@ -1,0 +1,8 @@
+DirectoryIterator::key -- Return current dir entry
+
+  string DirectoryIterator::key()~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

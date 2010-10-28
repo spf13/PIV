@@ -1,0 +1,25 @@
+SQLiteResult->seek -- Seek to a particular row number of a buffered result set
+
+  bool sqlite_seek(resource result, int rownum)~
+
+Object oriented style (method):
+
+  bool seek(resource result, int rownum, int rownum)~
+
+|sqlite_seek| seeks to the row given by the parameter {rownum}.
+
+{result} The SQLite result resource. This parameter is not required when using
+the object-oriented method.
+
+This function cannot be used with unbuffered result handles.
+
+{rownum} The ordinal row number to seek to. The row number is zero-based (0 is
+the first row).
+
+This function cannot be used with unbuffered result handles.
+
+Returns FALSE if the row does not exist, TRUE otherwise.
+
+|sqlite_next| |sqlite_current| |sqlite_rewind|
+
+vim:ft=help:

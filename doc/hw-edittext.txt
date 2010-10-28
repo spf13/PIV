@@ -1,0 +1,13 @@
+hw_EditText -- Retrieve text document
+
+  bool hw_edittext(int connection, int hw_document)~
+
+Uploads the text document to the server. The object record of the document may
+not be modified while the document is edited. This function will only works
+for pure text documents. It will not open a special data connection and
+therefore blocks the control connection during the transfer.
+
+See also |hw_pipedocument|, |hw_free_document|, |hw_document_bodytag|,
+|hw_document_size|, |hw_output_document|, and |hw_gettext|.
+
+vim:ft=help:

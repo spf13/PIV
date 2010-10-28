@@ -1,0 +1,9 @@
+snmp_set_enum_print -- Return all values that are enums with their enum value
+instead of the raw integer
+
+  void snmp_set_enum_print(int enum_print)~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

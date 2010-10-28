@@ -1,0 +1,24 @@
+mcrypt_module_self_test -- This function runs a self test on the specified
+module
+
+  bool mcrypt_module_self_test(string algorithm [, string lib_dir])~
+
+This function runs the self test on the algorithm specified. The optional
+{lib_dir} parameter can contain the location of where the algorithm module is
+on the system.
+
+The function returns TRUE if the self test succeeds, or FALSE when if fails.
+
+|mcrypt_module_self_test| example
+
+<?php >
+  var_dump(mcrypt_module_self_test(MCRYPT_RIJNDAEL_128)) . "\n";
+  var_dump(mcrypt_module_self_test(MCRYPT_BOGUS_CYPHER));
+?>
+
+The above example will output:
+
+  bool(true)
+  bool(false)
+
+vim:ft=help:

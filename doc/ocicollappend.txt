@@ -1,0 +1,9 @@
+ocicollappend -- Append an object to the collection
+
+  bool ocicollappend(string value)~
+
+This function was renamed to |oci_collection_append| after PHP >= 5.0.0. For
+downward compatibility |ocicollappend| can also be used. This is deprecated,
+however.
+
+vim:ft=help:

@@ -1,0 +1,14 @@
+exif_tagname -- Get the header name for an index
+
+  string exif_tagname(string index)~
+
+This function is currently not documented; only the argument list is
+available.
+
+{index} The image index
+
+Returns the header name, or FALSE if {index} is undefined.
+
+|exif_imagetype|
+
+vim:ft=help:

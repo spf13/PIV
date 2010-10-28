@@ -1,0 +1,8 @@
+fdf_remove_item -- Sets target frame for form
+
+  bool fdf_remove_item(resource fdfdoc, string fieldname, int item)~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

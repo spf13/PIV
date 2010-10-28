@@ -1,0 +1,10 @@
+curl_errno -- Return the last error number
+
+  int curl_errno(resource ch)~
+
+Returns the error number for the last cURL operation on the resource {ch}, or
+0 (zero) if no error occurred.
+
+See also |curl_error| and Curl error codes.
+
+vim:ft=help:

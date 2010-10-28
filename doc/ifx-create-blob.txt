@@ -1,0 +1,17 @@
+ifx_create_blob -- Creates an blob object
+
+  int ifx_create_blob(int type, int mode, string param)~
+
+Creates an blob object.
+
+type: 1 = TEXT, 0 = BYTE
+
+mode: 0 = blob-object holds the content in memory, 1 = blob-object holds the
+content in file.
+
+param: if mode = 0: pointer to the content, if mode = 1: pointer to the
+filestring.
+
+Return FALSE on error, otherwise the new blob object-id.
+
+vim:ft=help:

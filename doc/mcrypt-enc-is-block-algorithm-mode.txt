@@ -1,0 +1,10 @@
+mcrypt_enc_is_block_algorithm_mode -- Checks whether the encryption of the
+opened mode works on blocks
+
+  bool mcrypt_enc_is_block_algorithm_mode(resource td)~
+
+This function returns TRUE if the mode is for use with block algorithms,
+otherwise it returns FALSE. (e.g. FALSE for stream, and TRUE for cbc, cfb,
+ofb).
+
+vim:ft=help:

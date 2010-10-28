@@ -1,0 +1,14 @@
+oci_cancel -- Cancels reading from cursor
+
+  bool oci_cancel(resource stmt)~
+
+|oci_cancel| invalidates a cursor, freeing all associated resources and
+cancels the ability to read from it.
+
+Returns TRUE on success or FALSE on failure.
+
+In PHP versions before 5.0.0 you must use |ocicancel| instead. This name still
+can be used, it was left as alias of |oci_cancel| for downwards compatability.
+This, however, is deprecated and not recommended.
+
+vim:ft=help:

@@ -1,0 +1,8 @@
+ifx_free_char -- Deletes the char object
+
+  int ifx_free_char(int bid)~
+
+Deletes the charobject for the given char object-id {bid}. Returns TRUE on
+success or FALSE on failure.
+
+vim:ft=help:

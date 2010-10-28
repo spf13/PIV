@@ -1,0 +1,11 @@
+variant_int -- Returns the integer portion of a variant
+
+  mixed variant_int(mixed variant)~
+
+If {variant} is negative, then the first negative integer greater than or
+equal to the variant is returned, otherwise returns the integer portion of
+the value of {variant}.
+
+See also |variant_fix|, |variant_round|, |floor|, |ceil|, |round|.
+
+vim:ft=help:

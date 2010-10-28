@@ -1,0 +1,9 @@
+mt_getrandmax -- Show largest possible random value
+
+  int mt_getrandmax()~
+
+Returns the maximum value that can be returned by a call to |mt_rand|.
+
+See also: |mt_rand|, |mt_srand|, and |getrandmax|.
+
+vim:ft=help:

@@ -1,0 +1,8 @@
+DirectoryIterator::getInode -- Get file inode
+
+  int DirectoryIterator::getInode()~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

@@ -1,0 +1,21 @@
+chgrp -- Changes file group
+
+  bool chgrp(string filename, mixed group)~
+
+Attempts to change the group of the file {filename} to {group} (specified by
+name or number). Only the superuser may change the group of a file
+arbitrarily; other users may change the group of a file to any group of which
+that user is a member.
+
+Returns TRUE on success or FALSE on failure.
+
+This function will not work on remote files as the file to be examined must be
+accessible via the servers filesystem.
+
+When safe mode is enabled, PHP checks whether the files or directories you are
+about to operate on have the same UID (owner) as the script that is being
+executed.
+
+See also |chown| and |chmod|.
+
+vim:ft=help:

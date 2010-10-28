@@ -1,0 +1,8 @@
+mysqli_enable_rpl_parse -- Enable RPL parse
+
+  bool mysqli_enable_rpl_parse(mysqli link)~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

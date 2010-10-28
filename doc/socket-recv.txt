@@ -1,0 +1,8 @@
+socket_recv -- Receives data from a connected socket
+
+  int socket_recv(resource socket, string buf, int len, int flags)~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

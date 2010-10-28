@@ -1,0 +1,32 @@
+call_user_func_array -- Call a user function given with an array of parameters
+
+  mixed call_user_func_array(callback function, array param_arr)~
+
+Call a user defined function given by {function}, with the parameters in
+{param_arr}. For example:
+
+|call_user_func_array| example
+
+<?php >
+  function debug($var, $val) 
+  {
+      echo "***DEBUGGING\nVARIABLE: $var\nVALUE:";
+      if (is_array($val) || is_object($val) || is_resource($val)) {
+          print_r($val);
+      } else {
+          echo "\n$val\n";
+      }
+      echo "***\n";
+  }
+  
+  $c = mysql_connect();
+  $host = $_SERVER["SERVER_NAME"];
+  
+  call_user_func_array('debug', array("host", $host));
+  call_user_func_array('debug', array("c", $c));
+  call_user_func_array('debug', array("_POST", $_POST));
+?>
+
+See also |call_user_func|, and information about the callback type
+
+vim:ft=help:

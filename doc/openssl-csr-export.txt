@@ -1,0 +1,14 @@
+openssl_csr_export -- Exports a CSR as a string
+
+  bool openssl_csr_export(resource csr, string out [, bool notext])~
+
+|openssl_csr_export| takes the Certificate Signing Request represented by
+{csr} and stores it as ascii-armoured text into {out}, which is passed by
+reference.
+
+Returns TRUE on success or FALSE on failure.
+
+See also |openssl_csr_export_to_file|, |openssl_csr_new| and
+|openssl_csr_sign|.
+
+vim:ft=help:

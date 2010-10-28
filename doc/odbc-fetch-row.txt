@@ -1,0 +1,21 @@
+odbc_fetch_row -- Fetch a row
+
+  bool odbc_fetch_row(resource result_id [, int row_number])~
+
+If |odbc_fetch_row| was successful (there was a row), TRUE is returned. If
+there are no more rows, FALSE is returned.
+
+|odbc_fetch_row| fetches a row of the data that was returned by |odbc_do| /
+|odbc_exec|. After |odbc_fetch_row| is called, the fields of that row can be
+accessed with |odbc_result|.
+
+If {row_number} is not specified, |odbc_fetch_row| will try to fetch the next
+row in the result set. Calls to |odbc_fetch_row| with and without
+{row_number} can be mixed.
+
+To step through the result more than once, you can call |odbc_fetch_row| with
+{row_number} 1, and then continue doing |odbc_fetch_row| without {row_number}
+to review the result. If a driver doesn't support fetching rows by number, the
+{row_number} parameter is ignored.
+
+vim:ft=help:

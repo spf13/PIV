@@ -1,0 +1,16 @@
+SoapClient->__setCookie() -- Sets the cookie that will be sent with the SOAP
+request
+
+  void __setCookie(string name [, string value])~
+
+Defines a cookie to be sent along with the SOAP requests.
+
+Calling this method will affect all following calls to SoapClient methods.
+
+{name} The name of the cookie.
+
+{value} The value of the cookie. If not specified, the cookie will be deleted.
+
+No value is returned.
+
+vim:ft=help:

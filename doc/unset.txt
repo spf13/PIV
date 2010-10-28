@@ -1,0 +1,111 @@
+unset -- Unset a given variable
+
+  void unset(mixed var [, mixed var [, mixed ...]])~
+
+|unset| destroys the specified variables. Note that in PHP 3, |unset| will
+always return TRUE (actually, the integer value 1). In PHP 4, however,
+|unset| is no longer a true function: it is now a statement. As such no value
+is returned, and attempting to take the value of |unset| results in a parse
+error.
+
+|unset| example
+
+<?php >
+  // destroy a single variable
+  unset($foo);
+  
+  // destroy a single element of an array
+  unset($bar['quux']);
+  
+  // destroy more than one variable
+  unset($foo1, $foo2, $foo3);
+?>
+
+The behavior of |unset| inside of a function can vary depending on what type
+of variable you are attempting to destroy.
+
+If a globalized variable is |unset| inside of a function, only the local
+variable is destroyed. The variable in the calling environment will retain
+the same value as before |unset| was called.
+
+<?php >
+  function destroy_foo() 
+  {
+      global $foo;
+      unset($foo);
+  }
+  
+  $foo = 'bar';
+  destroy_foo();
+  echo $foo;
+?>
+
+The above example will output:
+
+  bar
+
+If a variable that is PASSED BY REFERENCE is |unset| inside of a function,
+only the local variable is destroyed. The variable in the calling environment
+will retain the same value as before |unset| was called.
+
+<?php >
+  function foo(&amp;$bar) 
+  {
+      unset($bar);
+      $bar = "blah";
+  }
+  
+  $bar = 'something';
+  echo "$bar\n";
+  
+  foo($bar);
+  echo "$bar\n";
+?>
+
+The above example will output:
+
+  something
+  something
+
+If a static variable is |unset| inside of a function, |unset| destroys the
+variable and all its references.
+
+<?php >
+  function foo() 
+  {
+      static $a;
+      $a++;
+      echo "$a\n";
+      unset($a);
+  }
+  
+  foo();
+  foo();
+  foo();
+?>
+
+The above example will output:
+
+  1
+  2
+  3
+
+If you would like to |unset| a global variable inside of a function, you can
+use the $GLOBALS array to do so:
+
+<?php >
+  function foo() 
+  {
+      unset($GLOBALS['bar']);
+  }
+  
+  $bar = "something";
+  foo();
+?>
+
+Because this is a language construct and not a function, it cannot be called
+using variable functions
+
+See also |isset|, |empty|, and |array_splice|.
+
+vim:ft=help:

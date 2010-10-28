@@ -1,0 +1,20 @@
+fclose -- Closes an open file pointer
+
+  bool fclose(resource handle)~
+
+The file pointed to by {handle} is closed.
+
+Returns TRUE on success or FALSE on failure.
+
+The file pointer must be valid, and must point to a file successfully opened
+by |fopen| or |fsockopen|.
+
+A simple |fclose| example
+
+<?php >
+    $handle = fopen('somefile.txt', 'r');
+    
+    fclose($handle);
+?>
+
+vim:ft=help:

@@ -1,0 +1,32 @@
+spl_classes -- Return available SPL classes
+
+  array spl_classes()~
+
+This function returns an array with the current available SPL classes.
+
+|spl_classes| example
+
+<?php >
+  print_r(spl_classes());
+?>
+
+The above example will output something similar to:
+
+  Array
+  (
+      [ArrayObject] => ArrayObject
+      [ArrayIterator] => ArrayIterator
+      [CachingIterator] => CachingIterator
+      [CachingRecursiveIterator] => CachingRecursiveIterator
+      [DirectoryIterator] => DirectoryIterator
+      [FilterIterator] => FilterIterator
+      [LimitIterator] => LimitIterator
+      [ParentIterator] => ParentIterator
+      [RecursiveDirectoryIterator] => RecursiveDirectoryIterator
+      [RecursiveIterator] => RecursiveIterator
+      [RecursiveIteratorIterator] => RecursiveIteratorIterator
+      [SeekableIterator] => SeekableIterator
+      [SimpleXMLIterator] => SimpleXMLIterator
+  )
+
+vim:ft=help:

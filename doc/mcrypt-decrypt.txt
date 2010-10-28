@@ -1,0 +1,24 @@
+mcrypt_decrypt -- Decrypts crypttext with given parameters
+
+  string mcrypt_decrypt(string cipher, string key, string data, string mode [, string iv])~
+
+|mcrypt_decrypt| decrypts the data and returns the unencrypted data.
+
+{Cipher} is one of the MCRYPT_ciphername constants of the name of the
+algorithm as string.
+
+{Key} is the key with which the data is encrypted. If it's smaller that the
+required keysize, it is padded with '\0'.
+
+{Data} is the data that will be decrypted with the given cipher and mode. If
+the size of the data is not n * blocksize, the data will be padded with '\0'.
+
+{Mode} is one of the MCRYPT_MODE_modename constants of one of "ecb", "cbc",
+"cfb", "ofb", "nofb" or "stream".
+
+The {IV} parameter is used for the initialisation in CBC, CFB, OFB modes, and
+in some algorithms in STREAM mode. If you do not supply an IV, while it is
+needed for an algorithm, the function issues a warning and uses an IV with
+all bytes set to '\0'.
+
+vim:ft=help:

@@ -1,0 +1,14 @@
+sem_release -- Release a semaphore
+
+  bool sem_release(resource sem_identifier)~
+
+|sem_release| releases the semaphore if it is currently acquired by the
+calling process, otherwise a warning is generated.
+
+Returns TRUE on success or FALSE on failure.
+
+After releasing the semaphore, |sem_acquire| may be called to re-acquire it.
+
+See also |sem_get| and |sem_acquire|.
+
+vim:ft=help:

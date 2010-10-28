@@ -1,0 +1,28 @@
+rename -- Renames a file or directory
+
+  bool rename(string oldname, string newname [, resource context])~
+
+Attempts to rename {oldname} to {newname}.
+
+Returns TRUE on success or FALSE on failure.
+
+Example with |rename|
+
+<?php >
+  rename("/tmp/tmp_file.txt", "/home/user/login/docs/my_file.txt");
+?>
+
+Prior to PHP 4.3.3, |rename| could not rename files across partitions on *nix
+based systems.
+
+As of PHP 5.0.0 |rename| can also be used with some URL wrappers. Refer to for
+a listing of which wrappers support |rename|.
+
+The wrapper used in {oldname} MUST match the wrapper used in {newname}.
+
+Context support was added with PHP 5.0.0. For a description of contexts, refer
+to .
+
+See also |copy|, |unlink|, and |move_uploaded_file|.
+
+vim:ft=help:

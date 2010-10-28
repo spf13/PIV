@@ -1,0 +1,48 @@
+get_defined_functions -- Returns an array of all defined functions
+
+  array get_defined_functions()~
+
+This function returns an multidimensional array containing a list of all
+defined functions, both built-in (internal) and user-defined. The internal
+functions will be accessible via $arr["internal"], and the user defined ones
+using $arr["user"] (see example below).
+
+<?php >
+  function myrow($id, $data) 
+  {
+      return "<tr><th>$id</th><td>$data</td></tr>\n";
+  }
+  
+  $arr = get_defined_functions();
+  
+  print_r($arr);
+?>
+
+Will output something along the lines of:
+
+  Array
+  (
+      [internal] => Array
+          (
+              [0] => zend_version
+              [1] => func_num_args
+              [2] => func_get_arg
+              [3] => func_get_args
+              [4] => strlen
+              [5] => strcmp
+              [6] => strncmp
+              ...
+              [750] => bcscale
+              [751] => bccomp
+          )
+  
+      [user] => Array
+          (
+              [0] => myrow
+          )
+  
+  )
+
+See also |function_exists|, |get_defined_vars| and |get_defined_constants|.
+
+vim:ft=help:

@@ -1,0 +1,29 @@
+ora_bind -- Binds a PHP variable to an Oracle parameter
+
+  bool ora_bind(resource cursor, string PHP_variable_name, string SQL_parameter_name, int length [, int type])~
+
+This function binds the named PHP variable with a SQL parameter. The SQL
+parameter must be in the form ":name". With the optional type parameter, you
+can define whether the SQL parameter is an in/out (0, default), in (1) or out
+(2) parameter. As of PHP 3.0.1, you can use the constants ORA_BIND_INOUT,
+ORA_BIND_IN and ORA_BIND_OUT instead of the numbers.
+
+Returns TRUE on success or FALSE on failure. Details about the error can be
+retrieved using the |ora_error| and |ora_errorcode| functions.
+
+|ora_bind| must be called after |ora_parse| and before |ora_exec|. Input
+values can be given by assignment to the bound PHP variables, after calling
+|ora_exec| the bound PHP variables contain the output values if available.
+|ora_bind| example
+
+<?php >
+    ora_parse($curs, "declare tmp INTEGER; begin tmp := :in; :out := tmp; :x := 7.77; end;");
+    ora_bind($curs, "result", ":x", $len, 2);
+    ora_bind($curs, "input", ":in", 5, 1);
+    ora_bind($curs, "output", ":out", 5, 2);
+    $input = 765;
+    ora_exec($curs);
+    echo "Result: $result<br />Out: $output<br />In: $input";
+?>
+
+vim:ft=help:

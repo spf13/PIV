@@ -1,0 +1,35 @@
+date_sunset -- Returns time of sunset for a given day and location
+
+  mixed date_sunset(int timestamp [, int format [, float latitude [, float longitude [, float zenith [, float gmt_offset]]]]])~
+
+|date_sunset| returns the sunset time for a given day (specified as a
+{timestamp}) and location. The {latitude}, {longitude} and {zenith}
+parameters default to the date.default_latitude, date.default_longitude and
+date.sunset_zenith configuration options, respectively.
+
+The {latitude} defaults to North. So, if you want to specify a South value,
+you must pass a negative value. The same note applies to {longitude}, which
+defaults to East.
+
+The {gmt_offset} parameter is specified in hours.
+
+|date_sunset| example
+
+<?php >
+  /* calculate the sunset time for Lisbon, Portugal
+  Latitude: 38.4 North
+  Longitude: 9 West
+  Zenith ~= 90
+  offset: +1 GMT
+  */
+  
+  echo date("D M d Y"). ', sunset time : ' .date_sunset(time(), SUNFUNCS_RET_STRING, 38.4, -9, 90, 1);
+?>
+
+The above example will output something similar to:
+
+  Mon Dec 20 2004, sunset time : 18:13
+
+See also |date_sunrise|.
+
+vim:ft=help:

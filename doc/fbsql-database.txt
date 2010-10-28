@@ -1,0 +1,8 @@
+fbsql_database -- Get or set the database name used with a connection
+
+  string fbsql_database(resource link_identifier [, string database])~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

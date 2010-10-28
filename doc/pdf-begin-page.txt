@@ -1,0 +1,16 @@
+pdf_begin_page -- Starts new page
+
+  bool pdf_begin_page(resource pdfdoc, float width, float height)~
+
+Add a new page to the document. Returns TRUE on success or FALSE on failure.
+The {width} and {height} are specified in points, which are 1/72 of an inch.
+
+Common Page Sizes in Points name size A0 2380&cross;3368 A1 1684&cross;2380 A2
+1190&cross;1684 A3 842&cross;1190 A4 595&cross;842 A5 421&cross;595 A6
+297&cross;421 B5 501&cross;709 letter (8.5"&cross;11") 612&cross;792 legal
+(8.5"&cross;14") 612&cross;1008 ledger (17"&cross;11") 1224&cross;792
+11"&cross;17" 792&cross;1224
+
+See also |pdf_end_page|.
+
+vim:ft=help:

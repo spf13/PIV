@@ -1,0 +1,8 @@
+odbc_field_type -- Datatype of a field
+
+  string odbc_field_type(resource result_id, int field_number)~
+
+|odbc_field_type| will return the SQL type of the field referenced by number
+in the given ODBC result identifier. Field numbering starts at 1.
+
+vim:ft=help:

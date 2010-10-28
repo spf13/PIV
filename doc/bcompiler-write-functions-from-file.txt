@@ -1,0 +1,29 @@
+bcompiler_write_functions_from_file -- Writes all functions defined in a file
+as bytecodes
+
+  bool bcompiler_write_functions_from_file(resource filehandle, string fileName)~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+This function searches for all functions declared in the given file, and
+writes their correspondent bytecodes to the open file handle. Always remember
+to include/require the file you intend to compile.
+
+|bcompiler_write_functions_from_file| example
+
+<?php >
+  require('module.php');
+  
+  $fh = fopen("/tmp/example","w");
+  bcompiler_write_header($fh);
+  bcompiler_write_functions_from_file($fh,'module.php');
+  bcompiler_write_footer($fh);
+  fclose($fh);
+?>
+
+See also |bcompiler_write_header|, and |bcompiler_write_footer|.
+
+vim:ft=help:

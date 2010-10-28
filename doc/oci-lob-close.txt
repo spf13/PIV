@@ -1,0 +1,16 @@
+lob->close -- Closes LOB descriptor
+
+  bool lob->close()~
+
+|lob->close| closes descriptor of LOB or FILE. This function should be used
+only with |lob->writeTemporary|.
+
+Returns TRUE on success or FALSE on failure.
+
+In PHP versions before 5.0.0 you must use |ocicloselob| instead. This name
+still can be used, it was left as alias of |oci_lob_close| for downwards
+compatability. This, however, is deprecated and not recommended.
+
+See also |oci_lob_write_temporary|.
+
+vim:ft=help:

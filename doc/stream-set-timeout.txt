@@ -1,0 +1,45 @@
+stream_set_timeout -- Set timeout period on a stream
+
+  bool stream_set_timeout(resource stream, int seconds [, int microseconds])~
+
+Sets the timeout value on {stream}, expressed in the sum of {seconds} and
+{microseconds}. Returns TRUE on success or FALSE on failure.
+
+When the stream times out, the 'timed_out' key of the array returned by
+|stream_get_meta_data| is set to TRUE, although no error/warning is
+generated.
+
+|stream_set_timeout| example
+
+<?php >
+  $fp = fsockopen("www.example.com", 80);
+  if (!$fp) {
+      echo "Unable to open\n";
+  } else {
+  
+      fwrite($fp, "GET / HTTP/1.0\r\n\r\n");
+      stream_set_timeout($fp, 2);
+      $res = fread($fp, 2000);
+  
+      $info = stream_get_meta_data($fp);
+      fclose($fp);
+  
+      if ($info['timed_out']) {
+          echo 'Connection timed out!';
+      } else {
+          echo $res;
+      }
+  
+  }
+?>
+
+As of PHP 4.3, this function can (potentially) work on any kind of stream. In
+PHP 4.3, socket based streams are still the only kind supported in the PHP
+core, although streams from other extensions may support this function.
+
+This function was previously called as |set_socket_timeout| and later
+|socket_set_timeout| but this usage is deprecated.
+
+See also |fsockopen| and |fopen|.
+
+vim:ft=help:

@@ -1,0 +1,22 @@
+lob->writeTemporary -- Writes temporary large object
+
+  bool lob->writeTemporary(string data [, int lob_type])~
+
+Creates a temporary large object and writes {data} to it.
+
+Parameter {lob_type} can be one of the following: OCI_TEMP_BLOB is used to
+create temporary BLOBs OCI_TEMP_CLOB is used to create temporary CLOBs
+
+|lob->writeTemporary| creates a CLOB by default.
+
+You should use |oci_lob_close| when the work with the object is over.
+
+Returns TRUE on success or FALSE on failure.
+
+In PHP versions before 5.0.0 you must use |ociwritetemporarylob| instead. This
+name still can be used, it was left as alias of |oci_lob_write_temporary| for
+downwards compatability. This, however, is deprecated and not recommended.
+
+See also |oci_lob_close|.
+
+vim:ft=help:

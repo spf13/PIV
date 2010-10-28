@@ -1,0 +1,13 @@
+ncurses_use_env -- Control use of environment information about terminal size
+
+  void ncurses_use_env(bool flag)~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

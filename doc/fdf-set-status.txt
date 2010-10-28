@@ -1,0 +1,10 @@
+fdf_set_status -- Set the value of the /STATUS key
+
+  bool fdf_set_status(resource fdf_document, string status)~
+
+The |fdf_set_status| sets the value of the /STATUS key. When a client receives
+a FDF with a status set it will present the value in an alert box.
+
+See also |fdf_get_status|.
+
+vim:ft=help:

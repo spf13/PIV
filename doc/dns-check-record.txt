@@ -1,0 +1,7 @@
+dns_check_record -- Synonym for checkdnsrr
+
+  bool dns_check_record(string host [, string type])~
+
+Check DNS records corresponding to a given Internet host name or IP address
+
+vim:ft=help:

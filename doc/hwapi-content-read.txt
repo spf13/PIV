@@ -1,0 +1,7 @@
+hw_api_content->read -- Read content
+
+  string hw_api_content->read(string buffer, int len)~
+
+Reads {len} bytes from the content into the given buffer.
+
+vim:ft=help:

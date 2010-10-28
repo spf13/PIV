@@ -1,0 +1,16 @@
+lob->flush -- Flushes/writes buffer of the LOB to the server
+
+  bool lob->flush([int flag])~
+
+|lob->flush| actually writes data to the server. By default, resources are not
+freed, but using flag OCI_LOB_BUFFER_FREE you can do it explicitly. Be sure
+you know what you're doing - next read/write operation to the same part of
+LOB will involve a round-trip to the server and initialize new buffer
+resources. It is recommended to use OCI_LOB_BUFFER_FREE flag only when you
+are not going to work with the LOB anymore.
+
+|lob->flush| returns FALSE if buffering was not enabled or an error occurred.
+
+Returns TRUE on success or FALSE on failure.
+
+vim:ft=help:

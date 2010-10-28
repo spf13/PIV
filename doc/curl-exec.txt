@@ -1,0 +1,28 @@
+curl_exec -- Perform a CURL session
+
+  mixed curl_exec(resource ch)~
+
+This function should be called after you initialize a CURL session and all the
+options for the session are set. Its purpose is simply to execute the
+predefined CURL session (given by the {ch}). Initializing a new CURL session
+and fetching a webpage
+
+<?php >
+  // create a new curl resource
+  $ch = curl_init();
+  
+  // set URL and other appropriate options
+  curl_setopt($ch, CURLOPT_URL, "http://www.example.com/");
+  curl_setopt($ch, CURLOPT_HEADER, 0);
+  
+  // grab URL and pass it to the browser
+  curl_exec($ch);
+  
+  // close curl resource, and free up system resources
+  curl_close($ch);
+?>
+
+If you want to have the result returned instead of it being printed to the
+browser directly, use the CURLOPT_RETURNTRANSFER option of |curl_setopt|.
+
+vim:ft=help:

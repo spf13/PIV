@@ -1,0 +1,9 @@
+debugger_off -- Disable internal PHP debugger (PHP 3)
+
+  int debugger_off()~
+
+Disables the internal PHP debugger. This function is only available in PHP 3.
+
+For more information see the appendix on Debugging PHP.
+
+vim:ft=help:

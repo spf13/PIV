@@ -1,0 +1,7 @@
+swf_shapefilloff -- Turns off filling
+
+  void swf_shapefilloff()~
+
+The |swf_shapefilloff| function turns off filling for the current shape.
+
+vim:ft=help:

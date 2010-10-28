@@ -1,0 +1,11 @@
+lob->export -- Exports LOB's contents to a file
+
+  bool lob->export(string filename [, int start [, int length]])~
+
+Exports LOB's contents to a file, which name is given in parameter {filename}.
+Optional parameter {start} indicates from what position to start export and
+parameter {length} - length of data to be exported.
+
+Returns TRUE on success or FALSE on failure.
+
+vim:ft=help:

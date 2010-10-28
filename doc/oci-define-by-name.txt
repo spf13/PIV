@@ -1,0 +1,43 @@
+oci_define_by_name -- Uses a PHP variable for the define-step during a SELECT
+
+  bool oci_define_by_name(resource statement, string column_name, mixed variable [, int type])~
+
+|oci_define_by_name| defines PHP variables for fetches of SQL-Columns. Be
+careful that Oracle uses ALL-UPPERCASE column names, whereby in your select
+you can also write lowercase. |oci_define_by_name| expects the {column_name}
+to be in uppercase. If you define a variable that doesn't exists in your
+select statement, no error will issued.
+
+If you need to define an abstract datatype (LOB/ROWID/BFILE) you must allocate
+it first using |oci_new_descriptor|. See also the |oci_bind_by_name| function.
+
+|oci_define_by_name| example
+
+<?php >
+  /* oci_define_by_name example - thies at thieso dot net (980219) */
+  
+  $conn = oci_connect("scott", "tiger");
+  
+  $stmt = oci_parse($conn, "SELECT empno, ename FROM emp");
+  
+  /* the define MUST be done BEFORE oci_execute! */
+  
+  oci_define_by_name($stmt, "EMPNO", $empno);
+  oci_define_by_name($stmt, "ENAME", $ename);
+  
+  oci_execute($stmt);
+  
+  while (oci_fetch($stmt)) {
+      echo "empno:" . $empno . "\n";
+      echo "ename:" . $ename . "\n";
+  }
+  
+  oci_free_statement($stmt);
+  oci_close($conn);
+?>
+
+In PHP versions before 5.0.0 you must use |ocidefinebyname| instead. This name
+still can be used, it was left as alias of |oci_define_by_name| for downwards
+compatability. This, however, is deprecated and not recommended.
+
+vim:ft=help:

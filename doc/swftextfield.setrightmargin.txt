@@ -1,0 +1,13 @@
+SWFTextField->setrightMargin -- Sets the right margin width of the text field
+
+  void swftextfield->setrightmargin(int width)~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+|swftextfield->setrightmargin| sets the right margin width of the text field
+to {width}. Default is 0.
+
+vim:ft=help:

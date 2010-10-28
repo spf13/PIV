@@ -1,0 +1,11 @@
+msg_remove_queue -- Destroy a message queue
+
+  bool msg_remove_queue(resource queue)~
+
+|msg_remove_queue| destroys the message queue specified by the {queue}. Only
+use this function when all processes have finished working with the message
+queue and you need to release the system resources held by it.
+
+See also |msg_get_queue|, |msg_receive|, |msg_stat_queue| and |msg_set_queue|.
+
+vim:ft=help:

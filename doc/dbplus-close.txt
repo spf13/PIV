@@ -1,0 +1,15 @@
+dbplus_close -- Close a relation
+
+  mixed dbplus_close(resource relation)~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+Calling |dbplus_close| will close a relation previously opened by
+|dbplus_open|.
+
+Returns TRUE on success or DBPLUS_ERR_UNKNOWN on failure.
+
+vim:ft=help:

@@ -1,0 +1,36 @@
+fdf_set_file -- Set PDF document to display FDF data in
+
+  bool fdf_set_file(resource fdf_document, string url [, string target_frame])~
+
+The |fdf_set_file| selects a different PDF document to display the form
+results in then the form it originated from. The {url} needs to be given as
+an absolute URL.
+
+The frame to display the document in may be selected using the optional
+parameter {target_frame} or the function |fdf_set_target_frame|.
+
+Passing FDF data to a second form
+
+<?php >
+    /* set content type for Adobe FDF */
+    fdf_header();
+  
+    /* start new fdf */
+    $fdf = fdf_create();
+      
+    /* set field "foo" to value "bar" */
+    $fdf_set_value($fdf, "foo", "bar");
+  
+    /* tell client to display FDF data using "fdf_form.pdf" */
+    fdf_set_file($fdf, "http://www.example.com/fdf_form.pdf");
+  
+    /* output fdf */
+    fdf_save();
+  
+    /* clean up */
+    fdf_close();
+?>
+
+See also |fdf_get_file| and |fdf_set_target_frame|.
+
+vim:ft=help:

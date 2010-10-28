@@ -1,0 +1,8 @@
+DirectoryIterator::getPerms -- Get file permissions
+
+  int DirectoryIterator::getPerms()~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

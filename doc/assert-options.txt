@@ -1,0 +1,11 @@
+assert_options -- Set/get the various assert flags
+
+  mixed assert_options(int what [, mixed value])~
+
+Using |assert_options| you may set the various |assert| control options or
+just query their current settings.
+
+|assert_options| will return the original setting of any option or FALSE on
+errors.
+
+vim:ft=help:

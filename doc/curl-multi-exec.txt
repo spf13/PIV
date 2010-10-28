@@ -1,0 +1,10 @@
+curl_multi_exec -- Run the sub-connections of the current cURL handle
+
+  int curl_multi_exec(resource mh, int still_running)~
+
+This function is currently not documented; only the argument list is
+available.
+
+See also |curl_multi_init| and |curl_exec|.
+
+vim:ft=help:

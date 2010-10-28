@@ -1,0 +1,33 @@
+sesam_execimm -- Execute an "immediate" SQL-statement
+
+  string sesam_execimm(string query)~
+
+Returns: A SESAM "result identifier" on success, or FALSE on error.
+
+|sesam_execimm| executes an "immediate" statement (i.e., a statement like
+UPDATE, INSERT or DELETE which returns no result, and has no INPUT or OUTPUT
+variables). "select type" queries can not be used with |sesam_execimm|. Sets
+the {affected_rows} value for retrieval by the |sesam_affected_rows|
+function.
+
+Note that |sesam_query| can handle both "immediate" and "select-type" queries.
+Use |sesam_execimm| only if you know beforehand what type of statement will be
+executed. An attempt to use SELECT type queries with |sesam_execimm| will
+return $err["sqlstate"] == "42SBW".
+
+The returned "result identifier" can not be used for retrieving anything but
+the |sesam_affected_rows|; it is only returned for symmetry with the
+|sesam_query| function.
+
+<?php >
+  $stmt = "INSERT INTO mytable VALUES ('one', 'two')";
+  $result = sesam_execimm($stmt);
+  $err = sesam_diagnostic();
+  echo "sqlstate = " . $err["sqlstate"] . "\n".
+         "Affected rows = " . $err["rowcount"] . " == " .
+         sesam_affected_rows($result) . "\n";
+?>
+
+See also |sesam_query| and |sesam_affected_rows|.
+
+vim:ft=help:

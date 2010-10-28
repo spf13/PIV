@@ -1,0 +1,11 @@
+hw_api->identify -- Log into Hyperwave Server
+
+  bool hw_api->identify(array parameter)~
+
+Logs into the Hyperwave Server. The parameter array must contain the elements
+'username' and 'password'.
+
+The return value will be an object of type HW_API_Error if identification
+failed or TRUE if it was successful.
+
+vim:ft=help:

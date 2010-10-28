@@ -1,0 +1,35 @@
+mysql_num_rows -- Get number of rows in result
+
+  int mysql_num_rows(resource result)~
+
+Retrieves the number of rows from a result set. This command is only valid for
+SELECT statements. To retrieve the number of rows affected by a INSERT,
+UPDATE, or DELETE query, use |mysql_affected_rows|.
+
+{ result}The result resource that is being evaluated. This result comes from a
+call to |mysql_query|.
+
+The number of rows in a result set on success, or FALSE on failure.
+
+|mysql_num_rows| example
+
+<?php >
+  $link = mysql_connect("localhost", "mysql_user", "mysql_password");
+  mysql_select_db("database", $link);
+  
+  $result = mysql_query("SELECT * FROM table1", $link);
+  $num_rows = mysql_num_rows($result);
+  
+  echo "$num_rows Rows\n";
+?>
+
+If you use |mysql_unbuffered_query|, |mysql_num_rows| will not return the
+correct value until all the rows in the result set have been retrieved.
+
+For downward compatibility, the following deprecated alias may be used:
+|mysql_numrows|
+
+|mysql_affected_rows| |mysql_connect| |mysql_data_seek| |mysql_select_db|
+|mysql_query|
+
+vim:ft=help:

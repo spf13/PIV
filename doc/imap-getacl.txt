@@ -1,0 +1,13 @@
+imap_getacl -- Gets the ACL for a given mailbox
+
+  array imap_getacl(resource stream_id, string mailbox)~
+
+This function is currently not documented; only the argument list is
+available.
+
+This function is currently only available to users of the c-client2000 or
+greater library.
+
+See also |imap_setacl|.
+
+vim:ft=help:

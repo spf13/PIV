@@ -1,0 +1,5 @@
+pdf_set_leading -- Deprecated: Sets distance between text lines
+
+This function is deprecated, use |pdf_set_value| instead.
+
+vim:ft=help:

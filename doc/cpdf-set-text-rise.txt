@@ -1,0 +1,8 @@
+cpdf_set_text_rise -- Sets the text rise
+
+  bool cpdf_set_text_rise(int pdf_document, float value)~
+
+The |cpdf_set_text_rise| function sets the text rising to {value} units.
+Returns TRUE on success or FALSE on failure.
+
+vim:ft=help:

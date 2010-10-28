@@ -1,0 +1,9 @@
+mcve_completeauthorizations -- Number of complete authorizations in queue,
+returning an array of their identifiers
+
+  int mcve_completeauthorizations(resource conn, int array)~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

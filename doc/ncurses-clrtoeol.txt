@@ -1,0 +1,16 @@
+ncurses_clrtoeol -- Clear screen from current position to end of line
+
+  bool ncurses_clrtoeol()~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+|ncurses_clrtoeol| erases the current line from cursor position to the end.
+Blanks created by |ncurses_clrtoeol| have the current background rendition.
+Returns TRUE on success or FALSE on failure.
+
+See also |ncurses_clear|, and |ncurses_clrtobot|
+
+vim:ft=help:

@@ -1,0 +1,12 @@
+posix_kill -- Send a signal to a process
+
+  bool posix_kill(int pid, int sig)~
+
+Send the signal {sig} to the process with the process identifier {pid}.
+Returns FALSE, if unable to send the signal, TRUE otherwise.
+
+See also the kill(2) manual page of your POSIX system, which contains
+additional information about negative process identifiers, the special pid 0,
+the special pid -1, and the signal number 0.
+
+vim:ft=help:

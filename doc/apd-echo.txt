@@ -1,0 +1,13 @@
+apd_echo -- Echo to the debugging socket
+
+  bool apd_echo(string output)~
+
+Usually sent via the socket to request information about the running script.
+
+|apd_echo| example
+
+<?php >
+  apd_echo($i);
+?>
+
+vim:ft=help:

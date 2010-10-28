@@ -1,0 +1,8 @@
+ncurses_bottom_panel -- Moves a visible panel to the bottom of the stack
+
+  int ncurses_bottom_panel(resource panel)~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

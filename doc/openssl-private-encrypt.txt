@@ -1,0 +1,17 @@
+openssl_private_encrypt -- Encrypts data with private key
+
+  bool openssl_private_encrypt(string data, string crypted, mixed key [, int padding])~
+
+|openssl_private_encrypt| encrypts {data} with private {key} and stores the
+result into {crypted}. Encrypted data can be decrypted via
+|openssl_public_decrypt|. {padding} defaults to OPENSSL_PKCS1_PADDING, but
+can also be OPENSSL_NO_PADDING.
+
+Returns TRUE on success or FALSE on failure.
+
+This function can be used e.g. to sign data (or its hash) to prove that it is
+not written by someone else.
+
+See also |openssl_public_decrypt| and |openssl_public_encrypt|.
+
+vim:ft=help:

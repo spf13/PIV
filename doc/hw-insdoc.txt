@@ -1,0 +1,12 @@
+hw_InsDoc -- Insert document
+
+  int hw_insdoc(resource connection, int parentID, string object_record [, string text])~
+
+Inserts a new document with attributes as in {object_record} into collection
+with object ID {parentID}. This function inserts either an object record only
+or an object record and a pure ascii text in {text} if {text} is given. If you
+want to insert a general document of any kind use |hw_insertdocument| instead.
+
+See also |hw_insertdocument|, and |hw_inscoll|.
+
+vim:ft=help:

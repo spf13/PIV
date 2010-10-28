@@ -1,0 +1,21 @@
+DomNode->add_namespace -- Adds a namespace declaration to a node
+
+  bool add_namespace(string uri, string prefix)~
+
+This method adds a namespace declaration to a node.
+
+This method is not part of the DOM specification.
+
+{uri} The namespace URI of the node.
+
+{prefix} The namespace prefix of the node.
+
+Returns TRUE on success or FALSE on failure.
+
+You can set the namespace URI and prefix of a DOMElement or a DOMAttr at
+creation time by using or .
+
+Remember the an attribute does not inherit its namespace from the element it
+is attached to.
+
+vim:ft=help:

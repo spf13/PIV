@@ -1,0 +1,23 @@
+SQLiteUnbuffered->valid -- Returns whether more rows are available
+
+  bool sqlite_valid(resource result)~
+
+Object oriented style (method):
+
+  bool valid(resource result)~
+
+  bool valid(resource result)~
+
+Finds whether more rows are available from the given result handle.
+
+{result} The SQLite result resource. This parameter is not required when using
+the object-oriented method.
+
+This function cannot be used with unbuffered result handles.
+
+Returns TRUE if there are more rows available from the {result} handle, or
+FALSE otherwise.
+
+|sqlite_num_rows| |sqlite_changes|
+
+vim:ft=help:

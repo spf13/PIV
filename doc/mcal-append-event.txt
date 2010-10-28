@@ -1,0 +1,10 @@
+mcal_append_event -- Store a new event into an MCAL calendar
+
+  int mcal_append_event(int mcal_stream)~
+
+|mcal_append_event| stores the global event into an MCAL calendar for the
+stream {mcal_stream}.
+
+Returns the id of the newly inserted event.
+
+vim:ft=help:

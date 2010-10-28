@@ -1,0 +1,11 @@
+openal_source_destroy -- Destroy a source resource
+
+  bool openal_source_destroy(resource source)~
+
+An Open AL(Source) resource (previously created by |openal_source_create|).
+
+Returns TRUE on success or FALSE on failure.
+
+|openal_source_create|
+
+vim:ft=help:

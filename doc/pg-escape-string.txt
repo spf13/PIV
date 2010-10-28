@@ -1,0 +1,34 @@
+pg_escape_string -- Escape a string for insertion into a text field
+
+  string pg_escape_string(string data)~
+
+|pg_escape_string| escapes a string for insertion into the database. It
+returns an escaped string in the PostgreSQL format. Use of this function is
+recommended instead of |addslashes|. If the type of the column is bytea,
+|pg_escape_bytea| must be used instead.
+
+This function requires PostgreSQL 7.2 or later.
+
+{data} A string containing text to be escaped.
+
+A string containing the escaped data.
+
+|pg_escape_string| example
+
+<?php >
+    // Connect to the database
+    $dbconn = pg_connect('dbname=foo');
+    
+    // Read in a text file (containing apostrophes and backslashes)
+    $data = file_get_contents('letter.txt');
+    
+    // Escape the text data
+    $escaped = pg_escape_string($data);
+    
+    // Insert it into the database
+    pg_query("INSERT INTO correspondence (name, data) VALUES ('My letter', '{$escaped}')";
+?>
+
+|pg_escape_bytea|
+
+vim:ft=help:

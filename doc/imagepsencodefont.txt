@@ -1,0 +1,19 @@
+imagepsencodefont -- Change the character encoding vector of a font
+
+  bool imagepsencodefont(resource font_index, string encodingfile)~
+
+Loads a character encoding vector from a file and changes the fonts encoding
+vector to it. As a PostScript fonts default vector lacks most of the
+character positions above 127, you'll definitely want to change this if you
+use an other language than English. The exact format of this file is
+described in T1libs documentation. T1lib comes with two ready-to-use files,
+IsoLatin1.enc and IsoLatin2.enc.
+
+If you find yourself using this function all the time, a much better way to
+define the encoding is to set ps.default_encoding in the configuration file
+to point to the right encoding file and all fonts you load will automatically
+have the right encoding.
+
+This function is only available if PHP is compiled using --with-t1lib[=DIR].
+
+vim:ft=help:

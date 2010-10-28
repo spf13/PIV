@@ -1,0 +1,9 @@
+sinh -- Hyperbolic sine
+
+  float sinh(float arg)~
+
+Returns the hyperbolic sine of {arg}, defined as (exp(arg) - exp(-arg))/2.
+
+See also: |sin|, |asinh|, |cos|, and |tan|.
+
+vim:ft=help:

@@ -1,0 +1,10 @@
+imap_base64 -- Decode BASE64 encoded text
+
+  string imap_base64(string text)~
+
+|imap_base64| function decodes BASE-64 encoded {text} (see RFC2045, Section
+6.8). The decoded message is returned as a string.
+
+See also |imap_binary|, |base64_encode| and |base64_decode|.
+
+vim:ft=help:

@@ -1,0 +1,27 @@
+bcompiler_write_header -- Writes the bcompiler header
+
+  bool bcompiler_write_header(resource filehandle [, string write_ver])~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+Writes the header part of a bcompiler file. Optional second parameter can be
+used to write bytecode in a previously used format, so that you can use it
+with older versions of bcompiler.
+
+|bcompiler_write_header| example
+
+<?php >
+  $fh = fopen("/tmp/example","w");
+  bcompiler_write_header($fh);
+  bcompiler_write_class($fh,"DB");
+  bcompiler_write_footer($fh);
+  fclose($fh);
+?>
+
+See also |bcompiler_write_file|, |bcompiler_write_class|,
+|bcompiler_write_function|, and |bcompiler_write_footer|.
+
+vim:ft=help:

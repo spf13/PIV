@@ -1,0 +1,13 @@
+cpdf_setrgbcolor_fill -- Sets filling color to rgb color value
+
+  bool cpdf_setrgbcolor_fill(int pdf_document, float red_value, float green_value, float blue_value)~
+
+The |cpdf_setrgbcolor_fill| function sets the current rgb color value to fill
+a path. Returns TRUE on success or FALSE on failure.
+
+The values are expected to be floating point values between 0.0 and 1.0. (i.e
+black is (0.0, 0.0, 0.0) and white is (1.0, 1.0, 1.0)).
+
+See also |cpdf_setrgbcolor_stroke| and |cpdf_setrgbcolor|.
+
+vim:ft=help:

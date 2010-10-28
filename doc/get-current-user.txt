@@ -1,0 +1,9 @@
+get_current_user -- Gets the name of the owner of the current PHP script
+
+  string get_current_user()~
+
+Returns the name of the owner of the current PHP script.
+
+See also |getmyuid|, |getmygid|, |getmypid|, |getmyinode|, and |getlastmod|.
+
+vim:ft=help:

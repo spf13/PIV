@@ -1,0 +1,17 @@
+sesam_num_fields -- Return the number of fields/columns in a result set
+
+  int sesam_num_fields(string result_id)~
+
+After calling |sesam_query| with a "select type" query, this function gives
+you the number of columns in the result. Returns an integer describing the
+total number of columns (aka. fields) in the current {result_id} result set
+or FALSE on error.
+
+For "immediate" statements, the value zero is returned. The SESAM "multiple
+field" columns count as their respective dimension, i.e., a three-column
+"multiple field" counts as three columns.
+
+See also: |sesam_query| and |sesam_field_array| for a way to distinguish
+between "multiple field" columns and regular columns.
+
+vim:ft=help:

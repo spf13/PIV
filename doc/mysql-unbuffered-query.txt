@@ -1,0 +1,35 @@
+mysql_unbuffered_query -- Send an SQL query to MySQL, without fetching and
+buffering the result rows
+
+  resource mysql_unbuffered_query(string query [, resource link_identifier])~
+
+|mysql_unbuffered_query| sends a SQL query {query} to MySQL, without fetching
+and buffering the result rows automatically, as |mysql_query| does. On the
+one hand, this saves a considerable amount of memory with SQL queries that
+produce large result sets. On the other hand, you can start working on the
+result set immediately after the first row has been retrieved: you don't have
+to wait until the complete SQL query has been performed. When using multiple
+DB-connects, you have to specify the optional parameter {link_identifier}.
+
+{query} A SQL query
+
+{ link_identifier}The MySQL connection. If the link identifier is not
+specified, the last link opened by |mysql_connect| is assumed. If no such
+link is found, it will try to create one as if |mysql_connect| was called
+with no arguments. If by chance no connection is found or established, an
+E_WARNING level warning is generated.
+
+For SELECT, SHOW, DESCRIBE or EXPLAIN statements, |mysql_query| returns a
+resource on success, or FALSE on error.
+
+For other type of SQL statements, UPDATE, DELETE, DROP, etc, |mysql_query|
+returns TRUE on success or FALSE on error.
+
+The benefits of |mysql_unbuffered_query| come at a cost: You cannot use
+|mysql_num_rows| and |mysql_data_seek| on a result set returned from
+|mysql_unbuffered_query|. You also have to fetch all result rows from an
+unbuffered SQL query, before you can send a new SQL query to MySQL.
+
+|mysql_query|
+
+vim:ft=help:

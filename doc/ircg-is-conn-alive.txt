@@ -1,0 +1,8 @@
+ircg_is_conn_alive -- Check connection status
+
+  bool ircg_is_conn_alive(resource connection)~
+
+|ircg_is_conn_alive| returns TRUE if {connection} is still alive and working
+or FALSE, if the connection has died for some reason.
+
+vim:ft=help:

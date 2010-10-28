@@ -1,0 +1,28 @@
+DomNode->node_type -- Returns type of node
+
+  int DomNode->node_type()~
+
+Returns the type of the node. All possible types are listed in the table in
+the introduction.
+
+<?php >
+  include 'example.inc';
+  
+  $dom = domxml_open_mem($xmlstr);
+  
+  $chapter = $dom->document_element();
+  
+  // Let's see the elements contained in chapter
+  foreach($chapter->child_nodes() as $node) {
+    if ($node->node_type() == XML_ELEMENT_NODE) {
+      echo $node->node_name() . "\n";
+    }
+  }
+?>
+
+The above example will output:
+
+  title
+  para
+
+vim:ft=help:

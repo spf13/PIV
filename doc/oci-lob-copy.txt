@@ -1,0 +1,14 @@
+oci_lob_copy -- Copies large object
+
+  bool oci_lob_copy(OCI-Lob lob_to, OCI-Lob lob_from [, int length])~
+
+Copies large object or a part of large object to another large object.
+Parameter {length} indicates the length of data to be copied. Old data of
+LOB-recipient will be overwritten.
+
+If you need to copy a particular part of LOB to a particular position of LOB,
+you can use |oci_lob_seek| to move internal pointers of LOBs.
+
+Returns TRUE on success or FALSE on failure.
+
+vim:ft=help:

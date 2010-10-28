@@ -1,0 +1,23 @@
+checkdnsrr -- Check DNS records corresponding to a given Internet host name or
+IP address
+
+  int checkdnsrr(string host [, string type])~
+
+Searches DNS for records of type {type} corresponding to {host}. Returns TRUE
+if any records are found; returns FALSE if no records were found or if an
+error occurred.
+
+{type} may be any one of: A, MX, NS, SOA, PTR, CNAME, AAAA, A6, SRV, NAPTR or
+ANY. The default is MX.
+
+{host} may either be the IP address in dotted-quad notation or the host name.
+
+AAAA type added with PHP 5.0.0
+
+This function is not implemented on Windows platforms. Try the PEAR class
+Net_DNS.
+
+See also |dns_get_record|, |getmxrr|, |gethostbyaddr|, |gethostbyname|,
+|gethostbynamel|, and the named(8) manual page.
+
+vim:ft=help:

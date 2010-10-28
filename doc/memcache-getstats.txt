@@ -1,0 +1,14 @@
+Memcache::getStats -- Get statistics of the server
+
+  array Memcache::getStats()~
+
+|Memcache::getStats| returns an associative array with server's statistics.
+Array keys correspond to stats parameters and values to parameter's values.
+
+Also you can use |memcache_get_stats| function.
+
+|Memcache::getStats| returns FALSE in case of an error.
+
+See also |Memcache::getVersion|.
+
+vim:ft=help:

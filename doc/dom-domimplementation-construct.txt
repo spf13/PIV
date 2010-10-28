@@ -1,0 +1,5 @@
+DOMImplementation->__construct() -- Creates a new DOMImplementation object
+
+Creates a new DOMImplementation object.
+
+vim:ft=help:

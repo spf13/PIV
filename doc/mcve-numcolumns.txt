@@ -1,0 +1,8 @@
+mcve_numcolumns -- Number of columns returned in a comma delimited response
+
+  int mcve_numcolumns(resource conn, int identifier)~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

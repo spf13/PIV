@@ -1,0 +1,14 @@
+ncurses_use_extended_names -- Control use of extended names in terminfo
+descriptions
+
+  int ncurses_use_extended_names(bool flag)~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

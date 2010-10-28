@@ -1,0 +1,9 @@
+pdf_open_image -- Versatile function for images
+
+  int pdf_open_image(resource pdfdoc, string imagetype, string source, string data, int length, int width, int height, int components, int bpc, string params)~
+
+Use image data from a variety of data sources. Supported types are jpeg,
+ccitt, raw. Supported sources are memory, fileref, url. {len} is only used
+when type is raw, {params} is only used when type is ccitt.
+
+vim:ft=help:

@@ -1,0 +1,9 @@
+posix_getpgrp -- Return the current process group identifier
+
+  int posix_getpgrp()~
+
+Return the process group identifier of the current process. See POSIX.1 and
+the getpgrp(2) manual page on your POSIX system for more information on
+process groups.
+
+vim:ft=help:

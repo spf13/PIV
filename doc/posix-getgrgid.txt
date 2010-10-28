@@ -1,0 +1,38 @@
+posix_getgrgid -- Return info about a group by group id
+
+  array posix_getgrgid(int gid)~
+
+Returns an array of information about a group and FALSE on failure. If {gid}
+isn't a number then NULL is returned and an E_WARNING level error is
+generated.
+
+Example use of |posix_getgrgid|
+
+<?php >
+  $groupid   = posix_getegid();
+  $groupinfo = posix_getgrgid($groupid);
+  
+  print_r($groupinfo);
+?>
+
+An example output:
+
+  Array
+  (
+      [name]    => toons
+      [passwd]  => x
+      [members] => Array 
+          ( 
+              [0] => tom
+              [1] => jerry
+          )
+      [gid]     => 42
+  )
+
+As of PHP 4.2.0, members is returned as an array of member usernames in the
+group. Before this time it was simply an integer (the number of members in
+the group) and the member names were returned with numerical indices.
+
+See also |posix_getegid|, |filegroup|, |stat|, and safe_mode_gid.
+
+vim:ft=help:

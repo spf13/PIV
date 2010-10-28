@@ -1,0 +1,9 @@
+ocicolumnscale -- Tell the scale of a column
+
+  int ocicolumnscale(resource stmt, int col)~
+
+This function was renamed to |oci_field_scale| after PHP >= 5.0.0. For
+downward compatibility |ocicolumnscale| can also be used. This is deprecated,
+however.
+
+vim:ft=help:

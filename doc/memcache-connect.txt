@@ -1,0 +1,35 @@
+Memcache::connect -- Open memcached server connection
+
+  bool Memcache::connect(string host [, int port [, int timeout]])~
+
+|Memcache::connect| establishes a connection to the memcached server.
+Parameters {host} and {port} point to the host and port, where memcached is
+listening for connections. Parameter {port} is optional, it's default value
+is 11211. Also you can define a {timeout} (in seconds), which will be used
+when connecting to the daemon. Think twice before changing the default value
+- you can loose all the advantages of caching if your connection is too slow.
+
+The connection, which was opened using |Memcache::connect| will be
+automatically closed at the end of script execution. Also you can close it
+with |Memcache::close|.
+
+Also you can use |memcache_connect| function. See example below.
+
+|Memcache::connect| example
+
+<?php >
+  /* procedural API */
+  
+  $memcache_obj = memcache_connect('memcache_host', 11211);
+  
+  /* OO API */
+  
+  $memcache = new Memcache;
+  $memcache->connect('memcache_host', 11211);
+?>
+
+Returns TRUE on success or FALSE on failure.
+
+See also |Memcache::pconnect| and |Memcache::close|.
+
+vim:ft=help:

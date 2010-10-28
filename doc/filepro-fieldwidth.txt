@@ -1,0 +1,7 @@
+filepro_fieldwidth -- Gets the width of a field
+
+  int filepro_fieldwidth(int field_number)~
+
+Returns the width of the field corresponding to {field_number}.
+
+vim:ft=help:

@@ -1,0 +1,7 @@
+fbsql_field_len -- Returns the length of the specified field
+
+  int fbsql_field_len(resource result [, int field_offset])~
+
+|fbsql_field_len| returns the length of the specified field.
+
+vim:ft=help:

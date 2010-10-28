@@ -1,0 +1,15 @@
+lob->append -- Appends data from the large object to another large object
+
+  bool lob->append(OCI-Lob lob_from)~
+
+Appends data from the large object to the end of another large object.
+
+Writing to the large object with |lob->append| will fail if buffering was
+previously enabled. You must disable buffering before appending. You may need
+to flush buffers with |oci_lob_flush| before disabling buffering.
+
+Returns TRUE on success or FALSE on failure.
+
+See also |oci_lob_flush|, |ocisetbufferinglob| and |ocigetbufferinglob|.
+
+vim:ft=help:

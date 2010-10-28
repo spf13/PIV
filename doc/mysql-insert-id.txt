@@ -1,0 +1,45 @@
+mysql_insert_id -- Get the ID generated from the previous INSERT operation
+
+  int mysql_insert_id([resource link_identifier])~
+
+Retrieves the ID generated for an AUTO_INCREMENT column by the previous INSERT
+query.
+
+{ link_identifier}The MySQL connection. If the link identifier is not
+specified, the last link opened by |mysql_connect| is assumed. If no such
+link is found, it will try to create one as if |mysql_connect| was called
+with no arguments. If by chance no connection is found or established, an
+E_WARNING level warning is generated.
+
+The ID generated for an AUTO_INCREMENT column by the previous INSERT query on
+success, 0 if the previous query does not generate an AUTO_INCREMENT value,
+or FALSE if no MySQL connection was established.
+
+|mysql_insert_id| example
+
+<?php >
+  $link = mysql_connect('localhost', 'mysql_user', 'mysql_password');
+  if (!$link) {
+      die('Could not connect: ' . mysql_error());
+  }
+  mysql_select_db('mydb');
+  
+  mysql_query("INSERT INTO mytable (product) values ('kossu')");
+  printf("Last inserted record has id %d\n", mysql_insert_id());
+?>
+
+|mysql_insert_id| converts the return type of the native MySQL C API function
+mysql_insert_id() to a type of long (named int in PHP). If your
+AUTO_INCREMENT column has a column type of BIGINT, the value returned by
+|mysql_insert_id| will be incorrect. Instead, use the internal MySQL SQL
+function LAST_INSERT_ID() in an SQL query.
+
+Because |mysql_insert_id| acts on the last performed query, be sure to call
+|mysql_insert_id| immediately after the query that generates the value.
+
+The value of the MySQL SQL function LAST_INSERT_ID() always contains the most
+recently generated AUTO_INCREMENT value, and is not reset between queries.
+
+|mysql_query| |mysql_info|
+
+vim:ft=help:

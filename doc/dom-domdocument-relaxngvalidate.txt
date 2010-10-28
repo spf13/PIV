@@ -1,0 +1,11 @@
+DOMDocument->relaxNGValidate() -- Performs relaxNG validation on the document
+
+  bool relaxNGValidate(string filename)~
+
+Performs relaxNG validation on the document based on the given RNG schema.
+
+{filename} The RNG file.
+
+Returns TRUE on success or FALSE on failure.
+
+vim:ft=help:

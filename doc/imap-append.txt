@@ -1,0 +1,35 @@
+imap_append -- Append a string message to a specified mailbox
+
+  bool imap_append(resource imap_stream, string mbox, string message [, string options])~
+
+|imap_append| appends a string message to the specified mailbox {mbox}. If the
+optional {options} is specified, writes the {options} to that mailbox also.
+
+Returns TRUE on success or FALSE on failure.
+
+When talking to the Cyrus IMAP server, you must use "\r\n" as your end-of-line
+terminator instead of "\n" or the operation will fail.
+
+|imap_append| example
+
+<?php >
+  $stream = imap_open("{your.imap.host}INBOX.Drafts", "username", "password");
+  
+  $check = imap_check($stream);
+  echo "Msg Count before append: ". $check->Nmsgs . "\n";
+  
+  imap_append($stream, "{your.imap.host}INBOX.Drafts"
+                     , "From: me@example.com\r\n"
+                     . "To: you@example.com\r\n"
+                     . "Subject: test\r\n"
+                     . "\r\n"
+                     . "this is a test message, please ignore\r\n"
+                     );
+  
+  $check = imap_check($stream);
+  echo "Msg Count after append : ". $check->Nmsgs . "\n";
+  
+  imap_close($stream);
+?>
+
+vim:ft=help:

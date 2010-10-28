@@ -1,0 +1,11 @@
+ocifetch -- Fetches the next row into result-buffer
+
+  bool ocifetch(resource stmt)~
+
+|ocifetch| fetches the next row (for SELECT statements) into the internal
+result-buffer. Returns TRUE on success or FALSE on failure.
+
+This function was renamed to |oci_fetch| after PHP >= 5.0.0. For downward
+compatibility |ocifetch| can also be used. This is deprecated, however.
+
+vim:ft=help:

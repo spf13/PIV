@@ -1,0 +1,41 @@
+output_add_rewrite_var -- Add URL rewriter values
+
+  bool output_add_rewrite_var(string name, string value)~
+
+This function rewrite the URLs and forms with the given variable.
+
+This function buffers the output.
+
+|output_add_rewrite_var| example
+
+<?php >
+  output_add_rewrite_var('var', 'value');
+  
+  // a link
+  echo '<a href="file.php">link</a>';
+  
+  // a form
+  echo '<form action="script.php" method="post">
+  <input type="text" name="var2" />
+  </form>';
+  
+  print_r(ob_list_handlers());
+?>
+
+The above example will output:
+
+  <a href="file.php?var=value">link</a>
+  
+  <form action="script.php" method="post">
+  <input type="hidden" name="var" value="value" />
+  <input type="text" name="var2" />
+  </form>
+  
+  Array
+  (
+      [0] => URL-Rewriter
+  )
+
+See also |output_reset_rewrite_vars|, |ob_flush| and |ob_list_handlers|.
+
+vim:ft=help:

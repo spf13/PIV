@@ -1,0 +1,14 @@
+dbplus_errcode -- Get error string for given errorcode or last error
+
+  string dbplus_errcode([int errno])~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+|dbplus_errcode| returns a cleartext error string for the error code passed as
+{errno} of for the result code of the last db++ operation if no parameter is
+given.
+
+vim:ft=help:

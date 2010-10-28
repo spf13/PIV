@@ -1,0 +1,8 @@
+RecursiveDirectoryIterator::rewind -- Rewind dir back to the start
+
+  void RecursiveDirectoryIterator::rewind()~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

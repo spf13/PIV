@@ -1,0 +1,8 @@
+printer_start_page -- Start a new page
+
+  bool printer_start_page(resource handle)~
+
+The function creates a new page in the active document. For an example see
+|printer_start_doc|. {handle} must be a valid handle to a printer.
+
+vim:ft=help:

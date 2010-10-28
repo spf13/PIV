@@ -1,0 +1,23 @@
+cpdf_add_outline -- Adds bookmark for current page
+
+  int cpdf_add_outline(int pdf_document, int lastoutline, int sublevel, int open, int pagenr, string text)~
+
+The |cpdf_add_outline| function adds a bookmark with text {text} that points
+to the current page.
+
+Adding a page outline
+
+<?php >
+  $cpdf = cpdf_open(0);
+  cpdf_page_init($cpdf, 1, 0, 595, 842);
+  cpdf_add_outline($cpdf, 0, 0, 0, 1, "Page 1");
+  // ...
+  // some drawing
+  // ...
+  cpdf_finalize($cpdf);
+  Header("Content-type: application/pdf");
+  cpdf_output_buffer($cpdf);
+  cpdf_close($cpdf);
+?>
+
+vim:ft=help:

@@ -1,0 +1,12 @@
+dbplus_runlink -- Remove relation from filesystem
+
+  int dbplus_runlink(resource relation)~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+|dbplus_unlink| will close and remove the {relation}.
+
+vim:ft=help:

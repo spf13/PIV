@@ -1,0 +1,8 @@
+pdf_setlinejoin -- Sets linejoin parameter
+
+  bool pdf_setlinejoin(resource pdfdoc, int value)~
+
+Sets the line join parameter to a {value} between 0 and 2 inclusive. Returns
+TRUE on success or FALSE on failure.
+
+vim:ft=help:

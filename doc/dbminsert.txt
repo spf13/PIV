@@ -1,0 +1,11 @@
+dbminsert -- Inserts a value for a key in a DBM database
+
+  int dbminsert(resource dbm_identifier, string key, string value)~
+
+Adds the value to the database with the specified key.
+
+Returns -1 if the database was opened read-only, 0 if the insert was
+successful, and 1 if the specified key already exists. (To replace the value,
+use |dbmreplace|.)
+
+vim:ft=help:

@@ -1,0 +1,13 @@
+swf_openfile -- Open a new Shockwave Flash file
+
+  void swf_openfile(string filename, float width, float height, float framerate, float r, float g, float b)~
+
+The |swf_openfile| function opens a new file named {filename} with a width of
+{width} and a height of {height} a frame rate of {framerate} and background
+with a red color of {r} a green color of {g} and a blue color of {b}.
+
+The |swf_openfile| must be the first function you call, otherwise your script
+will cause a segfault. If you want to send your output to the screen make the
+filename: "php://stdout" (support for this is in 4.0.1 and up).
+
+vim:ft=help:

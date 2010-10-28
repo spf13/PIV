@@ -1,0 +1,22 @@
+get_extension_funcs -- Returns an array with the names of the functions of a
+module
+
+  array get_extension_funcs(string module_name)~
+
+This function returns the names of all the functions defined in the module
+indicated by {module_name}.
+
+The {module_name} parameter must be in lowercase.
+
+For example the lines below
+
+<?php >
+  print_r(get_extension_funcs("xml"));
+  print_r(get_extension_funcs("gd"));
+?>
+
+will print a list of the functions in the modules xml and gd respectively.
+
+See also: |get_loaded_extensions|
+
+vim:ft=help:

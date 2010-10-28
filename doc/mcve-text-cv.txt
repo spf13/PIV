@@ -1,0 +1,8 @@
+mcve_text_cv -- Get a textual representation of the return_cv
+
+  string mcve_text_cv(int code)~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

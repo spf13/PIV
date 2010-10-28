@@ -1,0 +1,75 @@
+array_walk -- Apply a user function to every member of an array
+
+  bool array_walk(array array, callback funcname [, mixed userdata])~
+
+Returns TRUE on success or FALSE on failure.
+
+Applies the user-defined function {funcname} to each element of the {array}
+array. Typically, {funcname} takes on two parameters. The {array} parameter's
+value being the first, and the key/index second. If the optional {userdata}
+parameter is supplied, it will be passed as the third parameter to the
+callback {funcname}.
+
+If function {funcname} requires more parameters than given to it, an error of
+level E_WARNING will be generated each time |array_walk| calls {funcname}.
+These warnings may be suppressed by prepending the PHP error operator @ to
+the |array_walk| call, or by using |error_reporting|.
+
+If {funcname} needs to be working with the actual values of the array, specify
+the first parameter of {funcname} as a reference. Then, any changes made to
+those elements will be made in the original array itself.
+
+Passing the key and userdata to {funcname} was added in 4.0.0
+
+|array_walk| is not affected by the internal array pointer of {array}. |
+array_walk| will walk through the entire array regardless of pointer
+position. To reset the pointer, use |reset|. In PHP 3, |array_walk| resets
+the pointer.
+
+Users may not change the array itself from the callback function. e.g.
+Add/delete elements, unset elements, etc. If the array that |array_walk| is
+applied to is changed, the behavior of this function is undefined, and
+unpredictable.
+
+|array_walk| example
+
+<?php >
+  $fruits = array("d" => "lemon", "a" => "orange", "b" => "banana", "c" => "apple");
+  
+  function test_alter(&amp;$item1, $key, $prefix) 
+  {
+      $item1 = "$prefix: $item1";
+  }
+  
+  function test_print($item2, $key) 
+  {
+      echo "$key. $item2<br />\n";
+  }
+  
+  echo "Before ...:\n";
+  array_walk($fruits, 'test_print');
+  
+  array_walk($fruits, 'test_alter', 'fruit');
+  echo "... and after:\n";
+  
+  array_walk($fruits, 'test_print');
+?>
+
+The above example will output:
+
+  Before ...:
+  d. lemon
+  a. orange
+  b. banana
+  c. apple
+  ... and after:
+  d. fruit: lemon
+  a. fruit: orange
+  b. fruit: banana
+  c. fruit: apple
+
+See also |array_walk_recursive|, |create_function|, |list|, foreach, |each|,
+|call_user_func_array|, and |array_map|, and information about the callback
+type.
+
+vim:ft=help:

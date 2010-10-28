@@ -1,0 +1,39 @@
+fputcsv -- Format line as CSV and write to file pointer
+
+  int fputcsv(resource handle [, array fields [, string delimiter [, string enclosure]]])~
+
+|fputcsv| formats a line (passed as a {fields} array) as CSV and write it to
+the specified file {handle}. Returns the length of the written string, or
+FALSE on failure.
+
+The optional {delimiter} parameter sets the field delimiter (one character
+only). Defaults as a comma: ,.
+
+The optional {enclosure} parameter sets the field enclosure (one character
+only) and defaults to a double quotation mark: ".
+
+|fputcsv| example
+
+<?php >
+  $list = array (
+      'aaa,bbb,ccc,dddd',
+      '123,456,789',
+      '"aaa","bbb"'
+  );
+  
+  $fp = fopen('file.csv', 'w');
+  
+  foreach ($list as $line) {
+      fputcsv($fp, split(',', $line));
+  }
+  
+  fclose($fp);
+?>
+
+If you are having problems with PHP not recognizing the line endings when
+reading files either on or created by a Macintosh computer, you might want to
+enable the auto_detect_line_endings run-time configuration option.
+
+See also |fgetcsv|.
+
+vim:ft=help:

@@ -1,0 +1,9 @@
+ircg_kick -- Kick a user out of a channel on server
+
+  bool ircg_kick(resource connection, string channel, string nick, string reason)~
+
+Kick user {nick} from {channel} on server connected to by {connection}.
+{reason} should give a short message describing why this action was
+performed.
+
+vim:ft=help:

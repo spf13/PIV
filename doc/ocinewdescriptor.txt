@@ -1,0 +1,112 @@
+ocinewdescriptor -- Initialize a new empty LOB or FILE descriptor
+
+  OCI-Lob ocinewdescriptor(resource connection [, int type])~
+
+|ocinewdescriptor| allocates storage to hold descriptors or LOB locators.
+Valid values for {type} are OCI_D_FILE, OCI_D_LOB and OCI_D_ROWID. For LOB
+descriptors, the methods load, save, and savefile are associated with the
+descriptor, for BFILE only the load method exists. See the second example
+usage hints.
+
+|ocinewdescriptor| example
+
+<?php >
+      /* This script is designed to be called from a HTML form.
+       * It expects $user, $password, $table, $where, and $commitsize
+       * to be passed in from the form.  The script then deletes
+       * the selected rows using the ROWID and commits after each
+       * set of $commitsize rows. (Use with care, there is no rollback)
+       */
+      $conn = OCILogon($user, $password);
+      $stmt = OCIParse($conn, "select rowid from $table $where");
+      $rowid = OCINewDescriptor($conn, OCI_D_ROWID);
+      OCIDefineByName($stmt, "ROWID", &amp;$rowid);   
+      OCIExecute($stmt);
+      while (OCIFetch($stmt)) {
+         $nrows = OCIRowCount($stmt);
+         $delete = OCIParse($conn, "delete from $table where ROWID = :rid");
+         OCIBindByName($delete, ":rid", &amp;$rowid, -1, OCI_B_ROWID);
+         OCIExecute($delete);      
+         echo "$nrows\n";
+         if (($nrows % $commitsize) == 0) {
+             OCICommit($conn);      
+         }   
+      }
+      $nrows = OCIRowCount($stmt);   
+      echo "$nrows deleted...\n";
+      OCIFreeStatement($stmt);  
+      OCILogoff($conn);
+?>
+
+<?php >
+      /* This script demonstrates file upload to LOB columns
+       * The formfield used for this example looks like this
+       * <form action="upload.php" method="post" enctype="multipart/form-data">
+       * <input type="file" name="lob_upload" />
+       * ...
+       */
+    if (!isset($lob_upload) || $lob_upload == 'none'){
+?>
+  <form action="upload.php" method="post" enctype="multipart/form-data">
+  Upload file: <input type="file" name="lob_upload" /><br />
+  <input type="submit" value="Upload" /> - <input type="reset" value="Reset" />
+  </form>
+<?php >
+    } else {
+  
+       // $lob_upload contains the temporary filename of the uploaded file
+  
+       // see also the features section on file upload,
+       // if you would like to use secure uploads
+       
+       $conn = OCILogon($user, $password);
+       $lob = OCINewDescriptor($conn, OCI_D_LOB);
+       $stmt = OCIParse($conn, "insert into $table (id, the_blob) 
+                 values(my_seq.NEXTVAL, EMPTY_BLOB()) returning the_blob into :the_blob");
+       OCIBindByName($stmt, ':the_blob', &amp;$lob, -1, OCI_B_BLOB);
+       OCIExecute($stmt, OCI_DEFAULT);
+       if ($lob->savefile($lob_upload)){
+          OCICommit($conn);
+          echo "Blob successfully uploaded\n";
+       }else{
+          echo "Couldn't upload Blob\n";
+       }
+       OCIFreeDesc($lob);
+       OCIFreeStatement($stmt);
+       OCILogoff($conn);
+    }
+?>
+
+|ocinewdescriptor| second example
+
+<?php >
+      /* Calling PL/SQL stored procedures which contain clobs as input
+       * parameters (PHP 4 >= 4.0.6). 
+       * Example PL/SQL stored procedure signature is:
+       *
+       * PROCEDURE save_data
+       *   Argument Name                  Type                    In/Out Default?
+       *   ------------------------------ ----------------------- ------ --------
+       *   KEY                            NUMBER(38)              IN
+       *   DATA                           CLOB                    IN
+       *
+       */
+  
+      $conn = OCILogon($user, $password);
+      $stmt = OCIParse($conn, "begin save_data(:key, :data); end;");
+      $clob = OCINewDescriptor($conn, OCI_D_LOB);
+      OCIBindByName($stmt, ':key', $key);
+      OCIBindByName($stmt, ':data', $clob, -1, OCI_B_CLOB);
+      $clob->WriteTemporary($data);
+      OCIExecute($stmt, OCI_DEFAULT);
+      OCICommit($conn);
+      $clob->close();
+      $clob->free();
+      OCIFreeStatement($stmt);
+?>
+
+This function was renamed to |oci_new_descriptor| after PHP >= 5.0.0. For
+downward compatibility |ocinewdescriptor| can also be used. This is
+deprecated, however.
+
+vim:ft=help:

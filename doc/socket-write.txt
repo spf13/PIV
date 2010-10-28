@@ -1,0 +1,28 @@
+socket_write -- Write to a socket
+
+  int socket_write(resource socket, string buffer [, int length])~
+
+The function |socket_write| writes to the socket {socket} from {buffer}.
+
+The optional parameter {length} can specify an alternate length of bytes
+written to the socket. If this length is greater then the buffer length, it
+is silently truncated to the length of the buffer.
+
+Returns the number of bytes successfully written to the socket or FALSE one
+error. The error code can be retrieved with |socket_last_error|. This code
+may be passed to |socket_strerror| to get a textual explanation of the error.
+
+|socket_write| does not necessarily write all bytes from the given buffer.
+It's valid that, depending on the network buffers etc., only a certain amount
+of data, even one byte, is written though your buffer is greater. You have to
+watch out so you don't unintentionally forget to transmit the rest of your
+data.
+
+It is perfectly valid for |socket_write| to return zero which means no bytes
+have been written. Be sure to use the === operator to check for FALSE in case
+of an error.
+
+See also |socket_accept|, |socket_bind|, |socket_connect|, |socket_listen|,
+|socket_read| and |socket_strerror|.
+
+vim:ft=help:

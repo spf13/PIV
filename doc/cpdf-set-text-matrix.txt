@@ -1,0 +1,9 @@
+cpdf_set_text_matrix -- Sets the text matrix
+
+  bool cpdf_set_text_matrix(int pdf_document, array matrix)~
+
+The |cpdf_set_text_matrix| function sets a {matrix} which describes a
+transformation applied on the current text font. Returns TRUE on success or
+FALSE on failure.
+
+vim:ft=help:

@@ -1,0 +1,19 @@
+ncurses_clear -- Clear screen
+
+  bool ncurses_clear()~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+|ncurses_clear| clears the screen completely without setting blanks. Returns
+TRUE on success or FALSE on failure.
+
+Note: |ncurses_clear| clears the screen without setting blanks, which have the
+current background rendition. To clear screen with blanks, use
+|ncurses_erase|.
+
+See also |ncurses_erase|.
+
+vim:ft=help:

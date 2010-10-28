@@ -1,0 +1,27 @@
+SoapHeader->__construct() -- SoapHeader constructor
+
+Constructs a new SoapHeader object.
+
+{namespace} The namespace of the SOAP header element.
+
+{name} The name of the SOAP header element.
+
+{data} A SOAP header's content. It can be a PHP value or a SoapVar object.
+
+{mustUnderstand} Value of the mustUnderstand attribute of the SOAP header
+element.
+
+{actor} Value of the actor attribute of the SOAP header element.
+
+Some examples
+
+<?php >
+  $client = new SoapClient(null, array('location' => "http://localhost/soap.php",
+                                       'uri'      => "http://test-uri/"));
+  $client->__call("echoVoid", null, null,
+                  new SoapHeader('http://soapinterop.org/echoheader/',
+                                 'echoMeStringRequest',
+                                 'hello world'));
+?>
+
+vim:ft=help:

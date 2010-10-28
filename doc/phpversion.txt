@@ -1,0 +1,25 @@
+phpversion -- Gets the current PHP version
+
+  string phpversion([string extension])~
+
+Returns a string containing the version of the currently running PHP parser.
+If the optional {extension} parameter is specified, |phpversion| returns the
+version of that extension, or FALSE if there is no version information
+associated or the extension isn't enabled.
+
+This information is also available in the predefined constant PHP_VERSION.
+
+|phpversion| example
+
+<?php >
+  // prints e.g. 'Current PHP version: 4.1.1'
+  echo 'Current PHP version: ' . phpversion();
+  
+  // prints e.g. '2.0' or nothing if the extension isn't enabled
+  echo phpversion('tidy');
+?>
+
+See also |version_compare|, |phpinfo|, |phpcredits|, |php_logo_guid|, and
+|zend_version|.
+
+vim:ft=help:

@@ -1,0 +1,38 @@
+strtr -- Translate certain characters
+
+  string strtr(string str, string from, string to)~
+
+  string strtr(string str, string from, string to, string str, array replace_pairs)~
+
+This function returns a copy of {str}, translating all occurrences of each
+character in {from} to the corresponding character in {to}.
+
+If {from} and {to} are different lengths, the extra characters in the longer
+of the two are ignored. |strtr| example
+
+<?php >
+  $addr = strtr($addr, "дец", "aao");
+?>
+
+|strtr| may be called with only two arguments. If called with two arguments it
+behaves in a new way: {from} then has to be an array that contains string ->
+string pairs that will be replaced in the source string. |strtr| will always
+look for the longest possible match first and will *NOT* try to replace stuff
+that it has already worked on.
+
+|strtr| example with two arguments
+
+<?php >
+  $trans = array("hello" => "hi", "hi" => "hello");
+  echo strtr("hi all, I said hello", $trans);
+?>
+
+This will show:
+
+  hello all, I said hi
+
+This optional {to} and {from} parameters were added in PHP 4.0.0
+
+See also |ereg_replace|.
+
+vim:ft=help:

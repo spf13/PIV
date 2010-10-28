@@ -1,0 +1,5 @@
+pdf_set_info_title -- Deprecated: Fills the title field of the document
+
+This function is deprecated, use |pdf_set_info| instead.
+
+vim:ft=help:

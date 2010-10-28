@@ -1,0 +1,18 @@
+gmp_com -- Calculates one's complement
+
+  resource gmp_com(resource a)~
+
+Returns the one's complement of {a}.
+
+|gmp_com| example
+
+<?php >
+  $com = gmp_com("1234");
+  echo gmp_strval($com) . "\n";
+?>
+
+The printout of the above program will be:
+
+  -1235
+
+vim:ft=help:

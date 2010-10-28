@@ -1,0 +1,21 @@
+mime_content_type -- Detect MIME Content-type for a file
+
+  string mime_content_type(string filename)~
+
+Returns the MIME content type for a file as determined by using information
+from the magic.mime file. Content types are returned in MIME format, like
+text/plain or application/octet-stream.
+
+|mime_content_type| example
+
+<?php >
+  echo mime_content_type('php.gif') . "\n";
+  echo mime_content_type('test.php');
+?>
+
+The above example will output:
+
+  image/gif
+  text/plain
+
+vim:ft=help:

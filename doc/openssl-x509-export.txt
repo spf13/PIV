@@ -1,0 +1,10 @@
+openssl_x509_export -- Exports a certificate as a string
+
+  bool openssl_x509_export(mixed x509, string output [, bool notext])~
+
+|openssl_x509_export| stores {x509} into a string named by {output} in a PEM
+encoded format.
+
+Returns TRUE on success or FALSE on failure.
+
+vim:ft=help:

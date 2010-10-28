@@ -1,0 +1,13 @@
+pcntl_alarm -- Set an alarm clock for delivery of a signal
+
+  int pcntl_alarm(int seconds)~
+
+The |pcntl_alarm| function creates a timer that will send a SIGALRM signal to
+the process after {seconds} seconds. If {seconds} is zero, no new alarm is
+created. Any call to |pcntl_alarm| will cancel any previously set alarm.
+
+|pcntl_alarm| will return the time in seconds that any previously scheduled
+alarm had remaining before it was to be delivered, or 0 if there was no
+previously scheduled alarm.
+
+vim:ft=help:

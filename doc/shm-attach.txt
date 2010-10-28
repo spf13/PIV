@@ -1,0 +1,16 @@
+shm_attach -- Creates or open a shared memory segment
+
+  int shm_attach(int key [, int memsize [, int perm]])~
+
+|shm_attach| returns an id that can be used to access the System V shared
+memory with the given key, the first call creates the shared memory segment
+with {memsize} (default: sysvshm.init_mem in the php.ini, otherwise 10000
+bytes) and the optional perm-bits {perm} (default: 0666).
+
+A second call to |shm_attach| for the same {key} will return a different
+shared memory identifier, but both identifiers access the same underlying
+shared memory. {Memsize} and {perm} will be ignored.
+
+See also |ftok|, and |shm_detach|.
+
+vim:ft=help:

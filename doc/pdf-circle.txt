@@ -1,0 +1,44 @@
+pdf_circle -- Draws a circle
+
+  bool pdf_circle(resource pdfdoc, float x, float y, float r)~
+
+Add a circle with center ({x}, {y}) and radius {r} to the current page. Actual
+drawing of the circle is performed by the next stroke or fill operation.
+
+Returns TRUE on success or FALSE on failure.
+
+|pdf_circle| example
+
+<?php >
+  // prepare document
+  $pdf = pdf_new();
+  pdf_open_file($pdf, "");
+  pdf_begin_page($pdf, 595, 842);
+  
+  // an outlined circle
+  pdf_circle($pdf, 200, 700, 100);
+  pdf_stroke($pdf);
+  
+  // a filled circle
+  pdf_circle($pdf, 200, 700, 50);
+  pdf_fill($pdf);
+  
+  // an outlined and filled circle
+  pdf_setcolor($pdf, "fill", "gray", 0.3);
+  pdf_circle($pdf, 400, 700, 50);
+  pdf_fill_stroke($pdf);
+  
+  // finish document
+  pdf_end_page($pdf);
+  pdf_close($pdf);
+  
+  header("Content-type: application/pdf");
+  echo pdf_get_buffer($pdf);
+  
+  pdf_delete($pdf);
+?>
+
+See also: |pdf_arc|, |pdf_arcn|, |pdf_curveto|, |pdf_stroke|, |pdf_fill| and
+|pdf_fill_stroke|.
+
+vim:ft=help:

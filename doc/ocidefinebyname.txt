@@ -1,0 +1,44 @@
+ocidefinebyname -- Use a PHP variable for the define-step during a SELECT
+
+  bool ocidefinebyname(resource stmt, string column_name, mixed variable [, int type])~
+
+|ocidefinebyname| binds PHP variables for fetches of SQL-Columns. Be careful
+that Oracle uses ALL-UPPERCASE column-names, whereby in your select you can
+also write lowercase. |ocidefinebyname| expects the {column_name} to be in
+uppercase. If you define a variable that doesn't exists in your select
+statement, no error will be given!
+
+If you need to define an abstract datatype (LOB/ROWID/BFILE) you need to
+allocate it first using |ocinewdescriptor|. See also the |ocibindbyname|
+function.
+
+|ocidefinebyname| example
+
+<?php >
+  /* OCIDefineByName example - thies at thieso dot net (980219) */
+  
+  $conn = OCILogon("scott", "tiger");
+  
+  $stmt = OCIParse($conn, "select empno, ename from emp");
+  
+  /* the define MUST be done BEFORE ociexecute! */
+  
+  OCIDefineByName($stmt, "EMPNO", $empno);
+  OCIDefineByName($stmt, "ENAME", $ename);
+  
+  OCIExecute($stmt);
+  
+  while (OCIFetch($stmt)) {
+      echo "empno:" . $empno . "\n";
+      echo "ename:" . $ename . "\n";
+  }
+  
+  OCIFreeStatement($stmt);
+  OCILogoff($conn);
+?>
+
+This function was renamed to |oci_define_by_name| after PHP >= 5.0.0. For
+downward compatibility |ocidefinebyname| can also be used. This is
+deprecated, however.
+
+vim:ft=help:

@@ -1,0 +1,30 @@
+imap_setflag_full -- Sets flags on messages
+
+  bool imap_setflag_full(resource stream, string sequence, string flag [, string options])~
+
+This function causes a store to add the specified {flag} to the flags set for
+the messages in the specified {sequence}.
+
+The flags which you can set are "\\Seen", "\\Answered", "\\Flagged",
+"\\Deleted", and "\\Draft" (as defined by RFC2060).
+
+{options} are a bit mask and may contain the single option: ST_UID - The
+sequence argument contains UIDs instead of sequence numbers
+
+|imap_setflag_full| example
+
+<?php >
+  $mbox = imap_open("{your.imap.host:143}", "username", "password")
+       or die("can't connect: " . imap_last_error());
+   
+  $status = imap_setflag_full($mbox, "2,5", "\\Seen \\Flagged");
+   
+  echo gettype($status) . "\n";
+  echo $status . "\n";
+   
+  imap_close($mbox);
+?>
+
+See also: |imap_clearflag_full|.
+
+vim:ft=help:

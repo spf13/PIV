@@ -1,0 +1,14 @@
+shm_put_var -- Inserts or updates a variable in shared memory
+
+  bool shm_put_var(int shm_identifier, int variable_key, mixed variable)~
+
+|shm_put_var| inserts or updates the {variable} with the given {variable_key}.
+All variable-types are supported.
+
+Returns TRUE on success or FALSE on failure.
+
+Warnings (E_WARNING level) will be issued if {shm_identifier} is not a valid
+SysV shared memory index or if there was not enough shared memory remaining
+to complete your request.
+
+vim:ft=help:

@@ -1,0 +1,46 @@
+imagepstext -- To draw a text string over an image using PostScript Type1
+fonts
+
+  array imagepstext(resource image, string text, resource font, int size, int foreground, int background, int x, int y [, int space, int tightness, float angle, int antialias_steps])~
+
+{foreground} is the color in which the text will be painted. {Background} is
+the color to which the text will try to fade in with antialiasing. No pixels
+with the color {background} are actually painted, so the background image
+does not need to be of solid color.
+
+The coordinates given by {x}, {y} will define the origin (or reference point)
+of the first character (roughly the lower-left corner of the character). This
+is different from the |imagestring|, where {x}, {y} define the upper-right
+corner of the first character. Refer to PostScript documentation about fonts
+and their measuring system if you have trouble understanding how this works.
+
+{space} allows you to change the default value of a space in a font. This
+amount is added to the normal value and can also be negative.
+
+{tightness} allows you to control the amount of white space between
+characters. This amount is added to the normal character width and can also
+be negative.
+
+{angle} is in degrees.
+
+{size} is expressed in pixels.
+
+{antialias_steps} allows you to control the number of colours used for
+antialiasing text. Allowed values are 4 and 16. The higher value is
+recommended for text sizes lower than 20, where the effect in text quality is
+quite visible. With bigger sizes, use 4. It's less computationally intensive.
+
+Parameters {space} and {tightness} are expressed in character space units,
+where 1 unit is 1/1000th of an em-square.
+
+Parameters {space}, {tightness}, {angle} and {antialias_steps} are optional.
+
+This function is only available if PHP is compiled using --with-t1lib[=DIR].
+
+This function returns an array containing the following elements: 0 lower left
+x-coordinate 1 lower left y-coordinate 2 upper right x-coordinate 3 upper
+right y-coordinate
+
+See also |imagepsbbox|.
+
+vim:ft=help:

@@ -1,0 +1,8 @@
+image_type_to_extension -- Get file extension for image type
+
+  string image_type_to_extension(int imagetype [, bool include_dot])~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

@@ -1,0 +1,10 @@
+readline_completion_function -- Registers a completion function
+
+  bool readline_completion_function(callback function)~
+
+This function registers a completion function. You must supply the name of an
+existing function which accepts a partial command line and returns an array
+of possible matches. This is the same kind of functionality you'd get if you
+hit your tab key while using Bash.
+
+vim:ft=help:

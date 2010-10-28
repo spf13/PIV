@@ -1,0 +1,47 @@
+xml_set_element_handler -- Set up start and end element handlers
+
+  bool xml_set_element_handler(resource parser, callback start_element_handler, callback end_element_handler)~
+
+Sets the element handler functions for the XML parser {parser}.
+{start_element_handler} and {end_element_handler} are strings containing the
+names of functions that must exist when |xml_parse| is called for {parser}.
+
+  bool (resource parser, callback start_element_handler, callback end_element_handler, resource parser, string name, array attribs)~
+
+The function named by {start_element_handler} must accept three parameters:
+{parser} The first parameter, parser, is a reference to the XML parser
+calling the handler.
+
+{name} The second parameter, {name}, contains the name of the element for
+which this handler is called. If case-folding is in effect for this parser,
+the element name will be in uppercase letters.
+
+{attribs} The third parameter, {attribs}, contains an associative array with
+the element's attributes (if any). The keys of this array are the attribute
+names, the values are the attribute values. Attribute names are case-folded
+on the same criteria as element names. Attribute values are not case-folded.
+
+The original order of the attributes can be retrieved by walking through
+{attribs} the normal way, using |each|. The first key in the array was the
+first attribute, and so on.
+
+  bool (resource parser, callback start_element_handler, callback end_element_handler, resource parser, string name, array attribs, resource parser, string name)~
+
+The function named by {end_element_handler} must accept two parameters:
+{parser} The first parameter, parser, is a reference to the XML parser
+calling the handler.
+
+{name} The second parameter, {name}, contains the name of the element for
+which this handler is called. If case-folding is in effect for this parser,
+the element name will be in uppercase letters.
+
+If a handler function is set to an empty string, or FALSE, the handler in
+question is disabled.
+
+TRUE is returned if the handlers are set up, FALSE if {parser} is not a
+parser.
+
+Instead of a function name, an array containing an object reference and a
+method name can also be supplied.
+
+vim:ft=help:

@@ -1,0 +1,15 @@
+apache_reset_timeout -- Reset the Apache write timer
+
+  bool apache_reset_timeout()~
+
+|apache_reset_timeout| resets the Apache write timer, which defaults to 300
+seconds. With set_time_limit(0); ignore_user_abort(true) and periodic
+|apache_reset_timeout| calls, Apache can theoretically run forever.
+
+This function requires Apache 1.
+
+Returns TRUE on success or FALSE on failure.
+
+This function is disabled in safe mode.
+
+vim:ft=help:

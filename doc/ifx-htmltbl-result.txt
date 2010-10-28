@@ -1,0 +1,7 @@
+ifx_htmltbl_result -- Formats all rows of a query into a HTML table
+
+  int ifx_htmltbl_result(int result_id [, string html_table_options])~
+
+Returns the number of rows fetched or FALSE on error.
+
+vim:ft=help:

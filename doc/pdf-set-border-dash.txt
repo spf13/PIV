@@ -1,0 +1,10 @@
+pdf_set_border_dash -- Sets dash style of border around links and annotations
+
+  bool pdf_set_border_dash(resource pdfdoc, float black, float white)~
+
+Sets the border dash style for all kinds of annotations. Returns TRUE on
+success or FALSE on failure.
+
+See also |pdf_setdash|.
+
+vim:ft=help:

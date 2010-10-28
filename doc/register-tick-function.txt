@@ -1,0 +1,22 @@
+register_tick_function -- Register a function for execution on each tick
+
+  bool register_tick_function(callback function [, mixed arg [, mixed ...]])~
+
+Registers the function named by {func} to be executed when a tick is called.
+Also, you may pass an array consisting of an object and a method as the
+{func}.
+
+|register_tick_function| example
+
+<?php >
+  // using a function as the callback
+  register_tick_function('my_function', true);
+  
+  // using an object->method
+  $object = new my_class();
+  register_tick_function(array(&amp;$object, 'my_method'), true);
+?>
+
+See also |declare| and |unregister_tick_function|.
+
+vim:ft=help:

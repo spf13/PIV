@@ -1,0 +1,9 @@
+iis_get_server_by_path -- Return the instance number associated with the Path
+
+  int iis_get_server_by_path(string path)~
+
+Each virtual server in IIS is associated with an instance number.
+|iis_get_server_by_path| Finds the instance number from the actual path to
+the root directory.
+
+vim:ft=help:

@@ -1,0 +1,8 @@
+mssql_field_name -- Get the name of a field
+
+  string mssql_field_name(resource result [, int offset])~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

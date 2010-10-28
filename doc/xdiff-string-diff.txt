@@ -1,0 +1,31 @@
+xdiff_string_diff -- Make unified diff of two strings
+
+  string xdiff_string_diff(string str1, string str2 [, int context [, bool minimal]])~
+
+|xdiff_string_diff| makes unified diff of strings {str1} and {str2}. {context}
+indicated how many lines of context you want to include in diff result. Set
+{minimal} to TRUE if you want to minimalize size of diff (can take a long
+time).
+
+This function doesn't work well with binary strings. To make diff of binary
+strings use |xdiff_string_diff_binary|.
+
+Returns string with result or FALSE if an internal error happened.
+
+|xdiff_string_diff| example The following code makes unified diff of two
+articles.
+
+<?php >
+  $old_article = file_get_contents('./old_article.txt');
+  $new_article = $_REQUEST['article']; /* Let's say that someone pasted a new article to html form */
+  
+  $diff = xdiff_string_diff($old_article, $new_article, 1);
+  if (is_string($diff)) {
+      echo "Differences between two articles:\n";
+      echo $diff;
+  }
+?>
+
+See also |xdiff_file_diff|.
+
+vim:ft=help:

@@ -1,0 +1,15 @@
+ldap_next_attribute -- Get the next attribute in result
+
+  string ldap_next_attribute(resource link_identifier, resource result_entry_identifier, resource ber_identifier)~
+
+Returns the next attribute in an entry on success and FALSE on error.
+
+|ldap_next_attribute| is called to retrieve the attributes in an entry. The
+internal state of the pointer is maintained by the {ber_identifier}. It is
+passed by reference to the function. The first call to |ldap_next_attribute|
+is made with the {result_entry_identifier} returned from
+|ldap_first_attribute|.
+
+See also |ldap_get_attributes|
+
+vim:ft=help:

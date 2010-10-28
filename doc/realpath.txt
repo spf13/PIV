@@ -1,0 +1,22 @@
+realpath -- Returns canonicalized absolute pathname
+
+  string realpath(string path)~
+
+|realpath| expands all symbolic links and resolves references to '/./', '/../'
+and extra '/' characters in the input {path} and return the canonicalized
+absolute pathname. The resulting path will have no symbolic link, '/./' or
+'/../' components.
+
+|realpath| returns FALSE on failure, e.g. if the file does not exist. On BSD
+systems |realpath| doesn't fail if only the last {path} component doesn't
+exist, while other systems will return FALSE.
+
+|realpath| example
+
+<?php >
+  $real_path = realpath("../../index.php");
+?>
+
+See also |basename|, |dirname|, and |pathinfo|.
+
+vim:ft=help:

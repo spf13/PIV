@@ -1,0 +1,8 @@
+stream_wrapper_restore -- Restores a previously unregistered built-in wrapper
+
+  bool stream_wrapper_restore(string protocol)~
+
+Restores a built-in wrapper previously unregistered with
+|stream_wrapper_unregister|.
+
+vim:ft=help:

@@ -1,0 +1,11 @@
+ibase_free_event_handler -- Cancels a registered event handler
+
+  bool ibase_free_event_handler(resource event)~
+
+This function causes the registered event handler specified by {event} to be
+cancelled. The callback function will no longer be called for the events it
+was registered to handle. Returns TRUE on success or FALSE on failure.
+
+See also |ibase_set_event_handler|.
+
+vim:ft=help:

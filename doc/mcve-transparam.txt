@@ -1,0 +1,8 @@
+mcve_transparam -- Add a parameter to a transaction
+
+  int mcve_transparam(resource conn, int identifier, int key)~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

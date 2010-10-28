@@ -1,0 +1,12 @@
+ldap_modify -- Modify an LDAP entry
+
+  bool ldap_modify(resource link_identifier, string dn, array entry)~
+
+Returns TRUE on success or FALSE on failure.
+
+|ldap_modify| function is used to modify the existing entries in the LDAP
+directory. The structure of the entry is same as in |ldap_add|.
+
+This function is binary-safe.
+
+vim:ft=help:

@@ -1,0 +1,14 @@
+swf_placeobject -- Place an object onto the screen
+
+  void swf_placeobject(int objid, int depth)~
+
+Places the object specified by {objid} in the current frame at a depth of
+{depth}. The {objid} parameter and the {depth} must be between 1 and 65535.
+
+This uses the current mulcolor (specified by |swf_mulcolor|) and the current
+addcolor (specified by |swf_addcolor|) to color the object and it uses the
+current matrix to position the object.
+
+Full RGBA colors are supported.
+
+vim:ft=help:

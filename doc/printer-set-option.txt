@@ -1,0 +1,94 @@
+printer_set_option -- Configure the printer connection
+
+  bool printer_set_option(resource handle, int option, mixed value)~
+
+The function sets the following options for the current connection. {handle}
+must be a valid handle to a printer. For {option} can be one of the following
+constants: {PRINTER_COPIES}: sets how many copies should be printed, {value}
+must be an integer.
+
+{PRINTER_MODE}: specifies the type of data (text, raw or emf), {value} must be
+a string.
+
+{PRINTER_TITLE}: specifies the name of the document, {value} must be a string.
+
+{PRINTER_ORIENTATION}: specifies the orientation of the paper, {value} can be
+either PRINTER_ORIENTATION_PORTRAIT or PRINTER_ORIENTATION_LANDSCAPE
+
+{PRINTER_RESOLUTION_Y}: specifies the y-resolution in DPI, {value} must be an
+integer.
+
+{PRINTER_RESOLUTION_X}: specifies the x-resolution in DPI, {value} must be an
+integer.
+
+{PRINTER_PAPER_FORMAT}: specifies a predefined paper format, set {value} to
+PRINTER_FORMAT_CUSTOM if you want to specify a custom format with
+PRINTER_PAPER_WIDTH and PRINTER_PAPER_LENGTH. {value} can be one of the
+following constants.
+
+{ PRINTER_FORMAT_CUSTOM}: let's you specify a custom paper format.
+
+{ PRINTER_FORMAT_LETTER}: specifies standard letter format (8 1/2- by
+11-inches).
+
+{ PRINTER_FORMAT_LETTER}: specifies standard legal format (8 1/2- by
+14-inches).
+
+{PRINTER_FORMAT_A3}: specifies standard A3 format (297- by 420-millimeters).
+
+{PRINTER_FORMAT_A4}: specifies standard A4 format (210- by 297-millimeters).
+
+{PRINTER_FORMAT_A5}: specifies standard A5 format (148- by 210-millimeters).
+
+{PRINTER_FORMAT_B4}: specifies standard B4 format (250- by 354-millimeters).
+
+{PRINTER_FORMAT_B5}: specifies standard B5 format (182- by 257-millimeter).
+
+{PRINTER_FORMAT_FOLIO}: specifies standard FOLIO format (8 1/2- by 13-inch).
+
+{PRINTER_PAPER_LENGTH}: if PRINTER_PAPER_FORMAT is set to
+PRINTER_FORMAT_CUSTOM, PRINTER_PAPER_LENGTH specifies a custom paper length
+in mm, {value} must be an integer.
+
+{PRINTER_PAPER_WIDTH}: if PRINTER_PAPER_FORMAT is set to
+PRINTER_FORMAT_CUSTOM, PRINTER_PAPER_WIDTH specifies a custom paper width in
+mm, {value} must be an integer.
+
+{PRINTER_SCALE}: specifies the factor by which the printed output is to be
+scaled. the page size is scaled from the physical page size by a factor of
+scale/100. for example if you set the scale to 50, the output would be half
+of its original size. {value} must be an integer.
+
+{PRINTER_BACKGROUND_COLOR}: specifies the background color for the actual
+device context, {value} must be a string containing the rgb information in
+hex format i.e. "005533".
+
+{PRINTER_TEXT_COLOR}: specifies the text color for the actual device context,
+{value} must be a string containing the rgb information in hex format i.e.
+"005533".
+
+{PRINTER_TEXT_ALIGN}: specifies the text alignment for the actual device
+context, {value} can be combined through OR'ing the following constants:
+
+{PRINTER_TA_BASELINE}: text will be aligned at the base line.
+
+{PRINTER_TA_BOTTOM}: text will be aligned at the bottom.
+
+{PRINTER_TA_TOP}: text will be aligned at the top.
+
+{PRINTER_TA_CENTER}: text will be aligned at the center.
+
+{PRINTER_TA_LEFT}: text will be aligned at the left.
+
+{PRINTER_TA_RIGHT}: text will be aligned at the right.
+
+|printer_set_option| example
+
+<?php >
+  $handle = printer_open();
+  printer_set_option($handle, PRINTER_SCALE, 75);
+  printer_set_option($handle, PRINTER_TEXT_ALIGN, PRINTER_TA_LEFT);
+  printer_close($handle);
+?>
+
+vim:ft=help:

@@ -1,0 +1,9 @@
+CachingIterator::hasNext -- Check whether the inner iterator has a valid next
+element
+
+  bool CachingIterator::hasNext()~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

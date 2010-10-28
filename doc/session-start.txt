@@ -1,0 +1,71 @@
+session_start -- Initialize session data
+
+  bool session_start()~
+
+|session_start| creates a session or resumes the current one based on the
+current session id that's being passed via a request, such as GET, POST, or a
+cookie.
+
+This function always returns TRUE.
+
+If you are using cookie-based sessions, you must call |session_start| before
+anything is outputted to the browser.
+
+A session example: page1.php
+
+<?php >
+  // page1.php
+  
+  session_start();
+  
+  echo 'Welcome to page #1';
+  
+  $_SESSION['favcolor'] = 'green';
+  $_SESSION['animal']   = 'cat';
+  $_SESSION['time']     = time();
+  
+  // Works if session cookie was accepted
+  echo '<br /><a href="page2.php">page 2</a>';
+  
+  // Or maybe pass along the session id, if needed
+  echo '<br /><a href="page2.php?' . SID . '">page 2</a>';
+?>
+
+After viewing page1.php, the second page page2.php will magically contain the
+session data. Read the session reference for information on propagating
+session ids as it, for example, explains what the constant SID is all about.
+
+A session example: page2.php
+
+<?php >
+  // page2.php
+  
+  session_start();
+  
+  echo 'Welcome to page #2<br />';
+  
+  echo $_SESSION['favcolor']; // green
+  echo $_SESSION['animal'];   // cat
+  echo date('Y m d H:i:s', $_SESSION['time']);
+  
+  // You may want to use SID here, like we did in page1.php
+  echo '<br /><a href="page1.php">page 1</a>';
+?>
+
+If you want to use a named session, you must call |session_name| before
+calling |session_start|.
+
+|session_start| will register internal output handler for URL rewriting when
+trans-sid is enabled. If a user uses ob_gzhandler or like with |ob_start|,
+the order of output handler is important for proper output. For example, user
+must register ob_gzhandler before session start.
+
+Use of zlib.output_compression is recommended rather than |ob_gzhandler|
+
+As of PHP 4.3.3, calling |session_start| while the session has already been
+started will result in an error of level E_NOTICE. Also, the second session
+start will simply be ignored.
+
+See also $_SESSION, session.auto_start, and |session_id|.
+
+vim:ft=help:

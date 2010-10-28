@@ -1,0 +1,34 @@
+mb_detect_encoding -- Detect character encoding
+
+  string mb_detect_encoding(string str [, mixed encoding_list [, bool strict]])~
+
+|mb_detect_encoding| detects character encoding in string {str}. It returns
+detected character encoding.
+
+{encoding_list} is list of character encoding. Encoding order may be specified
+by array or comma separated list string.
+
+If {encoding_list} is omitted, detect_order is used.
+
+|mb_detect_encoding| example
+
+<?php >
+  /* Detect character encoding with current detect_order */
+  echo mb_detect_encoding($str);
+  
+  /* "auto" is expanded to "ASCII,JIS,UTF-8,EUC-JP,SJIS" */
+  echo mb_detect_encoding($str, "auto");
+  
+  /* Specify encoding_list character encoding by comma separated list */
+  echo mb_detect_encoding($str, "JIS, eucjp-win, sjis-win");
+  
+  /* Use array to specify encoding_list  */
+  $ary[] = "ASCII";
+  $ary[] = "JIS";
+  $ary[] = "EUC-JP";
+  echo mb_detect_encoding($str, $ary);
+?>
+
+See also |mb_detect_order|.
+
+vim:ft=help:

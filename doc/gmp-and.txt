@@ -1,0 +1,21 @@
+gmp_and -- Logical AND
+
+  resource gmp_and(resource a, resource b)~
+
+Calculates logical AND of two GMP numbers.
+
+|gmp_and| example
+
+<?php >
+  $and1 = gmp_and("0xfffffffff4", "0x4");
+  $and2 = gmp_and("0xfffffffff4", "0x8");
+  echo gmp_strval($and1) . "\n";
+  echo gmp_strval($and2) . "\n";
+?>
+
+The printout of the above program will be:
+
+  4
+  0
+
+vim:ft=help:

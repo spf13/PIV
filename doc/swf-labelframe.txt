@@ -1,0 +1,7 @@
+swf_labelframe -- Label the current frame
+
+  void swf_labelframe(string name)~
+
+Label the current frame with the name given by the {name} parameter.
+
+vim:ft=help:

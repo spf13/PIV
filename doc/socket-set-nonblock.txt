@@ -1,0 +1,29 @@
+socket_set_nonblock -- Sets nonblocking mode for file descriptor fd
+
+  bool socket_set_nonblock(resource socket)~
+
+The |socket_set_nonblock| function sets the O_NONBLOCK flag on the socket
+specified by the {socket} parameter.
+
+|socket_set_nonblock| example
+
+<?php >
+  $port = 9090;
+  if (!$socket = socket_create_listen($port)) {
+      echo socket_strerror(socket_last_error());
+  }
+  
+  if (!socket_set_option($socket, SOL_SOCKET, SO_REUSEADDR, 1)) {
+      echo socket_strerror(socket_last_error());
+  }
+  
+  if (!socket_set_nonblock($socket)) {
+      echo socket_strerror(socket_last_error());
+  }
+?>
+
+Returns TRUE on success or FALSE on failure.
+
+See also |socket_set_block| and |socket_set_option|
+
+vim:ft=help:

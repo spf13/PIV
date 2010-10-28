@@ -1,0 +1,82 @@
+mysqli->thread_id -- Returns the thread ID for the current connection
+
+Procedural style:
+
+  int mysqli_thread_id(mysqli link)~
+
+Object oriented style (property):
+
+The |mysqli_thread_id| function returns the thread ID for the current
+connection which can then be killed using the |mysqli_kill| function. If the
+connection is lost and you reconnect with |mysqli_ping|, the thread ID will
+be other. Therefore you should get the thread ID only when you need it.
+
+The thread ID is assigned on a connection-by-connection basis. Hence, if the
+connection is broken and then re-established a new thread ID will be
+assigned.
+
+To kill a running query you can use the SQL command KILL QUERY processid.
+
+|mysqli_thread_id| returns the Thread ID for the current connection.
+
+|mysqli_kill|.
+
+Object oriented style
+
+<?php >
+  $mysqli = new mysqli("localhost", "my_user", "my_password", "world");
+  
+  /* check connection */
+  if (mysqli_connect_errno()) {
+      printf("Connect failed: %s\n", mysqli_connect_error());
+      exit();
+  }
+  
+  /* determine our thread id */
+  $thread_id = $mysqli->thread_id;
+  
+  /* Kill connection */
+  $mysqli->kill($thread_id);
+  
+  /* This should produce an error */
+  if (!$mysqli->query("CREATE TABLE myCity LIKE City")) {
+      printf("Error: %s\n", $mysqli->error);
+      exit;
+  }
+  
+  /* close connection */
+  $mysqli->close();
+?>
+
+Procedural style
+
+<?php >
+  $link = mysqli_connect("localhost", "my_user", "my_password", "world");
+  
+  /* check connection */
+  if (mysqli_connect_errno()) {
+      printf("Connect failed: %s\n", mysqli_connect_error());
+      exit();
+  }
+  
+  /* determine our thread id */
+  $thread_id = mysqli_thread_id($link);
+  
+  /* Kill connection */
+  mysqli_kill($link, $thread_id);
+  
+  /* This should produce an error */
+  if (!mysqli_query($link, "CREATE TABLE myCity LIKE City")) {
+      printf("Error: %s\n", mysqli_error($link));
+      exit;
+  }
+  
+  /* close connection */
+  mysqli_close($link);
+?>
+
+The above example will output:
+
+  Error: MySQL server has gone away
+
+vim:ft=help:

@@ -1,0 +1,10 @@
+fbsql_num_fields -- Get number of fields in result
+
+  int fbsql_num_fields(resource result)~
+
+|fbsql_num_fields| returns the number of fields in a result set.
+
+See also: |fbsql_db_query|, |fbsql_query|, |fbsql_fetch_field|, and
+|fbsql_num_rows|.
+
+vim:ft=help:

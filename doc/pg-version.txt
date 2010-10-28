@@ -1,0 +1,36 @@
+pg_version -- Returns an array with client, protocol and server version (when
+available)
+
+  array pg_version([resource connection])~
+
+|pg_version| returns an array with the client, protocol and server version.
+Protocol and server versions are only avaliable if PHP was compiled with
+PostgreSQL 7.4 or later.
+
+For more detailed server information, use |pg_parameter_status|.
+
+{connection} PostgreSQL database connection resource. When {connection} is not
+present, the default connection is used. The default connection is the last
+connection made by |pg_connect| or |pg_pconnect|.
+
+Returns an array with client, protocol and server_version keys and values (if
+available). Returns FALSE on error or invalid connection.
+
+|pg_version| example
+
+<?php >
+    $dbconn = pg_connect("host=localhost port=5432 dbname=mary")
+       or die("Could not connect");
+       
+    $v = pg_version($dbconn);
+    
+    echo $v['client'];
+?>
+
+The above example will output:
+
+  7.4
+
+|pg_parameter_status|
+
+vim:ft=help:

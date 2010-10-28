@@ -1,0 +1,81 @@
+fsockopen -- Open Internet or Unix domain socket connection
+
+  resource fsockopen(string target [, int port [, int errno [, string errstr [, float timeout]]]])~
+
+Initiates a socket connection to the resource specified by {target}. PHP
+supports targets in the Internet and Unix domains as described in . A list of
+supported transports can also be retrieved using |stream_get_transports|.
+
+If you need to set a timeout for reading/writing data over the socket, use
+|stream_set_timeout|, as the {timeout} parameter to |fsockopen| only applies
+while connecting the socket.
+
+As of PHP 4.3.0, if you have compiled in OpenSSL support, you may prefix the
+{hostname} with either 'ssl://' or 'tls://' to use an SSL or TLS client
+connection over TCP/IP to connect to the remote host.
+
+|fsockopen| returns a file pointer which may be used together with the other
+file functions (such as |fgets|, |fgetss|, |fwrite|, |fclose|, and |feof|).
+
+If the call fails, it will return FALSE and if the optional {errno} and
+{errstr} arguments are present they will be set to indicate the actual system
+level error that occurred in the system-level connect() call. If the value
+returned in {errno} is 0 and the function returned FALSE, it is an indication
+that the error occurred before the connect() call. This is most likely due to
+a problem initializing the socket. Note that the {errno} and {errstr}
+arguments will always be passed by reference.
+
+Depending on the environment, the Unix domain or the optional connect timeout
+may not be available.
+
+The socket will by default be opened in blocking mode. You can switch it to
+non-blocking mode by using |stream_set_blocking|. |fsockopen| Example
+
+<?php >
+  $fp = fsockopen("www.example.com", 80, $errno, $errstr, 30);
+  if (!$fp) {
+      echo "$errstr ($errno)<br />\n";
+  } else {
+      $out = "GET / HTTP/1.1\r\n";
+      $out .= "Host: www.example.com\r\n";
+      $out .= "Connection: Close\r\n\r\n";
+  
+      fwrite($fp, $out);
+      while (!feof($fp)) {
+          echo fgets($fp, 128);
+      }
+      fclose($fp);
+  }
+?>
+
+The example below shows how to retrieve the day and time from the UDP service
+"daytime" (port 13) in your own machine. Using UDP connection
+
+<?php >
+  $fp = fsockopen("udp://127.0.0.1", 13, $errno, $errstr);
+  if (!$fp) {
+      echo "ERROR: $errno - $errstr<br />\n";
+  } else {
+      fwrite($fp, "\n");
+      echo fread($fp, 26);
+      fclose($fp);
+  }
+?>
+
+UDP sockets will sometimes appear to have opened without an error, even if the
+remote host is unreachable. The error will only become apparent when you read
+or write data to/from the socket. The reason for this is because UDP is a
+"connectionless" protocol, which means that the operating system does not try
+to establish a link for the socket until it actually needs to send or receive
+data.
+
+When specifying a numerical IPv6 address (e.g. fe80::1) you must enclose the
+IP in square brackets. For example, tcp://[fe80::1]:80.
+
+The timeout parameter was introduced in PHP 3.0.9 and UDP support was added in
+PHP 4.
+
+See also |pfsockopen|, |stream_set_blocking|, |stream_set_timeout|, |fgets|,
+|fgetss|, |fwrite|, |fclose|, |feof|, and the Curl extension.
+
+vim:ft=help:

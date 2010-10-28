@@ -1,0 +1,80 @@
+get_browser -- Tells what the user's browser is capable of
+
+  mixed get_browser([string user_agent [, bool return_array]])~
+
+|get_browser| attempts to determine the capabilities of the user's browser.
+This is done by looking up the browser's information in the browscap.ini
+file.
+
+By default, the value of $_SERVER['HTTP_USER_AGENT'] is used; however, you can
+alter this (i.e., look up another browser's info) by passing the optional
+{user_agent} parameter to |get_browser|. You can bypass {user_agent}
+parameter with NULL value.
+
+The information is returned in an object, which will contain various data
+elements representing, for instance, the browser's major and minor version
+numbers and ID string; TRUE/FALSE values for features such as frames,
+JavaScript, and cookies; and so forth.
+
+As of PHP 4.3.2, if the optional parameter {return_array} is TRUE, this
+function will return an array instead of an object.
+
+Listing all information about the users browser
+
+<?php >
+  echo $_SERVER['HTTP_USER_AGENT'] . "\n\n";
+  
+  $browser = get_browser(null, true);
+  print_r($browser);
+?>
+
+The above example will output something similar to:
+
+  Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.7) Gecko/20040803 Firefox/0.9.3
+  
+  Array
+  (
+      [browser_name_regex] => ^mozilla/5\.0 (windows; .; windows nt 5\.1; .*rv:.*) gecko/.* firefox/0\.9.*$
+      [browser_name_pattern] => Mozilla/5.0 (Windows; ?; Windows NT 5.1; *rv:*) Gecko/* Firefox/0.9*
+      [parent] => Firefox 0.9
+      [platform] => WinXP
+      [browser] => Firefox
+      [version] => 0.9
+      [majorver] => 0
+      [minorver] => 9
+      [css] => 2
+      [frames] => 1
+      [iframes] => 1
+      [tables] => 1
+      [cookies] => 1
+      [backgroundsounds] => 
+      [vbscript] => 
+      [javascript] => 1
+      [javaapplets] => 1
+      [activexcontrols] => 
+      [cdf] => 
+      [aol] => 
+      [beta] => 1
+      [win16] => 
+      [crawler] => 
+      [stripper] => 
+      [wap] => 
+      [netclr] => 
+  )
+
+The cookies value simply means that the browser itself is capable of accepting
+cookies and does not mean the user has enabled the browser to accept cookies
+or not. The only way to test if cookies are accepted is to set one with
+|setcookie|, reload, and check for the value.
+
+In order for this to work, your browscap configuration setting in php.ini must
+point to the correct location of the browscap.ini file on your system.
+
+browscap.ini is not bundled with PHP, but you may find an up-to-date
+php_browscap.ini file here.
+
+While browscap.ini contains information on many browsers, it relies on user
+updates to keep the database current. The format of the file is fairly
+self-explanatory.
+
+vim:ft=help:

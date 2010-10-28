@@ -1,0 +1,16 @@
+imagegd -- Output GD image to browser or file
+
+  bool imagegd(resource image [, string filename])~
+
+|imagegd| outputs a GD image to {filename}. The {image} argument is the return
+from the |imagecreate| function.
+
+The {filename} parameter is optional, and if left off, the raw image stream
+will be output directly.
+
+The GD format is commonly used to allow fast loading of parts of images. Note
+that the GD format is only usable in GD-compatible applications.
+
+See also |imagegd2|.
+
+vim:ft=help:

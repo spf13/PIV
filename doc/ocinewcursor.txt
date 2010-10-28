@@ -1,0 +1,68 @@
+ocinewcursor -- Return a new cursor (Statement-Handle)
+
+  resource ocinewcursor(resource conn)~
+
+|ocinewcursor| allocates a new statement handle on the specified connection.
+
+Using a REF CURSOR from a stored procedure in Oracle
+
+<?php >
+  // suppose your stored procedure info.output returns a ref cursor in :data
+  
+  $conn = OCILogon("scott", "tiger");
+  $curs = OCINewCursor($conn);
+  $stmt = OCIParse($conn, "begin info.output(:data); end;");
+  
+  ocibindbyname($stmt, "data", $curs, -1, OCI_B_CURSOR);
+  ociexecute($stmt);
+  ociexecute($curs);
+  
+  while (OCIFetchInto($curs, $data)) {
+      var_dump($data);
+  }
+   
+  OCIFreeStatement($stmt);
+  OCIFreeCursor($curs);
+  OCILogoff($conn);
+?>
+
+Using a REF CURSOR in a select statement in Oracle
+
+<?php >
+  echo "<html><body>";
+  $conn = OCILogon("scott", "tiger");
+  $count_cursor = "CURSOR(select count(empno) num_emps from emp " .
+                  "where emp.deptno = dept.deptno) as EMPCNT from dept";
+  $stmt = OCIParse($conn, "select deptno,dname,$count_cursor");
+  
+  ociexecute($stmt);
+  echo "<table border=\"1\">";
+  echo "<tr>";
+  echo "<th>DEPT NAME</th>";
+  echo "<th>DEPT #</th>";
+  echo "<th># EMPLOYEES</th>";
+  echo "</tr>";
+  
+  while (OCIFetchInto($stmt, &amp;$data, OCI_ASSOC)) {
+      echo "<tr>";
+      $dname  = $data["DNAME"];
+      $deptno = $data["DEPTNO"];
+      echo "<td>$dname</td>";
+      echo "<td>$deptno</td>";
+      ociexecute($data["EMPCNT"]);
+      while (OCIFetchInto($data["EMPCNT"], &amp;$subdata, OCI_ASSOC)) {
+          $num_emps = $subdata["NUM_EMPS"];
+          echo  "<td>$num_emps</td>";
+      }
+      echo "</tr>";
+  }
+  echo "</table>";
+  echo "</body></html>";
+  OCIFreeStatement($stmt);
+  OCILogoff($conn);
+?>
+
+This function was renamed to |oci_new_cursor| after PHP >= 5.0.0. For downward
+compatibility |ocinewcursor| can also be used. This is deprecated, however.
+
+vim:ft=help:

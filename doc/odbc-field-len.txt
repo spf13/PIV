@@ -1,0 +1,10 @@
+odbc_field_len -- Get the length (precision) of a field
+
+  int odbc_field_len(resource result_id, int field_number)~
+
+|odbc_field_len| will return the length of the field referenced by number in
+the given ODBC result identifier. Field numbering starts at 1.
+
+See also: |odbc_field_scale| to get the scale of a floating point number.
+
+vim:ft=help:

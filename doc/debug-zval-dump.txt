@@ -1,0 +1,29 @@
+debug_zval_dump -- Dumps a string representation of an internal zend value to
+output
+
+  void debug_zval_dump(mixed variable)~
+
+Dumps a string representation of an internal zend value to output.
+
+{variable} The variable being evaluated.
+
+No value is returned.
+
+|debug_zval_dump| example
+
+<?php >
+  $var1 = 'Hello World';
+  $var2 = '';
+  
+  $var2 =&amp; $var1;
+  
+  debug_zval_dump($var1);
+?>
+
+The above example will output:
+
+  string(11) "Hello World" refcount(1)
+
+|var_dump| |debug_backtrace| References Explained
+
+vim:ft=help:

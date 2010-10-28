@@ -1,0 +1,14 @@
+OCI-Collection->getElem -- Returns value of the element
+
+  mixed OCI-Collection->getElem(int index)~
+
+Method |OCI-Collection->getElem| returns value of the element with index
+{index} (1-based).
+
+|OCI-Collection->getElem| will return FALSE if such element doesn't exist;
+NULL if element is NULL; string if element is column of a string datatype or
+number if element is numeric field.
+
+|OCI-Collection->getElem| will return FALSE in case of error.
+
+vim:ft=help:

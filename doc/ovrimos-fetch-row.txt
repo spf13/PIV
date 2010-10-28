@@ -1,0 +1,39 @@
+ovrimos_fetch_row -- Fetches a row from the result set
+
+  bool ovrimos_fetch_row(int result_id [, int how [, int row_number]])~
+
+|ovrimos_fetch_row| fetches a row from the result set. Column values should be
+retrieved with other calls. Returns TRUE on success or FALSE on failure.
+
+A fetch row example
+
+<?php >
+  $conn = ovrimos_connect("remote.host", "8001", "admin", "password");
+  if ($conn != 0) {
+      echo "Connection ok!";
+      $res=ovrimos_exec($conn, "select table_id, table_name from sys.tables");
+      if ($res != 0) {
+          echo "Statement ok!";
+          if (ovrimos_fetch_row($res, "First")) {
+              $table_id = ovrimos_result($res, 1);
+              $table_name = ovrimos_result($res, 2);
+              echo "table_id=" . $table_id . ", table_name=" . $table_name . "\n";
+              if (ovrimos_fetch_row($res, "Next")) {
+                  $table_id = ovrimos_result($res, "table_id");
+                  $table_name = ovrimos_result($res, "table_name");
+                  echo "table_id=" . $table_id . ", table_name=" . $table_name . "\n";
+              } else {
+                  echo "Next: error\n";
+              }
+          } else {
+              echo "First: error\n";
+          }
+          ovrimos_free_result($res);
+      }
+      ovrimos_close($conn);
+  }
+?>
+
+This will fetch a row and print the result.
+
+vim:ft=help:

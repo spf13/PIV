@@ -1,0 +1,22 @@
+ibase_name_result -- Assigns a name to a result set
+
+  bool ibase_name_result(resource result, string name)~
+
+This function assigns a name to a result set. This name can be used later in
+UPDATE|DELETE ... WHERE CURRENT OF {name} statements. Returns TRUE on success
+or FALSE on failure.
+
+<?php >
+   $result = ibase_query("SELECT field1,field2 FROM table FOR UPDATE");
+      ibase_name_result($result, "my_cursor");
+  
+      $updateqry = ibase_prepare("UPDATE table SET field2 = ? WHERE CURRENT OF my_cursor");
+  
+      for ($i = 0; ibase_fetch_row($result); ++$i) {
+          ibase_execute($updateqry, $i);
+      }
+?>
+
+See also |ibase_prepare| and |ibase_execute|.
+
+vim:ft=help:

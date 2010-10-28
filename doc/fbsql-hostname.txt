@@ -1,0 +1,8 @@
+fbsql_hostname -- Get or set the host name used with a connection
+
+  string fbsql_hostname(resource link_identifier [, string host_name])~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

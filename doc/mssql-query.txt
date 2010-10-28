@@ -1,0 +1,16 @@
+mssql_query -- Send MS SQL query
+
+  mixed mssql_query(string query [, resource link_identifier [, int batch_size]])~
+
+Returns: A MS SQL result resource on success, TRUE if no rows were returned,
+or FALSE on error.
+
+|mssql_query| sends a query to the currently active database on the server
+that's associated with the specified link identifier. If the link identifier
+isn't specified, the last opened link is assumed. If no link is open, the
+function tries to establish a link as if |mssql_connect| was called, and use
+it.
+
+See also |mssql_select_db| and |mssql_connect|.
+
+vim:ft=help:

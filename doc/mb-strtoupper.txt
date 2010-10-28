@@ -1,0 +1,29 @@
+mb_strtoupper -- Make a string uppercase
+
+  string mb_strtoupper(string str [, string encoding])~
+
+|mb_strtoupper| returns {str} with all alphabetic characters converted to
+uppercase.
+
+{encoding} specifies the encoding of {str}; if omitted, the internal character
+encoding value will be used.
+
+By contrast to |strtoupper|, 'alphabetic' is determined by the Unicode
+character properties. Thus the behaviour of this function is not affected by
+locale settings and it can convert any characters that have 'alphabetic'
+property, such as a-umlaut (&auml;).
+
+For more information about the Unicode properties, please see
+http://www.unicode.org/unicode/reports/tr21/.
+
+|mb_strtoupper| example
+
+<?php >
+  $str = "Mary Had A Little Lamb and She LOVED It So";
+  $str = mb_strtoupper($str);
+  echo $str; // Prints MARY HAD A LITTLE LAMB AND SHE LOVED IT SO
+?>
+
+See also |strtoupper|, |mb_strtolower| and |mb_convert_case|.
+
+vim:ft=help:

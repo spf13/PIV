@@ -1,0 +1,10 @@
+pdf_add_launchlink -- Add a launch annotation for current page
+
+  bool pdf_add_launchlink(resource pdfdoc, float llx, float lly, float urx, float ury, string filename)~
+
+Adds a link to a web resource specified by {filename}. Returns TRUE on success
+or FALSE on failure.
+
+See also |pdf_add_locallink|.
+
+vim:ft=help:

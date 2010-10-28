@@ -1,0 +1,8 @@
+cpdf_set_action_url -- Sets hyperlink
+
+  bool cpdf_set_action_url(int pdfdoc, float xll, float yll, float xur, float xur, string url [, int mode])~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

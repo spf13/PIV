@@ -1,0 +1,10 @@
+cpdf_set_creator -- Sets the creator field in the pdf document
+
+  bool cpdf_set_creator(int pdf_document, string creator)~
+
+The |cpdf_set_creator| function sets the creator of a pdf document. Returns
+TRUE on success or FALSE on failure.
+
+See also |cpdf_set_subject|, |cpdf_set_title| and |cpdf_set_keywords|.
+
+vim:ft=help:

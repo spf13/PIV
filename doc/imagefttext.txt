@@ -1,0 +1,12 @@
+imagefttext -- Write text to the image using fonts using FreeType 2
+
+  array imagefttext(resource image, float size, float angle, int x, int y, int col, string font_file, string text [, array extrainfo])~
+
+This function is currently not documented; only the argument list is
+available.
+
+This function requires GD 2.0.1 or later.
+
+Parameter {extrainfo} is optional since PHP 4.3.5.
+
+vim:ft=help:

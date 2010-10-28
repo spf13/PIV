@@ -1,0 +1,10 @@
+socket_recvfrom -- Receives data from a socket, connected or not
+
+  int socket_recvfrom(resource socket, string buf, int len, int flags, string name [, int port])~
+
+This function is currently not documented; only the argument list is
+available.
+
+|socket_recvfrom| has been binary safe since PHP 4.3.0
+
+vim:ft=help:

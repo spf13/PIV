@@ -1,0 +1,14 @@
+sqlite_has_more -- Finds whether or not more rows are available
+
+  bool sqlite_has_more(resource result)~
+
+Finds whether more rows are available from the given result set.
+
+{result} The SQLite result resource.
+
+Returns TRUE if there are more rows available from the {result} handle, or
+FALSE otherwise.
+
+|sqlite_num_rows| |sqlite_changes|
+
+vim:ft=help:

@@ -1,0 +1,20 @@
+dbase_delete_record -- Deletes a record from a database
+
+  bool dbase_delete_record(int dbase_identifier, int record_number)~
+
+Marks the given record to be deleted from the database.
+
+To actually remove the record from the database, you must also call
+|dbase_pack|.
+
+{dbase_identifier} The database link identifier, returned by |dbase_open| or
+|dbase_create|.
+
+{record_number} An integer which spans from 1 to the number of records in the
+database (as returned by |dbase_numrecords|).
+
+Returns TRUE on success or FALSE on failure.
+
+|dbase_add_record| |dbase_replace_record|
+
+vim:ft=help:

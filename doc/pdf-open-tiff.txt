@@ -1,0 +1,5 @@
+pdf_open_tiff -- Deprecated: Opens a TIFF image
+
+This function is deprecated, use |pdf_open_image| instead.
+
+vim:ft=help:

@@ -1,0 +1,8 @@
+iterator_count -- Count the elements in an iterator
+
+  int iterator_count(IteratorAggregate iterator)~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

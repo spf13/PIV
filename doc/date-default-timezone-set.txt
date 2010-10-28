@@ -1,0 +1,19 @@
+date_default_timezone_set -- Sets the default timezone used by all date/time
+functions in a script
+
+  bool date_default_timezone_set(string timezone_identifier)~
+
+|date_default_timezone_set| sets the default timezone used by all date/time
+functions.
+
+Since PHP 5.1.0 (when the date/time functions were rewritten), every call to a
+date/time function will generate a E_NOTICE if the timezone isn't valid.
+
+{timezone_identifier} The timezone identifier, like UTC or Europe/Lisbon
+
+This function always returns TRUE (even if the {timezone_identifier} isn't
+valid).
+
+|date_default_timezone_get|
+
+vim:ft=help:

@@ -1,0 +1,9 @@
+imagecolorclosesthwb -- Get the index of the color which has the hue, white
+and blackness nearest to the given color
+
+  int imagecolorclosesthwb(resource image, int red, int green, int blue)~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

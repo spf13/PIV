@@ -1,0 +1,10 @@
+pdf_fill_stroke -- Fills and strokes current path
+
+  bool pdf_fill_stroke(resource pdfdoc)~
+
+Fill and stroke the path with the current fill and stroke color. Returns TRUE
+on success or FALSE on failure.
+
+See also |pdf_setcolor|.
+
+vim:ft=help:

@@ -1,0 +1,21 @@
+crack_opendict -- Opens a new CrackLib dictionary
+
+  resource crack_opendict(string dictionary)~
+
+|crack_opendict| opens the specified CrackLib {dictionary} for use with
+|crack_check|.
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+Only one dictionary may be open at a time.
+
+{dictionary} The path to the Cracklib dictionary.
+
+Returns a dictionary resource identifier on success, or FALSE on failure.
+
+|crack_check| |crack_closedict|
+
+vim:ft=help:

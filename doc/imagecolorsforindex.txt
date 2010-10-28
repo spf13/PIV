@@ -1,0 +1,40 @@
+imagecolorsforindex -- Get the colors for an index
+
+  array imagecolorsforindex(resource image, int index)~
+
+This returns an associative array with red, green, blue and alpha keys that
+contain the appropriate values for the specified color index.
+
+|imagecolorsforindex| example
+
+<?php >
+  // open an image
+  $im = imagecreatefrompng('nexen.png');
+  
+  // get a color
+  $start_x = 40;
+  $start_y = 50;
+  $color_index = imagecolorat($im, $start_x, $start_y);
+  
+  // make it human readable
+  $color_tran = imagecolorsforindex($im, $color_index);
+  
+  // what is it ?
+  echo '<pre>';
+  print_r($color_tran);
+  echo '</pre>';
+?>
+
+This example will output :
+
+  Array
+  (
+      [red] => 226
+      [green] => 222
+      [blue] => 252
+      [alpha] => 0
+  )
+
+See also |imagecolorat| and |imagecolorexact|.
+
+vim:ft=help:

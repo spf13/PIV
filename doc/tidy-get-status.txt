@@ -1,0 +1,29 @@
+tidy_get_status -- Get status of specified document
+
+Procedural style:
+
+  int tidy_get_status(tidy object)~
+
+Object oriented style:
+
+  int tidy->getStatus(tidy object)~
+
+|tidy_get_status| returns the status for the specified tidy {object}. It
+returns 0 if no error/warning was raised, 1 for warnings or accessibility
+errors, or 2 for errors.
+
+|tidy_get_status| example
+
+<?php >
+  $html = '<p>paragraph</i>';
+  $tidy = tidy_parse_string($html);
+  
+  $html2 = '<bogus>test</bogus>';
+  $tidy2 = tidy_parse_string($html2);
+  
+  echo tidy_get_status($tidy); //1
+  
+  echo tidy_get_status($tidy2); //2
+?>
+
+vim:ft=help:

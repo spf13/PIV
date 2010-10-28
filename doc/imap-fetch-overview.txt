@@ -1,0 +1,58 @@
+imap_fetch_overview -- Read an overview of the information in the headers of
+the given message
+
+  array imap_fetch_overview(resource imap_stream, string sequence [, int options])~
+
+This function fetches mail headers for the given {sequence} and returns an
+overview of their contents. {sequence} will contain a sequence of message
+indices or UIDs, if {flags} contains FT_UID. The returned value is an array
+of objects describing one message header each: subject - the messages subject
+
+from - who sent it
+
+to - recipient
+
+date - when was it sent
+
+message_id - Message-ID
+
+references - is a reference to this message id
+
+in_reply_to - is a reply to this message id
+
+size - size in bytes
+
+uid - UID the message has in the mailbox
+
+msgno - message sequence number in the mailbox
+
+recent - this message is flagged as recent
+
+flagged - this message is flagged
+
+answered - this message is flagged as answered
+
+deleted - this message is flagged for deletion
+
+seen - this message is flagged as already read
+
+draft - this message is flagged as being a draft
+
+|imap_fetch_overview| example
+
+<?php >
+  $mbox = imap_open("{your.imap.host:143}", "username", "password")
+       or die("can't connect: " . imap_last_error());
+   
+  $overview = imap_fetch_overview($mbox, "2,4:6", 0);
+   
+  if (is_array($overview)) {
+      foreach ($overview as $val) {
+          echo "$val->msgno - $val->date - $val->subject\n";
+      }
+  }
+   
+  imap_close($mbox);
+?>
+
+vim:ft=help:

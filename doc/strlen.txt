@@ -1,0 +1,19 @@
+strlen -- Get string length
+
+  int strlen(string string)~
+
+Returns the length of the given {string}.
+
+A |strlen| example
+
+<?php >
+  $str = 'abcdef';
+  echo strlen($str); // 6
+  
+  $str = ' ab cd ';
+  echo strlen($str); // 7
+?>
+
+See also |count|, and |mb_strlen|.
+
+vim:ft=help:

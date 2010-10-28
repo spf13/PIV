@@ -1,0 +1,7 @@
+odbc_do -- Synonym for odbc_exec
+
+  resource odbc_do(resource conn_id, string query)~
+
+|odbc_do| will execute a query on the given connection.
+
+vim:ft=help:

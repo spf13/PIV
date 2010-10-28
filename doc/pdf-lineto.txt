@@ -1,0 +1,8 @@
+pdf_lineto -- Draws a line
+
+  bool pdf_lineto(resource pdfdoc, float x, float y)~
+
+Draw a line from the current point to ({x}, {y}). Returns TRUE on success or
+FALSE on failure.
+
+vim:ft=help:

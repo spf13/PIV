@@ -1,0 +1,12 @@
+mhash -- Compute hash
+
+  string mhash(int hash, string data [, string key])~
+
+|mhash| applies a hash function specified by {hash} to the {data} and returns
+the resulting hash (also called digest). If the { key} is specified it will
+return the resulting HMAC. HMAC is keyed hashing for message authentication,
+or simply a message digest that depends on the specified key. Not all
+algorithms supported in mhash can be used in HMAC mode. In case of an error
+returns FALSE.
+
+vim:ft=help:

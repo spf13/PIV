@@ -1,0 +1,9 @@
+fdf_set_target_frame -- Set target frame for form display
+
+  bool fdf_set_target_frame(resource fdf_document, string frame_name)~
+
+Sets the target frame to display a result PDF defined with |fdf_save_file| in.
+
+See also |fdf_save_file|.
+
+vim:ft=help:

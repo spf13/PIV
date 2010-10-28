@@ -1,0 +1,8 @@
+ibase_service_detach -- Disconnect from the service manager
+
+  bool ibase_service_detach(resource service_handle)~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

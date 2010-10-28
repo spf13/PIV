@@ -1,0 +1,11 @@
+mssql_bind -- Adds a parameter to a stored procedure or a remote stored
+procedure
+
+  bool mssql_bind(resource stmt, string param_name, mixed var, int type [, int is_output [, int is_null [, int maxlen]]])~
+
+This function is currently not documented; only the argument list is
+available.
+
+See also |mssql_execute|, |mssql_free_statement|, and |mssql_init|.
+
+vim:ft=help:

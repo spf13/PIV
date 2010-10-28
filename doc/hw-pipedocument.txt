@@ -1,0 +1,13 @@
+hw_PipeDocument -- Retrieve any document
+
+  int hw_pipedocument(int connection, int objectID [, array url_prefixes])~
+
+Returns the Hyperwave document with object ID {objectID}. If the document has
+anchors which can be inserted, they will have been inserted already. The
+document will be transferred via a special data connection which does not
+block the control connection.
+
+See also |hw_gettext| for more on link insertion, |hw_free_document|,
+|hw_document_size|, |hw_document_bodytag|, and |hw_output_document|.
+
+vim:ft=help:

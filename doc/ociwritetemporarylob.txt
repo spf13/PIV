@@ -1,0 +1,9 @@
+ociwritetemporarylob -- Writes temporary blob
+
+  bool ociwritetemporarylob(string var [, int lob_type])~
+
+This function was renamed to |oci_lob_write_temporary| after PHP >= 5.0.0. For
+downward compatibility |ociwritetemporarylob| can also be used. This is
+deprecated, however.
+
+vim:ft=help:

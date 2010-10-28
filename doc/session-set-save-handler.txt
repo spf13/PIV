@@ -1,0 +1,95 @@
+session_set_save_handler -- Sets user-level session storage functions
+
+  bool session_set_save_handler(string open, string close, string read, string write, string destroy, string gc)~
+
+|session_set_save_handler| sets the user-level session storage functions which
+are used for storing and retrieving data associated with a session. This is
+most useful when a storage method other than those supplied by PHP sessions
+is preferred. i.e. Storing the session data in a local database. Returns TRUE
+on success or FALSE on failure.
+
+The "write" handler is not executed until after the output stream is closed.
+Thus, output from debugging statements in the "write" handler will never be
+seen in the browser. If debugging output is necessary, it is suggested that
+the debug output be written to a file instead.
+
+The following example provides file based session storage similar to the PHP
+sessions default save handler {files}. This example could easily be extended
+to cover database storage using your favorite PHP supported database engine.
+
+Read function must return string value always to make save handler work as
+expected. Return empty string if there is no data to read. Return values from
+other handlers are converted to boolean expression. TRUE for success, FALSE
+for failure.
+
+|session_set_save_handler| example
+
+<?php >
+  function open($save_path, $session_name) 
+  {
+    global $sess_save_path, $sess_session_name;
+         
+    $sess_save_path = $save_path;
+    $sess_session_name = $session_name;
+    return(true);
+  }
+  
+  function close() 
+  {
+    return(true);
+  }
+  
+  function read($id) 
+  {
+    global $sess_save_path, $sess_session_name;
+  
+    $sess_file = "$sess_save_path/sess_$id";
+    if ($fp = @fopen($sess_file, "r")) {
+      $sess_data = fread($fp, filesize($sess_file));
+      return($sess_data);
+    } else {
+      return(""); // Must return "" here.
+    }
+  
+  }
+  
+  function write($id, $sess_data) 
+  {
+    global $sess_save_path, $sess_session_name;
+  
+    $sess_file = "$sess_save_path/sess_$id";
+    if ($fp = @fopen($sess_file, "w")) {
+      return(fwrite($fp, $sess_data));
+    } else {
+      return(false);
+    }
+  
+  }
+  
+  function destroy($id) 
+  {
+    global $sess_save_path, $sess_session_name;
+         
+    $sess_file = "$sess_save_path/sess_$id";
+    return(@unlink($sess_file));
+  }
+  
+  /*********************************************
+   * WARNING - You will need to implement some *
+   * sort of garbage collection routine here.  *
+   *********************************************/
+  function gc($maxlifetime) 
+  {
+    return true;
+  }
+  
+  session_set_save_handler("open", "close", "read", "write", "destroy", "gc");
+  
+  session_start();
+  
+  // proceed to use sessions normally
+?>
+
+See also the session.save_handler configuration directive.
+
+vim:ft=help:

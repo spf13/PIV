@@ -1,0 +1,12 @@
+hw_api->copy -- Copies physically
+
+  hw_api_object hw_api->copy(array parameter)~
+
+This function will make a physical copy including the content if it exists and
+returns the new object or an error object. The parameter array contains the
+required elements 'objectIdentifier' and 'destinationParentIdentifier'. The
+optional parameter is 'attributeSelector'`
+
+See also |hwapi_move|, |hwapi_link|.
+
+vim:ft=help:

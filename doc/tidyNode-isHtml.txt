@@ -1,0 +1,10 @@
+tidyNode->isHtml -- Returns true if this node is part of a HTML document
+
+  bool tidyNode->isHtml()~
+
+This function is currently not documented; only the argument list is
+available.
+
+This function was named |tidy_node->is_html| in PHP 4/Tidy 1.
+
+vim:ft=help:

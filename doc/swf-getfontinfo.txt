@@ -1,0 +1,10 @@
+swf_getfontinfo -- The height in pixels of a capital A and a lowercase x
+
+  array swf_getfontinfo()~
+
+The |swf_getfontinfo| function returns an associative array with the following
+parameters: Aheight - The height in pixels of a capital A.
+
+xheight - The height in pixels of a lowercase x.
+
+vim:ft=help:

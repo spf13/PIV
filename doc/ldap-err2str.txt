@@ -1,0 +1,20 @@
+ldap_err2str -- Convert LDAP error number into string error message
+
+  string ldap_err2str(int errno)~
+
+Returns string error message.
+
+This function returns the string error message explaining the error number
+{errno}. While LDAP errno numbers are standardized, different libraries
+return different or even localized textual error messages. Never check for a
+specific error message text, but always use an error number to check.
+
+See also |ldap_errno| and |ldap_error|. Enumerating all LDAP error messages
+
+<?php >
+    for ($i=0; $i<100; $i++) {
+      printf("Error $i: %s<br />\n", ldap_err2str($i));
+    }
+?>
+
+vim:ft=help:

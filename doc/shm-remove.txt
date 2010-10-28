@@ -1,0 +1,10 @@
+shm_remove -- Removes shared memory from Unix systems
+
+  bool shm_remove(int shm_identifier)~
+
+|shm_remove| removes the shared memory {shm_identifier}. All data will be
+destroyed.
+
+See also |shm_remove_var|.
+
+vim:ft=help:

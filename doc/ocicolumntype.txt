@@ -1,0 +1,39 @@
+ocicolumntype -- Returns the data type of a column
+
+  mixed ocicolumntype(resource stmt, int col)~
+
+|ocicolumntype| returns the data type of the column corresponding to the
+column number (1-based) that is passed in.
+
+|ocicolumntype| example
+
+<?php >
+      $conn = OCILogon("scott", "tiger");
+      $stmt = OCIParse($conn, "select * from emp");
+      OCIExecute($stmt);
+      echo "<table border=\"1\">";
+      echo "<tr>";
+      echo "<th>Name</th>";
+      echo "<th>Type</th>";
+      echo "<th>Length</th>";
+      echo "</tr>";
+      $ncols = OCINumCols($stmt);
+      for ($i = 1; $i <= $ncols; $i++) {
+          $column_name  = OCIColumnName($stmt, $i);
+          $column_type  = OCIColumnType($stmt, $i);
+          $column_size  = OCIColumnSize($stmt, $i);
+          echo "<tr>";
+          echo "<td>$column_name</td>";
+          echo "<td>$column_type</td>";
+          echo "<td>$column_size</td>";
+          echo "</tr>";
+      }
+      echo "</table>\n"; 
+      OCIFreeStatement($stmt);  
+      OCILogoff($conn);   
+?>
+
+This function was renamed to |oci_field_type| after PHP >= 5.0.0. For downward
+compatibility |ocicolumntype| can also be used. This is deprecated, however.
+
+vim:ft=help:

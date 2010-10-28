@@ -1,0 +1,13 @@
+mssql_free_statement -- Free statement memory
+
+  bool mssql_free_statement(resource statement)~
+
+|mssql_free_statement| only needs to be called if you are worried about using
+too much memory while your script is running. All statement memory will
+automatically be freed when the script ends. You may call
+|mssql_free_statement| with the statement identifier as an argument and the
+associated statement memory will be freed.
+
+See also |mssql_bind|, |mssql_execute|, and |mssql_init|
+
+vim:ft=help:

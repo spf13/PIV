@@ -1,0 +1,17 @@
+php_logo_guid -- Gets the logo guid
+
+  string php_logo_guid()~
+
+This function returns the ID which can be used to display the PHP logo using
+the built-in image. Logo is displayed only if expose_php is On.
+
+|php_logo_guid| example
+
+<?php >
+  echo '<img src="' . $_SERVER['PHP_SELF'] .
+       '?=' . php_logo_guid() . '" alt="PHP Logo !" />';
+?>
+
+See also |phpinfo|, |phpversion|, |phpcredits| and |zend_logo_guid|.
+
+vim:ft=help:

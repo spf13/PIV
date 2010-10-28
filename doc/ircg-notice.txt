@@ -1,0 +1,9 @@
+ircg_notice -- Send a notice to a user on server
+
+  bool ircg_notice(resource connection, string recipient, string message)~
+
+This function will send the {message} text to the user {nick} on the server
+connected to by {connection}. IRC servers and other software will not
+automatically generate replies to NOTICEs in contrast to other message types.
+
+vim:ft=help:

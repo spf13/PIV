@@ -1,0 +1,13 @@
+imap_setacl -- Sets the ACL for a giving mailbox
+
+  bool imap_setacl(resource stream_id, string mailbox, string id, string rights)~
+
+This function is currently not documented; only the argument list is
+available.
+
+This function is currently only available to users of the c-client2000 or
+greater library.
+
+See also |imap_getacl|.
+
+vim:ft=help:

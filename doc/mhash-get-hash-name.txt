@@ -1,0 +1,22 @@
+mhash_get_hash_name -- Get the name of the specified hash
+
+  string mhash_get_hash_name(int hash)~
+
+|mhash_get_hash_name| is used to get the name of the specified hash.
+
+|mhash_get_hash_name| takes the hash id as an argument and returns the name of
+the hash or FALSE, if the hash does not exist.
+
+|mhash_get_hash_name| example
+
+<?php >
+  $hash = MHASH_MD5;
+  
+  echo mhash_get_hash_name($hash);
+?>
+
+The above example will output:
+
+  MD5
+
+vim:ft=help:

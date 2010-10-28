@@ -1,0 +1,64 @@
+sybase_set_message_handler -- Sets the handler called when a server message is
+raised
+
+  bool sybase_set_message_handler(callback handler [, resource connection])~
+
+|sybase_set_message_handler| sets a user function to handle messages generated
+by the server. You may specify the name of a global function, or use an array
+to specify an object reference and a method name.
+
+This function is only available using the CT library interface to Sybase, and
+not the DB library.
+
+The handler expects five arguments in the following order: message number,
+severity, state, line number and description. The first four are integers.
+The last is a string. If the function returns FALSE, PHP generates an
+ordinary error message.
+
+Returns TRUE on success or FALSE on failure.
+
+The {connection} parameter was added in PHP 4.3.5.
+
+|sybase_set_message_handler| callback function
+
+<?php >
+      function msg_handler($msgnumber, $severity, $state, $line, $text) 
+      {
+          var_dump($msgnumber, $severity, $state, $line, $text);
+      }
+      
+      sybase_set_message_handler('msg_handler');
+?>
+
+|sybase_set_message_handler| callback to a class
+
+<?php >
+      class Sybase {
+          function handler($msgnumber, $severity, $state, $line, $text) 
+          {
+              var_dump($msgnumber, $severity, $state, $line, $text);
+          }
+      }
+      
+      $sybase= new Sybase();
+      sybase_set_message_handler(array($sybase, 'handler'));
+?>
+
+|sybase_set_message_handler| unhandled messages
+
+<?php >
+      // Return FALSE from this function to indicate you can't handle
+      // this. The error is printed out as a warning, the way you're used
+      // to it if there is no handler installed.
+      function msg_handler($msgnumber, $severity, $state, $line, $text) 
+      {
+          if (257 == $msgnumber) {
+              return false;
+          }
+          var_dump($msgnumber, $severity, $state, $line, $text);
+      }
+      
+      sybase_set_message_handler('msg_handler');
+?>
+
+vim:ft=help:

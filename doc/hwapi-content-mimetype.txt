@@ -1,0 +1,7 @@
+hw_api_content->mimetype -- Returns mimetype
+
+  string hw_api_content->mimetype()~
+
+Returns the mimetype of the content.
+
+vim:ft=help:

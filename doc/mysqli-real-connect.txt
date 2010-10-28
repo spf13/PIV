@@ -1,0 +1,83 @@
+mysqli->real_connect -- Opens a connection to a mysql server
+
+Procedural style
+
+  bool mysqli_real_connect(mysqli link [, string hostname [, string username [, string passwd [, string dbname [, int port [, string socket [, int flags]]]]]]])~
+
+Object oriented style (method)
+
+  bool real_connect(mysqli link [, string hostname [, string username [, string passwd [, string dbname [, int port [, string socket [, int flags [, string hostname [, string username [, string passwd [, string dbname [, int port [, string socket [, int flags]]]]]]]]]]]]]])~
+
+|mysqli_real_connect| attempts to establish a connection to a MySQL database
+engine running on {hostname}.
+
+This function differs from |mysqli_connect|:
+
+|mysqli_real_connect| needs a valid object which has to be created by function
+|mysqli_init|
+
+With function |mysqli_options| you can set various options for connection.
+
+With the parameter {flags} you can set different connection options:
+
+For security reasons the MULTI_STATEMENT flag is not supported in PHP. If you
+want to execute multiple queries use the |mysqli_multi_query| function.
+
+Returns TRUE on success or FALSE on failure.
+
+|mysqli_connect|, |mysqli_init|, |mysqli_options|, |mysqli_ssl_set| and
+|mysqli_close|.
+
+Object oriented style
+
+<?php >
+  /* create a connection object which is not connected */
+  $mysqli = mysqli_init();
+  
+  /* set connection options */
+  $mysqli->options(MYSQLI_INIT_COMMAND, "SET AUTOCOMMIT=0");
+  $mysqli->options(MYSQLI_OPT_CONNECT_TIMEOUT, 5);
+  
+  /* connect to server */
+  $mysqli->real_connect('localhost', 'my_user', 'my_password', 'world');
+  
+  /* check connection */
+  if (mysqli_connect_errno()) {
+      printf("Connect failed: %s\n", mysqli_connect_error());
+      exit();
+  }
+  
+  printf ("Connection: %s\n.", $mysqli->host_info);
+  
+  $mysqli->close();
+?>
+
+Procedural style
+
+<?php >
+  /* create a connection object which is not connected */
+  $link = mysqli_init();
+  
+  /* set connection options */
+  mysqli_options($link, MYSQLI_INIT_COMMAND, "SET AUTOCOMMIT=0");
+  mysqli_options($link, MYSQLI_OPT_CONNECT_TIMEOUT, 5);
+  
+  /* connect to server */
+  mysqli_real_connect($link, 'localhost', 'my_user', 'my_password', 'world');
+  
+  /* check connection */
+  if (mysqli_connect_errno()) {
+      printf("Connect failed: %s\n", mysqli_connect_error());
+      exit();
+  }
+  
+  printf ("Connection: %s\n.", mysqli_get_host_info($link));
+  
+  mysqli_close($link);
+?>
+
+The above example will output:
+
+  Connection: Localhost via UNIX socket
+
+vim:ft=help:

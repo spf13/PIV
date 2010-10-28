@@ -1,0 +1,5 @@
+imap_listmailbox -- Alias of imap_list
+
+This function is an alias of: |imap_list|.
+
+vim:ft=help:

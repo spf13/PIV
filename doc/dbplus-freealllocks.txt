@@ -1,0 +1,14 @@
+dbplus_freealllocks -- Free all locks held by this client
+
+  int dbplus_freealllocks()~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+|dbplus_freealllocks| will free all tuple locks held by this client.
+
+See also |dbplus_getlock|, |dbplus_freelock|, and |dbplus_freerlocks|.
+
+vim:ft=help:

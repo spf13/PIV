@@ -1,0 +1,17 @@
+ocierror -- Return the last error of stmt|conn|global
+
+  array ocierror([resource stmt_or_conn_or_global])~
+
+|ocierror| returns the last error found. If the optional
+{stmt_or_conn_or_global} is not provided, the last error encountered is
+returned. If no error is found, |ocierror| returns FALSE. |ocierror| returns
+the error as an associative array. In this array, code consists the oracle
+error code and message the oracle errorstring.
+
+offset and sqltext will also be included in the return array to indicate the
+location of the error and the original SQL text which caused it.
+
+This function was renamed to |oci_error| after PHP >= 5.0.0. For downward
+compatibility |ocierror| can also be used. This is deprecated, however.
+
+vim:ft=help:

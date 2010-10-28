@@ -1,0 +1,7 @@
+swf_endshape -- Completes the definition of the current shape
+
+  void swf_endshape()~
+
+The |swf_endshape| completes the definition of the current shape.
+
+vim:ft=help:

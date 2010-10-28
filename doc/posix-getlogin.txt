@@ -1,0 +1,8 @@
+posix_getlogin -- Return login name
+
+  string posix_getlogin()~
+
+Returns the login name of the user owning the current process. See
+|posix_getpwnam| for information how to get more information about this user.
+
+vim:ft=help:

@@ -1,0 +1,38 @@
+highlight_string -- Syntax highlighting of a string
+
+  mixed highlight_string(string str [, bool return])~
+
+The |highlight_string| function outputs a syntax highlighted version of {str}
+using the colors defined in the built-in syntax highlighter for PHP.
+
+If the second parameter {return} is set to TRUE then |highlight_string| will
+return the highlighted code as a string instead of printing it out. If the
+second parameter is not set to TRUE then |highlight_string| will return TRUE
+on success, FALSE on failure.
+
+|highlight_string| example
+
+<?php >
+  highlight_string('<?php phpinfo(); ?>');
+?>
+
+The above example will output (in PHP 4):
+
+  <code><font color="#000000">
+  <font color="#0000BB"><?php phpinfo</font><font color="#007700">(); </font><font color="#0000BB">?></font>
+  </font>
+  </code>
+
+The above example will output (in PHP 5):
+
+  <code><span style="color: #000000">
+  <span style="color: #0000BB"><?php phpinfo</span><span style="color: #007700">(); </span><span style="color: #0000BB">?></span>
+  </span>
+  </code>
+
+The {return} parameter became available in PHP 4.2.0. Before this time it
+behaved like the default, which is FALSE
+
+See also |highlight_file|.
+
+vim:ft=help:

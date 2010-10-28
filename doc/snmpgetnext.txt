@@ -1,0 +1,8 @@
+snmpgetnext -- Fetch a SNMP object
+
+  string snmpgetnext(string host, string community, string object_id [, int timeout [, int retries]])~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

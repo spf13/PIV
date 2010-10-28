@@ -1,0 +1,9 @@
+posix_getgroups -- Return the group set of the current process
+
+  array posix_getgroups()~
+
+Returns an array of integers containing the numeric group ids of the group set
+of the current process. See also |posix_getgrgid| for information on how to
+convert this into useable group names.
+
+vim:ft=help:

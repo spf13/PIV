@@ -1,0 +1,20 @@
+id3_get_frame_long_name -- Get the long name of an ID3v2 frame
+
+  string id3_get_frame_long_name(string frameId)~
+
+|id3_get_frame_long_name| returns the long name for an ID3v2 frame.
+
+|id3_get_frame_long_name| example
+
+<?php >
+  $longName = id3_get_frame_long_name("TOLY");
+  echo $longName;
+?>
+
+This will output:
+
+  Original lyricist(s)/text writer(s)
+
+See also |id3_get_frame_short_name|.
+
+vim:ft=help:

@@ -1,0 +1,13 @@
+notes_nav_create -- Create a navigator name, in database_name
+
+  bool notes_nav_create(string database_name, string name)~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

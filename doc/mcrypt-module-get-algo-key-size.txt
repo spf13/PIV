@@ -1,0 +1,10 @@
+mcrypt_module_get_algo_key_size -- Returns the maximum supported keysize of
+the opened mode
+
+  int mcrypt_module_get_algo_key_size(string algorithm [, string lib_dir])~
+
+This function returns the maximum supported key size of the algorithm
+specified in bytes. The optional {lib_dir} parameter can contain the location
+where the mode module is on the system.
+
+vim:ft=help:

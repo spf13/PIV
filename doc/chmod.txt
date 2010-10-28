@@ -1,0 +1,55 @@
+chmod -- Changes file mode
+
+  bool chmod(string filename, int mode)~
+
+Attempts to change the mode of the file specified by {filename} to that given
+in {mode}.
+
+Note that {mode} is not automatically assumed to be an octal value, so strings
+(such as "g+w") will not work properly. To ensure the expected operation, you
+need to prefix {mode} with a zero (0):
+
+<?php >
+  chmod("/somedir/somefile", 755);   // decimal; probably incorrect   
+  chmod("/somedir/somefile", "u+rwx,go+rx"); // string; incorrect       
+  chmod("/somedir/somefile", 0755);  // octal; correct value of mode
+?>
+
+The {mode} parameter consists of three octal number components specifying
+access restrictions for the owner, the user group in which the owner is in,
+and to everybody else in this order. One component can be computed by adding
+up the needed permissions for that target user base. Number 1 means that you
+grant execute rights, number 2 means that you make the file writeable, number
+4 means that you make the file readable. Add up these numbers to specify
+needed rights. You can also read more about modes on Unix systems with 'man 1
+chmod' and 'man 2 chmod'.
+
+<?php >
+  // Read and write for owner, nothing for everybody else
+  chmod("/somedir/somefile", 0600);
+  
+  // Read and write for owner, read for everybody else
+  chmod("/somedir/somefile", 0644);
+  
+  // Everything for owner, read and execute for others
+  chmod("/somedir/somefile", 0755);
+  
+  // Everything for owner, read and execute for owner's group
+  chmod("/somedir/somefile", 0750);
+?>
+
+Returns TRUE on success or FALSE on failure.
+
+The current user is the user under which PHP runs. It is probably not the same
+user you use for normal shell or FTP access.
+
+This function will not work on remote files as the file to be examined must be
+accessible via the servers filesystem.
+
+When safe mode is enabled, PHP checks whether the files or directories you are
+about to operate on have the same UID (owner) as the script that is being
+executed. In addition, you cannot set the SUID, SGID and sticky bits
+
+See also |chown| and |chgrp|.
+
+vim:ft=help:

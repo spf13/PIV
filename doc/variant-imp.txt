@@ -1,0 +1,10 @@
+variant_imp -- Performs a bitwise implication on two variants
+
+  mixed variant_imp(mixed left, mixed right)~
+
+Performs a bitwise implication operation, according to the following truth
+table: Variant Implication Table If {left} is If {right} is then the result
+is TRUETRUETRUE TRUEFALSETRUE TRUENULLTRUE FALSETRUETRUE FALSEFALSETRUE
+FALSENULLTRUE NULLTRUETRUE NULLFALSENULL NULLNULLNULL
+
+vim:ft=help:

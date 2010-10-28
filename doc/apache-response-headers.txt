@@ -1,0 +1,28 @@
+apache_response_headers -- Fetch all HTTP response headers
+
+  array apache_response_headers()~
+
+Fetch all HTTP response headers.
+
+An array of all Apache response headers on success, or FALSE on failure.
+
+|apache_response_headers| example
+
+<?php >
+  print_r(apache_response_headers());
+?>
+
+The above example will output something similar to:
+
+  Array
+  (
+      [Accept-Ranges] => bytes
+      [X-Powered-By] => PHP/4.3.8
+  )
+
+As of PHP 4.3.3 you can use this function with the NSAPI server module in
+Netscape/iPlanet/SunONE webservers, too.
+
+|apache_request_headers| |headers_sent|
+
+vim:ft=help:

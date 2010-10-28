@@ -1,0 +1,10 @@
+ifxus_seek_slob -- Sets the current file or seek position
+
+  int ifxus_seek_slob(int bid, int mode, int offset)~
+
+Sets the current file or seek position of an open slob object. {bid} should be
+an existing slob id. Modes: 0 = LO_SEEK_SET, 1 = LO_SEEK_CUR, 2 = LO_SEEK_END
+and {offset} is an byte offset. Return FALSE on error otherwise the seek
+position.
+
+vim:ft=help:

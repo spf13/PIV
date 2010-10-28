@@ -1,0 +1,16 @@
+oci_execute -- Executes a statement
+
+  bool oci_execute(resource stmt [, int mode])~
+
+|oci_execute| executes a previously parsed statement (see |oci_parse|). The
+optional {mode} allows you to specify the execution mode (default is
+OCI_COMMIT_ON_SUCCESS). If you don't want statements to be committed
+automatically, you should specify OCI_DEFAULT as your {mode}.
+
+Returns TRUE on success or FALSE on failure.
+
+In PHP versions before 5.0.0 you must use |ociexecute| instead. This name
+still can be used, it was left as alias of |oci_execute| for downwards
+compatability. This, however, is deprecated and not recommended.
+
+vim:ft=help:

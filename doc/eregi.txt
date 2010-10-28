@@ -1,0 +1,19 @@
+eregi -- Case insensitive regular expression match
+
+  int eregi(string pattern, string string [, array regs])~
+
+This function is identical to |ereg| except that this ignores case distinction
+when matching alphabetic characters.
+
+|eregi| example
+
+<?php >
+  $string = 'XYZ';
+  if (eregi('z', $string)) {
+      echo "'$string' contains a 'z' or 'Z'!";
+  }
+?>
+
+See also |ereg|, |ereg_replace|, |eregi_replace|, |stripos|, and |stristr|.
+
+vim:ft=help:

@@ -1,0 +1,17 @@
+ldap_first_attribute -- Return first attribute
+
+  string ldap_first_attribute(resource link_identifier, resource result_entry_identifier, int ber_identifier)~
+
+Returns the first attribute in the entry on success and FALSE on error.
+
+Similar to reading entries, attributes are also read one by one from a
+particular entry. |ldap_first_attribute| returns the first attribute in the
+entry pointed by the {result_entry_identifier}. Remaining attributes are
+retrieved by calling |ldap_next_attribute| successively. {ber_identifier} is
+the identifier to internal memory location pointer. It is passed by
+reference. The same {ber_identifier} is passed to the |ldap_next_attribute|
+function, which modifies that pointer.
+
+See also |ldap_get_attributes|
+
+vim:ft=help:

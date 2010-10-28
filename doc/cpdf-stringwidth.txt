@@ -1,0 +1,10 @@
+cpdf_stringwidth -- Returns width of text in current font
+
+  float cpdf_stringwidth(int pdf_document, string text)~
+
+The |cpdf_stringwidth| function returns the width of the string in {text}. It
+requires a font to be set before.
+
+See also |cpdf_set_font|.
+
+vim:ft=help:

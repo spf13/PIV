@@ -1,0 +1,18 @@
+SWFDisplayItem->scaleTo -- Scales the object in global coordinates
+
+  void swfdisplayitem->scaleto(int x [, int y])~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+|swfdisplayitem->scaleto| scales the current object to ({x},{y}) in global
+coordinates.
+
+The object may be a |swfshape|, a |swfbutton|, a |swftext| or a |swfsprite|
+object. It must have been added using the |swfmovie->add|.
+
+See also |swfdisplayitem->scale|.
+
+vim:ft=help:

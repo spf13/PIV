@@ -1,0 +1,47 @@
+get_class -- Returns the name of the class of an object
+
+  string get_class([object obj])~
+
+This function returns the name of the class of which the object {obj} is an
+instance. Returns FALSE if {obj} is not an object.
+
+A class defined in a PHP extension is returned in its original notation. In
+PHP 4 |get_class| returns a user defined class name in lowercase, but in PHP
+5 it will return the class name in it's original notation too, just like
+class names from PHP extensions.
+
+Since PHP 5, {obj} is optional if called from the object's method.
+
+Using |get_class|
+
+<?php >
+  class foo {
+      function foo() 
+      {
+      // implements some logic
+      }
+  
+      function name() 
+      {
+          echo "My name is " , get_class($this) , "\n";
+      }
+  }
+  
+  // create an object
+  $bar = new foo();
+  
+  // external call
+  echo "Its name is " , get_class($bar) , "\n";
+  
+  // internal call
+  $bar->name();
+?>
+
+The above example will output:
+
+  Its name is foo
+  My name is foo
+
+See also |get_parent_class|, |gettype|, and |is_subclass_of|.
+
+vim:ft=help:

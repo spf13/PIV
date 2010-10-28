@@ -1,0 +1,8 @@
+curl_version -- Return the current CURL version
+
+  array curl_version([int version])~
+
+The |curl_version| function returns a string containing the current CURL
+version.
+
+vim:ft=help:

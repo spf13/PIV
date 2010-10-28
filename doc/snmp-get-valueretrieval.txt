@@ -1,0 +1,9 @@
+snmp_get_valueretrieval -- Return the method how the SNMP values will be
+returned
+
+  int snmp_get_valueretrieval()~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

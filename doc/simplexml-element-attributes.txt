@@ -1,0 +1,30 @@
+SimpleXMLElement->attributes -- Identifies an element's attributes
+
+  SimpleXMLElement simplexml_element->attributes([string data])~
+
+This function provides the attributes and values defined within an xml tag.
+
+SimpleXML has made a rule of adding iterative properties to most methods. They
+cannot be viewed using |var_dump| or anything else which can examine objects.
+
+Interpret an XML string
+
+<?php >
+  $string = <<<XML
+  <a>
+   <foo name="one" game="lonely">1</foo>
+  </a>
+  XML;
+  
+  $xml = simplexml_load_string($string);
+  foreach($xml->foo[0]->attributes() as $a => $b) {
+      echo $a,'="',$b,"\"\n";
+  }
+?>
+
+This script will display:
+
+  name="one"
+  game="lonely"
+
+vim:ft=help:

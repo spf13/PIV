@@ -1,0 +1,9 @@
+fdf_get_status -- Get the value of the /STATUS key
+
+  string fdf_get_status(resource fdf_document)~
+
+The |fdf_get_status| returns the value of the /STATUS key.
+
+See also |fdf_set_status|.
+
+vim:ft=help:

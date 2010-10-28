@@ -1,0 +1,193 @@
+preg_replace -- Perform a regular expression search and replace
+
+  mixed preg_replace(mixed pattern, mixed replacement, mixed subject [, int limit [, int count]])~
+
+Searches {subject} for matches to {pattern} and replaces them with
+{replacement}.
+
+{Replacement} may contain references of the form \\n or (since PHP 4.0.4) $n,
+with the latter form being the preferred one. Every such reference will be
+replaced by the text captured by the n'th parenthesized pattern. n can be
+from 0 to 99, and \\0 or $0 refers to the text matched by the whole pattern.
+Opening parentheses are counted from left to right (starting from 1) to
+obtain the number of the capturing subpattern.
+
+When working with a replacement pattern where a backreference is immediately
+followed by another number (i.e.: placing a literal number immediately after
+a matched pattern), you cannot use the familiar \\1 notation for your
+backreference. \\11, for example, would confuse |preg_replace| since it does
+not know whether you want the \\1 backreference followed by a literal 1, or
+the \\11 backreference followed by nothing. In this case the solution is to
+use \${1}1. This creates an isolated $1 backreference, leaving the 1 as a
+literal.
+
+If {subject} is an array, then the search and replace is performed on every
+entry of {subject}, and the return value is an array as well.
+
+The e modifier makes |preg_replace| treat the {replacement} parameter as PHP
+code after the appropriate references substitution is done. Tip: make sure
+that {replacement} constitutes a valid PHP code string, otherwise PHP will
+complain about a parse error at the line containing |preg_replace|.
+
+{pattern} The pattern to search for. It can be either a string or an array
+with strings.
+
+{replacement} The string or an array with strings to replace. If this
+parameter is a string and the {pattern} parameter is an array, all pattens
+will be replaced by that string. If both {pattern} and {replacement}
+parameters are arrays, each {pattern} will be replaced by the {replacement}
+counterpart. If there are less keys in the {replacement} array than in the
+{pattern} array, the excedent {pattern}s will be replaced by an empty string.
+
+{subject} The string or an array with strings to search and replace.
+
+{limit} The maximum possible replacements for each pattern in each {subject}
+string. Defaults to -1 (no limit).
+
+{count} If specified, this variable will be filled with the number of
+replacements done.
+
+|preg_replace| returns an array if the {subject} parameter is an array, or a
+string otherwise.
+
+If matches are found, the new {subject} will be returned, otherwise {subject}
+will be returned unchanged.
+
+Version Description 4.0.1pl2 Added the {limit} parameter 4.0.4 Added the '$n'
+form for the {replacement} parameter 5.1.0 Added the {count} parameter
+
+Convert HTML to text
+
+<?php >
+  // $document should contain an HTML document.
+  // This will remove HTML tags, javascript sections
+  // and white space. It will also convert some
+  // common HTML entities to their text equivalent.
+  $search = array ('@<script[^>]*?>.*?</script>@si', // Strip out javascript
+                   '@<[\/\!]*?[^<>]*?>@si',          // Strip out HTML tags
+                   '@([\r\n])[\s]+@',                // Strip out white space
+                   '@&amp;(quot|#34);@i',                // Replace HTML entities
+                   '@&amp;(amp|#38);@i',
+                   '@&amp;(lt|#60);@i',
+                   '@&amp;(gt|#62);@i',
+                   '@&amp;(nbsp|#160);@i',
+                   '@&amp;(iexcl|#161);@i',
+                   '@&amp;(cent|#162);@i',
+                   '@&amp;(pound|#163);@i',
+                   '@&amp;(copy|#169);@i',
+                   '@&amp;#(\d+);@e');                    // evaluate as php
+  
+  $replace = array ('',
+                    '',
+                    '\1',
+                    '"',
+                    '&amp;',
+                    '<',
+                    '>',
+                    ' ',
+                    chr(161),
+                    chr(162),
+                    chr(163),
+                    chr(169),
+                    'chr(\1)');
+  
+  $text = preg_replace($search, $replace, $document);
+?>
+
+Using backreferences followed by numeric literals
+
+<?php >
+  $string = 'April 15, 2003';
+  $pattern = '/(\w+) (\d+), (\d+)/i';
+  $replacement = '${1}1,$3';
+  echo preg_replace($pattern, $replacement, $string);
+?>
+
+The above example will output:
+
+  April1,2003
+
+Using indexed arrays with |preg_replace|
+
+<?php >
+  $string = 'The quick brown fox jumped over the lazy dog.';
+  $patterns[0] = '/quick/';
+  $patterns[1] = '/brown/';
+  $patterns[2] = '/fox/';
+  $replacements[2] = 'bear';
+  $replacements[1] = 'black';
+  $replacements[0] = 'slow';
+  echo preg_replace($patterns, $replacements, $string);
+?>
+
+The above example will output:
+
+  The bear black slow jumped over the lazy dog.
+
+By ksorting patterns and replacements, we should get what we wanted.
+
+<?php >
+  ksort($patterns);
+  ksort($replacements);
+  echo preg_replace($patterns, $replacements, $string);
+?>
+
+The above example will output:
+
+  The slow black bear jumped over the lazy dog.
+
+Replacing several values
+
+<?php >
+  $patterns = array ('/(19|20)(\d{2})-(\d{1,2})-(\d{1,2})/',
+                     '/^\s*{(\w+)}\s*=/');
+  $replace = array ('\3/\4/\1\2', '$\1 =');
+  echo preg_replace($patterns, $replace, '{startDate} = 1999-5-27');
+?>
+
+The above example will output:
+
+  $startDate = 5/27/1999
+
+Using the 'e' modifier
+
+<?php >
+  preg_replace("/(<\/?)(\w+)([^>]*>)/e", 
+               "'\\1'.strtoupper('\\2').'\\3'", 
+               $html_body);
+?>
+
+This would capitalize all HTML tags in the input text.
+
+Strip whitespace This example strips excess whitespace from a string.
+
+<?php >
+  $str = 'foo   o';
+  $str = preg_replace('/\s\s+/', ' ', $str);
+  // This will be 'foo o' now
+  echo $str;
+?>
+
+Using the {count} parameter
+
+<?php >
+  $count = 0;
+  
+  echo preg_replace(array('/\d/', '/\s/'), '*', 'xp 4 to', -1 , $count);
+  echo $count; //3
+?>
+
+The above example will output:
+
+  xp***to
+  3
+
+When using arrays with {pattern} and {replacement}, the keys are processed in
+the order they appear in the array. This is not necessarily the same as the
+numerical index order. If you use indexes to identify which {pattern} should
+be replaced by which {replacement}, you should perform a |ksort| on each
+array prior to calling |preg_replace|.
+
+|preg_match| |preg_replace_callback| |preg_split|
+
+vim:ft=help:

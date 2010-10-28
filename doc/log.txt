@@ -1,0 +1,16 @@
+log -- Natural logarithm
+
+  float log(float arg [, float base])~
+
+If the optional {base} parameter is specified, |log| returns logbase {arg},
+otherwise |log| returns the natural logarithm of {arg}.
+
+The {base} parameter became available with PHP 4.3.0.
+
+As always you can calculate the logarithm in base b of a number n, but using
+the mathematical identity: logb(n) = log(n)/log(b), where log is the neperian
+(or natural) logarithm.
+
+See also |exp|.
+
+vim:ft=help:

@@ -1,0 +1,30 @@
+output_reset_rewrite_vars -- Reset URL rewriter values
+
+  bool output_reset_rewrite_vars()~
+
+This function resets the URL rewriter and undo the changes made by
+|output_add_rewrite_var| and/or by |session_start| that are still in the
+buffer.
+
+|output_reset_rewrite_vars| example
+
+<?php >
+  session_start();
+  output_add_rewrite_var('var', 'value');
+  
+  echo '<a href="file.php">link</a>';
+  ob_flush();
+  
+  output_reset_rewrite_vars();
+  echo '<a href="file.php">link</a>';
+?>
+
+The above example will output:
+
+  <a href="file.php?PHPSESSID=xxx&var=value">link</a>
+  <a href="file.php">link</a>
+
+See also |output_add_rewrite_var|, |ob_flush|, |ob_list_handlers| and
+|session_start|.
+
+vim:ft=help:

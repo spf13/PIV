@@ -1,0 +1,16 @@
+recode_string -- Recode a string according to a recode request
+
+  string recode_string(string request, string string)~
+
+Recode the string {string} according to the recode request {request}. Returns
+the recoded string or FALSE, if unable to perform the recode request.
+
+A simple recode request may be "lat1..iso646-de". See also the GNU Recode
+documentation of your installation for detailed instructions about recode
+requests. Basic |recode_string| example:
+
+<?php >
+  echo recode_string("us..flat", "The following character has a diacritical mark: &amp;aacute;");
+?>
+
+vim:ft=help:

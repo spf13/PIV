@@ -1,0 +1,15 @@
+cpdf_curveto -- Draws a curve
+
+  bool cpdf_curveto(int pdf_document, float x1, float y1, float x2, float y2, float x3, float y3 [, int mode])~
+
+The |cpdf_curveto| function draws a Bezier curve from the current point to the
+point ({x3}, {y3}) using ({x1}, {y1}) and ({x2}, {y2}) as control points.
+Returns TRUE on success or FALSE on failure.
+
+The optional parameter {mode} determines the unit length. If it is 0 or
+omitted the default unit as specified for the page is used. Otherwise the
+coordinates are measured in postscript points disregarding the current unit.
+
+See also |cpdf_moveto|, |cpdf_rmoveto|, |cpdf_rlineto| and |cpdf_lineto|.
+
+vim:ft=help:

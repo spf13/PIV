@@ -1,0 +1,16 @@
+SWFbutton->setAction -- Sets the action
+
+  void swfbutton->setaction(resource action)~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+|swfbutton->setaction| sets the action to be performed when the button is
+clicked. Alias for addAction(shape, SWFBUTTON_MOUSEUP). {action} is a
+|swfaction|.
+
+See also |swfbutton->addshape| and |swfaction|.
+
+vim:ft=help:

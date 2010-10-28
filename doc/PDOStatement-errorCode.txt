@@ -1,0 +1,31 @@
+PDOStatement::errorCode -- Fetch the SQLSTATE associated with the last
+operation on the statement handle
+
+  int PDOStatement::errorCode()~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+Identical to |PDO::errorCode|, except that |PDOStatement::errorCode| only
+retrieves error codes for operations performed with PDOStatement objects.
+
+Retrieving a SQLSTATE code
+
+<?php >
+  /* Provoke an error -- the BONES table does not exist */
+  $err = $dbh->prepare('SELECT skull FROM bones');
+  $err->execute();
+  
+  echo "\nPDOStatement::errorCode(): ";
+  print $err->errorCode();
+?>
+
+The above example will output:
+
+  PDOStatement::errorCode(): 42S02
+
+|PDO::errorCode| |PDO::errorInfo| |PDOStatement::errorInfo|
+
+vim:ft=help:

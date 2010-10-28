@@ -1,0 +1,18 @@
+dbmnextkey -- Retrieves the next key from a DBM database
+
+  string dbmnextkey(resource dbm_identifier, string key)~
+
+Returns the next key after {key}. By calling |dbmfirstkey| followed by
+successive calls to |dbmnextkey| it is possible to visit every key/value pair
+in the dbm database. For example: Visiting every key/value pair in a DBM
+database
+
+<?php >
+  $key = dbmfirstkey($dbm_id);
+  while ($key) {
+      echo "$key = " . dbmfetch($dbm_id, $key) . "\n";
+      $key = dbmnextkey($dbm_id, $key);
+  }
+?>
+
+vim:ft=help:

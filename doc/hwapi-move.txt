@@ -1,0 +1,7 @@
+hw_api->move -- Moves object between collections
+
+  bool hw_api->move(array parameter)~
+
+See also |hw_objrec2array|.
+
+vim:ft=help:

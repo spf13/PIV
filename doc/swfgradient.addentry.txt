@@ -1,0 +1,16 @@
+SWFGradient->addEntry -- Adds an entry to the gradient list
+
+  void swfgradient->addentry(float ratio, int red, int green, int blue [, int a])~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+|swfgradient->addentry| adds an entry to the gradient list. {ratio} is a
+number between 0 and 1 indicating where in the gradient this color appears.
+Thou shalt add entries in order of increasing ratio.
+
+{red}, {green}, {blue} is a color (RGB mode). Last parameter {a} is optional.
+
+vim:ft=help:

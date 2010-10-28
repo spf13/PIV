@@ -1,0 +1,15 @@
+link -- Create a hard link
+
+  bool link(string target, string link)~
+
+|link| creates a hard link. Returns TRUE on success or FALSE on failure.
+
+This function will not work on remote files as the file to be examined must be
+accessible via the servers filesystem.
+
+This function is not implemented on Windows platforms.
+
+See also the |symlink| to create soft links, and |readlink| along with
+|linkinfo|.
+
+vim:ft=help:

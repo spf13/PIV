@@ -1,0 +1,43 @@
+sscanf -- Parses input from a string according to a format
+
+  mixed sscanf(string str, string format [, mixed ...])~
+
+The function |sscanf| is the input analog of |printf|. |sscanf| reads from the
+string {str} and interprets it according to the specified {format}, which is
+described in the documentation for |sprintf|. If only two parameters were
+passed to this function, the values parsed will be returned as an array.
+Otherwise, if optional parameters are passed, the function will return the
+number of assigned values. The optional parameters must be passed by
+reference.
+
+Any whitespace in the format string matches any whitespace in the input
+string. This means that even a tab \t in the format string can match a single
+space character in the input string.
+
+|sscanf| Example
+
+<?php >
+  // getting the serial number
+  $serial = sscanf("SN/2350001", "SN/%d");
+  // and the date of manufacturing
+  $mandate = "January 01 2000";
+  list($month, $day, $year) = sscanf($mandate, "%s %d %d");
+  echo "Item $serial was manufactured on: $year-" . substr($month, 0, 3) . "-$day\n";
+?>
+
+If optional parameters are passed, the function will return the number of
+assigned values. |sscanf| - using optional parameters
+
+<?php >
+  // get author info and generate DocBook entry
+  $auth = "24\tLewis Carroll";
+  $n = sscanf($auth, "%d\t%s %s", $id, $first, $last);
+  echo "<author id='$id'>
+      <firstname>$first</firstname>
+      <surname>$last</surname>
+  </author>\n";
+?>
+
+See also |fscanf|, |printf|, and |sprintf|.
+
+vim:ft=help:

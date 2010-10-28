@@ -1,0 +1,43 @@
+stristr -- Case-insensitive strstr
+
+  string stristr(string haystack, string needle)~
+
+Returns all of {haystack} from the first occurrence of {needle} to the end.
+{needle} and {haystack} are examined in a case-insensitive manner.
+
+If {needle} is not found, returns FALSE.
+
+If {needle} is not a string, it is converted to an integer and applied as the
+ordinal value of a character.
+
+|stristr| example
+
+<?php >
+    $email = 'USER@EXAMPLE.com';
+    echo stristr($email, 'e');
+  // outputs ER@EXAMPLE.com
+?>
+
+Testing if a string is found or not
+
+<?php >
+    $string = 'Hello World!';
+    if(stristr($string, 'earth') === FALSE) {
+      echo '"earth" not found in string';
+    }
+  // outputs: "earth" not found in string
+?>
+
+Using a non "string" needle
+
+<?php >
+    $string = 'APPLE';
+    echo stristr($string, 97); // 97 = lowercase a
+  // outputs: APPLE
+?>
+
+This function is binary-safe.
+
+See also |strstr|, |strrchr|, |substr|, and |ereg|.
+
+vim:ft=help:

@@ -1,0 +1,11 @@
+xml_set_end_namespace_decl_handler -- Set up end namespace declaration handler
+
+  bool xml_set_end_namespace_decl_handler(resource parser, callback handler)~
+
+This function is currently not documented; only the argument list is
+available.
+
+Instead of a function name, an array containing an object reference and a
+method name can also be supplied.
+
+vim:ft=help:

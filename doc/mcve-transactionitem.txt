@@ -1,0 +1,9 @@
+mcve_transactionitem -- Get the ITEM number in the associated batch for this
+transaction
+
+  int mcve_transactionitem(resource conn, int identifier)~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

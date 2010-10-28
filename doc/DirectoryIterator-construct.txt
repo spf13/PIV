@@ -1,0 +1,8 @@
+DirectoryIterator::__construct -- Constructs a new dir iterator from a path
+
+  DirectoryIterator DirectoryIterator::__construct(string path)~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

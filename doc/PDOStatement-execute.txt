@@ -1,0 +1,57 @@
+PDOStatement::execute -- Executes a prepared statement
+
+  bool PDOStatement::execute([array input_parameters])~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+Execute the prepared statement. If the prepared statement included parameter
+markers, you must either: call |PDOStatement::bindParam| to bind PHP
+variables to the parameter markers: bound variables pass their value as input
+and receive the output value, if any, of their associated parameter markers
+
+or pass an array of input-only parameter values
+
+Execute a prepared statement with bound variables
+
+<?php >
+  /* Execute a prepared statement by binding PHP variables */
+  $calories = 150;
+  $colour = 'red';
+  $sth = $dbh->prepare('SELECT name, colour, calories
+      FROM fruit
+      WHERE calories < :calories AND colour = :colour');
+  $sth->bindParam(':calories', $calories, PDO_PARAM_INT);
+  $sth->bindParam(':colour', $colour, PDO_PARAM_STR, 12);
+  $sth->execute();
+?>
+
+Execute a prepared statement with an array of insert values
+
+<?php >
+  /* Execute a prepared statement by passing an array of insert values */
+  $calories = 150;
+  $colour = 'red';
+  $sth = $dbh->prepare('SELECT name, colour, calories
+      FROM fruit
+      WHERE calories < :calories AND colour = :colour');
+  $sth->execute(array(':calories' => $calories, ':colour' => $colour));
+?>
+
+Execute a prepared statement with question mark placeholders
+
+<?php >
+  /* Execute a prepared statement by binding PHP variables */
+  $calories = 150;
+  $colour = 'red';
+  $sth = $dbh->prepare('SELECT name, colour, calories
+      FROM fruit
+      WHERE calories < ? AND colour = ?');
+  $sth->bindParam(1, $calories, PDO_PARAM_INT);
+  $sth->bindParam(2, $colour, PDO_PARAM_STR, 12);
+  $sth->execute();
+?>
+
+vim:ft=help:

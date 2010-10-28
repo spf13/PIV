@@ -1,0 +1,15 @@
+ociresult -- Returns column value for fetched row
+
+  mixed ociresult(resource statement, mixed col)~
+
+|ociresult| returns the data for column {column} in the current row (see
+|ocifetch|). |ociresult| will return everything as strings except for
+abstract types (ROWIDs, LOBs and FILEs).
+
+You can either use the column-number (1-Based) or the column-name, in
+uppercase, for the {col} parameter.
+
+This function was renamed to |oci_result| after PHP >= 5.0.0. For downward
+compatibility |ociresult| can also be used. This is deprecated, however.
+
+vim:ft=help:

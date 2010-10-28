@@ -1,0 +1,9 @@
+ifx_copy_blob -- Duplicates the given blob object
+
+  int ifx_copy_blob(int bid)~
+
+Duplicates the given blob object. {bid} is the ID of the blob object.
+
+Returns FALSE on error otherwise the new blob object-id.
+
+vim:ft=help:

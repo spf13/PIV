@@ -1,0 +1,14 @@
+lob->load -- Returns large object's contents
+
+  string lob->load()~
+
+Returns large object's contents. As script execution is terminated when the
+memory_limit is reached, ensure that the LOB does not exceed this limit. In
+most cases it's recommended to use |oci_lob_read| instead. In case of error
+|lob->load| returns FALSE.
+
+In PHP versions before 5.0.0 you must use |ociloadlob| instead. This name
+still can be used, it was left as alias of |oci_lob_load| for downwards
+compatability. This, however, is deprecated and not recommended.
+
+vim:ft=help:

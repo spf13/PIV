@@ -1,0 +1,30 @@
+mysqli_connect_errno -- Returns the error code from last connect call
+
+  int mysqli_connect_errno()~
+
+The |mysqli_connect_errno| function will return the last error code number for
+last call to |mysqli_connect|. If no errors have occured, this function will
+return zero.
+
+Client error message numbers are listed in the MySQL errmsg.h header file,
+server error message numbers are listed in mysqld_error.h. In the MySQL
+source distribution you can find a complete list of error messages and error
+numbers in the file Docs/mysqld_error.txt.
+
+An error code value for the last call to |mysqli_connect|, if it failed. zero
+means no error occurred.
+
+|mysqli_connect|, |mysqli_connect_error|, |mysqli_errno|, |mysqli_error| and
+|mysqli_sqlstate|.
+
+mysqli_connect_errno sample
+
+<?php >
+  $link = @mysqli_connect("localhost", "nonexisting_user", "");
+  
+  if (!$link) {
+      printf("Can't connect to localhost. Errorcode: %d\n", mysqli_connect_errno());
+  }
+?>
+
+vim:ft=help:

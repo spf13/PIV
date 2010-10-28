@@ -1,0 +1,7 @@
+ifx_get_char -- Return the content of the char object
+
+  int ifx_get_char(int bid)~
+
+Returns the content of the char object for the given char object-id {bid}.
+
+vim:ft=help:

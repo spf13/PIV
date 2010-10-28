@@ -1,0 +1,30 @@
+rawurlencode -- URL-encode according to RFC 1738
+
+  string rawurlencode(string str)~
+
+Returns a string in which all non-alphanumeric characters except -_. have been
+replaced with a percent (%) sign followed by two hex digits. This is the
+encoding described in RFC 1738 for protecting literal characters from being
+interpreted as special URL delimiters, and for protecting URL's from being
+mangled by transmission media with character conversions (like some email
+systems). For example, if you want to include a password in an FTP URL:
+
+|rawurlencode| example 1
+
+<?php >
+  echo '<a href="ftp://user:', rawurlencode('foo @+%/'),
+       '@ftp.example.com/x.txt">';
+?>
+
+Or, if you pass information in a PATH_INFO component of the URL:
+
+|rawurlencode| example 2
+
+<?php >
+  echo '<a href="http://example.com/department_list_script/',
+      rawurlencode('sales and marketing/Miami'), '">';
+?>
+
+See also |rawurldecode|, |urldecode|, |urlencode| and RFC 1738.
+
+vim:ft=help:

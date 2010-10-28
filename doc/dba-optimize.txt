@@ -1,0 +1,13 @@
+dba_optimize -- Optimize database
+
+  bool dba_optimize(resource handle)~
+
+|dba_optimize| optimizes the underlying database.
+
+{handle} The database handler, returned by |dba_open| or |dba_popen|.
+
+Returns TRUE on success or FALSE on failure.
+
+|dba_sync|
+
+vim:ft=help:

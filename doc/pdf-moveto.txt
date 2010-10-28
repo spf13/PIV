@@ -1,0 +1,12 @@
+pdf_moveto -- Sets current point
+
+  bool pdf_moveto(resource pdfdoc, float x, float y)~
+
+Set the current point to ({x}, {y}. Returns TRUE on success or FALSE on
+failure.
+
+The current point for graphics and the current text output position are
+maintained separately. See |pdf_set_text_pos| to set the text output
+position.
+
+vim:ft=help:

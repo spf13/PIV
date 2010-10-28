@@ -1,0 +1,423 @@
+SWFAction -- Creates a new Action
+
+  SWFAction swfaction(string script)~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+|swfaction| creates a new Action, and compiles the given script into an
+SWFAction object.
+
+The script syntax is based on the C language, but with a lot taken out- the
+SWF bytecode machine is just too simpleminded to do a lot of things we might
+like. For instance, we can't implement function calls without a tremendous
+amount of hackery because the jump bytecode has a hardcoded offset value. No
+pushing your calling address to the stack and returning- every function would
+have to know exactly where to return to.
+
+So what's left? The compiler recognises the following tokens: break
+
+for
+
+continue
+
+if
+
+else
+
+do
+
+while
+
+There is no typed data; all values in the SWF action machine are stored as
+strings. The following functions can be used in expressions: time() Returns
+the number of milliseconds (?) elapsed since the movie started.
+
+random(seed) Returns a pseudo-random number in the range 0-seed.
+
+length(expr) Returns the length of the given expression.
+
+int(number) Returns the given number rounded down to the nearest integer.
+
+concat(expr, expr) Returns the concatenation of the given expressions.
+
+ord(expr) Returns the ASCII code for the given character
+
+chr(num) Returns the character for the given ASCII code
+
+substr(string, location, length) Returns the substring of length {length} at
+location {location} of the given string {string}.
+
+Additionally, the following commands may be used: duplicateClip(clip, name,
+depth) Duplicate the named movie {clip} (aka sprite). The new movie clip has
+name {name} and is at depth {depth}.
+
+removeClip(expr) Removes the named movie clip.
+
+trace(expr) Write the given expression to the trace log. Doubtful that the
+browser plugin does anything with this.
+
+startDrag(target, lock, [left, top, right, bottom]) Start dragging the movie
+clip {target}. The {lock} argument indicates whether to lock the mouse (?)-
+use 0 (FALSE) or 1 (TRUE). Optional parameters define a bounding area for the
+dragging.
+
+stopDrag() Stop dragging my heart around. And this movie clip, too.
+
+callFrame(expr) Call the named frame as a function.
+
+getURL(url, target, [method]) Load the given URL into the named target. The
+{target} argument corresponds to HTML document targets (such as "_top" or
+"_blank"). The optional {method} argument can be POST or GET if you want to
+submit variables back to the server.
+
+loadMovie(url, target) Load the given URL into the named target. The {target}
+argument can be a frame name (I think), or one of the magical values
+"_level0" (replaces current movie) or "_level1" (loads new movie on top of
+current movie).
+
+nextFrame() Go to the next frame.
+
+prevFrame() Go to the last (or, rather, previous) frame.
+
+play() Start playing the movie.
+
+stop() Stop playing the movie.
+
+toggleQuality() Toggle between high and low quality.
+
+stopSounds() Stop playing all sounds.
+
+gotoFrame(num) Go to frame number {num}. Frame numbers start at 0.
+
+gotoFrame(name) Go to the frame named {name}. Which does a lot of good, since
+I haven't added frame labels yet.
+
+setTarget(expr) Sets the context for action. Or so they say- I really have no
+idea what this does.
+
+And there's one weird extra thing. The expression frameLoaded(num) can be used
+in if statements and while loops to check if the given frame number has been
+loaded yet. Well, it's supposed to, anyway, but I've never tested it and I
+seriously doubt it actually works. You can just use /:framesLoaded instead.
+
+Movie clips (all together now- aka sprites) have properties. You can read all
+of them (or can you?), you can set some of them, and here they are: x
+
+y
+
+xScale
+
+yScale
+
+currentFrame - (read-only)
+
+totalFrames - (read-only)
+
+alpha - transparency level
+
+visible - 1=on, 0=off (?)
+
+width - (read-only)
+
+height - (read-only)
+
+rotation
+
+target - (read-only) (???)
+
+framesLoaded - (read-only)
+
+name
+
+dropTarget - (read-only) (???)
+
+url - (read-only) (???)
+
+highQuality - 1=high, 0=low (?)
+
+focusRect - (???)
+
+soundBufTime - (???)
+
+So, setting a sprite's x position is as simple as /box.x = 100;. Why the slash
+in front of the box, though? That's how flash keeps track of the sprites in
+the movie, just like a Unix filesystem- here it shows that box is at the top
+level. If the sprite named box had another sprite named biff inside of it,
+you'd set its x position with /box/biff.x = 100;. At least, I think so;
+correct me if I'm wrong here.
+
+This simple example will move the red square across the window. |swfaction|
+example
+
+<?php >
+    $s = new SWFShape();
+    $f = $s->addFill(0xff, 0, 0);
+    $s->setRightFill($f);
+  
+    $s->movePenTo(-500, -500);
+    $s->drawLineTo(500, -500);
+    $s->drawLineTo(500, 500);
+    $s->drawLineTo(-500, 500);
+    $s->drawLineTo(-500, -500);
+  
+    $p = new SWFSprite();
+    $i = $p->add($s);
+    $i->setDepth(1);
+    $p->nextFrame();
+  
+    for ($n=0; $n<5; ++$n) {
+      $i->rotate(-15);
+      $p->nextFrame();
+    }
+  
+    $m = new SWFMovie();
+    $m->setBackground(0xff, 0xff, 0xff);
+    $m->setDimension(6000, 4000);
+  
+    $i = $m->add($p);
+    $i->setDepth(1);
+    $i->moveTo(-500,2000);
+    $i->setName("box");
+  
+    $m->add(new SWFAction("/box.x += 3;"));
+    $m->nextFrame();
+    $m->add(new SWFAction("gotoFrame(0); play();"));
+    $m->nextFrame();
+  
+    header('Content-type: application/x-shockwave-flash');
+    $m->output();
+?>
+
+This simple example tracks down your mouse on the screen. |swfaction| example
+
+<?php >
+    $m = new SWFMovie();
+    $m->setRate(36.0);
+    $m->setDimension(1200, 800);
+    $m->setBackground(0, 0, 0);
+  
+    /* mouse tracking sprite - empty, but follows mouse so we can
+       get its x and y coordinates */
+  
+    $i = $m->add(new SWFSprite());
+    $i->setName('mouse');
+  
+    $m->add(new SWFAction("
+      startDrag('/mouse', 1); /* '1' means lock sprite to the mouse */
+    "));
+  
+    /* might as well turn off antialiasing, since these are just squares. */
+  
+    $m->add(new SWFAction("
+      this.quality = 0;
+    "));
+  
+    /* morphing box */
+    $r = new SWFMorph();
+    $s = $r->getShape1();
+  
+    /* Note this is backwards from normal shapes.  No idea why. */
+    $s->setLeftFill($s->addFill(0xff, 0xff, 0xff));
+    $s->movePenTo(-40, -40);
+    $s->drawLine(80, 0);
+    $s->drawLine(0, 80);
+    $s->drawLine(-80, 0);
+    $s->drawLine(0, -80);
+  
+    $s = $r->getShape2();
+  
+    $s->setLeftFill($s->addFill(0x00, 0x00, 0x00));
+    $s->movePenTo(-1, -1);
+    $s->drawLine(2, 0);
+    $s->drawLine(0, 2);
+    $s->drawLine(-2, 0);
+    $s->drawLine(0, -2);
+  
+    /* sprite container for morphing box -
+       this is just a timeline w/ the box morphing */
+  
+    $box = new SWFSprite();
+    $box->add(new SWFAction("
+      stop();
+    "));
+    $i = $box->add($r);
+  
+    for ($n=0; $n<=20; ++$n) {
+      $i->setRatio($n/20);
+      $box->nextFrame();
+    }
+  
+    /* this container sprite allows us to use the same action code many times */
+  
+    $cell = new SWFSprite();
+    $i = $cell->add($box);
+    $i->setName('box');
+  
+    $cell->add(new SWFAction("
+  
+      setTarget('box');
+  
+      /* ...x means the x coordinate of the parent, i.e. (..).x */
+      dx = (/mouse.x + random(6)-3 - ...x)/5;
+      dy = (/mouse.y + random(6)-3 - ...y)/5;
+      gotoFrame(int(dx*dx + dy*dy));
+  
+    "));
+  
+    $cell->nextFrame();
+    $cell->add(new SWFAction("
+  
+      gotoFrame(0);
+      play();
+  
+    "));
+  
+    $cell->nextFrame();
+  
+    /* finally, add a bunch of the cells to the movie */
+  
+    for ($x=0; $x<12; ++$x) {
+      for ($y=0; $y<8; ++$y) {
+        $i = $m->add($cell);
+        $i->moveTo(100*$x+50, 100*$y+50);
+      }
+    }
+  
+    $m->nextFrame();
+  
+    $m->add(new SWFAction("
+  
+      gotoFrame(1);
+      play();
+  
+    "));
+  
+    header('Content-type: application/x-shockwave-flash');
+    $m->output();
+?>
+
+Same as above, but with nice colored balls... |swfaction| example
+
+<?php >
+    $m = new SWFMovie();
+    $m->setDimension(11000, 8000);
+    $m->setBackground(0x00, 0x00, 0x00);
+  
+    $m->add(new SWFAction("
+  
+  this.quality = 0;
+  /frames.visible = 0;
+  startDrag('/mouse', 1);
+  
+    "));
+  
+    // mouse tracking sprite
+    $t = new SWFSprite();
+    $i = $m->add($t);
+    $i->setName('mouse');
+  
+    $g = new SWFGradient();
+    $g->addEntry(0, 0xff, 0xff, 0xff, 0xff);
+    $g->addEntry(0.1, 0xff, 0xff, 0xff, 0xff);
+    $g->addEntry(0.5, 0xff, 0xff, 0xff, 0x5f);
+    $g->addEntry(1.0, 0xff, 0xff, 0xff, 0);
+  
+    // gradient shape thing
+    $s = new SWFShape();
+    $f = $s->addFill($g, SWFFILL_RADIAL_GRADIENT);
+    $f->scaleTo(0.03);
+    $s->setRightFill($f);
+    $s->movePenTo(-600, -600);
+    $s->drawLine(1200, 0);
+    $s->drawLine(0, 1200);
+    $s->drawLine(-1200, 0);
+    $s->drawLine(0, -1200);
+  
+    // need to make this a sprite so we can multColor it
+    $p = new SWFSprite();
+    $p->add($s);
+    $p->nextFrame();
+  
+    // put the shape in here, each frame a different color
+    $q = new SWFSprite();
+    $q->add(new SWFAction("gotoFrame(random(7)+1); stop();"));
+    $i = $q->add($p);
+  
+    $i->multColor(1.0, 1.0, 1.0);
+    $q->nextFrame();
+    $i->multColor(1.0, 0.5, 0.5);
+    $q->nextFrame();
+    $i->multColor(1.0, 0.75, 0.5);
+    $q->nextFrame();
+    $i->multColor(1.0, 1.0, 0.5);
+    $q->nextFrame();
+    $i->multColor(0.5, 1.0, 0.5);
+    $q->nextFrame();
+    $i->multColor(0.5, 0.5, 1.0);
+    $q->nextFrame();
+    $i->multColor(1.0, 0.5, 1.0);
+    $q->nextFrame();
+  
+    // finally, this one contains the action code
+    $p = new SWFSprite();
+    $i = $p->add($q);
+    $i->setName('frames');
+    $p->add(new SWFAction("
+  
+  dx = (/:mousex-/:lastx)/3 + random(10)-5;
+  dy = (/:mousey-/:lasty)/3;
+  x = /:mousex;
+  y = /:mousey;
+  alpha = 100;
+  
+    "));
+    $p->nextFrame();
+  
+    $p->add(new SWFAction("
+  
+  this.x = x;
+  this.y = y;
+  this.alpha = alpha;
+  x += dx;
+  y += dy;
+  dy += 3;
+  alpha -= 8;
+  
+    "));
+    $p->nextFrame();
+  
+    $p->add(new SWFAction("prevFrame(); play();"));
+    $p->nextFrame();
+  
+    $i = $m->add($p);
+    $i->setName('frames');
+    $m->nextFrame();
+  
+    $m->add(new SWFAction("
+  
+  lastx = mousex;
+  lasty = mousey;
+  mousex = /mouse.x;
+  mousey = /mouse.y;
+  
+  ++num;
+  
+  if (num == 11)
+    num = 1;
+  
+  removeClip('char' &amp; num);
+  duplicateClip(/frames, 'char' &amp; num, num);
+  
+    "));
+  
+    $m->nextFrame();
+    $m->add(new SWFAction("prevFrame(); play();"));
+  
+    header('Content-type: application/x-shockwave-flash');
+    $m->output();
+?>
+
+vim:ft=help:

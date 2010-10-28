@@ -1,0 +1,9 @@
+variant_abs -- Returns the absolute value of a variant
+
+  mixed variant_abs(mixed val)~
+
+Returns the absolute value of {val}.
+
+See also |abs|.
+
+vim:ft=help:

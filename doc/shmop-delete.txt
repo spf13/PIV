@@ -1,0 +1,18 @@
+shmop_delete -- Delete shared memory block
+
+  bool shmop_delete(int shmid)~
+
+|shmop_delete| is used to delete a shared memory block.
+
+|shmop_delete| takes the shmid, which is the shared memory block identifier
+created by |shmop_open|. On success 1 is returned, on failure 0 is returned.
+
+Deleting shared memory block
+
+<?php >
+  shmop_delete($shm_id);
+?>
+
+This example will delete shared memory block identified by $shm_id.
+
+vim:ft=help:

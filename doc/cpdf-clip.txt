@@ -1,0 +1,8 @@
+cpdf_clip -- Clips to current path
+
+  bool cpdf_clip(int pdf_document)~
+
+The |cpdf_clip| function clips all drawing to the current path. Returns TRUE
+on success or FALSE on failure.
+
+vim:ft=help:

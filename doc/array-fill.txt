@@ -1,0 +1,30 @@
+array_fill -- Fill an array with values
+
+  array array_fill(int start_index, int num, mixed value)~
+
+|array_fill| fills an array with {num} entries of the value of the {value}
+parameter, keys starting at the {start_index} parameter. Note that { num}
+must be a number greater than zero, or PHP will throw a warning.
+
+|array_fill| example
+
+<?php >
+  $a = array_fill(5, 6, 'banana');
+  print_r($a);
+?>
+
+$a now is:
+
+  Array
+  (
+      [5]  => banana
+      [6]  => banana
+      [7]  => banana
+      [8]  => banana
+      [9]  => banana
+      [10] => banana
+  )
+
+See also |str_repeat| and |range|.
+
+vim:ft=help:

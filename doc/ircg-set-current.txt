@@ -1,0 +1,12 @@
+ircg_set_current -- Set current connection for output
+
+  bool ircg_set_current(resource connection)~
+
+Select the current HTTP connection for output in this execution context. Every
+output sent from the server connected to by {connection} will be copied to
+standard output while using default formatting or a format message set
+specified by |ircg_register_format_messages|.
+
+See also: |ircg_register_format_messages|.
+
+vim:ft=help:

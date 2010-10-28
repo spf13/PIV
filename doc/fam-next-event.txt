@@ -1,0 +1,17 @@
+fam_next_event -- Get next pending FAM event
+
+  array fam_next_event(resource fam)~
+
+|fam_next_event| returns the next pending FAM event. The function will block
+until an event is available which can be checked for using |fam_pending|.
+
+|fam_next_event| will return an array that contains a FAM event code in
+element 'code', the path of the file this event applies to in element
+'filename' and optionally a hostname in element 'hostname'.
+
+The possible event codes are described in detail in the constants part of this
+section.
+
+See also |fam_pending|.
+
+vim:ft=help:

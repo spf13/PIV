@@ -1,0 +1,22 @@
+fdf_open_string -- Read a FDF document from a string
+
+  resource fdf_open_string(string fdf_data)~
+
+The |fdf_open_string| function reads form data from a string. {fdf_data} must
+contain the data as returned from a PDF form or created using |fdf_create|
+and |fdf_save_string|.
+
+You can |fdf_open_string| together with $HTTP_FDF_DATA to process fdf form
+input from a remote client.
+
+Accessing the form data
+
+<?php >
+  $fdf = fdf_open_string($HTTP_FDF_DATA);
+  /* ... */
+  fdf_close($fdf);
+?>
+
+See also |fdf_open|, |fdf_close|, |fdf_create| and |fdf_save_string|.
+
+vim:ft=help:

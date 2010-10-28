@@ -1,0 +1,16 @@
+DOMElement->removeAttributeNS() -- Removes attribute
+
+  bool removeAttributeNS(string namespaceURI, string localName)~
+
+Removes attribute is namespace {namespaceURI} named {localName} from the
+element.
+
+{namespaceURI} The namespace URI.
+
+{localName} The local name.
+
+Returns TRUE on success or FALSE on failure.
+
+DOM_NO_MODIFICATION_ALLOWED_ERR Raised if the node is readonly.
+
+vim:ft=help:

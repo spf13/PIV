@@ -1,0 +1,8 @@
+mcve_edituser -- Edit MCVE user using usersetup structure
+
+  int mcve_edituser(resource conn, string admin_password, int usersetup)~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

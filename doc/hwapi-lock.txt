@@ -1,0 +1,16 @@
+hw_api->lock -- Locks an object
+
+  bool hw_api->lock(array parameter)~
+
+Locks an object for exclusive editing by the user calling this function. The
+object can be only unlocked by this user or the system user. The parameter
+array contains the required element 'objectIdentifier' and the optional
+parameters 'mode' and 'objectquery'. 'mode' determines how an object is
+locked. HW_API_LOCK_NORMAL means, an object is locked until it is unlocked.
+HW_API_LOCK_RECURSIVE is only valid for collection and locks all objects
+within the collection and possible subcollections. HW_API_LOCK_SESSION means,
+an object is locked only as long as the session is valid.
+
+See also |hwapi_unlock|.
+
+vim:ft=help:

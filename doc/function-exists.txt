@@ -1,0 +1,24 @@
+function_exists -- Return TRUE if the given function has been defined
+
+  bool function_exists(string function_name)~
+
+Checks the list of defined functions, both built-in (internal) and
+user-defined, for {function_name}. Returns TRUE on success or FALSE on
+failure.
+
+<?php >
+  if (function_exists('imap_open')) {
+      echo "IMAP functions are available.<br />\n";
+  } else {
+      echo "IMAP functions are not available.<br />\n";
+  }
+?>
+
+Note that a function name may exist even if the function itself is unusable
+due to configuration or compiling options (with the image functions being an
+example). Also note that |function_exists| will return FALSE for constructs,
+such as |include_once| and |echo|.
+
+See also |method_exists| and |get_defined_functions|.
+
+vim:ft=help:

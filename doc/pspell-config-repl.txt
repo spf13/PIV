@@ -1,0 +1,24 @@
+pspell_config_repl -- Set a file that contains replacement pairs
+
+  bool pspell_config_repl(int dictionary_link, string file)~
+
+|pspell_config_repl| should be used on a config before calling
+|pspell_new_config|. The replacement pairs improve the quality of the
+spellchecker. When a word is misspelled, and a proper suggestion was not
+found in the list, |pspell_store_replacement| can be used to store a
+replacement pair and then |pspell_save_wordlist| to save the wordlist along
+with the replacement pairs. The file should be writable by whoever PHP runs
+as (e.g. nobody). Please, note that this function will not work unless you
+have pspell .11.2 and aspell .32.5 or later.
+
+|pspell_config_repl|
+
+<?php >
+  $pspell_config = pspell_config_create("en");
+  pspell_config_personal($pspell_config, "/var/dictionaries/custom.pws");
+  pspell_config_repl($pspell_config, "/var/dictionaries/custom.repl");
+  $pspell_link = pspell_new_config($pspell_config);
+  pspell_check($pspell_link, "thecat");
+?>
+
+vim:ft=help:

@@ -1,0 +1,78 @@
+list -- Assign variables as if they were an array
+
+  void list(mixed varname, mixed ...)~
+
+Like |array|, this is not really a function, but a language construct. |list|
+is used to assign a list of variables in one operation.
+
+|list| only works on numerical arrays and assumes the numerical indices start
+at 0.
+
+|list| examples
+
+<?php >
+  $info = array('coffee', 'brown', 'caffeine');
+  
+  // Listing all the variables
+  list($drink, $color, $power) = $info;
+  echo "$drink is $color and $power makes it special.\n";
+  
+  // Listing some of them
+  list($drink, , $power) = $info;
+  echo "$drink has $power.\n";
+  
+  // Or let's skip to only the third one
+  list( , , $power) = $info;
+  echo "I need $power!\n";
+?>
+
+An example use of |list|
+
+  <table>
+   <tr>
+    <th>Employee name</th>
+    <th>Salary</th>
+   </tr>
+<?php >
+  $result = mysql_query("SELECT id, name, salary FROM employees", $conn);
+  while (list($id, $name, $salary) = mysql_fetch_row($result)) {
+      echo " <tr>\n" .
+            "  <td><a href=\"info.php?id=$id\">$name</a></td>\n" .
+            "  <td>$salary</td>\n" .
+            " </tr>\n";
+  }
+?>
+  
+  </table>
+
+|list| assigns the values starting with the right-most parameter. If you are
+using plain variables, you don't have to worry about this. But if you are
+using arrays with indices you usually expect the order of the indices in the
+array the same you wrote in the |list| from left to right; which it isn't.
+It's assigned in the reverse order.
+
+Using |list| with array indices
+
+<?php >
+  $info = array('coffee', 'brown', 'caffeine');
+  
+  list($a[0], $a[1], $a[2]) = $info;
+  
+  var_dump($a);
+?>
+
+Gives the following output (note the order of the elements compared in which
+order they were written in the |list| syntax):
+
+  array(3) {
+    [2]=>
+    string(8) "caffeine"
+    [1]=>
+    string(5) "brown"
+    [0]=>
+    string(6) "coffee"
+  }
+
+See also |each|, |array| and |extract|.
+
+vim:ft=help:

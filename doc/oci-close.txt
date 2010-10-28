@@ -1,0 +1,18 @@
+oci_close -- Closes Oracle connection
+
+  bool oci_close(resource connection)~
+
+|oci_close| closes the Oracle connection {connection}.
+
+As non-persistent links are closed automatically at the end of script
+execution, calling this function is not required. Because of this and the
+method the extension uses to handle connection resources, |oci_close|
+currently provides no actual functionality.
+
+Returns TRUE on success or FALSE on failure.
+
+In PHP versions before 5.0.0 you must use |ociclose| instead. This name still
+can be used, it was left as alias of |oci_close| for downwards compatability.
+This, however, is deprecated and not recommended.
+
+vim:ft=help:

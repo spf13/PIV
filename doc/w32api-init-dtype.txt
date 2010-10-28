@@ -1,0 +1,16 @@
+w32api_init_dtype -- Creates an instance of the data type typename and fills
+it with the values passed
+
+  resource w32api_init_dtype(string typename, mixed value [, mixed ...])~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+This function creates an instance of the data type named {typename}, filling
+in the values of the data type. The {typename} parameter is case sensitive.
+You should give the values in the same order as you defined the data type
+with |w32api_deftype|. The type of the resource returned is dynaparm.
+
+vim:ft=help:

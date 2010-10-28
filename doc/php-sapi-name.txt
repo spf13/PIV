@@ -1,0 +1,20 @@
+php_sapi_name -- Returns the type of interface between web server and PHP
+
+  string php_sapi_name()~
+
+|php_sapi_name| returns a lowercase string which describes the type of
+interface between web server and PHP (Server API, SAPI). In CGI PHP, this
+string is "cgi", in mod_php for Apache, this string is "apache" and so on.
+
+|php_sapi_name| example
+
+<?php >
+  $sapi_type = php_sapi_name();
+  if (substr($sapi_type, 0, 3) == 'cgi') {
+      echo "You are using CGI PHP\n";
+  } else {
+      echo "You are not using CGI PHP\n";
+  }
+?>
+
+vim:ft=help:

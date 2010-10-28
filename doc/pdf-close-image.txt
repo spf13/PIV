@@ -1,0 +1,7 @@
+pdf_close_image -- Closes an image
+
+  void pdf_close_image(resource pdfdoc, int image)~
+
+Close an {image} retrieved with the |pdf_open_image| function.
+
+vim:ft=help:

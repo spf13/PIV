@@ -1,0 +1,21 @@
+SoapParam->__construct() -- SoapParam constructor
+
+Constructs a new SoapParam object.
+
+{data} The data to pass or return. You can pass this parameter directly as PHP
+value, but in this case it will be named as paramN and the SOAP Service may
+not understand it.
+
+{name} The parameter name.
+
+Some examples
+
+<?php >
+  $client = new SoapClient(null,array('location' => "http://localhost/soap.php",
+                                      'uri'      => "http://test-uri/"));
+  $client->SomeFunction(new SoapParam($a, "a"),
+                        new SoapParam($b, "b"),
+                        new SoapParam($c, "c"));
+?>
+
+vim:ft=help:

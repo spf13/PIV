@@ -1,0 +1,23 @@
+id3_get_frame_short_name -- Get the short name of an ID3v2 frame
+
+  string id3_get_frame_short_name(string frameId)~
+
+|id3_get_frame_short_name| returns the short name for an ID3v2 frame.
+
+|id3_get_frame_short_name| example
+
+<?php >
+  $shortName = id3_get_frame_short_name("TOLY");
+  echo $shortName;
+?>
+
+This will output:
+
+  originalLyricist
+
+The values returned by |id3_get_short_name| are used in the array returned by
+|id3_get_tag|.
+
+See also |id3_get_frame_long_name|.
+
+vim:ft=help:

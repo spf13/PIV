@@ -1,0 +1,12 @@
+yaz_hits -- Returns number of hits for last search
+
+  int yaz_hits(resource id)~
+
+|yaz_hits| returns the number of hits for the last search.
+
+{id} The connection resource returned by |yaz_connect|.
+
+Returns the number of hits for the last search or 0 if no search was
+performed.
+
+vim:ft=help:

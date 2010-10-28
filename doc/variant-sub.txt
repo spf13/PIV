@@ -1,0 +1,15 @@
+variant_sub -- subtracts the value of the right variant from the left variant
+value and returns the result
+
+  mixed variant_sub(mixed left, mixed right)~
+
+Subtracts {right} from {left} using the following rules: Variant Subtraction
+Rules If Then Both expressions are of the string type Subtraction One
+expression is a string type and the other a character Subtraction One
+expression is numeric and the other is a string Subtraction. Both expressions
+are numeric Subtraction Either expression is NULL NULL is returned Both
+expressions are empty Empty string is returned
+
+See also |variant_add|.
+
+vim:ft=help:

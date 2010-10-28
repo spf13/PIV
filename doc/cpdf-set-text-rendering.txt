@@ -1,0 +1,13 @@
+cpdf_set_text_rendering -- Determines how text is rendered
+
+  bool cpdf_set_text_rendering(int pdf_document, int rendermode)~
+
+The |cpdf_set_text_rendering| function determines how text is rendered.
+Returns TRUE on success or FALSE on failure.
+
+The possible values for {rendermode} are 0=fill text, 1=stroke text, 2=fill
+and stroke text, 3=invisible, 4=fill text and add it to clipping path,
+5=stroke text and add it to clipping path, 6=fill and stroke text and add it
+to clipping path, 7=add it to clipping path.
+
+vim:ft=help:

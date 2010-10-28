@@ -1,0 +1,40 @@
+Memcache::get -- Retrieve item from the server
+
+  string Memcache::get(string key)~
+
+  string Memcache::get(string key, array keys)~
+
+|Memcache::get| returns previously stored data if an item with such {key}
+exists on the server at this moment.
+
+|Memcache::get| example
+
+<?php >
+  /* procedural API */
+  $memcache_obj = memcache_connect('memcache_host', 11211);
+  $var = memcache_get($memcache_obj, 'some_key');
+  
+  /* OO API */
+  $memcache_obj = new Memcache;
+  $memcache_obj->connect('memcache_host', 11211);
+  $var = $memcache_obj->get('some_key');
+  
+  /* 
+  You also can use array of keys as a parameter.
+  If such item wasn't found at the server, the result
+  array simply will not include such key.
+  */
+  
+  /* procedural API */
+  $memcache_obj = memcache_connect('memcache_host', 11211);
+  $var = memcache_get($memcache_obj, Array('some_key', 'another_key'));
+  
+  /* OO API */
+  $memcache_obj = new Memcache;
+  $memcache_obj->connect('memcache_host', 11211);
+  $var = $memcache_obj->get(Array('some_key', 'second_key'));
+?>
+
+|Memcache::get| returns FALSE on failure or if such {key} was not found.
+
+vim:ft=help:

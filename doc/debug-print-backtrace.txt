@@ -1,0 +1,51 @@
+debug_print_backtrace -- Prints a backtrace
+
+  void debug_print_backtrace()~
+
+|debug_print_backtrace| prints a PHP backtrace. It prints the function calls,
+included/required files and |eval|ed stuff.
+
+This function has no parameters.
+
+No value is returned.
+
+|debug_print_backtrace| example
+
+<?php >
+  // include.php file
+  
+  function a() {
+      b();
+  }
+  
+  function b() {
+      c();
+  }
+  
+  function c(){
+      debug_print_backtrace();
+  }
+  
+  a();
+?>
+<?php >
+  // test.php file
+  // this is the file you should run
+  
+  include 'include.php';
+?>
+
+The above example will output something similar to:
+
+  #0  eval() called at [/tmp/include.php:5]
+  #1  a() called at [/tmp/include.php:17]
+  #2  include(/tmp/include.php) called at [/tmp/test.php:3]
+  
+  #0  c() called at [/tmp/include.php:10]
+  #1  b() called at [/tmp/include.php:6]
+  #2  a() called at [/tmp/include.php:17]
+  #3  include(/tmp/include.php) called at [/tmp/test.php:3]
+
+|debug_backtrace|
+
+vim:ft=help:

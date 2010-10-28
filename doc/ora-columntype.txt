@@ -1,0 +1,10 @@
+ora_columntype -- Gets the type of an Oracle result column
+
+  string ora_columntype(resource cursor, int column)~
+
+Returns the Oracle data type name of the field/column {column} on the cursor
+{cursor}. Column 0 is the first column. The returned type will be one of the
+following: "VARCHAR2" "VARCHAR" "CHAR" "NUMBER" "LONG" "LONG RAW" "ROWID"
+"DATE" "CURSOR"
+
+vim:ft=help:

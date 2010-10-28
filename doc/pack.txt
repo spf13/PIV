@@ -1,0 +1,52 @@
+pack -- Pack data into binary string
+
+  string pack(string format [, mixed args [, mixed ...]])~
+
+Pack given arguments into binary string according to {format}. Returns binary
+string containing data.
+
+The idea to this function was taken from Perl and all formatting codes work
+the same as there, however, there are some formatting codes that are missing
+such as Perl's "u" format code. The format string consists of format codes
+followed by an optional repeater argument. The repeater argument can be
+either an integer value or * for repeating to the end of the input data. For
+a, A, h, H the repeat count specifies how many characters of one data
+argument are taken, for @ it is the absolute position where to put the next
+data, for everything else the repeat count specifies how many data arguments
+are consumed and packed into the resulting binary string. Currently
+implemented are
+
+|pack| format characters Code Description aNUL-padded string ASPACE-padded
+string hHex string, low nibble first HHex string, high nibble first csigned
+char Cunsigned char ssigned short (always 16 bit, machine byte order)
+Sunsigned short (always 16 bit, machine byte order) nunsigned short (always
+16 bit, big endian byte order) vunsigned short (always 16 bit, little endian
+byte order) isigned integer (machine dependent size and byte order) Iunsigned
+integer (machine dependent size and byte order) lsigned long (always 32 bit,
+machine byte order) Lunsigned long (always 32 bit, machine byte order)
+Nunsigned long (always 32 bit, big endian byte order) Vunsigned long (always
+32 bit, little endian byte order) ffloat (machine dependent size and
+representation) ddouble (machine dependent size and representation) xNUL byte
+XBack up one byte @NUL-fill to absolute position
+
+|pack| example
+
+<?php >
+  $binarydata = pack("nvc*", 0x1234, 0x5678, 65, 66);
+?>
+
+The resulting binary string will be 6 bytes long and contain the byte sequence
+0x12, 0x34, 0x78, 0x56, 0x41, 0x42.
+
+Note that the distinction between signed and unsigned values only affects the
+function |unpack|, where as function |pack| gives the same result for signed
+and unsigned format codes.
+
+Also note that PHP internally stores integer values as signed values of a
+machine dependent size. If you give it an unsigned integer value too large to
+be stored that way it is converted to a float which often yields an undesired
+result.
+
+See also |unpack|.
+
+vim:ft=help:

@@ -1,0 +1,7 @@
+hw_api->info -- Returns information about server configuration
+
+  array hw_api->info(array parameter)~
+
+See also |hwapi_dcstat|, |hwapi_dbstat|, |hwapi_ftstat|, |hwapi_hwstat|.
+
+vim:ft=help:

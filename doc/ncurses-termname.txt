@@ -1,0 +1,15 @@
+ncurses_termname -- Returns terminals (short)-name
+
+  string ncurses_termname()~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+|ncurses_termname| returns terminals shortname. The shortname is truncated to
+14 characters. On error |ncurses_termname| returns NULL.
+
+See also: |ncurses_longname|
+
+vim:ft=help:

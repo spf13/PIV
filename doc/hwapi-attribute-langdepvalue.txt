@@ -1,0 +1,9 @@
+hw_api_attribute->langdepvalue -- Returns value for a given language
+
+  string hw_api_attribute->langdepvalue(string language)~
+
+Returns the value in the given language of the attribute.
+
+See also |hwapi_attribute_value|.
+
+vim:ft=help:

@@ -1,0 +1,14 @@
+rename_function -- Renames orig_name to new_name in the global function_table
+
+  bool rename_function(string original_name, string new_name)~
+
+Renames orig_name to new_name in the global function_table. Useful for
+temporarily overriding builtin functions.
+
+|rename_function| example
+
+<?php >
+  rename_function('mysql_connect', 'debug_mysql_connect' );
+?>
+
+vim:ft=help:

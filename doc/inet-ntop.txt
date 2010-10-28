@@ -1,0 +1,30 @@
+inet_ntop -- Converts a packed internet address to a human readable
+representation
+
+  string inet_ntop(string in_addr)~
+
+This function converts a 32bit IPv4, or 128bit IPv6 address (if PHP was built
+with IPv6 support enabled) into an address family appropriate string
+representation. Returns FALSE on failure.
+
+|inet_ntop| Example
+
+<?php >
+  $packed = chr(127) . chr(0) . chr(0) . chr(1);
+  $expanded = inet_ntop($packed);
+  
+  /* Outputs: 127.0.0.1 */
+  echo $expanded;
+  
+  $packed = str_repeat(chr(0), 15) . chr(1);
+  $expanded = inet_ntop($packed);
+  
+  /* Outputs: ::1 */
+  echo $expanded;
+?>
+
+This function is not implemented on Windows platforms.
+
+See also |long2ip|, |inet_pton|, and |ip2long|.
+
+vim:ft=help:

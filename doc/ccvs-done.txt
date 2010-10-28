@@ -1,0 +1,8 @@
+ccvs_done -- Terminate CCVS engine and do cleanup work
+
+  string ccvs_done(string sess)~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

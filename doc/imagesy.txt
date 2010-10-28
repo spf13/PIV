@@ -1,0 +1,18 @@
+imagesy -- Get image height
+
+  int imagesy(resource image)~
+
+|imagesy| returns the height of the image identified by {image}.
+
+Using |imagesy|
+
+<?php >
+  // create a 300*200 image
+  $img = imagecreate(300, 200);
+  
+  echo imagesy($img); // 200
+?>
+
+See also |imagecreate|, |getimagesize| and |imagesx|.
+
+vim:ft=help:

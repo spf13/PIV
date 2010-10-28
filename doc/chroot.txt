@@ -1,0 +1,16 @@
+chroot -- Change the root directory
+
+  bool chroot(string directory)~
+
+Changes the root directory of the current process to {directory}.
+
+This function is only available if your system supports it and you're using
+the CLI, CGI or Embed SAPI. Also, this function requires root privileges.
+
+{directory} The new directory
+
+Returns TRUE on success or FALSE on failure.
+
+This function is not implemented on Windows platforms.
+
+vim:ft=help:

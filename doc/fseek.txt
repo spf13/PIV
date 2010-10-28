@@ -1,0 +1,42 @@
+fseek -- Seeks on a file pointer
+
+  int fseek(resource handle, int offset [, int whence])~
+
+Sets the file position indicator for the file referenced by {handle}. The new
+position, measured in bytes from the beginning of the file, is obtained by
+adding {offset} to the position specified by {whence}, whose values are
+defined as follows: SEEK_SET - Set position equal to {offset} bytes. SEEK_CUR
+- Set position to current location plus {offset}. SEEK_END - Set position to
+end-of-file plus {offset}. (To move to a position before the end-of-file, you
+need to pass a negative value in {offset}.)
+
+If {whence} is not specified, it is assumed to be SEEK_SET.
+
+Upon success, returns 0; otherwise, returns -1. Note that seeking past EOF is
+not considered an error.
+
+|fseek| example
+
+<?php >
+  $fp = fopen('somefile.txt');
+  
+  // read some data
+  $data = fgets($fp, 4096);
+  
+  // move back to the beginning of the file
+  // same as rewind($fp);
+  fseek($fp, 0);
+?>
+
+May not be used on file pointers returned by |fopen| if they use the "http://"
+or "ftp://" formats. |fseek| gives also undefined results for append-only
+streams (opened with "a" flag).
+
+The {whence} argument was added after PHP 4.0.0.
+
+If you have opened the file in append ("a" or "a+") mode, any data you write
+to the file will always be appended, regardless of the file position.
+
+See also |ftell| and |rewind|.
+
+vim:ft=help:

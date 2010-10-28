@@ -1,0 +1,28 @@
+mssql_select_db -- Select MS SQL database
+
+  bool mssql_select_db(string database_name [, resource link_identifier])~
+
+Returns TRUE on success or FALSE on failure.
+
+|mssql_select_db| sets the current active database on the server that's
+associated with the specified link identifier. If no link identifier is
+specified, the last opened link is assumed. If no link is open, the function
+will try to establish a link as if |mssql_connect| was called, and use it.
+
+Every subsequent call to |mssql_query| will be made on the active database.
+
+To escape the name of a database that contains spaces, hyphens ("-"), or any
+other exceptional characters, the database name must be enclosed in brackets,
+as is shown in the example, below. This technique must also be applied when
+selecting a database name that is also a reserved word (such as "primary").
+
+|mssql_select_db| example
+
+<?php >
+      $conn = mssql_connect('MYSQLSERVER', 'sa', 'password');
+      mssql_select_db('[my data-base]', $conn);
+?>
+
+See also: |mssql_connect|, |mssql_pconnect|, and |mssql_query|
+
+vim:ft=help:

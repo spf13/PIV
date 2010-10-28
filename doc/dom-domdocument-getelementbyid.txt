@@ -1,0 +1,31 @@
+DOMDocument->getElementById() -- Searches for an element with a certain id
+
+  DOMElement getElementById(string elementId)~
+
+This function is similar to but searches for an element with a given id.
+
+According to the DOM standard this requires a DTD which defines the attribute
+ID to be of type ID. You need to validate your document with or
+DOMDocument->validateOnParse before using this function.
+
+{elementId} The unique id value for an element.
+
+Returns the DOMElement or NULL if the element is not found.
+
+DOMDocument->getElementById() Example
+
+<?php >
+  $doc = new DomDocument;
+  
+  // We need to validate our document before refering to the id
+  $doc->validateOnParse = true;
+  $doc->Load('book.xml');
+  
+  echo "The element whose id is books is: " . $doc->getElementById('books')->tagName . "\n";
+?>
+
+The above example will output:
+
+  The element whose id is books is: chapter
+
+vim:ft=help:

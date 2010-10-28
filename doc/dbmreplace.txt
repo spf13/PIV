@@ -1,0 +1,9 @@
+dbmreplace -- Replaces the value for a key in a DBM database
+
+  int dbmreplace(resource dbm_identifier, string key, string value)~
+
+Replaces the value for the specified key in the database.
+
+This will also add the key to the database if it didn't already exist.
+
+vim:ft=help:

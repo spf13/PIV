@@ -1,0 +1,33 @@
+DOMDocument->saveHTML() -- Dumps the internal document into a string using
+HTML formatting
+
+  string saveHTML()~
+
+Creates an HTML document from the DOM representation. This function is usually
+called after building a new dom document from scratch as in the example below.
+
+Returns the HTML, or FALSE if an error occurred.
+
+Saving a HTML tree into a string
+
+<?php >
+  $doc = new DOMDocument('1.0');
+  // we want a nice output
+  $doc->formatOutput = true;
+  
+  $root = $doc->createElement('html');
+  $root = $doc->appendChild($root);
+  
+  $head = $doc->createElement('head');
+  $head = $root->appendChild($head);
+  
+  $title = $doc->createElement('title');
+  $title = $head->appendChild($title);
+  
+  $text = $doc->createTextNode('This is the title');
+  $text = $title->appendChild($text);
+  
+  echo $doc->saveHTML();
+?>
+
+vim:ft=help:

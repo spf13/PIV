@@ -1,0 +1,39 @@
+array_reduce -- Iteratively reduce the array to a single value using a
+callback function
+
+  mixed array_reduce(array input, callback function [, int initial])~
+
+|array_reduce| applies iteratively the {function} function to the elements of
+the array {input}, so as to reduce the array to a single value. If the
+optional {initial} is available, it will be used at the beginning of the
+process, or as a final result in case the array is empty.
+
+|array_reduce| example
+
+<?php >
+  function rsum($v, $w) 
+  {
+      $v += $w;
+      return $v;
+  }
+  
+  function rmul($v, $w) 
+  {
+      $v *= $w;
+      return $v;
+  }
+  
+  $a = array(1, 2, 3, 4, 5);
+  $x = array();
+  $b = array_reduce($a, "rsum");
+  $c = array_reduce($a, "rmul", 10);
+  $d = array_reduce($x, "rsum", 1);
+?>
+
+This will result in $b containing 15, $c containing 1200 (= 1*2*3*4*5*10), and
+$d containing 1.
+
+See also |array_filter|, |array_map|, |array_unique|, and
+|array_count_values|.
+
+vim:ft=help:

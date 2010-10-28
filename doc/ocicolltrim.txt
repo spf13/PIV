@@ -1,0 +1,9 @@
+ocicolltrim -- Trim num elements from the end of a collection
+
+  bool ocicolltrim(int num)~
+
+This function was renamed to |oci_collection_trim| after PHP >= 5.0.0. For
+downward compatibility |ocicolltrim| can also be used. This is deprecated,
+however.
+
+vim:ft=help:

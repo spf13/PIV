@@ -1,0 +1,21 @@
+iconv_set_encoding -- Set current setting for character encoding conversion
+
+  bool iconv_set_encoding(string type, string charset)~
+
+|iconv_set_encoding| changes the value of the internal configuration variable
+specified by {type} to {charset}. Returns TRUE on success or FALSE on
+failure.
+
+The value of {type} can be any one of those: input_encoding output_encoding
+internal_encoding
+
+|iconv_set_encoding| example:
+
+<?php >
+  iconv_set_encoding("internal_encoding", "UTF-8");
+  iconv_set_encoding("output_encoding", "ISO-8859-1");
+?>
+
+See also |iconv_get_encoding| and |ob_iconv_handler|.
+
+vim:ft=help:

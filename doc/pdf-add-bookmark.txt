@@ -1,0 +1,41 @@
+pdf_add_bookmark -- Adds bookmark for current page
+
+  int pdf_add_bookmark(resource pdfdoc, string text, int parent, int open)~
+
+Add a nested bookmark under {parent}, or a new top-level bookmark if {parent}
+= 0. Returns a bookmark descriptor which may be used as parent for subsequent
+nested bookmarks. If {open} = 1, child bookmarks will be folded out, and
+invisible if {open} = 0. Parameters {parent} and {open} are optional before
+PHP 4.3.5 or with PDFlib less than 5.
+
+|pdf_add_bookmark| example
+
+<?php >
+  // create a new PDF
+  
+  $pdf = pdf_new();
+  pdf_open_file($pdf);
+  pdf_set_info($pdf, "Author", "Bob Nijman");
+  
+  // begin a new page
+  pdf_begin_page($pdf, 300, 300);
+  
+  // add a top-level bookmark
+  $bookmark = pdf_add_bookmark($pdf, "People");
+  
+  // add a nested bookmark
+  pdf_add_bookmark($pdf, "Rasmus", $bookmark);
+  
+  // and some text
+  pdf_set_font($pdf, "Helvetica", 20, "host");
+  $text = "This is R's page";
+  $width = pdf_stringwidth($pdf, $text);
+  pdf_set_text_pos($pdf, (300-$width)/2, 100);
+  pdf_show($pdf, $text);
+  
+  // close the page and the PDF
+  pdf_end_page($pdf); 
+  pdf_close($pdf);
+?>
+
+vim:ft=help:

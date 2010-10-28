@@ -1,0 +1,14 @@
+SWFText->addString -- Draws a string
+
+  void swftext->addstring(string string)~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+|swftext->addstring| draws the string {string} at the current pen (cursor)
+location. Pen is at the baseline of the text; i.e., ascending text is in the
+-y direction.
+
+vim:ft=help:

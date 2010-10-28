@@ -1,0 +1,8 @@
+mcal_days_in_month -- Returns the number of days in a month
+
+  int mcal_days_in_month(int month, int leap_year)~
+
+|mcal_days_in_month| returns the number of days in the month {month}, taking
+into account if the considered year is a leap year or not.
+
+vim:ft=help:

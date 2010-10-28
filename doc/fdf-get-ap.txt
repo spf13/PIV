@@ -1,0 +1,10 @@
+fdf_get_ap -- Get the appearance of a field
+
+  bool fdf_get_ap(resource fdf_document, string field, int face, string filename)~
+
+The |fdf_get_ap| function gets the appearance of a {field} (i.e. the value of
+the /AP key) and stores it in a file. The possible values of {face} are
+FDFNormalAP, FDFRolloverAP and FDFDownAP. The appearance is stored in
+{filename}.
+
+vim:ft=help:

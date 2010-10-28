@@ -1,0 +1,31 @@
+odbc_prepare -- Prepares a statement for execution
+
+  resource odbc_prepare(resource connection_id, string query_string)~
+
+Returns FALSE on error.
+
+Returns an ODBC result identifier if the SQL command was prepared
+successfully. The result identifier can be used later to execute the
+statement with |odbc_execute|.
+
+Some databases (such as IBM DB2, MS SQL Server, and Oracle) support stored
+procedures that accept parameters of type IN, INOUT, and OUT as defined by
+the ODBC specification. However, the Unified ODBC driver currently only
+supports parameters of type IN to stored procedures.
+
+In the following code, $res will only be valid if all three parameters to
+myproc are IN parameters:
+
+<?php >
+  $a = 1;
+  $b = 2;
+  $c = 3;
+  $stmt = odbc_prepare($conn, 'CALL myproc(?,?,?)');
+  $res = odbc_execute($stmt, array($a, $b, $c));
+?>
+
+If you need to call a stored procedure using INOUT or OUT parameters, the
+recommended workaround is to use a native extension for your database (for
+example, mssql for MS SQL Server, or oci8 for Oracle).
+
+vim:ft=help:

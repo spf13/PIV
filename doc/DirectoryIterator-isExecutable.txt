@@ -1,0 +1,8 @@
+DirectoryIterator::isExecutable -- Returns true if file is executable
+
+  bool DirectoryIterator::isExecutable()~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

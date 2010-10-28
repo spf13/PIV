@@ -1,0 +1,10 @@
+connection_aborted -- Returns TRUE if client disconnected
+
+  int connection_aborted()~
+
+Returns TRUE if client disconnected. See the Connection Handling description
+in the Features chapter for a complete explanation.
+
+See also |connection_status|, and |ignore_user_abort|.
+
+vim:ft=help:

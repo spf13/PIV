@@ -1,0 +1,8 @@
+mcal_expunge -- Deletes all events marked for being expunged
+
+  bool mcal_expunge(int stream)~
+
+|mcal_expunge| deletes all events which have been previously marked for
+deletion.
+
+vim:ft=help:

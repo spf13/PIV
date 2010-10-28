@@ -1,0 +1,18 @@
+fam_monitor_collection -- Monitor a collection of files in a directory for
+changes
+
+  resource fam_monitor_collection(resource fam, string dirname, int depth, string mask)~
+
+|fam_monitor_collection| requests monitoring for a collection of files within
+a directory. The actual files to be monitored are specified by a directory
+path in {dirname}, the maximum search {depth} starting from this directory
+and a shell pattern {mask} restricting the file names to look for.
+
+A FAM event will be generated whenever the status of the files change. The
+possible event codes are described in detail in the constants part of this
+section.
+
+See also |fam_monitor_file|, |fam_monitor_directory|, |fam_cancel_monitor|,
+|fam_suspend_monitor|, and |fam_resume_monitor|.
+
+vim:ft=help:

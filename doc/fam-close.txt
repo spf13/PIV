@@ -1,0 +1,8 @@
+fam_close -- Close FAM connection
+
+  void fam_close(resource fam)~
+
+|fam_close| closes a connection to the FAM service previously opened using
+|fam_open|.
+
+vim:ft=help:

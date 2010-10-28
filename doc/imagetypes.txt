@@ -1,0 +1,16 @@
+imagetypes -- Return the image types supported by this PHP build
+
+  int imagetypes()~
+
+This function returns a bit-field corresponding to the image formats supported
+by the version of GD linked into PHP. The following bits are returned, IMG_GIF
+| IMG_JPG | IMG_PNG | IMG_WBMP | IMG_XPM. To check for PNG support, for
+example, do this: |imagetypes| example
+
+<?php >
+  if (imagetypes() &amp; IMG_PNG) {
+      echo "PNG Support is enabled";
+  }
+?>
+
+vim:ft=help:

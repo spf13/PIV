@@ -1,0 +1,106 @@
+result->fetch_field -- Returns the next field in the result set
+
+Procedural style:
+
+  object mysqli_fetch_field(mysqli_result result)~
+
+Object oriented style (method):
+
+  object fetch_field(mysqli_result result)~
+
+The |mysqli_fetch_field| returns the definition of one column of a result set
+as an object. Call this function repeatedly to retrieve information about all
+columns in the result set. |mysqli_fetch_field| returns FALSE when no more
+fields are left.
+
+Returns an object which contains field definition information or FALSE if no
+field information is available.
+
+Object properties Property Description name The name of the column orgname
+Original column name if an alias was specified table The name of the table
+this field belongs to (if not calculated) orgtable Original table name if an
+alias was specified def The default value for this field, represented as a
+string max_length The maximum width of the field for the result set. flags An
+integer representing the bit-flags for the field. type The data type used for
+this field decimals The number of decimals used (for integer fields)
+
+|mysqli_num_fields|, |mysqli_fetch_field_direct|, |mysqli_fetch_fields| and
+|mysqli_field_seek|.
+
+Object oriented style
+
+<?php >
+  $mysqli = new mysqli("localhost", "my_user", "my_password", "world");
+  
+  /* check connection */
+  if (mysqli_connect_errno()) {
+      printf("Connect failed: %s\n", mysqli_connect_error());
+      exit();
+  }
+  
+  $query = "SELECT Name, SurfaceArea from Country ORDER BY Code LIMIT 5";
+  
+  if ($result = $mysqli->query($query)) {
+  
+      /* Get field information for all columns */
+      while ($finfo = $result->fetch_field()) {
+   
+          printf("Name:     %s\n", $finfo->name);
+          printf("Table:    %s\n", $finfo->table);
+          printf("max. Len: %d\n", $finfo->max_length);
+          printf("Flags:    %d\n", $finfo->flags);
+          printf("Type:     %d\n\n", $finfo->type);
+      }    
+      $result->close();
+  }
+  
+  /* close connection */
+  $mysqli->close();
+?>
+
+Procedural style
+
+<?php >
+  $link = mysqli_connect("localhost", "my_user", "my_password", "world");
+  
+  /* check connection */
+  if (mysqli_connect_errno()) {
+      printf("Connect failed: %s\n", mysqli_connect_error());
+      exit();
+  }
+  
+  $query = "SELECT Name, SurfaceArea from Country ORDER BY Code LIMIT 5";
+  
+  if ($result = mysqli_query($link, $query)) {
+  
+      /* Get field information for all fields */
+      while ($finfo = mysqli_fetch_field($result)) {
+   
+          printf("Name:     %s\n", $finfo->name);
+          printf("Table:    %s\n", $finfo->table);
+          printf("max. Len: %d\n", $finfo->max_length);
+          printf("Flags:    %d\n", $finfo->flags);
+          printf("Type:     %d\n\n", $finfo->type);
+      }
+      mysqli_free_result($result);
+  }
+  
+  /* close connection */
+  mysqli_close($link);
+?>
+
+The above example will output:
+
+  Name:     Name
+  Table:    Country
+  max. Len: 11
+  Flags:    1
+  Type:     254
+  
+  Name:     SurfaceArea
+  Table:    Country
+  max. Len: 10
+  Flags:    32769
+  Type:     4
+
+vim:ft=help:

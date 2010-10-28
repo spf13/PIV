@@ -1,0 +1,28 @@
+imap_list -- Read the list of mailboxes
+
+  array imap_list(resource imap_stream, string ref, string pattern)~
+
+Returns an array containing the names of the mailboxes. See
+|imap_getmailboxes| for a description of {ref} and {pattern}.
+
+|imap_list| example
+
+<?php >
+  $mbox = imap_open("{your.imap.host}", "username", "password", OP_HALFOPEN)
+        or die("can't connect: " . imap_last_error());
+   
+  $list = imap_list($mbox, "{your.imap.host}", "*");
+  if (is_array($list)) {
+      foreach ($list as $val) {
+          echo imap_utf7_decode($val) . "<br />\n";
+      }
+  } else {
+      echo "imap_list failed: " . imap_last_error() . "\n";
+  }
+  
+  imap_close($mbox);
+?>
+
+See also: |imap_getmailboxes|.
+
+vim:ft=help:

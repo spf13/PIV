@@ -1,0 +1,17 @@
+DOMCharacterData->insertData() -- Insert a string at the specified 16-bit unit
+offset
+
+  void insertData(int offset, string data)~
+
+Inserts string {data} at position {offset}.
+
+{offset} The character offset at which to insert.
+
+{data} The string to insert.
+
+No value is returned.
+
+DOM_INDEX_SIZE_ERR Raised if {offset} is negative or greater than the number
+of 16-bit units in data.
+
+vim:ft=help:

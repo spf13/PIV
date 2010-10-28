@@ -1,0 +1,25 @@
+mcrypt_list_algorithms -- Get an array of all supported ciphers
+
+  array mcrypt_list_algorithms([string lib_dir])~
+
+|mcrypt_list_algorithms| is used to get an array of all supported algorithms
+in the {lib_dir} parameter.
+
+|mcrypt_list_algorithms| takes an optional {lib_dir} parameter which specifies
+the directory where all algorithms are located. If not specifies, the value of
+the mcrypt.algorithms_dir php.ini directive is used.
+
+|mcrypt_list_algorithms| Example
+
+<?php >
+      $algorithms = mcrypt_list_algorithms("/usr/local/lib/libmcrypt");
+  
+      foreach ($algorithms as $cipher) {
+          echo "$cipher<br />\n";
+      }
+?>
+
+The above example will produce a list with all supported algorithms in the
+"/usr/local/lib/libmcrypt" directory.
+
+vim:ft=help:

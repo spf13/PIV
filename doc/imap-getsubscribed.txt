@@ -1,0 +1,8 @@
+imap_getsubscribed -- List all the subscribed mailboxes
+
+  array imap_getsubscribed(resource imap_stream, string ref, string pattern)~
+
+This function is identical to |imap_getmailboxes|, except that it only returns
+mailboxes that the user is subscribed to.
+
+vim:ft=help:

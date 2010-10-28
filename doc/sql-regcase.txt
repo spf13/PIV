@@ -1,0 +1,23 @@
+sql_regcase -- Make regular expression for case insensitive match
+
+  string sql_regcase(string string)~
+
+Returns a valid regular expression which will match {string}, ignoring case.
+This expression is {string} with each alphabetic character converted to a
+bracket expression; this bracket expression contains that character's
+uppercase and lowercase form. Other characters remain unchanged.
+
+|sql_regcase| example
+
+<?php >
+  echo sql_regcase("Foo - bar.");
+?>
+
+The above example will output:
+
+  [Ff][Oo][Oo] - [Bb][Aa][Rr].
+
+This can be used to achieve case insensitive pattern matching in products
+which support only case sensitive regular expressions.
+
+vim:ft=help:

@@ -1,0 +1,34 @@
+pg_lo_read -- Read a large object
+
+  string pg_lo_read(resource large_object [, int len])~
+
+|pg_lo_read| reads at most {len} bytes from a large object and returns it as a
+string.
+
+To use the large object interface, it is necessary to enclose it within a
+transaction block.
+
+This function used to be called |pg_loread|.
+
+{large_object} PostgreSQL large object (LOB) resource, returned by
+|pg_lo_open|.
+
+{len} An optional maximum number of bytes to return. Defaults to 8192.
+
+A string containing {len} bytes from the large object, or FALSE on error.
+
+|pg_lo_read| example
+
+<?php >
+     $doc_oid = 189762345;
+     $database = pg_connect("dbname=jacarta");
+     pg_query($database, "begin");
+     $handle = pg_lo_open($database, $doc_oid, "r");
+     $data = pg_lo_read($handle, 50000);
+     pg_query($database, "commit");
+     echo $data;
+?>
+
+|pg_lo_read_all|
+
+vim:ft=help:

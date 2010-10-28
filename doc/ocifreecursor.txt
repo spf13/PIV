@@ -1,0 +1,12 @@
+ocifreecursor -- Free all resources associated with a cursor
+
+  bool ocifreecursor(resource stmt)~
+
+|ocifreecursor| frees all resources associated with the cursor {stmt}. Returns
+TRUE on success or FALSE on failure.
+
+This function was renamed to |oci_free_cursor| after PHP >= 5.0.0. For
+downward compatibility |ocifreecursor| can also be used. This is deprecated,
+however.
+
+vim:ft=help:

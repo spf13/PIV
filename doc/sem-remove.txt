@@ -1,0 +1,14 @@
+sem_remove -- Remove a semaphore
+
+  bool sem_remove(resource sem_identifier)~
+
+|sem_remove| removes the semaphore {sem_identifier} if it has been created by
+|sem_get|, otherwise generates a warning.
+
+Returns TRUE on success or FALSE on failure.
+
+After removing the semaphore, it is no more accessible.
+
+See also |sem_get|, |sem_release| and |sem_acquire|.
+
+vim:ft=help:

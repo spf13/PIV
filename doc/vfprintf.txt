@@ -1,0 +1,26 @@
+vfprintf -- Write a formatted string to a stream
+
+  int vfprintf(resource handle, string format, array args)~
+
+Write a string produced according to {format} to the stream resource specified
+by {handle}. {format} is described in the documentation for |sprintf|.
+
+Operates as |fprintf| but accepts an array of arguments, rather than a
+variable number of arguments.
+
+Returns the length of the outputted string.
+
+See also: |printf|, |sprintf|, |sscanf|, |fscanf|, |vsprintf|, and
+|number_format|.
+
+|vfprintf|: zero-padded integers
+
+<?php >
+  if (!($fp = fopen('date.txt', 'w')))
+      return;
+  
+  vfprintf($fp, "%04d-%02d-%02d", array($year, $month, $day));
+  // will write the formatted ISO date to date.txt
+?>
+
+vim:ft=help:

@@ -1,0 +1,30 @@
+filesize -- Gets file size
+
+  int filesize(string filename)~
+
+Returns the size of the file in bytes, or FALSE (and generates an error of
+level E_WARNING) in case of an error.
+
+Because PHP's integer type is signed and many platforms use 32bit integers,
+|filesize| may return unexpected results for files which are larger than 2GB.
+For files between 2GB and 4GB in size this can usually be overcome by using
+sprintf("%u", filesize($file)).
+
+The results of this function are cached. See |clearstatcache| for more
+details.
+
+As of PHP 5.0.0 this function can also be used with some URL wrappers. Refer
+to for a listing of which wrappers support |stat| family of functionality.
+
+|filesize| example
+
+<?php >
+  // outputs e.g.  somefile.txt: 1024 bytes
+  
+  $filename = 'somefile.txt';
+  echo $filename . ': ' . filesize($filename) . ' bytes';
+?>
+
+See also |file_exists|
+
+vim:ft=help:

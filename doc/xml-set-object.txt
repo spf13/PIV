@@ -1,0 +1,50 @@
+xml_set_object -- Use XML Parser within an object
+
+  bool xml_set_object(resource parser, object object)~
+
+This function allows to use {parser} inside {object}. All callback functions
+could be set with |xml_set_element_handler| etc and assumed to be methods of
+{object}.
+
+|xml_set_object| example
+
+<?php >
+  class xml  {
+      var $parser;
+  
+      function xml() 
+      {
+          $this->parser = xml_parser_create();
+  
+          xml_set_object($this->parser, $this);
+          xml_set_element_handler($this->parser, "tag_open", "tag_close");
+          xml_set_character_data_handler($this->parser, "cdata");
+      }
+  
+      function parse($data) 
+      {
+          xml_parse($this->parser, $data);
+      }
+  
+      function tag_open($parser, $tag, $attributes) 
+      {
+          var_dump($parser, $tag, $attributes); 
+      }
+  
+      function cdata($parser, $cdata) 
+      {
+          var_dump($parser, $cdata);
+      }
+  
+      function tag_close($parser, $tag) 
+      {
+          var_dump($parser, $tag);
+      }
+  
+  } // end of class xml
+  
+  $xml_parser = new xml();
+  $xml_parser->parse("<A ID='hallo'>PHP</A>");
+?>
+
+vim:ft=help:

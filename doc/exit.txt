@@ -1,0 +1,44 @@
+exit -- Output a message and terminate the current script
+
+  void exit([string status])~
+
+  void exit([string status, int status])~
+
+This is not a real function, but a language construct.
+
+PHP >= 4.2.0 does NOT print the {status} if it is an integer.
+
+The |exit| function terminates execution of the script. It prints {status}
+just before exiting.
+
+If {status} is an integer, that value will also be used as the exit status.
+Exit statuses should be in the range 0 to 254, the exit status 255 is
+reserved by PHP and shall not be used. The status 0 is used to terminate the
+program successfully.
+
+|exit| example
+
+<?php >
+  $filename = '/path/to/data-file';
+  $file = fopen($filename, 'r')
+      or exit("unable to open file ($filename)");
+?>
+
+|exit| status example
+
+<?php >
+  //exit program normally
+  exit;
+  exit();
+  exit(0);
+  
+  //exit with an error code
+  exit(1);
+  exit(0376); //octal
+?>
+
+The |die| function is an alias for |exit|.
+
+See also: |register_shutdown_function|.
+
+vim:ft=help:

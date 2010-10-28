@@ -1,0 +1,51 @@
+glob -- Find pathnames matching a pattern
+
+  array glob(string pattern [, int flags])~
+
+The |glob| function searches for all the pathnames matching {pattern}
+according to the rules used by the libc glob() function, which is similar to
+the rules used by common shells. No tilde expansion or parameter substitution
+is done.
+
+Returns an array containing the matched files/directories or FALSE on error.
+
+Valid flags: GLOB_MARK - Adds a slash to each item returned
+
+GLOB_NOSORT - Return files as they appear in the directory (no sorting)
+
+GLOB_NOCHECK - Return the search pattern if no files matching it were found
+
+GLOB_NOESCAPE - Backslashes do not quote metacharacters
+
+GLOB_BRACE - Expands {a,b,c} to match 'a', 'b', or 'c'
+
+GLOB_ONLYDIR - Return only directory entries which match the pattern
+
+Before PHP 4.3.3 GLOB_ONLYDIR was not available on Windows and other systems
+not using the GNU C library.
+
+GLOB_ERR - Stop on read errors (like unreadable directories), by default
+errors are ignored
+
+GLOB_ERR was added in PHP 5.1
+
+Convenient way how |glob| can replace |opendir| and friends.
+
+<?php >
+  foreach (glob("*.txt") as $filename) {
+      echo "$filename size " . filesize($filename) . "\n";
+  }
+?>
+
+Output will look something like:
+
+  funclist.txt size 44686
+  funcsummary.txt size 267625
+  quickref.txt size 137820
+
+This function will not work on remote files as the file to be examined must be
+accessible via the servers filesystem.
+
+See also |opendir|, |readdir|, |closedir|, and |fnmatch|.
+
+vim:ft=help:

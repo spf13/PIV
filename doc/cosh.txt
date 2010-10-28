@@ -1,0 +1,9 @@
+cosh -- Hyperbolic cosine
+
+  float cosh(float arg)~
+
+Returns the hyperbolic cosine of {arg}, defined as (exp(arg) + exp(-arg))/2.
+
+See also: |cos|, |acosh|, |sin|, and |tan|.
+
+vim:ft=help:

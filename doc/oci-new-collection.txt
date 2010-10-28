@@ -1,0 +1,16 @@
+oci_new_collection -- Allocates new collection object
+
+  OCI-Collection oci_new_collection(resource connection, string tdo [, string schema])~
+
+Allocates new collection object. Parameter {tdo} should be a valid named type
+(uppercased). Third, optional parameter {schema} should point to the scheme,
+where the named type was created. |oci_new_collection| uses name of the
+current user as default value of {schema}.
+
+|oci_new_collection| returns FALSE on error.
+
+In PHP versions before 5.0.0 you must use |ocinewcollection| instead. This
+name still can be used, it was left as alias of |oci_new_collection| for
+downwards compatability. This, however, is deprecated and not recommended.
+
+vim:ft=help:

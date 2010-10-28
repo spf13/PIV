@@ -1,0 +1,17 @@
+DOMCharacterData->deleteData() -- Remove a range of characters from the node
+
+  void deleteData(int offset, int count)~
+
+Deletes {count} characters starting from position {offset}.
+
+{offset} The offset from which to start removing.
+
+{count} The number of characters to delete. If the sum of {offset} and {count}
+exceeds the length, then all characters to the end of the data are deleted.
+
+No value is returned.
+
+DOM_INDEX_SIZE_ERR Raised if {offset} is negative or greater than the number
+of 16-bit units in data, or if {count} is negative.
+
+vim:ft=help:

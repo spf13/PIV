@@ -1,0 +1,24 @@
+ldap_read -- Read an entry
+
+  resource ldap_read(resource link_identifier, string base_dn, string filter [, array attributes [, int attrsonly [, int sizelimit [, int timelimit [, int deref]]]]])~
+
+Returns a search result identifier or FALSE on error.
+
+|ldap_read| performs the search for a specified {filter} on the directory with
+the scope LDAP_SCOPE_BASE. So it is equivalent to reading an entry from the
+directory.
+
+An empty filter is not allowed. If you want to retrieve absolutely all
+information for this entry, use a filter of "objectClass=*". If you know
+which entry types are used on the directory server, you might use an
+appropriate filter such as "objectClass=inetOrgPerson".
+
+This call takes 5 optional parameters. See |ldap_search| notes.
+
+These optional parameters were added in 4.0.2: {attrsonly}, {sizelimit},
+{timelimit}, {deref}.
+
+From 4.0.5 on it's also possible to do parallel searches. See |ldap_search|
+for details.
+
+vim:ft=help:

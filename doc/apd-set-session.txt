@@ -1,0 +1,23 @@
+apd_set_session -- Changes or sets the current debugging level
+
+  void apd_set_session(int debug_level)~
+
+This can be used to increase or decrease debugging in a different area of your
+application,.debug_level is an integer which is formed by adding together the
+following values:
+
+  FUNCTION_TRACE      1
+          ARGS_TRACE          2
+          ASSIGNMENT_TRACE    4
+          STATEMENT_TRACE     8
+          MEMORY_TRACE        16
+          TIMING_TRACE        32
+          SUMMARY_TRACE       64
+
+|apd_set_session| example
+
+<?php >
+  apd_set_session(9);
+?>
+
+vim:ft=help:

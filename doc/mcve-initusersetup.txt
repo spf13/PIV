@@ -1,0 +1,8 @@
+mcve_initusersetup -- Initialize structure to store user data
+
+  resource mcve_initusersetup()~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

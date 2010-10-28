@@ -1,0 +1,5 @@
+strcasecmp -- Binary safe case-insensitive string comparison
+
+  int strcasecmp(string str1, string str2)~
+
+vim:ft=help:

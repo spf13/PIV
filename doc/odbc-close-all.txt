@@ -1,0 +1,9 @@
+odbc_close_all -- Close all ODBC connections
+
+  void odbc_close_all()~
+
+|odbc_close_all| will close down all connections to database server(s). This
+function will fail if there are open transactions on a connection. This
+connection will remain open in this case.
+
+vim:ft=help:

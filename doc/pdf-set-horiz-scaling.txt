@@ -1,0 +1,5 @@
+pdf_set_horiz_scaling -- Sets horizontal scaling of text [deprecated]
+
+This function is deprecated, use |pdf_set_value| instead.
+
+vim:ft=help:

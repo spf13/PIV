@@ -1,0 +1,8 @@
+posix_getrlimit -- Return info about system resource limits
+
+  array posix_getrlimit()~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

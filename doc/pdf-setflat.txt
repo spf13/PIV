@@ -1,0 +1,8 @@
+pdf_setflat -- Sets flatness
+
+  bool pdf_setflat(resource pdfdoc, float flatness)~
+
+Sets the flatness to a value between 0 and 100 inclusive. Returns TRUE on
+success or FALSE on failure.
+
+vim:ft=help:

@@ -1,0 +1,12 @@
+mssql_field_length -- Get the length of a field
+
+  int mssql_field_length(resource result [, int offset])~
+
+This function returns the length of field no. {offset} in result {result}. If
+{offset} is omitted, the current field is used.
+
+Due to a limitation in the underlying API used by PHP (MS DbLib C API), the
+length of VARCHAR fields is limited to 255. If you need to store more data,
+use a TEXT field instead.
+
+vim:ft=help:

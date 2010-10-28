@@ -1,0 +1,54 @@
+SWFSprite -- Creates a movie clip (a sprite)
+
+  SWFSprite swfsprite()~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+|swfsprite| are also known as a "movie clip", this allows one to create
+objects which are animated in their own timelines. Hence, the sprite has most
+of the same methods as the movie.
+
+|swfsprite| has the following methods : |swfsprite->add|, |swfsprite->remove|,
+|swfsprite->nextframe| and |swfsprite->setframes|.
+
+This simple example will spin gracefully a big red square. |swfsprite| example
+
+<?php >
+    $s = new SWFShape();
+    $s->setRightFill($s->addFill(0xff, 0, 0));
+    $s->movePenTo(-500, -500);
+    $s->drawLineTo(500, -500);
+    $s->drawLineTo(500, 500);
+    $s->drawLineTo(-500, 500);
+    $s->drawLineTo(-500, -500);
+  
+    $p = new SWFSprite();
+    $i = $p->add($s);
+    $p->nextFrame();
+    $i->rotate(15);
+    $p->nextFrame();
+    $i->rotate(15);
+    $p->nextFrame();
+    $i->rotate(15);
+    $p->nextFrame();
+    $i->rotate(15);
+    $p->nextFrame();
+    $i->rotate(15);
+    $p->nextFrame();
+  
+    $m = new SWFMovie();
+    $i = $m->add($p);
+    $i->moveTo(1500, 1000);
+    $i->setName("blah");
+  
+    $m->setBackground(0xff, 0xff, 0xff);
+    $m->setDimension(3000, 2000);
+  
+    header('Content-type: application/x-shockwave-flash');
+    $m->output();
+?>
+
+vim:ft=help:

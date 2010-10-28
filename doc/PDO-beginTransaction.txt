@@ -1,0 +1,33 @@
+PDO::beginTransaction -- Initiates a transaction
+
+  bool PDO::beginTransaction()~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+Turns off autocommit mode. While autocommit mode is turned off, changes made
+to the database via the PDO object instance are not committed until you end
+the transaction by calling either |PDO::commit| or |PDO::rollback|.
+
+Roll back a transaction
+
+<?php >
+  /* Begin a transaction, turning off autocommit */
+  $dbh->beginTransaction();
+  
+  /* Change the database schema and data */
+  $sth = $dbh->exec("DROP TABLE fruit");
+  $sth = $dbh->exec("UPDATE dessert
+      SET name = 'hamburger'");
+  
+  /* Recognize mistake and roll back changes */
+  $dbh->rollBack();
+  
+  /* Database connection is now back in autocommit mode */
+?>
+
+|PDO::commit| |PDO::rollBack|
+
+vim:ft=help:

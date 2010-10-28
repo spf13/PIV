@@ -1,0 +1,19 @@
+rar_list -- Get entries list from the Rar archive
+
+  array rar_list(resource rar_file)~
+
+Get entries list from the Rar archive.
+
+|Rar::| example
+
+<?php >
+  $rar_file = rar_open('example.rar') or die("Failed to open Rar archive");
+  
+  $entries_list = rar_list($rar_file);
+  
+  print_r($entries_list);
+?>
+
+|rar_list| returns array of entries or FALSE on error.
+
+vim:ft=help:

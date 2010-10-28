@@ -1,0 +1,10 @@
+mcrypt_enc_get_iv_size -- Returns the size of the IV of the opened algorithm
+
+  int mcrypt_enc_get_iv_size(resource td)~
+
+This function returns the size of the iv of the algorithm specified by the
+encryption descriptor in bytes. If it returns '0' then the IV is ignored in
+the algorithm. An IV is used in cbc, cfb and ofb modes, and in some
+algorithms in stream mode.
+
+vim:ft=help:

@@ -1,0 +1,12 @@
+variant_date_to_timestamp -- Converts a variant date/time value to unix
+timestamp
+
+  int variant_date_to_timestamp(variant variant)~
+
+Converts {variant} from a VT_DATE (or similar) value into a unix timestamp.
+This allows easier interopability between the unix-ish parts of PHP and COM.
+
+See also |variant_date_from_timestamp| for the inverse of this operation,
+|date|, |strftime|.
+
+vim:ft=help:

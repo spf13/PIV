@@ -1,0 +1,39 @@
+func_get_args -- Returns an array comprising a function's argument list
+
+  array func_get_args()~
+
+Returns an array in which each element is a copy of the corresponding member
+of the current user-defined function's argument list. |func_get_args| will
+generate a warning if called from outside of a function definition. This
+function cannot be used directly as a function parameter. Instead, its result
+may be assigned to a variable, which can then be passed to the function.
+
+This function returns a copy of the passed arguments only, and does not
+account for default (non-passed) arguments.
+
+Because this function depends on the current scope to determine parameter
+details, it cannot be used as a function parameter. If you must pass this
+value, assign the results to a variable, and pass the variable.
+
+<?php >
+  function foo() 
+  {
+      $numargs = func_num_args();
+      echo "Number of arguments: $numargs<br />\n";
+      if ($numargs >= 2) {
+          echo "Second argument is: " . func_get_arg(1) . "<br />\n";
+      }
+      $arg_list = func_get_args();
+      for ($i = 0; $i < $numargs; $i++) {
+          echo "Argument $i is: " . $arg_list[$i] . "<br />\n";
+      }
+  } 
+  
+  foo(1, 2, 3);
+?>
+
+|func_get_args| may be used in conjunction with |func_num_args| and
+|func_get_arg| to allow user-defined functions to accept variable-length
+argument lists.
+
+vim:ft=help:

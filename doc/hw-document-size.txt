@@ -1,0 +1,12 @@
+hw_Document_Size -- Size of hw_document
+
+  int hw_document_size(int hw_document)~
+
+Returns the size in bytes of the document.
+
+See also |hw_document_bodytag|, and |hw_document_attributes|.
+
+For backward compatibility, |hw_documentsize| is also accepted. This is
+deprecated, however.
+
+vim:ft=help:

@@ -1,0 +1,10 @@
+swf_shapearc -- Draw a circular arc
+
+  void swf_shapearc(float x, float y, float r, float ang1, float ang2)~
+
+The |swf_shapearc| function draws a circular arc from angle A given by the
+{ang1} parameter to angle B given by the {ang2} parameter. The center of the
+circle has an x coordinate given by the {x} parameter and a y coordinate
+given by the {y}, the radius of the circle is given by the {r} parameter.
+
+vim:ft=help:

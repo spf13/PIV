@@ -1,0 +1,13 @@
+is_object -- Finds whether a variable is an object
+
+  bool is_object(mixed var)~
+
+Finds whether the given variable is an object.
+
+{var} The variable being evaluated.
+
+Returns TRUE if {var} is an object, FALSE otherwise.
+
+|is_bool| |is_int| |is_float| |is_string| |is_array|
+
+vim:ft=help:

@@ -1,0 +1,23 @@
+tidy_warning_count -- Returns the Number of Tidy warnings encountered for
+specified document
+
+  int tidy_warning_count(tidy object)~
+
+|tidy_warning_count| returns the number of Tidy warnings encountered for the
+specified document.
+
+|tidy_warning_count| example
+
+<?php >
+  $html = '<p>test</i>
+  <bogustag>bogus</bogustag>';
+  
+  $tidy = tidy_parse_string($html);
+  
+  echo tidy_error_count($tidy) . "\n"; //1
+  echo tidy_warning_count($tidy) . "\n"; //5
+?>
+
+See also |tidy_access_count| and |tidy_error_count|.
+
+vim:ft=help:

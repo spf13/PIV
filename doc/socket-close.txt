@@ -1,0 +1,14 @@
+socket_close -- Closes a socket resource
+
+  void socket_close(resource socket)~
+
+|socket_close| closes the socket resource given by {socket}.
+
+|socket_close| can't be used on PHP file resources created with |fopen|,
+|popen|, |fsockopen|, or |pfsockopen|; it is meant for sockets created with
+|socket_create| or |socket_accept|.
+
+See also |socket_bind|, |socket_listen|, |socket_create| and
+|socket_strerror|.
+
+vim:ft=help:

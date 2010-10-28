@@ -1,0 +1,9 @@
+fdf_set_flags -- Sets a flag of a field
+
+  bool fdf_set_flags(resource fdf_document, string fieldname, int whichFlags, int newFlags)~
+
+The |fdf_set_flags| sets certain flags of the given field {fieldname}.
+
+See also |fdf_set_opt|.
+
+vim:ft=help:

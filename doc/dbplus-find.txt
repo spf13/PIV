@@ -1,0 +1,20 @@
+dbplus_find -- Set a constraint on a relation
+
+  int dbplus_find(resource relation, array constraints, mixed tuple)~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+|dbplus_find| will place a constraint on the given relation. Further calls to
+functions like |dbplus_curr| or |dbplus_next| will only return tuples
+matching the given constraints.
+
+Constraints are triplets of strings containing of a domain name, a comparison
+operator and a comparison value. The {constraints} parameter array may
+consist of a collection of string arrays, each of which contains a domain, an
+operator and a value, or of a single string array containing a multiple of
+three elements.
+
+vim:ft=help:

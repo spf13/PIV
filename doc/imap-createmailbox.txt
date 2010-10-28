@@ -1,0 +1,63 @@
+imap_createmailbox -- Create a new mailbox
+
+  bool imap_createmailbox(resource imap_stream, string mbox)~
+
+|imap_createmailbox| creates a new mailbox specified by {mbox}. Names
+containing international characters should be encoded by |imap_utf7_encode|
+
+Returns TRUE on success or FALSE on failure..
+
+|imap_createmailbox| example
+
+<?php >
+  $mbox = imap_open("{your.imap.host}", "username", "password", OP_HALFOPEN)
+       or die("can't connect: " . imap_last_error());
+  
+  $name1 = "phpnewbox";
+  $name2 = imap_utf7_encode("phpnewb&amp;ouml;x");
+  
+  $newname = $name1;
+  
+  echo "Newname will be '$name1'<br />\n";
+  
+  // we will now create a new mailbox "phptestbox" in your inbox folder,
+  // check its status after creation and finaly remove it to restore
+  // your inbox to its initial state 
+  
+  if (@imap_createmailbox($mbox, imap_utf7_encode("{your.imap.host}INBOX.$newname"))) {
+      $status = @imap_status($mbox, "{your.imap.host}INBOX.$newname", SA_ALL);
+      if ($status) {
+          echo "your new mailbox '$name1' has the following status:<br />\n";
+          echo "Messages:   " . $status->messages    . "<br />\n";
+          echo "Recent:     " . $status->recent      . "<br />\n";
+          echo "Unseen:     " . $status->unseen      . "<br />\n";
+          echo "UIDnext:    " . $status->uidnext     . "<br />\n";
+          echo "UIDvalidity:" . $status->uidvalidity . "<br />\n";
+  
+          if (imap_renamemailbox($mbox, "{your.imap.host}INBOX.$newname", "{your.imap.host}INBOX.$name2")) {
+              echo "renamed new mailbox from '$name1' to '$name2'<br />\n";
+              $newname = $name2;
+          } else {
+              echo "imap_renamemailbox on new mailbox failed: " . imap_last_error() . "<br />\n";
+          }
+      } else {
+          echo "imap_status on new mailbox failed: " . imap_last_error() . "<br />\n";
+      }
+      
+      if (@imap_deletemailbox($mbox, "{your.imap.host}INBOX.$newname")) {
+          echo "new mailbox removed to restore initial state<br />\n";
+      } else {
+          echo "imap_deletemailbox on new mailbox failed: " . implode("<br />\n", imap_errors()) . "<br />\n";
+      }
+  
+  } else {
+      echo "could not create new mailbox: " . implode("<br />\n", imap_errors()) . "<br />\n";
+  }
+  
+  imap_close($mbox);
+?>
+
+See also |imap_renamemailbox|, |imap_deletemailbox| and |imap_open| for the
+format of {mbox} names.
+
+vim:ft=help:

@@ -1,0 +1,9 @@
+imap_num_msg -- Gives the number of messages in the current mailbox
+
+  int imap_num_msg(resource imap_stream)~
+
+Return the number of messages in the current mailbox.
+
+See also: |imap_num_recent| and |imap_status|.
+
+vim:ft=help:

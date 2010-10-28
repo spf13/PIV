@@ -1,0 +1,10 @@
+imap_expunge -- Delete all messages marked for deletion
+
+  bool imap_expunge(resource imap_stream)~
+
+|imap_expunge| deletes all the messages marked for deletion by |imap_delete|,
+|imap_mail_move|, or |imap_setflag_full|.
+
+Returns TRUE.
+
+vim:ft=help:

@@ -1,0 +1,78 @@
+sesam_query -- Perform a SESAM SQL query and prepare the result
+
+  string sesam_query(string query [, bool scrollable])~
+
+Returns: A SESAM "result identifier" on success, or FALSE on error.
+
+A "result_id" resource is used by other functions to retrieve the query
+results.
+
+|sesam_query| sends a query to the currently active database on the server. It
+can execute both "immediate" SQL statements and "select type" queries. If an
+"immediate" statement is executed, then no cursor is allocated, and any
+subsequent |sesam_fetch_row| or |sesam_fetch_result| call will return an
+empty result (zero columns, indicating end-of-result). For "select type"
+statements, a result descriptor and a (scrollable or sequential, depending on
+the optional boolean {scrollable} parameter) cursor will be allocated. If
+{scrollable} is omitted, the cursor will be sequential.
+
+When using "scrollable" cursors, the cursor can be freely positioned on the
+result set. For each "scrollable" query, there are global default values for
+the scrolling type (initialized to: SESAM_SEEK_NEXT) and the scrolling offset
+which can either be set once by |sesam_seek_row| or each time when fetching a
+row using |sesam_fetch_row|.
+
+For "immediate" statements, the number of affected rows is saved for retrieval
+by the |sesam_affected_rows| function.
+
+See also: |sesam_fetch_row| and |sesam_fetch_result|. Show all rows of the
+"phone" table as a HTML table
+
+<?php >
+  if (!sesam_connect("phonedb", "demo", "otto"))
+      die("cannot connect");
+  $result = sesam_query("select * from phone");
+  if (!$result) {
+      $err = sesam_diagnostic();
+      die ($err["errmsg"]);
+  }
+  echo "<table border>\n";
+  // Add title header with column names above the result:
+  if ($cols = sesam_field_array($result)) {
+      echo "<tr><th colspan=" . $cols["count"] . ">Result:</th></tr>\n";
+      echo "<tr>\n";
+      for ($col = 0; $col < $cols["count"]; ++$col) {
+          $colattr = $cols[$col];
+          /* Span the table head over SESAM's "Multiple Fields": */
+          if ($colattr["count"] > 1) {
+              echo "<th colspan=\"" . $colattr["count"] . "\">" . $colattr["name"] .
+                  "(1.." . $colattr["count"] . ")</th>\n";
+              $col += $colattr["count"] - 1;
+          } else
+              echo "<th>" . $colattr["name"] . "</th>\n";
+      }
+      echo "</tr>\n";
+  }
+  
+  do {
+      // Fetch the result in chunks of 100 rows max.
+      $ok = sesam_fetch_result($result, 100);
+      for ($row=0; $row < $ok["rows"]; ++$row) {
+          echo " <tr>\n";
+          for ($col = 0; $col < $ok["cols"]; ++$col) {
+              if (isset($ok[$col][$row])) {
+                  echo "<td>" . $ok[$col][$row] . "</td>\n";
+              } else {
+                  echo "<td>-empty-</td>\n";
+              }
+          }
+          echo "</tr>\n";
+      }
+  } while ($ok["truncated"]); // while there may be more data
+  
+  echo "</table>\n";
+  // free result id
+  sesam_free_result($result);
+?>
+
+vim:ft=help:

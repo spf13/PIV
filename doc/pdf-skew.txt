@@ -1,0 +1,8 @@
+pdf_skew -- Skews the coordinate system
+
+  bool pdf_skew(resource pdfdoc, float alpha, float beta)~
+
+Skew the coordinate system in x and y direction by {alpha} and {beta} degrees.
+Returns TRUE on success or FALSE on failure.
+
+vim:ft=help:

@@ -1,0 +1,23 @@
+icap_list_events -- Return a list of events between two given datetimes
+
+  array icap_list_events(int stream_id, int begin_date [, int end_date])~
+
+Returns an array of event ID's that are between the two given datetimes.
+
+|icap_list_events| function takes in a beginning datetime and an end datetime
+for a calendar stream. An array of event id's that are between the given
+datetimes are returned.
+
+All datetime entries consist of an object that contains: int year - year
+
+int month - month
+
+int mday - day of month
+
+int hour - hour
+
+int min - minutes
+
+int sec - seconds
+
+vim:ft=help:

@@ -1,0 +1,10 @@
+lob->eof -- Tests for end-of-file on a large object's descriptor
+
+  bool lob->eof()~
+
+Returns TRUE if internal pointer of large object is at the end of LOB.
+Otherwise returns FALSE.
+
+See also |oci_lob_size|.
+
+vim:ft=help:

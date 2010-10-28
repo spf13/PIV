@@ -1,0 +1,11 @@
+hw_GetChildCollObj -- Object records of child collections
+
+  array hw_getchildcollobj(int connection, int objectID)~
+
+Returns an array of object records. Each object records belongs to a child
+collection of the collection with ID {objectID}. The function will not return
+child documents.
+
+See also |hw_childrenobj|, and |hw_getchilddoccollobj|.
+
+vim:ft=help:

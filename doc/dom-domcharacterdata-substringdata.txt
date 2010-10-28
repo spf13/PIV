@@ -1,0 +1,17 @@
+DOMCharacterData->substringData() -- Extracts a range of data from the node
+
+  string substringData(int offset, int count)~
+
+Returns the specified substring.
+
+{offset} Start offset of substring to extract.
+
+{count} The number of characters to extract.
+
+The specified substring. If the sum of {offset} and {count} exceeds the
+length, then all 16-bit units to the end of the data are returned.
+
+DOM_INDEX_SIZE_ERR Raised if {offset} is negative or greater than the number
+of 16-bit units in data, or if {count} is negative.
+
+vim:ft=help:

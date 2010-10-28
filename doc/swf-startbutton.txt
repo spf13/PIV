@@ -1,0 +1,11 @@
+swf_startbutton -- Start the definition of a button
+
+  void swf_startbutton(int objid, int type)~
+
+The |swf_startbutton| function starts off the definition of a button. The
+{type} parameter can either be TYPE_MENUBUTTON or TYPE_PUSHBUTTON. The
+TYPE_MENUBUTTON constant allows the focus to travel from the button when the
+mouse is down, TYPE_PUSHBUTTON does not allow the focus to travel when the
+mouse is down.
+
+vim:ft=help:

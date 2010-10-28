@@ -1,0 +1,11 @@
+variant_xor -- Performs a logical exclusion on two variants
+
+  mixed variant_xor(mixed left, mixed right)~
+
+Performs a logical exclusion, according to the following truth table: Variant
+XOR Rules If {left} is If {right} is then the result is TRUETRUEFALSE
+TRUEFALSETRUE FALSETRUETRUE FALSEFALSEFALSE NULLNULLNULL
+
+See also |variant_and|, |variant_or|.
+
+vim:ft=help:

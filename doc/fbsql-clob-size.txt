@@ -1,0 +1,8 @@
+fbsql_clob_size -- Get the size of a CLOB
+
+  int fbsql_clob_size(string clob_handle [, resource link_identifier])~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

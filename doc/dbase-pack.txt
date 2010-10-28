@@ -1,0 +1,31 @@
+dbase_pack -- Packs a database
+
+  bool dbase_pack(int dbase_identifier)~
+
+Packs the specified database by permanently deleting all records marked for
+deletion using |dbase_delete_record|.
+
+{dbase_identifier} The database link identifier, returned by |dbase_open| or
+|dbase_create|.
+
+Returns TRUE on success or FALSE on failure.
+
+Emptying a dBase database
+
+<?php >
+  // open in read-write mode
+  $db = dbase_open('/tmp/test.dbf', 2);
+  
+  if ($db) {
+    $record_numbers = dbase_numrecords($db);
+    for ($i = 1; $i <= $record_numbers; $i++) {
+        dbase_delete_record($db, $i);
+    }
+    // expunge the database
+    dbase_pack($db);
+  }
+?>
+
+|dbase_delete_record|
+
+vim:ft=help:

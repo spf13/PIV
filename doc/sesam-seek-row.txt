@@ -1,0 +1,25 @@
+sesam_seek_row -- Set scrollable cursor mode for subsequent fetches
+
+  bool sesam_seek_row(string result_id, int whence [, int offset])~
+
+{result_id} is a valid result id (select type queries only, and only if a
+"scrollable" cursor was requested when calling |sesam_query|).
+
+{whence} sets the global default value for the scrolling type, it specifies
+the scroll type to use in subsequent fetch operations on "scrollable"
+cursors, which can be set to the following predefined constants: Valid values
+for {"whence"} parameter Value Constant Meaning 0 SESAM_SEEK_NEXT read
+sequentially 1 SESAM_SEEK_PRIOR read sequentially backwards 2
+SESAM_SEEK_FIRST fetch first row (after fetch, the default is set to
+SESAM_SEEK_NEXT) 3 SESAM_SEEK_LAST fetch last row (after fetch, the default
+is set to SESAM_SEEK_PRIOR) 4 SESAM_SEEK_ABSOLUTE fetch absolute row number
+given as {offset} (Zero-based. After fetch, the default is set to
+SESAM_SEEK_ABSOLUTE, and the offset value is auto-incremented) 5
+SESAM_SEEK_RELATIVE fetch relative to current scroll position, where {offset}
+can be a positive or negative offset value (this also sets the default
+"offset" value for subsequent fetches).
+
+{offset} is an optional parameter which is only evaluated (and required) if
+{whence} is either SESAM_SEEK_RELATIVE or SESAM_SEEK_ABSOLUTE.
+
+vim:ft=help:

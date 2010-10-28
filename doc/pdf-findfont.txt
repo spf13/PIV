@@ -1,0 +1,22 @@
+pdf_findfont -- Prepare font for later use with pdf_setfont
+
+  int pdf_findfont(resource pdfdoc, string fontname, string encoding, int embed)~
+
+Prepare a font for later use with |pdf_setfont|. The metrics will be loaded,
+and if {embed} is nonzero, the font file will be checked, but not yet used.
+{encoding} is one of builtin, macroman, winansi, host, a user-defined
+encoding name or the name of a CMap. Parameter {embed} is optional before PHP
+4.3.5 or with PDFlib less than 5.
+
+|pdf_findfont| returns a font handle or FALSE on error.
+
+|pdf_findfont| example
+
+<?php >
+  $font = pdf_findfont($pdf, "Times New Roman", "winansi", 1);
+  if ($font) {
+      pdf_setfont($pdf, $font, 10);
+  }
+?>
+
+vim:ft=help:

@@ -1,0 +1,89 @@
+SWFBitmap -- Loads Bitmap object
+
+  SWFBitmap swfbitmap(mixed file [, mixed alphafile])~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+|swfbitmap| creates a new SWFBitmap object from the Jpeg or DBL file in
+{file}. {alphafile} is a MSK file to be used as an alpha mask for a Jpeg
+image. Both parameters can be |fopen| resources or binary strings.
+
+We can only deal with baseline (frame 0) jpegs, no baseline optimized or
+progressive scan jpegs!
+
+SWFBitmap has the following methods : |swfbitmap->getwidth| and
+|swfbitmap->getheight|.
+
+You can't import png images directly, though- have to use the png2dbl utility
+to make a dbl ("define bits lossless") file from the png. The reason for this
+is that I don't want a dependency on the png library in ming- autoconf should
+solve this, but that's not set up yet. Import PNG files
+
+<?php >
+    $s = new SWFShape();
+    $f = $s->addFill(new SWFBitmap(file_get_contents("png.dbl")));
+    $s->setRightFill($f);
+  
+    $s->drawLine(32, 0);
+    $s->drawLine(0, 32);
+    $s->drawLine(-32, 0);
+    $s->drawLine(0, -32);
+  
+    $m = new SWFMovie();
+    $m->setDimension(32, 32);
+    $m->add($s);
+  
+    header('Content-type: application/x-shockwave-flash');
+    $m->output();
+?>
+
+And you can put an alpha mask on a jpeg fill. |swfbitmap| example
+
+<?php >
+    $s = new SWFShape();
+  
+    // .msk file generated with "gif2mask" utility
+    $f = $s->addFill(new SWFBitmap(file_get_contents("alphafill.jpg"), file_get_contents("alphafill.msk")));
+    $s->setRightFill($f);
+  
+    $s->drawLine(640, 0);
+    $s->drawLine(0, 480);
+    $s->drawLine(-640, 0);
+    $s->drawLine(0, -480);
+  
+    $c = new SWFShape();
+    $c->setRightFill($c->addFill(0x99, 0x99, 0x99));
+    $c->drawLine(40, 0);
+    $c->drawLine(0, 40);
+    $c->drawLine(-40, 0);
+    $c->drawLine(0, -40);
+  
+    $m = new SWFMovie();
+    $m->setDimension(640, 480);
+    $m->setBackground(0xcc, 0xcc, 0xcc);
+  
+    // draw checkerboard background
+    for ($y=0; $y<480; $y+=40) {
+      for ($x=0; $x<640; $x+=80) {
+        $i = $m->add($c);
+        $i->moveTo($x, $y);
+      }
+  
+      $y+=40;
+  
+      for ($x=40; $x<640; $x+=80) {
+        $i = $m->add($c);
+        $i->moveTo($x, $y);
+      }
+    }
+  
+    $m->add($s);
+  
+    header('Content-type: application/x-shockwave-flash');
+    $m->output();
+?>
+
+vim:ft=help:

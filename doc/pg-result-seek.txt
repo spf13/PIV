@@ -1,0 +1,34 @@
+pg_result_seek -- Set internal row offset in result resource
+
+  bool pg_result_seek(resource result, int offset)~
+
+|pg_result_seek| sets the internal row offset in a result resource.
+
+{result} PostgreSQL query result resource, returned by |pg_query|,
+|pg_query_params| or |pg_execute| (among others).
+
+{offset} Row to move the internal offset to in the {result} resource. Rows are
+numbered starting from zero.
+
+Returns TRUE on success or FALSE on failure.
+
+|pg_result_seek| example
+
+<?php >
+  // Connect to the database
+  $conn = pg_pconnect("dbname=publisher");
+  
+  // Execute a query
+  $result = pg_query($conn, "SELECT author, email FROM authors");
+  
+  // Seek to the 3rd row (assuming there are 3 rows)
+  pg_result_seek($result, 2);
+  
+  // Fetch the 3rd row
+  $row = pg_fetch_row($result);
+?>
+
+|pg_fetch_row| |pg_fetch_assoc| |pg_fetch_array| |pg_fetch_object|
+|pg_fetch_result|
+
+vim:ft=help:

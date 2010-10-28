@@ -1,0 +1,8 @@
+printer_end_page -- Close active page
+
+  bool printer_end_page(resource handle)~
+
+The function closes the active page in the active document. For an example see
+|printer_start_doc|. {handle} must be a valid handle to a printer.
+
+vim:ft=help:

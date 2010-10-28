@@ -1,0 +1,8 @@
+LimitIterator::rewind -- Rewind the iterator to the specified starting offset
+
+  void LimitIterator::rewind()~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

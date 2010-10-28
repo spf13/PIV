@@ -1,0 +1,11 @@
+ibase_rollback -- Roll back a transaction
+
+  bool ibase_rollback([resource link_or_trans_identifier])~
+
+If called without an argument, this function rolls back the default
+transaction of the default link. If the argument is a connection identifier,
+the default transaction of the corresponding connection will be rolled back.
+If the argument is a transaction identifier, the corresponding transaction
+will be rolled back. Returns TRUE on success or FALSE on failure.
+
+vim:ft=help:

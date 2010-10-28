@@ -1,0 +1,35 @@
+imap_set_quota -- Sets a quota for a given mailbox
+
+  bool imap_set_quota(resource imap_stream, string quota_root, int quota_limit)~
+
+Sets an upper limit quota on a per mailbox basis. This function requires the
+{imap_stream} to have been opened as the mail administrator account. It will
+not work if opened as any other user.
+
+This function is currently only available to users of the c-client2000 or
+greater library.
+
+{imap_stream} is the stream pointer returned from a |imap_open| call. This
+stream must be opened as the mail administrator, other wise this function
+will fail. {quota_root} is the mailbox to have a quota set. This should
+follow the IMAP standard format for a mailbox, 'user.name'. {quota_limit} is
+the maximum size (in KB) for the {quota_root}.
+
+Returns TRUE on success and FALSE on error.
+
+|imap_set_quota| example
+
+<?php >
+  $mbox = imap_open("{your.imap.host:143}", "mailadmin", "password");
+  
+  if (!imap_set_quota($mbox, "user.kalowsky", 3000)) {
+      echo "Error in setting quota\n";
+      return;
+  }
+  
+  imap_close($mbox);
+?>
+
+See also |imap_open| and |imap_get_quota|.
+
+vim:ft=help:

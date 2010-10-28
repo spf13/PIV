@@ -1,0 +1,11 @@
+get_magic_quotes_runtime -- Gets the current active configuration setting of
+magic_quotes_runtime
+
+  int get_magic_quotes_runtime()~
+
+Returns the current active configuration setting of magic_quotes_runtime (0
+for off, 1 for on).
+
+See also |get_magic_quotes_gpc| and |set_magic_quotes_runtime|.
+
+vim:ft=help:

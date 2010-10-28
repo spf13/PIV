@@ -1,0 +1,10 @@
+cpdf_stroke -- Draw line along path
+
+  bool cpdf_stroke(int pdf_document)~
+
+The |cpdf_stroke| function draws a line along current path. Returns TRUE on
+success or FALSE on failure.
+
+See also |cpdf_closepath| and |cpdf_closepath_stroke|.
+
+vim:ft=help:

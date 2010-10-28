@@ -1,0 +1,9 @@
+imagefontheight -- Get font height
+
+  int imagefontheight(int font)~
+
+Returns the pixel height of a character in the specified font.
+
+See also |imagefontwidth| and |imageloadfont|.
+
+vim:ft=help:

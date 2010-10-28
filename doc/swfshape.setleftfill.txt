@@ -1,0 +1,33 @@
+SWFShape->setLeftFill -- Sets left rasterizing color
+
+  void swfshape->setleftfill(swfgradient fill)~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+  void swfshape->setleftfill(swfgradient fill, int red, int green, int blue [, int a])~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+What this nonsense is about is, every edge segment borders at most two fills.
+When rasterizing the object, it's pretty handy to know what those fills are
+ahead of time, so the swf format requires these to be specified.
+
+|swfshape->setleftfill| sets the fill on the left side of the edge- that is,
+on the interior if you're defining the outline of the shape in a
+counter-clockwise fashion. The fill object is an SWFFill object returned from
+one of the addFill functions above.
+
+This seems to be reversed when you're defining a shape in a morph, though. If
+your browser crashes, just try setting the fill on the other side.
+
+Shortcut for swfshape->setleftfill($s->addfill($r, $g, $b [, $a]));.
+
+See also |swfshape->setrightfill|.
+
+vim:ft=help:

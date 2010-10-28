@@ -1,0 +1,8 @@
+pspell_config_dict_dir -- Location of the main word list
+
+  bool pspell_config_dict_dir(int conf, string directory)~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

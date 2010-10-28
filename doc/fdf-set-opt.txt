@@ -1,0 +1,9 @@
+fdf_set_opt -- Sets an option of a field
+
+  bool fdf_set_opt(resource fdf_document, string fieldname, int element, string str1, string str2)~
+
+The |fdf_set_opt| sets options of the given field {fieldname}.
+
+See also |fdf_set_flags|.
+
+vim:ft=help:

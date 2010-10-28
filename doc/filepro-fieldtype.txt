@@ -1,0 +1,7 @@
+filepro_fieldtype -- Gets the type of a field
+
+  string filepro_fieldtype(int field_number)~
+
+Returns the edit type of the field corresponding to {field_number}.
+
+vim:ft=help:

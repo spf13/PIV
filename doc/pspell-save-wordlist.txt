@@ -1,0 +1,22 @@
+pspell_save_wordlist -- Save the personal wordlist to a file
+
+  bool pspell_save_wordlist(int dictionary_link)~
+
+|pspell_save_wordlist| saves the personal wordlist from the current session.
+The dictionary has to be open with |pspell_new_personal|, and the location of
+files to be saved specified with |pspell_config_personal| and (optionally)
+|pspell_config_repl|. Please, note that this function will not work unless
+you have pspell .11.2 and aspell .32.5 or later.
+
+|pspell_add_to_personal|
+
+<?php >
+  $pspell_config = pspell_config_create("en");
+  pspell_config_personal($pspell_config, "/tmp/dicts/newdict");
+  $pspell_link = pspell_new_config($pspell_config);
+  
+  pspell_add_to_personal($pspell_link, "Vlad");
+  pspell_save_wordlist($pspell_link);
+?>
+
+vim:ft=help:

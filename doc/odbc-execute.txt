@@ -1,0 +1,29 @@
+odbc_execute -- Execute a prepared statement
+
+  bool odbc_execute(resource result_id [, array parameters_array])~
+
+Executes a statement prepared with |odbc_prepare|.Returns TRUE on success or
+FALSE on failure. The array {parameters_array} only needs to be given if you
+really have parameters in your statement.
+
+Parameters in {parameter_array} will be substituted for placeholders in the
+prepared statement in order.
+
+Any parameters in {parameter_array} which start and end with single quotes
+will be taken as the name of a file to read and send to the database server
+as the data for the appropriate placeholder.
+
+As of PHP 4.1.1, this file reading functionality has the following
+restrictions: File reading is not subject to any safe mode or open-basedir
+restrictions. This is fixed in PHP 4.2.0.
+
+Remote files are not supported.
+
+If you wish to store a string which actually begins and ends with single
+quotes, you must escape them or add a space or other non-single-quote
+character to the beginning or end of the parameter, which will prevent the
+parameter's being taken as a file name. If this is not an option, then you
+must use another mechanism to store the string, such as executing the query
+directly with |odbc_exec|).
+
+vim:ft=help:

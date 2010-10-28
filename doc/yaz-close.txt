@@ -1,0 +1,16 @@
+yaz_close -- Close YAZ connection
+
+  bool yaz_close(resource id)~
+
+Closes the connection given by parameter {id}.
+
+This function will only close a non-persistent connection opened by setting
+the persistent option to FALSE with |yaz_connect|.
+
+{id} The connection resource returned by |yaz_connect|.
+
+Returns TRUE on success or FALSE on failure.
+
+|yaz_connect|
+
+vim:ft=help:

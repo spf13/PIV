@@ -1,0 +1,9 @@
+fbsql_list_tables -- List tables in a FrontBase database
+
+  resource fbsql_list_tables(string database [, resource link_identifier])~
+
+|fbsql_list_tables| takes a database name and returns a result pointer much
+like the |fbsql_db_query| function. The |fbsql_tablename| function should be
+used to extract the actual table names from the result pointer.
+
+vim:ft=help:

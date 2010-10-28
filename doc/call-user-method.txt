@@ -1,0 +1,41 @@
+call_user_method -- Call a user method on an specific object [deprecated]
+
+  mixed call_user_method(string method_name, object obj [, mixed parameter [, mixed ...]])~
+
+The |call_user_method| function is deprecated as of PHP 4.1.0, use the
+|call_user_func| variety with the array(&$obj, "method_name") syntax instead.
+
+Calls the method referred by {method_name} from the user defined {obj} object.
+An example of usage is below, where we define a class, instantiate an object
+and use |call_user_method| to call indirectly its print_info method.
+
+<?php >
+  class Country {
+      var $NAME;
+      var $TLD;
+      
+      function Country($name, $tld) 
+      {
+          $this->NAME = $name;
+          $this->TLD = $tld;
+      }
+  
+      function print_info($prestr = "") 
+      {
+          echo $prestr . "Country: " . $this->NAME . "\n";
+          echo $prestr . "Top Level Domain: " . $this->TLD . "\n";
+      }
+  }
+  
+  $cntry = new Country("Peru", "pe");
+  
+  echo "* Calling the object method directly\n";
+  $cntry->print_info();
+  
+  echo "\n* Calling the same method indirectly\n";
+  call_user_method("print_info", $cntry, "\t");
+?>
+
+See also |call_user_func_array|, and |call_user_func|.
+
+vim:ft=help:

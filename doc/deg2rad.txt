@@ -1,0 +1,16 @@
+deg2rad -- Converts the number in degrees to the radian equivalent
+
+  float deg2rad(float number)~
+
+This function converts {number} from degrees to the radian equivalent.
+
+|deg2rad| example
+
+<?php >
+  echo deg2rad(45); // 0.785398163397
+  var_dump(deg2rad(45) === M_PI_4); // bool(true)
+?>
+
+See also |rad2deg|.
+
+vim:ft=help:

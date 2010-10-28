@@ -1,0 +1,10 @@
+imagesetpixel -- Set a single pixel
+
+  bool imagesetpixel(resource image, int x, int y, int color)~
+
+|imagesetpixel| draws a pixel at {x}, {y} (top left is 0, 0) in image {image}
+of color {color}.
+
+See also |imagecreate| and |imagecolorallocate|.
+
+vim:ft=help:

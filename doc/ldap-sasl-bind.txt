@@ -1,0 +1,11 @@
+ldap_sasl_bind -- Bind to LDAP directory using SASL
+
+  bool ldap_sasl_bind(resource link [, string binddn [, string password [, string sasl_mech [, string sasl_realm [, string sasl_authz_id [, string props]]]]]])~
+
+This function is currently not documented; only the argument list is
+available.
+
+|ldap_sasl_bind| requires SASL support (sasl.h). Be sure --with-ldap-sasl is
+used when configuring PHP otherwise this function will be undefined.
+
+vim:ft=help:

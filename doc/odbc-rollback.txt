@@ -1,0 +1,8 @@
+odbc_rollback -- Rollback a transaction
+
+  bool odbc_rollback(resource connection_id)~
+
+Rolls back all pending statements on {connection_id}. Returns TRUE on success,
+FALSE on failure.
+
+vim:ft=help:

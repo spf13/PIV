@@ -1,0 +1,30 @@
+define -- Defines a named constant
+
+  bool define(string name, mixed value [, bool case_insensitive])~
+
+Defines a named constant. See the section on constants for more details.
+
+The name of the constant is given by {name}; the value is given by {value}.
+
+The optional third parameter {case_insensitive} is also available. If the
+value TRUE is given, then the constant will be defined case-insensitive. The
+default behaviour is case-sensitive; i.e. CONSTANT and Constant represent
+different values.
+
+Defining Constants
+
+<?php >
+  define("CONSTANT", "Hello world.");
+  echo CONSTANT; // outputs "Hello world."
+  echo Constant; // outputs "Constant" and issues a notice.
+  
+  define("GREETING", "Hello you.", true);
+  echo GREETING; // outputs "Hello you."
+  echo Greeting; // outputs "Hello you."
+?>
+
+Returns TRUE on success or FALSE on failure.
+
+See also |defined|, |constant| and the section on Constants.
+
+vim:ft=help:

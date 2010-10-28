@@ -1,0 +1,8 @@
+pdf_set_text_pos -- Sets text position
+
+  bool pdf_set_text_pos(resource pdfdoc, float x, float y)~
+
+Set the text output position specified by {x} and {y}. Returns TRUE on success
+or FALSE on failure.
+
+vim:ft=help:

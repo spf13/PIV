@@ -1,0 +1,10 @@
+imagepsextendfont -- Extend or condense a font
+
+  bool imagepsextendfont(int font_index, float extend)~
+
+Extend or condense a font ({font_index}), if the value of the {extend}
+parameter is less than one you will be condensing the font.
+
+This function is only available if PHP is compiled using --with-t1lib[=DIR].
+
+vim:ft=help:

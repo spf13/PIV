@@ -1,0 +1,11 @@
+posix_getpgid -- Get process group id for job control
+
+  int posix_getpgid(int pid)~
+
+Returns the process group identifier of the process {pid}.
+
+This is not a POSIX function, but is common on BSD and System V systems. If
+your system does not support this function at system level, this PHP function
+will always return FALSE.
+
+vim:ft=help:

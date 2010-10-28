@@ -1,0 +1,11 @@
+asin -- Arc sine
+
+  float asin(float arg)~
+
+Returns the arc sine of {arg} in radians. |asin| is the complementary function
+of |sin|, which means that a==sin(asin(a)) for every value of a that is within
+|asin|'s range.
+
+See also: |asinh|, |acos|, and |atan|.
+
+vim:ft=help:

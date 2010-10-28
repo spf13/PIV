@@ -1,0 +1,11 @@
+swf_definepoly -- Define a polygon
+
+  void swf_definepoly(int objid, array coords, int npoints, float width)~
+
+The |swf_definepoly| function defines a polygon given an array of x, y
+coordinates (the coordinates are defined in the parameter {coords}). The
+parameter {npoints} is the number of overall points that are contained in the
+array given by {coords}. The {width} is the width of the polygon's border, if
+set to 0.0 the polygon is filled.
+
+vim:ft=help:

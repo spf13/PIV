@@ -1,0 +1,9 @@
+pdf_new -- Creates a new pdf resource
+
+  resource pdf_new( )~
+
+Create a new PDF resource, using default error handling and memory management.
+
+See also |pdf_close|.
+
+vim:ft=help:

@@ -1,0 +1,9 @@
+SimpleXMLIterator::getChildren -- Returns an iterator for the current entry if
+it is a SimpleXML object
+
+  object SimpleXMLIterator::getChildren()~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

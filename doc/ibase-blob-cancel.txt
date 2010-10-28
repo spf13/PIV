@@ -1,0 +1,11 @@
+ibase_blob_cancel -- Cancel creating blob
+
+  bool ibase_blob_cancel(resource blob_handle)~
+
+This function will discard a BLOB created by |ibase_create_blob| if it has not
+yet been closed by |ibase_blob_close|. Returns TRUE on success or FALSE on
+failure.
+
+See also |ibase_blob_close|, |ibase_blob_create| and |ibase_blob_import|.
+
+vim:ft=help:

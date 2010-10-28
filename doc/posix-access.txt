@@ -1,0 +1,40 @@
+posix_access -- Determine accessibility of a file
+
+  bool posix_access(string file [, int mode])~
+
+|posix_access| checks the user's permission of a file.
+
+When safe mode is enabled, PHP checks whether the files or directories you are
+about to operate on have the same UID (owner) as the script that is being
+executed.
+
+{file} The name of the file to be tested.
+
+{mode} A mask consisting of one or more of POSIX_F_OK, POSIX_R_OK, POSIX_W_OK
+and POSIX_X_OK. Defaults to POSIX_F_OK.
+
+POSIX_R_OK, POSIX_W_OK and POSIX_X_OK request checking whether the file exists
+and has read, write and execute permissions, respectively. POSIX_F_OK just
+requests checking for the existence of the file.
+
+Returns TRUE on success or FALSE on failure.
+
+|posix_access| example This example will check if the $file is readable and
+writable, otherwise will print an error message.
+
+<?php >
+  $file = 'some_file';
+  
+  if (posix_access($file, POSIX_R_OK | POSIX_W_OK)) {
+      echo 'The file is readable and writable!';
+  
+  } else {
+      $error = posix_get_last_error();
+  
+      echo "Error $error: " . posix_strerror($error);
+  }
+?>
+
+|posix_get_last_error| |posix_strerror|
+
+vim:ft=help:

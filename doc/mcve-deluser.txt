@@ -1,0 +1,8 @@
+mcve_deluser -- Delete an MCVE user account
+
+  int mcve_deluser(resource conn, string admin_password, string username)~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

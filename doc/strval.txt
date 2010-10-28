@@ -1,0 +1,12 @@
+strval -- Get string value of a variable
+
+  string strval(mixed var)~
+
+Returns the string value of {var}. See the documentation on string for more
+information on converting to string.
+
+{var} may be any scalar type. You cannot use |strval| on arrays or objects.
+
+See also |floatval|, |intval|, |settype| and Type juggling.
+
+vim:ft=help:

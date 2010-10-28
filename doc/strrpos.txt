@@ -1,0 +1,40 @@
+strrpos -- Find position of last occurrence of a char in a string
+
+  int strrpos(string haystack, string needle [, int offset])~
+
+Returns the numeric position of the last occurrence of {needle} in the
+{haystack} string. Note that the needle in this case can only be a single
+character in PHP 4. If a string is passed as the needle, then only the first
+character of that string will be used.
+
+If {needle} is not found, returns FALSE.
+
+It is easy to mistake the return values for "character found at position 0"
+and "character not found". Here's how to detect the difference:
+
+<?php >
+  // in PHP 4.0b3 and newer:
+  $pos = strrpos($mystring, "b");
+  if ($pos === false) { // note: three equal signs
+      // not found...
+  }
+  
+  // in versions older than 4.0b3:
+  $pos = strrpos($mystring, "b");
+  if (is_bool($pos) && !$pos) {
+      // not found...
+  }
+?>
+
+If {needle} is not a string, it is converted to an integer and applied as the
+ordinal value of a character.
+
+As of PHP 5.0.0 {offset} may be specified to begin searching an arbitrary
+number of characters into the string. Negative values will stop searching at
+an arbitrary point prior to the end of the string.
+
+The {needle} may be a string of more than one character as of PHP 5.0.0.
+
+See also |strpos|, |strripos|, |strrchr|, |substr|, |stristr|, and |strstr|.
+
+vim:ft=help:

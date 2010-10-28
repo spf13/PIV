@@ -1,0 +1,31 @@
+next -- Advance the internal array pointer of an array
+
+  mixed next(array array)~
+
+Returns the array value in the next place that's pointed to by the internal
+array pointer, or FALSE if there are no more elements.
+
+|next| behaves like |current|, with one difference. It advances the internal
+array pointer one place forward before returning the element value. That
+means it returns the next array value and advances the internal array pointer
+by one. If advancing the internal array pointer results in going beyond the
+end of the element list, |next| returns FALSE. If the array contains empty
+elements, or elements that have a key value of 0 then this function will
+return FALSE for these elements as well. To properly traverse an array which
+may contain empty elements or elements with key values of 0 see the |each|
+function.
+
+Example use of |next| and friends
+
+<?php >
+  $transport = array('foot', 'bike', 'car', 'plane');
+  $mode = current($transport); // $mode = 'foot';
+  $mode = next($transport);    // $mode = 'bike';
+  $mode = next($transport);    // $mode = 'car';
+  $mode = prev($transport);    // $mode = 'bike';
+  $mode = end($transport);     // $mode = 'plane';
+?>
+
+See also |current|, |end|, |prev|, and |reset|.
+
+vim:ft=help:

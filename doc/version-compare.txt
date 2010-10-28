@@ -1,0 +1,12 @@
+version_compare -- Compares two "PHP-standardized" version number strings
+
+  mixed version_compare(string version1, string version2 [, string operator])~
+
+|version_compare| compares two "PHP-standardized" version number strings. This
+is useful if you would like to write programs working only on some versions of
+PHP.
+
+|version_compare| returns -1 if the first version is lower than the second, 0
+if they are equal, and +1 if the second is lower.
+
+vim:ft=help:

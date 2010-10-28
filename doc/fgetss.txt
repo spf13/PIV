@@ -1,0 +1,19 @@
+fgetss -- Gets line from file pointer and strip HTML tags
+
+  string fgetss(resource handle [, int length [, string allowable_tags]])~
+
+Identical to |fgets|, except that fgetss attempts to strip any HTML and PHP
+tags from the text it reads.
+
+You can use the optional third parameter to specify tags which should not be
+stripped. {allowable_tags} was added in PHP 3.0.13, PHP 4.0.0.
+
+Parameter {length} is optional since PHP 5.
+
+If you are having problems with PHP not recognizing the line endings when
+reading files either on or created by a Macintosh computer, you might want to
+enable the auto_detect_line_endings run-time configuration option.
+
+See also |fgets|, |fopen|, |fsockopen|, |popen|, and |strip_tags|.
+
+vim:ft=help:

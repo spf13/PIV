@@ -1,0 +1,29 @@
+ArrayIterator::next -- Move to next entry
+
+  void ArrayIterator::next()~
+
+This function moves the iterator to the next entry.
+
+|ArrayIterator::next| example
+
+<?php >
+  $arrayobject = new ArrayObject();
+  
+  $arrayobject[] = 'zero';
+  $arrayobject[] = 'one';
+  
+  $iterator = $arrayobject->getIterator();
+  
+  while($iterator->valid()) {
+      echo $iterator->key() . ' => ' . $iterator->current() . "\n";
+  
+      $iterator->next();
+  }
+?>
+
+The above example will output:
+
+  0 => zero
+  1 => one
+
+vim:ft=help:

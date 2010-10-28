@@ -1,0 +1,40 @@
+gettype -- Get the type of a variable
+
+  string gettype(mixed var)~
+
+Returns the type of the PHP variable {var}.
+
+Never use |gettype| to test for a certain type, since the returned string may
+be subject to change in a future version. In addition, it is slow too, as it
+involves string comparison.
+
+Instead, use the is_* functions.
+
+Possibles values for the returned string are: "boolean" (since PHP 4)
+
+"integer"
+
+"double" (for historical reasons "double" is returned in case of a float, and
+not simply "float")
+
+"string"
+
+"array"
+
+"object"
+
+"resource" (since PHP 4)
+
+"NULL" (since PHP 4)
+
+"user function" (PHP 3 only, deprecated)
+
+"unknown type"
+
+For PHP 4, you should use |function_exists| and |method_exists| to replace the
+prior usage of |gettype| on a function.
+
+See also |settype|, |is_array|, |is_bool|, |is_float|, |is_int|, |is_null|,
+|is_numeric|, |is_object|, |is_resource|, |is_scalar|, and |is_string|.
+
+vim:ft=help:

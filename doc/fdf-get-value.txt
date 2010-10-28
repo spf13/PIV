@@ -1,0 +1,15 @@
+fdf_get_value -- Get the value of a field
+
+  mixed fdf_get_value(resource fdf_document, string fieldname [, int which])~
+
+The |fdf_get_value| function returns the value for the requested {fieldname}.
+
+Elements of an array field can be retrieved by passing the optional {which},
+starting at zero. For non-array fields the optional parameter {which} will be
+ignored.
+
+Array support and optional {which} parameter were added in PHP 4.3.
+
+See also |fdf_set_value|.
+
+vim:ft=help:

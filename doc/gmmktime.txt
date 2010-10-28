@@ -1,0 +1,27 @@
+gmmktime -- Get Unix timestamp for a GMT date
+
+  int gmmktime([int hour [, int minute [, int second [, int month [, int day [, int year [, int is_dst]]]]]]])~
+
+Identical to |mktime| except the passed parameters represents a GMT date.
+
+Parameters always represent a GMT date so {is_dst} doesn't influence the
+result.
+
+Like |mktime|, arguments may be left out in order from right to left, with any
+omitted arguments being set to the current corresponding GMT value.
+
+As of PHP 5.1.0, the {is_dst} parameter became deprecated. As a result, the
+new timezone handling features should be used instead.
+
+|gmmktime| internaly uses |mktime| so only times valid in derived local time
+can be used.
+
+|gmmktime| on Windows boundary
+
+<?php >
+  gmmktime(0, 0, 0, 1, 1, 1970); // valid in GMT and west, invalid in east
+?>
+
+See also |mktime|, |date| and |time|.
+
+vim:ft=help:

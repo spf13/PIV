@@ -1,0 +1,11 @@
+metaphone -- Calculate the metaphone key of a string
+
+  string metaphone(string str [, int phones])~
+
+Calculates the metaphone key of {str}.
+
+Similar to |soundex| metaphone creates the same key for similar sounding
+words. It's more accurate than |soundex| as it knows the basic rules of
+English pronunciation. The metaphone generated keys are of variable length.
+
+vim:ft=help:

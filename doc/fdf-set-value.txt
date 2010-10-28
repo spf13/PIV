@@ -1,0 +1,19 @@
+fdf_set_value -- Set the value of a field
+
+  bool fdf_set_value(resource fdf_document, string fieldname, mixed value [, int isName])~
+
+The |fdf_set_value| function sets the {value} for a field named {fieldname}.
+The {value} will be stored as a string unless it is an array. In this case
+all array elements will be stored as a value array.
+
+In older versions of the fdf toolkit last parameter determined if the field
+value was to be converted to a PDF Name ({isName} = 1) or set to a PDF String
+({isName} = 0). The value is no longer used in the current toolkit version
+5.0. For compatibility reasons it is still supported as an optional parameter
+beginning with PHP 4.3, but ignored internally.
+
+Support for {value} arrays was added in PHP 4.3.
+
+See also |fdf_get_value| and |fdf_remove_item|.
+
+vim:ft=help:

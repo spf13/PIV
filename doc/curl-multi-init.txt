@@ -1,0 +1,10 @@
+curl_multi_init -- Returns a new cURL multi handle
+
+  resource curl_multi_init()~
+
+This function is currently not documented; only the argument list is
+available.
+
+See also |curl_init| and |curl_multi_close|.
+
+vim:ft=help:

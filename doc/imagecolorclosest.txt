@@ -1,0 +1,17 @@
+imagecolorclosest -- Get the index of the closest color to the specified color
+
+  int imagecolorclosest(resource image, int red, int green, int blue)~
+
+Returns the index of the color in the palette of the image which is "closest"
+to the specified RGB value.
+
+The "distance" between the desired color and each color in the palette is
+calculated as if the RGB values represented points in three-dimensional
+space.
+
+If you created the image from a file, only colors used in the image are
+resolved. Colors present only in the pallete are not resolved.
+
+See also |imagecolorexact|.
+
+vim:ft=help:

@@ -1,0 +1,21 @@
+gmp_init -- Create GMP number
+
+  resource gmp_init(mixed number [, int base])~
+
+Creates a GMP number from an integer or string. String representation can be
+decimal or hexadecimal. In the latter case, the string should start with 0x.
+Optional parameter {base} is available since PHP 4.1.0.
+
+Creating GMP number
+
+<?php >
+  $a = gmp_init(123456);
+  $b = gmp_init("0xFFFFDEBACDFEDF7200");
+?>
+
+It is not necessary to call this function if you want to use integer or string
+in place of GMP number in GMP functions, like |gmp_add|. Function arguments
+are automatically converted to GMP numbers, if such conversion is possible
+and needed, using the same rules as |gmp_init|.
+
+vim:ft=help:

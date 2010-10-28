@@ -1,0 +1,17 @@
+mb_ereg_search_regs -- Returns the matched part of multibyte regular
+expression
+
+  array mb_ereg_search_regs([string pattern [, string option]])~
+
+|mb_ereg_search_regs| executes the multibyte regular expression match, and if
+there are some matched part, it returns an array including substring of
+matched part as first element, the first grouped part with brackets as second
+element, the second grouped part as third element, and so on. It returns FALSE
+on error.
+
+The internal encoding or the character encoding specified in
+|mb_regex_encoding| will be used as character encoding.
+
+See also: |mb_regex_encoding|, |mb_ereg_search_init|.
+
+vim:ft=help:

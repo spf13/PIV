@@ -1,0 +1,7 @@
+hw_api_object->assign -- Clones object
+
+  bool hw_api_object->assign(array parameter)~
+
+Clones the attributes of an object.
+
+vim:ft=help:

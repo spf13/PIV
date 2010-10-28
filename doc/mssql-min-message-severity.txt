@@ -1,0 +1,8 @@
+mssql_min_message_severity -- Sets the lower message severity
+
+  void mssql_min_message_severity(int severity)~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

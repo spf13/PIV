@@ -1,0 +1,12 @@
+openal_device_close -- Close an OpenAL device
+
+  bool openal_device_close(resource device)~
+
+An Open AL(Device) resource (previously created by |openal_device_open|) to be
+closed.
+
+Returns TRUE on success or FALSE on failure.
+
+|openal_device_open|
+
+vim:ft=help:

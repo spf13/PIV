@@ -1,0 +1,12 @@
+hw_cp -- Copies objects
+
+  int hw_cp(int connection, array object_id_array, int destination_id)~
+
+Copies the objects with object ids as specified in the second parameter to the
+collection with the id {destination id}.
+
+The value return is the number of copied objects.
+
+See also |hw_mv|.
+
+vim:ft=help:

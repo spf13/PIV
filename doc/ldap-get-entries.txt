@@ -1,0 +1,31 @@
+ldap_get_entries -- Get all result entries
+
+  array ldap_get_entries(resource link_identifier, resource result_identifier)~
+
+Returns a complete result information in a multi-dimensional array on success
+and FALSE on error.
+
+|ldap_get_entries| function is used to simplify reading multiple entries from
+the result, specified with {result_identifier}, and then reading the
+attributes and multiple values. The entire information is returned by one
+function call in a multi-dimensional array. The structure of the array is as
+follows.
+
+The attribute index is converted to lowercase. (Attributes are
+case-insensitive for directory servers, but not when used as array indices.)
+
+  return_value["count"] = number of entries in the result
+  return_value[0] : refers to the details of first entry
+  
+  return_value[i]["dn"] =  DN of the ith entry in the result
+  
+  return_value[i]["count"] = number of attributes in ith entry
+  return_value[i][j] = jth attribute in the ith entry in the result
+  
+  return_value[i]["attribute"]["count"] = number of values for 
+                                          attribute in ith entry
+  return_value[i]["attribute"][j] = jth value of attribute in ith entry
+
+See also |ldap_first_entry| and |ldap_next_entry|.
+
+vim:ft=help:

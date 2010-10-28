@@ -1,0 +1,16 @@
+SWFMovie->setbackground -- Sets the background color
+
+  void swfmovie->setbackground(int red, int green, int blue)~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+|swfmovie->setbackground| sets the background color. Why is there no rgba
+version? Think about it. (Actually, that's not such a dumb question after
+all- you might want to let the HTML background show through. There's a way to
+do that, but it only works on IE4. Search the http://www.macromedia.com/ site
+for details.)
+
+vim:ft=help:

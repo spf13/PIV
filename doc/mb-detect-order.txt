@@ -1,0 +1,54 @@
+mb_detect_order -- Set/Get character encoding detection order
+
+  mixed mb_detect_order([mixed encoding_list])~
+
+|mb_detect_order| sets automatic character encoding detection order to
+{encoding_list}. It returns TRUE for success, FALSE for failure.
+
+{encoding_list} is array or comma separated list of character encoding.
+("auto" is expanded to "ASCII, JIS, UTF-8, EUC-JP, SJIS")
+
+If {encoding_list} is omitted, it returns current character encoding detection
+order as array.
+
+This setting affects |mb_detect_encoding| and |mb_send_mail|.
+
+mbstring currently implements following encoding detection filters. If there
+is an invalid byte sequence for following encoding, encoding detection will
+fail.
+
+UTF-8, UTF-7, ASCII, EUC-JP,SJIS, eucJP-win, SJIS-win, JIS, ISO-2022-JP
+
+For ISO-8859-*, mbstring always detects as ISO-8859-*.
+
+For UTF-16, UTF-32, UCS2 and UCS4, encoding detection will fail always.
+
+Useless detect order example
+
+  ; Always detect as ISO-8859-1
+  detect_order = ISO-8859-1, UTF-8
+  
+  ; Always detect as UTF-8, since ASCII/UTF-7 values are 
+  ; valid for UTF-8
+  detect_order = UTF-8, ASCII, UTF-7
+
+|mb_detect_order| examples
+
+<?php >
+  /* Set detection order by enumerated list */
+  mb_detect_order("eucjp-win,sjis-win,UTF-8");
+  
+  /* Set detection order by array */
+  $ary[] = "ASCII";
+  $ary[] = "JIS";
+  $ary[] = "EUC-JP";
+  mb_detect_order($ary);
+  
+  /* Display current detection order */
+  echo implode(", ", mb_detect_order());
+?>
+
+See also |mb_internal_encoding|, |mb_http_input|, |mb_http_output| and
+|mb_send_mail|.
+
+vim:ft=help:

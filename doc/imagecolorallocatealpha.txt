@@ -1,0 +1,54 @@
+imagecolorallocatealpha -- Allocate a color for an image
+
+  int imagecolorallocatealpha(resource image, int red, int green, int blue, int alpha)~
+
+|imagecolorallocatealpha| behaves identically to |imagecolorallocate| with the
+addition of the transparency parameter {alpha} which may have a value between
+0 and 127. 0 indicates completely opaque while 127 indicates completely
+transparent.
+
+Returns FALSE if the allocation failed.
+
+Example of using |imagecolorallocatealpha|
+
+<?php >
+  $size = 300;
+  $image=imagecreatetruecolor($size, $size);
+  
+  // something to get a white background with black border
+  $back = imagecolorallocate($image, 255, 255, 255);
+  $border = imagecolorallocate($image, 0, 0, 0);
+  imagefilledrectangle($image, 0, 0, $size - 1, $size - 1, $back);
+  imagerectangle($image, 0, 0, $size - 1, $size - 1, $border);
+  
+  $yellow_x = 100;
+  $yellow_y = 75;
+  $red_x    = 120;
+  $red_y    = 165; 
+  $blue_x   = 187;
+  $blue_y   = 125; 
+  $radius   = 150;
+  
+  // allocate colors with alpha values
+  $yellow = imagecolorallocatealpha($image, 255, 255, 0, 75);
+  $red    = imagecolorallocatealpha($image, 255, 0, 0, 75);
+  $blue   = imagecolorallocatealpha($image, 0, 0, 255, 75);
+  
+  // drawing 3 overlapped circle
+  imagefilledellipse($image, $yellow_x, $yellow_y, $radius, $radius, $yellow);
+  imagefilledellipse($image, $red_x, $red_y, $radius, $radius, $red);   
+  imagefilledellipse($image, $blue_x, $blue_y, $radius, $radius, $blue);
+  
+  // don't forget to output a correct header!
+  header('Content-type: image/png');
+  
+  // and finally, output the result
+  imagepng($image);
+  imagedestroy($image);
+?>
+
+This function requires GD 2.0.1 or later.
+
+See also |imagecolorallocate| and |imagecolordeallocate|.
+
+vim:ft=help:

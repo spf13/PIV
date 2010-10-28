@@ -1,0 +1,31 @@
+mysql_get_proto_info -- Get MySQL protocol info
+
+  int mysql_get_proto_info([resource link_identifier])~
+
+Retrieves the MySQL protocol.
+
+{ link_identifier}The MySQL connection. If the link identifier is not
+specified, the last link opened by |mysql_connect| is assumed. If no such
+link is found, it will try to create one as if |mysql_connect| was called
+with no arguments. If by chance no connection is found or established, an
+E_WARNING level warning is generated.
+
+Returns the MySQL protocol on success, or FALSE on failure.
+
+|mysql_get_proto_info| example
+
+<?php >
+  $link = mysql_connect('localhost', 'mysql_user', 'mysql_password');
+  if (!$link) {
+      die('Could not connect: ' . mysql_error());
+  }
+  printf("MySQL protocol version: %s\n", mysql_get_proto_info());
+?>
+
+The above example will output something similar to:
+
+  MySQL protocol version: 10
+
+|mysql_get_client_info| |mysql_get_host_info| |mysql_get_server_info|
+
+vim:ft=help:

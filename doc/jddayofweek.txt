@@ -1,0 +1,11 @@
+JDDayOfWeek -- Returns the day of the week
+
+  mixed jddayofweek(int julianday [, int mode])~
+
+Returns the day of the week. Can return a string or an integer depending on
+the mode. Calendar week modes Mode Meaning 0 (Default) Returns the day number
+as an int (0=Sunday, 1=Monday, etc) 1 Returns string containing the day of
+week (English-Gregorian) 2 Returns a string containing the abbreviated day of
+week (English-Gregorian)
+
+vim:ft=help:

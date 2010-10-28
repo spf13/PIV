@@ -1,0 +1,14 @@
+ora_fetch -- Fetch a row of data from a cursor
+
+  bool ora_fetch(resource cursor)~
+
+Retrieves a row of data from the specified {cursor}.
+
+Returns TRUE (a row was fetched) or FALSE (no more rows, or an error
+occurred). If an error occurred, details can be retrieved using the
+|ora_error| and |ora_errorcode| functions. If there was no error,
+|ora_errorcode| will return 0.
+
+See also |ora_parse|,|ora_exec|, and |ora_do|.
+
+vim:ft=help:

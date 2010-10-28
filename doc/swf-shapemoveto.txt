@@ -1,0 +1,8 @@
+swf_shapemoveto -- Move the current position
+
+  void swf_shapemoveto(float x, float y)~
+
+The |swf_shapemoveto| function moves the current position to the x coordinate
+given by the {x} parameter and the y position given by the {y} parameter.
+
+vim:ft=help:

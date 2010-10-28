@@ -1,0 +1,26 @@
+DOMDocument->loadXML() -- Load XML from a string
+
+  bool loadXML(string source [, int options])~
+
+Loads an XML document from a string.
+
+This method may also be called statically to load and create a DOMDocument
+object. The static invocation may be used when no DOMDocument properties need
+to be set prior to loading.
+
+{source} The string containing the XML.
+
+Returns TRUE on success or FALSE on failure.
+
+Creating a Document
+
+<?php >
+  $doc = DOMDocument::loadXML('<root><node/></root>');
+  echo $doc->saveXML();
+  
+  $doc = new DOMDocument();
+  $doc->loadXML('<root><node/></root>');
+  echo $doc->saveXML();
+?>
+
+vim:ft=help:

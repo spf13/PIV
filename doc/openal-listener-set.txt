@@ -1,0 +1,15 @@
+openal_listener_set -- Set a listener property
+
+  bool openal_listener_set(int property, mixed setting)~
+
+Property to set, one of: AL_GAIN (float), AL_POSITION
+(array(float,float,float)), AL_VELOCITY (array(float,float,float)) and
+AL_ORIENTATION (array(float,float,float)).
+
+Value to set, either float, or an array of floats as appropriate.
+
+Returns TRUE on success or FALSE on failure.
+
+|openal_listener_get|
+
+vim:ft=help:

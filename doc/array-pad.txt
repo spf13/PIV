@@ -1,0 +1,29 @@
+array_pad -- Pad array to the specified length with a value
+
+  array array_pad(array input, int pad_size, mixed pad_value)~
+
+|array_pad| returns a copy of the {input} padded to size specified by
+{pad_size} with value {pad_value}. If {pad_size} is positive then the array
+is padded on the right, if it's negative then on the left. If the absolute
+value of {pad_size} is less than or equal to the length of the {input} then
+no padding takes place. It is possible to add most 1048576 elements at a
+time.
+
+|array_pad| example
+
+<?php >
+  $input = array(12, 10, 9);
+  
+  $result = array_pad($input, 5, 0);
+  // result is array(12, 10, 9, 0, 0)
+  
+  $result = array_pad($input, -7, -1);
+  // result is array(-1, -1, -1, -1, 12, 10, 9)
+  
+  $result = array_pad($input, 2, "noop");
+  // not padded
+?>
+
+See also |array_fill| and |range|.
+
+vim:ft=help:

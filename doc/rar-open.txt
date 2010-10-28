@@ -1,0 +1,9 @@
+rar_open -- Open Rar archive
+
+  resource rar_open(string filename [, string password])~
+
+Open specified Rar archive and return Rar file resource.
+
+|rar_open| returns Rar file resource or FALSE on error.
+
+vim:ft=help:

@@ -1,0 +1,46 @@
+number_format -- Format a number with grouped thousands
+
+  string number_format(float number [, int decimals [, string dec_point, string thousands_sep]])~
+
+|number_format| returns a formatted version of {number}. This function accepts
+either one, two or four parameters (not three):
+
+If only one parameter is given, {number} will be formatted without decimals,
+but with a comma (",") between every group of thousands.
+
+If two parameters are given, {number} will be formatted with {decimals}
+decimals with a dot (".") in front, and a comma (",") between every group of
+thousands.
+
+If all four parameters are given, {number} will be formatted with {decimals}
+decimals, {dec_point} instead of a dot (".") before the decimals and
+{thousands_sep} instead of a comma (",") between every group of thousands.
+
+Only the first character of {thousands_sep} is used. For example, if you use
+foo as {thousands_sep} on the number 1000, |number_format| will return 1f000.
+
+|number_format| Example For instance, French notation usually use two
+decimals, comma (',') as decimal separator, and space (' ') as thousand
+separator. This is achieved with this line :
+
+<?php >
+  $number = 1234.56;
+  
+  // english notation (default)
+  $english_format_number = number_format($number);
+  // 1,235
+  
+  // French notation
+  $nombre_format_francais = number_format($number, 2, ',', ' ');
+  // 1 234,56
+  
+  $number = 1234.5678;
+  
+  // english notation without thousands seperator
+  $english_format_number = number_format($number, 2, '.', '');
+  // 1234.57
+?>
+
+See also: |sprintf|, |printf| and |sscanf|.
+
+vim:ft=help:

@@ -1,0 +1,43 @@
+array_walk_recursive -- Apply a user function recursively to every member of
+an array
+
+  bool array_walk_recursive(array input, callback funcname [, mixed userdata])~
+
+Applies the user-defined function {funcname} to each element of the {input}
+array. This function will recur into deeper arrays. Typically, {funcname}
+takes on two parameters. The {input} parameter's value being the first, and
+the key/index second. If the optional {userdata} parameter is supplied, it
+will be passed as the third parameter to the callback {funcname}.
+
+Returns TRUE on success or FALSE on failure.
+
+If {funcname} needs to be working with the actual values of the array, specify
+the first parameter of {funcname} as a reference. Then, any changes made to
+those elements will be made in the original array itself.
+
+|array_walk_recursive| example
+
+<?php >
+  $sweet = array('a' => 'apple', 'b' => 'banana');
+  $fruits = array('sweet' => $sweet, 'sour' => 'lemon');
+  
+  function test_print($item, $key) 
+  {
+      echo "$key holds $item\n";
+  }
+  
+  array_walk_recursive($fruits, 'test_print');
+?>
+
+The above example will output:
+
+  a holds apple
+  b holds banana
+  sour holds lemon
+
+You may notice that the key 'sweet' is never displayed. Any key that holds an
+array will not be passed to the function.
+
+See also |array_walk|, and information about the callback type.
+
+vim:ft=help:

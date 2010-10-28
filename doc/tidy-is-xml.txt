@@ -1,0 +1,18 @@
+tidy_is_xml -- Indicates if the document is a generic (non HTML/XHTML) XML
+document
+
+Procedural style:
+
+  bool tidy_is_xml(tidy object)~
+
+Object oriented style:
+
+  bool tidy->isXml(tidy object)~
+
+This function returns TRUE if the specified tidy {object} is a generic XML
+document (non HTML/XHTML), or FALSE otherwise.
+
+This function is not yet implemented in the Tidylib itself, so it always
+return FALSE.
+
+vim:ft=help:

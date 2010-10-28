@@ -1,0 +1,5 @@
+pdf_set_info_author -- Deprecated: Fills the author field of the document
+
+This function is deprecated, use |pdf_set_info| instead.
+
+vim:ft=help:

@@ -1,0 +1,21 @@
+DOMElement->setAttributeNS() -- Adds new attribute
+
+  void setAttributeNS(string namespaceURI, string qualifiedName, string value)~
+
+Sets an attribute with namespace {namespaceURI} and name {name} to the given
+value. If the attribute does not exist, it will be created.
+
+{namespaceURI} The namespace URI.
+
+{qualifiedName} The qualified name of the attribute, as prefix:tagname.
+
+{value} The value of the attribute.
+
+No value is returned.
+
+DOM_NO_MODIFICATION_ALLOWED_ERR Raised if the node is readonly.
+
+DOM_NAMESPACE_ERR Raised if {qualifiedName} is a malformed qualified name, or
+if {qualifiedName} has a prefix and {namespaceURI} is NULL.
+
+vim:ft=help:

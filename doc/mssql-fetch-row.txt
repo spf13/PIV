@@ -1,0 +1,20 @@
+mssql_fetch_row -- Get row as enumerated array
+
+  array mssql_fetch_row(resource result)~
+
+Returns: An array that corresponds to the fetched row, or FALSE if there are
+no more rows.
+
+|mssql_fetch_row| fetches one row of data from the result associated with the
+specified result identifier. The row is returned as an array. Each result
+column is stored in an array offset, starting at offset 0.
+
+Subsequent call to |mssql_fetch_row| would return the next row in the result
+set, or FALSE if there are no more rows.
+
+This function sets NULL fields to PHP NULL value.
+
+See also |mssql_fetch_array|, |mssql_fetch_object|, |mssql_data_seek|,
+|mssql_fetch_lengths|, and |mssql_result|.
+
+vim:ft=help:

@@ -1,0 +1,11 @@
+fbsql_start_db -- Start a database on local or remote server
+
+  bool fbsql_start_db(string database_name [, resource link_identifier [, string database_options]])~
+
+Returns TRUE on success or FALSE on failure.
+
+|fbsql_start_db|
+
+See also: |fbsql_db_status| and |fbsql_stop_db|.
+
+vim:ft=help:

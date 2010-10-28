@@ -1,0 +1,21 @@
+aggregate_methods_by_regexp -- Selective class methods aggregation to an
+object using a regular expression
+
+  void aggregate_methods_by_regexp(object object, string class_name, string regexp [, bool exclude])~
+
+Aggregates methods from a class to an existing object using a regular
+expression to match method names. The optional parameter {exclude} is used to
+decide whether the regular expression will select the names of methods to
+include in the aggregation (i.e. {exclude} is FALSE, which is the default
+value), or to exclude from the aggregation ({exclude} is TRUE).
+
+The class constructor or methods whose names start with an underscore
+character (_), which are considered private to the aggregated class, are
+always excluded.
+
+See also |aggregate|, |aggregate_info|, |aggregate_methods|,
+|aggregate_methods_by_list|, |aggregate_properties|,
+|aggregate_properties_by_list|, |aggregate_properties_by_regexp|,
+|deaggregate|
+
+vim:ft=help:

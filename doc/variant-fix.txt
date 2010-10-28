@@ -1,0 +1,15 @@
+variant_fix -- Returns the integer portion ? of a variant
+
+  mixed variant_fix(mixed variant)~
+
+If {variant} is negative, then the first negative integer greater than or
+equal to the variant is returned, otherwise returns the integer portion of
+the value of {variant}.
+
+See also |variant_int|, |variant_round|, |floor|, |ceil|, |round|.
+
+This documentation is based on the MSDN documentation; it appears that this
+function is either the same as |variant_int|, or that there is an error in
+the MSDN documentation.
+
+vim:ft=help:

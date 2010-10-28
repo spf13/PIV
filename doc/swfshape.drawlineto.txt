@@ -1,0 +1,17 @@
+SWFShape->drawLineTo -- Draws a line
+
+  void swfshape->drawlineto(int x, int y)~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+|swfshape->setrightfill| draws a line (using the current line style, set by
+|swfshape->setline|) from the current pen position to point ({x},{y}) in the
+shape's coordinate space.
+
+See also |swfshape->movepento|, |swfshape->drawcurveto|, |swfshape->movepen|
+and |swfshape->drawline|.
+
+vim:ft=help:

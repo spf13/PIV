@@ -1,0 +1,81 @@
+ocibindbyname -- Bind a PHP variable to an Oracle Placeholder
+
+  bool ocibindbyname(resource stmt, string ph_name, mixed variable [, int maxlength [, int type]])~
+
+|ocibindbyname| binds the PHP variable {variable} to the Oracle placeholder
+{ph_name}. Whether it will be used for input or output will be determined
+run-time, and the necessary storage space will be allocated. The {length}
+parameter sets the maximum length for the bind. If you set {length} to -1
+|ocibindbyname| will use the current length of {variable} to set the maximum
+length.
+
+If you need to bind an abstract Datatype (LOB/ROWID/BFILE) you need to
+allocate it first using |ocinewdescriptor| function. The {length} is not used
+for abstract Datatypes and should be set to -1. The {type} variable tells
+oracle, what kind of descriptor we want to use. Possible values are:
+OCI_B_FILE (Binary-File), OCI_B_CFILE (Character-File), OCI_B_CLOB
+(Character-LOB), OCI_B_BLOB (Binary-LOB) and OCI_B_ROWID (ROWID).
+
+|ocibindbyname| example
+
+<?php >
+  /* OCIBindByPos example thies at thieso dot net (980221)
+    inserts 3 records into emp, and uses the ROWID for updating the 
+    records just after the insert.
+  */
+  
+  $conn = OCILogon("scott", "tiger");
+  
+  $stmt = OCIParse($conn, "insert into emp (empno, ename) " .
+                          "values (:empno,:ename) " .
+                          "returning ROWID into :rid");
+  
+  $data = array(1111 => "Larry", 2222 => "Bill", 3333 => "Jim");
+  
+  $rowid = OCINewDescriptor($conn, OCI_D_ROWID);
+  
+  OCIBindByName($stmt, ":empno", $empno, 32);
+  OCIBindByName($stmt, ":ename", $ename, 32);
+  OCIBindByName($stmt, ":rid", $rowid, -1, OCI_B_ROWID);
+  
+  $update = OCIParse($conn, "update emp set sal = :sal where ROWID = :rid");
+  OCIBindByName($update, ":rid", $rowid, -1, OCI_B_ROWID);
+  OCIBindByName($update, ":sal", $sal, 32);
+  
+  $sal = 10000;
+  
+  foreach ($data as $empno => $ename) {
+      OCIExecute($stmt);
+      OCIExecute($update);
+  } 
+  
+  $rowid->free();
+  
+  OCIFreeStatement($update);
+  OCIFreeStatement($stmt);
+  
+  $stmt = OCIParse($conn, "select * from emp where empno in (1111,2222,3333)");
+  OCIExecute($stmt);
+  while (OCIFetchInto($stmt, &amp;$arr, OCI_ASSOC)) {
+      var_dump($arr);
+  }
+  OCIFreeStatement($stmt);
+  
+  /* delete our "junk" from the emp table.... */
+  $stmt = OCIParse($conn, "delete from emp where empno in (1111,2222,3333)");
+  OCIExecute($stmt);
+  OCIFreeStatement($stmt);
+  
+  OCILogoff($conn);
+?>
+
+This function was renamed to |oci_bind_by_name| after PHP >= 5.0.0. For
+downward compatibility |ocibindbyname| can also be used. This is deprecated,
+however.
+
+It is a bad idea to use magic quotes and |ocibindbyname| simultaneously as no
+quoting is needed on quoted variables and any quotes magically applied will
+be written into your database as |ocibindbyname| is not able to distinguish
+magically added quotings from those added by intention.
+
+vim:ft=help:

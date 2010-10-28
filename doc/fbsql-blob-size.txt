@@ -1,0 +1,8 @@
+fbsql_blob_size -- Get the size of a BLOB
+
+  int fbsql_blob_size(string blob_handle [, resource link_identifier])~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

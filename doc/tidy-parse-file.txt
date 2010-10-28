@@ -1,0 +1,40 @@
+tidy_parse_file -- Parse markup in file or URI
+
+Procedural style:
+
+  tidy tidy_parse_file(string filename [, mixed config [, string encoding [, bool use_include_path]]])~
+
+Object oriented style:
+
+  bool tidy->parseFile(string filename [, mixed config [, string encoding [, bool use_include_path, string filename [, mixed config [, string encoding [, bool use_include_path]]]]]])~
+
+This function parses the given file.
+
+The {config} parameter can be passed either as an array or as a string. If you
+pass it as a string, it means the name of the configuration file, otherwise it
+is interpreted as the options themselves. Check
+http://tidy.sourceforge.net/docs/quickref.html for an explanation about each
+option.
+
+The {encoding} parameter sets the encoding for input/output documents. The
+possible values for {encoding} are: ascii, latin0, latin1, raw, utf8,
+iso2022, mac, win1252, ibm858, utf16, utf16le, utf16be, big5 and shiftjis.
+
+|tidy_parse_file| example
+
+<?php >
+  $tidy = tidy_parse_file('file.html');
+  
+  $tidy->cleanRepair();
+      
+  if(!empty($tidy->errorBuffer)) {
+      echo "The following errors or warnings occured:\n";
+      echo $tidy->errorBuffer;
+  }
+?>
+
+The optional parameters {config} and {encoding} were added in Tidy 2.0.
+
+See also |tidy_parse_string|, |tidy_repair_file| and |tidy_repair_string|.
+
+vim:ft=help:

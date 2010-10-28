@@ -1,0 +1,7 @@
+hw_api->user -- Returns the own user object
+
+  hw_api_object hw_api->user(array parameter)~
+
+See also |hwapi_userlist|.
+
+vim:ft=help:

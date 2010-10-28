@@ -1,0 +1,7 @@
+imap_lsub -- List all the subscribed mailboxes
+
+  array imap_lsub(resource imap_stream, string ref, string pattern)~
+
+Returns an array of all the mailboxes that you have subscribed.
+
+vim:ft=help:

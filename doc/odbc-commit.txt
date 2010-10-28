@@ -1,0 +1,8 @@
+odbc_commit -- Commit an ODBC transaction
+
+  bool odbc_commit(resource connection_id)~
+
+|odbc_commit| commits all pending transactions on the {connection_id}
+connection. Returns TRUE on success or FALSE on failure.
+
+vim:ft=help:

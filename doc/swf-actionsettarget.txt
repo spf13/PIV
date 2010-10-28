@@ -1,0 +1,8 @@
+swf_actionsettarget -- Set the context for actions
+
+  void swf_actionsettarget(string target)~
+
+The |swf_actionsettarget| function sets the context for all actions. You can
+use this to control other flash movies that are currently playing.
+
+vim:ft=help:

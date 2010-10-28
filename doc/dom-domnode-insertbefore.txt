@@ -1,0 +1,28 @@
+DOMNode->insertBefore() -- Adds a new child before a reference node
+
+  DOMNode insertBefore(DOMNode newnode [, DOMNode refnode])~
+
+This function inserts a new node right before the reference node. If you plan
+to do further modifications on the appended child you must use the returned
+node.
+
+{newnode} The new node.
+
+{refnode} The reference node. If not supplied, {newnode} is appended to the
+children.
+
+The inserted node.
+
+DOM_NO_MODIFICATION_ALLOWED_ERR Raised if this node is readonly or if the
+previous parent of the node being inserted is readonly.
+
+DOM_HIERARCHY_REQUEST_ERR Raised if this node is of a type that does not allow
+children of the type of the {newnode} node, or if the node to append is one of
+this node's ancestors or this node itself.
+
+DOM_WRONG_DOCUMENT_ERR Raised if {newnode} was created from a different
+document than the one that created this node.
+
+DOM_NOT_FOUND Raised if {refnode} is not a child of this node.
+
+vim:ft=help:

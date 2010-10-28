@@ -1,0 +1,15 @@
+imagesetbrush -- Set the brush image for line drawing
+
+  bool imagesetbrush(resource image, resource brush)~
+
+|imagesetbrush| sets the brush image to be used by all line drawing functions
+(such as |imageline| and |imagepolygon|) when drawing with the special colors
+IMG_COLOR_BRUSHED or IMG_COLOR_STYLEDBRUSHED.
+
+You need not take special action when you are finished with a brush, but if
+you destroy the brush image, you must not use the IMG_COLOR_BRUSHED or
+IMG_COLOR_STYLEDBRUSHED colors until you have set a new brush image!
+
+This function was added in PHP 4.0.6
+
+vim:ft=help:

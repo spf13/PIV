@@ -1,0 +1,10 @@
+imagepsslantfont -- Slant a font
+
+  bool imagepsslantfont(resource font_index, float slant)~
+
+Slant a font given by the {font_index} parameter with a slant of the value of
+the {slant} parameter.
+
+This function is only available if PHP is compiled using --with-t1lib[=DIR].
+
+vim:ft=help:

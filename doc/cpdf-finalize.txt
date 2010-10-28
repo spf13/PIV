@@ -1,0 +1,10 @@
+cpdf_finalize -- Ends document
+
+  bool cpdf_finalize(int pdf_document)~
+
+The |cpdf_finalize| function ends the document. You still have to call
+|cpdf_close|. Returns TRUE on success or FALSE on failure.
+
+See also |cpdf_close|.
+
+vim:ft=help:

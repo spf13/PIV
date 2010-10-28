@@ -1,0 +1,71 @@
+sesam_fetch_array -- Fetch one row as an associative array
+
+  array sesam_fetch_array(string result_id [, int whence [, int offset]])~
+
+Returns an array that corresponds to the fetched row, or FALSE if there are no
+more rows.
+
+|sesam_fetch_array| is an alternative version of |sesam_fetch_row|. Instead of
+storing the data in the numeric indices of the result array, it stores the
+data in associative indices, using the field names as keys.
+
+{result_id} is a valid result id returned by |sesam_query| (select type
+queries only!).
+
+For the valid values of the optional {whence}and {offset} parameters, see the
+|sesam_fetch_row| function for details.
+
+|sesam_fetch_array| fetches one row of data from the result associated with
+the specified result identifier. The row is returned as an associative array.
+Each result column is stored with an associative index equal to its column
+(aka. field) name. The column names are converted to lower case.
+
+Columns without a field name (e.g., results of arithmetic operations) and
+empty fields are not stored in the array. Also, if two or more columns of the
+result have the same column names, the later column will take precedence. In
+this situation, either call |sesam_fetch_row| or make an alias for the
+column.
+
+  SELECT TBL1.COL AS FOO, TBL2.COL AS BAR FROM TBL1, TBL2
+
+A special handling allows fetching "multiple field" columns (which would
+otherwise all have the same column names). For each column of a "multiple
+field", the index name is constructed by appending the string "(n)" where n
+is the sub-index of the multiple field column, ranging from 1 to its declared
+repetition factor. The indices are NOT zero based, in order to match the
+nomenclature used in the respective query syntax. For a column declared as:
+
+  CREATE TABLE ... ( ... MULTI(3) INT )
+
+the associative indices used for the individual "multiple field" columns would
+be "multi(1)", "multi(2)", and "multi(3)" respectively.
+
+Subsequent calls to |sesam_fetch_array| would return the next (or prior, or
+n'th next/prior, depending on the scroll attributes) row in the result set,
+or FALSE if there are no more rows.
+
+SESAM fetch array
+
+<?php >
+  $result = sesam_query("SELECT * FROM phone\n" .
+                         "  WHERE LASTNAME='" . strtoupper($name) . "'\n".
+                         "  ORDER BY FIRSTNAME", 1);
+  if (!$result) {
+      /* ... error ... */
+  }
+  // print the table:
+  echo "<table border=\"1\">\n";
+  while (($row = sesam_fetch_array($result)) &amp;& count($row) > 0) {
+      echo "<tr>\n";
+      echo "<td>" . htmlspecialchars($row["firstname"]) . "</td>\n";
+      echo "<td>" . htmlspecialchars($row["lastname"]) . "</td>\n";
+      echo "<td>" . htmlspecialchars($row["phoneno"]) . "</td>\n";
+      echo "</tr>\n";
+  }
+  echo "</table>\n";
+  sesam_free_result($result);
+?>
+
+See also: |sesam_fetch_row| which returns an indexed array.
+
+vim:ft=help:

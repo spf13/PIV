@@ -1,0 +1,13 @@
+vsprintf -- Return a formatted string
+
+  string vsprintf(string format, array args)~
+
+Return array values as a formatted string according to {format} (which is
+described in the documentation for |sprintf|).
+
+Operates as |sprintf| but accepts an array of arguments, rather than a
+variable number of arguments.
+
+See also |sprintf| and |vprintf|
+
+vim:ft=help:

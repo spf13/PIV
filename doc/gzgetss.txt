@@ -1,0 +1,33 @@
+gzgetss -- Get line from gz-file pointer and strip HTML tags
+
+  string gzgetss(resource zp, int length [, string allowable_tags])~
+
+Identical to |gzgets|, except that |gzgetss| attempts to strip any HTML and
+PHP tags from the text it reads.
+
+{zp} The gz-file pointer. It must be valid, and must point to a file
+successfully opened by |gzopen|.
+
+{length} The length of data to get.
+
+{allowable_tags} You can use this optional parameter to specify tags which
+should not be stripped.
+
+The uncompressed and striped string, or FALSE on error.
+
+Version Description 3.0.13 and 4.0b3 {allowable_tags} was added.
+
+|gzgetss| example
+
+<?php >
+  $handle = gzopen('somefile.gz', 'r');
+  while (!gzeof($handle)) {
+     $buffer = gzgetss($handle, 4096);
+     echo $buffer;
+  }
+  gzlose($handle);
+?>
+
+|gzopen| |gzgets| |strip_tags|
+
+vim:ft=help:

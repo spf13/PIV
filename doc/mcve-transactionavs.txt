@@ -1,0 +1,8 @@
+mcve_transactionavs -- Get the Address Verification return status
+
+  int mcve_transactionavs(resource conn, int identifier)~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

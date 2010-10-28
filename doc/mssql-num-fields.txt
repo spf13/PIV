@@ -1,0 +1,9 @@
+mssql_num_fields -- Gets the number of fields in result
+
+  int mssql_num_fields(resource result)~
+
+|mssql_num_fields| returns the number of fields in a result set.
+
+See also |mssql_query|, |mssql_fetch_field|, and |mssql_num_rows|.
+
+vim:ft=help:

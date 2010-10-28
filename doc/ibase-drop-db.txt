@@ -1,0 +1,11 @@
+ibase_drop_db -- Drops a database
+
+  bool ibase_drop_db([resource connection])~
+
+This functions drops a database that was opened by either |ibase_connect| or
+|ibase_pconnect|. The database is closed and deleted from the server. Returns
+TRUE on success or FALSE on failure.
+
+See also |ibase_connect| and |ibase_pconnect|.
+
+vim:ft=help:

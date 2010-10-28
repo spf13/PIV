@@ -1,0 +1,7 @@
+SoapClient->__call() -- Calls a SOAP function (deprecated)
+
+  mixed __call(string function_name, array arguments [, array options [, array input_headers [, array output_headers]]])~
+
+This method is deprecated. Use instead of it.
+
+vim:ft=help:

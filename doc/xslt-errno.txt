@@ -1,0 +1,10 @@
+xslt_errno -- Returns an error number
+
+  int xslt_errno(resource xh)~
+
+Returns an error code describing the last error that occurred on the passed
+XSLT processor.
+
+|xslt_error|.
+
+vim:ft=help:

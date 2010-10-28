@@ -1,0 +1,34 @@
+odbc_specialcolumns -- Returns either the optimal set of columns that uniquely
+identifies a row in the table or columns that are automatically updated when
+any value in the row is updated by a transaction
+
+  resource odbc_specialcolumns(resource connection_id, int type, string qualifier, string owner, string table, int scope, int nullable)~
+
+When the type argument is SQL_BEST_ROWID, |odbc_specialcolumns| returns the
+column or columns that uniquely identify each row in the table.
+
+When the type argument is SQL_ROWVER, |odbc_specialcolumns| returns the column
+or columns in the specified table, if any, that are automatically updated by
+the data source when any value in the row is updated by any transaction.
+
+Returns an ODBC result identifier or FALSE on failure.
+
+The result set has the following columns: SCOPE
+
+COLUMN_NAME
+
+DATA_TYPE
+
+TYPE_NAME
+
+PRECISION
+
+LENGTH
+
+SCALE
+
+PSEUDO_COLUMN
+
+The result set is ordered by SCOPE.
+
+vim:ft=help:

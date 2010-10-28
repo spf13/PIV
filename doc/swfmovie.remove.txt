@@ -1,0 +1,15 @@
+swfmovie->remove -- Removes the object instance from the display list
+
+  void swfmovie->remove(resource instance)~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+|swfmovie->remove| removes the object instance {instance} from the display
+list.
+
+See also |swfmovie->add|.
+
+vim:ft=help:

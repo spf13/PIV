@@ -1,0 +1,22 @@
+printer_start_doc -- Start a new document
+
+  bool printer_start_doc(resource handle [, string document])~
+
+The function creates a new document in the printer spooler. A document can
+contain multiple pages, it's used to schedule the print job in the spooler.
+{handle} must be a valid handle to a printer. The optional parameter
+{document} can be used to set an alternative document name.
+
+|printer_start_doc| example
+
+<?php >
+  $handle = printer_open();
+  printer_start_doc($handle, "My Document");
+  printer_start_page($handle);
+  
+  printer_end_page($handle);
+  printer_end_doc($handle);
+  printer_close($handle);
+?>
+
+vim:ft=help:

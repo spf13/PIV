@@ -1,0 +1,9 @@
+mcal_event_set_end -- Sets the end date and time of the streams global event
+structure
+
+  void mcal_event_set_end(int stream, int year, int month, int day [, int hour [, int min [, int sec]]])~
+
+|mcal_event_set_end| sets the streams global event structure's end date and
+time to the given values.
+
+vim:ft=help:

@@ -1,0 +1,29 @@
+strrchr -- Find the last occurrence of a character in a string
+
+  string strrchr(string haystack, string needle)~
+
+This function returns the portion of {haystack} which starts at the last
+occurrence of {needle} and goes until the end of {haystack}.
+
+Returns FALSE if {needle} is not found.
+
+If {needle} contains more than one character, only the first is used in PHP 4.
+This behavior is different from that of |strchr|.
+
+If {needle} is not a string, it is converted to an integer and applied as the
+ordinal value of a character. |strrchr| example
+
+<?php >
+  // get last directory in $PATH
+  $dir = substr(strrchr($PATH, ":"), 1);
+  
+  // get everything after last newline
+  $text = "Line 1\nLine 2\nLine 3";
+  $last = substr(strrchr($text, 10), 1 );
+?>
+
+|strrchr| has been binary safe since PHP 4.3.0
+
+See also |strstr|, |substr|, and |stristr|.
+
+vim:ft=help:

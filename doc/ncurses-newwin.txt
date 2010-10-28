@@ -1,0 +1,16 @@
+ncurses_newwin -- Create a new window
+
+  resource ncurses_newwin(int rows, int cols, int y, int x)~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+|ncurses_newwin| creates a new window to draw elements in. Windows can be
+positioned using {x}, {y}, {rows} and {cols}. When creating additional
+windows, remember to use |ncurses_getmaxyx| to check for available space, as
+terminal size is individual and may vary. The return value is a resource ID
+used to differ between multiple windows.
+
+vim:ft=help:

@@ -1,0 +1,15 @@
+dbplus_chdir -- Get/Set database virtual current directory
+
+  string dbplus_chdir([string newdir])~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+|dbplus_chdir| will change the virtual current directory where relation files
+will be looked for by |dbplus_open|. |dbplus_chdir| will return the absolute
+path of the current directory. Calling |dbplus_chdir| without giving any
+{newdir} may be used to query the current working directory.
+
+vim:ft=help:

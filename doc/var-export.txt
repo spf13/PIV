@@ -1,0 +1,53 @@
+var_export -- Outputs or returns a parsable string representation of a
+variable
+
+  mixed var_export(mixed expression [, bool return])~
+
+|var_export| gets structured information about the given variable. It is
+similar to |var_dump| with one exception: the returned representation is
+valid PHP code.
+
+{expression} The variable you want to export.
+
+{return} If used and set to TRUE, |var_export| will return the variable
+representation instead of outputing it.
+
+Returns the variable representation when the {return} parameter is used and
+evaluates to TRUE. Otherwise, this function will return NULL.
+
+|var_export| Examples
+
+<?php >
+  $a = array (1, 2, array ("a", "b", "c"));
+  var_export($a);
+?>
+
+The above example will output:
+
+  array (
+    0 => 1,
+    1 => 2,
+    2 => 
+    array (
+      0 => 'a',
+      1 => 'b',
+      2 => 'c',
+    ),
+  )
+
+<?php >
+  $b = 3.1;
+  $v = var_export($b, true);
+  echo $v;
+?>
+
+The above example will output:
+
+  3.1
+
+Variables of type resource and arrays or objects containing objects couldn't
+be exported by this function.
+
+|var_dump| |print_r|
+
+vim:ft=help:

@@ -1,0 +1,8 @@
+mcrypt_enc_is_block_mode -- Checks whether the opened mode outputs blocks
+
+  bool mcrypt_enc_is_block_mode(resource td)~
+
+This function returns TRUE if the mode outputs blocks of bytes or FALSE if it
+outputs bytes. (e.g. TRUE for cbc and ecb, and FALSE for cfb and stream).
+
+vim:ft=help:

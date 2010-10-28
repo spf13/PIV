@@ -1,0 +1,12 @@
+ocifreedesc -- Deletes a large object descriptor
+
+  bool ocifreedesc()~
+
+|ocifreedesc| deletes a large object descriptor. Returns TRUE on success or
+FALSE on failure.
+
+This function was renamed to |oci_free_descriptor| after PHP >= 5.0.0. For
+downward compatibility |ocifreedesc| can also be used. This is deprecated,
+however.
+
+vim:ft=help:

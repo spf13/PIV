@@ -1,0 +1,9 @@
+mcve_transactiontext -- Get verbiage (text) return from MCVE or processing
+institution
+
+  string mcve_transactiontext(resource conn, int identifier)~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

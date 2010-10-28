@@ -1,0 +1,52 @@
+call_user_func -- Call a user function given by the first parameter
+
+  mixed call_user_func(callback function [, mixed parameter [, mixed ...]])~
+
+Call a user defined function given by the {function} parameter. Take the
+following:
+
+<?php >
+  function barber($type) 
+  {
+      echo "You wanted a $type haircut, no problem";
+  }
+  call_user_func('barber', "mushroom");
+  call_user_func('barber', "shave");
+?>
+
+Object methods may also be invoked statically using this function by passing
+array($objectname, $methodname) to the {function} parameter.
+
+<?php >
+  class myclass {
+      function say_hello() 
+      {
+          echo "Hello!\n";
+      }
+  }
+  
+  $classname = "myclass";
+  
+  call_user_func(array($classname, 'say_hello'));
+?>
+
+Note that the parameters for |call_user_func| are not passed by reference.
+
+<?php >
+  function increment(&amp;$var)
+  {
+      $var++;
+  }
+  
+  $a = 0;
+  call_user_func('increment', $a);
+  echo $a; // 0
+  
+  call_user_func_array('increment', array(&amp;$a)); // You can use this instead
+  echo $a; // 1
+?>
+
+See also: |is_callable|, |call_user_func_array|, and information about the
+callback type.
+
+vim:ft=help:

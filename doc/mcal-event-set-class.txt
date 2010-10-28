@@ -1,0 +1,8 @@
+mcal_event_set_class -- Sets the class of the streams global event structure
+
+  void mcal_event_set_class(int stream, int class)~
+
+|mcal_event_set_class| sets the streams global event structure's class to the
+given value. The class is either 1 for public, or 0 for private.
+
+vim:ft=help:

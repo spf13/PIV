@@ -1,0 +1,14 @@
+variant_cast -- Convert a variant into a new variant object of another type
+
+  variant variant_cast(variant variant, int type)~
+
+This function makes a copy of {variant} and then performs a variant cast
+operation to force the copy to have the type given by {type}. {type} should
+be one of the VT_XXX constants.
+
+This function wraps VariantChangeType() in the COM library; consult MSDN for
+more information.
+
+See also |variant_set_type|.
+
+vim:ft=help:

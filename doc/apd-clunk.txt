@@ -1,0 +1,14 @@
+apd_clunk -- Throw a warning and a callstack
+
+  void apd_clunk(string warning [, string delimiter])~
+
+Behaves like perl's Carp::cluck. Throw a warning and a callstack. The default
+line delimiter is "\n".
+
+|apd_clunk| example
+
+<?php >
+  apd_clunk("Some Warning","<P>");
+?>
+
+vim:ft=help:

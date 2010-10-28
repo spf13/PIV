@@ -1,0 +1,38 @@
+get_magic_quotes_gpc -- Gets the current configuration setting of magic quotes
+gpc
+
+  int get_magic_quotes_gpc()~
+
+Returns the current configuration setting of magic_quotes_gpc (0 for off, 1
+for on).
+
+If the directive magic_quotes_sybase is ON it will completely override
+magic_quotes_gpc. So even when |get_magic_quotes_gpc| returns TRUE neither
+double quotes, backslashes or NUL's will be escaped. Only single quotes will
+be escaped. In this case they'll look like: ''
+
+Keep in mind that the setting magic_quotes_gpc will not work at runtime.
+
+|get_magic_quotes_gpc| example
+
+<?php >
+  echo get_magic_quotes_gpc();         // 1
+  echo $_POST['lastname'];             // O\'reilly
+  echo addslashes($_POST['lastname']); // O\\\'reilly
+  
+  if (!get_magic_quotes_gpc()) {
+      $lastname = addslashes($_POST['lastname']);
+  } else {
+      $lastname = $_POST['lastname'];
+  }
+  
+  echo $lastname; // O\'reilly
+  $sql = "INSERT INTO lastnames (lastname) VALUES ('$lastname')";
+?>
+
+For more information about magic_quotes, see this security section.
+
+See also |addslashes|, |stripslashes|, |get_magic_quotes_runtime|, and
+|ini_get|.
+
+vim:ft=help:

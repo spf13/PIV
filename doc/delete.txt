@@ -1,0 +1,10 @@
+delete -- See unlink or unset
+
+  void delete(string file)~
+
+This is a dummy manual entry to satisfy those people who are looking for
+|unlink| or |unset| in the wrong place.
+
+See also |unlink| to delete files, |unset| to delete variables.
+
+vim:ft=help:

@@ -1,0 +1,8 @@
+odbc_field_scale -- Get the scale of a field
+
+  int odbc_field_scale(resource result_id, int field_number)~
+
+|odbc_field_scale| will return the scale of the field referenced by number in
+the given ODBC result identifier.
+
+vim:ft=help:

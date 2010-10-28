@@ -1,0 +1,12 @@
+posix_getsid -- Get the current sid of the process
+
+  int posix_getsid(int pid)~
+
+Return the sid of the process {pid}. If {pid} is 0, the sid of the current
+process is returned.
+
+This is not a POSIX function, but is common on System V systems. If your
+system does not support this function at system level, this PHP function will
+always return FALSE.
+
+vim:ft=help:

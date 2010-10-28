@@ -1,0 +1,13 @@
+imagecolorresolvealpha -- Get the index of the specified color + alpha or its
+closest possible alternative
+
+  int imagecolorresolvealpha(resource image, int red, int green, int blue, int alpha)~
+
+This function is guaranteed to return a color index for a requested color,
+either the exact color or the closest possible alternative.
+
+This function requires GD 2.0.1 or later.
+
+See also |imagecolorclosestalpha|.
+
+vim:ft=help:

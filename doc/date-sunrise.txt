@@ -1,0 +1,35 @@
+date_sunrise -- Returns time of sunrise for a given day and location
+
+  mixed date_sunrise(int timestamp [, int format [, float latitude [, float longitude [, float zenith [, float gmt_offset]]]]])~
+
+|date_sunrise| returns the sunrise time for a given day (specified as a
+{timestamp}) and location. The {latitude}, {longitude} and {zenith}
+parameters default to the date.default_latitude, date.default_longitude and
+date.sunrise_zenith configuration options, respectively.
+
+The {latitude} defaults to North. So, if you want to specify a South value,
+you must pass a negative value. The same note applies to {longitude}, which
+defaults to East.
+
+The {gmt_offset} parameter is specified in hours.
+
+|date_sunrise| example
+
+<?php >
+  /* calculate the sunrise time for Lisbon, Portugal
+  Latitude: 38.4 North
+  Longitude: 9 West
+  Zenith ~= 90
+  offset: +1 GMT
+  */
+  
+  echo date("D M d Y"). ', sunrise time : ' .date_sunrise(time(), SUNFUNCS_RET_STRING, 38.4, -9, 90, 1);
+?>
+
+The above example will output something similar to:
+
+  Mon Dec 20 2004, sunrise time : 08:54
+
+See also |date_sunset|.
+
+vim:ft=help:

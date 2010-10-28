@@ -1,0 +1,22 @@
+aspell_check_raw -- Check a word without changing its case or trying to trim
+it [deprecated]
+
+  bool aspell_check_raw(int dictionary_link, string word)~
+
+|aspell_check_raw| checks the spelling of a word, without changing its case or
+trying to trim it in any way and returns TRUE if the spelling is correct,
+FALSE if not.
+
+|aspell_check_raw|
+
+<?php >
+  $aspell_link = aspell_new("english");
+  
+  if (aspell_check_raw($aspell_link, "test")) {
+      echo "This is a valid spelling";
+  } else {
+      echo "Sorry, wrong spelling";
+  }
+?>
+
+vim:ft=help:

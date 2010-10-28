@@ -1,0 +1,8 @@
+readline_redisplay -- Ask readline to redraw the display
+
+  void readline_redisplay()~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

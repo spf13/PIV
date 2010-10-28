@@ -1,0 +1,12 @@
+sybase_field_seek -- Sets field offset
+
+  bool sybase_field_seek(resource result, int field_offset)~
+
+Seeks to the specified field offset. If the next call to |sybase_fetch_field|
+won't include a field offset, this field would be returned.
+
+Returns TRUE on success or FALSE on failure.
+
+See also |sybase_fetch_field|.
+
+vim:ft=help:

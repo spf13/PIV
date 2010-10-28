@@ -1,0 +1,70 @@
+mysqli->ping -- Pings a server connection, or tries to reconnect if the
+connection has gone down
+
+Procedural style:
+
+  bool mysqli_ping(mysqli link)~
+
+Object oriented style (method):
+
+  bool ping(mysqli link)~
+
+Checks whether the connection to the server is working. If it has gone down,
+and global option mysqli.reconnect is enabled an automatic reconnection is
+attempted.
+
+This function can be used by clients that remain idle for a long while, to
+check whether the server has closed the connection and reconnect if
+necessary.
+
+Returns TRUE on success or FALSE on failure.
+
+Object oriented style
+
+<?php >
+  $mysqli = new mysqli("localhost", "my_user", "my_password", "world");
+  
+  /* check connection */
+  if (mysqli_connect_errno()) {
+      printf("Connect failed: %s\n", mysqli_connect_error());
+      exit();
+  }
+  
+  /* check if server is alive */
+  if ($mysqli->ping()) {
+      printf ("Our connection is ok!\n");
+  } else {
+      printf ("Error: %s\n", $mysqli->error);
+  }
+  
+  /* close connection */
+  $mysqli->close();
+?>
+
+Procedural style
+
+<?php >
+  $link = mysqli_connect("localhost", "my_user", "my_password", "world");
+  
+  /* check connection */
+  if (mysqli_connect_errno()) {
+      printf("Connect failed: %s\n", mysqli_connect_error());
+      exit();
+  }
+  
+  /* check if server is alive */
+  if (mysqli_ping($link)) {
+      printf ("Our connection is ok!\n");
+  } else {
+      printf ("Error: %s\n", mysqli_error($link));
+  }
+  
+  /* close connection */
+  mysqli_close($link);
+?>
+
+The above example will output:
+
+  Our connection is ok!
+
+vim:ft=help:

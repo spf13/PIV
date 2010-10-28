@@ -1,0 +1,5 @@
+pdf_open -- Deprecated: Open a new pdf object
+
+This function is deprecated, use |pdf_new| plus |pdf_open_file| instead.
+
+vim:ft=help:

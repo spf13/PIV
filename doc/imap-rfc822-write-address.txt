@@ -1,0 +1,15 @@
+imap_rfc822_write_address -- Returns a properly formatted email address given
+the mailbox, host, and personal info
+
+  string imap_rfc822_write_address(string mailbox, string host, string personal)~
+
+Returns a properly formatted email address as defined in RFC2822 given the
+{mailbox}, {host}, and {personal} info.
+
+|imap_rfc822_write_address| example
+
+<?php >
+  echo imap_rfc822_write_address("hartmut", "cvs.php.net", "Hartmut Holzgraefe") . "\n";      
+?>
+
+vim:ft=help:

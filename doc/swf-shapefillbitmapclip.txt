@@ -1,0 +1,8 @@
+swf_shapefillbitmapclip -- Set current fill mode to clipped bitmap
+
+  void swf_shapefillbitmapclip(int bitmapid)~
+
+Sets the fill to bitmap clipped, empty spaces will be filled by the bitmap
+given by the {bitmapid} parameter.
+
+vim:ft=help:

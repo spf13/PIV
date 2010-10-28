@@ -1,0 +1,14 @@
+ncurses_can_change_color -- Check if we can change terminals colors
+
+  bool ncurses_can_change_color()~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+The function |ncurses_can_change_color| returns TRUE or FALSE, depending on
+whether the terminal has color capabilities and whether the programmer can
+change the colors.
+
+vim:ft=help:

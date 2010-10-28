@@ -1,0 +1,8 @@
+ircg_whois -- Query server for user information
+
+  bool ircg_whois(resource connection, string nick)~
+
+Sends a query to the connected server {connection} to ask for information
+about the specified user {nick}.
+
+vim:ft=help:

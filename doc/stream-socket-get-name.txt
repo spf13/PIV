@@ -1,0 +1,11 @@
+stream_socket_get_name -- Retrieve the name of the local or remote sockets
+
+  string stream_socket_get_name(resource handle, bool want_peer)~
+
+Returns the local or remote name of a given socket connection. If {want_peer}
+is set to TRUE the remote socket name will be returned, if it is set to FALSE
+the local socket name will be returned.
+
+See also |stream_socket_accept|.
+
+vim:ft=help:

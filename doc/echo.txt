@@ -1,0 +1,77 @@
+echo -- Output one or more strings
+
+  void echo(string arg1 [, string ...])~
+
+Outputs all parameters.
+
+|echo| is not actually a function (it is a language construct) so you are not
+required to use parentheses with it. In fact, if you want to pass more than
+one parameter to echo, you must not enclose the parameters within
+parentheses.
+
+|echo| examples
+
+<?php >
+  echo "Hello World";
+  
+  echo "This spans
+  multiple lines. The newlines will be 
+  output as well";
+  
+  echo "This spans\nmultiple lines. The newlines will be\noutput as well.";
+  
+  echo "Escaping characters is done \"Like this\".";
+  
+  // You can use variables inside of an echo statement
+  $foo = "foobar";
+  $bar = "barbaz";
+  
+  echo "foo is $foo"; // foo is foobar
+  
+  // You can also use arrays
+  $bar = array("value" => "foo");
+  
+  echo "this is {$bar['value']} !"; // this is foo !
+  
+  // Using single quotes will print the variable name, not the value
+  echo 'foo is $foo'; // foo is $foo
+  
+  // If you are not using any other characters, you can just echo variables
+  echo $foo;          // foobar
+  echo $foo,$bar;     // foobarbarbaz
+  
+  // Some people prefer passing multiple parameters to echo over concatenation.
+  echo 'This ', 'string ', 'was ', 'made ', 'with multiple parameters.', chr(10);
+  echo 'This ' . 'string ' . 'was ' . 'made ' . 'with concatenation.' . "\n";
+  
+  echo <<<END
+  This uses the "here document" syntax to output
+  multiple lines with $variable interpolation. Note
+  that the here document terminator must appear on a
+  line with just a semicolon. no extra whitespace!
+  END;
+  
+  // Because echo is not a function, following code is invalid. 
+  ($some_var) ? echo 'true' : echo 'false';
+  
+  // However, the following examples will work:
+  ($some_var) ? print('true'): print('false'); // print is a function
+  echo $some_var ? 'true': 'false'; // changing the statement around
+?>
+
+|echo| also has a shortcut syntax, where you can immediately follow the
+opening tag with an equals sign. This short syntax only works with the
+short_open_tag configuration setting enabled.
+
+  I have <?=$foo?> foo.
+
+For a short discussion about the differences between |print| and |echo|, see
+this FAQTs Knowledge Base Article:
+http://www.faqts.com/knowledge_base/view.phtml/aid/1/fid/40
+
+Because this is a language construct and not a function, it cannot be called
+using variable functions
+
+See also |print|, |printf|, and |flush|.
+
+vim:ft=help:

@@ -1,0 +1,13 @@
+DOMElement->setAttributeNode() -- Adds new attribute node to element
+
+  DOMAttr setAttributeNode(DOMAttr attr)~
+
+Adds new attribute node {attr} to element.
+
+{attr} The attribute node.
+
+Returns old node if the attribute has been replaced or NULL.
+
+DOM_NO_MODIFICATION_ALLOWED_ERR Raised if the node is readonly.
+
+vim:ft=help:

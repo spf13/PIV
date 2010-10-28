@@ -1,0 +1,13 @@
+openssl_pkey_export -- Gets an exportable representation of a key into a
+string
+
+  bool openssl_pkey_export(mixed key, string out [, string passphrase [, array configargs]])~
+
+|openssl_pkey_export| exports {key} as a PEM encoded string and stores it into
+{out} (which is passed by reference). The key is optionally protected by
+{passphrase}. {configargs} can be used to fine-tune the export process by
+specifying and/or overriding options for the openssl configuration file. See
+|openssl_csr_new| for more information about {configargs}. Returns TRUE on
+success or FALSE on failure.
+
+vim:ft=help:

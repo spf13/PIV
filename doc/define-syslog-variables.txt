@@ -1,0 +1,9 @@
+define_syslog_variables -- Initializes all syslog related constants
+
+  void define_syslog_variables()~
+
+Initializes all constants used in the syslog functions.
+
+See also |openlog|, |syslog| and |closelog|.
+
+vim:ft=help:

@@ -1,0 +1,35 @@
+file_exists -- Checks whether a file or directory exists
+
+  bool file_exists(string filename)~
+
+Returns TRUE if the file or directory specified by {filename} exists; FALSE
+otherwise.
+
+On windows, use //computername/share/filename or \\computername\share\filename
+to check files on network shares.
+
+Testing whether a file exists
+
+<?php >
+  $filename = '/path/to/foo.txt';
+  
+  if (file_exists($filename)) {
+      echo "The file $filename exists";
+  } else {
+      echo "The file $filename does not exist";
+  }
+?>
+
+The results of this function are cached. See |clearstatcache| for more
+details.
+
+As of PHP 5.0.0 this function can also be used with some URL wrappers. Refer
+to for a listing of which wrappers support |stat| family of functionality.
+
+This function returns FALSE for files inaccessible due to safe mode
+restrictions. However these files still can be included if they are located
+in safe_mode_include_dir.
+
+See also |is_readable|, |is_writable|, |is_file| and |file|.
+
+vim:ft=help:

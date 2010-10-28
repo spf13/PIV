@@ -1,0 +1,43 @@
+array_diff_assoc -- Computes the difference of arrays with additional index
+check
+
+  array array_diff_assoc(array array1, array array2 [, array ...])~
+
+|array_diff_assoc| returns an array containing all the values from {array1}
+that are not present in any of the other arguments. Note that the keys are
+used in the comparison unlike |array_diff|.
+
+|array_diff_assoc| example
+
+<?php >
+  $array1 = array("a" => "green", "b" => "brown", "c" => "blue", "red");
+  $array2 = array("a" => "green", "yellow", "red");
+  $result = array_diff_assoc($array1, $array2);
+  print_r($result);
+?>
+
+The above example will output:
+
+  Array
+  (
+      [b] => brown
+      [c] => blue
+      [0] => red
+  )
+
+In our example above you see the "a" => "green" pair is present in both arrays
+and thus it is not in the ouput from the function. Unlike this, the pair 0 =>
+"red" is in the ouput because in the second argument "red" has key which is
+1.
+
+Two values from key => value pairs are considered equal only if (string)
+$elem1 === (string) $elem2 . In other words a strict check takes place so the
+string representations must be the same.
+
+Please note that this function only checks one dimension of a n-dimensional
+array. Of course you can check deeper dimensions by using, for example,
+array_diff_assoc($array1[0], $array2[0]);.
+
+See also |array_diff|, |array_intersect|, and |array_intersect_assoc|.
+
+vim:ft=help:

@@ -1,0 +1,12 @@
+cpdf_fill_stroke -- Fill and stroke current path
+
+  bool cpdf_fill_stroke(int pdf_document)~
+
+The |cpdf_fill_stroke| function fills the interior of the current path with
+the current fill color and draws current path. Returns TRUE on success or
+FALSE on failure.
+
+See also |cpdf_closepath|, |cpdf_stroke|, |cpdf_fill|, |cpdf_setgray_fill|,
+|cpdf_setgray|, |cpdf_setrgbcolor_fill| and |cpdf_setrgbcolor|.
+
+vim:ft=help:

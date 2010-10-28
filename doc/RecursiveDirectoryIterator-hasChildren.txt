@@ -1,0 +1,9 @@
+RecursiveDirectoryIterator::hasChildren -- Returns whether current entry is a
+directory and not '.' or '..'
+
+  bool RecursiveDirectoryIterator::hasChildren([bool allow_links])~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

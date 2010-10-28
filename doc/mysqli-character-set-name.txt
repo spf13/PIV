@@ -1,0 +1,62 @@
+mysqli->character_set_name -- Returns the default character set for the
+database connection
+
+Procedural style:
+
+  string mysqli_character_set_name(mysqli link)~
+
+Object oriented style (method):
+
+  string character_set_name(mysqli link)~
+
+Returns the current character set for the database connection specified by the
+{link} parameter.
+
+The default character set for the current connection
+
+|mysqli_client_encoding| and |mysqli_real_escape_string|.
+
+Object oriented style
+
+<?php >
+  /* Open a connection */
+  $mysqli = new mysqli("localhost", "my_user", "my_password", "world");
+                                                                                
+  /* check connection */
+  if (mysqli_connect_errno()) {
+      printf("Connect failed: %s\n", mysqli_connect_error());
+      exit();
+  }
+  
+  /* Print current character set */
+  $charset = $mysqli->character_set_name();
+  printf ("Current character set is %s\n", $charset);
+  
+  $mysqli->close();
+?>
+
+Procedural style
+
+<?php >
+  /* Open a connection */
+  $link = mysqli_connect("localhost", "my_user", "my_password", "world");
+                                                                                
+  /* check connection */
+  if (!$link) {
+      printf("Connect failed: %s\n", mysqli_connect_error());
+      exit();
+  }
+  
+  /* Print current character set */
+  $charset = mysqli_character_set_name($link);
+  printf ("Current character set is %s\n",$charset);
+  
+  /* close connection */
+  mysqli_close($link);
+?>
+
+The above example will output:
+
+  Current character set is latin1_swedish_ci
+
+vim:ft=help:

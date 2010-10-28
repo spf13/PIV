@@ -1,0 +1,8 @@
+mcve_void -- VOID a transaction in the settlement queue
+
+  int mcve_void(resource conn, string username, string password, int sid, int ptrannum)~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

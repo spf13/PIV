@@ -1,0 +1,69 @@
+pfpro_process -- Process a transaction with Payflow Pro
+
+  array pfpro_process(array parameters [, string address [, int port [, int timeout [, string proxy_address [, int proxy_port [, string proxy_logon [, string proxy_password]]]]]]])~
+
+Returns: An associative array containing the response
+
+|pfpro_process| processes a transaction with Payflow Pro. The first parameter
+is an associative array containing keys and values that will be encoded and
+passed to the processor.
+
+The second parameter is optional and specifies the host to connect to. By
+default this is "test.signio.com", so you will certainly want to change this
+to "connect.signio.com" in order to process live transactions.
+
+The third parameter specifies the port to connect on. It defaults to 443, the
+standard SSL port.
+
+The fourth parameter specifies the timeout to be used, in seconds. This
+defaults to 30 seconds. Note that this timeout appears to only begin once a
+link to the processor has been established and so your script could
+potentially continue for a very long time in the event of DNS or network
+problems.
+
+The fifth parameter, if required, specifies the hostname of your SSL proxy.
+The sixth parameter specifies the port to use.
+
+The seventh and eighth parameters specify the logon identity and password to
+use on the proxy.
+
+The function returns an associative array of the keys and values in the
+response.
+
+Be sure to read the Payflow Pro Developers Guide for full details of the
+required parameters.
+
+Payflow Pro example
+
+<?php >
+  pfpro_init();
+  
+  $transaction = array('USER'    => 'mylogin',
+                       'PWD'     => 'mypassword',
+                       'PARTNER' => 'VeriSign',
+                       'TRXTYPE' => 'S',
+                       'TENDER'  => 'C',
+                       'AMT'     => 1.50,
+                       'ACCT'    => '4111111111111111',
+                       'EXPDATE' => '0904'
+                      );
+  
+  $response = pfpro_process($transaction);
+  
+  if (!$response) {
+    die("Couldn't establish link to Verisign.\n");
+  }
+  
+  echo "Verisign response code was " . $response['RESULT'];
+  echo ", which means: " . $response['RESPMSG'] . "\n";
+  
+  echo "\nThe transaction request: ";
+  print_r($transaction);
+  
+  echo "\nThe response: ";
+  print_r($response);
+  
+  pfpro_cleanup();
+?>
+
+vim:ft=help:

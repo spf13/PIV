@@ -1,0 +1,8 @@
+ircg_invite -- Invites nickname to channel
+
+  bool ircg_invite(resource connection, string channel, string nickname)~
+
+|ircg_invite| will send an invitation to the user {nickname}, prompting him to
+join {channel}. Returns TRUE on success or FALSE on failure.
+
+vim:ft=help:

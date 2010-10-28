@@ -1,0 +1,8 @@
+mcve_returncode -- Grab the exact return code from the transaction
+
+  int mcve_returncode(resource conn, int identifier)~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

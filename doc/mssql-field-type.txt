@@ -1,0 +1,8 @@
+mssql_field_type -- Gets the type of a field
+
+  string mssql_field_type(resource result [, int offset])~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

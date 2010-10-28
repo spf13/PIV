@@ -1,0 +1,19 @@
+chown -- Changes file owner
+
+  bool chown(string filename, mixed user)~
+
+Attempts to change the owner of the file {filename} to user {user} (specified
+by name or number). Only the superuser may change the owner of a file.
+
+Returns TRUE on success or FALSE on failure.
+
+This function will not work on remote files as the file to be examined must be
+accessible via the servers filesystem.
+
+When safe mode is enabled, PHP checks whether the files or directories you are
+about to operate on have the same UID (owner) as the script that is being
+executed.
+
+See also |chmod|.
+
+vim:ft=help:

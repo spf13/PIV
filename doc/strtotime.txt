@@ -1,0 +1,67 @@
+strtotime -- Parse about any English textual datetime description into a Unix
+timestamp
+
+  int strtotime(string time [, int now])~
+
+The function expects to be given a string containing a US English date format
+and will try to parse that format into a Unix timestamp (the number of
+seconds since January 1 1970 00:00:00 GMT), relative to the timestamp given
+in {now}, or the current time if none is supplied.
+
+This function will use the TZ environment variable (if available) to calculate
+the timestamp. Since PHP 5.1.0 there are easier ways to define the timezone
+that is used across all date/time functions. That process is explained in the
+|date_default_timezone_get| function page.
+
+If the number of the year is specified in a two digit format, the values
+between 0-69 are mapped to 2000-2069 and 70-100 to 1970-2000.
+
+{time} The string to parse, according to the GNU Date Input Formats syntax
+
+{now} The timestamp used to calculate the returned value
+
+Returns a timestamp on success, FALSE otherwise. Previous to PHP 5.1.0, this
+function would return -1 on failure.
+
+Version Description 5.1.0 It now returns FALSE on failure, instead of -1.
+
+A |strtotime| example
+
+<?php >
+  echo strtotime("now"), "\n";
+  echo strtotime("10 September 2000"), "\n";
+  echo strtotime("+1 day"), "\n";
+  echo strtotime("+1 week"), "\n";
+  echo strtotime("+1 week 2 days 4 hours 2 seconds"), "\n";
+  echo strtotime("next Thursday"), "\n";
+  echo strtotime("last Monday"), "\n";
+?>
+
+Checking for failure
+
+<?php >
+  $str = 'Not Good';
+  
+  // previous to PHP 5.1.0 you would compare with -1, instead of false
+  if (($timestamp = strtotime($str)) === false) {
+      echo "The string ($str) is bogus";
+  } else {
+      echo "$str == " . date('l dS of F Y h:i:s A', $timestamp);
+  }
+?>
+
+In PHP 5 up to 5.0.2, "now" and other relative times are wrongly computed from
+today's midnight. It differs from other versions where it is correctly
+computed from current time.
+
+The valid range of a timestamp is typically from Fri, 13 Dec 1901 20:45:54 GMT
+to Tue, 19 Jan 2038 03:14:07 GMT. (These are the dates that correspond to the
+minimum and maximum values for a 32-bit signed integer.) Additionally, not
+all platforms support negative timestamps, therefore your date range may be
+limited to no earlier than the Unix epoch. This means that e.g. dates prior
+to Jan 1, 1970 will not work on Windows, some Linux distributions, and a few
+other operating systems.
+
+|strptime|
+
+vim:ft=help:

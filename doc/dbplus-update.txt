@@ -1,0 +1,13 @@
+dbplus_update -- Update specified tuple in relation
+
+  int dbplus_update(resource relation, array old, array new)~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+|dbplus_update| replaces the tuple given by {old} with the data from {new} if
+and only if {old} completely matches a tuple within {relation}.
+
+vim:ft=help:

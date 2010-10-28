@@ -1,0 +1,12 @@
+fam_suspend_monitor -- Temporarily suspend monitoring
+
+  bool fam_suspend_monitor(resource fam, resource fam_monitor)~
+
+|fam_suspend_monitor| temporarily suspend monitoring of a resource previously
+requested using one of the fam_monitor_ functions. Monitoring can later be
+continued using |fam_resume_monitor| without the need of requesting a
+complete new monitor.
+
+See also |fam_resume_monitor|, and |fam_cancel_monitor|.
+
+vim:ft=help:

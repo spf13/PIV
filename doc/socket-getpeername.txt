@@ -1,0 +1,26 @@
+socket_getpeername -- Queries the remote side of the given socket which may
+either result in host/port or in a Unix filesystem path, dependent on its
+type
+
+  bool socket_getpeername(resource socket, string addr [, int port])~
+
+If the given socket is of type AF_INET or AF_INET6, |socket_getpeername| will
+return the peers (remote) IP address in appropriate notation (e.g. 127.0.0.1
+or fe80::1) in the {address} parameter and, if the optional {port} parameter
+is present, also the associated port.
+
+If the given socket is of type AF_UNIX, |socket_getpeername| will return the
+Unix filesystem path (e.g. /var/run/daemon.sock) in the {address} parameter.
+
+|socket_getpeername| should not be used with AF_UNIX sockets created with
+|socket_accept|. Only sockets created with |socket_connect| or a primary
+server socket following a call to |socket_bind| will return meaningful
+values.
+
+Returns TRUE on success or FALSE on failure. |socket_getpeername| may also
+return FALSE if the socket type is not any of AF_INET, AF_INET6, or AF_UNIX,
+in which case the last socket error code is not updated.
+
+See also |socket_getsockname|, |socket_last_error| and |socket_strerror|.
+
+vim:ft=help:

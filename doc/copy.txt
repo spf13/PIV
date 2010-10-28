@@ -1,0 +1,32 @@
+copy -- Copies file
+
+  bool copy(string source, string dest)~
+
+Makes a copy of the file {source} to {dest}. Returns TRUE on success or FALSE
+on failure. |copy| example
+
+<?php >
+  $file = 'example.txt';
+  $newfile = 'example.txt.bak';
+  
+  if (!copy($file, $newfile)) {
+      echo "failed to copy $file...\n";
+  }
+?>
+
+If you wish to move a file, use the |rename| function.
+
+As of PHP 4.3.0, both {source} and {dest} may be URLs if the "fopen wrappers"
+have been enabled. See |fopen| for more details. If {dest} is a URL, the copy
+operation may fail if the wrapper does not support overwriting of existing
+files.
+
+If the destination file already exists, it will be overwritten.
+
+Windows compatibility: If you copy a file with no size, |copy| will return
+FALSE, but the file will be correctly copied.
+
+See also |move_uploaded_file|, |rename|, and the section of the manual about
+handling file uploads.
+
+vim:ft=help:

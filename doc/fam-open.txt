@@ -1,0 +1,11 @@
+fam_open -- Open connection to FAM daemon
+
+  resource fam_open([string appname])~
+
+|fam_open| opens a connection to the FAM service daemon. The optional
+parameter {appname} should be set to a string identifying the application for
+logging reasons.
+
+See also |fam_close|.
+
+vim:ft=help:

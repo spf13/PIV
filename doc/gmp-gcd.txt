@@ -1,0 +1,19 @@
+gmp_gcd -- Calculate GCD
+
+  resource gmp_gcd(resource a, resource b)~
+
+Calculate greatest common divisor of {a} and {b}. The result is always
+positive even if either of, or both, input operands are negative.
+
+|gmp_gcd| example
+
+<?php >
+  $gcd = gmp_gcd("12", "21");
+  echo gmp_strval($gcd) . "\n";
+?>
+
+The printout of the above program will be:
+
+  3
+
+vim:ft=help:

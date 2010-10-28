@@ -1,0 +1,10 @@
+xml_set_processing_instruction_handler -- Set up processing instruction (PI)
+handler
+
+  bool xml_set_processing_instruction_handler(resource parser, callback handler)~
+
+Sets the processing instruction (PI) handler function for the XML parser
+{parser}. {handler} is a string containing the name of a function that must
+exist when |xml_parse| is called for {parser}.
+
+vim:ft=help:

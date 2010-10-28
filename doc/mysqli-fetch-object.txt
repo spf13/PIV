@@ -1,0 +1,90 @@
+result->fetch_object -- Returns the current row of a result set as an object
+
+Procedural style:
+
+  mixed mysqli_fetch_object(mysqli_result result)~
+
+Object oriented style (method):
+
+  mixed fetch_object(mysqli_result result)~
+
+The |mysqli_fetch_object| will return the current row result set as an object
+where the attributes of the object represent the names of the fields found
+within the result set. If no more rows exist in the current result set, NULL
+is returned.
+
+Returns an object that corresponds to the fetched row or NULL if there are no
+more rows in resultset.
+
+Field names returned by this function are case-sensitive.
+
+This function sets NULL fields to PHP NULL value.
+
+|mysqli_fetch_array|, |mysqli_fetch_assoc|, |mysqli_fetch_row|, |mysqli_query|
+and |mysqli_data_seek|.
+
+Object oriented style
+
+<?php >
+  $mysqli = new mysqli("localhost", "my_user", "my_password", "world");
+  
+  /* check connection */
+  if (mysqli_connect_errno()) {
+      printf("Connect failed: %s\n", mysqli_connect_error());
+      exit();
+  }
+   
+  $query = "SELECT Name, CountryCode FROM City ORDER by ID DESC LIMIT 50,5";
+  
+  if ($result = $mysqli->query($query)) {
+  
+      /* fetch object array */
+      while ($obj = $result->fetch_object()) {
+          printf ("%s (%s)\n", $obj->Name, $obj->CountryCode);
+      }
+  
+      /* free result set */
+      $result->close();
+  }
+  
+  /* close connection */
+  $mysqli->close();
+?>
+
+Procedural style
+
+<?php >
+  $link = mysqli_connect("localhost", "my_user", "my_password", "world");
+  
+  /* check connection */
+  if (mysqli_connect_errno()) {
+      printf("Connect failed: %s\n", mysqli_connect_error());
+      exit();
+  }
+  
+  $query = "SELECT Name, CountryCode FROM City ORDER by ID DESC LIMIT 50,5";
+  
+  if ($result = mysqli_query($link, $query)) {
+  
+      /* fetch associative array */
+      while ($obj = mysqli_fetch_object($result)) {
+          printf ("%s (%s)\n", $obj->Name, $obj->CountryCode);
+      }
+  
+      /* free result set */
+      mysqli_free_result($result);
+  }
+  
+  /* close connection */
+  mysqli_close($link);
+?>
+
+The above example will output:
+
+  Pueblo (USA)
+  Arvada (USA)
+  Cape Coral (USA)
+  Green Bay (USA)
+  Santa Clara (USA)
+
+vim:ft=help:

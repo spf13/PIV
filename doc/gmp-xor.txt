@@ -1,0 +1,22 @@
+gmp_xor -- Logical XOR
+
+  resource gmp_xor(resource a, resource b)~
+
+Calculates logical exclusive OR (XOR) of two GMP numbers.
+
+|gmp_xor| example
+
+<?php >
+  $xor1 = gmp_init("1101101110011101", 2);
+  $xor2 = gmp_init("0110011001011001", 2);
+  
+  $xor3 = gmp_xor($xor1, $xor2);
+  
+  echo gmp_strval($xor3, 2) . "\n";
+?>
+
+The printout of the above program will be:
+
+  1011110111000100
+
+vim:ft=help:

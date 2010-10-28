@@ -1,0 +1,9 @@
+posix_getegid -- Return the effective group ID of the current process
+
+  int posix_getegid()~
+
+Return the numeric effective group ID of the current process. See also
+|posix_getgrgid| for information on how to convert this into a useable group
+name.
+
+vim:ft=help:

@@ -1,0 +1,14 @@
+symlink -- Creates a symbolic link
+
+  bool symlink(string target, string link)~
+
+|symlink| creates a symbolic link from the existing {target} with the
+specified name {link}.
+
+Returns TRUE on success or FALSE on failure.
+
+This function is not implemented on Windows platforms.
+
+See also |link| to create hard links, and |readlink| along with |linkinfo|.
+
+vim:ft=help:

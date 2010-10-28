@@ -1,0 +1,9 @@
+fdf_close -- Close an FDF document
+
+  void fdf_close(resource fdf_document)~
+
+The |fdf_close| function closes the FDF document.
+
+See also |fdf_open|.
+
+vim:ft=help:

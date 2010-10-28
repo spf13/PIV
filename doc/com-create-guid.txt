@@ -1,0 +1,11 @@
+com_create_guid -- Generate a globally unique identifier (GUID)
+
+  string com_create_guid()~
+
+Generates a Globally Unique Identifier (GUID) and returns it as a string. A
+GUID is generated in the same way as DCE UUID's, except that the Microsoft
+convention is to enclose a GUID in curly braces.
+
+See also |uuid_create| in the PECL uuid extension.
+
+vim:ft=help:

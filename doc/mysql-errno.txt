@@ -1,0 +1,45 @@
+mysql_errno -- Returns the numerical value of the error message from previous
+MySQL operation
+
+  int mysql_errno([resource link_identifier])~
+
+Returns the error number from the last MySQL function.
+
+Errors coming back from the MySQL database backend no longer issue warnings.
+Instead, use |mysql_errno| to retrieve the error code. Note that this
+function only returns the error code from the most recently executed MySQL
+function (not including |mysql_error| and |mysql_errno|), so if you want to
+use it, make sure you check the value before calling another MySQL function.
+
+{ link_identifier}The MySQL connection. If the link identifier is not
+specified, the last link opened by |mysql_connect| is assumed. If no such
+link is found, it will try to create one as if |mysql_connect| was called
+with no arguments. If by chance no connection is found or established, an
+E_WARNING level warning is generated.
+
+Returns the error number from the last MySQL function, or 0 (zero) if no error
+occurred.
+
+|mysql_errno| example
+
+<?php >
+  $link = mysql_connect("localhost", "mysql_user", "mysql_password");
+  
+  if (!mysql_select_db("nonexistentdb", $link)) {
+      echo mysql_errno($link) . ": " . mysql_error($link). "\n";
+  }
+  
+  mysql_select_db("kossu", $link);
+  if (!mysql_query("SELECT * FROM nonexistenttable", $link)) {
+      echo mysql_errno($link) . ": " . mysql_error($link) . "\n";
+  }
+?>
+
+The above example will output something similar to:
+
+  1049: Unknown database 'nonexistentdb'
+  1146: Table 'kossu.nonexistenttable' doesn't exist
+
+|mysql_error| MySQL error codes
+
+vim:ft=help:

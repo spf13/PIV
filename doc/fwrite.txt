@@ -1,0 +1,53 @@
+fwrite -- Binary-safe file write
+
+  int fwrite(resource handle, string string [, int length])~
+
+|fwrite| writes the contents of {string} to the file stream pointed to by
+{handle}. If the {length} argument is given, writing will stop after {length}
+bytes have been written or the end of {string} is reached, whichever comes
+first.
+
+|fwrite| returns the number of bytes written, or FALSE on error.
+
+Note that if the {length} argument is given, then the magic_quotes_runtime
+configuration option will be ignored and no slashes will be stripped from
+{string}.
+
+On systems which differentiate between binary and text files (i.e. Windows)
+the file must be opened with 'b' included in |fopen| mode parameter.
+
+A simple |fwrite| example
+
+<?php >
+  $filename = 'test.txt';
+  $somecontent = "Add this to the file\n";
+  
+  // Let's make sure the file exists and is writable first.
+  if (is_writable($filename)) {
+  
+      // In our example we're opening $filename in append mode.
+      // The file pointer is at the bottom of the file hence 
+      // that's where $somecontent will go when we fwrite() it.
+      if (!$handle = fopen($filename, 'a')) {
+           echo "Cannot open file ($filename)";
+           exit;
+      }
+  
+      // Write $somecontent to our opened file.
+      if (fwrite($handle, $somecontent) === FALSE) {
+          echo "Cannot write to file ($filename)";
+          exit;
+      }
+      
+      echo "Success, wrote ($somecontent) to file ($filename)";
+      
+      fclose($handle);
+  
+  } else {
+      echo "The file $filename is not writable";
+  }
+?>
+
+See also |fread|, |fopen|, |fsockopen|, |popen|, and |file_put_contents|.
+
+vim:ft=help:

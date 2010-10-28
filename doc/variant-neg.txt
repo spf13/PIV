@@ -1,0 +1,7 @@
+variant_neg -- Performs logical negation on a variant
+
+  mixed variant_neg(mixed variant)~
+
+Performs logical negation of {variant} and returns the result.
+
+vim:ft=help:

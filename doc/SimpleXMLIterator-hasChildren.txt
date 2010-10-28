@@ -1,0 +1,9 @@
+SimpleXMLIterator::hasChildren -- Returns whether current entry is a SimpleXML
+object
+
+  bool SimpleXMLIterator::hasChildren()~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

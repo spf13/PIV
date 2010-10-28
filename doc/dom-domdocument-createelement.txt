@@ -1,0 +1,36 @@
+DOMDocument->createElement() -- Create new element node
+
+  DOMElement createElement(string name [, string value])~
+
+This function creates a new instance of class DOMElement. This node will not
+show up in the document unless it is inserted with e.g.
+DOMNode->appendChild().
+
+{name} The tag name of the element.
+
+{value} The value of the element. By default, an empty element will be
+created. You can also set the value later with DOMElement->nodeValue.
+
+Returns a new instance of class DOMElement or FALSE if an error occured.
+
+DOM_INVALID_CHARACTER_ERR Raised if {name} contains an invalid character.
+
+Creating a new element and inserting it as root
+
+<?php >
+  $dom = new DOMDocument('1.0', 'iso-8859-1');
+  
+  $element = $dom->createElement('test', 'This is the root element!');
+  
+  // We insert the new element as root (child of the document)
+  $dom->appendChild($element);
+  
+  echo $dom->saveXML();
+?>
+
+The above example will output:
+
+  <?xml version="1.0" encoding="iso-8859-1"?>
+  <test>This is the root element!</test>
+
+vim:ft=help:

@@ -1,0 +1,16 @@
+tan -- Tangent
+
+  float tan(float arg)~
+
+|tan| returns the tangent of the {arg} parameter. The {arg} parameter is in
+radians.
+
+|tan| example
+
+<?php >
+  echo tan(M_PI_4); // 1
+?>
+
+See also: |atan|, |sin|, |cos|, and |deg2rad|.
+
+vim:ft=help:

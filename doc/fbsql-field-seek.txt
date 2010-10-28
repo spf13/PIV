@@ -1,0 +1,11 @@
+fbsql_field_seek -- Set result pointer to a specified field offset
+
+  bool fbsql_field_seek(resource result [, int field_offset])~
+
+Seeks to the specified field offset. If the next call to |fbsql_fetch_field|
+doesn't include a field offset, the field offset specified in
+|fbsql_field_seek| will be returned.
+
+See also: |fbsql_fetch_field|.
+
+vim:ft=help:

@@ -1,0 +1,8 @@
+pdf_get_parameter -- Gets certain parameters
+
+  string pdf_get_parameter(resource pdfdoc, string key, float modifier)~
+
+Get the contents of some PDFlib parameter with string type. Parameter
+{modifier} is optional before PHP 4.3.5 or with PDFlib less than 5.
+
+vim:ft=help:

@@ -1,0 +1,8 @@
+mcal_event_set_alarm -- Sets the alarm of the streams global event structure
+
+  void mcal_event_set_alarm(int stream, int alarm)~
+
+|mcal_event_set_alarm| sets the streams global event structure's alarm to the
+given minutes before the event.
+
+vim:ft=help:

@@ -1,0 +1,8 @@
+mssql_fetch_batch -- Returns the next batch of records
+
+  int mssql_fetch_batch(resource result_index)~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

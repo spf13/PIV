@@ -1,0 +1,28 @@
+fbsql_list_dbs -- List databases available on a FrontBase server
+
+  resource fbsql_list_dbs([resource link_identifier])~
+
+|fbsql_list_dbs| will return a result pointer containing the databases
+available from the current fbsql daemon. Use the |fbsql_tablename| function
+to traverse this result pointer.
+
+|fbsql_list_dbs| example
+
+  $link = fbsql_connect('localhost', 'myname', 'secret');
+  $db_list = fbsql_list_dbs($link);
+  
+  while ($row = fbsql_fetch_object($db_list)) {
+      echo $row->Database . "\n";
+  }
+
+The above example will output:
+
+  database1
+  database2
+  database3
+  ...
+
+The above code would just as easily work with |fbsql_fetch_row| or other
+similar functions.
+
+vim:ft=help:

@@ -1,0 +1,18 @@
+ldap_get_values_len -- Get all binary values from a result entry
+
+  array ldap_get_values_len(resource link_identifier, resource result_entry_identifier, string attribute)~
+
+Returns an array of values for the attribute on success and FALSE on error.
+
+|ldap_get_values_len| function is used to read all the values of the attribute
+in the entry in the result. entry is specified by the
+{result_entry_identifier}. The number of values can be found by indexing
+"count" in the resultant array. Individual values are accessed by integer
+index in the array. The first index is 0.
+
+This function is used exactly like |ldap_get_values| except that it handles
+binary data and not string data.
+
+This function was added in 4.0.
+
+vim:ft=help:

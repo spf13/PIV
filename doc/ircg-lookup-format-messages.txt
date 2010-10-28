@@ -1,0 +1,11 @@
+ircg_lookup_format_messages -- Check for the existence of a format message set
+
+  bool ircg_lookup_format_messages(string name)~
+
+Check for the existence of the format message set {name}. Sets may be
+registered with |ircg_register_format_messages|, a default set named ircg is
+always available. Returns TRUE, if the set exists and FALSE otherwise.
+
+See also: |ircg_register_format_messages|
+
+vim:ft=help:

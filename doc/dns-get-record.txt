@@ -1,0 +1,240 @@
+dns_get_record -- Fetch DNS Resource Records associated with a hostname
+
+  array dns_get_record(string hostname [, int type [, array authns, array addtl]])~
+
+This function is not implemented on Windows platforms, nor does it (currently)
+work on *BSD systems. Try the PEAR class Net_DNS.
+
+This function returns an array of associative arrays. Each associative array
+contains at minimum the following keys: Basic DNS attributes Attribute
+Meaning host The record in the DNS namespace to which the rest of the
+associated data refers. class |dns_get_record| only returns Internet class
+records and as such this parameter will always return IN. type String
+containing the record type. Additional attributes will also be contained in
+the resulting array dependant on the value of type. See table below. ttl Time
+To Live remaining for this record. This will not equal the record's original
+ttl, but will rather equal the original ttl minus whatever length of time has
+passed since the authoritative name server was queried.
+
+{hostname} should be a valid DNS hostname such as "www.example.com". Reverse
+lookups can be generated using in-addr.arpa notation, but |gethostbyaddr| is
+more suitable for the majority of reverse lookups.
+
+By default, |dns_get_record| will search for any resource records associated
+with {hostname}. To limit the query, specify the optional {type} parameter.
+{type} may be any one of the following: DNS_A, DNS_CNAME, DNS_HINFO, DNS_MX,
+DNS_NS, DNS_PTR, DNS_SOA, DNS_TXT, DNS_AAAA, DNS_SRV, DNS_NAPTR, DNS_A6,
+DNS_ALL or DNS_ANY. The default is DNS_ANY. Because of eccentricities in the
+performance of libresolv between platforms, DNS_ANY will not always return
+every record, the slower DNS_ALL will collect all records more reliably.
+
+The optional third and fourth arguments to this function, {authns} and {addtl}
+are passed by reference and, if given, will be populated with Resource Records
+for the Authoritative Name Servers, and any Additional Records respectively.
+See the example below.
+
+Other keys in associative arrays dependant on 'type' Type Extra Columns A ip:
+An IPv4 addresses in dotted decimal notation. MX pri: Priority of mail
+exchanger. Lower numbers indicate greater priority. target: FQDN of the mail
+exchanger. See also |dns_get_mx|. CNAME target: FQDN of location in DNS
+namespace to which the record is aliased. NS target: FQDN of the name server
+which is authoritative for this hostname. PTR target: Location within the DNS
+namespace to which this record points. TXT txt: Arbitrary string data
+associated with this record. HINFO cpu: IANA number designating the CPU of
+the machine referenced by this record. os: IANA number designating the
+Operating System on the machine referenced by this record. See IANA's
+Operating System Names for the meaning of these values. SOA mname: FQDN of
+the machine from which the resource records originated. rname: Email address
+of the administrative contain for this domain. serial: Serial # of this
+revision of the requested domain. refresh: Refresh interval (seconds)
+secondary name servers should use when updating remote copies of this domain.
+retry: Length of time (seconds) to wait after a failed refresh before making a
+second attempt. expire: Maximum length of time (seconds) a secondary DNS
+server should retain remote copies of the zone data without a successful
+refresh before discarding. minimum-ttl: Minimum length of time (seconds) a
+client can continue to use a DNS resolution before it should request a new
+resolution from the server. Can be overridden by individual resource records.
+AAAA ipv6: IPv6 address A6(PHP >= 5.1.0) masklen: Length (in bits) to inherit
+from the target specified by {chain}. ipv6: Address for this specific record
+to merge with {chain}. chain: Parent record to merge with {ipv6} data. SRV
+pri: (Priority) lowest priorities should be used first. weight: Ranking to
+weight which of commonly prioritized {targets} should be chosen at random.
+target and port: hostname and port where the requested service can be found.
+For additional information see: RFC 2782 NAPTR order and pref: Equivalent to
+{pri} and {weight} above. flags, services, regex, and replacement: Parameters
+as defined by RFC 2915.
+
+Per DNS standards, email addresses are given in user.host format (for example:
+hostmaster.example.com as opposed to hostmaster@example.com), be sure to check
+this value and modify if necessary before using it with a functions such as
+|mail|.
+
+Using |dns_get_record|
+
+<?php >
+  $result = dns_get_record("php.net");
+  print_r($result);
+?>
+
+Produces output similar to the following:
+
+  Array
+  (
+      [0] => Array
+          (
+              [host] => php.net
+              [type] => MX
+              [pri] => 5
+              [target] => pair2.php.net
+              [class] => IN
+              [ttl] => 6765
+          )
+  
+      [1] => Array
+          (
+              [host] => php.net
+              [type] => A
+              [ip] => 64.246.30.37
+              [class] => IN
+              [ttl] => 8125
+          )
+  
+  )
+
+Since it's very common to want the IP address of a mail server once the MX
+record has been resolved, |dns_get_record| also returns an array in {addtl}
+which contains associate records. {authns} is returned as well containing a
+list of authoritative name servers.
+
+Using |dns_get_record| and DNS_ANY
+
+<?php >
+  /* Request "ANY" record for php.net, 
+     and create $authns and $addtl arrays
+     containing list of name servers and
+     any additional records which go with
+     them */
+  $result = dns_get_record("php.net", DNS_ANY, $authns, $addtl);
+  echo "Result = ";
+  print_r($result);
+  echo "Auth NS = ";
+  print_r($authns);
+  echo "Additional = ";
+  print_r($addtl);
+?>
+
+Produces output similar to the following:
+
+  Result = Array
+  (
+      [0] => Array
+          (
+              [host] => php.net
+              [type] => MX
+              [pri] => 5
+              [target] => pair2.php.net
+              [class] => IN
+              [ttl] => 6765
+          )
+  
+      [1] => Array
+          (
+              [host] => php.net
+              [type] => A
+              [ip] => 64.246.30.37
+              [class] => IN
+              [ttl] => 8125
+          )
+  
+  )
+  Auth NS = Array
+  (
+      [0] => Array
+          (
+              [host] => php.net
+              [type] => NS
+              [target] => remote1.easydns.com
+              [class] => IN
+              [ttl] => 10722
+          )
+  
+      [1] => Array
+          (
+              [host] => php.net
+              [type] => NS
+              [target] => remote2.easydns.com
+              [class] => IN
+              [ttl] => 10722
+          )
+  
+      [2] => Array
+          (
+              [host] => php.net
+              [type] => NS
+              [target] => ns1.easydns.com
+              [class] => IN
+              [ttl] => 10722
+          )
+  
+      [3] => Array
+          (
+              [host] => php.net
+              [type] => NS
+              [target] => ns2.easydns.com
+              [class] => IN
+              [ttl] => 10722
+          )
+  
+  )
+  Additional = Array
+  (
+      [0] => Array
+          (
+              [host] => pair2.php.net
+              [type] => A
+              [ip] => 216.92.131.5
+              [class] => IN
+              [ttl] => 6766
+          )
+  
+      [1] => Array
+          (
+              [host] => remote1.easydns.com
+              [type] => A
+              [ip] => 64.39.29.212
+              [class] => IN
+              [ttl] => 100384
+          )
+  
+      [2] => Array
+          (
+              [host] => remote2.easydns.com
+              [type] => A
+              [ip] => 212.100.224.80
+              [class] => IN
+              [ttl] => 81241
+          )
+  
+      [3] => Array
+          (
+              [host] => ns1.easydns.com
+              [type] => A
+              [ip] => 216.220.40.243
+              [class] => IN
+              [ttl] => 81241
+          )
+  
+      [4] => Array
+          (
+              [host] => ns2.easydns.com
+              [type] => A
+              [ip] => 216.220.40.244
+              [class] => IN
+              [ttl] => 81241
+          )
+  
+  )
+
+See also |dns_get_mx|, and |dns_check_record|
+
+vim:ft=help:

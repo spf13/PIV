@@ -1,0 +1,37 @@
+pfpro_process_raw -- Process a raw transaction with Payflow Pro
+
+  string pfpro_process_raw(string parameters [, string address [, int port [, int timeout [, string proxy_address [, int proxy_port [, string proxy_logon [, string proxy_password]]]]]]])~
+
+Returns: A string containing the response.
+
+|pfpro_process_raw| processes a raw transaction string with Payflow Pro. You
+should really use |pfpro_process| instead, as the encoding rules of these
+transactions are non-standard.
+
+The first parameter in this case is a string containing the raw transaction
+request. All other parameters are the same as with |pfpro_process|. The
+return value is a string containing the raw response.
+
+Be sure to read the Payflow Pro Developers Guide for full details of the
+required parameters and encoding rules. You would be well advised to use
+|pfpro_process| instead.
+
+Payflow Pro raw example
+
+<?php >
+  pfpro_init();
+  
+  $response = pfpro_process_raw("USER=mylogin&amp;PWD[5]=m&ndy&PARTNER=VeriSign&TRXTYPE=S&TENDER=C&AMT=1.50&ACCT=4111111111111111&EXPDATE=0904");
+  
+  if (!$response) {
+    die("Couldn't establish link to Verisign.\n");
+  }
+  
+  echo "Verisign raw response was " . $response;
+  
+  pfpro_cleanup();
+?>
+
+See also |pfpro_process|.
+
+vim:ft=help:

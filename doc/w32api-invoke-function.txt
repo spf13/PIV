@@ -1,0 +1,17 @@
+w32api_invoke_function -- Invokes function funcname with the arguments passed
+after the function name
+
+  mixed w32api_invoke_function(string funcname, mixed argument [, mixed ...])~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+|w32api_invoke_function| tries to find the previously registered function,
+named {funcname}, passing the parameters you provided. The return type is the
+one you set when you registered the function, the value is the one returned by
+the function itself. Any of the arguments can be of any PHP type or
+|w32api_deftype| defined type, as needed.
+
+vim:ft=help:

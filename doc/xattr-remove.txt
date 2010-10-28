@@ -1,0 +1,35 @@
+xattr_remove -- Remove an extended attribute
+
+  bool xattr_remove(string filename, string name [, int flags])~
+
+This function removes an extended attribute of a file.
+
+Extended attributes have two different namespaces: user and root namespace.
+User namespace is available for all users while root namespace is available
+only for user with root privileges. xattr operates on user namespace by
+default, but you can change that using {flags} argument.
+
+{filename} The file from which we remove the attribute.
+
+{name} The name of the attribute to remove.
+
+{flags} Supported xattr flags XATTR_DONTFOLLOW Do not follow the symbolic link
+but operate on symbolic link itself. XATTR_ROOT Set attribute in root
+(trusted) namespace. Requires root privileges.
+
+Returns TRUE on success or FALSE on failure.
+
+Removes all extended attributes of a file
+
+<?php >
+  $file = 'some_file';
+  $attributes = xattr_list($file);
+  
+  foreach ($attributes as $attr_name) {
+      xattr_remove($file, $attr_name);
+  }
+?>
+
+|xattr_list| |xattr_set| |xattr_get|
+
+vim:ft=help:

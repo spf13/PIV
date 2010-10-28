@@ -1,0 +1,18 @@
+msg_set_queue -- Set information in the message queue data structure
+
+  bool msg_set_queue(resource queue, array data)~
+
+|msg_set_queue| allows you to change the values of the msg_perm.uid,
+msg_perm.gid, msg_perm.mode and msg_qbytes fields of the underlying message
+queue data structure. You specify the values you require by setting the value
+of the keys that you require in the {data} array.
+
+Changing the data structure will require that PHP be running as the same user
+that created the queue, owns the queue (as determined by the existing
+msg_perm.xxx fields), or be running with root privileges. root privileges are
+required to raise the msg_qbytes values above the system defined limit.
+
+See also |msg_remove_queue|, |msg_receive|, |msg_stat_queue| and
+|msg_get_queue|.
+
+vim:ft=help:

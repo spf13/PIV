@@ -1,0 +1,5 @@
+imap_header -- Alias of imap_headerinfo
+
+This function is an alias of: |imap_headerinfo|.
+
+vim:ft=help:

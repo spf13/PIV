@@ -1,0 +1,14 @@
+oci_set_prefetch -- Sets number of rows to be prefetched
+
+  bool oci_set_prefetch(resource statement [, int rows])~
+
+Sets the number of rows to be prefetched after successful call to
+|oci_execute|. The default value for {rows} is 1.
+
+In PHP versions before 5.0.0 you must use |ocisetprefetch| instead. This name
+still can be used, it was left as alias of |oci_set_prefetch| for downwards
+compatability. This, however, is deprecated and not recommended.
+
+Returns TRUE on success or FALSE on failure.
+
+vim:ft=help:

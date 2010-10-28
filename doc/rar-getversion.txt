@@ -1,0 +1,19 @@
+Rar::getVersion -- Get version of the archiver used to add the entry
+
+  int Rar::getVersion()~
+
+Get version of the archiver used to add the archive entry.
+
+|Rar::getVersion| example
+
+<?php >
+  $rar_file = rar_open('example.rar') or die("Failed to open Rar archive");
+  
+  $entry = rar_entry_get($rar_file, 'Dir/file.txt') or die("Failed to find such entry");
+  
+  echo "Rar (WinRAR) version used: " . $entry->getVersion();
+?>
+
+|Rar::getVersion| returns FALSE on error.
+
+vim:ft=help:

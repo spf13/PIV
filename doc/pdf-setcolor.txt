@@ -1,0 +1,37 @@
+pdf_setcolor -- Sets fill and stroke color
+
+  bool pdf_setcolor(resource pdfdoc, string type, string colorspace, float c1, float c2, float c3, float c4)~
+
+Set the current color space and color. Returns TRUE on success or FALSE on
+failure. The parameter {type} can be fill, stroke or both to specify that the
+color is set for filling, stroking or both filling and stroking. The parameter
+{colorspace} can be gray, rgb, cmyk, spot or pattern. The parameters {c1},
+{c2}, {c3} and {c4} represent the color components for the color space
+specified by {colorspace}. Except as otherwise noted, the color components
+are floating-point values that range from 0 to 1. Parameters {c2}, {c3} and
+{c4} are optional before PHP 4.3.5 or with PDFlib less than 5.
+
+For gray only {c1} is used.
+
+For rgb parameters {c1}, {c2}, and {c3} specify the red, green and blue values
+respectively.
+
+<?php >
+  // Set fill and stroke colors to white.
+  pdf_setcolor($pdf, "both", "rgb", 1, 1, 1);
+?>
+
+For cmyk, parameters {c1}, {c2}, {c3}, and {c4} are the cyan, magenta, yellow
+and black values, respectively.
+
+<?php >
+  // Set fill and stroke colors to black.
+  pdf_setcolor($pdf, "both", "cmyk", 0, 0, 0, 1);
+?>
+
+For spot, {c1} should be a spot color handles returned by |pdf_makespotcolor|
+and {c2} is a tint value between 0 and 1.
+
+For pattern, {c1} should be a pattern handle returned by |pdf_begin_pattern|.
+
+vim:ft=help:

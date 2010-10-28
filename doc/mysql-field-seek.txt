@@ -1,0 +1,17 @@
+mysql_field_seek -- Set result pointer to a specified field offset
+
+  bool mysql_field_seek(resource result, int field_offset)~
+
+Seeks to the specified field offset. If the next call to |mysql_fetch_field|
+doesn't include a field offset, the field offset specified in
+|mysql_field_seek| will be returned.
+
+{ result}The result resource that is being evaluated. This result comes from a
+call to |mysql_query|.
+
+{ field_offset}The numerical field offset. The {field_offset} starts at 0. If
+{field_offset} does not exist, an error of level E_WARNING is also issued.
+
+|mysql_fetch_field|
+
+vim:ft=help:

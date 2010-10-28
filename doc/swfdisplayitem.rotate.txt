@@ -1,0 +1,18 @@
+SWFDisplayItem->Rotate -- Rotates in relative coordinates
+
+  void swfdisplayitem->rotate(float ddegrees)~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+|swfdisplayitem->rotate| rotates the current object by {ddegrees} degrees from
+its current rotation.
+
+The object may be a |swfshape|, a |swfbutton|, a |swftext| or a |swfsprite|
+object. It must have been added using the |swfmovie->add|.
+
+See also |swfdisplayitem->rotateto|.
+
+vim:ft=help:

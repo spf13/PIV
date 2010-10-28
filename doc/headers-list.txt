@@ -1,0 +1,41 @@
+headers_list -- Returns a list of response headers sent (or ready to send)
+
+  array headers_list()~
+
+|headers_list| will return a numerically indexed array of headers to be sent
+to the browser / client. To determine whether or not these headers have been
+sent yet, use |headers_sent|.
+
+Examples using |headers_list|
+
+<?php >
+  /* setcookie() will add a response header on its own */
+  setcookie('foo', 'bar');
+  
+  /* Define a custom response header
+     This will be ignored by most clients */
+  header("X-Sample-Test: foo");
+  
+  /* Specify plain text content in our response */
+  header('Content-type: text/plain');
+  
+  /* What headers are going to be sent? */
+  var_dump(headers_list());
+?>
+
+this will output :
+
+  array(4) {
+    [0]=>
+    string(29) "X-Powered-By: PHP/5.0.0"
+    [1]=>
+    string(19) "Set-Cookie: foo=bar"
+    [2]=>
+    string(18) "X-Sample-Test: foo"
+    [3]=>
+    string(24) "Content-type: text/plain"
+  }
+
+See Also: |headers_sent|, |header|, and |setcookie|.
+
+vim:ft=help:

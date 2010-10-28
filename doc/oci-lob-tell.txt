@@ -1,0 +1,10 @@
+lob->tell -- Returns current position of internal pointer of large object
+
+  int lob->tell()~
+
+Returns current position of a LOB's internal pointer or FALSE if an error
+occurred.
+
+See also |oci_lob_size| and |oci_lob_eof|.
+
+vim:ft=help:

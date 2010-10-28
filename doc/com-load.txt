@@ -1,0 +1,19 @@
+com_load -- Creates a new reference to a COM component [deprecated]
+
+  resource com_load(string module_name [, string server_name [, int codepage]])~
+
+Equivalent to using the new operator to create an instance of the class. You
+should do that instead of calling this function.
+
+Don't use com_load(), use OO syntax instead
+
+<?php >
+  // do this
+  $obj = new COM($module);
+  // instead of this:
+  $obj = com_load($module);
+?>
+
+This function does not exist in PHP 5; use the class instead.
+
+vim:ft=help:

@@ -1,0 +1,12 @@
+udm_free_agent -- Free mnoGoSearch session
+
+  int udm_free_agent(resource agent)~
+
+Returns TRUE on success or FALSE on failure.
+
+{agent} - link to agent identifier, received ` after call to
+|udm_alloc_agent|.
+
+Freeing up memory allocated for agent session.
+
+vim:ft=help:

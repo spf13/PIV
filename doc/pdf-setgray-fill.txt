@@ -1,0 +1,10 @@
+pdf_setgray_fill -- Sets filling color to gray value
+
+  bool pdf_setgray_fill(resource pdfdoc, float gray)~
+
+Set the current fill color to a gray value between 0 and 1 inclusive. Returns
+TRUE on success or FALSE on failure.
+
+PDFlib V4.0: Deprecated, use |pdf_setcolor| instead.
+
+vim:ft=help:

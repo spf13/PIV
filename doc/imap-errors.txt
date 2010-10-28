@@ -1,0 +1,12 @@
+imap_errors -- This function returns all of the IMAP errors (if any) that have
+occurred during this page request or since the error stack was reset
+
+  array imap_errors()~
+
+This function returns an array of all of the IMAP error messages generated
+since the last |imap_errors| call, or the beginning of the page. When
+|imap_errors| is called, the error stack is subsequently cleared.
+
+See also: |imap_last_error|.
+
+vim:ft=help:

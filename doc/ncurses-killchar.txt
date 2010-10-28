@@ -1,0 +1,14 @@
+ncurses_killchar -- Returns current line kill character
+
+  string ncurses_killchar()~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+|ncurses_killchar| returns the current line kill character.
+
+See also: |ncurses_erasechar|
+
+vim:ft=help:

@@ -1,0 +1,14 @@
+ncurses_instr -- Reads string from terminal screen
+
+  int ncurses_instr(string buffer)~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+|ncurses_instr| returns the number of characters read from the current
+character position until end of line. {buffer} contains the characters.
+Attributes are stripped from the characters.
+
+vim:ft=help:

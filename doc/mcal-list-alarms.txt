@@ -1,0 +1,14 @@
+mcal_list_alarms -- Return a list of events that has an alarm triggered at the
+given datetime
+
+  array mcal_list_alarms(int mcal_stream [, int begin_year, int begin_month, int begin_day, int end_year, int end_month, int end_day])~
+
+Returns an array of event ID's that has an alarm going off between the start
+and end dates, or if just a stream is given, uses the start and end dates in
+the global event structure.
+
+|mcal_list_events| function takes in an optional beginning date and an end
+date for a calendar stream. An array of event id's that are between the given
+dates or the internal event dates are returned.
+
+vim:ft=help:

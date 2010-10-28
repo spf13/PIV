@@ -1,0 +1,9 @@
+udm_clear_search_limits -- Clear all mnoGoSearch search restrictions
+
+  bool udm_clear_search_limits(resource agent)~
+
+|udm_clear_search_limits| resets defined search limitations and returns TRUE.
+
+See also |udm_add_search_limit|.
+
+vim:ft=help:

@@ -1,0 +1,14 @@
+XSLTProcessor->removeParameter() -- Remove parameter
+
+  bool removeParameter(string namespaceURI, string localName)~
+
+Removes a parameter, if set. This will make the processor use the default
+value for the parameter as specified in the stylesheet.
+
+{namespaceURI} The namespace URI of the XSLT parameter.
+
+{localName} The local name of the XSLT parameter.
+
+Returns TRUE on success or FALSE on failure.
+
+vim:ft=help:

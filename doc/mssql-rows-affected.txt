@@ -1,0 +1,8 @@
+mssql_rows_affected -- Returns the number of records affected by the query
+
+  int mssql_rows_affected(resource conn_id)~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

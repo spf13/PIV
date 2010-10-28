@@ -1,0 +1,18 @@
+SWFDisplayItem->scale -- Scales the object in relative coordinates
+
+  void swfdisplayitem->scale(int dx, int dy)~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+|swfdisplayitem->scale| scales the current object by ({dx},{dy}) from its
+current size.
+
+The object may be a |swfshape|, a |swfbutton|, a |swftext| or a |swfsprite|
+object. It must have been added using the |swfmovie->add|.
+
+See also |swfdisplayitem->scaleto|.
+
+vim:ft=help:

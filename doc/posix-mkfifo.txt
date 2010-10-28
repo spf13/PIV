@@ -1,0 +1,8 @@
+posix_mkfifo -- Create a fifo special file (a named pipe)
+
+  bool posix_mkfifo(string pathname, int mode)~
+
+|posix_mkfifo| creates a special FIFO file which exists in the file system and
+acts as a bidirectional communication endpoint for processes.
+
+vim:ft=help:

@@ -1,0 +1,8 @@
+ovrimos_result -- Retrieves the output column
+
+  string ovrimos_result(int result_id, mixed field)~
+
+|ovrimos_result| retrieves the output column specified by {field}, either as a
+string or as an 1-based index. Returns FALSE on failure.
+
+vim:ft=help:

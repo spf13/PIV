@@ -1,0 +1,15 @@
+pdf_show_boxed -- Output text in a box
+
+  int pdf_show_boxed(resource pdfdoc, string text, float left, float top, float width, float height, string mode, string feature)~
+
+Format {text} in the current font and size into the supplied text box
+according to the requested formatting {mode}, which must be one of left,
+right, center, justify or fulljustify. If {width} and {height} are 0, only a
+single line is placed at the point ({left}, {top}) in the requested {mode}.
+Parameter {feature} is optional before PHP 4.3.5 or with PDFlib less than 5.
+
+Returns the number of characters that did not fit in the specified box.
+Returns 0 if all characters fit or the {width} and {height} parameters were
+set to 0 for single-line formatting.
+
+vim:ft=help:

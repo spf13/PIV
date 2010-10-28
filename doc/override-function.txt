@@ -1,0 +1,14 @@
+override_function -- Overrides built-in functions
+
+  bool override_function(string function_name, string function_args, string function_code)~
+
+Syntax similar to create_function(). Overrides built-in functions (replaces
+them in the symbol table).
+
+|override_function| example
+
+<?php >
+  override_function('test', '$a,$b', 'echo "DOING TEST"; return $a * $b;');
+?>
+
+vim:ft=help:

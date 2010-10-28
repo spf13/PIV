@@ -1,0 +1,10 @@
+cpdf_setgray_stroke -- Sets drawing color to gray value
+
+  bool cpdf_setgray_stroke(int pdf_document, float gray_value)~
+
+The |cpdf_setgray_stroke| function sets the current drawing color to the given
+gray value. Returns TRUE on success or FALSE on failure.
+
+See also |cpdf_setrgbcolor_stroke|.
+
+vim:ft=help:

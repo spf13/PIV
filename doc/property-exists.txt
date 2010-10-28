@@ -1,0 +1,32 @@
+property_exists -- Checks if the object or class has a property
+
+  bool property_exists(mixed class, string property)~
+
+This function checks if the given {property} exists in the specified class
+(and if it was declared as public).
+
+As opposed with |isset|, |property_exists| returns TRUE even if the property
+has the value NULL.
+
+{class} A string with the class name or an object of the class to test for
+
+{property} The name of the property
+
+Returns TRUE if the property exists or FALSE otherwise.
+
+A |property_exists| example
+
+<?php >
+  class myClass {
+      public $mine;
+      private $xpto;
+  }
+  
+  var_dump(property_exists('myClass', 'mine'));   //true
+  var_dump(property_exists(new myClass, 'mine')); //true
+  var_dump(property_exists('myClass', 'xpto'));   //false, isn't public
+?>
+
+|method_exists|
+
+vim:ft=help:

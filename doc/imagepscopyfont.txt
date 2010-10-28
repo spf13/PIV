@@ -1,0 +1,23 @@
+imagepscopyfont -- Make a copy of an already loaded font for further
+modification
+
+  int imagepscopyfont(resource fontindex)~
+
+Use this function if you need make further modifications to the font, for
+example extending/condensing, slanting it or changing its character encoding
+vector, but need to keep the original along as well. Note that the font you
+want to copy must be one obtained using |imagepsloadfont|, not a font that is
+itself a copied one. You can although make modifications to it before copying.
+
+If you use this function, you must free the fonts obtained this way yourself
+and in reverse order. Otherwise your script will hang.
+
+In the case everything went right, a valid font index will be returned and can
+be used for further purposes. Otherwise the function returns FALSE and prints
+a message describing what went wrong.
+
+This function is only available if PHP is compiled using --with-t1lib[=DIR].
+
+See also |imagepsloadfont|.
+
+vim:ft=help:

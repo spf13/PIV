@@ -1,0 +1,46 @@
+PDO::errorInfo -- Fetch extended error information associated with the last
+operation on the database handle
+
+  array PDO::errorInfo()~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+|PDO::errorInfo| returns an array of error information about the last
+operation performed by this database handle. The array consists of the
+following fields: Element Information 0 SQLSTATE error code (a five-character
+alphanumeric identifier defined in the ANSI SQL standard). 1 Driver-specific
+error code. 2 Driver-specific error message.
+
+|PDO::errorInfo| only retrieves error information for operations performed
+directly on the database handle. If you create a PDOStatement object through
+|PDO::prepare| or |PDO::query| and invoke an error on the statement handle,
+|PDO::errorInfo| will not reflect the error from the statement handle. You
+must call |PDOStatement::errorInfo| to return the error information for an
+operation performed on a particular statement handle.
+
+Displaying errorInfo() fields for a PDO_ODBC connection to a DB2 database
+
+<?php >
+  /* Provoke an error -- the BONES table does not exist */
+  $err = $dbh->prepare('SELECT skull FROM bones');
+  $err->execute();
+  echo "\nPDO::errorInfo():\n";
+  print_r($err->errorInfo());
+?>
+
+The above example will output:
+
+  PDO::errorInfo():
+  Array
+  (
+      [0] => 42S02
+      [1] => -204
+      [2] => [IBM][CLI Driver][DB2/LINUX] SQL0204N  "DANIELS.BONES" is an undefined name.  SQLSTATE=42704
+  )
+
+|PDO::errorCode| |PDOStatement::errorCode| |PDOStatement::errorInfo|
+
+vim:ft=help:

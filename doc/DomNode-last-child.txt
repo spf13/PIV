@@ -1,0 +1,12 @@
+DomNode->last_child -- Returns last child of node
+
+  domelement DomNode->last_child()~
+
+Returns the last child of the node.
+
+(PHP >= 4.3 only) If no last child is found, NULL is returned.
+
+See also |domnode_first_child|, and |domnode_next_sibling|,
+|domnode_previous_sibling|.
+
+vim:ft=help:

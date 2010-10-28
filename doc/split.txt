@@ -1,0 +1,55 @@
+split -- Split string into array by regular expression
+
+  array split(string pattern, string string [, int limit])~
+
+|preg_split|, which uses a Perl-compatible regular expression syntax, is often
+a faster alternative to |split|. If you don't require the power of regular
+expressions, it is faster to use |explode|, which doesn't incur the overhead
+of the regular expression engine.
+
+Returns an array of strings, each of which is a substring of {string} formed
+by splitting it on boundaries formed by the case-sensitive regular expression
+{pattern}. If {limit} is set, the returned array will contain a maximum of
+{limit} elements with the last element containing the whole rest of {string}.
+If an error occurs, |split| returns FALSE.
+
+To split off the first four fields from a line from /etc/passwd:
+
+|split| example
+
+<?php >
+  list($user, $pass, $uid, $gid, $extra) =
+      split(":", $passwd_line, 5);
+?>
+
+If there are n occurrences of {pattern}, the returned array will contain n+1
+items. For example, if there is no occurrence of {pattern}, an array with
+only one element will be returned. Of course, this is also true if {string}
+is empty.
+
+To parse a date which may be delimited with slashes, dots, or hyphens:
+
+|split| example
+
+<?php >
+  // Delimiters may be slash, dot, or hyphen
+  $date = "04/30/1973";
+  list($month, $day, $year) = split('[/.-]', $date);
+  echo "Month: $month; Day: $day; Year: $year<br />\n";
+?>
+
+For users looking for a way to emulate Perl's @chars = split('', $str)
+behaviour, please see the examples for |preg_split|.
+
+Please note that {pattern} is a regular expression. If you want to split on
+any of the characters which are considered special by regular expressions,
+you'll need to escape them first. If you think |split| (or any other regex
+function, for that matter) is doing something weird, please read the file
+regex.7, included in the regex/ subdirectory of the PHP distribution. It's in
+manpage format, so you'll want to do something along the lines of man
+/usr/local/src/regex/regex.7 in order to read it.
+
+See also: |preg_split|, |spliti|, |explode|, |implode|, |chunk_split|, and
+|wordwrap|.
+
+vim:ft=help:

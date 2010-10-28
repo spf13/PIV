@@ -1,0 +1,13 @@
+SWFMovie->setframes -- Sets the total number of frames in the animation
+
+  void swfmovie->setframes(string numberofframes)~
+
+This function is EXPERIMENTAL. The behaviour of this function, the name of
+this function, and anything else documented about this function may change
+without notice in a future release of PHP. Use this function at your own
+risk.
+
+|swfmovie->setframes| sets the total number of frames in the animation to
+{numberofframes}.
+
+vim:ft=help:

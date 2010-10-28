@@ -1,0 +1,8 @@
+pdf_get_buffer -- Fetch the buffer containing the generated PDF data
+
+  string pdf_get_buffer(resource pdfdoc)~
+
+Get the contents of the PDF output buffer. The result must be used by the
+client before calling any other PDFlib function.
+
+vim:ft=help:

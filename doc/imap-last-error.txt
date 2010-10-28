@@ -1,0 +1,13 @@
+imap_last_error -- This function returns the last IMAP error (if any) that
+occurred during this page request
+
+  string imap_last_error()~
+
+This function returns the full text of the last IMAP error message that
+occurred on the current page. The error stack is untouched; calling
+|imap_last_error| subsequently, with no intervening errors, will return the
+same error.
+
+See also: |imap_errors|.
+
+vim:ft=help:

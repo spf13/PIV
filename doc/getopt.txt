@@ -1,0 +1,27 @@
+getopt -- Gets options from the command line argument list
+
+  array getopt(string options [, array longopts])~
+
+Returns an associative array of option / argument pairs based on the options
+format specified in {options}, or FALSE on an error.
+
+On platforms that have the C function getopt_long, long options can be
+specified with the parameter {longopts} (as of PHP 4.3.0).
+
+<?php >
+  // parse the command line ($GLOBALS['argv'])
+  $options = getopt("f:hp:");
+?>
+
+The {options} parameter may contain the following elements: individual
+characters, and characters followed by a colon to indicate an option argument
+is to follow. For example, an option string x recognizes an option -x, and an
+option string x: recognizes an option and argument -x argument. It does not
+matter if an argument has leading white space.
+
+This function will return an array of option / argument pairs. If an option
+does not have an argument, the value will be set to FALSE.
+
+This function is not implemented on Windows platforms.
+
+vim:ft=help:

@@ -1,0 +1,100 @@
+getimagesize -- Get the size of an image
+
+  array getimagesize(string filename [, array imageinfo])~
+
+The |getimagesize| function will determine the size of any GIF, JPG, PNG, SWF,
+SWC, PSD, TIFF, BMP, IFF, JP2, JPX, JB2, JPC, XBM, or WBMP image file and
+return the dimensions along with the file type and a height/width text string
+to be used inside a normal HTML IMG tag.
+
+If accessing the {filename} image is impossible, or if it isn't a valid
+picture, |getimagesize| will return FALSE and generate an error of level
+E_WARNING.
+
+Support for JPC, JP2, JPX, JB2, XBM, and WBMP became available in PHP 4.3.2.
+Support for SWC exists as of PHP 4.3.0 and TIFF support was added in PHP
+4.2.0
+
+JPEG 2000 support was added in PHP 4.3.2. Note that JPC and JP2 are capable of
+having components with different bit depths. In this case, the value for
+"bits" is the highest bit depth encountered. Also, JP2 files may contain
+multiple JPEG 2000 codestreams. In this case, |getimagesize| returns the
+values for the first codestream it encounters in the root of the file.
+
+The |getimagesize| function does not require the GD image library.
+
+Returns an array with 4 elements. Index 0 contains the width of the image in
+pixels. Index 1 contains the height. Index 2 is a flag indicating the type of
+the image: 1 = GIF, 2 = JPG, 3 = PNG, 4 = SWF, 5 = PSD, 6 = BMP, 7 =
+TIFF(intel byte order), 8 = TIFF(motorola byte order), 9 = JPC, 10 = JP2, 11
+= JPX, 12 = JB2, 13 = SWC, 14 = IFF, 15 = WBMP, 16 = XBM. These values
+correspond to the IMAGETYPE constants that were added in PHP 4.3.0. Index 3
+is a text string with the correct height="yyy" width="xxx" string that can be
+used directly in an IMG tag. getimagesize (file)
+
+<?php >
+  list($width, $height, $type, $attr) = getimagesize("img/flag.jpg");
+  echo "<img src=\"img/flag.jpg\" $attr alt=\"getimagesize() example\" />";
+?>
+
+URL support was added in PHP 4.0.5 getimagesize (URL)
+
+<?php >
+  $size = getimagesize("http://www.example.com/gifs/logo.gif");
+  
+  // if the file name has space in it, encode it properly
+  $size = getimagesize("http://www.example.com/gifs/lo%20go.gif");
+?>
+
+With JPG images, two extra indexes are returned: channels and bits. channels
+will be 3 for RGB pictures and 4 for CMYK pictures. bits is the number of
+bits for each color.
+
+Beginning with PHP 4.3.0, bits and channels are present for other image types,
+too. However, the presence of these values can be a bit confusing. As an
+example, GIF always uses 3 channels per pixel, but the number of bits per
+pixel cannot be calculated for an animated GIF with a global color table.
+
+Some formats may contain no image or may contain multiple images. In these
+cases, |getimagesize| might not be able to properly determine the image size.
+|getimagesize| will return zero for width and height in these cases.
+
+Beginning with PHP 4.3.0, |getimagesize| also returns an additional parameter,
+mime, that corresponds with the MIME type of the image. This information can
+be used to deliver images with correct HTTP Content-type headers:
+getimagesize() and MIME types
+
+<?php >
+  $size = getimagesize($filename);
+  $fp=fopen($filename, "rb");
+  if ($size &amp;& $fp) {
+    header("Content-type: {$size['mime']}");
+    fpassthru($fp);
+    exit;
+  } else {
+    // error
+  }
+?>
+
+The optional {imageinfo} parameter allows you to extract some extended
+information from the image file. Currently, this will return the different
+JPG APP markers as an associative array. Some programs use these APP markers
+to embed text information in images. A very common one is to embed IPTC
+http://www.iptc.org/ information in the APP13 marker. You can use the
+|iptcparse| function to parse the binary APP13 marker into something
+readable.
+
+getimagesize() returning IPTC
+
+<?php >
+  $size = getimagesize("testimg.jpg", $info);
+  if (isset($info["APP13"])) {
+      $iptc = iptcparse($info["APP13"]);
+      var_dump($iptc);
+  }
+?>
+
+See also |image_type_to_mime_type|, |exif_imagetype|, |exif_read_data|, and
+|exif_thumbnail|.
+
+vim:ft=help:

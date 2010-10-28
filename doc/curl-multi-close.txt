@@ -1,0 +1,10 @@
+curl_multi_close -- Close a set of cURL handles
+
+  void curl_multi_close(resource mh)~
+
+This function is currently not documented; only the argument list is
+available.
+
+See also |curl_multi_init| and |curl_close|.
+
+vim:ft=help:

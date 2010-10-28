@@ -1,0 +1,37 @@
+arsort -- Sort an array in reverse order and maintain index association
+
+  bool arsort(array array [, int sort_flags])~
+
+This function sorts an array such that array indices maintain their
+correlation with the array elements they are associated with. This is used
+mainly when sorting associative arrays where the actual element order is
+significant.
+
+Returns TRUE on success or FALSE on failure.
+
+|arsort| example
+
+<?php >
+  $fruits = array("d" => "lemon", "a" => "orange", "b" => "banana", "c" => "apple");
+  arsort($fruits);
+  foreach ($fruits as $key => $val) {
+      echo "$key = $val\n";
+  }
+?>
+
+The above example will output:
+
+  a = orange
+  d = lemon
+  b = banana
+  c = apple
+
+The fruits have been sorted in reverse alphabetical order, and the index
+associated with each element has been maintained.
+
+You may modify the behavior of the sort using the optional parameter
+{sort_flags}, for details see |sort|.
+
+See also |asort|, |rsort|, |ksort|, and |sort|.
+
+vim:ft=help:

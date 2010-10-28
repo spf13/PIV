@@ -1,0 +1,32 @@
+ocirowcount -- Gets the number of affected rows
+
+  int ocirowcount(resource stmt)~
+
+|ocirowcount| returns the number of rows affected for e.g. update-statements.
+This function will not tell you the number of rows that a select will return!
+
+|ocirowcount| example
+
+<?php >
+      echo "<pre>";
+      $conn = OCILogon("scott", "tiger");
+      $stmt = OCIParse($conn, "create table emp2 as select * from emp");
+      OCIExecute($stmt);
+      echo OCIRowCount($stmt) . " rows inserted.<br />";
+      OCIFreeStatement($stmt);
+      $stmt = OCIParse($conn, "delete from emp2");
+      OCIExecute($stmt);
+      echo OCIRowCount($stmt) . " rows deleted.<br />";
+      OCICommit($conn);
+      OCIFreeStatement($stmt);
+      $stmt = OCIParse($conn, "drop table emp2");
+      OCIExecute($stmt);
+      OCIFreeStatement($stmt);
+      OCILogOff($conn);
+      echo "</pre>";
+?>
+
+This function was renamed to |oci_num_rows| after PHP >= 5.0.0. For downward
+compatibility |ocirowcount| can also be used. This is deprecated, however.
+
+vim:ft=help:

@@ -1,0 +1,8 @@
+imagedashedline -- Draw a dashed line
+
+  bool imagedashedline(resource image, int x1, int y1, int x2, int y2, int color)~
+
+This function is deprecated. Use combination of |imagesetstyle| and
+|imageline| instead.
+
+vim:ft=help:

@@ -1,0 +1,8 @@
+posix_ttyname -- Determine terminal device name
+
+  string posix_ttyname(int fd)~
+
+This function is currently not documented; only the argument list is
+available.
+
+vim:ft=help:

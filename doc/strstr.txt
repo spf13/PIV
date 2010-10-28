@@ -1,0 +1,31 @@
+strstr -- Find first occurrence of a string
+
+  string strstr(string haystack, string needle)~
+
+Returns part of {haystack} string from the first occurrence of {needle} to the
+end of {haystack}.
+
+If {needle} is not found, returns FALSE.
+
+If {needle} is not a string, it is converted to an integer and applied as the
+ordinal value of a character.
+
+This function is case-sensitive. For case-insensitive searches, use |stristr|.
+
+|strstr| example
+
+<?php >
+  $email = 'user@example.com';
+  $domain = strstr($email, '@');
+  echo $domain; // prints @example.com
+?>
+
+If you only want to determine if a particular {needle} occurs within
+{haystack}, use the faster and less memory intensive function |strpos|
+instead.
+
+|strstr| has been binary safe since PHP 4.3.0
+
+See also |ereg|, |preg_match|, |stristr|, |strpos|, |strrchr|, and |substr|.
+
+vim:ft=help:

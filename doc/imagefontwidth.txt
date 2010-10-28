@@ -1,0 +1,9 @@
+imagefontwidth -- Get font width
+
+  int imagefontwidth(int font)~
+
+Returns the pixel width of a character in font.
+
+See also |imagefontheight| and |imageloadfont|.
+
+vim:ft=help:
