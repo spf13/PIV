@@ -10,7 +10,7 @@ Special care has been taken to include the best, keep them up to date and make s
 __It doesn't attempt to include the best _programming_ plugins, so you can use the plugins you prefer.__
 
 The bottom of this readme includes a list of many great plugins that work well with PIV. 
-Additionally if you are looking for an excellent VIM configuration, please checkout [The Ultimate VIM Configuration][http://spf13.com/post/ultimate-vim-config].
+If you are looking for an excellent VIM configuration, please checkout [The Ultimate VIM Configuration][http://spf13.com/post/ultimate-vim-config].
 
 ## Features
 
@@ -18,7 +18,7 @@ Additionally if you are looking for an excellent VIM configuration, please check
 _Updated for PHP 5.3_
 
 The list of PHP constants, functions, and classes was updated to be current with PHP 5.3.
-Many new classes were added in the 5.2 branch and the distributed version only covers up
+Many new classes were added in the 5.2 and 5.3 branches and the distributed version only covers up
 to 5.1.4. 
 
 ### Better Fold Support
