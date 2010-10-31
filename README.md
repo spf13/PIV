@@ -1,11 +1,16 @@
 # PHP Integration for VIM
 
 ## Description 
-
-This project contains the most feature complete and up date date php integration for vim. 
+This project contains the most feature complete and up to date PHP Integration for Vim. 
 It began as a fork of the largely outdated VIP (formerly PDV), but has morphed into it's own project. 
 
-It does not include non PHP specific functionality like commenting but rather suggests you use one of the many general purpose plugins that do a great job.. Recommendations provided at the end of this doc.
+It is intended to include the best PHP specific plugins, configurations and resources for editing PHP. 
+Special care has been taken to include the best, keep them up to date and make sure everything plays well together.
+
+__It doesn't attempt to include the best _programming_ plugins, so you can use the plugins you prefer.__
+
+The bottom of this readme includes a list of many great plugins that work well with PIV. 
+Additionally if you are looking for an excellent VIM configuration, please checkout [The Ultimate VIM Configuration][http://spf13.com/post/ultimate-vim-config].
 
 ## Features
 
@@ -32,24 +37,57 @@ To use place cursor on line with class, function or variable definition and type
 
 ### Better Completion
 PHP completion script for use with omniComplete. 
+Using Shawn Biddle's excellent [phpcomplete.vim script](http://www.vim.org/scripts/script.php?script_id=3171)
 
-Completion from current file, tags and php builtin:
+Completion from current file, included files, tags and php builtin:
 	* classes (after new), 
 	* functions  
 	* variables
 	* constants 
 	* language keywords 
 
-After -> and :: options limited to funcs and vars.
+Either use <C-X><C-O> or install [SuperTab](http://www.vim.org/scripts/script.php?script_id=1643) to use.
+By default will show a preview of the function call.
+
+Completion is done via context, for example after -> and :: options limited to funcs and vars.
+
+#### Examples
+Example class which has a TAGS file generated for it somewhere 
+    class SomeClass { 
+      private function _private_method() {} // never shows up in completion list 
+      public static function staticMethod() {} // only shows up when using completion on SomeClass::<C-X><C-O> 
+      public function completeMe() {} // only shows up when using completion on $instance_of_someclass-><C-X><C-O> 
+    } 
+
+#### Non-static completion
+    $instance = new SomeClass; 
+    ... 
+    $instance-><C-X><C-O> to display the omnicompletion menu (see :help ins-completion) 
+    $instance->completeMe(); // will autoselect completeMe since it's the only public non-static method 
+
+#### Static completion
+    SomeClass::<C-X><C-O> to display omnicompletion menu 
+    SomeClass::staticMethod(); // once again will autoselect staticMethod since it's the only public static method 
+
+#### Singleton completion
+    $instance = SomeClass::getInstance(); 
+    $instance-><C-X><C-O> complete just like non-static 
+
+#### Other features
+* Correct restriction of static or standard methods based on context ( show only static methods with :: and only standard with ->) 
+* Real support for self:: and $this-> with the aforementioned context restriction 
+* Constant variable completion (not just define(VARIABLE, 1) but const VARIABLE = 1) 
 
 ### Better indenting w/automatic formatting
 Custom php indenting file for VIM
 
+### Full (and current [5.3]) PHP Manual
+Simply hit K (shift+k) on any function to see full documentation file for that function even offline.
 
 ## Recommendations
 It isn't my intention to provide php specific functionality when a good general purpose solution exists.
 
-The following plugins are recommended and can be found in my [vim config repository](git@github.com:spf13/spf13-vim.git).
+The following plugins are recommended and can be found in my [Ultimate VIM Configuration][http://spf13.com/post/ultimate-vim-config].
 
  * [Snipmate](http://github.com/msanders/snipmate.vim)
  * [NerdCommenter](http://github.com/scrooloose/nerdcommenter.git)
