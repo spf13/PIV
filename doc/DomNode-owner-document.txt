@@ -19,6 +19,10 @@ document of a node
   print_r($children);
 ?>
 
+
+
+
+
 See also |domnode_insert_before|.
 
 vim:ft=help:

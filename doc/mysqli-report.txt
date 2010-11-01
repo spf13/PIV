@@ -7,9 +7,13 @@ development and testing phase. Depending on the flags it reports errors from
 mysqli function calls or queries which don't use an index (or use a bad
 index).
 
-Returns TRUE on success or FALSE on failure.
+{flags} Supported flags Name Description MYSQLI_REPORT_OFF Turns reporting off
+MYSQLI_REPORT_ERROR Report errors from mysqli function calls
+MYSQLI_REPORT_STRICT Report warnings from mysqli function calls
+MYSQLI_REPORT_INDEX Report if no index or bad index was used in a query
+MYSQLI_REPORT_ALL Set all options (report all)
 
-|mysqli_debug| and |mysqli_dump_debug_info|.
+Returns TRUE on success or FALSE on failure.
 
 Object oriented style
 
@@ -34,5 +38,11 @@ Object oriented style
   
   $mysqli->close();
 ?>
+
+
+
+
+
+|mysqli_debug| |mysqli_dump_debug_info|
 
 vim:ft=help:

@@ -29,6 +29,10 @@ function for result tables, such as |mysql_fetch_array|.
   mysql_free_result($result);
 ?>
 
+
+
+
+
 The |mysql_num_rows| function may be used to determine the number of tables in
 the result pointer.
 

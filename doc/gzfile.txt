@@ -21,6 +21,10 @@ An array containing the file, one line per cell.
   }
 ?>
 
+
+
+
+
 |readgzfile| |gzopen|
 
 vim:ft=help:

@@ -1,8 +1,15 @@
 gmp_fact -- Factorial
 
-  resource gmp_fact(int a)~
+  resource gmp_fact(mixed a)~
 
 Calculates factorial (a!) of {a}.
+
+{a} The factorial number.
+
+It can be either a GMP number resource, or a numeric string given that it is
+possible to convert the latter to a number.
+
+A GMP number resource.
 
 |gmp_fact| example
 
@@ -14,9 +21,11 @@ Calculates factorial (a!) of {a}.
   echo gmp_strval($fact2) . "\n";
 ?>
 
-The printout of the above program will be:
+The above example will output:
 
   120
   30414093201713378043612608166064768844377641568960512000000000000
+
+
 
 vim:ft=help:

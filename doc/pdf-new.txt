@@ -1,9 +1,7 @@
-pdf_new -- Creates a new pdf resource
+PDF_new -- Create PDFlib object
 
-  resource pdf_new( )~
+  resource PDF_new()~
 
-Create a new PDF resource, using default error handling and memory management.
-
-See also |pdf_close|.
+Creates a new PDFlib object with default settings.
 
 vim:ft=help:

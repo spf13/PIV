@@ -1,9 +1,9 @@
 OCI-Collection->size -- Returns size of the collection
 
-  int OCI-Collection->size()~
+  int size()~
 
-Returns the number of elements in the collection.
+Returns the size of the collection.
 
-See also |oci_collection_max|.
+Returns the number of elements in the collection or FALSE on error.
 
 vim:ft=help:

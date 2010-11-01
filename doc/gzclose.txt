@@ -17,6 +17,10 @@ Returns TRUE on success or FALSE on failure.
   gzclose($gz);
 ?>
 
+
+
+
+
 |gzopen|
 
 vim:ft=help:

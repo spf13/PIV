@@ -1,5 +1,5 @@
-DomXsltStylesheet->process() -- Applies the XSLT-Transformation on a
-DomDocument Object
+DomXsltStylesheet->process -- Applies the XSLT-Transformation on a DomDocument
+Object
 
   DomDocument process(DomDocument xml_doc [, array xslt_params [, bool is_xpath_param [, string profile_filename]]])~
 
@@ -22,7 +22,7 @@ information.
 
 Returns the result of the processing, as a DomDocument object.
 
-Use and .
+Use |XSLTProcessor::setParameter| and |XSLTProcessor::transform-to-doc|.
 
 Version Description 4.3.0 The {profile_filename} parameter was added.
 

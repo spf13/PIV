@@ -2,11 +2,17 @@ str_rot13 -- Perform the rot13 transform on a string
 
   string str_rot13(string str)~
 
-This function performs the ROT13 encoding on the {str} argument and returns
-the resulting string. The ROT13 encoding simply shifts every letter by 13
-places in the alphabet while leaving non-alpha characters untouched. Encoding
-and decoding are done by the same function, passing an encoded string as
-argument will return the original version.
+Performs the ROT13 encoding on the {str} argument and returns the resulting
+string.
+
+The ROT13 encoding simply shifts every letter by 13 places in the alphabet
+while leaving non-alpha characters untouched. Encoding and decoding are done
+by the same function, passing an encoded string as argument will return the
+original version.
+
+{str} The input string.
+
+Returns the ROT13 version of the given string.
 
 |str_rot13| example
 
@@ -14,7 +20,11 @@ argument will return the original version.
   echo str_rot13('PHP 4.3.0'); // CUC 4.3.0
 ?>
 
-The behaviour of this function was buggy until PHP 4.3.0. Before this, the
-{str} was also modified, as if passed by reference.
+
+
+
+
+Version Description 4.3.0 The behaviour of this function was fixed. Before
+this fix, the {str} was also modified, as if it was passed by reference.
 
 vim:ft=help:

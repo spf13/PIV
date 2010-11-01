@@ -20,6 +20,8 @@ name - column name
 
 table - name of the table the column belongs to
 
+def - default value of the column
+
 max_length - maximum length of the column
 
 not_null - 1 if the column cannot be NULL
@@ -43,7 +45,7 @@ zerofill - 1 if the column is zero-filled
 |mysql_fetch_field| example
 
 <?php >
-  $conn = mysql_connect('localhost:3306', 'user', 'password');
+  $conn = mysql_connect('localhost', 'mysql_user', 'mysql_password');
   if (!$conn) {
       die('Could not connect: ' . mysql_error());
   }
@@ -70,6 +72,7 @@ zerofill - 1 if the column is zero-filled
   primary_key:  $meta->primary_key
   table:        $meta->table
   type:         $meta->type
+  default:      $meta->def
   unique_key:   $meta->unique_key
   unsigned:     $meta->unsigned
   zerofill:     $meta->zerofill
@@ -78,6 +81,10 @@ zerofill - 1 if the column is zero-filled
   }
   mysql_free_result($result);
 ?>
+
+
+
+
 
 Field names returned by this function are case-sensitive.
 

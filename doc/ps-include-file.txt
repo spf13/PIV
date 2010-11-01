@@ -1,0 +1,16 @@
+ps_include_file -- Reads an external file with raw PostScript code
+
+  bool ps_include_file(resource psdoc, string file)~
+
+This function is currently not documented; only its argument list is
+available.
+
+
+
+{psdoc} Resource identifier of the postscript file as returned by |ps_new|.
+
+{file}
+
+Returns TRUE on success or FALSE on failure.
+
+vim:ft=help:

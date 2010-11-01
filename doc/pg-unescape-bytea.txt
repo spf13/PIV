@@ -36,6 +36,10 @@ A string containing the unescaped data.
     echo pg_unescape_bytea($raw);
 ?>
 
+
+
+
+
 |pg_escape_bytea| |pg_escape_string|
 
 vim:ft=help:

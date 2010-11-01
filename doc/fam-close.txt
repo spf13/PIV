@@ -2,7 +2,13 @@ fam_close -- Close FAM connection
 
   void fam_close(resource fam)~
 
-|fam_close| closes a connection to the FAM service previously opened using
-|fam_open|.
+Closes a connection to the FAM service.
+
+{fam} A resource representing a connection to the FAM service returned by
+|fam_open|
+
+No value is returned.
+
+|fam_monitor_open|
 
 vim:ft=help:

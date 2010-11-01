@@ -1,0 +1,14 @@
+gc_enabled -- Returns status of the circular reference collector
+
+  bool gc_enabled()~
+
+This function is currently not documented; only its argument list is
+available.
+
+Returns status of the circular reference collector.
+
+This function has no parameters.
+
+Returns TRUE if the garbage collector is enabled, FALSE otherwise.
+
+vim:ft=help:

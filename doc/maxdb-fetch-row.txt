@@ -1,0 +1,117 @@
+result->fetch_row -- Get a result row as an enumerated array
+
+Procedural style:
+
+  mixed maxdb_fetch_row(resource result)~
+
+Object oriented style (method):
+
+  mixed fetch_row(resource result)~
+
+Returns an array that corresponds to the fetched row, or NULL if there are no
+more rows.
+
+|maxdb_fetch_row| fetches one row of data from the result set represented by
+{result} and returns it as an enumerated array, where each column is stored in
+an array offset starting from 0 (zero). Each subsequent call to the
+|maxdb_fetch_row| function will return the next row within the result set, or
+FALSE if there are no more rows.
+
+|maxdb_fetch_row| returns an array that corresponds to the fetched row or NULL
+if there are no more rows in result set.
+
+This function sets NULL fields to the PHP NULL value.
+
+Object oriented style
+
+<?php >
+  $maxdb = new maxdb("localhost", "MONA", "RED", "DEMODB");
+  
+  /* check connection */
+  if (maxdb_connect_errno()) {
+     printf("Connect failed: %s\n", maxdb_connect_error());
+     exit();
+  }
+  
+  $query = "SELECT name, state FROM hotel.city ORDER by zip";
+  
+  if ($result = $maxdb->query($query)) {
+  
+     /* fetch enumerated array */
+     while ($row = $result->fetch_row()) {
+         printf ("%s (%s)\n", $row[0], $row[1]);
+     }
+  
+     /* free result set */
+     $result->close();
+  }
+  
+  /* close connection */
+  $maxdb->close();
+?>
+
+
+
+Procedural style
+
+<?php >
+  $link = maxdb_connect("localhost", "MONA", "RED", "DEMODB");
+  
+  /* check connection */
+  if (maxdb_connect_errno()) {
+     printf("Connect failed: %s\n", maxdb_connect_error());
+     exit();
+  }
+  
+  $query = "SELECT name, state FROM hotel.city ORDER by zip";
+  
+  if ($result = maxdb_query($link, $query)) {
+  
+     /* fetch enumerated array */
+     while ($row = maxdb_fetch_row($result)) {
+         printf ("%s (%s)\n", $row[0], $row[1]);
+     }
+  
+     /* free result set */
+     maxdb_free_result($result);
+  }
+  
+  /* close connection */
+  maxdb_close($link);
+?>
+
+
+
+The above example will output something similar to:
+
+
+
+  New York (NY)
+  New York (NY)
+  Long Island (NY)
+  Albany (NY)
+  Washington (DC)
+  Washington (DC)
+  Washington (DC)
+  Silver Spring (MD)
+  Daytona Beach (FL)
+  Deerfield Beach (FL)
+  Clearwater (FL)
+  Cincinnati (OH)
+  Detroit (MI)
+  Rosemont (IL)
+  Chicago (IL)
+  Chicago (IL)
+  New Orleans (LA)
+  Dallas (TX)
+  Los Angeles (CA)
+  Hollywood (CA)
+  Long Beach (CA)
+  Palm Springs (CA)
+  Irvine (CA)
+  Santa Clara (CA)
+  Portland (OR)
+
+|maxdb_fetch_array| |maxdb_fetch_assoc| |maxdb_fetch_resource|
+
+vim:ft=help:

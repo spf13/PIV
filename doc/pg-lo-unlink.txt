@@ -29,6 +29,10 @@ Returns TRUE on success or FALSE on failure.
      pg_query($database, "commit");
 ?>
 
+
+
+
+
 |pg_lo_create| |pg_lo_import|
 
 vim:ft=help:

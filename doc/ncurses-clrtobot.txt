@@ -2,15 +2,15 @@ ncurses_clrtobot -- Clear screen from current position to bottom
 
   bool ncurses_clrtobot()~
 
-This function is EXPERIMENTAL. The behaviour of this function, the name of
-this function, and anything else documented about this function may change
-without notice in a future release of PHP. Use this function at your own
-risk.
+This function is EXPERIMENTAL. The behaviour of this function, its name, and
+surrounding documentation may change without notice in a future release of
+PHP. This function should be used at your own risk.
 
-|ncurses_clrtobot| erases all lines from cursor to end of screen and creates
-blanks. Blanks created by |ncurses_clrtobot| have the current background
-rendition. Returns TRUE on success or FALSE on failure.
+Erases all lines from cursor to end of screen and creates blanks. Blanks
+created by |ncurses_clrtobot| have the current background rendition.
 
-See also |ncurses_clear|, and |ncurses_clrtoeol|
+Returns TRUE on success or FALSE on failure.
+
+|ncurses_clear| |ncurses_clrtoeol|
 
 vim:ft=help:

@@ -2,12 +2,13 @@ ncurses_attron -- Turn on the given attributes
 
   int ncurses_attron(int attributes)~
 
-This function is EXPERIMENTAL. The behaviour of this function, the name of
-this function, and anything else documented about this function may change
-without notice in a future release of PHP. Use this function at your own
-risk.
+This function is EXPERIMENTAL. The behaviour of this function, its name, and
+surrounding documentation may change without notice in a future release of
+PHP. This function should be used at your own risk.
 
-This function is currently not documented; only the argument list is
+This function is currently not documented; only its argument list is
 available.
+
+{attributes}
 
 vim:ft=help:

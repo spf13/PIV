@@ -2,18 +2,22 @@ sybase_fetch_object -- Fetch a row as an object
 
   object sybase_fetch_object(resource result [, mixed object])~
 
-Returns an object with properties that correspond to the fetched row, or FALSE
-if there are no more rows.
-
 |sybase_fetch_object| is similar to |sybase_fetch_assoc|, with one difference
 - an object is returned, instead of an array.
 
-Use the second {object} to specify the type of object you want to return. If
-this parameter is omitted, the object will be of type stdClass.
+Speed-wise, the function is identical to |sybase_fetch_array|, and almost as
+quick as |sybase_fetch_row| (the difference is insignificant).
 
-As of PHP 4.3.0, this function will no longer return numeric object members.
+{result}
 
-Old behaviour:
+{object} Use the second {object} to specify the type of object you want to
+return. If this parameter is omitted, the object will be of type stdClass.
+
+Returns an object with properties that correspond to the fetched row, or FALSE
+if there are no more rows.
+
+Version Description 4.3.0 This function will no longer return numeric object
+members. Old behaviour:
 
   object(stdclass)(3) {
     [0]=>
@@ -35,13 +39,15 @@ New behaviour:
     string(3) "bar"
   }
 
+
+
 |sybase_fetch_object| return as Foo
 
 <?php >
       class Foo {
           var $foo, $bar, $baz;
       }
-      
+  
       // {...]
       $qrh= sybase_query('SELECT foo, bar, baz FROM example');
       $foo= sybase_fetch_object($qrh, 'Foo');
@@ -49,9 +55,10 @@ New behaviour:
       // {...]
 ?>
 
-Speed-wise, the function is identical to |sybase_fetch_array|, and almost as
-quick as |sybase_fetch_row| (the difference is insignificant).
 
-See also |sybase_fetch_array| and |sybase_fetch_row|.
+
+
+
+|sybase_fetch_array| |sybase_fetch_row|
 
 vim:ft=help:

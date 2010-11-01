@@ -23,6 +23,10 @@ Returns the number of bytes written, or FALSE on error.
   bzclose($bz);
 ?>
 
+
+
+
+
 |bzread| |bzopen|
 
 vim:ft=help:

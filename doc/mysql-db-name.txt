@@ -29,7 +29,11 @@ returned, use |mysql_error| to determine the nature of the error.
   }
 ?>
 
-For downward compatibility, the following deprecated alias may be used:
+
+
+
+
+For backward compatibility, the following deprecated alias may be used:
 |mysql_dbname|
 
 |mysql_list_dbs| |mysql_tablename|

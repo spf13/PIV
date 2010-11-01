@@ -1,0 +1,12 @@
+m_uwait -- Wait x microsecs
+
+  int m_uwait(int microsecs)~
+
+This function is currently not documented; only its argument list is
+available.
+
+{microsecs}
+
+
+
+vim:ft=help:

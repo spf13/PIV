@@ -1,0 +1,16 @@
+finfo_set_flags -- Set libmagic configuration options
+
+  bool finfo_set_flags(resource finfo, int options)~
+
+  bool set_flags(resource finfo, int options, int options)~
+
+This function sets various Fileinfo options. Options can be set also directly
+in |finfo_open| or other Fileinfo functions.
+
+{finfo} Fileinfo resource returned by |finfo_open|.
+
+{options} One or disjunction of more Fileinfo constants.
+
+Returns TRUE on success or FALSE on failure.
+
+vim:ft=help:

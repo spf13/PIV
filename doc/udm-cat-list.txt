@@ -2,14 +2,21 @@ udm_cat_list -- Get all the categories on the same level with the current one
 
   array udm_cat_list(resource agent, string category)~
 
-Returns an array listing all categories of the same level as the current
-{category} in the categories tree. {agent} is the agent identifier returned
-by a previous call to |>udm_alloc_agent|.
+Gets all the categories on the same level with the current one.
 
 The function can be useful for developing categories tree browser.
 
+{agent} A link to Agent, received after call to |udm_alloc_agent|.
+
+{category}
+
+Returns an array listing all categories of the same level as the current
+{category} in the categories tree.
+
 The returned array consists of pairs. Elements with even index numbers contain
 the category paths, odd elements contain the corresponding category names.
+
+
 
   $array[0] will contain '020300'
     $array[1] will contain 'Audi'
@@ -39,6 +46,10 @@ Following is an example of displaying links of the current level in format:
    }
 ?>
 
-See also |udm_cat_path|.
+
+
+
+
+|udm_cat_path|
 
 vim:ft=help:

@@ -1,0 +1,14 @@
+stats_standard_deviation -- Returns the standard deviation
+
+  float stats_standard_deviation(array a [, bool sample])~
+
+This function is currently not documented; only its argument list is
+available.
+
+{a}
+
+{sample}
+
+
+
+vim:ft=help:

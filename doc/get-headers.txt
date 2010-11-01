@@ -4,11 +4,17 @@ HTTP request
   array get_headers(string url [, int format])~
 
 |get_headers| returns an array with the headers sent by the server in response
-to a HTTP request. Returns FALSE on failure and an error of level E_WARNING
-will be issued.
+to a HTTP request.
 
-If the optional {format} parameter is set to 1, |get_headers| parses the
-response and sets the array's keys.
+{url} The target URL.
+
+{format} If the optional {format} parameter is set to non-zero, |get_headers|
+parses the response and sets the array's keys.
+
+Returns an indexed or associative array with the headers, or FALSE on failure.
+
+Version Description 5.1.3 This function now uses the default stream context,
+which can be set/changed with the |stream_context_get_default| function.
 
 |get_headers| example
 
@@ -47,5 +53,7 @@ The above example will output something similar to:
       [Connection] => close
       [Content-Type] => text/html
   )
+
+
 
 vim:ft=help:

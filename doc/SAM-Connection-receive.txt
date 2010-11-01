@@ -1,0 +1,66 @@
+SAMConnection->receive -- Receive a message from a queue or subscription.
+
+  SAMMessage receive(string target [, array properties])~
+
+{target} The identity of the queue, topic or subscription from which to
+receive the message.
+
+{properties} An optional associative array of properties describing other
+parameters to control the receive operation. Property name Possible values
+SAM_CORRELID Used to request selection of the message to receive based upon
+the correlation id string of the message. SAM_MESSAGEID Used to request
+selection of the message to receive based upon the message id string of the
+message. SAM_WAIT Timeout value in milliseconds to control how long the
+request should block waiting to receive a message before returning with a
+failure if no message is available on the queue or topic. The default value is
+0 meaning wait indefinitely and should be used with caution as the request may
+wait until the overall PHP script processing time limit has expired if no
+message becomes available.
+
+This method returns a SAMMessage object or FALSE if an error occurs.
+
+Receiving a message from a queue
+
+<?php >
+  $msg = $conn->receive('queue://receive/test');
+  
+  if (!$msg) {
+    // The receive failed!
+    echo "Receive failed ($conn->errno) $conn->error";
+  }
+?>
+
+
+
+
+
+Receiving a message from a queue with options In this example the SAM_CORRELID
+option is used to specify a correlation id string to be used to identify the
+message to receive. A wait timeout of 10 seconds is also specified.
+
+<?php >
+  $msg = $conn->receive('queue://receive/test', array(SAM_CORRELID => $token, SAM_WAIT => 10000));
+?>
+
+
+
+Receiving a message from a subscription In this example we show how to receive
+a message from a subscription id.
+
+<?php >
+  $msg = $conn->receive($subscriptionName);
+  
+  if (!$msg) {
+    // The receive failed!
+    echo "Receive failed ($conn->errno) $conn->error";
+  }
+?>
+
+Please note that $subscriptionName is a subscription id returned from an
+earlier subscribe call.
+
+
+
+
+
+vim:ft=help:

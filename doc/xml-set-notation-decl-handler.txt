@@ -3,8 +3,6 @@ xml_set_notation_decl_handler -- Set up notation declaration handler
   bool xml_set_notation_decl_handler(resource parser, callback handler)~
 
 Sets the notation declaration handler function for the XML parser {parser}.
-{handler} is a string containing the name of a function that must exist when
-|xml_parse| is called for {parser}.
 
 A notation declaration is part of the document's DTD and has the following
 format:
@@ -15,11 +13,15 @@ format:
 See section 4.7 of the XML 1.0 spec for the definition of notation
 declarations.
 
+{parser}
+
+{handler} {handler} is a string containing the name of a function that must
+exist when |xml_parse| is called for {parser}.
+
   bool (resource parser, callback handler, resource parser, string notation_name, string base, string system_id, string public_id)~
 
 The function named by {handler} must accept five parameters: {parser} The
-first parameter, parser, is a reference to the XML parser calling the
-handler.
+first parameter, parser, is a reference to the XML parser calling the handler.
 
 {notation_name} This is the notation's {name}, as per the notation format
 described above.
@@ -35,9 +37,9 @@ empty string.
 If a handler function is set to an empty string, or FALSE, the handler in
 question is disabled.
 
-TRUE is returned if the handler is set up, FALSE if {parser} is not a parser.
-
 Instead of a function name, an array containing an object reference and a
 method name can also be supplied.
+
+Returns TRUE on success or FALSE on failure.
 
 vim:ft=help:

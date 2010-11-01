@@ -1,0 +1,92 @@
+ssh2_connect -- Connect to an SSH server
+
+  resource ssh2_connect(string host [, int port [, array methods [, array callbacks]]])~
+
+Establish a connection to a remote SSH server.
+
+Once connected, the client should verify the server's hostkey using
+|ssh2_fingerprint|, then authenticate using either password or public key.
+
+{host}
+
+{port}
+
+{methods} {methods} may be an associative array with up to four parameters as
+described below.
+
+{methods} may be an associative array with any or all of the following
+parameters. Index Meaning Supported Values* kex List of key exchange methods
+to advertise, comma separated in order of preference.
+diffie-hellman-group1-sha1, diffie-hellman-group14-sha1, and
+diffie-hellman-group-exchange-sha1 hostkey List of hostkey methods to
+advertise, come separated in order of preference. ssh-rsa and ssh-dss
+client_to_server Associative array containing crypt, compression, and message
+authentication code (MAC) method preferences for messages sent from client to
+server. server_to_client Associative array containing crypt, compression, and
+message authentication code (MAC) method preferences for messages sent from
+client to server.
+
+* - Supported Values are dependent on methods supported by underlying library.
+See libssh2 documentation for additional information.
+
+{client_to_server} and {server_to_client} may be an associative array with any
+or all of the following parameters. Index Meaning Supported Values* crypt List
+of crypto methods to advertise, comma separated in order of preference.
+rijndael-cbc@lysator.liu.se, aes256-cbc, aes192-cbc, aes128-cbc, 3des-cbc,
+blowfish-cbc, cast128-cbc, arcfour, and none** comp List of compression
+methods to advertise, comma separated in order of preference. zlib and none
+mac List of MAC methods to advertise, come separated in order of preference.
+hmac-sha1, hmac-sha1-96, hmac-ripemd160, hmac-ripemd160@openssh.com, and
+none**
+
+Crypt and MAC method "none" For security reasons, none is disabled by the
+underlying libssh2 library unless explicitly enabled during build time by
+using the appropriate ./configure options. See documentation for the
+underlying library for more information.
+
+{callbacks} {callbacks} may be an associative array with any or all of the
+following parameters. Callbacks parameters Index Meaning Prototype ignore Name
+of function to call when an SSH2_MSG_IGNORE packet is received void
+ignore_cb($message) debug Name of function to call when an SSH2_MSG_DEBUG
+packet is received void debug_cb($message, $language, $always_display)
+macerror Name of function to call when a packet is received but the message
+authentication code failed. If the callback returns TRUE, the mismatch will be
+ignored, otherwise the connection will be terminated. bool
+macerror_cb($packet) disconnect Name of function to call when an
+SSH2_MSG_DISCONNECT packet is received void disconnect_cb($reason, $message,
+$language)
+
+Returns a resource on success, or FALSE on error.
+
+|ssh2_connect| example Open a connection forcing 3des-cbc when sending
+packets, any strength aes cipher when receiving packets, no compression in
+either direction, and Group1 key exchange.
+
+<?php >
+  /* Notify the user if the server terminates the connection */
+  function my_ssh_disconnect($reason, $message, $language) {
+    printf("Server disconnected with reason code [%d] and message: %s\n",
+           $reason, $message);
+  }
+  
+  $methods = array(
+    'kex' => 'diffie-hellman-group1-sha1',
+    'client_to_server' => array(
+      'crypt' => '3des-cbc',
+      'comp' => 'none'),
+    'server_to_client' => array(
+      'crypt' => 'aes256-cbc,aes192-cbc,aes128-cbc',
+      'comp' => 'none'));
+  
+  $callbacks = array('disconnect' => 'my_ssh_disconnect');
+  
+  $connection = ssh2_connect('shell.example.com', 22, $methods, $callbacks);
+  if (!$connection) die('Connection failed');
+?>
+
+
+
+|ssh2_fingerprint| |ssh2_auth_none| |ssh2_auth_password|
+|ssh2_auth_pubkey_file|
+
+vim:ft=help:

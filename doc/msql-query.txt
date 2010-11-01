@@ -31,6 +31,10 @@ Returns a positive mSQL query identifier on success, or FALSE on error.
   }
 ?>
 
+
+
+
+
 |msql_db_query| |msql_select_db| |msql_connect|
 
 vim:ft=help:

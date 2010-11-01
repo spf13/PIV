@@ -8,23 +8,4 @@ be used to make sure that any data coming from user input is escaped before
 this data is passed to the |exec| or |system| functions, or to the backtick
 operator.
 
-{command} The command that will be escaped.
-
-The escaped string.
-
-|escapeshellcmd| example
-
-<?php >
-  $e = escapeshellcmd($userinput);
-   
-  // here we don't care if $e has spaces
-  system("echo $e");
-  $f = escapeshellcmd($filename);
-   
-  // and here we do, so we use quotes
-  system("touch \"/tmp/$f\"; ls -l \"/tmp/$f\"");
-?>
-
-|escapeshellarg| |exec| |popen| |system| backtick operator
-
 vim:ft=help:

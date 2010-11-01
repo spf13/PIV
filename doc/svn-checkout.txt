@@ -1,0 +1,45 @@
+svn_checkout -- Checks out a working copy from the repository
+
+  bool svn_checkout(string repos, string targetpath [, int revision [, int flags]])~
+
+Checks out a working copy from the repository at {repos} to {targetpath} at
+revision {revision}.
+
+{repos} String URL path to directory in repository to check out.
+
+{targetpath} String local path to directory to check out in to
+
+Relative paths will be resolved as if the current working directory was the
+one that contains the PHP binary. To use the calling script"s working
+directory, use |realpath| or dirname(__FILE__).
+
+{revision} Integer revision number of repository to check out. Default is
+HEAD, the most recent revision.
+
+{flags} Any combination of SVN_NON_RECURSIVE and SVN_IGNORE_EXTERNALS.
+
+Returns TRUE on success or FALSE on failure.
+
+This function is EXPERIMENTAL. The behaviour of this function, its name, and
+surrounding documentation may change without notice in a future release of
+PHP. This function should be used at your own risk.
+
+Basic example This example demonstrates how to check out a directory from a
+repository to a directory named calc:
+
+<?php >
+  svn_checkout('http://www.example.com/svnroot/calc/trunk', dirname(__FILE__) . '/calc');
+?>
+
+The dirname(__FILE__) call is necessary in order to convert the calc relative
+path into an absolute one. If calc exists, you can also use |realpath| to
+retrieve an absolute path.
+
+
+
+
+
+|svn_add| |svn_commit| |svn_status| |svn_update| SVN documentation on svn
+checkout
+
+vim:ft=help:

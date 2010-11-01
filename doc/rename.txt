@@ -4,7 +4,21 @@ rename -- Renames a file or directory
 
 Attempts to rename {oldname} to {newname}.
 
+{oldname}
+
+The old name. The wrapper used in {oldname} must match the wrapper used in
+{newname}.
+
+{newname} The new name.
+
+{context} Context support was added with PHP 5.0.0. For a description of
+contexts, refer to .
+
 Returns TRUE on success or FALSE on failure.
+
+Version Description 5.0.0 |rename| can now also be used with some URL
+wrappers. Refer to for a listing of which wrappers support |rename|. 4.3.3
+|rename| is now able to rename files across partitions on *nix based systems.
 
 Example with |rename|
 
@@ -12,17 +26,10 @@ Example with |rename|
   rename("/tmp/tmp_file.txt", "/home/user/login/docs/my_file.txt");
 ?>
 
-Prior to PHP 4.3.3, |rename| could not rename files across partitions on *nix
-based systems.
 
-As of PHP 5.0.0 |rename| can also be used with some URL wrappers. Refer to for
-a listing of which wrappers support |rename|.
 
-The wrapper used in {oldname} MUST match the wrapper used in {newname}.
 
-Context support was added with PHP 5.0.0. For a description of contexts, refer
-to .
 
-See also |copy|, |unlink|, and |move_uploaded_file|.
+|copy| |unlink| |move_uploaded_file|
 
 vim:ft=help:

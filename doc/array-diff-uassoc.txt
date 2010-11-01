@@ -3,20 +3,32 @@ check which is performed by a user supplied callback function
 
   array array_diff_uassoc(array array1, array array2 [, array ..., callback key_compare_func])~
 
-|array_diff_uassoc| returns an array containing all the values from {array1}
-that are not present in any of the other arguments. Note that the keys are
-used in the comparison unlike |array_diff|.
+Compares {array1} against {array2} and returns the difference. Unlike
+|array_diff| the array keys are used in the comparison.
 
-This comparison is done by a user supplied callback function. It must return
+Unlike |array_diff_assoc| an user supplied callback function is used for the
+indices comparison, not internal function.
+
+{array1} The array to compare from
+
+{array2} An array to compare against
+
+{...} More arrays to compare against
+
+{key_compare_func} callback function to use. The callback function must return
 an integer less than, equal to, or greater than zero if the first argument is
 considered to be respectively less than, equal to, or greater than the second.
-This is unlike |array_diff_assoc| where an internal function for comparing the
-indices is used.
 
-|array_diff_uassoc| example
+Returns an array containing all the entries from {array1} that are not present
+in any of the other arrays.
+
+|array_diff_uassoc| example The "a" => "green" pair is present in both arrays
+and thus it is not in the output from the function. Unlike this, the pair 0 =>
+"red" is in the output because in the second argument "red" has key which is
+1.
 
 <?php >
-  function key_compare_func($a, $b) 
+  function key_compare_func($a, $b)
   {
       if ($a === $b) {
           return 0;
@@ -39,19 +51,18 @@ The above example will output:
       [0] => red
   )
 
-In our example above you see the "a" => "green" pair is present in both arrays
-and thus it is not in the ouput from the function. Unlike this, the pair 0 =>
-"red" is in the ouput because in the second argument "red" has key which is
-1.
-
 The equality of 2 indices is checked by the user supplied callback function.
 
-Please note that this function only checks one dimension of a n-dimensional
-array. Of course you can check deeper dimensions by using, for example,
+
+
+
+
+This function only checks one dimension of a n-dimensional array. Of course
+you can check deeper dimensions by using, for example,
 array_diff_uassoc($array1[0], $array2[0], "key_compare_func");.
 
-See also |array_diff|, |array_diff_assoc|, |array_udiff|, |array_udiff_assoc|,
-|array_udiff_uassoc|, |array_intersect|, |array_intersect_assoc|,
-|array_uintersect|, |array_uintersect_assoc| and |array_uintersect_uassoc|.
+|array_diff| |array_diff_assoc| |array_udiff| |array_udiff_assoc|
+|array_udiff_uassoc| |array_intersect| |array_intersect_assoc|
+|array_uintersect| |array_uintersect_assoc| |array_uintersect_uassoc|
 
 vim:ft=help:

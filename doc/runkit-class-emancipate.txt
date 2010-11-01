@@ -1,0 +1,35 @@
+runkit_class_emancipate -- Convert an inherited class to a base class, removes
+any method whose scope is ancestral
+
+  bool runkit_class_emancipate(string classname)~
+
+{classname} Name of class to emancipate
+
+Returns TRUE on success or FALSE on failure.
+
+A |runkit_class_emancipate| example
+
+<?php >
+  class myParent {
+    function parentFunc () {
+      echo "Parent Function Output\n";
+    }
+  }
+  class myChild extends myParent {
+  }
+  
+  myChild::parentFunc();
+  runkit_class_emancipate('myChild');
+  myChild::parentFunc();
+?>
+
+The above example will output:
+
+  Parent Function Output
+  Fatal error: Call to undefined function:  parentFunc() in example.php on line 12
+
+
+
+|runkit_class_adopt|
+
+vim:ft=help:

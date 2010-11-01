@@ -31,14 +31,12 @@ server process.
 {password} The password. Default value is an empty password.
 
 {client_flags} The {client_flags} parameter can be a combination of the
-following constants: MYSQL_CLIENT_COMPRESS, MYSQL_CLIENT_IGNORE_SPACE or
-MYSQL_CLIENT_INTERACTIVE.
+following constants: 128 (enable LOAD DATA LOCAL handling), MYSQL_CLIENT_SSL,
+MYSQL_CLIENT_COMPRESS, MYSQL_CLIENT_IGNORE_SPACE or MYSQL_CLIENT_INTERACTIVE.
 
 Returns a MySQL persistent link identifier on success, or FALSE on failure.
 
-Version Description 4.3.0 Added the {client_flags} parameter. 3.0.10 Added
-support for ":/path/to/socket" with {server}. 3.0.0 Added support for ":port"
-with {server}.
+Version Description 4.3.0 Added the {client_flags} parameter.
 
 Note, that these kind of links only work if you are using a module version of
 PHP. See the Persistent Database Connections section for more information.

@@ -1,0 +1,16 @@
+newt_form_watch_fd --
+
+  void newt_form_watch_fd(resource form, resource stream [, int flags])~
+
+This function is currently not documented; only its argument list is
+available.
+
+{form}
+
+{stream}
+
+{flags}
+
+No value is returned.
+
+vim:ft=help:

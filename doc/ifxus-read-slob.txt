@@ -1,8 +1,15 @@
 ifxus_read_slob -- Reads nbytes of the slob object
 
-  int ifxus_read_slob(int bid, int nbytes)~
+  string ifxus_read_slob(int bid, int nbytes)~
 
-Reads nbytes of the slob object. {bid} is a existing slob id and {nbytes} is
-the number of bytes read. Return FALSE on error otherwise the string.
+Reads {nbytes} of the slob object.
+
+{bid} An existing slob id.
+
+{nbytes} The number of bytes to read.
+
+Returns the slob contents as a string, or FALSE on errors.
+
+|ifxus_write_slob|
 
 vim:ft=help:

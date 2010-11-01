@@ -1,0 +1,33 @@
+geoip_isp_by_name -- Get the Internet Service Provider (ISP) name
+
+  string geoip_isp_by_name(string hostname)~
+
+The |geoip_isp_by_name| function will return the name of the Internet Service
+Provider (ISP) that an IP is assigned to.
+
+This function is currently only available to users who have bought a
+commercial GeoIP ISP Edition. A warning will be issued if the proper database
+cannot be located.
+
+{hostname} The hostname or IP address.
+
+Returns the ISP name on success, or FALSE if the address cannot be found in
+the database.
+
+A |geoip_isp_by_name| example This will print the ISP name of host
+example.com.
+
+<?php >
+  $isp = geoip_isp_by_name('www.example.com');
+  if ($isp) {
+      echo 'This host IP is from ISP: ' . $isp;
+  }
+?>
+
+The above example will output:
+
+  This host IP is allocated to: ICANN c/o Internet Assigned Numbers Authority
+
+
+
+vim:ft=help:

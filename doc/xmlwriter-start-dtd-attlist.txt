@@ -1,0 +1,23 @@
+XMLWriter::startDTDAttlist -- Create start DTD AttList
+
+Oriented object style
+
+  bool startDTDAttlist(string name)~
+
+Procedural style
+
+  bool xmlwriter_start_dtd_attlist(string name, resource xmlwriter, string name)~
+
+Starts a DTD attribute list.
+
+{ xmlwriter}Only for procedural calls. The XMLWriter resource that is being
+modified. This resource comes from a call to |xmlwriter_open_uri| or
+|xmlwriter_open_memory|.
+
+{name} The attribute list name.
+
+Returns TRUE on success or FALSE on failure.
+
+XMLWriter::endDTDAttlist XMLWriter::writeDTDAttlist
+
+vim:ft=help:

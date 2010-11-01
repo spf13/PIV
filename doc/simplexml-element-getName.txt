@@ -1,0 +1,27 @@
+SimpleXMLElement::getName -- Gets the name of the XML element
+
+  string getName()~
+
+Gets the name of the XML element.
+
+The getName method returns as a string the name of the XML tag referenced by
+the SimpleXMLElement object.
+
+Get XML element names
+
+<?php >
+  $sxe = new SimpleXMLElement($xmlstr);
+  
+  echo $sxe->getName() . "\n";
+  
+  foreach ($sxe->children() as $child)
+  {
+      echo $child->getName() . "\n";
+  }
+?>
+
+
+
+
+
+vim:ft=help:

@@ -26,6 +26,10 @@ Looping over all the records of the database
   }
 ?>
 
-|dbase_num_fields|
+
+
+
+
+|dbase_numfields|
 
 vim:ft=help:

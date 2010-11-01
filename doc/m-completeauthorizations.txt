@@ -1,0 +1,16 @@
+m_completeauthorizations -- Number of complete authorizations in queue,
+returning an array of their identifiers
+
+  int m_completeauthorizations(resource conn, int array)~
+
+This function is currently not documented; only its argument list is
+available.
+
+{ conn}An MCVE_CONN resource returned by |m_initengine|.
+
+{array} Its description
+
+What the function returns, first on success, then on failure. See also the
+Returns &true; on success or &false; on failure. entity
+
+vim:ft=help:

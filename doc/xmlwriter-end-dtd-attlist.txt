@@ -1,0 +1,21 @@
+XMLWriter::endDTDAttlist -- End current DTD AttList
+
+Oriented object style
+
+  bool endDTDAttlist()~
+
+Procedural style
+
+  bool xmlwriter_end_dtd_attlist(resource xmlwriter)~
+
+Ends the current DTD attribute list.
+
+{ xmlwriter}Only for procedural calls. The XMLWriter resource that is being
+modified. This resource comes from a call to |xmlwriter_open_uri| or
+|xmlwriter_open_memory|.
+
+Returns TRUE on success or FALSE on failure.
+
+XMLWriter::startDTDAttlist XMLWriter::writeDTDAttlist
+
+vim:ft=help:

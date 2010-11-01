@@ -4,14 +4,17 @@ Memcache::increment -- Increment item's value
 
 |Memcache::increment| increments value of the item on the specified {value}.
 If item with key {key} was not numeric and cannot be converted to number, it
-will change it's value to {value}.
+will change it's value to {value}. |Memcache::increment| does not create an
+item if it didn't exist. Do not use |Memcache::increment| with item, which was
+stored compressed, because consequent call to |Memcache::get| will fail.
 
-Parameter {value} is optional. It's default value is 1.
+Also you can use |memcache_increment| function.
 
-Do not use |Memcache::increment| with item, which was stored compressed,
-because consequent call to |Memcache::get| will fail.
+{key} Key of the item to increment.
 
-Also you can use |memcache_increment| function. See example below.
+{value} Increment the item by {value}. Optional and defaults to 1.
+
+Returns new item's value on success or FALSE on failure.
 
 |Memcache::increment| example
 
@@ -28,10 +31,10 @@ Also you can use |memcache_increment| function. See example below.
   $current_value = $memcache_obj->increment('counter', 3);
 ?>
 
-|Memcache::increment| returns new item's value on success or FALSE on failure.
 
-|Memcache::increment| does not create an item if it didn't exist.
 
-See also |Memcache::decrement|, |Memcache::replace|.
+
+
+|Memcache::decrement| |Memcache::replace|
 
 vim:ft=help:

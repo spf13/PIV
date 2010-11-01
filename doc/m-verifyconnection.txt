@@ -1,0 +1,15 @@
+m_verifyconnection -- Set whether or not to PING upon connect to verify
+connection
+
+  bool m_verifyconnection(resource conn, int tf)~
+
+This function is currently not documented; only its argument list is
+available.
+
+{ conn}An MCVE_CONN resource returned by |m_initengine|.
+
+{tf}
+
+
+
+vim:ft=help:

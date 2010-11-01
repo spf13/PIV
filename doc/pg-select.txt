@@ -9,20 +9,16 @@ that match the condition specified by assoc_array.
 If options is specified, |pg_convert| is applied to assoc_array with the
 specified flags.
 
-This function is EXPERIMENTAL. The behaviour of this function, the name of
-this function, and anything else documented about this function may change
-without notice in a future release of PHP. Use this function at your own
-risk.
+This function is EXPERIMENTAL. The behaviour of this function, its name, and
+surrounding documentation may change without notice in a future release of
+PHP. This function should be used at your own risk.
 
 {connection} PostgreSQL database connection resource.
 
 {table_name} Name of the table from which to select rows.
 
 {assoc_array} An array whose keys are field names in the table {table_name},
-and whose values are what matched rows are to be updated to.
-
-{condition} An array whose keys are field names in the table {table_name}, and
-whose values are the conditions that a row must meet to be retrieved.
+and whose values are the conditions that a row must meet to be retrieved.
 
 {options} Any number of PGSQL_CONV_FORCE_NULL, PGSQL_DML_NO_CONV,
 PGSQL_DML_EXEC, PGSQL_DML_ASYNC or PGSQL_DML_STRING combined. If
@@ -44,6 +40,10 @@ PGSQL_DML_STRING is passed via {options}.
         echo "User must have sent wrong inputs\n";
     }
 ?>
+
+
+
+
 
 |pg_convert|
 

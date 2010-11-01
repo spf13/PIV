@@ -2,7 +2,13 @@ ncurses_waddstr -- Outputs text at current postion in window
 
   int ncurses_waddstr(resource window, string str [, int n])~
 
-This function is currently not documented; only the argument list is
+This function is currently not documented; only its argument list is
 available.
+
+{window}
+
+{str}
+
+{n}
 
 vim:ft=help:

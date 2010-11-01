@@ -2,14 +2,22 @@ openssl_open -- Open sealed data
 
   bool openssl_open(string sealed_data, string open_data, string env_key, mixed priv_key_id)~
 
-Returns TRUE on success or FALSE on failure. If successful the opened data is
-returned in {open_data}.
-
 |openssl_open| opens (decrypts) {sealed_data} using the private key associated
 with the key identifier {priv_key_id} and the envelope key {env_key}, and
 fills {open_data} with the decrypted data. The envelope key is generated when
 the data are sealed and can only be used by one specific private key. See
 |openssl_seal| for more information.
+
+{sealed_data}
+
+{open_data} If the call is successful the opened data is returned in this
+parameter.
+
+{env_key}
+
+{priv_key_id}
+
+Returns TRUE on success or FALSE on failure.
 
 |openssl_open| example
 
@@ -34,6 +42,10 @@ the data are sealed and can only be used by one specific private key. See
   openssl_free_key($pkeyid);
 ?>
 
-See also |openssl_seal|.
+
+
+
+
+|openssl_seal|
 
 vim:ft=help:

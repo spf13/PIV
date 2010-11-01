@@ -1,20 +1,32 @@
 imagerotate -- Rotate an image with a given angle
 
-  resource imagerotate(resource src_im, float angle, int bgd_color [, int ignore_transparent])~
+  resource imagerotate(resource image, float angle, int bgd_color [, int ignore_transparent])~
 
-Rotates the {src_im} image using a given {angle} in degrees. {bgd_color}
-specifies the color of the uncovered zone after the rotation.
+Rotates the {image} image using the given {angle} in degrees.
 
-The center of rotation is the center of the image, and the rotated image is
-scaled down so that the whole rotated image fits in the destination image -
-the edges are not clipped.
+The center of rotation is the center of the image, and the rotated image may
+have different dimensions than the original image.
 
-If {ignore_transparent} is set and non-zero, transparent colors are ignored
-(otherwise kept). This parameter was added in PHP 5.1.
+
+
+{ image}An image resource, returned by one of the image creation functions,
+such as |imagecreatetruecolor|.
+
+{angle} Rotation angle, in degrees.
+
+{bgd_color} Specifies the color of the uncovered zone after the rotation
+
+{ignore_transparent} If set and non-zero, transparent colors are ignored
+(otherwise kept).
+
+
+
+Version Description 5.1.0 {ignore_transparent} was added.
 
 Rotate an image 180 degrees This example rotates an image 180 degrees - upside
 down.
 
+<?php >
   // File and rotation
   $filename = 'test.jpg';
   $degrees = 180;
@@ -30,6 +42,11 @@ down.
   
   // Output
   imagejpeg($rotate);
+?>
+
+The above example will output something similar to:
+
+
 
 This function is only available if PHP is compiled with the bundled version of
 the GD library.

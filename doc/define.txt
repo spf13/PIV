@@ -2,14 +2,20 @@ define -- Defines a named constant
 
   bool define(string name, mixed value [, bool case_insensitive])~
 
-Defines a named constant. See the section on constants for more details.
+Defines a named constant at runtime.
 
-The name of the constant is given by {name}; the value is given by {value}.
+{name} The name of the constant.
 
-The optional third parameter {case_insensitive} is also available. If the
-value TRUE is given, then the constant will be defined case-insensitive. The
-default behaviour is case-sensitive; i.e. CONSTANT and Constant represent
-different values.
+{value} The value of the constant; only scalar and null values are allowed.
+Scalar values are integer, float, string or boolean values. It is possible to
+define resource constants, however it is not recommended and may cause
+unpredictable behavior.
+
+{case_insensitive} If set to TRUE, the constant will be defined
+case-insensitive. The default behavior is case-sensitive; i.e. CONSTANT and
+Constant represent different values.
+
+Returns TRUE on success or FALSE on failure.
 
 Defining Constants
 
@@ -23,8 +29,10 @@ Defining Constants
   echo Greeting; // outputs "Hello you."
 ?>
 
-Returns TRUE on success or FALSE on failure.
 
-See also |defined|, |constant| and the section on Constants.
+
+
+
+|defined| |constant| The section on Constants
 
 vim:ft=help:

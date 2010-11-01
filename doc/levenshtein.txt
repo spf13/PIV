@@ -1,10 +1,8 @@
 levenshtein -- Calculate Levenshtein distance between two strings
 
-  int levenshtein(string str1, string str2 [, int cost_ins [, int cost_rep, int cost_del]])~
+  int levenshtein(string str1, string str2)~
 
-This function returns the Levenshtein-Distance between the two argument
-strings or -1, if one of the argument strings is longer than the limit of 255
-characters.
+  int levenshtein(string str1, string str2, string str1, string str2, int cost_ins, int cost_rep, int cost_del)~
 
 The Levenshtein distance is defined as the minimal number of characters you
 have to replace, insert or delete to transform {str1} into {str2}. The
@@ -19,6 +17,20 @@ needed to transform {str1} into {str2}.
 A second variant will take three additional parameters that define the cost of
 insert, replace and delete operations. This is more general and adaptive than
 variant one, but not as efficient.
+
+{str1} One of the strings being evaluated for Levenshtein distance.
+
+{str2} One of the strings being evaluated for Levenshtein distance.
+
+{cost_ins} Defines the cost of insertion.
+
+{cost_rep} Defines the cost of replacement.
+
+{cost_del} Defines the cost of deletion.
+
+This function returns the Levenshtein-Distance between the two argument
+strings or -1, if one of the argument strings is longer than the limit of 255
+characters.
 
 |levenshtein| example
 
@@ -73,6 +85,8 @@ The above example will output:
   Input word: carrrot
   Did you mean: carrot?
 
-See also |soundex|, |similar_text|, and |metaphone|.
+
+
+|soundex| |similar_text| |metaphone|
 
 vim:ft=help:

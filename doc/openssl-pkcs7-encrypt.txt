@@ -4,13 +4,29 @@ openssl_pkcs7_encrypt -- Encrypt an S/MIME message
 
 |openssl_pkcs7_encrypt| takes the contents of the file named {infile} and
 encrypts them using an RC2 40-bit cipher so that they can only be read by the
-intended recipients specified by {recipcerts}, which is either a lone X.509
-certificate, or an array of X.509 certificates. {headers} is an array of
-headers that will be prepended to the data after it has been encrypted.
-{flags} can be used to specify options that affect the encoding process - see
-PKCS7 constants. {headers} can be either an associative array keyed by header
-name, or an indexed array, where each element contains a single header line.
-Cipher can be selected with {cipherid} since PHP 5.
+intended recipients specified by {recipcerts}.
+
+{infile}
+
+{outfile}
+
+{recipcerts} Either a lone X.509 certificate, or an array of X.509
+certificates.
+
+{headers} {headers} is an array of headers that will be prepended to the data
+after it has been encrypted.
+
+{headers} can be either an associative array keyed by header name, or an
+indexed array, where each element contains a single header line.
+
+{flags} {flags} can be used to specify options that affect the encoding
+process - see PKCS7 constants.
+
+{cipherid} Cipher can be selected with {cipherid}.
+
+Returns TRUE on success or FALSE on failure.
+
+Version Description 5.0.0 The {cipherid} parameter was added.
 
 |openssl_pkcs7_encrypt| example
 
@@ -46,5 +62,9 @@ Cipher can be selected with {cipherid} since PHP 5.
       exec(ini_get("sendmail_path") . " < enc.txt");
   }
 ?>
+
+
+
+
 
 vim:ft=help:

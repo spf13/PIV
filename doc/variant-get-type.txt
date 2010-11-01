@@ -2,6 +2,10 @@ variant_get_type -- Returns the type of a variant object
 
   int variant_get_type(variant variant)~
 
+Returns the type of a variant object.
+
+{variant} The variant object.
+
 This function returns an integer value that indicates the type of {variant},
 which can be an instance of , or classes. The return value can be compared to
 one of the VT_XXX constants.

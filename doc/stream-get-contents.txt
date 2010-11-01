@@ -11,10 +11,11 @@ string, up to {maxlength} bytes and starting at the specified {offset}.
 {maxlength} (integer) The maximum bytes to read. Defaults to -1 (read all the
 remaining buffer).
 
-{offset} (integer) Seek to the specified offset before reading. Added in PHP
-5.1.0.
+{offset} (integer) Seek to the specified offset before reading.
 
 Returns a string, or FALSE on failure.
+
+Version Description 5.1.0 The {offset} was added.
 
 |stream_get_contents| example
 
@@ -35,8 +36,12 @@ Returns a string, or FALSE on failure.
   }
 ?>
 
-|fgets| |fread| |fpassthru|
+
+
+
 
 This function is binary-safe.
+
+|fgets| |fread| |fpassthru|
 
 vim:ft=help:

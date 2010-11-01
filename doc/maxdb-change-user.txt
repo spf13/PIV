@@ -1,0 +1,98 @@
+maxdb->change_user -- Changes the user of the specified database connection
+
+Procedural style:
+
+  bool maxdb_change_user(resource link, string user, string password, string database)~
+
+Object oriented style (method):
+
+  bool change_user(resource link, string user, string password, string database, string user, string password, string database)~
+
+|maxdb_change_user| is used to change the user of the specified database
+connection as given by the {link} parameter and to set the current database to
+that specified by the {database} parameter.
+
+In order to successfully change users a valid {username} and {password}
+parameters must be provided and that user must have sufficient permissions to
+access the desired database. If for any reason authorization fails, the
+current user authentication will remain.
+
+Using this command will always cause the current database connection to behave
+as if was a completely new database connection, regardless of if the operation
+was completed successfully. This reset includes performing a rollback on any
+active transactions, closing all temporary tables, and unlocking all locked
+tables.
+
+Returns TRUE on success or FALSE on failure.
+
+Object oriented style
+
+<?php >
+  /* connect database test */
+  $maxdb = new maxdb("localhost", "MONA", "RED", "DEMODB");
+  
+  /* check connection */
+  if (maxdb_connect_errno()) {
+     printf("Connect failed: %s\n", maxdb_connect_error());
+     exit();
+  }
+  
+  if ($result = $maxdb->query("SELECT * FROM dual")) {
+     $row = $result->fetch_row();
+     printf("Result: %s\n", $row[0]);
+     $result->free();
+  }
+  
+  /* reset all and select a new database */
+  if (!$maxdb->change_user("DBADMIN", "SECRET", "DEMODB")) {
+    printf("Database not running\n");
+  } else {
+    printf("Database running\n");
+  }
+  
+  /* close connection */
+  $maxdb->close();
+?>
+
+
+
+Procedural style
+
+<?php >
+  $link = maxdb_connect("localhost", "MONA", "RED", "DEMODB");
+  
+  /* check connection */
+  if (!$link) {
+     printf("Connect failed: %s\n", maxdb_connect_error());
+     exit();
+  }
+  
+  if ($result = maxdb_query($link, "SELECT * FROM dual")) {
+     $row = maxdb_fetch_row($result);
+     printf("Result: %s\n", $row[0]);
+     maxdb_free_result($result);
+  }
+  
+  /* reset all and select a new database */
+  if (!maxdb_change_user($link, "DBADMIN", "SECRET", "DEMODB")) {
+    printf("Database not running\n");
+  } else {
+    printf("Database running\n");
+  }
+  
+  /* close connection */
+  maxdb_close($link);
+?>
+
+
+
+The above example will output something similar to:
+
+
+
+  Result: a
+  Database running
+
+|maxdb_connect| |maxdb_select_db|
+
+vim:ft=help:

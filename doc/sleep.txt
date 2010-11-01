@@ -2,8 +2,15 @@ sleep -- Delay execution
 
   int sleep(int seconds)~
 
-The |sleep| function delays program execution for the given number of
-{seconds}.
+Delays the program execution for the given number of {seconds}.
+
+{seconds} Halt time in seconds.
+
+Returns zero on success, or FALSE on errors. If the call was interrupted by a
+signal, |sleep| returns the number of seconds left to sleep.
+
+If the specified number of {seconds} is negative, this function will generate
+a E_WARNING.
 
 |sleep| example
 
@@ -23,6 +30,8 @@ This example will output (after 10 seconds)
   05:31:23
   05:31:33
 
-See also |usleep| and |set_time_limit|
+
+
+|usleep| |time_nanosleep| |time_sleep_until| |set_time_limit|
 
 vim:ft=help:

@@ -1,0 +1,20 @@
+newt_entry --
+
+  resource newt_entry(int left, int top, int width [, string init_value [, int flags]])~
+
+This function is currently not documented; only its argument list is
+available.
+
+{left}
+
+{top}
+
+{width}
+
+{init_value}
+
+{flags}
+
+
+
+vim:ft=help:

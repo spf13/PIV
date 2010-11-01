@@ -1,4 +1,4 @@
-DomElement->get_attribute() -- Returns the value of the given attribute
+DomElement->get_attribute -- Returns the value of the given attribute
 
   string get_attribute(string name)~
 
@@ -26,6 +26,10 @@ Getting the value of an attribute
   $root = $dom->document_element();
   echo $root->get_attribute('language'); // en
 ?>
+
+
+
+
 
 Use .
 

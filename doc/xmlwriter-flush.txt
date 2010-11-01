@@ -1,0 +1,23 @@
+XMLWriter::flush -- Flush current buffer
+
+Oriented object style
+
+  mixed flush([bool empty])~
+
+Procedural style
+
+  mixed xmlwriter_flush([bool empty, resource xmlwriter [, bool empty]])~
+
+Flushes the current buffer.
+
+{ xmlwriter}Only for procedural calls. The XMLWriter resource that is being
+modified. This resource comes from a call to |xmlwriter_open_uri| or
+|xmlwriter_open_memory|.
+
+{empty} Whether to empty the buffer or no. Default is TRUE.
+
+If you opened the writer in memory, this function returns the generated XML
+buffer, Else, if using URI, this function will write the buffer and return the
+number of written bytes.
+
+vim:ft=help:

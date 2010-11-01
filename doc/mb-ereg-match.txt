@@ -2,12 +2,20 @@ mb_ereg_match -- Regular expression match for multibyte string
 
   bool mb_ereg_match(string pattern, string string [, string option])~
 
-|mb_ereg_match| returns TRUE if {string} matches regular expression {pattern},
-FALSE if not.
+A regular expression match for a multibyte string
 
-The internal encoding or the character encoding specified in
-|mb_regex_encoding| will be used as character encoding.
+{pattern} The regular expression pattern.
 
-See also: |mb_regex_encoding|, |mb_ereg|.
+{string} The string being evaluated.
+
+{option}
+
+Returns TRUE if {string} matches the regular expression {pattern}, FALSE if
+not.
+
+The internal encoding or the character encoding specified by
+|mb_regex_encoding| will be used as the character encoding for this function.
+
+|mb_regex_encoding| |mb_ereg|
 
 vim:ft=help:

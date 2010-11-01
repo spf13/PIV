@@ -1,34 +1,54 @@
 imageellipse -- Draw an ellipse
 
-  bool imageellipse(resource image, int cx, int cy, int w, int h, int color)~
+  bool imageellipse(resource image, int cx, int cy, int width, int height, int color)~
 
-|imageellipse| draws an ellipse centered at {cx}, {cy} (top left is 0, 0) in
-the image represented by {image}. {W} and {h} specifies the ellipse's width
-and height respectively. The color of the ellipse is specified by {color}.
+Draws an ellipse centered at the specified coordinates.
 
-This function was added in PHP 4.0.6 and requires GD 2.0.2 or later which can
-be obtained at http://www.boutell.com/gd/
+{ image}An image resource, returned by one of the image creation functions,
+such as |imagecreatetruecolor|.
+
+{cx} x-coordinate of the center.
+
+{cy} y-coordinate of the center.
+
+{width} The ellipse width.
+
+{height} The ellipse height.
+
+{color} The color of the ellipse. A color identifier created with
+|imagecolorallocate|.
+
+Returns TRUE on success or FALSE on failure.
 
 |imageellipse| example
 
 <?php >
-  // create a blank image
-  $image = imagecreate(400, 300);
+  // Create a blank image.
+  $image = imagecreatetruecolor(400, 300);
   
-  // fill the background color
+  // Select the background color.
   $bg = imagecolorallocate($image, 0, 0, 0);
   
-  // choose a color for the ellipse
+  // Fill the background with the color selected above.
+  imagefill($image, 0, 0, $bg);
+  
+  // Choose a color for the ellipse.
   $col_ellipse = imagecolorallocate($image, 255, 255, 255);
   
-  // draw the ellipse
+  // Draw the ellipse.
   imageellipse($image, 200, 150, 300, 200, $col_ellipse);
   
-  // output the picture
+  // Output the image.
   header("Content-type: image/png");
   imagepng($image);
 ?>
 
-See also |imagefilledellipse| and |imagearc|.
+The above example will output something similar to:
+
+
+
+This function requires GD 2.0.2 or later.
+
+|imagefilledellipse| |imagearc|
 
 vim:ft=help:

@@ -1,0 +1,12 @@
+newt_delay --
+
+  void newt_delay(int microseconds)~
+
+This function is currently not documented; only its argument list is
+available.
+
+{microseconds}
+
+No value is returned.
+
+vim:ft=help:

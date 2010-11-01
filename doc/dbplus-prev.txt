@@ -2,19 +2,19 @@ dbplus_prev -- Get previous tuple from relation
 
   int dbplus_prev(resource relation, array tuple)~
 
-This function is EXPERIMENTAL. The behaviour of this function, the name of
-this function, and anything else documented about this function may change
-without notice in a future release of PHP. Use this function at your own
-risk.
+Reads the data for the previous tuple for the given {relation}, makes it the
+current tuple and will pass it back as an associative array in {tuple}.
 
-|dbplus_curr| will read the data for the previous tuple for the given
-{relation}, will make it the current tuple and will pass it back as an
-associative array in {tuple}.
+{relation} A relation opened by |dbplus_open|.
 
-The function will return zero (aka. DBPLUS_ERR_NOERR) on success or a db++
-error code on failure. See |dbplus_errcode| or the introduction to this
-chapter for more information on db++ error codes.
+{tuple}
 
-See also |dbplus_first|, |dbplus_curr|, |dbplus_next|, and |dbplus_last|.
+Returns DBPLUS_ERR_NOERR on success or a db++ error code on failure.
+
+This function is EXPERIMENTAL. The behaviour of this function, its name, and
+surrounding documentation may change without notice in a future release of
+PHP. This function should be used at your own risk.
+
+|dbplus_first| |dbplus_curr| |dbplus_next| |dbplus_last|
 
 vim:ft=help:

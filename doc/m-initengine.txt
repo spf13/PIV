@@ -1,0 +1,12 @@
+m_initengine -- Ready the client for IP/SSL Communication
+
+  int m_initengine(string location)~
+
+This function is currently not documented; only its argument list is
+available.
+
+{location}
+
+
+
+vim:ft=help:

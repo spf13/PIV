@@ -2,11 +2,25 @@ snmpset -- Set an SNMP object
 
   bool snmpset(string hostname, string community, string object_id, string type, mixed value [, int timeout [, int retries]])~
 
-Sets the specified SNMP object value, returning TRUE on success and FALSE on
-error.
+|snmpset| is used to set the value of an SNMP object specified by the
+{object_id}.
 
-The |snmpset| function is used to set the value of an SNMP object specified by
-the {object_id}. SNMP agent is specified by the {hostname} and the read
-community is specified by the {community} parameter.
+{hostname} The SNMP agent.
+
+{community} The write community.
+
+{object_id} The SNMP object.
+
+{type}
+
+{value}
+
+{timeout}
+
+{retries}
+
+Returns TRUE on success or FALSE on failure.
+
+|snmpget|
 
 vim:ft=help:

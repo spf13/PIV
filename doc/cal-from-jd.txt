@@ -6,6 +6,14 @@ cal_from_jd -- Converts from Julian Day Count to a supported calendar
 specified {calendar}. Supported {calendar} values are CAL_GREGORIAN,
 CAL_JULIAN, CAL_JEWISH and CAL_FRENCH.
 
+{jd} Julian day as integer
+
+{calendar} Calendar to convert to
+
+Returns an array containing calendar information like month, day, year, day of
+week, abbreviated and full names of weekday and month and the date in string
+form "month/day/year".
+
 |cal_from_jd| example
 
 <?php >
@@ -28,6 +36,8 @@ The above example will output:
       [monthname] => August
   )
 
-See also |cal_to_jd|.
+
+
+|cal_to_jd| |jdtofrench| |jdtogregorian| |jdtojewish| |jdtojulian| |jdtounix|
 
 vim:ft=help:

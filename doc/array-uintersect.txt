@@ -3,9 +3,20 @@ callback function
 
   array array_uintersect(array array1, array array2 [, array ..., callback data_compare_func])~
 
-|array_uintersect| returns an array containing all the values of {array1} that
-are present in all the arguments. The data is compared by using a callback
-function.
+Computes the intersection of arrays, compares data by a callback function.
+
+{array1} The first array.
+
+{array2} The second array.
+
+{data_compare_func} The callback comparison function.
+
+The user supplied callback function is used for comparison. It must return an
+integer less than, equal to, or greater than zero if the first argument is
+considered to be respectively less than, equal to, or greater than the second.
+
+Returns an array containing all the values of {array1} that are present in all
+the arguments.
 
 |array_uintersect| example
 
@@ -25,12 +36,9 @@ The above example will output:
       [0] => red
   )
 
-For comparison is used the user supplied callback function. It must return an
-integer less than, equal to, or greater than zero if the first argument is
-considered to be respectively less than, equal to, or greater than the
-second.
 
-See also |array_intersect|, |array_uintersect_assoc|, |array_intersect_uassoc|
-and |array_uintersect_uassoc|.
+
+|array_intersect| |array_intersect_assoc| |array_uintersect_assoc|
+|array_uintersect_uassoc|
 
 vim:ft=help:

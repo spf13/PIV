@@ -1,0 +1,11 @@
+SDO_DAS_XML_Document::getRootDataObject -- Returns the root SDO_DataObject
+
+  SDO_DataObject SDO_DAS_XML_Document::getRootDataObject()~
+
+Returns the root SDO_DataObject.
+
+
+
+Returns the root SDO_DataObject.
+
+vim:ft=help:

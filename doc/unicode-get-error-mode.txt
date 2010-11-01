@@ -1,0 +1,20 @@
+unicode_get_error_mode -- Get the error mode for strings conversions
+
+  int unicode_get_error_mode(int direction)~
+
+Return the current error mode for string conversions in {direction}.
+
+{direction} Get the error mode for conversion {direction}. This can either be
+FROM_UNICODE or TO_UNICODE. See |unicode_set_error_mode| for more details.
+
+This function returns one of the error mode constants or FALSE on failure.
+
+Emits a E_WARNING level error if {direction} is invalid.
+
+This function is EXPERIMENTAL. The behaviour of this function, its name, and
+surrounding documentation may change without notice in a future release of
+PHP. This function should be used at your own risk.
+
+|unicode_set_error_mode| |unicode_encode| |unicode_decode|
+
+vim:ft=help:

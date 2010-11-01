@@ -12,7 +12,7 @@ resources to do so. {blocksize} defaults to 4.
 
 {workfactor} Controls how the compression phase behaves when presented with
 worst case, highly repetitive, input data. The value can be between 0 and 250
-with 0 being a special case and 30 being the default value.
+with 0 being a special case and the default value.
 
 Regardless of the {workfactor}, the generated output is the same.
 
@@ -25,6 +25,8 @@ Compressing data
   $bzstr = bzcompress($str, 9);
   echo $bzstr;
 ?>
+
+
 
 |bzdecompress|
 

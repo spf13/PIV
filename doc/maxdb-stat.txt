@@ -1,0 +1,60 @@
+maxdb->stat -- Gets the current system status
+
+Procedural style:
+
+  string maxdb_stat(resource link)~
+
+Object oriented style (method):
+
+  string maxdb->stat(resource link)~
+
+|maxdb_stat| returns a string containing several information about the MaxDB
+server running.
+
+A string describing the server status. FALSE if an error occurred.
+
+Object oriented style
+
+<?php >
+  $maxdb = new maxdb("localhost", "MONA", "RED", "DEMODB");
+  
+  /* check connection */
+  if (maxdb_connect_errno()) {
+     printf("Connect failed: %s\n", maxdb_connect_error());
+     exit();
+  }
+  
+  printf ("System status: %s\n", $maxdb->stat());
+  
+  $maxdb->close();
+?>
+
+
+
+Procedural style
+
+<?php >
+  $link = maxdb_connect("localhost", "MONA", "RED", "DEMODB");
+  
+  /* check connection */
+  if (maxdb_connect_errno()) {
+     printf("Connect failed: %s\n", maxdb_connect_error());
+     exit();
+  }
+  
+  printf("System status: %s\n", maxdb_stat($link));
+  
+  maxdb_close($link);
+?>
+
+
+
+The above example will output something similar to:
+
+
+
+  System status: Kernel    7<...>
+
+|maxdb_get_server_info|
+
+vim:ft=help:

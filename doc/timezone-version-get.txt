@@ -1,0 +1,23 @@
+timezone_version_get -- Gets the version of the timezonedb
+
+  string timezone_version_get()~
+
+Returns the current version of the timezonedb.
+
+Returns a string.
+
+Getting the timezonedb version
+
+<?php >
+  echo timezone_version_get();
+?>
+
+The above example will output something similar to:
+
+  2009.7
+
+
+
+List of Supported Timezones
+
+vim:ft=help:

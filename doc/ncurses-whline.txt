@@ -3,7 +3,13 @@ using an attributed character and max. n characters long
 
   int ncurses_whline(resource window, int charattr, int n)~
 
-This function is currently not documented; only the argument list is
+This function is currently not documented; only its argument list is
 available.
+
+{window}
+
+{charattr}
+
+{n}
 
 vim:ft=help:

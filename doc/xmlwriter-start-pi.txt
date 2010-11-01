@@ -1,0 +1,23 @@
+XMLWriter::startPI -- Create start PI tag
+
+Oriented object style
+
+  bool startPI(string target)~
+
+Procedural style
+
+  bool xmlwriter_start_pi(string target, resource xmlwriter, string target)~
+
+Starts a processing instruction tag.
+
+{ xmlwriter}Only for procedural calls. The XMLWriter resource that is being
+modified. This resource comes from a call to |xmlwriter_open_uri| or
+|xmlwriter_open_memory|.
+
+{target} The target of the processing instruction.
+
+Returns TRUE on success or FALSE on failure.
+
+XMLWriter::endPI XMLWriter::writePI
+
+vim:ft=help:

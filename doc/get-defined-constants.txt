@@ -1,40 +1,15 @@
 get_defined_constants -- Returns an associative array with the names of all
 the constants and their values
 
-  array get_defined_constants([mixed categorize])~
+  array get_defined_constants([bool categorize])~
 
-This function returns the names and values of all the constants currently
-defined. This includes those created by extensions as well as those created
-with the |define| function.
+Returns the names and values of all the constants currently defined. This
+includes those created by extensions as well as those created with the
+|define| function.
 
-For example the line below:
-
-<?php >
-  print_r(get_defined_constants());
-?>
-
-will print a list like:
-
-  Array
-  (
-      [E_ERROR] => 1
-      [E_WARNING] => 2
-      [E_PARSE] => 4
-      [E_NOTICE] => 8
-      [E_CORE_ERROR] => 16
-      [E_CORE_WARNING] => 32
-      [E_COMPILE_ERROR] => 64
-      [E_COMPILE_WARNING] => 128
-      [E_USER_ERROR] => 256
-      [E_USER_WARNING] => 512
-      [E_USER_NOTICE] => 1024
-      [E_ALL] => 2047
-      [TRUE] => 1
-  )
-
-As of PHP 5, an additional parameter, {categorize}, may be passed, causing
-this function to return a multi-dimensional array with categories in the keys
-of the first dimension and constants and their values in the second dimension.
+{categorize} Causing this function to return a multi-dimensional array with
+categories in the keys of the first dimension and constants and their values
+in the second dimension.
 
 <?php >
   define("MY_CONSTANT", 1);
@@ -80,10 +55,37 @@ The above example will output something similar to:
   
   )
 
-The value of the {categorize} parameter is irrelevant, only its presence is
-considered.
 
-See also |defined|, |get_loaded_extensions|, |get_defined_functions|, and
-|get_defined_vars|.
+
+Version Description 5.0.0 The {categorize} parameter was added.
+
+|get_defined_constants| Example
+
+<?php >
+  print_r(get_defined_constants());
+?>
+
+The above example will output something similar to:
+
+  Array
+  (
+      [E_ERROR] => 1
+      [E_WARNING] => 2
+      [E_PARSE] => 4
+      [E_NOTICE] => 8
+      [E_CORE_ERROR] => 16
+      [E_CORE_WARNING] => 32
+      [E_COMPILE_ERROR] => 64
+      [E_COMPILE_WARNING] => 128
+      [E_USER_ERROR] => 256
+      [E_USER_WARNING] => 512
+      [E_USER_NOTICE] => 1024
+      [E_ALL] => 2047
+      [TRUE] => 1
+  )
+
+
+
+|defined| |get_loaded_extensions| |get_defined_functions| |get_defined_vars|
 
 vim:ft=help:

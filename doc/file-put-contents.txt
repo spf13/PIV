@@ -2,41 +2,86 @@ file_put_contents -- Write a string to a file
 
   int file_put_contents(string filename, mixed data [, int flags [, resource context]])~
 
-Identical to calling |fopen|, |fwrite|, and |fclose| successively.
+This function is identical to calling |fopen|, |fwrite| and |fclose|
+successively to write data to a file.
 
-You can also specify the {data} parameter as an array (not multi-dimension
-arrays). This is equivalent to file_put_contents($filename, join('',
-$array)).
+If {filename} does not exist, the file is created. Otherwise, the existing
+file is overwritten, unless the FILE_APPEND flags is set.
 
-As of PHP 5.1.0, you may also pass a stream resource to the {data} parameter.
-In result, the remaining buffer of that stream will be copied to the
-specified file. This is similar with using |stream_copy_to_stream|.
-
-{filename} The file name where to write the data
+{filename} Path to the file where to write the data.
 
 {data} The data to write. Can be either a string, an array or a stream
-resource (explained above).
+resource.
 
-{flags} {flags} can take FILE_USE_INCLUDE_PATH, FILE_APPEND and/or LOCK_EX
-(acquire an exclusive lock), however the FILE_USE_INCLUDE_PATH option should
-be used with caution.
+If {data} is a stream resource, the remaining buffer of that stream will be
+copied to the specified file. This is similar with using
+|stream_copy_to_stream|.
 
-{context} A context resource
+You can also specify the {data} parameter as a single dimension array. This is
+equivalent to file_put_contents($filename, implode('', $array)).
 
-The function returns the amount of bytes that were written to the file.
+{flags} The value of {flags} can be any combination of the following flags
+(with some restrictions), joined with the binary OR (|) operator.
 
-Version Description 5.1.0 Added support for LOCK_EX and the ability to pass a
-stream resource to the {data} parameter
+Available flags Flag Description FILE_USE_INCLUDE_PATH Search for {filename}
+in the include directory. See include_path for more information. FILE_APPEND
+If file {filename} already exists, append the data to the file instead of
+overwriting it. Mutually exclusive with LOCK_EX since appends are atomic and
+thus there is no reason to lock. LOCK_EX Acquire an exclusive lock on the file
+while proceeding to the writing. Mutually exclusive with FILE_APPEND.
+FILE_TEXT {data} is written in text mode. If unicode semantics are enabled,
+the default encoding is UTF-8. You can specify a different encoding by
+creating a custom context or by using the |stream_default_encoding| to change
+the default. This flag cannot be used with FILE_BINARY. This flag is only
+available since PHP 6. FILE_BINARY {data} will be written in binary mode. This
+is the default setting and cannot be used with FILE_TEXT. This flag is only
+available since PHP 6.
+
+{context} A valid context resource created with |stream_context_create|.
+
+The function returns the number of bytes that were written to the file, or
+FALSE on failure.
+
+Simple usage example
+
+<?php >
+  $file = 'people.txt';
+  // Open the file to get existing content
+  $current = file_get_contents($file);
+  // Append a new person to the file
+  $current .= "John Smith\n";
+  // Write the contents back to the file
+  file_put_contents($file, $current);
+?>
+
+
+
+Using flags
+
+<?php >
+  $file = 'people.txt';
+  // The new person to add to the file
+  $person = "John Smith\n";
+  // Write the contents to the file, 
+  // using the FILE_APPEND flag to append the content to the end of the file
+  // and the LOCK_EX flag to prevent anyone else writing to the file at the same time
+  file_put_contents($file, $person, FILE_APPEND | LOCK_EX);
+?>
+
+
+
+
+
+Version Description 5.0.0 Added context support 5.1.0 Added support for
+LOCK_EX and the ability to pass a stream resource to the {data} parameter
+6.0.0 Added support for the FILE_TEXT and FILE_BINARY flags
 
 This function is binary-safe.
 
-Context support was added with PHP 5.0.0. For a description of contexts, refer
-to .
-
-You can use a URL as a filename with this function if the fopen wrappers have
+A URL can be used as a filename with this function if the fopen wrappers have
 been enabled. See |fopen| for more details on how to specify the filename and
 for a list of supported URL protocols.
 
-|fopen| |fwrite| |file_get_contents|
+|fopen| |fwrite| |file_get_contents| |stream_context_create|
 
 vim:ft=help:

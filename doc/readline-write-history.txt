@@ -4,4 +4,8 @@ readline_write_history -- Writes the history
 
 This function writes the command history to a file.
 
+{filename} Path to the saved file.
+
+Returns TRUE on success or FALSE on failure.
+
 vim:ft=help:

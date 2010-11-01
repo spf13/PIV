@@ -5,6 +5,14 @@ openssl_x509_export -- Exports a certificate as a string
 |openssl_x509_export| stores {x509} into a string named by {output} in a PEM
 encoded format.
 
+{x509}
+
+{output} On success, this will hold the PEM.
+
+{notext} The optional parameter {notext} affects the verbosity of the output;
+if it is FALSE, then additional human-readable information is included in the
+output. The default value of {notext} is TRUE.
+
 Returns TRUE on success or FALSE on failure.
 
 vim:ft=help:

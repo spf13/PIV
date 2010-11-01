@@ -2,25 +2,18 @@ ncurses_mousemask -- Sets mouse options
 
   int ncurses_mousemask(int newmask, int oldmask)~
 
-This function is EXPERIMENTAL. The behaviour of this function, the name of
-this function, and anything else documented about this function may change
-without notice in a future release of PHP. Use this function at your own
-risk.
+This function is EXPERIMENTAL. The behaviour of this function, its name, and
+surrounding documentation may change without notice in a future release of
+PHP. This function should be used at your own risk.
 
-Function |ncurses_mousemask| will set mouse events to be reported. By default
-no mouse events will be reported. The function |ncurses_mousemask| will
-return a mask to indicated which of the in parameter {newmask} specified
-mouse events can be reported. On complete failure, it returns 0. In parameter
-{oldmask}, which is passed by reference |ncurses_mousemask| returns the
-previous value of mouse event mask. Mouse events are represented by
-NCURSES_KEY_MOUSE in the |ncurses_wgetch| input stream. To read the event
-data and pop the event of queue, call |ncurses_getmouse|.
+Sets mouse events to be reported. By default no mouse events will be reported.
 
-As a side effect, setting a zero mousemask in {newmask} turns off the mouse
-pointer. Setting a non zero value turns mouse pointer on.
+Mouse events are represented by NCURSES_KEY_MOUSE in the |ncurses_wgetch|
+input stream. To read the event data and pop the event of queue, call
+|ncurses_getmouse|.
 
-mouse mask options can be set with the following predefined constants:
-NCURSES_BUTTON1_PRESSED
+{newmask} Mouse mask options can be set with the following predefined
+constants: NCURSES_BUTTON1_PRESSED
 
 NCURSES_BUTTON1_RELEASED
 
@@ -70,16 +63,28 @@ NCURSES_ALL_MOUSE_EVENTS
 
 NCURSES_REPORT_MOUSE_POSITION
 
+As a side effect, setting a zero mousemask in {newmask} turns off the mouse
+pointer. Setting a non zero value turns mouse pointer on.
+
+{oldmask} This will be set to the previous value of the mouse event mask.
+
+Returns a mask to indicated which of the in parameter {newmask} specified
+mouse events can be reported. On complete failure, it returns 0.
+
 |ncurses_mousemask| example
 
 <?php >
   $newmask = NCURSES_BUTTON1_CLICKED + NCURSES_BUTTON1_RELEASED;
-  $mask = ncurses_mousemask($newmask, &amp;$oldmask);
+  $mask = ncurses_mousemask($newmask, $oldmask);
   if ($mask &amp; $newmask){
-    printf ("All specified mouse options will be supported\n");
+      printf("All specified mouse options will be supported\n");
   }
 ?>
 
-See also |ncurses_getmouse|, |ncurses_ungetmouse| and |ncurese_getch|.
+
+
+
+
+|ncurses_getch| |ncurses_getmouse| |ncurses_ungetmouse|
 
 vim:ft=help:

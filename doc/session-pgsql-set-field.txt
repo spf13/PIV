@@ -1,0 +1,14 @@
+session_pgsql_set_field -- Set custom field value
+
+  bool session_pgsql_set_field(string value)~
+
+This function is currently not documented; only its argument list is
+available.
+
+{value}
+
+Returns TRUE on success or FALSE on failure.
+
+|session_pgsql_get_field|
+
+vim:ft=help:

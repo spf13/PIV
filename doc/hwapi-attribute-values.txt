@@ -1,9 +1,9 @@
 hw_api_attribute->values -- Returns all values of the attribute
 
-  array hw_api_attribute->values()~
+  array values()~
 
-Returns all values of the attribute as an array of strings.
+Gets all values of the attribute.
 
-See also |hwapi_attribute_value|.
+Returns an array of attribute values.
 
 vim:ft=help:

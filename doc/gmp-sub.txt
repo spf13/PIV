@@ -4,6 +4,18 @@ gmp_sub -- Subtract numbers
 
 Subtracts {b} from {a} and returns the result.
 
+{a} The number being subtracted from.
+
+It can be either a GMP number resource, or a numeric string given that it is
+possible to convert the latter to a number.
+
+{b} The number subtracted from {a}.
+
+It can be either a GMP number resource, or a numeric string given that it is
+possible to convert the latter to a number.
+
+A GMP number resource.
+
 |gmp_sub| example
 
 <?php >
@@ -11,8 +23,10 @@ Subtracts {b} from {a} and returns the result.
   echo gmp_strval($sub) . "\n";
 ?>
 
-The printout of the above program will be:
+The above example will output:
 
   281470681743360
+
+
 
 vim:ft=help:

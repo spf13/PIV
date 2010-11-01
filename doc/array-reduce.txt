@@ -4,20 +4,30 @@ callback function
   mixed array_reduce(array input, callback function [, int initial])~
 
 |array_reduce| applies iteratively the {function} function to the elements of
-the array {input}, so as to reduce the array to a single value. If the
-optional {initial} is available, it will be used at the beginning of the
-process, or as a final result in case the array is empty.
+the array {input}, so as to reduce the array to a single value.
+
+{input} The input array.
+
+{function} The callback function.
+
+{initial} If the optional {initial} is available, it will be used at the
+beginning of the process, or as a final result in case the array is empty.
+
+Returns the resulting value.
+
+If the array is empty and {initial} is not passed, |array_reduce| returns
+NULL.
 
 |array_reduce| example
 
 <?php >
-  function rsum($v, $w) 
+  function rsum($v, $w)
   {
       $v += $w;
       return $v;
   }
   
-  function rmul($v, $w) 
+  function rmul($v, $w)
   {
       $v *= $w;
       return $v;
@@ -30,10 +40,13 @@ process, or as a final result in case the array is empty.
   $d = array_reduce($x, "rsum", 1);
 ?>
 
-This will result in $b containing 15, $c containing 1200 (= 1*2*3*4*5*10), and
+This will result in $b containing 15, $c containing 1200 (= 10*1*2*3*4*5), and
 $d containing 1.
 
-See also |array_filter|, |array_map|, |array_unique|, and
-|array_count_values|.
+
+
+
+
+|array_filter| |array_map| |array_unique| |array_count_values|
 
 vim:ft=help:

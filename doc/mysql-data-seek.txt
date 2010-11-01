@@ -4,7 +4,8 @@ mysql_data_seek -- Move internal result pointer
 
 |mysql_data_seek| moves the internal row pointer of the MySQL result
 associated with the specified result identifier to point to the specified row
-number. The next call to |mysql_fetch_row| would return that row.
+number. The next call to a MySQL fetch function, such as |mysql_fetch_assoc|,
+would return that row.
 
 {row_number} starts at 0. The {row_number} should be a value in the range from
 0 to |mysql_num_rows| - 1. However if the result set is empty
@@ -50,6 +51,10 @@ Returns TRUE on success or FALSE on failure.
   
   mysql_free_result($result);
 ?>
+
+
+
+
 
 The function |mysql_data_seek| can be used in conjunction only with
 |mysql_query|, not with |mysql_unbuffered_query|.

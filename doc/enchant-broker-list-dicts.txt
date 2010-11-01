@@ -1,0 +1,77 @@
+enchant_broker_list_dicts -- Returns a list of available dictionaries
+
+  mixed enchant_broker_list_dicts(resource broker)~
+
+Returns a list of available dictionaries with their details.
+
+{broker} Broker resource
+
+Returns TRUE on success or FALSE on failure.
+
+List all available dictionaries for one broker
+
+<?php >
+  $r = enchant_broker_init();
+  $dicts = enchant_broker_list_dicts($r);
+  print_r($dicts);
+?>
+
+The above example will output something similar to:
+
+  Array
+  (
+      [0] => Array
+          (
+              [lang_tag] => de
+              [provider_name] => aspell
+              [provider_desc] => Aspell Provider
+              [provider_file] => /usr/lib/enchant/libenchant_aspell.so
+          )
+  
+      [1] => Array
+          (
+              [lang_tag] => de_DE
+              [provider_name] => aspell
+              [provider_desc] => Aspell Provider
+              [provider_file] => /usr/lib/enchant/libenchant_aspell.so
+          )
+  
+      [3] => Array
+          (
+              [lang_tag] => en
+              [provider_name] => aspell
+              [provider_desc] => Aspell Provider
+              [provider_file] => /usr/lib/enchant/libenchant_aspell.so
+          )
+  
+      [4] => Array
+          (
+              [lang_tag] => en_GB
+              [provider_name] => aspell
+              [provider_desc] => Aspell Provider
+              [provider_file] => /usr/lib/enchant/libenchant_aspell.so
+          )
+  
+      [5] => Array
+          (
+              [lang_tag] => en_US
+              [provider_name] => aspell
+              [provider_desc] => Aspell Provider
+              [provider_file] => /usr/lib/enchant/libenchant_aspell.so
+          )
+  
+      [6] => Array
+          (
+              [lang_tag] => hi_IN
+              [provider_name] => myspell
+              [provider_desc] => Myspell Provider
+              [provider_file] => /usr/lib/enchant/libenchant_myspell.so
+          )
+  
+  )
+
+
+
+|enchant_broker_describe|
+
+vim:ft=help:

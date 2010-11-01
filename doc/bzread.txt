@@ -31,6 +31,10 @@ Returns the uncompressed data, or FALSE on error.
   echo $decompressed_file;
 ?>
 
+
+
+
+
 |bzwrite| |feof| |bzopen|
 
 vim:ft=help:

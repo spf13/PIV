@@ -1,13 +1,11 @@
 ncurses_insertln -- Insert a line, move rest of screen down
 
-  bool ncurses_insertln()~
+  int ncurses_insertln()~
 
-This function is EXPERIMENTAL. The behaviour of this function, the name of
-this function, and anything else documented about this function may change
-without notice in a future release of PHP. Use this function at your own
-risk.
+This function is EXPERIMENTAL. The behaviour of this function, its name, and
+surrounding documentation may change without notice in a future release of
+PHP. This function should be used at your own risk.
 
-|ncurses_insertln| inserts a new line above the current line. The bottom line
-will be lost.
+Inserts a new line above the current line. The bottom line will be lost.
 
 vim:ft=help:

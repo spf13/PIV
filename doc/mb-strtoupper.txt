@@ -2,19 +2,22 @@ mb_strtoupper -- Make a string uppercase
 
   string mb_strtoupper(string str [, string encoding])~
 
-|mb_strtoupper| returns {str} with all alphabetic characters converted to
-uppercase.
+Returns {str} with all alphabetic characters converted to uppercase.
 
-{encoding} specifies the encoding of {str}; if omitted, the internal character
-encoding value will be used.
+{str} The string being uppercased.
+
+{encoding} The {encoding} parameter is the character encoding. If it is
+omitted, the internal character encoding value will be used.
+
+{str} with all alphabetic characters converted to uppercase.
+
+For more information about the Unicode properties, please see
+http://www.unicode.org/unicode/reports/tr21/.
 
 By contrast to |strtoupper|, 'alphabetic' is determined by the Unicode
 character properties. Thus the behaviour of this function is not affected by
 locale settings and it can convert any characters that have 'alphabetic'
 property, such as a-umlaut (&auml;).
-
-For more information about the Unicode properties, please see
-http://www.unicode.org/unicode/reports/tr21/.
 
 |mb_strtoupper| example
 
@@ -24,6 +27,10 @@ http://www.unicode.org/unicode/reports/tr21/.
   echo $str; // Prints MARY HAD A LITTLE LAMB AND SHE LOVED IT SO
 ?>
 
-See also |strtoupper|, |mb_strtolower| and |mb_convert_case|.
+
+
+
+
+|mb_strtolower| |mb_convert_case| |strtoupper|
 
 vim:ft=help:

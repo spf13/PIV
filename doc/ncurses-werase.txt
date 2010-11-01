@@ -2,7 +2,9 @@ ncurses_werase -- Erase window contents
 
   int ncurses_werase(resource window)~
 
-This function is currently not documented; only the argument list is
+This function is currently not documented; only its argument list is
 available.
+
+{window}
 
 vim:ft=help:

@@ -4,4 +4,8 @@ readline_read_history -- Reads the history
 
 This function reads a command history from a file.
 
+{filename} Path to the filename containing the command history.
+
+Returns TRUE on success or FALSE on failure.
+
 vim:ft=help:

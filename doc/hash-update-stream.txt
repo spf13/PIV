@@ -1,0 +1,35 @@
+hash_update_stream -- Pump data into an active hashing context from an open
+stream
+
+  int hash_update_stream(resource context, resource handle [, int length])~
+
+{context} Hashing context returned by |hash_init|.
+
+{handle} Open file handle as returned by any stream creation function.
+
+{length} Maximum number of characters to copy from {handle} into the hashing
+context.
+
+Actual number of bytes added to the hashing context from {handle}.
+
+|hash_update_stream| example
+
+<?php >
+  $fp = tmpfile();
+  fwrite($fp, 'The quick brown fox jumped over the lazy dog.');
+  rewind($fp);
+  
+  $ctx = hash_init('md5');
+  hash_update_stream($ctx, $fp);
+  echo hash_final($ctx);
+?>
+
+The above example will output:
+
+  5c6ffbdd40d9556b73a21e63c3e0e904
+
+
+
+|hash_init| |hash_update| |hash_final| |hash| |hash_file|
+
+vim:ft=help:

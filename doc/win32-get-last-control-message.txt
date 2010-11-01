@@ -1,0 +1,17 @@
+win32_get_last_control_message -- Returns the last control message that was
+sent to this service
+
+  int win32_get_last_control_message()~
+
+Returns the control code that was last sent to this service process. When
+running as a service you should periodically check this to determine if your
+service needs to stop running.
+
+Returns a control constant; one of WIN32_SERVICE_CONTROL_CONTINUE,
+WIN32_SERVICE_CONTROL_INTERROGATE, WIN32_SERVICE_CONTROL_PAUSE,
+WIN32_SERVICE_CONTROL_STOP, WIN32_SERVICE_CONTROL_HARDWAREPROFILECHANGE,
+WIN32_SERVICE_CONTROL_POWEREVENT, WIN32_SERVICE_CONTROL_SESSIONCHANGE.
+
+|win32_start_service_ctrl_dispatcher|
+
+vim:ft=help:

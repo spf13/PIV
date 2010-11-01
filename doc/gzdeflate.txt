@@ -22,6 +22,10 @@ The deflated string or FALSE if an error occurred.
   echo $compressed;
 ?>
 
+
+
+
+
 |gzinflate| |gzcompress| |gzuncompress| |gzencode|
 
 vim:ft=help:

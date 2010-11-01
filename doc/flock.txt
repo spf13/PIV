@@ -2,49 +2,58 @@ flock -- Portable advisory file locking
 
   bool flock(resource handle, int operation [, int wouldblock])~
 
+|flock| allows you to perform a simple reader/writer model which can be used
+on virtually every platform (including most Unix derivatives and even
+Windows).
+
+The lock is released also by |fclose| (which is also called automatically when
+script finished).
+
 PHP supports a portable way of locking complete files in an advisory way
 (which means all accessing programs have to use the same way of locking or it
 will not work).
 
-|flock| is mandatory under Windows.
+{handle} An open file pointer.
 
-|flock| operates on {handle} which must be an open file pointer. {operation}
-is one of the following values:
+{operation} {operation} is one of the following: LOCK_SH to acquire a shared
+lock (reader).
 
-To acquire a shared lock (reader), set {operation} to LOCK_SH (set to 1 prior
-to PHP 4.0.1).
+LOCK_EX to acquire an exclusive lock (writer).
 
-To acquire an exclusive lock (writer), set {operation} to LOCK_EX (set to 2
-prior to PHP 4.0.1).
+LOCK_UN to release a lock (shared or exclusive).
 
-To release a lock (shared or exclusive), set {operation} to LOCK_UN (set to 3
-prior to PHP 4.0.1).
+LOCK_NB if you don't want |flock| to block while locking. (not supported on
+Windows)
 
-If you don't want |flock| to block while locking, add LOCK_NB (4 prior to PHP
-4.0.1) to {operation}.
-
-|flock| allows you to perform a simple reader/writer model which can be used
-on virtually every platform (including most Unix derivatives and even
-Windows). The optional third argument is set to TRUE if the lock would block
-(EWOULDBLOCK errno condition). The lock is released also by |fclose| (which
-is also called automatically when script finished).
+{wouldblock} The optional third argument is set to TRUE if the lock would
+block (EWOULDBLOCK errno condition).
 
 Returns TRUE on success or FALSE on failure.
+
+Version Description 4.0.1 The LOCK_XXX constants were added. Prior to that you
+must use 1 for LOCK_SH, 2 for LOCK_EX, 3 for LOCK_UN and 4 for LOCK_NB
 
 |flock| example
 
 <?php >
-  $fp = fopen("/tmp/lock.txt", "w+");
+  $fp = fopen("/tmp/lock.txt", "w");
   
   if (flock($fp, LOCK_EX)) { // do an exclusive lock
+      ftruncate($fp, 0);  // truncate file
       fwrite($fp, "Write something here\n");
       flock($fp, LOCK_UN); // release the lock
   } else {
-      echo "Couldn't lock the file !";
+      echo "Couldn't get the lock!";
   }
   
   fclose($fp);
 ?>
+
+
+
+
+
+|flock| locks mandatory under Windows.
 
 Because |flock| requires a file pointer, you may have to use a special lock
 file to protect access to a file that you intend to truncate by opening it in
@@ -55,8 +64,8 @@ operating system documentation for more details.
 
 On some operating systems |flock| is implemented at the process level. When
 using a multithreaded server API like ISAPI you may not be able to rely on
-|flock| to protect files against other PHP scripts running in parallel
-threads of the same server instance!
+|flock| to protect files against other PHP scripts running in parallel threads
+of the same server instance!
 
 |flock| is not supported on antiquated filesystems like FAT and its derivates
 and will therefore always return FALSE under this environments (this is

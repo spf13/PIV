@@ -1,0 +1,24 @@
+intl_get_error_message -- Get description of the last error
+
+  string intl_get_error_message()~
+
+Get error message from last internationalization function called.
+
+Description of an error occurred in the last API function call.
+
+|intl_get_error_message| example
+
+<?php >
+  if( Collator::getAvailableLocales() === false ) {
+      show_error( intl_get_error_message() );
+  }
+?>
+
+
+
+
+
+|intl_error_name| |intl_get_error_code| |intl_is_failure|
+|collator_get_error_message| |numfmt_get_error_message|
+
+vim:ft=help:

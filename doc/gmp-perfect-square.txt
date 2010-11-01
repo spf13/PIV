@@ -2,6 +2,13 @@ gmp_perfect_square -- Perfect square check
 
   bool gmp_perfect_square(resource a)~
 
+Check if a number is a perfect square.
+
+{a} The number being checked as a perfect square.
+
+It can be either a GMP number resource, or a numeric string given that it is
+possible to convert the latter to a number.
+
 Returns TRUE if {a} is a perfect square, FALSE otherwise.
 
 |gmp_perfect_square| example
@@ -17,12 +24,14 @@ Returns TRUE if {a} is a perfect square, FALSE otherwise.
   var_dump(gmp_perfect_square("1524157875019052100"));
 ?>
 
-The printout of the above program will be:
+The above example will output:
 
   bool(true)
   bool(false)
   bool(true)
 
-See also: |gmp_sqrt|, |gmp_sqrtrem|.
+
+
+|gmp_sqrt| |gmp_sqrtrem|
 
 vim:ft=help:

@@ -3,7 +3,9 @@ returned
 
   int snmp_get_valueretrieval()~
 
-This function is currently not documented; only the argument list is
+This function is currently not documented; only its argument list is
 available.
+
+|snmp_set_valueretrieval|
 
 vim:ft=help:

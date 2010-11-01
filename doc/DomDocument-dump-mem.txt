@@ -3,9 +3,8 @@ DomDocument->dump_mem -- Dumps the internal XML tree back into a string
   string DomDocument->dump_mem([bool format [, string encoding]])~
 
 Creates an XML document from the dom representation. This function usually is
-called after building a new dom document from scratch as in the example
-below. The {format} specifies whether the output should be neatly formatted,
-or not.
+called after building a new dom document from scratch as in the example below.
+The {format} specifies whether the output should be neatly formatted, or not.
 
 Creating a simple HTML document header
 
@@ -23,6 +22,10 @@ Creating a simple HTML document header
   echo htmlentities($doc->dump_mem(true));
   echo "</PRE>";
 ?>
+
+
+
+
 
 The first parameter was added in PHP 4.3.0.
 

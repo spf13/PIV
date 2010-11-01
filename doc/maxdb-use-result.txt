@@ -1,0 +1,95 @@
+maxdb->use_result -- Initiate a result set retrieval
+
+Procedural style:
+
+  resource maxdb_use_result(resource link)~
+
+Object oriented style (method):
+
+  resource use_result(resource link)~
+
+|maxdb_use_result| has no effect.
+
+Returns result or FALSE in case of error.
+
+Object oriented style
+
+<?php >
+  $maxdb = new maxdb("localhost", "MONA", "RED", "DEMODB");
+  
+  /* check connection */
+  if (maxdb_connect_errno()) {
+     printf("Connect failed: %s\n", maxdb_connect_error());
+     exit();
+  }
+  
+  $query  = "SELECT * FROM DUAL";
+  
+  /* execute multi query */
+  if ($maxdb->multi_query($query)) {
+     do {
+         /* store first result set */
+         if ($result = $maxdb->use_result()) {
+             while ($row = $result->fetch_row()) {
+                 printf("%s\n", $row[0]);
+             }
+             $result->close();
+         }
+         /* print divider */
+         if ($maxdb->more_results()) {
+             printf("-----------------\n");
+         }
+     } while ($maxdb->next_result());
+  }
+  
+  /* close connection */
+  $maxdb->close();
+?>
+
+
+
+Procedural style
+
+<?php >
+  $link = maxdb_connect("localhost", "MONA", "RED", "DEMODB");
+  
+  /* check connection */
+  if (maxdb_connect_errno()) {
+     printf("Connect failed: %s\n", maxdb_connect_error());
+     exit();
+  }
+  
+  $query  = "SELECT * FROM DUAL";
+  
+  /* execute multi query */
+  if (maxdb_multi_query($link, $query)) {
+     do {
+         /* store first result set */
+         if ($result = maxdb_use_result($link)) {
+             while ($row = maxdb_fetch_row($result)) {
+                 printf("%s\n", $row[0]);
+             }
+             maxdb_free_result($result);
+         }
+         /* print divider */
+         if (maxdb_more_results($link)) {
+             printf("-----------------\n");
+         }
+     } while (maxdb_next_result($link));
+  }
+  
+  /* close connection */
+  maxdb_close($link);
+?>
+
+
+
+The above example will output something similar to:
+
+
+
+  a
+
+|maxdb_real_query| |maxdb_store_result|
+
+vim:ft=help:

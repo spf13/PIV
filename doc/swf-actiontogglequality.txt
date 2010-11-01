@@ -4,4 +4,6 @@ swf_actiontogglequality -- Toggle between low and high quality
 
 Toggle the flash movie between high and low quality.
 
+No value is returned.
+
 vim:ft=help:

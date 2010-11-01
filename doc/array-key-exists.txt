@@ -3,8 +3,16 @@ array_key_exists -- Checks if the given key or index exists in the array
   bool array_key_exists(mixed key, array search)~
 
 |array_key_exists| returns TRUE if the given {key} is set in the array. {key}
-can be any value possible for an array index. |array_key_exists| also works
-on objects.
+can be any value possible for an array index.
+
+{key} Value to check.
+
+{search} An array with keys to check.
+
+Returns TRUE on success or FALSE on failure.
+
+Version Description 5.3.0 This function doesn't work with objects anymore,
+|property_exists| should be used in this case.
 
 |array_key_exists| example
 
@@ -14,6 +22,10 @@ on objects.
       echo "The 'first' element is in the array";
   }
 ?>
+
+
+
+
 
 The name of this function is |key_exists| in PHP 4.0.6.
 
@@ -30,6 +42,6 @@ correspond to a NULL value, while |array_key_exists| does.
   array_key_exists('first', $search_array);
 ?>
 
-See also |isset|, |array_keys|, and |in_array|.
+|isset| |array_keys| |in_array| |property_exists|
 
 vim:ft=help:

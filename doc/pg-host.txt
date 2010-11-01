@@ -25,6 +25,10 @@ error.
   }
 ?>
 
+
+
+
+
 |pg_connect| |pg_pconnect|
 
 vim:ft=help:

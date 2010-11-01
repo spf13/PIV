@@ -3,7 +3,8 @@ line
 
   void readline_on_new_line()~
 
-This function is currently not documented; only the argument list is
-available.
+Tells readline that the cursor has moved to a new line.
+
+No value is returned.
 
 vim:ft=help:

@@ -1,13 +1,6 @@
 pg_lo_import -- Import a large object from file
 
-  int pg_lo_import(resource connection, string pathname)~
-
-  int pg_lo_import(resource connection, string pathname, string pathname)~
-
-In versions before PHP 4.2.0 the syntax of this function was different, see
-the following definition:
-
-  int pg_lo_import(resource connection, string pathname, string pathname, string pathname [, resource connection])~
+  int pg_lo_import([resource connection, string pathname, mixed object_id])~
 
 |pg_lo_import| creates a new large object in the database using a file on the
 filesystem as its data source.
@@ -15,9 +8,8 @@ filesystem as its data source.
 To use the large object interface, it is necessary to enclose it within a
 transaction block.
 
-When safe mode is enabled, PHP checks whether the files or directories you are
-about to operate on have the same UID (owner) as the script that is being
-executed.
+When safe mode is enabled, PHP checks whether the files or directories being
+operated upon have the same UID (owner) as the script that is being executed.
 
 This function used to be called |pg_loimport|.
 
@@ -28,7 +20,18 @@ connection made by |pg_connect| or |pg_pconnect|.
 {pathname} The full path and file name of the file on the client filesystem
 from which to read the large object data.
 
+{object_id} If an {object_id} is given the function will try to create a large
+object with this id, else a free object id is assigned by the server. The
+parameter was added in PHP 5.3 and relies on functionality that first appeared
+in PostgreSQL 8.1.
+
 The OID of the newly created large object, or FALSE on failure.
+
+Version Description 5.3.0 The optional {object_id} was added.
+
+  int pg_lo_import([resource connection, string pathname, mixed object_id, string pathname [, resource connection]])~
+
+4.2.0 The syntax of this function changed. It used to be:
 
 |pg_lo_import| example
 
@@ -38,6 +41,10 @@ The OID of the newly created large object, or FALSE on failure.
      $oid = pg_lo_import($database, '/tmp/lob.dat');
      pg_query($database, "commit");
 ?>
+
+
+
+
 
 |pg_lo_export| |pg_lo_open|
 

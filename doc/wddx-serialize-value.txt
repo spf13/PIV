@@ -2,8 +2,12 @@ wddx_serialize_value -- Serialize a single value into a WDDX packet
 
   string wddx_serialize_value(mixed var [, string comment])~
 
-|wddx_serialize_value| is used to create a WDDX packet from a single given
-value. It takes the value contained in {var}, and an optional {comment}
-string that appears in the packet header, and returns the WDDX packet.
+Creates a WDDX packet from a single given value.
+
+{var} The value to be serialized
+
+{comment} An optional comment string that appears in the packet header.
+
+Returns the WDDX packet, or FALSE on error.
 
 vim:ft=help:

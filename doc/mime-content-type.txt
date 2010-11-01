@@ -1,12 +1,19 @@
-mime_content_type -- Detect MIME Content-type for a file
+mime_content_type -- Detect MIME Content-type for a file (deprecated)
 
   string mime_content_type(string filename)~
 
 Returns the MIME content type for a file as determined by using information
-from the magic.mime file. Content types are returned in MIME format, like
-text/plain or application/octet-stream.
+from the magic.mime file.
 
-|mime_content_type| example
+{filename} Path to the tested file.
+
+Returns the content type in MIME format, like text/plain or
+application/octet-stream.
+
+This function has been deprecated as the PECL extension Fileinfo provides the
+same functionality (and more) in a much cleaner way.
+
+|mime_content_type| Example
 
 <?php >
   echo mime_content_type('php.gif') . "\n";
@@ -17,5 +24,9 @@ The above example will output:
 
   image/gif
   text/plain
+
+
+
+Fileinfo for a replacement
 
 vim:ft=help:

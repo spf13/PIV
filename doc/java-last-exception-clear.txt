@@ -2,11 +2,14 @@ java_last_exception_clear -- Clear last Java exception
 
   void java_last_exception_clear()~
 
-This function is EXPERIMENTAL. The behaviour of this function, the name of
-this function, and anything else documented about this function may change
-without notice in a future release of PHP. Use this function at your own
-risk.
+Clears last Java exception.
+
+No value is returned.
 
 See |java_last_exception_get| for an example.
+
+This function is EXPERIMENTAL. The behaviour of this function, its name, and
+surrounding documentation may change without notice in a future release of
+PHP. This function should be used at your own risk.
 
 vim:ft=help:

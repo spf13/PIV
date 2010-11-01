@@ -1,0 +1,37 @@
+maxdb_report -- Enables or disables internal report functions
+
+  bool maxdb_report(int flags)~
+
+{flags} One of the MAXDB_REPORT_XXX constants.
+
+Returns TRUE on success or FALSE on failure.
+
+Procedural style
+
+<?php >
+  /* activate reporting */
+  maxdb_report(MAXDB_REPORT_ERROR);
+  
+  $link = maxdb_connect("localhost", "MONA", "RED", "DEMODB");
+  
+  /* check connection */
+  if (maxdb_connect_errno()) {
+     printf("Connect failed: %s\n", maxdb_connect_error());
+     exit();
+  }
+  
+  /* this query should report an error */
+  $result = maxdb_query($link,"SELECT Name FROM Nonexistingtable WHERE population > 50000");
+  
+  maxdb_close($link);
+?>
+
+
+
+The above example will output something similar to:
+
+
+
+  Warning: maxdb_query(): -4004 POS(18) Unknown table name:NONEXISTINGTABLE <...>
+
+vim:ft=help:

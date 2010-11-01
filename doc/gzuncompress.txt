@@ -22,6 +22,10 @@ parameter {length}.
   echo $uncompressed;
 ?>
 
+
+
+
+
 |gzcompress| |gzinflate| |gzdeflate| |gzencode|
 
 vim:ft=help:

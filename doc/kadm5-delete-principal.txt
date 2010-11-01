@@ -1,0 +1,29 @@
+kadm5_delete_principal -- Deletes a kerberos principal
+
+  bool kadm5_delete_principal(resource handle, string principal)~
+
+Removes the {principal} from the Kerberos database.
+
+{handle} A KADM5 handle.
+
+{principal} The removed principal.
+
+Returns TRUE on success or FALSE on failure.
+
+|kadm5_delete_principal| example
+
+<?php >
+  $handle = kadm5_init_with_password("afs-1", "GONICUS.LOCAL", "admin/admin", "password");
+  
+  kadm5_delete_principal($handle, "burbach@GONICUS.LOCAL");
+  
+  kadm5_destroy($handle);
+?>
+
+
+
+
+
+|kadm5_modify_principal| |kadm5_create_principal|
+
+vim:ft=help:

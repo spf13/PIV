@@ -1,4 +1,4 @@
-exp -- Calculates the exponent of e (the Neperian or Natural logarithm base)
+exp -- Calculates the exponent of e
 
   float exp(float arg)~
 
@@ -6,6 +6,10 @@ Returns e raised to the power of {arg}.
 
 'e' is the base of the natural system of logarithms, or approximately
 2.718282.
+
+{arg} The argument to process
+
+'e' raised to the power of {arg}
 
 |exp| example
 
@@ -19,6 +23,8 @@ The above example will output:
   1.6275E+005
   298.87
 
-See also |log| and |pow|.
+
+
+|log| |pow|
 
 vim:ft=help:

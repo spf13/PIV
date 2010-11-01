@@ -12,4 +12,6 @@ one by one due to this locking. You can reduce the time needed to load all the
 frames by ending the session as soon as all changes to session variables are
 done.
 
+No value is returned.
+
 vim:ft=help:

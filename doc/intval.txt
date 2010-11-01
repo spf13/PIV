@@ -40,6 +40,8 @@ characters of the string. The common rules of integer casting apply.
   echo intval('42', 8);                 // 34
 ?>
 
+
+
 The {base} parameter has no effect unless the {var} parameter is a string.
 
 |floatval| |strval| |settype| |is_numeric| Type juggling BCMath Arbitrary

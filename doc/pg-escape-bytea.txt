@@ -1,6 +1,6 @@
 pg_escape_bytea -- Escape a string for insertion into a bytea field
 
-  string pg_escape_bytea(string data)~
+  string pg_escape_bytea([resource connection, string data])~
 
 |pg_escape_bytea| escapes string for bytea datatype. It returns escaped
 string.
@@ -16,10 +16,16 @@ INSERT INTO test_table (image) VALUES ('$image_escaped'::bytea); PostgreSQL
 backend character encoding does not match, and there may be multi-byte stream
 error. User must then cast to bytea to avoid this error.
 
+{connection} PostgreSQL database connection resource. When {connection} is not
+present, the default connection is used. The default connection is the last
+connection made by |pg_connect| or |pg_pconnect|.
+
 {data} A string containing text or binary data to be inserted into a bytea
 column.
 
 A string containing the escaped data.
+
+Version Description 5.2.0 {connection} added
 
 |pg_escape_bytea| example
 
@@ -34,8 +40,12 @@ A string containing the escaped data.
     $escaped = pg_escape_bytea($data);
     
     // Insert it into the database
-    pg_query("INSERT INTO gallery (name, data) VALUES ('Pine trees', '{$escaped}')";
+    pg_query("INSERT INTO gallery (name, data) VALUES ('Pine trees', '{$escaped}')");
 ?>
+
+
+
+
 
 |pg_unescape_bytea| |pg_escape_string|
 

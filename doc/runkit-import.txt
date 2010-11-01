@@ -1,0 +1,17 @@
+runkit_import -- Process a PHP file importing function and class definitions,
+overwriting where appropriate
+
+  bool runkit_import(string filename [, int flags])~
+
+Similar to |include| however any code residing outside of a function or class
+is simply ignored. Additionally, depending on the value of {flags}, any
+functions or classes which already exist in the currently running environment
+will be automatically overwritten by their new definitions.
+
+{filename} Filename to import function and class definitions from
+
+{flags} Bitwise OR of the RUNKIT_IMPORT_* family of constants.
+
+Returns TRUE on success or FALSE on failure.
+
+vim:ft=help:

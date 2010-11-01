@@ -44,4 +44,8 @@ Showing header information for a dBase database file
   print_r($column_info);
 ?>
 
+
+
+
+
 vim:ft=help:

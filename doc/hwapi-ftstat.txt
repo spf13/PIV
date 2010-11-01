@@ -1,7 +1,11 @@
 hw_api->ftstat -- Returns statistics about fulltext server
 
-  hw_api_object hw_api->ftstat(array parameter)~
+  hw_api_object ftstat(array parameter)~
 
-See also |hwapi_dcstat|, |hwapi_dbstat|, |hwapi_hwstat|.
+Returns statistics about fulltext server.
+
+{parameter}
+
+
 
 vim:ft=help:

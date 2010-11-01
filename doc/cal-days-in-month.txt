@@ -6,6 +6,14 @@ calendar
 This function will return the number of days in the {month} of {year} for the
 specified {calendar}.
 
+{calendar} Calendar to use for calculation
+
+{month} Month in the selected calendar
+
+{year} Year in the selected calendar
+
+The length in days of the selected month in the given calendar
+
 |cal_days_in_month| example
 
 <?php >
@@ -13,6 +21,8 @@ specified {calendar}.
   echo "There was $num days in August 2003";
 ?>
 
-See also |jdtounix|.
+
+
+
 
 vim:ft=help:

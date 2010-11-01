@@ -3,7 +3,9 @@ swf_oncondition -- Describe a transition used to trigger an action list
   void swf_oncondition(int transition)~
 
 The |swf_oncondition| function describes a transition that will trigger an
-action list. There are several types of possible transitions, the following
+action list.
+
+{transition} There are several types of possible transitions, the following
 are for buttons defined as TYPE_MENUBUTTON: IdletoOverUp
 
 OverUptoIdle
@@ -37,5 +39,7 @@ OutDowntoIdle
 ButtonEnter (IdletoOverUp|OutDowntoOverDown)
 
 ButtonExit (OverUptoIdle|OverDowntoOutDown)
+
+No value is returned.
 
 vim:ft=help:

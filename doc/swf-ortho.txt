@@ -3,7 +3,23 @@ current viewport
 
   void swf_ortho(float xmin, float xmax, float ymin, float ymax, float zmin, float zmax)~
 
-The |swf_ortho| function defines an orthographic mapping of user coordinates
-onto the current viewport.
+Defines an 3D orthographic mapping of user coordinates onto the current
+viewport.
+
+{xmin}
+
+{xmax}
+
+{ymin}
+
+{ymax}
+
+{zmin}
+
+{zmax}
+
+No value is returned.
+
+|swf_ortho2|
 
 vim:ft=help:

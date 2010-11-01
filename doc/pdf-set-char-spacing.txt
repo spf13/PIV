@@ -1,5 +1,6 @@
-pdf_set_char_spacing -- Deprecated: Sets character spacing
+PDF_set_char_spacing -- Set character spacing [deprecated]
 
-This function is deprecated, use |pdf_set_value| instead.
+This function is deprecated since PDFlib version 3, use |PDF_set_value| with
+parameter {charspacing} instead.
 
 vim:ft=help:

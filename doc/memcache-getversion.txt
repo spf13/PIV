@@ -2,25 +2,28 @@ Memcache::getVersion -- Return version of the server
 
   string Memcache::getVersion()~
 
-|Memcache::getVersion| returns a string with server's version number.
+|Memcache::getVersion| returns a string with server's version number. Also you
+can use |memcache_get_version| function.
 
-Also you can use |memcache_get_version| function. See example below.
+Returns a string of server version number or FALSE on failure.
 
 |Memcache::getVersion| example
 
 <?php >
-  /* procedural API */
-  $memcache_obj = memcache_connect('memcache_host', 11211);
-  
-  echo memcache_get_version($memcache_obj);
-  
   /* OO API */
-  $memcache_obj = new Memcache;
-  echo $memcache_obj->getVersion();
+  $memcache = new Memcache;
+  $memcache->connect('memcache_host', 11211);
+  echo $memcache->getVersion();
+  
+  /* procedural API */
+  $memcache = memcache_connect('memcache_host', 11211);
+  echo memcache_get_version($memcache);
 ?>
 
-|Memcache::getVersion| returns FALSE if an error occured.
 
-See also |Memcache::getStats|.
+
+
+
+|Memcache::getExtendedStats| |Memcache::getStats|
 
 vim:ft=help:

@@ -3,16 +3,20 @@ the value of number is close to zero
 
   float log1p(float number)~
 
-This function is EXPERIMENTAL. The behaviour of this function, the name of
-this function, and anything else documented about this function may change
-without notice in a future release of PHP. Use this function at your own
-risk.
+This function is EXPERIMENTAL. The behaviour of this function, its name, and
+surrounding documentation may change without notice in a future release of
+PHP. This function should be used at your own risk.
 
-|log1p| returns log(1 + {number}) computed in a way that is accurante even
-when the value of {number} is close to zero.
+|log1p| returns log(1 + {number}) computed in a way that is accurate even when
+the value of {number} is close to zero. |log| might only return log(1) in this
+case due to lack of precision.
 
-This function is not implemented on Windows platforms.
+{number} The argument to process
 
-See also |expm1| and |log|.
+log(1 + {number})
+
+Version Description 5.3.0 This function is now available on all platforms
+
+|expm1| |log| |log10|
 
 vim:ft=help:

@@ -7,4 +7,8 @@ Prints the document without the BODY tag.
 For backward compatibility, |hw_outputdocument| is also accepted. This is
 deprecated, however.
 
+{hw_document} The document identifier.
+
+Returns TRUE on success or FALSE on failure.
+
 vim:ft=help:

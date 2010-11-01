@@ -2,9 +2,12 @@ swf_closefile -- Close the current Shockwave Flash file
 
   void swf_closefile([int return_file])~
 
-Close a file that was opened by the |swf_openfile| function. If the
-{return_file} parameter is set then the contents of the SWF file are returned
-from the function.
+Close a file that was opened by the |swf_openfile| function.
+
+{return_file} If set then the contents of the SWF file are returned from the
+function.
+
+No value is returned.
 
 Creating a simple flash file based on user input and outputting it and saving
 it in a database
@@ -24,16 +27,16 @@ it in a database
       swf_definefont(10, "Ligon-Bold");
           swf_fontsize(12);
           swf_fontslant(10);
-      
+  
       swf_definetext(11, $text, 1);
-      
+  
       swf_pushmatrix();
           swf_translate(-50, 80, 0);
           swf_placeobject(11, 60);
       swf_popmatrix();
   
       swf_showframe();
-    
+  
       swf_startdoaction();
           swf_actionstop();
       swf_enddoaction();
@@ -47,12 +50,12 @@ it in a database
   // void swf_savedata(string data)
   // Save the generated file a database
   // for later retrieval
-  function swf_savedata($data) 
+  function swf_savedata($data)
   {
-      global $DBHOST, 
+      global $DBHOST,
              $DBUSER,
              $DBPASS;
-      
+  
       $dbh = @mysql_connect($DBHOST, $DBUSER, $DBPASS);
   
       if (!$dbh) {
@@ -73,5 +76,11 @@ it in a database
       @mysql_close($dbh);
   }
 ?>
+
+
+
+
+
+|swf_openfile|
 
 vim:ft=help:

@@ -1,0 +1,18 @@
+newt_win_message --
+
+  void newt_win_message(string title, string button_text, string format [, mixed args [, mixed ...]])~
+
+This function is currently not documented; only its argument list is
+available.
+
+{title}
+
+{button_text}
+
+{format}
+
+{args}
+
+No value is returned.
+
+vim:ft=help:

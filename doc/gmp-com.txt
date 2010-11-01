@@ -4,6 +4,11 @@ gmp_com -- Calculates one's complement
 
 Returns the one's complement of {a}.
 
+{a} It can be either a GMP number resource, or a numeric string given that it
+is possible to convert the latter to a number.
+
+Returns the one's complement of {a}, as a GMP number.
+
 |gmp_com| example
 
 <?php >
@@ -11,7 +16,7 @@ Returns the one's complement of {a}.
   echo gmp_strval($com) . "\n";
 ?>
 
-The printout of the above program will be:
+The above example will output:
 
   -1235
 

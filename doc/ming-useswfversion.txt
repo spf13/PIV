@@ -1,8 +1,23 @@
-ming_useswfversion -- Use SWF version (?)
+ming_useswfversion -- Sets the SWF version
 
   void ming_useswfversion(int version)~
 
-This function is currently not documented; only the argument list is
-available.
+Sets the SWF version to be used in the movie. This affect the bahaviour of
+Action Script.
+
+{version} SWF version to use.
+
+No value is returned.
+
+|ming_useswfversion| example
+
+<?php >
+  $movie = new SWFMovie();
+  ming_useswfversion(4); // Flash 4
+?>
+
+
+
+
 
 vim:ft=help:

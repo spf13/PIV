@@ -1,9 +1,7 @@
-pdf_end_pattern -- Finish pattern
+PDF_end_pattern -- Finish pattern
 
-  bool pdf_end_pattern(resource pdfdoc)~
+  bool PDF_end_pattern(resource p)~
 
-Finish the pattern definition. Returns TRUE on success or FALSE on failure.
-
-See also |pdf_begin_pattern|.
+Finishes the pattern definition. Returns TRUE on success or FALSE on failure.
 
 vim:ft=help:

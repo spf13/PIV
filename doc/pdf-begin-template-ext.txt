@@ -1,0 +1,7 @@
+PDF_begin_template_ext -- Start template definition
+
+  int PDF_begin_template_ext(resource pdfdoc, float width, float height, string optlist)~
+
+Starts a new template definition.
+
+vim:ft=help:

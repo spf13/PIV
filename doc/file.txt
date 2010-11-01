@@ -1,16 +1,63 @@
 file -- Reads entire file into an array
 
-  array file(string filename [, int use_include_path [, resource context]])~
+  array file(string filename [, int flags [, resource context]])~
 
-Identical to |readfile|, except that |file| returns the file in an array. Each
-element of the array corresponds to a line in the file, with the newline still
-attached. Upon failure, |file| returns FALSE.
+Reads an entire file into an array.
 
-You can use the optional {use_include_path} parameter and set it to "1", if
-you want to search for the file in the include_path, too.
+You can use |file_get_contents| to return the contents of a file as a string.
+
+{filename} Path to the file.
+
+A URL can be used as a filename with this function if the fopen wrappers have
+been enabled. See |fopen| for more details on how to specify the filename and
+for a list of supported URL protocols.
+
+{flags} The optional parameter {flags} can be one, or more, of the following
+constants: FILE_USE_INCLUDE_PATH Search for the file in the include_path.
+
+FILE_IGNORE_NEW_LINES Do not add newline at the end of each array element
+
+FILE_SKIP_EMPTY_LINES Skip empty lines
+
+FILE_TEXT The content is returned in UTF-8 encoding. You can specify a
+different encoding by creating a custom context. This flag cannot be used with
+FILE_BINARY.
+
+FILE_BINARY The content is read as binary data. This is the default setting
+and cannot be used with FILE_TEXT.
+
+{context} A context resource created with the |stream_context_create|
+function.
+
+Context support was added with PHP 5.0.0. For a description of contexts, refer
+to .
+
+
+
+Returns the file in an array. Each element of the array corresponds to a line
+in the file, with the newline still attached. Upon failure, |file| returns
+FALSE.
+
+Each line in the resulting array will include the line ending, unless
+FILE_IGNORE_NEW_LINES is used, so you still need to use |rtrim| if you do not
+want the line ending present.
+
+If PHP is not properly recognizing the line endings when reading files either
+on or created by a Macintosh computer, enabling the auto_detect_line_endings
+run-time configuration option may help resolve the problem.
+
+Version Description 6.0.0 Added support for the FILE_TEXT and FILE_BINARY
+flags. For forward compatibility, these constants are available as of PHP
+5.2.7
+
+5.0.0 The {context} parameter was added 5.0.0 Prior to PHP 5.0.0 the {flags}
+parameter only covered include_path and was enabled with 1 4.3.0 |file| became
+binary safe
+
+|file| example
 
 <?php >
-  // Get a file into an array.  In this example we'll go through HTTP to get 
+  // Get a file into an array.  In this example we'll go through HTTP to get
   // the HTML source of a URL.
   $lines = file('http://www.example.com/');
   
@@ -21,37 +68,25 @@ you want to search for the file in the include_path, too.
   
   // Another example, let's get a web page into a string.  See also file_get_contents().
   $html = implode('', file('http://www.example.com/'));
+  
+  // Using the optional flags parameter since PHP 5
+  $trimmed = file('somefile.txt', FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
 ?>
 
-You can use a URL as a filename with this function if the fopen wrappers have
-been enabled. See |fopen| for more details on how to specify the filename and
-for a list of supported URL protocols.
 
-Each line in the resulting array will include the line ending, so you still
-need to use |rtrim| if you do not want the line ending present.
 
-If you are having problems with PHP not recognizing the line endings when
-reading files either on or created by a Macintosh computer, you might want to
-enable the auto_detect_line_endings run-time configuration option.
 
-As of PHP 4.3.0 you can use |file_get_contents| to return the contents of a
-file as a string.
-
-In PHP 4.3.0 |file| became binary safe.
-
-Context support was added with PHP 5.0.0. For a description of contexts, refer
-to .
 
 When using SSL, Microsoft IIS will violate the protocol by closing the
 connection without sending a close_notify indicator. PHP will report this as
-"SSL: Fatal Protocol Error" when you reach the end of the data. To workaround
-this, you should lower your error_reporting level not to include warnings. PHP
-4.3.7 and higher can detect buggy IIS server software when you open the stream
-using the https:// wrapper and will suppress the warning for you. If you are
-using |fsockopen| to create an ssl:// socket, you are responsible for
-detecting and suppressing the warning yourself.
+"SSL: Fatal Protocol Error" when you reach the end of the data. To work around
+this, the value of error_reporting should be lowered to a level that does not
+include warnings. PHP 4.3.7 and higher can detect buggy IIS server software
+when you open the stream using the https:// wrapper and will suppress the
+warning. When using |fsockopen| to create an ssl:// socket, the developer is
+responsible for detecting and suppressing this warning.
 
-See also |readfile|, |fopen|, |fsockopen|, |popen|, |file_get_contents|, and
-|include|.
+|readfile| |fopen| |fsockopen| |popen| |file_get_contents| |include|
+|stream_context_create|
 
 vim:ft=help:

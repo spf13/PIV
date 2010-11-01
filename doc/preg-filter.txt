@@ -1,0 +1,68 @@
+preg_filter -- Perform a regular expression search and replace
+
+  mixed preg_filter(mixed pattern, mixed replacement, mixed subject [, int limit [, int count]])~
+
+|preg_filter| is identical to |preg_replace| except it only returns the
+matches. For details about how this function works, read the |preg_replace|
+documentation.
+
+{pattern}
+
+{replacement}
+
+{subject}
+
+{limit}
+
+{count}
+
+Returns an array if the {subject} parameter is an array, or a string
+otherwise.
+
+If matches are found, the new {subject} will be returned, otherwise {subject}
+will be returned unchanged or NULL if an error occurred.
+
+Example comparing |preg_filter| with |preg_replace|
+
+<?php >
+  $subject = array('1', 'a', '2', 'b', '3', 'A', 'B', '4'); 
+  $pattern = array('/\d/', '/[a-z]/', '/[1a]/'); 
+  $replace = array('A:$0', 'B:$0', 'C:$0'); 
+  
+  echo "preg_filter returns\n";
+  print_r(preg_filter($pattern, $replace, $subject)); 
+  
+  echo "preg_replace returns\n";
+  print_r(preg_replace($pattern, $replace, $subject)); 
+?>
+
+The above example will output:
+
+  preg_filter returns
+  Array
+  (
+      [0] => A:C:1
+      [1] => B:C:a
+      [2] => A:2
+      [3] => B:b
+      [4] => A:3
+      [7] => A:4
+  )
+  preg_replace returns
+  Array
+  (
+      [0] => A:C:1
+      [1] => B:C:a
+      [2] => A:2
+      [3] => B:b
+      [4] => A:3
+      [5] => A
+      [6] => B
+      [7] => A:4
+  )
+
+
+
+|preg_replace| |preg_replace_callback| |preg_match| |preg_split|
+
+vim:ft=help:

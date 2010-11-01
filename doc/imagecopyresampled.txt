@@ -4,26 +4,40 @@ imagecopyresampled -- Copy and resize part of an image with resampling
 
 |imagecopyresampled| copies a rectangular portion of one image to another
 image, smoothly interpolating pixel values so that, in particular, reducing
-the size of an image still retains a great deal of clarity. Returns TRUE on
-success or FALSE on failure.
+the size of an image still retains a great deal of clarity.
 
-{dst_image} is the destination image, {src_image} is the source image
-identifier. If the source and destination coordinates and width and heights
-differ, appropriate stretching or shrinking of the image fragment will be
-performed. The coordinates refer to the upper left corner. This function can
-be used to copy regions within the same image (if {dst_image} is the same as
-{src_image}) but if the regions overlap the results will be unpredictable.
+In other words, |imagecopyresampled| will take an rectangular area from
+{src_image} of width {src_w} and height {src_h} at position ({src_x},{src_y})
+and place it in a rectangular area of {dst_image} of width {dst_w} and height
+{dst_h} at position ({dst_x},{dst_y}).
 
-There is a problem due to palette image limitations (255+1 colors). Resampling
-or filtering an image commonly needs more colors than 255, a kind of
-approximation is used to calculate the new resampled pixel and its color.
-With a palette image we try to allocate a new color, if that failed, we
-choose the closest (in theory) computed color. This is not always the closest
-visual color. That may produce a weird result, like blank (or visually blank)
-images. To skip this problem, please use a truecolor image as a destination
-image, such as one created by |imagecreatetruecolor|.
+If the source and destination coordinates and width and heights differ,
+appropriate stretching or shrinking of the image fragment will be performed.
+The coordinates refer to the upper left corner. This function can be used to
+copy regions within the same image (if {dst_image} is the same as {src_image})
+but if the regions overlap the results will be unpredictable.
 
-This function requires GD 2.0.1 or later.
+{dst_im} Destination image link resource.
+
+{src_im} Source image link resource.
+
+{dst_x} x-coordinate of destination point.
+
+{dst_y} y-coordinate of destination point.
+
+{src_x} x-coordinate of source point.
+
+{src_y} y-coordinate of source point.
+
+{dst_w} Destination width.
+
+{dst_h} Destination height.
+
+{src_w} Source width.
+
+{src_h} Source height.
+
+Returns TRUE on success or FALSE on failure.
 
 Simple example This example will resample an image to half its original size.
 
@@ -49,6 +63,10 @@ Simple example This example will resample an image to half its original size.
   imagejpeg($image_p, null, 100);
 ?>
 
+The above example will output something similar to:
+
+
+
 Resampling an image proportionally This example will display an image with the
 maximum width, or height, of 200 pixels.
 
@@ -66,10 +84,12 @@ maximum width, or height, of 200 pixels.
   // Get new dimensions
   list($width_orig, $height_orig) = getimagesize($filename);
   
-  if ($width &amp;& ($width_orig < $height_orig)) {
-      $width = ($height / $height_orig) * $width_orig;
+  $ratio_orig = $width_orig/$height_orig;
+  
+  if ($width/$height > $ratio_orig) {
+     $width = $height*$ratio_orig;
   } else {
-      $height = ($width / $width_orig) * $height_orig;
+     $height = $width/$ratio_orig;
   }
   
   // Resample
@@ -80,6 +100,19 @@ maximum width, or height, of 200 pixels.
   // Output
   imagejpeg($image_p, null, 100);
 ?>
+
+The above example will output something similar to:
+
+
+
+There is a problem due to palette image limitations (255+1 colors). Resampling
+or filtering an image commonly needs more colors than 255, a kind of
+approximation is used to calculate the new resampled pixel and its color. With
+a palette image we try to allocate a new color, if that failed, we choose the
+closest (in theory) computed color. This is not always the closest visual
+color. That may produce a weird result, like blank (or visually blank) images.
+To skip this problem, please use a truecolor image as a destination image,
+such as one created by |imagecreatetruecolor|.
 
 |imagecopyresized|
 

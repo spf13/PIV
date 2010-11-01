@@ -29,8 +29,8 @@ option count has the same effect as calling |yaz_range| except that records
 are numbered from 1 in |yaz_range| count maximum number of records to be
 retrieved via |yaz_search| or |yaz_present|. elementSetName element-set-name
 for retrieval. Setting this option is equivalent to calling |yaz_element|.
-{value} The new value of the option. Use this only if the previous argument
-is a string.
+{value} The new value of the option. Use this only if the previous argument is
+a string.
 
 No value is returned.
 

@@ -3,14 +3,14 @@ str_word_count -- Return information about words used in a string
   mixed str_word_count(string string [, int format [, string charlist]])~
 
 Counts the number of words inside {string}. If the optional {format} is not
-specified, then the return value will be an integer representing the number
-of words found. In the event the {format} is specified, the return value will
-be an array, content of which is dependent on the {format}. The possible value
+specified, then the return value will be an integer representing the number of
+words found. In the event the {format} is specified, the return value will be
+an array, content of which is dependent on the {format}. The possible value
 for the {format} and the resultant outputs are listed below.
 
 For the purpose of this function, 'word' is defined as a locale dependent
-string containing alphabetic characters, which also may contain, but not
-start with "'" and "-" characters.
+string containing alphabetic characters, which also may contain, but not start
+with "'" and "-" characters.
 
 {string} The string
 
@@ -36,7 +36,7 @@ A |str_word_count| example
   
   print_r(str_word_count($str, 1));
   print_r(str_word_count($str, 2));
-  print_r(str_word_count($str, 1, 'ΰαγη3'));
+  print_r(str_word_count($str, 1, 'Γ Γ‘Γ£Γ§3'));
   
   echo str_word_count($str);
 ?>
@@ -76,6 +76,8 @@ The above example will output:
   )
   
   7
+
+
 
 |explode| |preg_split| |split| |count_chars| |substr_count|
 

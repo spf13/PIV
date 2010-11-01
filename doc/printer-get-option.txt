@@ -1,13 +1,18 @@
 printer_get_option -- Retrieve printer configuration data
 
-  mixed printer_get_option(resource handle, string option)~
+  mixed printer_get_option(resource printer_handle, string option)~
 
-The function retrieves the configuration setting of {option}. {handle} must be
-a valid handle to a printer. Take a look at |printer_set_option| for the
-settings that can be retrieved, additionally the following settings can be
-retrieved: {PRINTER_DEVICENAME} returns the devicename of the printer.
+The function retrieves the configuration setting of {option}.
 
-{PRINTER_DRIVERVERSION} returns the printer driver version.
+{printer_handle} {printer_handle} must be a valid handle to a printer.
+
+{option} Take a look at |printer_set_option| for the settings that can be
+retrieved, additionally the following settings can be retrieved:
+PRINTER_DEVICENAME returns the devicename of the printer.
+
+PRINTER_DRIVERVERSION returns the printer driver version.
+
+Returns the value of {option}.
 
 |printer_get_option| example
 
@@ -16,5 +21,9 @@ retrieved: {PRINTER_DEVICENAME} returns the devicename of the printer.
   echo printer_get_option($handle, PRINTER_DRIVERVERSION);
   printer_close($handle);
 ?>
+
+
+
+
 
 vim:ft=help:

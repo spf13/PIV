@@ -4,4 +4,8 @@ swf_enddoaction -- End the current action
 
 Ends the current action started by the |swf_startdoaction| function.
 
+No value is returned.
+
+|swf_startdoaction|
+
 vim:ft=help:

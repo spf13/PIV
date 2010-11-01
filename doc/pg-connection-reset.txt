@@ -20,6 +20,10 @@ Returns TRUE on success or FALSE on failure.
     }
 ?>
 
+
+
+
+
 |pg_connect| |pg_pconnect| |pg_connection_status|
 
 vim:ft=help:

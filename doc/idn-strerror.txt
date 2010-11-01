@@ -1,0 +1,14 @@
+idn_strerror -- Returns string describing the IDNA error code
+
+  string idn_strerror(int errorcode)~
+
+This function returns the error message string that corresponds to the given
+error code.
+
+{errorcode} The error code as returned by |idn_to_ascii| or |idn_to_utf8|.
+
+The corresponding libidn error message string is returned.
+
+|idn_to_ascii| |idn_to_utf8|
+
+vim:ft=help:

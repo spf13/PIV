@@ -2,9 +2,19 @@ printer_draw_line -- Draw a line
 
   void printer_draw_line(resource printer_handle, int from_x, int from_y, int to_x, int to_y)~
 
-The function simply draws a line from position {from_x}, {from_y} to position
-{to_x}, {to_y} using the selected pen. {printer_handle} must be a valid
-handle to a printer.
+The function draws a line using the selected pen.
+
+{printer_handle} {printer_handle} must be a valid printer handle.
+
+{from_x} {from_x} is the x coordinate of the origin point.
+
+{from_y} {from_y} is the y coordinate of the origin point.
+
+{to_x} {to_x} is the x coordinate of the destination point.
+
+{to_y} {to_y} is the y coordinate of the destination point.
+
+No value is returned.
 
 |printer_draw_line| example
 
@@ -25,5 +35,9 @@ handle to a printer.
   printer_end_doc($handle);
   printer_close($handle);
 ?>
+
+
+
+
 
 vim:ft=help:

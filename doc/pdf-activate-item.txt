@@ -1,0 +1,8 @@
+PDF_activate_item -- Activate structure element or other content item
+
+  bool PDF_activate_item(resource pdfdoc, int id)~
+
+Activates a previously created structure element or other content item.
+Returns TRUE on success or FALSE on failure.
+
+vim:ft=help:

@@ -1,0 +1,22 @@
+maxdb->stmt_init -- Initializes a statement and returns an resource for use
+with maxdb_stmt_prepare
+
+Procedural style :
+
+  resource maxdb_stmt_init(resource link)~
+
+Object oriented style (property):
+
+  object stmt_init(resource link)~
+
+Allocates and initializes a statement resource suitable for
+|maxdb_stmt_prepare|.
+
+Any subsequent calls to any maxdb_stmt function will fail until
+|maxdb_stmt_prepare| was called.
+
+Returns an resource.
+
+|maxdb_stmt_prepare|
+
+vim:ft=help:

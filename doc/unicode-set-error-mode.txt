@@ -1,0 +1,40 @@
+unicode_set_error_mode -- Set the error mode for strings conversions
+
+  bool unicode_set_error_mode(int direction, int mode)~
+
+This function sets the error mode for string conversions between different
+encodings. An error can occur during conversion when an illegal character is
+encountered or if a character cannot be represented into the new encoding. By
+default, when an error is encountered, the conversion stops.
+
+{direction} The {direction} sets the conversion direction to which the error
+mode will apply. This can either be FROM_UNICODE, which will set the error
+mode for conversions from a unicode string to a binary string or TO_UNICODE,
+which will set the error mode for conversions from a binary string to a
+unicode string.
+
+{mode} {mode} determines how the conversion errors are handled. It should be
+one of the following constants:
+
+Available modes Mode Description U_CONV_ERROR_STOP Stop the conversion. This
+is the default mode. U_CONV_ERROR_SKIP Skip the character. U_CONV_ERROR_SUBST
+Substitute the character. The substituting character can be set with
+|unicode_set_subst_char|. U_CONV_ERROR_ESCAPE_UNICODE Escape the faulty bytes
+and represent them in the Unicode character format. U_CONV_ERROR_ESCAPE_ICU
+Escape the faulty bytes and represent them in the ICU character format.
+U_CONV_ERROR_ESCAPE_JAVA Escape the faulty bytes and print them in the Java
+character format. U_CONV_ERROR_ESCAPE_XML_DEC Escape the faulty bytes and
+represent them in decimal format. U_CONV_ERROR_ESCAPE_XML_HEX Escape the
+faulty bytes and represent them in hexadecimal format.
+
+Returns TRUE on success or FALSE on failure.
+
+Emits a E_WARNING level error if the direction or the mode are invalid.
+
+This function is EXPERIMENTAL. The behaviour of this function, its name, and
+surrounding documentation may change without notice in a future release of
+PHP. This function should be used at your own risk.
+
+|unicode_encode| |unicode_decode|
+
+vim:ft=help:

@@ -1,0 +1,78 @@
+maxdb->info -- Retrieves information about the most recently executed query
+
+Procedural style:
+
+  string maxdb_info(resource link)~
+
+Object oriented style (property)
+
+The |maxdb_info| function returns a string providing information about the
+last query executed. The nature of this string is provided below:
+
+Possible maxdb_info return values Query type Example result string INSERT
+INTO...SELECT... Records: 100 Duplicates: 0 Warnings: 0 INSERT INTO...VALUES
+(...),(...),(...) Records: 3 Duplicates: 0 Warnings: 0 LOAD DATA INFILE ...
+Records: 1 Deleted: 0 Skipped: 0 Warnings: 0 ALTER TABLE ... Records: 3
+Duplicates: 0 Warnings: 0 UPDATE ... Rows matched: 40 Changed: 40 Warnings: 0
+
+Queries which do not fall into one of the above formats are not supported. In
+these situations, |maxdb_info| will return an empty string.
+
+A character string representing additional information about the most recently
+executed query.
+
+Object oriented style
+
+<?php >
+  $maxdb = new maxdb("localhost", "MONA", "RED", "DEMODB");
+  
+  /* check connection */
+  if (maxdb_connect_errno()) {
+     printf("Connect failed: %s\n", maxdb_connect_error());
+     exit();
+  }
+  
+  $maxdb->query("CREATE TABLE temp.t1 LIKE hotel.city");
+  
+  /* INSERT INTO .. SELECT */
+  $maxdb->query("INSERT INTO temp.t1 SELECT * FROM hotel.city");
+  printf("%s\n", $maxdb->info);
+  
+  /* close connection */
+  $maxdb->close();
+?>
+
+
+
+Procedural style
+
+<?php >
+  $link = maxdb_connect("localhost", "MONA", "RED", "DEMODB");
+  
+  /* check connection */
+  if (maxdb_connect_errno()) {
+     printf("Connect failed: %s\n", maxdb_connect_error());
+     exit();
+  }
+  
+  maxdb_query($link, "CREATE TABLE temp.t1 LIKE hotel.city");
+  
+  /* INSERT INTO .. SELECT */
+  maxdb_query($link, "INSERT INTO temp.t1 SELECT * FROM hotel.city");
+  printf("%s\n", maxdb_info($link));
+  
+  /* close connection */
+  maxdb_close($link);
+?>
+
+
+
+The above example will output something similar to:
+
+
+
+  Records: 25 Duplicates: 0 Warnings: 0
+
+|maxdb_affected_rows| |maxdb_warning_count| |maxdb_num_rows|
+
+vim:ft=help:

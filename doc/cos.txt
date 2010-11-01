@@ -5,12 +5,20 @@ cos -- Cosine
 |cos| returns the cosine of the {arg} parameter. The {arg} parameter is in
 radians.
 
+{arg} An angle in radians
+
+The cosine of {arg}
+
 |cos| example
 
 <?php >
   echo cos(M_PI); // -1
 ?>
 
-See also: |acos|, |sin|, |tan|, and |deg2rad|.
+
+
+
+
+|acos| |sin| |tan| |deg2rad|
 
 vim:ft=help:

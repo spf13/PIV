@@ -3,10 +3,24 @@ index check, compares data and indexes by a callback functions
 
   array array_uintersect_uassoc(array array1, array array2 [, array ..., callback data_compare_func, callback key_compare_func])~
 
-|array_uintersect_uassoc| returns an array containing all the values of
-{array1} that are present in all the arguments. Note that the keys are used
-in the comparison unlike in |array_uintersect|. Both the data and the indexes
-are compared by using a callback functions.
+Computes the intersection of arrays with additional index check, compares data
+and indexes by a callback functions Note that the keys are used in the
+comparison unlike in |array_uintersect|. Both the data and the indexes are
+compared by using separate callback functions.
+
+{array1} The first array.
+
+{array2} The second array.
+
+{data_compare_func} For comparison is used the user supplied callback
+function. It must return an integer less than, equal to, or greater than zero
+if the first argument is considered to be respectively less than, equal to, or
+greater than the second.
+
+{key_compare_func} Key comparison callback function.
+
+Returns an array containing all the values of {array1} that are present in all
+the arguments.
 
 |array_uintersect_uassoc| example
 
@@ -25,12 +39,9 @@ The above example will output:
       [b] => brown
   )
 
-For comparison is used the user supplied callback function. It must return an
-integer less than, equal to, or greater than zero if the first argument is
-considered to be respectively less than, equal to, or greater than the
-second.
 
-See also |array_uintersect|, |array_intersect_assoc|, |array_intersect_uassoc|
-and |array_uintersect_assoc|.
+
+|array_uintersect| |array_intersect_assoc| |array_intersect_uassoc|
+|array_uintersect_assoc|
 
 vim:ft=help:

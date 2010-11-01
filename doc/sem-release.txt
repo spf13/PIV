@@ -5,10 +5,12 @@ sem_release -- Release a semaphore
 |sem_release| releases the semaphore if it is currently acquired by the
 calling process, otherwise a warning is generated.
 
-Returns TRUE on success or FALSE on failure.
-
 After releasing the semaphore, |sem_acquire| may be called to re-acquire it.
 
-See also |sem_get| and |sem_acquire|.
+{sem_identifier} A Semaphore resource handle as returned by |sem_get|.
+
+Returns TRUE on success or FALSE on failure.
+
+|sem_get| |sem_acquire|
 
 vim:ft=help:

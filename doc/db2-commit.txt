@@ -1,0 +1,22 @@
+db2_commit -- Commits a transaction
+
+  bool db2_commit(resource connection)~
+
+Commits an in-progress transaction on the specified connection resource and
+begins a new transaction. PHP applications normally default to AUTOCOMMIT
+mode, so |db2_commit| is not necessary unless AUTOCOMMIT has been turned off
+for the connection resource.
+
+If the specified connection resource is a persistent connection, all
+transactions in progress for all applications using that persistent connection
+will be committed. For this reason, persistent connections are not recommended
+for use in applications that require transactions.
+
+{connection} A valid database connection resource variable as returned from
+|db2_connect| or |db2_pconnect|.
+
+Returns TRUE on success or FALSE on failure.
+
+|db2_autocommit| |db2_rollback|
+
+vim:ft=help:

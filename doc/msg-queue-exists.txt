@@ -1,0 +1,13 @@
+msg_queue_exists -- Check whether a message queue exists
+
+  bool msg_queue_exists(int key)~
+
+Checks whether the message queue {key} exists.
+
+{key} Queue key.
+
+Returns TRUE on success or FALSE on failure.
+
+|msg_remove_queue| |msg_receive| |msg_stat_queue|
+
+vim:ft=help:

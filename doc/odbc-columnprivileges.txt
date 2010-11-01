@@ -1,10 +1,27 @@
-odbc_columnprivileges -- Returns a result identifier that can be used to fetch
-a list of columns and associated privileges
+odbc_columnprivileges -- Lists columns and associated privileges for the given
+table
 
   resource odbc_columnprivileges(resource connection_id, string qualifier, string owner, string table_name, string column_name)~
 
-Lists columns and associated privileges for the given table. Returns an ODBC
-result identifier or FALSE on failure.
+Lists columns and associated privileges for the given table.
+
+{connection_id} The ODBC connection identifier, see |odbc_connect| for
+details.
+
+{qualifier} The qualifier.
+
+{owner} The owner.
+
+{table_name} The table name.
+
+{column_name} The {column_name} argument accepts search patterns ('%' to match
+zero or more characters and '_' to match a single character).
+
+The {owner}, {table_name}, and {column_name} accept search patterns ('%' to
+match zero or more characters and '_' to match a single character).
+
+Returns an ODBC result identifier or FALSE on failure. This result identifier
+can be used to fetch a list of columns and associated privileges.
 
 The result set has the following columns: TABLE_QUALIFIER
 
@@ -21,8 +38,5 @@ PRIVILEGE
 IS_GRANTABLE
 
 The result set is ordered by TABLE_QUALIFIER, TABLE_OWNER and TABLE_NAME.
-
-The {column_name} argument accepts search patterns ('%' to match zero or more
-characters and '_' to match a single character).
 
 vim:ft=help:

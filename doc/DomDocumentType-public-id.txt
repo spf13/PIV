@@ -1,4 +1,4 @@
-DomDocumentType->public_id() -- Returns public id of document type
+DomDocumentType->public_id -- Returns public id of document type
 
   string public_id()~
 
@@ -19,6 +19,10 @@ The following example echos nothing. Retrieving the public id
   $doctype = $dom->doctype();
   echo $doctype->public_id();
 ?>
+
+
+
+
 
 Use the publicId property of the DOMDocumentType object.
 

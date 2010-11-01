@@ -4,7 +4,11 @@ rar_list -- Get entries list from the Rar archive
 
 Get entries list from the Rar archive.
 
-|Rar::| example
+{rar_file} A Rar file resource, opened with |rar_open|.
+
+|rar_list| returns array of entries or FALSE on error.
+
+|rar_list| example
 
 <?php >
   $rar_file = rar_open('example.rar') or die("Failed to open Rar archive");
@@ -14,6 +18,8 @@ Get entries list from the Rar archive.
   print_r($entries_list);
 ?>
 
-|rar_list| returns array of entries or FALSE on error.
+
+
+
 
 vim:ft=help:

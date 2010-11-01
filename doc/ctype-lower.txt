@@ -29,6 +29,8 @@ The above example will output:
   The string qiutoas consists of all lowercase letters.
   The string QASsdks does not consist of all lowercase letters.
 
+
+
 |ctype_alpha| |ctype_upper| |setlocale|
 
 vim:ft=help:

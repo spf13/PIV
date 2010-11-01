@@ -1,6 +1,6 @@
 hw_api->checkin -- Checks in an object
 
-  bool hw_api->checkin(array parameter)~
+  bool checkin(array parameter)~
 
 This function checks in an object or a whole hierarchy of objects. The
 parameters array contains the required element 'objectIdentifier' and the
@@ -11,8 +11,8 @@ incremented. 'mode' can be one of the following values: HW_API_CHECKIN_NORMAL
 Checks in and commits the object. The object must be a document.
 
 HW_API_CHECKIN_RECURSIVE If the object to check in is a collection, all
-children will be checked in recursively if they are documents. Trying to
-check in a collection would result in an error.
+children will be checked in recursively if they are documents. Trying to check
+in a collection would result in an error.
 
 HW_API_CHECKIN_FORCE_VERSION_CONTROL Checks in an object even if it is not
 under version control.
@@ -26,6 +26,8 @@ object.
 HW_API_CHECKIN_NO_AUTO_COMMIT The object is not automatically committed on
 check-in.
 
-See also |hwapi_checkout|.
+{parameter}
+
+Returns TRUE on success or FALSE on failure.
 
 vim:ft=help:

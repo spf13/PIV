@@ -1,0 +1,77 @@
+result->field_count -- Get the number of fields in a result
+
+Procedural style:
+
+  int maxdb_num_fields(resource result)~
+
+Object oriented style (property):
+
+|maxdb_num_fields| returns the number of fields from specified result set.
+
+The number of fields from a result set
+
+Object oriented style
+
+<?php >
+  $maxdb = new maxdb("localhost", "MONA", "RED", "DEMODB");
+  
+  /* check connection */
+  if (maxdb_connect_errno()) {
+     printf("Connect failed: %s\n", maxdb_connect_error());
+     exit();
+  }
+  
+  if ($result = $maxdb->query("SELECT * FROM hotel.city ORDER BY zip")) {
+  
+     /* determine number of fields in result set */
+     $field_cnt = $result->field_count;
+  
+     printf("Result set has %d fields.\n", $field_cnt);
+  
+     /* close result set */
+     $result->close();
+  }
+  
+  /* close connection */
+  $maxdb->close();
+?>
+
+
+
+Procedural style
+
+<?php >
+  $link = maxdb_connect("localhost", "MONA", "RED", "DEMODB");
+  
+  /* check connection */
+  if (maxdb_connect_errno()) {
+     printf("Connect failed: %s\n", maxdb_connect_error());
+     exit();
+  }
+  
+  if ($result = maxdb_query($link, "SELECT * FROM hotel.city ORDER BY zip")) {
+  
+     /* determine number of fields in result set */
+     $field_cnt = maxdb_num_fields($result);
+  
+     printf("Result set has %d fields.\n", $field_cnt);
+  
+     /* close result set */
+     maxdb_free_result($result);
+  }
+  
+  /* close connection */
+  maxdb_close($link);
+?>
+
+
+
+The above example will output something similar to:
+
+
+
+  Result set has 3 fields.
+
+|maxdb_fetch_field|
+
+vim:ft=help:

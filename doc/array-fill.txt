@@ -2,18 +2,29 @@ array_fill -- Fill an array with values
 
   array array_fill(int start_index, int num, mixed value)~
 
-|array_fill| fills an array with {num} entries of the value of the {value}
-parameter, keys starting at the {start_index} parameter. Note that { num}
-must be a number greater than zero, or PHP will throw a warning.
+Fills an array with {num} entries of the value of the {value} parameter, keys
+starting at the {start_index} parameter.
+
+{start_index} The first index of the returned array
+
+{num} Number of elements to insert
+
+{value} Value to use for filling
+
+Returns the filled array
+
+Throws a E_WARNING if {num} is less than one.
 
 |array_fill| example
 
 <?php >
   $a = array_fill(5, 6, 'banana');
+  $b = array_fill(-2, 2, 'pear');
   print_r($a);
+  print_r($b);
 ?>
 
-$a now is:
+The above example will output:
 
   Array
   (
@@ -24,7 +35,17 @@ $a now is:
       [9]  => banana
       [10] => banana
   )
+  Array
+  (
+      [-2] => pear
+      [0] => pear
+  )
 
-See also |str_repeat| and |range|.
+
+
+See also the Arrays section of manual for a detailed explanation of negative
+keys.
+
+|array_fill_keys| |str_repeat| |range|
 
 vim:ft=help:

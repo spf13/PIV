@@ -10,9 +10,11 @@ Object oriented style (method):
 Returns the numbers of rows that were changed by the most recent SQL statement
 executed against the {dbhandle} database handle.
 
-{dbhandle} The SQLite Database resource; returned from |sqlite_open | when
-used procedurally. This parameter is not required when using the
-object-oriented method.
+{dbhandle} The SQLite Database resource; returned from |sqlite_open| when used
+procedurally. This parameter is not required when using the object-oriented
+method.
+
+Returns the number of changed rows.
 
 Procedural style
 
@@ -26,6 +28,10 @@ Procedural style
   }
 ?>
 
+
+
+
+
 Object oriented style
 
 <?php >
@@ -37,6 +43,10 @@ Object oriented style
       echo 'Number of rows modified: ', $dbhandle->changes();
   }
 ?>
+
+
+
+
 
 |sqlite_open|
 

@@ -4,7 +4,7 @@ available)
   array pg_version([resource connection])~
 
 |pg_version| returns an array with the client, protocol and server version.
-Protocol and server versions are only avaliable if PHP was compiled with
+Protocol and server versions are only available if PHP was compiled with
 PostgreSQL 7.4 or later.
 
 For more detailed server information, use |pg_parameter_status|.
@@ -30,6 +30,8 @@ available). Returns FALSE on error or invalid connection.
 The above example will output:
 
   7.4
+
+
 
 |pg_parameter_status|
 

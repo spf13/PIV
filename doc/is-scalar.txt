@@ -45,6 +45,8 @@ The above example will output:
     string(10) "ferredoxin"
   }
 
+
+
 |is_float| |is_int| |is_numeric| |is_real| |is_string| |is_bool| |is_object|
 |is_array|
 

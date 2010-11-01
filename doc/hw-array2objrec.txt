@@ -5,6 +5,10 @@ hw_Array2Objrec -- Convert attributes from object array to object record
 Converts an {object_array} into an object record. Multiple attributes like
 'Title' in different languages are treated properly.
 
-See also |hw_objrec2array|.
+{object_array} The array.
+
+Returns an object record.
+
+|hw_objrec2array|
 
 vim:ft=help:

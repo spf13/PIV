@@ -5,8 +5,12 @@ sybase_field_seek -- Sets field offset
 Seeks to the specified field offset. If the next call to |sybase_fetch_field|
 won't include a field offset, this field would be returned.
 
+{result}
+
+{field_offset}
+
 Returns TRUE on success or FALSE on failure.
 
-See also |sybase_fetch_field|.
+|sybase_fetch_field|
 
 vim:ft=help:

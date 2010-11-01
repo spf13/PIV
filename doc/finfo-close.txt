@@ -1,0 +1,11 @@
+finfo_close -- Close fileinfo resource
+
+  bool finfo_close(resource finfo)~
+
+This function closes the resource opened by |finfo_open|.
+
+{finfo} Fileinfo resource returned by |finfo_open|.
+
+Returns TRUE on success or FALSE on failure.
+
+vim:ft=help:

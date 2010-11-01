@@ -6,6 +6,10 @@ Returns the arc tangent of {arg} in radians. |atan| is the complementary
 function of |tan|, which means that a==tan(atan(a)) for every value of a that
 is within |atan|'s range.
 
-See also: |atanh|, |asin|, and |acos|.
+{arg} The argument to process
+
+The arc tangent of {arg} in radians.
+
+|tan| |atanh| |asin| |acos|
 
 vim:ft=help:

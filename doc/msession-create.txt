@@ -1,8 +1,8 @@
 msession_create -- Create a session
 
-  bool msession_create(string session)~
+  bool msession_create(string session [, string classname [, string data]])~
 
-This function is currently not documented; only the argument list is
+This function is currently not documented; only its argument list is
 available.
 
 vim:ft=help:

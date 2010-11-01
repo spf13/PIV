@@ -1,16 +1,22 @@
 fputcsv -- Format line as CSV and write to file pointer
 
-  int fputcsv(resource handle [, array fields [, string delimiter [, string enclosure]]])~
+  int fputcsv(resource handle, array fields [, string delimiter [, string enclosure]])~
 
-|fputcsv| formats a line (passed as a {fields} array) as CSV and write it to
-the specified file {handle}. Returns the length of the written string, or
-FALSE on failure.
+|fputcsv| formats a line (passed as a {fields} array) as CSV and write it
+(terminated by a newline) to the specified file {handle}.
 
-The optional {delimiter} parameter sets the field delimiter (one character
-only). Defaults as a comma: ,.
+{handle} The file pointer must be valid, and must point to a file successfully
+opened by |fopen| or |fsockopen| (and not yet closed by |fclose|).
 
-The optional {enclosure} parameter sets the field enclosure (one character
-only) and defaults to a double quotation mark: ".
+{fields} An array of values.
+
+{delimiter} The optional {delimiter} parameter sets the field delimiter (one
+character only). Defaults as a comma: ,.
+
+{enclosure} The optional {enclosure} parameter sets the field enclosure (one
+character only) and defaults to a double quotation mark: ".
+
+Returns the length of the written string, or FALSE on failure.
 
 |fputcsv| example
 
@@ -30,10 +36,14 @@ only) and defaults to a double quotation mark: ".
   fclose($fp);
 ?>
 
-If you are having problems with PHP not recognizing the line endings when
-reading files either on or created by a Macintosh computer, you might want to
-enable the auto_detect_line_endings run-time configuration option.
 
-See also |fgetcsv|.
+
+
+
+If PHP is not properly recognizing the line endings when reading files either
+on or created by a Macintosh computer, enabling the auto_detect_line_endings
+run-time configuration option may help resolve the problem.
+
+|fgetcsv|
 
 vim:ft=help:

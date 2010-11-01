@@ -17,7 +17,7 @@ The above example will output something similar to:
       [ArrayObject] => ArrayObject
       [ArrayIterator] => ArrayIterator
       [CachingIterator] => CachingIterator
-      [CachingRecursiveIterator] => CachingRecursiveIterator
+      [RecursiveCachingIterator] => RecursiveCachingIterator
       [DirectoryIterator] => DirectoryIterator
       [FilterIterator] => FilterIterator
       [LimitIterator] => LimitIterator
@@ -28,5 +28,7 @@ The above example will output something similar to:
       [SeekableIterator] => SeekableIterator
       [SimpleXMLIterator] => SimpleXMLIterator
   )
+
+
 
 vim:ft=help:

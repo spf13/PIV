@@ -2,8 +2,11 @@ array_product -- Calculate the product of values in an array
 
   number array_product(array array)~
 
-|array_product| returns the product of values in an array as an integer or
-float.
+|array_product| returns the product of values in an array.
+
+{array} The array.
+
+Returns the product as an integer or float.
 
 |array_product| examples
 
@@ -15,5 +18,7 @@ float.
 The above example will output:
 
   product(a) = 384
+
+
 
 vim:ft=help:

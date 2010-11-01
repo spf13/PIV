@@ -32,6 +32,10 @@ A multidimensional array with all the variables.
   print_r(array_keys(get_defined_vars()));
 ?>
 
+
+
+
+
 Version Description 5.0.0 The $GLOBALS variable is included in the results of
 the array returned.
 

@@ -2,51 +2,68 @@ ibase_connect -- Open a connection to an InterBase database
 
   resource ibase_connect([string database [, string username [, string password [, string charset [, int buffers [, int dialect [, string role [, int sync]]]]]]]])~
 
-Establishes a connection to an InterBase server. The {database} argument has
-to be a valid path to database file on the server it resides on. If the
-server is not local, it must be prefixed with either 'hostname:' (TCP/IP),
-'//hostname/' (NetBEUI) or 'hostname@' (IPX/SPX), depending on the connection
-protocol used. {username} and {password} can also be specified with PHP
-configuration directives ibase.default_user and ibase.default_password.
-{charset} is the default character set for a database. {buffers} is the
-number of database buffers to allocate for the server-side cache. If 0 or
-omitted, server chooses its own default. {dialect} selects the default SQL
-dialect for any statement executed within a connection, and it defaults to
-the highest one supported by client libraries.
+Establishes a connection to an InterBase server.
 
 In case a second call is made to |ibase_connect| with the same arguments, no
 new link will be established, but instead, the link identifier of the already
 opened link will be returned. The link to the server will be closed as soon as
 the execution of the script ends, unless it's closed earlier by explicitly
-calling |ibase_close|. |ibase_connect| example
+calling |ibase_close|.
 
-<?php >
-      $host = 'localhost:/path/to/your.gdb';
-  
-      $dbh = ibase_connect($host, $username, $password);
-      $stmt = 'SELECT * FROM tblname';
-      $sth = ibase_query($dbh, $stmt);
-      while ($row = ibase_fetch_object($sth)) {
-          echo $row->email, "\n";
-      }
-      ibase_free_result($sth);
-      ibase_close($dbh);
-?>
+{database} The {database} argument has to be a valid path to database file on
+the server it resides on. If the server is not local, it must be prefixed with
+either 'hostname:' (TCP/IP), '//hostname/' (NetBEUI) or 'hostname@' (IPX/SPX),
+depending on the connection protocol used.
 
-The optional {buffers} parameter was added in PHP 4.0.0.
+{username} The user name. Can be set with the ibase.default_user php.ini
+directive.
 
-The optional {dialect} parameter was added in PHP 4.0.0 and is functional only
-with InterBase 6 and up.
+{password} The password for {username}. Can be set with the
+ibase.default_password php.ini directive.
 
-The optional {role} parameter was added in PHP 4.0.0 and is functional only
-with InterBase 5 and up.
+{charset} {charset} is the default character set for a database.
+
+{buffers} {buffers} is the number of database buffers to allocate for the
+server-side cache. If 0 or omitted, server chooses its own default.
+
+{dialect} {dialect} selects the default SQL dialect for any statement executed
+within a connection, and it defaults to the highest one supported by client
+libraries. Functional only with InterBase 6 and up.
+
+{role} Functional only with InterBase 5 and up.
+
+{sync}
+
+Returns an InterBase link identifier on success, or FALSE on error.
 
 If you get some error like "arithmetic exception, numeric overflow, or string
 truncation. Cannot transliterate character between character sets" (this
-occurs when you try use some character with accents) when using this and
-after |ibase_query| you must set the character set (i.e. ISO8859_1 or your
-current character set).
+occurs when you try use some character with accents) when using this and after
+|ibase_query| you must set the character set (i.e. ISO8859_1 or your current
+character set).
 
-See also |ibase_pconnect| and |ibase_close|.
+Version Description 4.0.0 The {buffers}, {dialect} and {role} parameters were
+added
+
+|ibase_connect| example
+
+<?php >
+  $host = 'localhost:/path/to/your.gdb';
+  
+  $dbh = ibase_connect($host, $username, $password);
+  $stmt = 'SELECT * FROM tblname';
+  $sth = ibase_query($dbh, $stmt);
+  while ($row = ibase_fetch_object($sth)) {
+      echo $row->email, "\n";
+  }
+  ibase_free_result($sth);
+  ibase_close($dbh);
+?>
+
+
+
+
+
+|ibase_pconnect| |ibase_close|
 
 vim:ft=help:

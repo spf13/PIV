@@ -1,8 +1,12 @@
-key -- Fetch a key from an associative array
+key -- Fetch a key from an array
 
   mixed key(array array)~
 
 |key| returns the index element of the current array position.
+
+{array} The array.
+
+Returns the index.
 
 |key| example
 
@@ -24,6 +28,14 @@ key -- Fetch a key from an associative array
   }
 ?>
 
-See also |current| and |next|.
+The above example will output:
+
+  fruit1<br />
+  fruit4<br />
+  fruit5<br />
+
+
+
+|current| |next|
 
 vim:ft=help:

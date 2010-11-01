@@ -1,0 +1,19 @@
+SDO_Model_Property::isContainment -- Test to see if the property defines a
+containment relationship
+
+  bool SDO_Model_Property::isContainment()~
+
+This function is EXPERIMENTAL. The behaviour of this function, its name, and
+surrounding documentation may change without notice in a future release of
+PHP. This function should be used at your own risk.
+
+Test to see if the property corresponds to a containment relationship. Returns
+TRUE if the property defines a containment relationship, or FALSE if it is
+reference.
+
+None.
+
+Returns TRUE if the property defines a containment relationship, or FALSE if
+it is reference.
+
+vim:ft=help:

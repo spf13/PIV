@@ -3,7 +3,11 @@ mode is a block algorithm
 
   bool mcrypt_enc_is_block_algorithm(resource td)~
 
-This function returns TRUE if the algorithm is a block algorithm, or FALSE if
-it is a stream algorithm.
+Tells whether the algorithm of the opened mode is a block algorithm.
+
+{td} The encryption descriptor.
+
+Returns TRUE if the algorithm is a block algorithm or FALSE if it is a stream
+one.
 
 vim:ft=help:

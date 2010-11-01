@@ -6,21 +6,28 @@ This function will sort an array by its values using a user-supplied
 comparison function. If the array you wish to sort needs to be sorted by some
 non-trivial criteria, you should use this function.
 
-The comparison function must return an integer less than, equal to, or greater
-than zero if the first argument is considered to be respectively less than,
-equal to, or greater than the second.
-
 If two members compare as equal, their order in the sorted array is undefined.
-Up to PHP 4.0.6 the user defined functions would keep the original order for
-those elements, but with the new sort algorithm introduced with 4.1.0 this is
-no longer the case as there is no solution to do so in an efficient way.
+
+This function assigns new keys to the elements in {array}. It will remove any
+existing keys that may have been assigned, rather than just reordering the
+keys.
+
+{array} The input array.
+
+{cmp_function} The comparison function must return an integer less than, equal
+to, or greater than zero if the first argument is considered to be
+respectively less than, equal to, or greater than the second.
 
 Returns TRUE on success or FALSE on failure.
+
+Version Description 4.1.0 A new sort algorithm was introduced. The
+{cmp_function} doesn't keep the original order for elements comparing as
+equal.
 
 |usort| example
 
 <?php >
-  function cmp($a, $b) 
+  function cmp($a, $b)
   {
       if ($a == $b) {
           return 0;
@@ -45,12 +52,14 @@ The above example will output:
   3: 5
   4: 6
 
+
+
 Obviously in this trivial case the |sort| function would be more appropriate.
 
 |usort| example using multi-dimensional array
 
 <?php >
-  function cmp($a, $b) 
+  function cmp($a, $b)
   {
       return strcmp($a["fruit"], $b["fruit"]);
   }
@@ -75,19 +84,21 @@ The above example will output:
   $fruits[1]: grapes
   $fruits[2]: lemons
 
+
+
 |usort| example using a member function of an object
 
 <?php >
   class TestObj {
       var $name;
   
-      function TestObj($name) 
+      function TestObj($name)
       {
           $this->name = $name;
       }
   
       /* This is the static comparing function: */
-      function cmp_obj($a, $b) 
+      static function cmp_obj($a, $b)
       {
           $al = strtolower($a->name);
           $bl = strtolower($b->name);
@@ -115,7 +126,8 @@ The above example will output:
   c
   d
 
-See also |uasort|, |uksort|, |sort|, |asort|, |arsort|,|ksort|, |natsort|, and
-|rsort|.
+
+
+|uasort| The comparison of array sorting functions
 
 vim:ft=help:

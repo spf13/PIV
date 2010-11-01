@@ -2,8 +2,23 @@ ovrimos_fetch_row -- Fetches a row from the result set
 
   bool ovrimos_fetch_row(int result_id [, int how [, int row_number]])~
 
-|ovrimos_fetch_row| fetches a row from the result set. Column values should be
-retrieved with other calls. Returns TRUE on success or FALSE on failure.
+Fetches a row from the result set. Column values should be retrieved with
+other calls.
+
+{result_id} A result identifier, returned by |ovrimos_execute| or
+|ovrimos_exec|.
+
+{how} Determines how the rows are fetched. This can be one of the following
+strings (case is not significant): Option Notes Next Forward direction from
+current position. This is the default value. Prev Backward direction from
+current position. First Forward direction from the start. Last Backward
+direction from the end. Absolute Absolute position from the start. Requires
+{rownumber}.
+
+{rownumber} The row number, first one is 0. Only needed when {how} is set to
+Absolute.
+
+Returns TRUE on success or FALSE on failure.
 
 A fetch row example
 
@@ -34,6 +49,10 @@ A fetch row example
   }
 ?>
 
+
+
 This will fetch a row and print the result.
+
+|ovrimos_fetch_into|
 
 vim:ft=help:

@@ -4,9 +4,13 @@ gmp_clrbit -- Clear bit
 
 Clears (sets to 0) bit {index} in {a}. The index starts at 0.
 
-Unlike most of the other GMP functions, |gmp_clrbit| must be called with a GMP
-resource that already exists (using |gmp_init| for example). One will not be
-automatically created.
+{a} It can be either a GMP number resource, or a numeric string given that it
+is possible to convert the latter to a number.
+
+{index} It can be either a GMP number resource, or a numeric string given that
+it is possible to convert the latter to a number.
+
+A GMP number resource.
 
 |gmp_clrbit| example
 
@@ -16,10 +20,14 @@ automatically created.
   echo gmp_strval($a) . "\n";
 ?>
 
-The printout of the above program will be:
+The above example will output:
 
   254
 
-See also |gmp_setbit|.
+Unlike most of the other GMP functions, |gmp_clrbit| must be called with a GMP
+resource that already exists (using |gmp_init| for example). One will not be
+automatically created.
+
+|gmp_setbit| |gmp_testbit|
 
 vim:ft=help:

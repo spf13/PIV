@@ -2,7 +2,9 @@ socket_bind -- Binds a name to a socket
 
   bool socket_bind(resource socket, string address [, int port])~
 
-Binds the name given in {address} to the socket described by {socket}.
+Binds the name given in {address} to the socket described by {socket}. This
+has to be done before a connection is be established using |socket_connect| or
+|socket_listen|.
 
 {socket} A valid socket resource created with |socket_create|.
 
@@ -45,6 +47,10 @@ Using |socket_bind| to set the source address
   // Close
   socket_close($sock);
 ?>
+
+
+
+
 
 This function must be used on the socket before |socket_connect|.
 

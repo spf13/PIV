@@ -1,0 +1,13 @@
+enchant_broker_free -- Free the broker resource and its dictionnaries
+
+  bool enchant_broker_free(resource broker)~
+
+Free a broker resource with all its dictionaries.
+
+{broker} Broker resource
+
+Returns TRUE on success or FALSE on failure.
+
+|enchant_broker_init|
+
+vim:ft=help:

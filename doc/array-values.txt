@@ -5,6 +5,10 @@ array_values -- Return all the values of an array
 |array_values| returns all the values from the {input} array and indexes
 numerically the array.
 
+{input} The array.
+
+Returns an indexed array of values.
+
 |array_values| example
 
 <?php >
@@ -20,6 +24,8 @@ The above example will output:
       [1] => gold
   )
 
-See also |array_keys|.
+
+
+|array_keys|
 
 vim:ft=help:

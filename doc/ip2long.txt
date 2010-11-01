@@ -4,10 +4,18 @@ address into a proper address
   int ip2long(string ip_address)~
 
 The function |ip2long| generates an IPv4 Internet network address from its
-Internet standard format (dotted string) representation. If {ip_address} is
-invalid then -1 is returned. Note that -1 does not evaluate as FALSE in PHP.
+Internet standard format (dotted string) representation.
 
-As of PHP 5.0.0 |ip2long| returns FALSE when {ip_address} is invalid.
+|ip2long| will also work with non-complete IP addresses. Read
+http://publibn.boulder.ibm.com/doc_link/en_US/a_doc_lib/libs/commtrf2/inet_addr.htm
+for more info.
+
+{ip_address} A standard format address.
+
+Returns the IPv4 address or FALSE if {ip_address} is invalid.
+
+Version Description 5.0.0 Prior to this version, |ip2long| returned -1 on
+failure.
 
 |ip2long| Example
 
@@ -18,14 +26,12 @@ As of PHP 5.0.0 |ip2long| returns FALSE when {ip_address} is invalid.
   echo $out;
 ?>
 
-Because PHP's integer type is signed, and many IP addresses will result in
-negative integers, you need to use the "%u" formatter of |sprintf| or
-|printf| to get the string representation of the unsigned IP address.
 
-This second example shows how to print a converted address with the |printf|
-function in both PHP 4 and PHP 5:
 
-Displaying an IP address
+
+
+Displaying an IP address This second example shows how to print a converted
+address with the |printf| function in both PHP 4 and PHP 5:
 
 <?php >
   $ip   = gethostbyname('www.example.com');
@@ -40,10 +46,10 @@ Displaying an IP address
   }
 ?>
 
-|ip2long| should not be used as the sole form of IP validation. Combine it
-with |long2ip|:
 
-IP validation
+
+IP validation |ip2long| should not be used as the sole form of IP validation.
+Combine it with |long2ip|:
 
 <?php >
   // make sure IPs are valid. also converts a non-complete IP into
@@ -53,8 +59,10 @@ IP validation
   $ip = long2ip(ip2long("10.0.256")); // "10.0.1.0"
 ?>
 
-|ip2long| will also work with non-complete IP addresses. Read
-http://publibn.boulder.ibm.com/doc_link/en_US/a_doc_lib/libs/commtrf2/inet_addr.htm
-for more info.
+
+
+Because PHP's integer type is signed, and many IP addresses will result in
+negative integers, you need to use the "%u" formatter of |sprintf| or |printf|
+to get the string representation of the unsigned IP address.
 
 vim:ft=help:

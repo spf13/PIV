@@ -1,0 +1,14 @@
+apc_clear_cache -- Clears the APC cache
+
+  bool apc_clear_cache([string cache_type])~
+
+Clears the user/system cache.
+
+Returns TRUE on success or FALSE on failure.
+
+{cache_type} If {cache_type} is "user", the user cache will be cleared;
+otherwise, the system cache (cached files) will be cleared.
+
+|apc_cache_info|
+
+vim:ft=help:

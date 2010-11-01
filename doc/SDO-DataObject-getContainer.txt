@@ -1,0 +1,16 @@
+SDO_DataObject::getContainer -- Get a data object's container
+
+  SDO_DataObject SDO_DataObject::getContainer()~
+
+This function is EXPERIMENTAL. The behaviour of this function, its name, and
+surrounding documentation may change without notice in a future release of
+PHP. This function should be used at your own risk.
+
+Get the data object which contains this data object.
+
+None.
+
+Returns the SDO_DataObject which contains this SDO_DataObject, or returns NULL
+if this is a root SDO_DataObject (i.e. it has no container).
+
+vim:ft=help:

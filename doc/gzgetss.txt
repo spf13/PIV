@@ -15,7 +15,7 @@ should not be stripped.
 
 The uncompressed and striped string, or FALSE on error.
 
-Version Description 3.0.13 and 4.0b3 {allowable_tags} was added.
+Version Description 4.0.0 {allowable_tags} was added.
 
 |gzgetss| example
 
@@ -25,8 +25,12 @@ Version Description 3.0.13 and 4.0b3 {allowable_tags} was added.
      $buffer = gzgetss($handle, 4096);
      echo $buffer;
   }
-  gzlose($handle);
+  gzclose($handle);
 ?>
+
+
+
+
 
 |gzopen| |gzgets| |strip_tags|
 

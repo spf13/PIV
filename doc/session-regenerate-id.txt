@@ -32,6 +32,10 @@ A |session_regenerate_id| example
   print_r($_SESSION);
 ?>
 
+
+
+
+
 |session_id| |session_start| |session_name|
 
 vim:ft=help:

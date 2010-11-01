@@ -1,14 +1,22 @@
-curl_exec -- Perform a CURL session
+curl_exec -- Perform a cURL session
 
   mixed curl_exec(resource ch)~
 
-This function should be called after you initialize a CURL session and all the
-options for the session are set. Its purpose is simply to execute the
-predefined CURL session (given by the {ch}). Initializing a new CURL session
-and fetching a webpage
+Execute the given cURL session.
+
+This function should be called after initializing a cURL session and all the
+options for the session are set.
+
+{ch} A cURL handle returned by |curl_init|.
+
+Returns TRUE on success or FALSE on failure. However, if the
+CURLOPT_RETURNTRANSFER option is set, it will return the result on success,
+FALSE on failure.
+
+Fetching a web page
 
 <?php >
-  // create a new curl resource
+  // create a new cURL resource
   $ch = curl_init();
   
   // set URL and other appropriate options
@@ -18,11 +26,14 @@ and fetching a webpage
   // grab URL and pass it to the browser
   curl_exec($ch);
   
-  // close curl resource, and free up system resources
+  // close cURL resource, and free up system resources
   curl_close($ch);
 ?>
 
-If you want to have the result returned instead of it being printed to the
-browser directly, use the CURLOPT_RETURNTRANSFER option of |curl_setopt|.
+
+
+
+
+|curl_multi_exec|
 
 vim:ft=help:

@@ -1,15 +1,26 @@
-isset -- Determine whether a variable is set
+isset -- Determine if a variable is set and is not NULL
 
   bool isset(mixed var [, mixed var [, mixed ...]])~
 
-Returns TRUE if {var} exists; FALSE otherwise.
+Determine if a variable is set and is not NULL.
 
 If a variable has been unset with |unset|, it will no longer be set. |isset|
 will return FALSE if testing a variable that has been set to NULL. Also note
 that a NULL byte ("\0") is not equivalent to the PHP NULL constant.
 
-|isset| only works with variables as passing anything else will result in a
-parse error. For checking if constants are set use the |defined| function.
+If multiple parameters are supplied then |isset| will return TRUE only if all
+of the parameters are set. Evaluation goes from left to right and stops as
+soon as an unset variable is encountered.
+
+{var} The variable to be checked.
+
+{var} Another variable ..
+
+{...}
+
+Returns TRUE if {var} exists; FALSE otherwise.
+
+|isset| Examples
 
 <?php >
   $var = '';
@@ -37,6 +48,10 @@ parse error. For checking if constants are set use the |defined| function.
   var_dump(isset($foo));   // FALSE
 ?>
 
+
+
+
+
 This also work for elements in arrays:
 
 <?php >
@@ -51,10 +66,16 @@ This also work for elements in arrays:
   var_dump(array_key_exists('hello', $a)); // TRUE
 ?>
 
+|isset| only works with variables as passing anything else will result in a
+parse error. For checking if constants are set use the |defined| function.
+
 Because this is a language construct and not a function, it cannot be called
 using variable functions
 
-See also |empty|, |unset|, |defined|, the type comparison tables,
-|array_key_exists|, and the error control @ operator.
+When using |isset| on inaccessible object properties, the __isset overloading
+method will be called, if declared.
+
+|empty| __isset |unset| |defined| the type comparison tables
+|array_key_exists| |is_null| the error control @ operator
 
 vim:ft=help:

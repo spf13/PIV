@@ -1,4 +1,4 @@
-DomXsltStylesheet->result_dump_file() -- Dumps the result from a
+DomXsltStylesheet->result_dump_file -- Dumps the result from a
 XSLT-Transformation into a file
 
   string result_dump_file(DomDocument xmldoc, string filename)~
@@ -19,5 +19,9 @@ Saving the result of a XSLT transformation in a file
   $result =  $xsldoc->process($xmldoc);
   echo $xsldoc->result_dump_file($result, "filename");     
 ?>
+
+
+
+
 
 vim:ft=help:

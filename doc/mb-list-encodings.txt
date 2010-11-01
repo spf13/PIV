@@ -2,7 +2,13 @@ mb_list_encodings -- Returns an array of all supported encodings
 
   array mb_list_encodings()~
 
-|mb_list_encodings| returns an array with all supported encodings.
+Returns an array containing all supported encodings.
+
+This function has no parameters.
+
+Returns a numerically indexed array.
+
+This function does not emit any errors.
 
 |mb_list_encodings| example
 
@@ -10,7 +16,7 @@ mb_list_encodings -- Returns an array of all supported encodings
   print_r(mb_list_encodings());
 ?>
 
-The above example will output:
+The above example will output something similar to:
 
   Array
   (
@@ -75,5 +81,7 @@ The above example will output:
       [58] => CP866
       [59] => KOI8-R
   )
+
+
 
 vim:ft=help:

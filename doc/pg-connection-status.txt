@@ -20,6 +20,10 @@ PGSQL_CONNECTION_OK or PGSQL_CONNECTION_BAD.
     }    
 ?>
 
+
+
+
+
 |pg_connection_busy|
 
 vim:ft=help:

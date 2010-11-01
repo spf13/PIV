@@ -1,9 +1,20 @@
 printer_draw_bmp -- Draw a bmp
 
-  bool printer_draw_bmp(resource handle, string filename, int x, int y [, int width, int height])~
+  bool printer_draw_bmp(resource printer_handle, string filename, int x, int y [, int width, int height])~
 
-The function simply draws an bmp the bitmap {filename} at position {x}, {y}.
-{handle} must be a valid handle to a printer.
+The function draws an bmp.
+
+{printer_handle} {printer_handle} must be a valid printer handle.
+
+{filename} Path to the bitmap.
+
+{x} {x} is the upper left x coordinate of the bitmap.
+
+{y} {y} is the upper left y coordinate of the bitmap.
+
+{width} The bitmap width.
+
+{height} The bitmap height.
 
 Returns TRUE on success or FALSE on failure.
 
@@ -20,5 +31,9 @@ Returns TRUE on success or FALSE on failure.
   printer_end_doc($handle);
   printer_close($handle);
 ?>
+
+
+
+
 
 vim:ft=help:

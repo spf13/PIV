@@ -4,13 +4,20 @@ zend_version -- Gets the version of the current Zend engine
 
 Returns a string containing the version of the currently running Zend Engine.
 
+Returns the Zend Engine version number, as a string.
+
 |zend_version| example
 
 <?php >
-  // prints e.g. 'Zend engine version: 1.0.4'
   echo "Zend engine version: " . zend_version();
 ?>
 
-See also |phpinfo|, |phpcredits|, |php_logo_guid|, and |phpversion|.
+The above example will output something similar to:
+
+  Zend engine version: 2.2.0
+
+
+
+|phpinfo| |phpcredits| |php_logo_guid| |phpversion|
 
 vim:ft=help:

@@ -29,6 +29,10 @@ If the open fails, the function returns FALSE.
   $fp = gzopen("/tmp/file.gz", "r");
 ?>
 
+
+
+
+
 |gzclose|
 
 vim:ft=help:

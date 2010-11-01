@@ -1,0 +1,14 @@
+stats_stat_binomial_coef -- Not documented
+
+  float stats_stat_binomial_coef(int x, int n)~
+
+This function is currently not documented; only its argument list is
+available.
+
+{x}
+
+{n}
+
+
+
+vim:ft=help:

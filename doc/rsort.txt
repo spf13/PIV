@@ -4,6 +4,11 @@ rsort -- Sort an array in reverse order
 
 This function sorts an array in reverse order (highest to lowest).
 
+{array} The input array.
+
+{sort_flags} You may modify the behavior of the sort using the optional
+parameter {sort_flags}, for details see |sort|.
+
 Returns TRUE on success or FALSE on failure.
 
 |rsort| example
@@ -25,9 +30,14 @@ The above example will output:
 
 The fruits have been sorted in reverse alphabetical order.
 
-You may modify the behavior of the sort using the optional parameter
-{sort_flags}, for details see |sort|.
 
-See also |arsort|, |asort|, |ksort|, |sort|, and |usort|.
+
+
+
+This function assigns new keys to the elements in {array}. It will remove any
+existing keys that may have been assigned, rather than just reordering the
+keys.
+
+|arsort| |krsort| The comparison of array sorting functions
 
 vim:ft=help:

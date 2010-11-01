@@ -17,20 +17,24 @@ Returns TRUE on success or FALSE on failure.
 Sending a SITE command to an ftp server
 
 <?php >
-  /* Connect to FTP server */
+  // Connect to FTP server
   $conn = ftp_connect('ftp.example.com');
   if (!$conn) die('Unable to connect to ftp.example.com');
   
-  /* Login as "user" with password "pass" */
+  // Login as "user" with password "pass"
   if (!ftp_login($conn, 'user', 'pass')) die('Error logging into ftp.example.com');
   
-  /* Issue: "SITE CHMOD 0600 /home/user/privatefile" command to ftp server */
+  // Issue: "SITE CHMOD 0600 /home/user/privatefile" command to ftp server
   if (ftp_site($conn, 'CHMOD 0600 /home/user/privatefile')) {
      echo "Command executed successfully.\n";
   } else {
      die('Command failed.');
   }
 ?>
+
+
+
+
 
 |ftp_raw|
 

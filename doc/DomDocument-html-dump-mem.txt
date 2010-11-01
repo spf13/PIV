@@ -31,6 +31,8 @@ The above example will output:
 
   <html><head><title>This is the title</title></head></html>
 
+
+
 See also |domdocument_dump_file|, and |domdocument_html_dump_mem|.
 
 vim:ft=help:

@@ -4,4 +4,8 @@ swf_getframe -- Get the frame number of the current frame
 
 The |swf_getframe| function gets the number of the current frame.
 
+Returns the current frame number, as an integer.
+
+|swf_setframe|
+
 vim:ft=help:

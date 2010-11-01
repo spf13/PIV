@@ -3,6 +3,9 @@ set_include_path -- Sets the include_path configuration option
   string set_include_path(string new_include_path)~
 
 Sets the include_path configuration option for the duration of the script.
+
+{new_include_path} The new value for the include_path
+
 Returns the old include_path on success or FALSE on failure.
 
 |set_include_path| example
@@ -15,6 +18,10 @@ Returns the old include_path on success or FALSE on failure.
   ini_set('include_path', '/inc');
 ?>
 
+
+
+
+
 Adding to the include path Making use of the PATH_SEPARATOR constant, it is
 possible to extend the include path regardless of the operating system.
 
@@ -25,6 +32,8 @@ In this example we add /usr/lib/pear to the end of the existing include_path.
   set_include_path(get_include_path() . PATH_SEPARATOR . $path);
 ?>
 
-See also |ini_set|, |get_include_path|, |restore_include_path|, and |include|.
+
+
+|ini_set| |get_include_path| |restore_include_path| |include|
 
 vim:ft=help:

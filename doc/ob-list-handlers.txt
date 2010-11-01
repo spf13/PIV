@@ -2,9 +2,11 @@ ob_list_handlers -- List all output handlers in use
 
   array ob_list_handlers()~
 
+Lists all output handlers in use.
+
 This will return an array with the output handlers in use (if any). If
-output_buffering is enabled or an anonymous function was used with
-|ob_start|, |ob_list_handlers| will return "default output handler".
+output_buffering is enabled or an anonymous function was used with |ob_start|,
+|ob_list_handlers| will return "default output handler".
 
 |ob_list_handlers| example
 
@@ -40,6 +42,8 @@ The above example will output:
       [0] => default output handler
   )
 
-See also |ob_end_clean|, |ob_end_flush|, |ob_get_flush|, |ob_start|.
+
+
+|ob_end_clean| |ob_end_flush| |ob_get_flush| |ob_start|
 
 vim:ft=help:

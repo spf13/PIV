@@ -1,9 +1,7 @@
 pg_set_error_verbosity -- Determines the verbosity of messages returned by
 pg_last_error and pg_result_error.
 
-  int pg_set_error_verbosity(resource connection, int verbosity)~
-
-  int pg_set_error_verbosity(resource connection, int verbosity, int verbosity)~
+  int pg_set_error_verbosity([resource connection, int verbosity])~
 
 Determines the verbosity of messages returned by |pg_last_error| and
 |pg_result_error|.
@@ -40,6 +38,10 @@ PGSQL_ERRORS_VERBOSE.
     $res1 = pg_get_result($dbconn);
     echo pg_result_error($res1);
 ?>
+
+
+
+
 
 |pg_last_error| |pg_result_error|
 

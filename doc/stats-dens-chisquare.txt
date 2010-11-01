@@ -1,0 +1,14 @@
+stats_dens_chisquare -- Not documented
+
+  float stats_dens_chisquare(float x, float dfr)~
+
+This function is currently not documented; only its argument list is
+available.
+
+{x}
+
+{dfr}
+
+
+
+vim:ft=help:

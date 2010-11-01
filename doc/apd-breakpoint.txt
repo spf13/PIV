@@ -4,8 +4,20 @@ apd_breakpoint -- Stops the interpreter and waits on a CR from the socket
 
 This can be used to stop the running of your script, and await responses on
 the connected socket. To step the program, just send enter (a blank line), or
-enter a php command to be executed. A typical session using tcplisten would
-look like this.
+enter a php command to be executed.
+
+{ debug_level}An integer which is formed by adding together the XXX_TRACE
+constants.
+
+It is not recommended to use MEMORY_TRACE. It is very slow and does not appear
+to be accurate. ASSIGNMENT_TRACE is not implemented yet.
+
+To turn on all functional traces (TIMING, FUNCTIONS, ARGS SUMMARY (like strace
+-c)) use the value 99
+
+Returns TRUE on success or FALSE on failure.
+
+Typical session using tcplisten
 
   bash#tcplisten localhost 7777
   
@@ -41,5 +53,9 @@ look like this.
   >apd_echo(system('ls /home/mydir'));
   ........
   >apd_continue(0);
+
+
+
+
 
 vim:ft=help:

@@ -2,34 +2,45 @@ uniqid -- Generate a unique ID
 
   string uniqid([string prefix [, bool more_entropy]])~
 
-|uniqid| returns a prefixed unique identifier based on the current time in
-microseconds. {prefix} is optional but can be useful, for instance, if you
-generate identifiers simultaneously on several hosts that might happen to
-generate the identifier at the same microsecond. Up until PHP 4.3.1, {prefix}
-could only be a maximum of 114 characters long.
+Gets a prefixed unique identifier based on the current time in microseconds.
 
-If the optional {more_entropy} parameter is TRUE, |uniqid| will add additional
-entropy (using the combined linear congruential generator) at the end of the
-return value, which should make the results more unique.
+{prefix} Can be useful, for instance, if you generate identifiers
+simultaneously on several hosts that might happen to generate the identifier
+at the same microsecond.
 
 With an empty {prefix}, the returned string will be 13 characters long. If
 {more_entropy} is TRUE, it will be 23 characters.
 
-The {prefix} parameter became optional in PHP 5.
+{more_entropy} If set to TRUE, |uniqid| will add additional entropy (using the
+combined linear congruential generator) at the end of the return value, which
+should make the results more unique.
+
+Returns the unique identifier, as a string.
 
 If you need a unique identifier or token and you intend to give out that token
 to the user via the network (i.e. session cookies), it is recommended that you
 use something along these lines:
 
+This will create a 32 character identifier (a 128 bit hex number) that is
+extremely difficult to predict. |uniqid| Example
+
 <?php >
   // no prefix
+  // works only in PHP 5 and later versions
   $token = md5(uniqid());
   
   // better, difficult to guess
-  $better_token = md5(uniqid(rand(), true));
+  $better_token = md5(uniqid(mt_rand(), true));
 ?>
 
-This will create a 32 character identifier (a 128 bit hex number) that is
-extremely difficult to predict.
+
+
+
+
+Version Description 5.0.0 The {prefix} parameter was made optional. 4.3.1 The
+limit of 114 characters long for {prefix} was raised.
+
+Under Cygwin, the {more_entropy} must be set to TRUE for this function to
+work.
 
 vim:ft=help:

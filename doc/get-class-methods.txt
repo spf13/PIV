@@ -1,43 +1,44 @@
-get_class_methods -- Returns an array of class methods' names
+get_class_methods -- Gets the class methods' names
 
   array get_class_methods(mixed class_name)~
 
-This function returns an array of method names defined for the class specified
-by {class_name}.
+Gets the class methods names.
 
-As of PHP 4.0.6, you can specify the object itself instead of {class_name}.
-For example:
+{class_name} The class name or an object instance
 
-<?php >
-  $class_methods = get_class_methods($my_class); // see below the full example
-?>
+Returns an array of method names defined for the class specified by
+{class_name}. In case of an error, it returns NULL.
+
+Version Description 5.0.0 As of PHP 5, this function returns the name of the
+methods as they were declared (case-sensitive). In PHP 4 they were lowercased.
+4.0.6 The ability of specifying the object itself has been added.
 
 |get_class_methods| example
 
 <?php >
   class myclass {
       // constructor
-      function myclass() 
+      function myclass()
       {
           return(true);
       }
-      
+  
       // method 1
-      function myfunc1() 
+      function myfunc1()
       {
           return(true);
       }
   
       // method 2
-      function myfunc2() 
+      function myfunc2()
       {
           return(true);
       }
   }
   
-  $my_object = new myclass();
-  
-  $class_methods = get_class_methods(get_class($my_object));
+  $class_methods = get_class_methods('myclass');
+  // or
+  $class_methods = get_class_methods(new myclass());
   
   foreach ($class_methods as $method_name) {
       echo "$method_name\n";
@@ -50,9 +51,8 @@ The above example will output:
   myfunc1
   myfunc2
 
-As of PHP 5, this function returns the name of the methods as they were
-declared (case-sensitive). In PHP 4 they were lowercased.
 
-See also |get_class_vars| and |get_object_vars|.
+
+|get_class| |get_class_vars| |get_object_vars|
 
 vim:ft=help:

@@ -1,0 +1,14 @@
+newt_listbox_set_width --
+
+  void newt_listbox_set_width(resource listbox, int width)~
+
+This function is currently not documented; only its argument list is
+available.
+
+{listbox}
+
+{width}
+
+No value is returned.
+
+vim:ft=help:

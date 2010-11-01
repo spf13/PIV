@@ -21,7 +21,7 @@ connection made by |pg_connect| or |pg_pconnect|.
 per-connection. If "" is specified, then an unnamed statement is created,
 overwriting any previously defined unnamed statement.
 
-{query} The parameterised SQL statement. Must contain only a single statement.
+{query} The parameterized SQL statement. Must contain only a single statement.
 (multiple statements separated by semi-colons are not allowed.) If any
 parameters are used, they are referred to as $1, $2, etc.
 
@@ -52,6 +52,10 @@ Using |pg_send_prepare|
       $res3 = pg_get_result($dbconn);
     }
 ?>
+
+
+
+
 
 |pg_connect| |pg_pconnect| |pg_execute| |pg_send_execute|
 |pg_send_query_params|

@@ -5,7 +5,7 @@ DomDocument->create_attribute -- Create new attribute
 This function returns a new instance of class DomAttribute. The name of the
 attribute is the value of the first parameter. The value of the attribute is
 the value of the second parameter. This node will not show up in the document
-unless it is inserted with e.g. |domnode_append_child|.
+unless it is inserted with (e.g.) |domnode_append_child|.
 
 The return value is FALSE if an error occurred.
 

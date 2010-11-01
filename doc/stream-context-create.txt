@@ -1,12 +1,22 @@
 stream_context_create -- Create a streams context
 
-  resource stream_context_create([array options])~
+  resource stream_context_create([array options [, array params]])~
 
 Creates and returns a stream context with any options supplied in {options}
 preset.
 
-{options} must be an associative array of associative arrays in the format
-$arr['wrapper']['option'] = $value. It defaults to an empty array.
+{options} Must be an associative array of associative arrays in the format
+$arr['wrapper']['option'] = $value.
+
+Default to an empty array.
+
+{params} Must be an associative array in the format $arr['parameter'] =
+$value. Refer to context parameters for a listing of standard stream
+parameters.
+
+A stream context resource.
+
+Version Description 5.3.0 Added the optional {params} argument.
 
 Using |stream_context_create|
 
@@ -14,7 +24,7 @@ Using |stream_context_create|
   $opts = array(
     'http'=>array(
       'method'=>"GET",
-      'header'=>"Accept-language: en\r\n" . 
+      'header'=>"Accept-language: en\r\n" .
                 "Cookie: foo=bar\r\n"
     )
   );
@@ -28,7 +38,6 @@ Using |stream_context_create|
   fclose($fp);
 ?>
 
-See also |stream_context_set_option|, and Listing of supported wrappers with
-context options ().
+
 
 vim:ft=help:

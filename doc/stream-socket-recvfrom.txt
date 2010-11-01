@@ -2,16 +2,24 @@ stream_socket_recvfrom -- Receives data from a socket, connected or not
 
   string stream_socket_recvfrom(resource socket, int length [, int flags [, string address]])~
 
-The function |stream_socket_recvfrom| accepts data from a remote socket up to
-{length} bytes. If {address} is provided it will be populated with the
-address of the remote socket.
+|stream_socket_recvfrom| accepts data from a remote socket up to {length}
+bytes.
 
-The value of {flags} can be any combination of the following: possible values
-for {flags} STREAM_OOB Process OOB (out-of-band) data. STREAM_PEEK Retrieve
-data from the socket, but do not consume the buffer. Subsequent calls to
-|fread| or |stream_socket_recvfrom| will see the same data.
+{socket} The remote socket.
 
-|stream_socket_recvfrom| Example
+{length} The number of bytes to receive from the {socket}.
+
+{flags} The value of {flags} can be any combination of the following: Possible
+values for {flags} STREAM_OOB Process OOB (out-of-band) data. STREAM_PEEK
+Retrieve data from the socket, but do not consume the buffer. Subsequent calls
+to |fread| or |stream_socket_recvfrom| will see the same data.
+
+{address} If {address} is provided it will be populated with the address of
+the remote socket.
+
+Returns the read data, as a string
+
+|stream_socket_recvfrom| example
 
 <?php >
   /* Open a server socket to port 1234 on localhost */
@@ -34,11 +42,16 @@ data from the socket, but do not consume the buffer. Subsequent calls to
   fclose($server);
 ?>
 
+
+
+
+
 If a message received is longer than the {length} parameter, excess bytes may
 be discarded depending on the type of socket the message is received from
 (such as UDP).
 
-See also |stream_socket_sendto|, |stream_socket_client|, and
-|stream_socket_server|.
+Calls to |stream_socket_recvfrom| on socket-based streams, after calls to
+buffer-based stream functions (like |fread| or |stream_get_line|) read data
+directly from the socket and bypass the stream buffer.
 
 vim:ft=help:

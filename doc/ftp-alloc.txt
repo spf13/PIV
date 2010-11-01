@@ -6,15 +6,17 @@ Sends an ALLO command to the remote FTP server to allocate space for a file to
 be uploaded.
 
 Many FTP servers do not support this command. These servers may return a
-failure code (FALSE) indicating the command is not supported or a success
-code (TRUE) to indicate that pre-allocation is not necessary and the client
-should continue as though the operation were successful. Because of this, it
-may be best to reserve this function for servers which explicitly require
+failure code (FALSE) indicating the command is not supported or a success code
+(TRUE) to indicate that pre-allocation is not necessary and the client should
+continue as though the operation were successful. Because of this, it may be
+best to reserve this function for servers which explicitly require
 preallocation.
+
+
 
 {ftp_stream} The link identifier of the FTP connection.
 
-{filezise} The number of bytes to allocate.
+{filesize} The number of bytes to allocate.
 
 {return} A textual representation of the servers response will be returned by
 reference in {result} if a variable is provided.
@@ -26,7 +28,7 @@ Returns TRUE on success or FALSE on failure.
 <?php >
   $file = "/home/user/myfile";
   
-  /* connect to the server */
+  // connect to the server
   $conn_id = ftp_connect('ftp.example.com');
   $login_result = ftp_login($conn_id, 'anonymous', 'user@example.com');
   
@@ -39,6 +41,10 @@ Returns TRUE on success or FALSE on failure.
   
   ftp_close($conn_id);
 ?>
+
+
+
+
 
 |ftp_put| |ftp_fput|
 

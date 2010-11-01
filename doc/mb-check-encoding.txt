@@ -1,0 +1,17 @@
+mb_check_encoding -- Check if the string is valid for the specified encoding
+
+  bool mb_check_encoding([string var [, string encoding]])~
+
+Checks if the specified byte stream is valid for the specified encoding. It is
+useful to prevent so-called "Invalid Encoding Attack".
+
+
+
+{var} The byte stream to check. If it is omitted, this function checks all the
+input from the beginning of the request.
+
+{encoding} The expected encoding.
+
+Returns TRUE on success or FALSE on failure.
+
+vim:ft=help:

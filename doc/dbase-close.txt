@@ -22,6 +22,10 @@ Closing a dBase database file
   }
 ?>
 
+
+
+
+
 |dbase_open| |dbase_create|
 
 vim:ft=help:

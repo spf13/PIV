@@ -10,9 +10,9 @@ Object oriented style (method):
 Set the maximum time, in milliseconds, that SQLite will wait for a {dbhandle}
 to become ready for use.
 
-{dbhandle} The SQLite Database resource; returned from |sqlite_open | when
-used procedurally. This parameter is not required when using the
-object-oriented method.
+{dbhandle} The SQLite Database resource; returned from |sqlite_open| when used
+procedurally. This parameter is not required when using the object-oriented
+method.
 
 {milliseconds} The number of milliseconds. When set to 0, busy handlers will
 be disabled and SQLite will return immediately with a SQLITE_BUSY status code
@@ -23,6 +23,8 @@ opened.
 
 There are one thousand (1000) milliseconds in one second.
 
+No value is returned.
+
 Procedural style
 
 <?php >
@@ -31,6 +33,10 @@ Procedural style
   sqlite_busy_timeout($dbhandle, 0); // disable busy handler
 ?>
 
+
+
+
+
 Object oriented style
 
 <?php >
@@ -38,6 +44,10 @@ Object oriented style
   $dbhandle->busyTimeout(10000); // 10 seconds
   $dbhandle->busyTimeout(0); // disable
 ?>
+
+
+
+
 
 |sqlite_open|
 

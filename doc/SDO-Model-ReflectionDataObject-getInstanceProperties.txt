@@ -1,0 +1,18 @@
+SDO_Model_ReflectionDataObject::getInstanceProperties -- Get the instance
+properties of the SDO_DataObject
+
+  array SDO_Model_ReflectionDataObject::getInstanceProperties()~
+
+This function is EXPERIMENTAL. The behaviour of this function, its name, and
+surrounding documentation may change without notice in a future release of
+PHP. This function should be used at your own risk.
+
+Get the instance properties for the SDO_DataObject. The instance properties
+consist of all the properties defined on the data object's type, plus any
+instance properties from open content (if the data object is an open type).
+
+None.
+
+An array of SDO_Model_Property objects.
+
+vim:ft=help:

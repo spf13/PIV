@@ -1,0 +1,95 @@
+maxdb->select_db -- Selects the default database for database queries
+
+  bool maxdb_select_db(resource link, string dbname)~
+
+The |maxdb_select_db| function selects the default database (specified by the
+{dbname} parameter) to be used when performing queries against the database
+connection represented by the {link} parameter.
+
+This function should only be used to change the default database for the
+connection. You can select the default database with 4th parameter in
+|maxdb_connect|.
+
+Returns TRUE on success or FALSE on failure.
+
+Object oriented style
+
+<?php >
+  $maxdb = new maxdb("localhost", "MONA", "RED", "DEMODB");
+  
+  /* check connection */
+  if (maxdb_connect_errno()) {
+     printf("Connect failed: %s\n", maxdb_connect_error());
+     exit();
+  }
+  
+  /* return name of current default database */
+  if ($result = $maxdb->query("SELECT SERVERDB FROM USERS WHERE USERNAME='MONA'")) {
+     $row = $result->fetch_row();
+     printf("Default database is %s.\n", $row[0]);
+     $result->close();
+  }
+  
+  /* change db to non existing db */
+  $maxdb->select_db("XXXXXXXX");
+  
+  /* return name of current default database */
+  if ($result = $maxdb->query("SELECT SERVERDB FROM USERS WHERE USERNAME='MONA'")) {
+     $row = $result->fetch_row();
+     printf("Default database is %s.\n", $row[0]);
+     $result->close();
+  }
+  
+  $maxdb->close();
+?>
+
+
+
+Procedural style
+
+<?php >
+  $link = maxdb_connect("localhost", "MONA", "RED", "DEMODB");
+  
+  /* check connection */
+  if (maxdb_connect_errno()) {
+     printf("Connect failed: %s\n", maxdb_connect_error());
+     exit();
+  }
+  
+  /* return name of current default database */
+  if ($result = maxdb_query($link, "SELECT SERVERDB FROM USERS WHERE USERNAME='MONA'")) {
+     $row = maxdb_fetch_row($result);
+     printf("Default database is %s.\n", $row[0]);
+     maxdb_free_result($result);
+  }
+  
+  /* change db to non existing db */
+  maxdb_select_db($link, "XXXXXXXX");
+  
+  /* return name of current default database */
+  if ($result = maxdb_query($link, "SELECT SERVERDB FROM USERS WHERE USERNAME='MONA'")) {
+     $row = maxdb_fetch_row($result);
+     printf("Default database is %s.\n", $row[0]);
+     maxdb_free_result($result);
+  }
+  
+  maxdb_close($link);
+?>
+
+
+
+The above example will output something similar to:
+
+
+
+  Default database is <...>.
+  
+  Warning: maxdb_select_db(): -10709 Connection failed (RTE:database not running) <...>
+  
+  Warning: maxdb_query(): -10821 Session not connected [] <...>
+  
+  Warning: maxdb_close(): -10821 Session not connected [] <...>
+
+|maxdb_connect| |maxdb_real_connect|
+
+vim:ft=help:

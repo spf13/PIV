@@ -4,4 +4,10 @@ hw_api_attribute -- Creates instance of class hw_api_attribute
 
 Creates a new instance of hw_api_attribute with the given name and value.
 
+{name} The attribute name.
+
+{value} The attribute value.
+
+Returns an instance of hw_api_attribute.
+
 vim:ft=help:

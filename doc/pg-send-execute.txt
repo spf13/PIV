@@ -7,10 +7,9 @@ Sends a request to execute a prepared statement with given parameters, without
 waiting for the result(s).
 
 This is similar to |pg_send_query_params|, but the command to be executed is
-specified by naming a previously-prepared statement, instead of giving a
-query string. The function's parameters are handled identically to
-|pg_execute|. Like |pg_execute|, it will not work on pre-7.4 versions of
-PostgreSQL.
+specified by naming a previously-prepared statement, instead of giving a query
+string. The function's parameters are handled identically to |pg_execute|.
+Like |pg_execute|, it will not work on pre-7.4 versions of PostgreSQL.
 
 {connection} PostgreSQL database connection resource. When {connection} is not
 present, the default connection is used. The default connection is the last
@@ -51,6 +50,10 @@ Using |pg_send_execute|
       $res3 = pg_get_result($dbconn);
     }
 ?>
+
+
+
+
 
 |pg_prepare| |pg_send_prepare| |pg_execute|
 

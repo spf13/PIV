@@ -1,0 +1,43 @@
+newt_draw_root_text -- Displays the string text at the position indicated
+
+  void newt_draw_root_text(int left, int top, string text)~
+
+Displays the string text at the position indicated.
+
+{left} Column number
+
+If left is negative, the position is measured from the opposite side of the
+screen.
+
+{top} Line number
+
+If top is negative, the position is measured from the opposite side of the
+screen.
+
+{text} Text to display.
+
+No value is returned.
+
+A |newt_draw_root_text| example This code demonstrates drawing of titles in
+the both corners of the screen.
+
+<?php >
+   newt_init();
+   newt_cls();
+  
+   newt_draw_root_text (2, 0, "Some root text");
+   newt_refresh();
+   sleep(1);
+  
+   newt_draw_root_text (-30, 0, "Root text in the other corner");
+   newt_refresh();
+   sleep(1);
+  
+   newt_finished();
+?>
+
+
+
+|newt_push_help_line| |newt_pop_help_line|
+
+vim:ft=help:

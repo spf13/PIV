@@ -1,0 +1,16 @@
+runkit_constant_add -- Similar to define(), but allows defining in class
+definitions as well
+
+  bool runkit_constant_add(string constname, mixed value)~
+
+{constname} Name of constant to declare. Either a string to indicate a global
+constant, or classname::constname to indicate a class constant.
+
+{value} NULL, Bool, Long, Double, String, or Resource value to store in the
+new constant.
+
+Returns TRUE on success or FALSE on failure.
+
+|define| |runkit_constant_redefine| |runkit_constant_remove|
+
+vim:ft=help:

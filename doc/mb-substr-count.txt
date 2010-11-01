@@ -2,11 +2,17 @@ mb_substr_count -- Count the number of substring occurrences
 
   int mb_substr_count(string haystack, string needle [, string encoding])~
 
-|mb_substr_count| returns the number of times the {needle} substring occurs in
-the {haystack} string.
+Counts the number of times the {needle} substring occurs in the {haystack}
+string.
 
-{encoding} specifies the encoding for {needle} and {haystack}. If omitted,
-internal character encoding is used.
+{haystack} The string being checked.
+
+{needle} The string being found.
+
+{encoding} The {encoding} parameter is the character encoding. If it is
+omitted, the internal character encoding value will be used.
+
+The number of times the {needle} substring occurs in the {haystack} string.
 
 |mb_substr_count| example
 
@@ -14,6 +20,10 @@ internal character encoding is used.
   echo mb_substr_count("This is a test", "is"); // prints out 2
 ?>
 
-See also |substr_count|, |mb_strpos|, |mb_substr|.
+
+
+
+
+|mb_strpos| |mb_substr| |substr_count|
 
 vim:ft=help:

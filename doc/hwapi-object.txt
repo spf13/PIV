@@ -1,11 +1,13 @@
 hw_api->object -- Retrieve attribute information
 
-  hw_api_object hw_api->object(array parameter)~
+  hw_api_object object(array parameter)~
 
 This function retrieves the attribute information of an object of any version.
-It will not return the document content. The parameter array contains the
-required elements 'objectIdentifier' and the optional elements
-'attributeSelector' and 'version'.
+It will not return the document content.
+
+{parameter} The parameter array contains the required elements
+'objectIdentifier' and the optional elements 'attributeSelector' and
+'version'.
 
 The returned object is an instance of class HW_API_Object on success or
 HW_API_Error if an error occurred.
@@ -14,7 +16,7 @@ This simple example retrieves an object and checks for errors. Retrieve an
 object
 
 <?php >
-  function handle_error($error) 
+  function handle_error($error)
   {
     $reason = $error->reason(0);
     echo "Type: <b>";
@@ -33,7 +35,7 @@ object
     echo "Description: " . $reason->description("en") . "<br />\n";
   }
   
-  function list_attr($obj) 
+  function list_attr($obj)
   {
     echo "<table>\n";
     $count = $obj->count();
@@ -55,6 +57,8 @@ object
   list_attr($root);
 ?>
 
-See also |hwapi_content|.
+
+
+
 
 vim:ft=help:

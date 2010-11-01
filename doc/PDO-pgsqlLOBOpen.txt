@@ -1,0 +1,40 @@
+PDO::pgsqlLOBOpen -- Opens an existing large object stream
+
+  resource PDO::pgsqlLOBOpen(string oid [, string mode])~
+
+|PDO::pgsqlLOBOpen| opens a stream to access the data referenced by {oid}. If
+{mode} is r, the stream is opened for reading, if {mode} is w, then the stream
+will be opened for writing. You can use all the usual filesystem functions,
+such as |fread|, |fwrite| and |fgets| to manipulate the contents of the
+stream.
+
+This function, and all manipulations of the large object, must be called and
+carried out within a transaction.
+
+{oid} A large object identifier.
+
+{mode} If mode is r, open the stream for reading. If mode is w, open the
+stream for writing.
+
+Returns a stream resource on success, or FALSE on failure.
+
+A |PDO::pgsqlLOBOpen| example Following on from the |PDO::pgsqlLOBCreate|
+example, this code snippet retrieves the large object from the database and
+outputs it to the browser.
+
+<?php >
+  $db = new PDO('pgsql:dbname=test host=localhost', $user, $pass);
+  $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+  $db->beginTransaction();
+  $stmt = $db->prepare("select oid from BLOBS where ident = ?");
+  $stmt->execute(array($some_id));
+  $stmt->bindColumn('oid', $lob, PDO::PARAM_LOB);
+  $stmt->fetch(PDO::FETCH_BOUND);
+  fpassthru($lob);
+?>
+
+
+
+|PDO::pgsqlLOBCreate| |PDO::pgsqlLOBUnlink| |pg_lo_open|
+
+vim:ft=help:

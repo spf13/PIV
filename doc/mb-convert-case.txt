@@ -2,15 +2,17 @@ mb_convert_case -- Perform case folding on a string
 
   string mb_convert_case(string str, int mode [, string encoding])~
 
-|mb_convert_case| returns case folded version of {string} converted in the way
-specified by {mode}.
+Performs case folding on a string, converted in the way specified by {mode}.
 
-{mode} can be one of MB_CASE_UPPER, MB_CASE_LOWER or MB_CASE_TITLE.
+{str} The string being converted.
 
-{encoding} specifies the encoding of {str}; if omitted, the internal character
-encoding value will be used.
+{mode} The mode of the conversion. It can be one of MB_CASE_UPPER,
+MB_CASE_LOWER, or MB_CASE_TITLE.
 
-The return value is str with the appropriate case folding applied.
+{encoding} The {encoding} parameter is the character encoding. If it is
+omitted, the internal character encoding value will be used.
+
+A case folded version of {string} converted in the way specified by {mode}.
 
 By contrast to the standard case folding functions such as |strtolower| and
 |strtoupper|, case folding is performed on the basis of the Unicode character
@@ -31,7 +33,10 @@ http://www.unicode.org/unicode/reports/tr21/.
   echo $str; // Prints Mary Had A Little Lamb And She Loved It So
 ?>
 
-See also |mb_strtolower|, |mb_strtoupper|, |strtolower|, |strtoupper|,
-|ucfirst| and |ucwords|
+
+
+
+
+|mb_strtolower| |mb_strtoupper| |strtolower| |strtoupper| |ucfirst| |ucwords|
 
 vim:ft=help:

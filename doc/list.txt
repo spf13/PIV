@@ -1,12 +1,13 @@
 list -- Assign variables as if they were an array
 
-  void list(mixed varname, mixed ...)~
+  void list(mixed varname [, mixed ...])~
 
 Like |array|, this is not really a function, but a language construct. |list|
 is used to assign a list of variables in one operation.
 
-|list| only works on numerical arrays and assumes the numerical indices start
-at 0.
+{varname} A variable.
+
+No value is returned.
 
 |list| examples
 
@@ -24,7 +25,15 @@ at 0.
   // Or let's skip to only the third one
   list( , , $power) = $info;
   echo "I need $power!\n";
+  
+  // list() doesn't work with strings
+  list($bar) = "abcde";
+  var_dump($bar); // NULL
 ?>
+
+
+
+
 
 An example use of |list|
 
@@ -45,11 +54,23 @@ An example use of |list|
   
   </table>
 
-|list| assigns the values starting with the right-most parameter. If you are
-using plain variables, you don't have to worry about this. But if you are
-using arrays with indices you usually expect the order of the indices in the
-array the same you wrote in the |list| from left to right; which it isn't.
-It's assigned in the reverse order.
+
+
+
+
+Using nested |list|
+
+<?php >
+  list($a, list($b, $c)) = array(1, array(2, 3));
+  
+  var_dump($a, $b, $c);
+?>
+
+  int(1)
+  int(2)
+  int(3)
+
+
 
 Using |list| with array indices
 
@@ -73,6 +94,17 @@ order they were written in the |list| syntax):
     string(6) "coffee"
   }
 
-See also |each|, |array| and |extract|.
+
+
+|list| assigns the values starting with the right-most parameter. If you are
+using plain variables, you don't have to worry about this. But if you are
+using arrays with indices you usually expect the order of the indices in the
+array the same you wrote in the |list| from left to right; which it isn't.
+It's assigned in the reverse order.
+
+|list| only works on numerical arrays and assumes the numerical indices start
+at 0.
+
+|each| |array| |extract|
 
 vim:ft=help:

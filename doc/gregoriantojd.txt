@@ -9,7 +9,17 @@ use may not be meaningful. The Gregorian calendar was not instituted until
 October 15, 1582 (or October 5, 1582 in the Julian calendar). Some countries
 did not accept it until much later. For example, Britain converted in 1752,
 The USSR in 1918 and Greece in 1923. Most European countries used the Julian
-calendar prior to the Gregorian. Calendar functions
+calendar prior to the Gregorian.
+
+{month} The month as a number from 1 (for January) to 12 (for December)
+
+{day} The day as a number from 1 to 31
+
+{year} The year as a number between -4714 and 9999
+
+The julian day for the given gregorian date as an integer.
+
+Calendar functions
 
 <?php >
   $jd = GregorianToJD(10, 11, 1970);
@@ -17,5 +27,11 @@ calendar prior to the Gregorian. Calendar functions
   $gregorian = JDToGregorian($jd);
   echo "$gregorian\n";
 ?>
+
+
+
+
+
+|jdtogregorian| |cal_to_jd|
 
 vim:ft=help:

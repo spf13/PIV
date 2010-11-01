@@ -1,0 +1,16 @@
+ps_restore -- Restore previously save context
+
+  bool ps_restore(resource psdoc)~
+
+Restores a previously saved graphics context. Any call of |ps_save| must be
+accompanied by a call to |ps_restore|. All coordinate transformations, line
+style settings, color settings, etc. are being restored to the state before
+the call of |ps_save|.
+
+{psdoc} Resource identifier of the postscript file as returned by |ps_new|.
+
+Returns TRUE on success or FALSE on failure.
+
+|ps_save|
+
+vim:ft=help:

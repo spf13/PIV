@@ -8,11 +8,32 @@ This function returns a copy of {str}, translating all occurrences of each
 character in {from} to the corresponding character in {to}.
 
 If {from} and {to} are different lengths, the extra characters in the longer
-of the two are ignored. |strtr| example
+of the two are ignored.
+
+{str} The string being translated.
+
+{from} The string being translated to {to}.
+
+{to} The string replacing {from}.
+
+{replace_pairs} The {replace_pairs} parameter may be used as a substitute for
+{to} and {from} in which case it's an array in the form array('from' => 'to',
+...).
+
+This function returns a copy of {str}, translating all occurrences of each
+character in {from} to the corresponding character in {to}.
+
+Version Description 4.0.0 The optional {to} and {from} parameters were added.
+
+|strtr| example
 
 <?php >
-  $addr = strtr($addr, "δεφ", "aao");
+  $addr = strtr($addr, "Γ¤Γ¥Γ¶", "aao");
 ?>
+
+
+
+
 
 |strtr| may be called with only two arguments. If called with two arguments it
 behaves in a new way: {from} then has to be an array that contains string ->
@@ -27,12 +48,10 @@ that it has already worked on.
   echo strtr("hi all, I said hello", $trans);
 ?>
 
-This will show:
+The above example will output:
 
   hello all, I said hi
 
-This optional {to} and {from} parameters were added in PHP 4.0.0
-
-See also |ereg_replace|.
+|preg_replace|
 
 vim:ft=help:

@@ -1,0 +1,8 @@
+PDF_end_page_ext -- Finish page
+
+  bool PDF_end_page_ext(resource pdfdoc, string optlist)~
+
+Finishes a page, and applies various options. Returns TRUE on success or FALSE
+on failure.
+
+vim:ft=help:

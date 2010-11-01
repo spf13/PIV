@@ -2,10 +2,12 @@ imap_binary -- Convert an 8bit string to a base64 string
 
   string imap_binary(string string)~
 
-Convert an 8bit string to a base64 string (according to RFC2045, Section 6.8).
+Convert an 8bit string to a base64 string according to RFC2045, Section 6.8.
 
-Returns a base64 string.
+{string} The 8bit string
 
-See also |imap_base64|.
+Returns a base64 encoded string.
+
+|imap_base64|
 
 vim:ft=help:

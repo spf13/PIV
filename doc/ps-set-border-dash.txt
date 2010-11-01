@@ -1,0 +1,21 @@
+ps_set_border_dash -- Sets length of dashes for border of annotations
+
+  bool ps_set_border_dash(resource psdoc, float black, float white)~
+
+Links added with one of the functions |ps_add_weblink|, |ps_add_pdflink|, etc.
+will be displayed with a surounded rectangle when the postscript document is
+converted to pdf and viewed in a pdf viewer. This rectangle is not visible in
+the postscript document. This function sets the length of the black and white
+portion of a dashed border line.
+
+{psdoc} Resource identifier of the postscript file as returned by |ps_new|.
+
+{black} The length of the dash.
+
+{white} The length of the gap between dashes.
+
+Returns TRUE on success or FALSE on failure.
+
+|ps_set_border_color| |ps_set_border_style|
+
+vim:ft=help:

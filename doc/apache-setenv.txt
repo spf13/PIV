@@ -23,6 +23,10 @@ Setting an Apache environment variable using |apache_setenv|
   apache_setenv("EXAMPLE_VAR", "Example Value");
 ?>
 
+
+
+
+
 |apache_setenv| can be paired up with |apache_getenv| across separate pages or
 for setting variables to pass to Server Side Includes (.shtml) that have been
 included in PHP scripts.

@@ -2,26 +2,28 @@ imap_mailboxmsginfo -- Get information about the current mailbox
 
   object imap_mailboxmsginfo(resource imap_stream)~
 
-Returns information about the current mailbox. Returns FALSE on failure.
+Checks the current mailbox status on the server. It is similar to
+|imap_status|, but will additionally sum up the size of all messages in the
+mailbox, which will take some additional time to execute.
 
-The |imap_mailboxmsginfo| function checks the current mailbox status on the
-server. It is similar to |imap_status|, but will additionally sum up the size
-of all messages in the mailbox, which will take some additional time to
-execute. It returns the information in an object with following properties.
+{ imap_stream}An IMAP stream returned by |imap_open|.
 
-Mailbox properties Date date of last change Driver driver Mailbox name of the
-mailbox Nmsgs number of messages Recent number of recent messages Unread
-number of unread messages Deleted number of deleted messages Size mailbox
-size
+Returns the information in an object with following properties: Mailbox
+properties Date date of last change (current datetime) Driver driver Mailbox
+name of the mailbox Nmsgs number of messages Recent number of recent messages
+Unread number of unread messages Deleted number of deleted messages Size
+mailbox size
+
+Returns FALSE on failure.
 
 |imap_mailboxmsginfo| example
 
 <?php >
-  $mbox = imap_open("{your.imap.host}INBOX", "username", "password")
+  $mbox = imap_open("{imap.example.org}INBOX", "username", "password")
         or die("can't connect: " . imap_last_error());
-   
+  
   $check = imap_mailboxmsginfo($mbox);
-   
+  
   if ($check) {
       echo "Date: "     . $check->Date    . "<br />\n" ;
       echo "Driver: "   . $check->Driver  . "<br />\n" ;
@@ -34,8 +36,12 @@ size
   } else {
       echo "imap_check() failed: " . imap_last_error() . "<br />\n";
   }
-   
+  
   imap_close($mbox);
 ?>
+
+
+
+
 
 vim:ft=help:

@@ -1,15 +1,21 @@
 imap_mail_move -- Move specified messages to a mailbox
 
-  bool imap_mail_move(resource imap_stream, string msglist, string mbox [, int options])~
+  bool imap_mail_move(resource imap_stream, string msglist, string mailbox [, int options])~
 
-Moves mail messages specified by {msglist} to specified mailbox {mbox}.
-Returns TRUE on success or FALSE on failure..
+Moves mail messages specified by {msglist} to the specified {mailbox}.
 
-{msglist} is a range not just message numbers (as described in RFC2060).
+{ imap_stream}An IMAP stream returned by |imap_open|.
 
-{options} is a bitmask and may contain the single option: CP_UID - the
-sequence numbers contain UIDS
+{msglist} {msglist} is a range not just message numbers (as described in
+RFC2060).
 
-See also |imap_mail_copy|.
+{mailbox} The mailbox name, see |imap_open| for more information
+
+{options} {options} is a bitmask and may contain the single option: CP_UID -
+the sequence numbers contain UIDS
+
+Returns TRUE on success or FALSE on failure.
+
+|imap_mail_copy|
 
 vim:ft=help:

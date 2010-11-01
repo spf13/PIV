@@ -13,13 +13,13 @@ It is easy to mistake the return values for "character found at position 0"
 and "character not found". Here's how to detect the difference:
 
 <?php >
-  // in PHP 4.0b3 and newer:
+  // in PHP 4.0.0 and newer:
   $pos = strrpos($mystring, "b");
   if ($pos === false) { // note: three equal signs
       // not found...
   }
   
-  // in versions older than 4.0b3:
+  // in versions older than 4.0.0:
   $pos = strrpos($mystring, "b");
   if (is_bool($pos) && !$pos) {
       // not found...
@@ -35,6 +35,14 @@ an arbitrary point prior to the end of the string.
 
 The {needle} may be a string of more than one character as of PHP 5.0.0.
 
-See also |strpos|, |strripos|, |strrchr|, |substr|, |stristr|, and |strstr|.
+{haystack}
+
+{needle}
+
+{offset}
+
+
+
+|strpos| |strripos| |strrchr| |substr| |stristr| |strstr|
 
 vim:ft=help:

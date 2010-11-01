@@ -3,12 +3,17 @@ stream_context_get_default -- Retreive the default streams context
   resource stream_context_get_default([array options])~
 
 Returns the default stream context which is used whenever file operations
-(|fopen|, |file_get_contents|, etc...) are called without a context
-parameter. Options for the default context can optionally be specified with
-this function using the same syntax as |stream_context_create|.
+(|fopen|, |file_get_contents|, etc...) are called without a context parameter.
+Options for the default context can optionally be specified with this function
+using the same syntax as |stream_context_create|.
 
-{options} must be an associative array of associative arrays in the format
-$arr['wrapper']['option'] = $value.
+{options} {options} must be an associative array of associative arrays in the
+format $arr['wrapper']['option'] = $value.
+
+As of PHP 5.3.0, the |stream_context_set_default| function can be used to set
+the default context.
+
+A stream context resource.
 
 Using |stream_context_get_default|
 
@@ -16,7 +21,7 @@ Using |stream_context_get_default|
   $default_opts = array(
     'http'=>array(
       'method'=>"GET",
-      'header'=>"Accept-language: en\r\n" . 
+      'header'=>"Accept-language: en\r\n" .
                 "Cookie: foo=bar",
       'proxy'=>"tcp://10.54.1.39:8000"
     )
@@ -46,7 +51,10 @@ Using |stream_context_get_default|
   readfile('http://www.example.com', false, $alternate);
 ?>
 
-See also |stream_context_create|, and Listing of supported wrappers with
-context options ().
+
+
+
+
+|stream_context_create| Listing of supported wrappers with context options ().
 
 vim:ft=help:

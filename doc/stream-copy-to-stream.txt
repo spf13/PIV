@@ -30,6 +30,10 @@ A |stream_copy_to_stream| example
   echo stream_copy_to_stream($src, $dest2) . " bytes copied to remainder.txt\n";
 ?>
 
+
+
+
+
 |copy|
 
 vim:ft=help:

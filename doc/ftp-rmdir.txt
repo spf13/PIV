@@ -32,6 +32,10 @@ Returns TRUE on success or FALSE on failure.
   ftp_close($conn_id);
 ?>
 
+
+
+
+
 |ftp_mkdir|
 
 vim:ft=help:

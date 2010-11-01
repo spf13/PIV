@@ -2,15 +2,25 @@ ovrimos_fetch_into -- Fetches a row from the result set
 
   bool ovrimos_fetch_into(int result_id, array result_array [, string how [, int rownumber]])~
 
-|ovrimos_fetch_into| fetches a row from the result set into {result_array},
-which should be passed by reference. Which row is fetched is determined by
-the two last parameters. {how} is one of Next (default), Prev, First, Last,
-Absolute, corresponding to forward direction from current position, backward
-direction from current position, forward direction from the start, backward
-direction from the end and absolute position from the start (essentially
-equivalent to 'first' but needs 'rownumber'). Case is not significant.
-{rownumber} is optional except for absolute positioning. Returns TRUE on
-success or FALSE on failure.
+Fetches a row from the given result set, into {result_array}.
+
+{result_id} A result identifier, returned by |ovrimos_execute| or
+|ovrimos_exec|.
+
+{result_array} You must provide an array by reference. It will be filled with
+the fetched values.
+
+{how} Determines how the rows are fetched. This can be one of the following
+strings (case is not significant): Option Notes Next Forward direction from
+current position. This is the default value. Prev Backward direction from
+current position. First Forward direction from the start. Last Backward
+direction from the end. Absolute Absolute position from the start. Requires
+{rownumber}.
+
+{rownumber} The row number, first one is 0. Only needed when {how} is set to
+Absolute.
+
+Returns TRUE on success or FALSE on failure.
 
 A fetch into example
 
@@ -21,10 +31,10 @@ A fetch into example
       $res=ovrimos_exec($conn, "select table_id, table_name from sys.tables");
       if ($res != 0) {
           echo "Statement ok!";
-          if (ovrimos_fetch_into($res, &amp;$row)) {
+          if (ovrimos_fetch_into($res, $row)) {
               list($table_id, $table_name) = $row;
               echo "table_id=" . $table_id . ", table_name=" . $table_name . "\n";
-              if (ovrimos_fetch_into($res, &amp;$row)) {
+              if (ovrimos_fetch_into($res, $row)) {
                   list($table_id, $table_name) = $row;
                   echo "table_id=" . $table_id . ", table_name=" . $table_name . "\n";
               } else {
@@ -39,6 +49,10 @@ A fetch into example
   }
 ?>
 
-This example will fetch a row.
+
+
+
+
+|ovrimos_fetch_row|
 
 vim:ft=help:

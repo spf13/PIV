@@ -1,0 +1,12 @@
+ps_show_xy2 -- Output text at position
+
+  bool ps_show_xy2(resource psdoc, string text, int len, float xcoor, float ycoor)~
+
+This function is currently not documented; only its argument list is
+available.
+
+
+
+Returns TRUE on success or FALSE on failure.
+
+vim:ft=help:

@@ -2,8 +2,15 @@ imagecolorsforindex -- Get the colors for an index
 
   array imagecolorsforindex(resource image, int index)~
 
-This returns an associative array with red, green, blue and alpha keys that
-contain the appropriate values for the specified color index.
+Gets the color for a specified index.
+
+{ image}An image resource, returned by one of the image creation functions,
+such as |imagecreatetruecolor|.
+
+{index} The color index.
+
+Returns an associative array with red, green, blue and alpha keys that contain
+the appropriate values for the specified color index.
 
 |imagecolorsforindex| example
 
@@ -20,21 +27,21 @@ contain the appropriate values for the specified color index.
   $color_tran = imagecolorsforindex($im, $color_index);
   
   // what is it ?
-  echo '<pre>';
   print_r($color_tran);
-  echo '</pre>';
 ?>
 
-This example will output :
+The above example will output something similar to:
 
   Array
   (
-      [red] => 226
-      [green] => 222
-      [blue] => 252
-      [alpha] => 0
+     [red] => 226
+     [green] => 222
+     [blue] => 252
+     [alpha] => 0
   )
 
-See also |imagecolorat| and |imagecolorexact|.
+
+
+|imagecolorat| |imagecolorexact|
 
 vim:ft=help:

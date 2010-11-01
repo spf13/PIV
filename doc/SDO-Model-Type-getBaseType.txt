@@ -1,0 +1,19 @@
+SDO_Model_Type::getBaseType -- Get the base type for this type
+
+  SDO_Model_Type SDO_Model_Type::getBaseType()~
+
+This function is EXPERIMENTAL. The behaviour of this function, its name, and
+surrounding documentation may change without notice in a future release of
+PHP. This function should be used at your own risk.
+
+Get the base type for this type. Returns the SDO_Model_Type for the base type
+if this type inherits from another, otherwise returns NULL. An example of when
+base types occur is when a type defined in XML schema inherits from another
+type by using <extension base="..."> .
+
+None.
+
+Returns the SDO_Model_Type for the base type if this type inherits from
+another, otherwise returns NULL.
+
+vim:ft=help:

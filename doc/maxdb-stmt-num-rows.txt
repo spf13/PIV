@@ -1,0 +1,87 @@
+stmt->num_rows -- Return the number of rows in statements result set
+
+Procedural style :
+
+  int maxdb_stmt_num_rows(resource stmt)~
+
+Object oriented style (property):
+
+Returns the number of rows in the result set.
+
+An integer representing the number of rows in result set.
+
+Object oriented style
+
+<?php >
+  /* Open a connection */
+  $maxdb = new maxdb("localhost", "MONA", "RED", "DEMODB");
+  
+  /* check connection */
+  if (maxdb_connect_errno()) {
+     printf("Connect failed: %s\n", maxdb_connect_error());
+     exit();
+  }
+  
+  $query = "SELECT zip, name FROM hotel.city ORDER BY name";
+  if ($stmt = $maxdb->prepare($query)) {
+  
+     /* execute query */
+     $stmt->execute();
+  
+     /* store result */
+     $stmt->store_result();
+  
+     printf("Number of rows: %d.\n", $stmt->num_rows);
+  
+     /* close statement */
+     $stmt->close();
+  }
+  
+  /* close connection */
+  $maxdb->close();
+?>
+
+
+
+Procedural style
+
+<?php >
+  /* Open a connection */
+  $link = maxdb_connect("localhost", "MONA", "RED", "DEMODB");
+  
+  /* check connection */
+  if (maxdb_connect_errno()) {
+     printf("Connect failed: %s\n", maxdb_connect_error());
+     exit();
+  }
+  
+  $query = "SELECT zip, name FROM hotel.city ORDER BY name";
+  if ($stmt = maxdb_prepare($link, $query)) {
+  
+     /* execute query */
+     maxdb_stmt_execute($stmt);
+  
+     /* store result */
+     maxdb_stmt_store_result($stmt);
+  
+     printf("Number of rows: %d.\n", maxdb_stmt_num_rows($stmt));
+  
+     /* close statement */
+     maxdb_stmt_close($stmt);
+  }
+  
+  /* close connection */
+  maxdb_close($link);
+?>
+
+
+
+The above example will output something similar to:
+
+
+
+  Number of rows: 25.
+
+|maxdb_stmt_affected_rows| |maxdb_prepare| |maxdb_stmt_store_result|
+
+vim:ft=help:

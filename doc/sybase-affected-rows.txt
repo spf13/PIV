@@ -4,8 +4,16 @@ sybase_affected_rows -- Gets number of affected rows in last query
 
 |sybase_affected_rows| returns the number of rows affected by the last INSERT,
 UPDATE or DELETE query on the server associated with the specified link
-identifier. If the link identifier isn't specified, the last opened link is
-assumed.
+identifier.
+
+This command is not effective for SELECT statements, only on statements which
+modify records. To retrieve the number of rows returned from a SELECT, use
+|sybase_num_rows|.
+
+{link_identifier} If the link identifier isn't specified, the last opened link
+is assumed.
+
+Returns the number of affected rows, as an integer.
 
 Delete-Query
 
@@ -23,10 +31,8 @@ The above example will output:
 
   Records deleted: 10
 
-This command is not effective for SELECT statements, only on statements which
-modify records. To retrieve the number of rows returned from a SELECT, use
-|sybase_num_rows|.
 
-See also |sybase_num_rows|.
+
+|sybase_num_rows|
 
 vim:ft=help:

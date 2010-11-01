@@ -15,7 +15,7 @@ of the script ends. Instead, the link will remain open for future use
 {hostname} The hostname can also include a port number. e.g. hostname,port.
 
 If not specified, the connection is established by the means of a Unix domain
-socket, being then more efficient then a localhost TCP socket connection.
+socket, being more efficient than a localhost TCP socket connection.
 
 While this function will accept a colon (:) as a host/port separator, a comma
 (,) is the preferred method.

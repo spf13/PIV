@@ -1,0 +1,38 @@
+xdiff_file_bpatch -- Patch a file with a binary diff
+
+  bool xdiff_file_bpatch(string file, string patch, string dest)~
+
+Patches a {file} with a binary {patch} and stores the result in a file {dest}.
+This function accepts patches created both via |xdiff_file_bdiff| and
+|xdiff_file_rabdiff| functions or their string counterparts.
+
+{file} The original file.
+
+{patch} The binary patch file.
+
+{dest} Path of the resulting file.
+
+Returns TRUE on success or FALSE on failure.
+
+|xdiff_file_bpatch| example The following code applies binary diff to a file.
+
+<?php >
+  $old_version = 'archive-1.0.tgz';
+  $patch = 'archive.bpatch';
+  
+  $result = xdiff_file_bpatch($old_version, $patch, 'archive-1.1.tgz');
+  if ($result) {
+     echo "File patched";
+  } else {
+     echo "File couldn't be patched";
+  }
+?>
+
+
+
+Both files ({file} and {patch}) will be loaded into memory so ensure that your
+memory_limit is set high enough.
+
+|xdiff_file_bdiff| |xdiff_file_rabdiff|
+
+vim:ft=help:

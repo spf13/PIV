@@ -1,0 +1,15 @@
+m_setssl_cafile -- Set SSL CA (Certificate Authority) file for verification of
+server certificate
+
+  int m_setssl_cafile(resource conn, string cafile)~
+
+This function is currently not documented; only its argument list is
+available.
+
+{ conn}An MCVE_CONN resource returned by |m_initengine|.
+
+{cafile}
+
+
+
+vim:ft=help:

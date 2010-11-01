@@ -4,6 +4,10 @@ strlen -- Get string length
 
 Returns the length of the given {string}.
 
+{string} The string being measured for length.
+
+The length of the {string} on success, and 0 if the {string} is empty.
+
 A |strlen| example
 
 <?php >
@@ -14,6 +18,10 @@ A |strlen| example
   echo strlen($str); // 7
 ?>
 
-See also |count|, and |mb_strlen|.
+
+
+
+
+|count| |mb_strlen|
 
 vim:ft=help:

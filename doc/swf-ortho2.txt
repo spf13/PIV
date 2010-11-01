@@ -3,9 +3,22 @@ current viewport
 
   void swf_ortho2(float xmin, float xmax, float ymin, float ymax)~
 
-The |swf_ortho2| function defines a two dimensional orthographic mapping of
-user coordinates onto the current viewport, this defaults to one to one
-mapping of the area of the Flash movie. If a perspective transformation is
-desired, the |swf_perspective | function can be used.
+Defines a two dimensional orthographic mapping of user coordinates onto the
+current viewport, this defaults to one to one mapping of the area of the Flash
+movie.
+
+If a perspective transformation is desired, |swf_perspective| can be used.
+
+{xmin}
+
+{xmax}
+
+{ymin}
+
+{ymax}
+
+No value is returned.
+
+|swf_ortho|
 
 vim:ft=help:

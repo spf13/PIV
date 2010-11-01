@@ -1,4 +1,4 @@
-DomElement->has_attribute() -- Checks to see if an attribute exists in the
+DomElement->has_attribute -- Checks to see if an attribute exists in the
 current node
 
   bool has_attribute(string name)~
@@ -28,6 +28,10 @@ Testing the existence of an attribute
   }
   $buffer .= '>';
 ?>
+
+
+
+
 
 Use .
 

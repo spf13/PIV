@@ -1,0 +1,13 @@
+stream_supports_lock -- Tells whether the stream supports locking.
+
+  bool stream_supports_lock(resource stream)~
+
+Tells whether the stream supports locking through |flock|.
+
+{stream} The stream to check.
+
+Returns TRUE on success or FALSE on failure.
+
+|flock|
+
+vim:ft=help:

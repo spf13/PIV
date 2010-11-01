@@ -1,8 +1,10 @@
 Rar::getVersion -- Get version of the archiver used to add the entry
 
-  int Rar::getVersion()~
+  int getVersion()~
 
 Get version of the archiver used to add the archive entry.
+
+Returns the version or FALSE on error.
 
 |Rar::getVersion| example
 
@@ -14,6 +16,8 @@ Get version of the archiver used to add the archive entry.
   echo "Rar (WinRAR) version used: " . $entry->getVersion();
 ?>
 
-|Rar::getVersion| returns FALSE on error.
+
+
+
 
 vim:ft=help:

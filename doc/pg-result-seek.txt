@@ -28,6 +28,10 @@ Returns TRUE on success or FALSE on failure.
   $row = pg_fetch_row($result);
 ?>
 
+
+
+
+
 |pg_fetch_row| |pg_fetch_assoc| |pg_fetch_array| |pg_fetch_object|
 |pg_fetch_result|
 

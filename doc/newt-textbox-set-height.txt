@@ -1,0 +1,14 @@
+newt_textbox_set_height --
+
+  void newt_textbox_set_height(resource textbox, int height)~
+
+This function is currently not documented; only its argument list is
+available.
+
+{textbox}
+
+{height}
+
+No value is returned.
+
+vim:ft=help:

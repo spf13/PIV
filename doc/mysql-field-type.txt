@@ -45,7 +45,11 @@ The above example will output something similar to:
   string dl 128 not_null
   string type 9 not_null enum
 
-For downward compatibility, the following deprecated alias may be used:
+
+
+For backward compatibility, the following deprecated alias may be used:
 |mysql_fieldtype|
+
+|mysql_field_name| |mysql_field_len|
 
 vim:ft=help:

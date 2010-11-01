@@ -30,6 +30,8 @@ The above example will output:
   The string 'string2' does not consist of all whitespace characters.
   The string 'string3' does not consist of all whitespace characters.
 
+
+
 |ctype_cntrl| |ctype_graph| |ctype_punct|
 
 vim:ft=help:

@@ -1,8 +1,6 @@
 pg_put_line -- Send a NULL-terminated string to PostgreSQL backend
 
-  bool pg_put_line(string data)~
-
-  bool pg_put_line(string data, resource connection, string data)~
+  bool pg_put_line([resource connection, string data])~
 
 |pg_put_line| sends a NULL-terminated string to the PostgreSQL backend server.
 This is needed in conjunction with PostgreSQL's COPY FROM command.
@@ -41,6 +39,10 @@ Returns TRUE on success or FALSE on failure.
     pg_put_line($conn, "\\.\n");
     pg_end_copy($conn);
 ?>
+
+
+
+
 
 |pg_end_copy|
 

@@ -2,7 +2,13 @@ yp_master -- Returns the machine name of the master NIS server for a map
 
   string yp_master(string domain, string map)~
 
-|yp_master| returns the machine name of the master NIS server for a map.
+Returns the machine name of the master NIS server for a {map}.
+
+{domain} The NIS domain name.
+
+{map} The NIS map.
+
+
 
 Example for the NIS master
 
@@ -11,6 +17,10 @@ Example for the NIS master
   echo "Master for this map is: " . $master;
 ?>
 
-See also |yp_get_default_domain|.
+
+
+
+
+|yp_get_default_domain|
 
 vim:ft=help:

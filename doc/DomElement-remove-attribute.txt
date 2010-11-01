@@ -1,4 +1,4 @@
-DomElement->remove_attribute() -- Removes attribute
+DomElement->remove_attribute -- Removes attribute
 
   bool remove_attribute(string name)~
 

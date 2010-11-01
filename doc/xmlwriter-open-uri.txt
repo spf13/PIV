@@ -1,0 +1,22 @@
+XMLWriter::openURI -- Create new xmlwriter using source uri for output
+
+Oriented object style
+
+  bool openURI(string uri)~
+
+Procedural style
+
+  resource xmlwriter_open_uri(string uri, string uri)~
+
+Creates a new XMLWriter using {uri} for the output.
+
+{uri} The URI of the resource for the output.
+
+Oriented object style: Returns TRUE on success or FALSE on failure.
+
+Procedural style: Returns a new xmlwriter resource for later use with the
+xmlwriter functions on success, FALSE on error.
+
+XMLWriter::openMemory
+
+vim:ft=help:

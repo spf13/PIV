@@ -1,0 +1,14 @@
+m_settimeout -- Set maximum transaction time (per trans)
+
+  int m_settimeout(resource conn, int seconds)~
+
+This function is currently not documented; only its argument list is
+available.
+
+{ conn}An MCVE_CONN resource returned by |m_initengine|.
+
+{seconds}
+
+
+
+vim:ft=help:

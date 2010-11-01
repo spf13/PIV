@@ -2,11 +2,12 @@ ldap_errno -- Return the LDAP error number of the last LDAP command
 
   int ldap_errno(resource link_identifier)~
 
-Return the LDAP error number of the last LDAP command for this link.
+Returns the standardized error number returned by the last LDAP command. This
+number can be converted into a textual error message using |ldap_err2str|.
 
-This function returns the standardized error number returned by the last LDAP
-command for the given {link_identifier}. This number can be converted into a
-textual error message using |ldap_err2str|.
+{link_identifier} An LDAP link identifier, returned by |ldap_connect|.
+
+Return the LDAP error number of the last LDAP command for this link.
 
 Unless you lower your warning level in your php.ini sufficiently or prefix
 your LDAP commands with @ (at) characters to suppress warning output, the
@@ -29,6 +30,10 @@ catching an error
   echo $info["count"] . " matching entries.<br />\n";
 ?>
 
-See also |ldap_err2str| and |ldap_error|.
+
+
+
+
+|ldap_err2str| |ldap_error|
 
 vim:ft=help:

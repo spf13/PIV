@@ -5,6 +5,10 @@ sin -- Sine
 |sin| returns the sine of the {arg} parameter. The {arg} parameter is in
 radians.
 
+{arg} A value in radians
+
+The sine of {arg}
+
 |sin| example
 
 <?php >
@@ -13,6 +17,10 @@ radians.
   echo sin(60);           // -0.304810621 ...
 ?>
 
-See also: |asin|, |cos|, |tan|, and |deg2rad|.
+
+
+
+
+|asin| |sinh| |cos| |tan| |deg2rad|
 
 vim:ft=help:

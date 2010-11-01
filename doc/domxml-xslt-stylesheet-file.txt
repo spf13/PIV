@@ -9,7 +9,8 @@ Creates a DomXsltStylesheet object from the given XSL file.
 
 Returns a new instance of DomXsltStylesheet.
 
-Call with DOMDocument::load($xsl_file) as parameter.
+Call |XSLTProcessor::importStylesheet| with DOMDocument::load($xsl_file) as
+parameter.
 
 |domxml_xslt_stylesheet| |domxml_xslt_stylesheet_doc|
 

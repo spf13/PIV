@@ -2,8 +2,19 @@ fdf_set_flags -- Sets a flag of a field
 
   bool fdf_set_flags(resource fdf_document, string fieldname, int whichFlags, int newFlags)~
 
-The |fdf_set_flags| sets certain flags of the given field {fieldname}.
+Sets certain flags of the given field.
 
-See also |fdf_set_opt|.
+{fdf_document} The FDF document handle, returned by |fdf_create|, |fdf_open|
+or |fdf_open_string|.
+
+{fieldname} Name of the FDF field, as a string.
+
+{whichFlags}
+
+{newFlags}
+
+Returns TRUE on success or FALSE on failure.
+
+|fdf_set_opt|
 
 vim:ft=help:

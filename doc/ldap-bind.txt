@@ -2,11 +2,18 @@ ldap_bind -- Bind to LDAP directory
 
   bool ldap_bind(resource link_identifier [, string bind_rdn [, string bind_password]])~
 
-Binds to the LDAP directory with specified RDN and password. Returns TRUE on
-success or FALSE on failure.
+Binds to the LDAP directory with specified RDN and password.
 
-|ldap_bind| does a bind operation on the directory. {bind_rdn} and
-{bind_password} are optional. If not specified, anonymous bind is attempted.
+{link_identifier} An LDAP link identifier, returned by |ldap_connect|.
+
+{bind_rdn}
+
+{bind_password}
+
+If {bind_rdn} and {bind_password} are not specified, an anonymous bind is
+attempted.
+
+Returns TRUE on success or FALSE on failure.
 
 Using LDAP Bind
 
@@ -30,9 +37,11 @@ Using LDAP Bind
       } else {
           echo "LDAP bind failed...";
       }
-          
+  
   }
 ?>
+
+
 
 Using LDAP Bind Anonymously
 
@@ -53,8 +62,14 @@ Using LDAP Bind Anonymously
       } else {
           echo "LDAP bind anonymous failed...";
       }
-   
+  
   }
 ?>
+
+
+
+
+
+|ldap_unbind|
 
 vim:ft=help:

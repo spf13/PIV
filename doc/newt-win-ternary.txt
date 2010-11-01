@@ -1,0 +1,23 @@
+newt_win_ternary --
+
+  int newt_win_ternary(string title, string button1_text, string button2_text, string button3_text, string format [, mixed args [, mixed ...]])~
+
+This function is currently not documented; only its argument list is
+available.
+
+{title} Its description
+
+{button1_text} Its description
+
+{button2_text} Its description
+
+{button3_text} Its description
+
+{format} Its description
+
+{args} Its description
+
+What the function returns, first on success, then on failure. See also the
+Returns &true; on success or &false; on failure. entity
+
+vim:ft=help:

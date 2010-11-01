@@ -1,8 +1,10 @@
 Rar::getHostOs -- Get entry host OS
 
-  int Rar::getHostOs()~
+  int getHostOs()~
 
 |Rar::getHostOs| return code of the host OS of the archive entry.
+
+Returns the code of the host OS, or FALSE on error.
 
 |Rar::getHostOs| example
 
@@ -33,6 +35,8 @@ Rar::getHostOs -- Get entry host OS
   }
 ?>
 
-|Rar::getHostOs| returns FALSE on error.
+
+
+
 
 vim:ft=help:

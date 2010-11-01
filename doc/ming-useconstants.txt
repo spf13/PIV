@@ -1,0 +1,10 @@
+ming_useconstants -- Use constant pool
+
+  void ming_useconstants(int use)~
+
+This function is currently not documented; only its argument list is
+available.
+
+No value is returned.
+
+vim:ft=help:

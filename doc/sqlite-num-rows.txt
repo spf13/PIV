@@ -13,6 +13,8 @@ the object-oriented method.
 
 This function cannot be used with unbuffered result handles.
 
+Returns the number of rows, as an integer.
+
 Procedural example
 
 <?php >
@@ -23,6 +25,10 @@ Procedural example
   echo "Number of rows: $rows";
 ?>
 
+
+
+
+
 Object-oriented example
 
 <?php >
@@ -32,6 +38,10 @@ Object-oriented example
   
   echo "Number of rows: $rows";
 ?>
+
+
+
+
 
 |sqlite_changes| |sqlite_query| |sqlite_num_fields|
 

@@ -1,0 +1,37 @@
+gnupg_setsignmode -- Sets the mode for signing
+
+  bool gnupg_setsignmode(resource identifier, int signmode)~
+
+Sets the mode for signing.
+
+{identifier} The gnupg identifier, from a call to |gnupg_init| or gnupg.
+
+{sigmode} The mode for signing.
+
+{signmode} takes a constant indicating what type of signature should be
+produced. The possible values are GNUPG_SIG_MODE_NORMAL, GNUPG_SIG_MODE_DETACH
+and GNUPG_SIG_MODE_CLEAR. By default GNUPG_SIG_MODE_CLEAR is used.
+
+Returns TRUE on success or FALSE on failure.
+
+Procedural |gnupg_setsignmode| example
+
+<?php >
+  $res = gnupg_init();
+  gnupg_setsignmode($res,GNUPG_SIG_MODE_DETACH); // produce a detached signature
+?>
+
+
+
+OO |gnupg_setsignmode| example
+
+<?php >
+  $gpg = new gnupg();
+  $gpg -> setsignmode(gnupg::SIG_MODE_DETACH); // produce a detached signature
+?>
+
+
+
+
+
+vim:ft=help:

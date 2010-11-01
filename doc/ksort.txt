@@ -5,7 +5,14 @@ ksort -- Sort an array by key
 Sorts an array by key, maintaining key to data correlations. This is useful
 mainly for associative arrays.
 
+{array} The input array.
+
+{sort_flags} You may modify the behavior of the sort using the optional
+parameter {sort_flags}, for details see |sort|.
+
 Returns TRUE on success or FALSE on failure.
+
+Version Description 4.0.0 The optional {sort_flags} parameter was added.
 
 |ksort| example
 
@@ -24,12 +31,8 @@ The above example will output:
   c = apple
   d = lemon
 
-You may modify the behavior of the sort using the optional parameter
-{sort_flags}, for details see |sort|.
 
-See also |asort|, |arsort|, |krsort|, |uksort|, |sort|, |natsort|, and
-|rsort|.
 
-The second parameter was added in PHP 4.
+|asort| The comparison of array sorting functions
 
 vim:ft=help:

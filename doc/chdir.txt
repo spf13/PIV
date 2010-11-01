@@ -25,8 +25,10 @@ The above example will output something similar to:
   /home/vincent
   /home/vincent/public_html
 
-When safe mode is enabled, PHP checks whether the directory in which you are
-about to operate has the same UID (owner) as the script that is being
+
+
+When safe mode is enabled, PHP checks whether the directory in which the
+script is operating has the same UID (owner) as the script that is being
 executed.
 
 |getcwd|

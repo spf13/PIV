@@ -7,9 +7,12 @@ Gets the current byte index of the given XML parser.
 {parser} A reference to the XML parser to get byte index from.
 
 This function returns FALSE if {parser} does not refer to a valid parser, or
-else it returns which byte index the parser is currently at in its data
-buffer (starting at 0).
+else it returns which byte index the parser is currently at in its data buffer
+(starting at 0).
 
-|xml_get_current_column_index| |xml_get_current_line_index|
+This function returns byte index according to UTF-8 encoded text disregarding
+if input is in another encoding.
+
+|xml_get_current_column_number| |xml_get_current_line_number|
 
 vim:ft=help:

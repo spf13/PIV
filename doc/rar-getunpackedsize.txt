@@ -1,8 +1,10 @@
 Rar::getUnpackedSize -- Get unpacked size of the entry
 
-  int Rar::getUnpackedSize()~
+  int getUnpackedSize()~
 
 Get unpacked size of the archive entry.
+
+Returns the unpacked size, or FALSE on error.
 
 |Rar::getUnpackedSize| example
 
@@ -14,6 +16,8 @@ Get unpacked size of the archive entry.
   echo "Unpacked size of " . $entry->getName() . " = " . $entry->getPackedSize() . " bytes";
 ?>
 
-|Rar::getUnpackedSize| returns FALSE on error.
+
+
+
 
 vim:ft=help:

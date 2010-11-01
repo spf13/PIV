@@ -3,7 +3,9 @@ visible
 
   int ncurses_show_panel(resource panel)~
 
-This function is currently not documented; only the argument list is
+This function is currently not documented; only its argument list is
 available.
+
+{panel}
 
 vim:ft=help:

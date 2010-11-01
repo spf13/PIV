@@ -5,4 +5,10 @@ JDToJulian -- Converts a Julian Day Count to a Julian Calendar Date
 Converts Julian Day Count to a string containing the Julian Calendar Date in
 the format of "month/day/year".
 
+{julianday} A julian day number as integer
+
+The julian date as a string in the form "month/day/year"
+
+|juliantojd| |cal_from_jd|
+
 vim:ft=help:

@@ -1,9 +1,11 @@
-DomDocumentType->entities() -- Returns list of entities
+DomDocumentType->entities -- Returns list of entities
 
   array entities()~
 
-This function is currently not documented; only the argument list is
+This function is currently not documented; only its argument list is
 available.
+
+
 
 Use the entities property of the DOMDocumentType object.
 

@@ -5,6 +5,23 @@ gmp_powm -- Raise number into power with modulo
 Calculate ({base} raised into power {exp}) modulo {mod}. If {exp} is negative,
 result is undefined.
 
+{base} The base number.
+
+It can be either a GMP number resource, or a numeric string given that it is
+possible to convert the latter to a number.
+
+{exp} The positive power to raise the {base}.
+
+It can be either a GMP number resource, or a numeric string given that it is
+possible to convert the latter to a number.
+
+{mod} The modulo.
+
+It can be either a GMP number resource, or a numeric string given that it is
+possible to convert the latter to a number.
+
+The new (raised) number, as a GMP number.
+
 |gmp_powm| example
 
 <?php >
@@ -12,8 +29,10 @@ result is undefined.
   echo gmp_strval($pow1) . "\n";
 ?>
 
-The printout of the above program will be:
+The above example will output:
 
   2147483648
+
+
 
 vim:ft=help:

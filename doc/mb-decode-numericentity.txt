@@ -1,14 +1,18 @@
 mb_decode_numericentity -- Decode HTML numeric string reference to character
 
-  string mb_decode_numericentity(string str, array convmap [, string encoding])~
+  string mb_decode_numericentity(string str, array convmap, string encoding)~
 
-Convert numeric string reference of string {str} in specified block to
-character. It returns converted string.
+Convert numeric string reference of string {str} in a specified block to
+character.
 
-{convmap} is array to specifies code area to convert.
+{str} The string being decoded.
 
-{encoding} is character encoding. If it is omitted, internal character
-encoding is used.
+{convmap} {convmap} is an array that specifies the code area to convert.
+
+{encoding} The {encoding} parameter is the character encoding. If it is
+omitted, the internal character encoding value will be used.
+
+The converted string.
 
 {convmap} example
 
@@ -21,6 +25,10 @@ encoding is used.
   // Add offsetN to value and take bit-wise 'AND' with maskN, 
   // then convert value to numeric string reference.
 
-See also |mb_encode_numericentity|.
+
+
+
+
+|mb_encode_numericentity|
 
 vim:ft=help:

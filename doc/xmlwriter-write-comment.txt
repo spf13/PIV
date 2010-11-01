@@ -1,0 +1,23 @@
+XMLWriter::writeComment -- Write full comment tag
+
+Oriented object style
+
+  bool writeComment(string content)~
+
+Procedural style
+
+  bool xmlwriter_write_comment(string content, resource xmlwriter, string content)~
+
+Writes a full comment.
+
+{ xmlwriter}Only for procedural calls. The XMLWriter resource that is being
+modified. This resource comes from a call to |xmlwriter_open_uri| or
+|xmlwriter_open_memory|.
+
+{content} The contents of the comment.
+
+Returns TRUE on success or FALSE on failure.
+
+XMLWriter::startComment XMLWriter::endComment
+
+vim:ft=help:

@@ -1,0 +1,18 @@
+ps_show2 -- Output a text at current position
+
+  bool ps_show2(resource psdoc, string text, int len)~
+
+This function is currently not documented; only its argument list is
+available.
+
+
+
+{psdoc} Resource identifier of the postscript file as returned by |ps_new|.
+
+{text}
+
+{len}
+
+Returns TRUE on success or FALSE on failure.
+
+vim:ft=help:

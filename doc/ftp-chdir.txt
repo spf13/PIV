@@ -38,6 +38,10 @@ will also throw a warning.
   ftp_close($conn_id);
 ?>
 
+
+
+
+
 |ftp_cdup| |ftp_pwd|
 
 vim:ft=help:

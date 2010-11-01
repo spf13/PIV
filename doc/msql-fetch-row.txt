@@ -39,6 +39,10 @@ more rows.
   msql_free_result($result);
 ?>
 
+
+
+
+
 Version Description 4.3.11 and 5.0.4 A bug was fixed when retrieving data from
 columns containing NULL values. Such columns were not placed into the
 resulting array.

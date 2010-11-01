@@ -1,0 +1,12 @@
+libxml_get_last_error -- Retrieve last error from libxml
+
+  LibXMLError libxml_get_last_error()~
+
+Retrieve last error from libxml.
+
+Returns a LibXMLError object if there is any error in the buffer, FALSE
+otherwise.
+
+|libxml_get_errors| |libxml_clear_errors|
+
+vim:ft=help:

@@ -26,6 +26,10 @@ Emptying a dBase database
   }
 ?>
 
+
+
+
+
 |dbase_delete_record|
 
 vim:ft=help:

@@ -1,17 +1,20 @@
 printer_draw_elipse -- Draw an ellipse
 
-  void printer_draw_elipse(resource handle, int ul_x, int ul_y, int lr_x, int lr_y)~
+  void printer_draw_elipse(resource printer_handle, int ul_x, int ul_y, int lr_x, int lr_y)~
 
-The function simply draws an ellipse. {handle} must be a valid handle to a
-printer.
+The function draws an ellipse.
 
-{ul_x} is the upper left x coordinate of the ellipse.
+{printer_handle} {printer_handle} must be a valid printer handle.
 
-{ul_y} is the upper left y coordinate of the ellipse.
+{ul_x} {ul_x} is the upper left x coordinate of the ellipse.
 
-{lr_x} is the lower right x coordinate of the ellipse.
+{ul_y} {ul_y} is the upper left y coordinate of the ellipse.
 
-{lr_y} is the lower right y coordinate of the ellipse.
+{lr_x} {lr_x} is the lower right x coordinate of the ellipse.
+
+{lr_y} {lr_y} is the lower right y coordinate of the ellipse.
+
+No value is returned.
 
 |printer_draw_elipse| example
 
@@ -33,7 +36,11 @@ printer.
   
   printer_end_page($handle);
   printer_end_doc($handle);
-  printer_close($handle);     
+  printer_close($handle);
 ?>
+
+
+
+
 
 vim:ft=help:

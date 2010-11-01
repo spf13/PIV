@@ -1,0 +1,17 @@
+spl_autoload_unregister -- Unregister given function as __autoload()
+implementation
+
+  bool spl_autoload_unregister(mixed autoload_function)~
+
+Unregister a function from the spl provided __autoload stack. If the stack is
+activated and empty after unregistering the given function then it will be
+deactivated.
+
+When this function results in the autoload stack being activated an existing
+__autoload function will not be reactivated.
+
+{autoload_function} The autoload function being unregistered.
+
+Returns TRUE on success or FALSE on failure.
+
+vim:ft=help:

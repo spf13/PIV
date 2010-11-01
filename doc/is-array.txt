@@ -26,6 +26,8 @@ The above example will output:
   Array
   not an Array
 
+
+
 |is_float| |is_int| |is_string| |is_object|
 
 vim:ft=help:

@@ -10,8 +10,8 @@ only returns an associative array.
 { result}The result resource that is being evaluated. This result comes from a
 call to |mysql_query|.
 
-Returns an associative array that corresponds to the fetched row, or FALSE if
-there are no more rows.
+Returns an associative array of strings that corresponds to the fetched row,
+or FALSE if there are no more rows.
 
 If two or more columns of the result have the same field names, the last
 column will take precedence. To access the other column(s) of the same name,
@@ -63,13 +63,17 @@ An expanded |mysql_fetch_assoc| example
   mysql_free_result($result);
 ?>
 
+
+
+
+
 An important thing to note is that using |mysql_fetch_assoc| is not
 significantly slower than using |mysql_fetch_row|, while it provides a
 significant added value.
 
 Field names returned by this function are case-sensitive.
 
-This function sets NULL fields to PHP NULL value.
+This function sets NULL fields to the PHP NULL value.
 
 |mysql_fetch_row| |mysql_fetch_array| |mysql_data_seek| |mysql_query|
 |mysql_error|

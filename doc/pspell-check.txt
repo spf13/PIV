@@ -2,10 +2,15 @@ pspell_check -- Check a word
 
   bool pspell_check(int dictionary_link, string word)~
 
-|pspell_check| checks the spelling of a word and returns TRUE if the spelling
-is correct, FALSE if not.
+|pspell_check| checks the spelling of a word.
 
-|pspell_check|
+{dictionary_link}
+
+{word} The tested word.
+
+Returns TRUE if the spelling is correct, FALSE if not.
+
+|pspell_check| Example
 
 <?php >
   $pspell_link = pspell_new("en");
@@ -16,5 +21,9 @@ is correct, FALSE if not.
       echo "Sorry, wrong spelling";
   }
 ?>
+
+
+
+
 
 vim:ft=help:

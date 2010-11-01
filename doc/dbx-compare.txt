@@ -2,13 +2,16 @@ dbx_compare -- Compare two rows for sorting purposes
 
   int dbx_compare(array row_a, array row_b, string column_key [, int flags])~
 
-|dbx_compare| returns 0 if the row_a[$column_key] is equal to
-row_b[$column_key], and 1 or -1 if the former is greater or is smaller than
-the latter one, respectively, or vice versa if the {flag} is set to
-DBX_CMP_DESC. |dbx_compare| is a helper function for |dbx_sort| to ease the
-make and use of the custom sorting function.
+|dbx_compare| is a helper function for |dbx_sort| to ease the make and use of
+the custom sorting function.
 
-The {flags} can be set to specify comparison direction: DBX_CMP_ASC -
+{row_a} First row
+
+{row_b} Second row
+
+{column_key} The compared column
+
+{flags} The {flags} can be set to specify comparison direction: DBX_CMP_ASC -
 ascending order
 
 DBX_CMP_DESC - descending order
@@ -22,6 +25,10 @@ DBX_CMP_NUMBER - compare items numerically
 One of the direction and one of the type constant can be combined with bitwise
 OR operator (|). The default value for the {flags} parameter is DBX_CMP_ASC |
 DBX_CMP_NATIVE.
+
+Returns 0 if the row_a[$column_key] is equal to row_b[$column_key], and 1 or
+-1 if the former is greater or is smaller than the latter one, respectively,
+or vice versa if the {flag} is set to DBX_CMP_DESC.
 
 |dbx_compare| example
 
@@ -47,6 +54,10 @@ DBX_CMP_NATIVE.
   dbx_close($link);
 ?>
 
-See also |dbx_sort|.
+
+
+
+
+|dbx_sort|
 
 vim:ft=help:

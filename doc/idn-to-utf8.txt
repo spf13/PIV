@@ -1,0 +1,42 @@
+idn_to_utf8 -- Convert ASCII encoded domain name to UTF-8
+
+  string idn_to_utf8(string ascii_domain [, int errorcode])~
+
+This function converts a ASCII encoded domain name to its original UTF-8
+version.
+
+{ascii_domain} The ASCII encoded domain name. Looks like "xn--..." if the it
+originally contained non-ASCII characters.
+
+{errorcode} Will be set to the IDNA error code.
+
+The UTF-8 encoded version of the domain name or FALSE in case of an error. RFC
+3490 4.2 states though "ToUnicode never fails. If any step fails, then the
+original input sequence is returned immediately in that step."
+
+If an error occurs FALSE is returned and the optional errorcode is set. In
+addition a E_WARNING message is printed.
+
+|idn_to_utf8| example First a simple example and then one explaining how to
+catch errors (which should never happen according to the RFC).
+
+<?php >
+  // maybe convert the result to ISO-8859-1 using utf8_decode()
+  echo idn_to_utf8("xn--tst-qla.de");
+  
+  // Should never happen but to be sure...
+  $utf8 = idn_to_utf8("xn--tst-qla.de", $errorcode);
+  if ($utf8 === false) {
+      printf("Detected error %d: %s\n", $errorcode, idn_strerror($errorcode));
+  }
+?>
+
+The above example will output something similar to:
+
+  täst.de
+
+
+
+|utf8_decode| |idn_strerror| |idn_to_ascii|
+
+vim:ft=help:

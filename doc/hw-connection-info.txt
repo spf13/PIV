@@ -3,7 +3,9 @@ server
 
   void hw_connection_info(int link)~
 
-This function is currently not documented; only the argument list is
+This function is currently not documented; only its argument list is
 available.
+
+
 
 vim:ft=help:

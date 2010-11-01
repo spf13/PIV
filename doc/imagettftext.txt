@@ -2,7 +2,10 @@ imagettftext -- Write text to the image using TrueType fonts
 
   array imagettftext(resource image, float size, float angle, int x, int y, int color, string fontfile, string text)~
 
-{image} The image resource. See |imagecreate|.
+Writes the given {text} into the image using TrueType fonts.
+
+{ image}An image resource, returned by one of the image creation functions,
+such as |imagecreatetruecolor|.
 
 {size} The font size. Depending on your version of GD, this should be
 specified as the pixel size (GD1) or point size (GD2).
@@ -25,9 +28,9 @@ turning off antialiasing. See |imagecolorallocate|.
 {fontfile} The path to the TrueType font you wish to use.
 
 Depending on which version of the GD library PHP is using, when {fontfile}
-does not begin with a leading / then .ttf will be appended to the filename
-and the library will attempt to search for that filename along a
-library-defined font path.
+does not begin with a leading / then .ttf will be appended to the filename and
+the library will attempt to search for that filename along a library-defined
+font path.
 
 When using versions of the GD library lower than 2.0.18, a space character,
 rather than a semicolon, was used as the 'path separator' for different font
@@ -46,20 +49,29 @@ it the following trick will alleviate any include problems.
   $font = 'SomeFont';
 ?>
 
-{text} The text string.
+
+
+{text} The text string in UTF-8 encoding.
 
 May include decimal numeric character references (of the form: &#8364;) to
-access characters in a font beyond position 127. Strings in UTF-8 encoding
-can be passed directly.
+access characters in a font beyond position 127. The hexadecimal format (like
+&#xA9;) is supported. Strings in UTF-8 encoding can be passed directly.
+
+Named entities, such as &copy;, are not supported. Consider using
+|html_entity_decode| to decode these named entities into UTF-8 strings
+(html_entity_decode() supports this as of PHP 5.0.0).
 
 If a character is used in the string which is not supported by the font, a
 hollow rectangle will replace the character.
 
-|imagettftext| returns an array with 8 elements representing four points
-making the bounding box of the text. The order of the points is lower left,
-lower right, upper right, upper left. The points are relative to the text
-regardless of the angle, so "upper left" means in the top left-hand corner
-when you see the text horizontally.
+Returns an array with 8 elements representing four points making the bounding
+box of the text. The order of the points is lower left, lower right, upper
+right, upper left. The points are relative to the text regardless of the
+angle, so "upper left" means in the top left-hand corner when you see the text
+horizontally.
+
+Version Description 5.2.0 It is now possible to specify an hexadecimal entity
+in {text}.
 
 |imagettftext| example This example script will produce a white PNG 400x30
 pixels, with the words "Testing..." in black (with grey shadow), in the font
@@ -67,15 +79,16 @@ Arial.
 
 <?php >
   // Set the content-type
-  header("Content-type: image/png");
+  header('Content-type: image/png');
   
   // Create the image
-  $im = imagecreate(400, 30);
+  $im = imagecreatetruecolor(400, 30);
   
   // Create some colors
   $white = imagecolorallocate($im, 255, 255, 255);
   $grey = imagecolorallocate($im, 128, 128, 128);
   $black = imagecolorallocate($im, 0, 0, 0);
+  imagefilledrectangle($im, 0, 0, 399, 29, $white);
   
   // The text to draw
   $text = 'Testing...';
@@ -93,8 +106,12 @@ Arial.
   imagedestroy($im);
 ?>
 
+The above example will output something similar to:
+
+
+
 This function requires both the GD library and the FreeType library.
 
-See also |imagettfbbox|.
+|imagettfbbox|
 
 vim:ft=help:

@@ -1,7 +1,7 @@
-pdf_continue_text -- Outputs text in next line
+PDF_continue_text -- Output text in next line
 
-  bool pdf_continue_text(resource pdfdoc, string text)~
+  bool PDF_continue_text(resource p, string text)~
 
-Print {text} at the next line. Returns TRUE on success or FALSE on failure.
+Prints {text} at the next line. Returns TRUE on success or FALSE on failure.
 
 vim:ft=help:

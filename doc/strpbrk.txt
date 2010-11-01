@@ -2,10 +2,14 @@ strpbrk -- Search a string for any of a set of characters
 
   string strpbrk(string haystack, string char_list)~
 
-|strpbrk| searches the {haystack} string for a {char_list}, and returns a
-string starting from the character found (or FALSE if it is not found).
+|strpbrk| searches the {haystack} string for a {char_list}.
 
-The {char_list} parameter is case sensitive.
+{haystack} The string where {char_list} is looked for.
+
+{char_list} This parameter is case sensitive.
+
+Returns a string starting from the character found, or FALSE if it is not
+found.
 
 |strpbrk| example
 
@@ -18,5 +22,9 @@ The {char_list} parameter is case sensitive.
   // this echoes "Simple text." because chars are case sensitive
   echo strpbrk($text, 'S');
 ?>
+
+
+
+
 
 vim:ft=help:

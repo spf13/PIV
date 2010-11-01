@@ -1,0 +1,22 @@
+SAMConnection->rollback -- Cancels (rolls back) an in-flight unit of work.
+
+  bool rollback()~
+
+Rolls back an in-flight unit of work.
+
+This method returns FALSE if an error occurs.
+
+Cancelling an in-flight unit of work
+
+<?php >
+  if (!$conn->rollback()) {
+    // The rollback failed!
+    echo "Rollback failed ($conn->errno) $conn->error";
+  }
+?>
+
+
+
+
+
+vim:ft=help:

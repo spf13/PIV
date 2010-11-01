@@ -1,29 +1,50 @@
 imagestring -- Draw a string horizontally
 
-  bool imagestring(resource image, int font, int x, int y, string s, int col)~
+  bool imagestring(resource image, int font, int x, int y, string string, int color)~
 
-|imagestring| draws the string {s} in the image identified by {image} with the
-upper-left corner at coordinates {x}, {y} (top left is 0, 0) in color {col}.
-If font is 1, 2, 3, 4 or 5, a built-in font is used.
+Draws a {string} at the given coordinates.
+
+{ image}An image resource, returned by one of the image creation functions,
+such as |imagecreatetruecolor|.
+
+{ font}Can be 1, 2, 3, 4, 5 for built-in fonts in latin2 encoding (where
+higher numbers corresponding to larger fonts) or any of your own font
+identifiers registered with |imageloadfont|.
+
+{x} x-coordinate of the upper left corner.
+
+{y} y-coordinate of the upper left corner.
+
+{string} The string to be written.
+
+{color} A color identifier created with |imagecolorallocate|.
+
+Returns TRUE on success or FALSE on failure.
 
 |imagestring| example
 
 <?php >
-  // create a 100*30 image
+  // Create a 100*30 image
   $im = imagecreate(100, 30);
   
-  // white background and blue text
+  // White background and blue text
   $bg = imagecolorallocate($im, 255, 255, 255);
   $textcolor = imagecolorallocate($im, 0, 0, 255);
   
-  // write the string at the top left
-  imagestring($im, 5, 0, 0, "Hello world!", $textcolor);
+  // Write the string at the top left
+  imagestring($im, 5, 0, 0, 'Hello world!', $textcolor);
   
-  // output the image
-  header("Content-type: image/jpeg");
-  imagejpeg($im);
+  // Output the image
+  header('Content-type: image/png');
+  
+  imagepng($im);
+  imagedestroy($im);
 ?>
 
-See also |imageloadfont|, and |imagettftext|.
+The above example will output something similar to:
+
+
+
+|imageloadfont| |imagettftext|
 
 vim:ft=help:

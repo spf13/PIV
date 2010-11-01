@@ -1,6 +1,7 @@
-pdf_endpath -- Deprecated: Ends current path
+PDF_endpath -- End current path
 
-This function is deprecated, use one of the |pdf_stroke|, |pdf_clip| or
-|pdf_closepath_fill_stroke| functions instead.
+  bool PDF_endpath(resource p)~
+
+Ends the current path without filling or stroking it.
 
 vim:ft=help:

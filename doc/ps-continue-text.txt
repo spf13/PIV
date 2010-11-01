@@ -1,0 +1,18 @@
+ps_continue_text -- Continue text in next line
+
+  bool ps_continue_text(resource psdoc, string text)~
+
+Output a text one line below the last line. The line spacing is taken from the
+value "leading" which must be set with |ps_set_value|. The actual position of
+the text is determined by the values "textx" and "texty" which can be
+requested with |ps_get_value|
+
+{psdoc} Resource identifier of the postscript file as returned by |ps_new|.
+
+{text} The text to output.
+
+Returns TRUE on success or FALSE on failure.
+
+|ps_show| |ps_show_xy| |ps_show_boxed|
+
+vim:ft=help:

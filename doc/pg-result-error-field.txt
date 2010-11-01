@@ -19,9 +19,9 @@ statement.
 {fieldcode} Possible {fieldcode} values are: PGSQL_DIAG_SEVERITY,
 PGSQL_DIAG_SQLSTATE, PGSQL_DIAG_MESSAGE_PRIMARY, PGSQL_DIAG_MESSAGE_DETAIL,
 PGSQL_DIAG_MESSAGE_HINT, PGSQL_DIAG_STATEMENT_POSITION,
-PGSQL_DIAG_INTERNAL_POSITION (PostgreSQL 8.0+ only),
-PGSQL_DIAG_INTERNAL_QUERY (PostgreSQL 8.0+ only), PGSQL_DIAG_CONTEXT,
-PGSQL_DIAG_SOURCE_FILE, PGSQL_DIAG_SOURCE_LINE or PGSQL_DIAG_SOURCE_FUNCTION.
+PGSQL_DIAG_INTERNAL_POSITION (PostgreSQL 8.0+ only), PGSQL_DIAG_INTERNAL_QUERY
+(PostgreSQL 8.0+ only), PGSQL_DIAG_CONTEXT, PGSQL_DIAG_SOURCE_FILE,
+PGSQL_DIAG_SOURCE_LINE or PGSQL_DIAG_SOURCE_FUNCTION.
 
 A string containing the contents of the error field, NULL if the field does
 not exist or FALSE on failure.
@@ -38,6 +38,10 @@ not exist or FALSE on failure.
     $res1 = pg_get_result($dbconn);
     echo pg_result_error_field($res1, PGSQL_DIAG_SQLSTATE);
 ?>
+
+
+
+
 
 |pg_result_error|
 

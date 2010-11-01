@@ -1,0 +1,16 @@
+runkit_function_remove -- Remove a function definition
+
+  bool runkit_function_remove(string funcname)~
+
+By default, only userspace functions may be removed, renamed, or modified. In
+order to override internal functions, you must enable the
+runkit.internal_override setting in php.ini.
+
+{funcname} Name of function to be deleted
+
+Returns TRUE on success or FALSE on failure.
+
+|runkit_function_add| |runkit_function_copy| |runkit_function_redefine|
+|runkit_function_rename|
+
+vim:ft=help:

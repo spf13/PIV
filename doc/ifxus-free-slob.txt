@@ -1,8 +1,13 @@
 ifxus_free_slob -- Deletes the slob object
 
-  int ifxus_free_slob(int bid)~
+  bool ifxus_free_slob(int bid)~
 
-Deletes the slob object. {bid} is the Id of the slob object. Returns TRUE on
-success or FALSE on failure.
+Deletes the slob object.
+
+{bid} An existing slob id.
+
+Returns TRUE on success or FALSE on failure.
+
+|ifxus_close_slob|
 
 vim:ft=help:

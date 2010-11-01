@@ -1,0 +1,25 @@
+radius_put_int -- Attaches an integer attribute
+
+  bool radius_put_int(resource radius_handle, int type, int value)~
+
+This function is currently not documented; only its argument list is
+available.
+
+Returns TRUE on success or FALSE on failure.
+
+|radius_put_int| example
+
+<?php >
+  if (!radius_put_int($res, RAD_FRAMED_PROTOCOL, RAD_PPP)) {
+     echo 'RadiusError:' . radius_strerror($res). "\n<br />";
+     exit;
+  }
+?>
+
+
+
+
+
+|radius_put_string| |radius_put_vendor_int| |radius_put_vendor_string|
+
+vim:ft=help:

@@ -3,8 +3,17 @@ gmp_scan1 -- Scan for 1
   int gmp_scan1(resource a, int start)~
 
 Scans {a}, starting with bit {start}, towards more significant bits, until the
-first set bit is found. Returns the index of the found bit. If no set bit is
-found, -1 is returned.
+first set bit is found.
+
+{a} The number to scan.
+
+It can be either a GMP number resource, or a numeric string given that it is
+possible to convert the latter to a number.
+
+{start} The starting bit.
+
+Returns the index of the found bit, as an integer. If no set bit is found, -1
+is returned.
 
 |gmp_scan1| example
 
@@ -18,9 +27,11 @@ found, -1 is returned.
   echo gmp_scan1($s2, 5) . "\n";
 ?>
 
-The printout of the above program will be:
+The above example will output:
 
   3
   9
+
+
 
 vim:ft=help:

@@ -4,9 +4,9 @@ Memcache::close -- Close memcached server connection
 
 |Memcache::close| closes connection to memcached server. This function doesn't
 close persistent connections, which are closed only during web-server
-shutdown/restart.
+shutdown/restart. Also you can use |memcache_close| function.
 
-Also you can use |memcache_close| function. See example below.
+Returns TRUE on success or FALSE on failure.
 
 |Memcache::close| example
 
@@ -27,8 +27,10 @@ Also you can use |memcache_close| function. See example below.
   $memcache_obj->close();
 ?>
 
-|Memcache::close| returns FALSE if an error occured.
 
-See also |Memcache::connect|, |Memcache::pconnect|.
+
+
+
+|Memcache::connect| |Memcache::pconnect|
 
 vim:ft=help:

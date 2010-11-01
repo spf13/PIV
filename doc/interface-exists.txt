@@ -2,8 +2,14 @@ interface_exists -- Checks if the interface has been defined
 
   bool interface_exists(string interface_name [, bool autoload])~
 
-This function returns TRUE if the interface given by {interface_name} has been
-defined, FALSE otherwise.
+Checks if the given interface has been defined.
+
+{interface_name} The interface name
+
+{autoload} Whether to call __autoload or not by default
+
+Returns TRUE if the interface given by {interface_name} has been defined,
+FALSE otherwise.
 
 |interface_exists| example
 
@@ -17,10 +23,10 @@ defined, FALSE otherwise.
   }
 ?>
 
-|interface_exists| will attempt to call __autoload by default, if you don't
-want |interface_exists| to call __autoload, you can set the parameter
-{autoload} to FALSE.
 
-See also |class_exists|.
+
+
+
+|class_exists|
 
 vim:ft=help:

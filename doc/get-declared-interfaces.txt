@@ -2,8 +2,10 @@ get_declared_interfaces -- Returns an array of all declared interfaces
 
   array get_declared_interfaces()~
 
-This function returns an array of the names of the declared interfaces in the
-current script.
+Gets the declared interfaces.
+
+Returns an array of the names of the declared interfaces in the current
+script.
 
 |get_declared_interfaces| example
 
@@ -24,6 +26,8 @@ The above example will output something similar to:
       [6] => SeekableIterator
   )
 
-See also |get_declared_classes|.
+
+
+|get_declared_classes| |class_implements|
 
 vim:ft=help:

@@ -3,14 +3,40 @@ ftruncate -- Truncates a file to a given length
   bool ftruncate(resource handle, int size)~
 
 Takes the filepointer, {handle}, and truncates the file to length, {size}.
+
+{handle} The file pointer.
+
+The {handle} must be open for writing.
+
+{size} The size to truncate to.
+
+If {size} is larger than the file it is extended with null bytes.
+
+If {size} is smaller than the extra data will be lost.
+
 Returns TRUE on success or FALSE on failure.
 
-The file pointer is changed only in append mode. In write mode, additional
-|fseek| call is needed.
+Version Description PHP 4.3.3 Prior to this release |ftruncate| returned an
+integer value of 1 on success, instead of boolean TRUE.
 
-Prior to PHP 4.3.3, |ftruncate| returns an integer value of 1 on success,
-instead of boolean TRUE.
+File truncation example
 
-See also |fopen| and |fseek|.
+<?php >
+  $filename = 'lorem_ipsum.txt';
+  
+  $handle = fopen($filename, 'r+');
+  ftruncate($handle, rand(1, filesize($filename)));
+  rewind($handle);
+  echo fread($handle, filesize($filename));
+  fclose($handle);
+?>
+
+
+
+
+
+The file pointer is not changed.
+
+|fopen| |fseek|
 
 vim:ft=help:

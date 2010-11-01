@@ -2,8 +2,15 @@ ord -- Return ASCII value of character
 
   int ord(string string)~
 
-Returns the ASCII value of the first character of {string}. This function
-complements |chr|. |ord| example
+Returns the ASCII value of the first character of {string}.
+
+This function complements |chr|.
+
+{string} A character.
+
+Returns the ASCII value as an integer.
+
+|ord| example
 
 <?php >
   $str = "\n";
@@ -12,8 +19,10 @@ complements |chr|. |ord| example
   }
 ?>
 
-You can find an ASCII-table over here: http://www.asciitable.com.
 
-See also |chr|.
+
+
+
+|chr| An ASCII-table
 
 vim:ft=help:

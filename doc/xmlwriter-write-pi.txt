@@ -1,0 +1,25 @@
+XMLWriter::writePI -- Writes a PI
+
+Oriented object style
+
+  bool writePI(string target, string content)~
+
+Procedural style
+
+  bool xmlwriter_write_pi(string target, string content, resource xmlwriter, string target, string content)~
+
+Writes a processing instruction.
+
+{ xmlwriter}Only for procedural calls. The XMLWriter resource that is being
+modified. This resource comes from a call to |xmlwriter_open_uri| or
+|xmlwriter_open_memory|.
+
+{target} The target of the processing instruction.
+
+{content} The content of the processing instruction.
+
+Returns TRUE on success or FALSE on failure.
+
+XMLWriter::startPI XMLWriter::endPI
+
+vim:ft=help:

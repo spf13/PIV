@@ -1,0 +1,13 @@
+enchant_broker_free_dict -- Free a dictionary resource
+
+  bool enchant_broker_free_dict(resource dict)~
+
+Free a dictionary resource.
+
+{dict} Dictionary resource.
+
+Returns TRUE on success or FALSE on failure.
+
+|enchant_broker_request_dict| |enchant_broker_request_pwl_dict|
+
+vim:ft=help:

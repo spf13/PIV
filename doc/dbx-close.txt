@@ -1,8 +1,10 @@
 dbx_close -- Close an open connection/database
 
-  bool dbx_close(object link_identifier)~
+  int dbx_close(object link_identifier)~
 
-Returns TRUE on success or FALSE on failure.
+{link_identifier} The DBX link object to close.
+
+Returns 1 on success and 0 on errors.
 
 |dbx_close| example
 
@@ -14,8 +16,12 @@ Returns TRUE on success or FALSE on failure.
   dbx_close($link);
 ?>
 
+
+
+
+
 Always refer to the module-specific documentation as well.
 
-See also |dbx_connect|.
+|dbx_connect|
 
 vim:ft=help:

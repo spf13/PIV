@@ -1,0 +1,36 @@
+radius_cvt_string -- Converts raw data to string
+
+  string radius_cvt_string(string data)~
+
+
+
+|radius_cvt_string| example
+
+<?php >
+  while ($resa = radius_get_attr($res)) {
+  
+      if (!is_array($resa)) {
+          printf ("Error getting attribute: %s\n",  radius_strerror($res));
+          exit;
+      }
+  
+      $attr = $resa['attr'];
+      $data = $resa['data'];
+      
+      switch ($attr) {
+  
+      case RADIUS_FILTER_ID:
+          $id = radius_cvt_string($data);
+          echo "Filter ID: $id<br>\n";
+          break;
+      }
+  }
+?>
+
+
+
+
+
+|radius_cvt_addr| |radius_cvt_int|
+
+vim:ft=help:

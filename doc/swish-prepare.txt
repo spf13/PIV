@@ -1,0 +1,44 @@
+Swish->prepare -- Prepare a search query
+
+  object Swish->prepare([string query])~
+
+This function is EXPERIMENTAL. The behaviour of this function, its name, and
+surrounding documentation may change without notice in a future release of
+PHP. This function should be used at your own risk.
+
+Prepare and return a search object, which you can later use for unlimited
+number of queries.
+
+{query} Optional query string. The query can be also set using
+|SwishSearch->execute| method.
+
+Returns SwishSearch object.
+
+Throws SwishException on error.
+
+Basic |Swish->prepare| example
+
+<?php >
+  try {
+  
+      $swish = new Swish("index.swish-e");
+      $search = $swish->prepare("search query");
+      $results = $search->execute();
+      echo "Found: ", $results->hits, " hits\n";
+  
+      $results = $search->execute("new search");
+  
+      echo "Found: ", $results->hits, " hits\n";
+  } catch (SwishException $e) {
+      echo $e->getMessage(), "\n";
+  }
+?>
+
+The above example will output something similar to:
+
+  Found: 2 hits
+  Found: 5 hits
+
+
+
+vim:ft=help:

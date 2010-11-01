@@ -1,0 +1,10 @@
+radius_put_addr -- Attaches an IP-Address attribute
+
+  bool radius_put_addr(resource radius_handle, int type, string addr)~
+
+This function is currently not documented; only its argument list is
+available.
+
+Returns TRUE on success or FALSE on failure.
+
+vim:ft=help:

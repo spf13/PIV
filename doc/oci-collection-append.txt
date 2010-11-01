@@ -1,9 +1,10 @@
-OCI-Collection->append -- Appends an object to the collection
+OCI-Collection->append -- Appends element to the collection
 
-  bool OCI-Collection->append(mixed value)~
+  bool append(mixed value)~
 
-Appends an object to the end of the collection. Parameter {value} can be a
-string or a number.
+Appends element to the end of the collection.
+
+{value} The value to be added to the collection. Can be a string or a number.
 
 Returns TRUE on success or FALSE on failure.
 

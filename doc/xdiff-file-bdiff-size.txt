@@ -1,0 +1,25 @@
+xdiff_file_bdiff_size -- Read a size of file created by applying a binary diff
+
+  int xdiff_file_bdiff_size(string file)~
+
+Returns a size of a result file that would be created after applying binary
+patch from file {file} to the original file.
+
+{file} The path to the binary patch created by |xdiff_string_bdiff| or
+|xdiff_string_rabdiff| function.
+
+Returns the size of file that would be created.
+
+|xdiff_file_bdiff_size| example The following code applies reads a size of
+file that would be created after applying a binary diff.
+
+<?php >
+  $length = xdiff_string_bdiff_size('file.bdiff');
+  echo "Resulting file will be $length bytes long";
+?>
+
+
+
+|xdiff_file_bdiff| |xdiff_file_rabdiff| |xdiff_file_bpatch|
+
+vim:ft=help:

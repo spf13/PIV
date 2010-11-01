@@ -1,0 +1,32 @@
+filter_var -- Filters a variable with a specified filter
+
+  mixed filter_var(mixed variable [, int filter [, mixed options]])~
+
+{variable} Value to filter.
+
+{filter} ID of a filter to use. Defaults to FILTER_DEFAULT.
+
+{options} Associative array of options or bitwise disjunction of flags. If
+filter accepts options, flags can be provided in "flags" field of array. For
+the "callback" filter, callback type should be passed.
+
+Returns the filtered data, or FALSE if the filter fails.
+
+A |filter_var| example
+
+<?php >
+  var_dump(filter_var('bob@example.com', FILTER_VALIDATE_EMAIL));
+  var_dump(filter_var('example.com', FILTER_VALIDATE_URL, FILTER_FLAG_SCHEME_REQUIRED));
+?>
+
+The above example will output:
+
+  string(15) "bob@example.com"
+  bool(false)
+
+
+
+|filter_var_array| |filter_input| |filter_input_array| information about the
+callback type
+
+vim:ft=help:

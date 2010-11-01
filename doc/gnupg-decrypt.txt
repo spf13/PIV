@@ -1,0 +1,39 @@
+gnupg_decrypt -- Decrypts a given text
+
+  string gnupg_decrypt(resource identifier, string text)~
+
+Decrypts the given text with the keys, which were set with gnupg_adddecryptkey
+before.
+
+{identifier} The gnupg identifier, from a call to |gnupg_init| or gnupg.
+
+{text} The text being decrypted.
+
+On success, this function returns the decrypted text. On failure, this
+function returns FALSE.
+
+Procedural |gnupg_decrypt| example
+
+<?php >
+  $res = gnupg_init();
+  gnupg_adddecryptkey($res,"8660281B6051D071D94B5B230549F9DC851566DC","test");
+  $plain = gnupg_decrypt($res,$encrypted_text);
+  echo $plain;
+?>
+
+
+
+OO |gnupg_encrypt| example
+
+<?php >
+  $gpg = new gnupg();
+  $gpg -> adddecryptkey("8660281B6051D071D94B5B230549F9DC851566DC","test");
+  $plain = $gpg -> decrypt($encrypted_text);
+  echo $plain;
+?>
+
+
+
+
+
+vim:ft=help:

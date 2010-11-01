@@ -5,6 +5,10 @@ is_infinite -- Finds whether a value is infinite
 Returns TRUE if {val} is infinite (positive or negative), like the result of
 log(0) or any value too big to fit into a float on this platform.
 
-See also |is_finite| and |is_nan|.
+{val} The value to check
+
+TRUE if {val} is infinite, else FALSE.
+
+|is_finite| |is_nan|
 
 vim:ft=help:

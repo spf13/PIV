@@ -6,7 +6,11 @@ pspell_clear_session -- Clear the current session
 becomes blank, and, for example, if you try to save it with
 |pspell_save_wordlist|, nothing happens.
 
-|pspell_add_to_personal|
+{dictionary_link}
+
+Returns TRUE on success or FALSE on failure.
+
+|pspell_add_to_personal| Example
 
 <?php >
   $pspell_config = pspell_config_create("en");
@@ -17,5 +21,9 @@ becomes blank, and, for example, if you try to save it with
   pspell_clear_session($pspell_link);
   pspell_save_wordlist($pspell_link);    //"Vlad" will not be saved
 ?>
+
+
+
+
 
 vim:ft=help:

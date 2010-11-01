@@ -2,7 +2,15 @@ array_sum -- Calculate the sum of values in an array
 
   number array_sum(array array)~
 
-|array_sum| returns the sum of values in an array as an integer or float.
+|array_sum| returns the sum of values in an array.
+
+{array} The input array.
+
+Returns the sum of values as an integer or float.
+
+Version Description 4.2.1 PHP versions prior to 4.2.1 modified the passed
+array itself and converted strings to numbers (which most of the time
+converted them to zero, depending on their value).
 
 |array_sum| examples
 
@@ -19,8 +27,6 @@ The above example will output:
   sum(a) = 20
   sum(b) = 6.9
 
-PHP versions prior to 4.2.1 modified the passed array itself and converted
-strings to numbers (which most of the time converted them to zero, depending
-on their value).
+
 
 vim:ft=help:

@@ -4,6 +4,12 @@ pspell_suggest -- Suggest spellings of a word
 
 |pspell_suggest| returns an array of possible spellings for the given word.
 
+{dictionary_link}
+
+{word} The tested word.
+
+Returns an array of possible spellings.
+
 |pspell_suggest| example
 
 <?php >
@@ -13,9 +19,13 @@ pspell_suggest -- Suggest spellings of a word
       $suggestions = pspell_suggest($pspell_link, "testt");
   
       foreach ($suggestions as $suggestion) {
-          echo "Possible spelling: $suggestion<br />"; 
+          echo "Possible spelling: $suggestion<br />";
       }
   }
 ?>
+
+
+
+
 
 vim:ft=help:

@@ -2,16 +2,16 @@ ncurses_nocbreak -- Switch terminal to cooked mode
 
   bool ncurses_nocbreak()~
 
-This function is EXPERIMENTAL. The behaviour of this function, the name of
-this function, and anything else documented about this function may change
-without notice in a future release of PHP. Use this function at your own
-risk.
+This function is EXPERIMENTAL. The behaviour of this function, its name, and
+surrounding documentation may change without notice in a future release of
+PHP. This function should be used at your own risk.
 
-|ncurses_nocbreak| routine returns terminal to normal (cooked) mode. Initially
-the terminal may or may not in cbreak mode as the mode is inherited. Therefore
-a program should call |ncurses_cbreak| and |ncurses_nocbreak| explicitly.
+Returns terminal to normal (cooked) mode. Initially the terminal may or may
+not in cbreak mode as the mode is inherited. Therefore a program should call
+|ncurses_cbreak| and |ncurses_nocbreak| explicitly.
+
 Returns TRUE if any error occurred, otherwise FALSE.
 
-See also: |ncurses_cbreak|
+|ncurses_cbreak|
 
 vim:ft=help:

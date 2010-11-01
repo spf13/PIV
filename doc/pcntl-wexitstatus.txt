@@ -5,9 +5,11 @@ pcntl_wexitstatus -- Returns the return code of a terminated child
 Returns the return code of a terminated child. This function is only useful if
 |pcntl_wifexited| returned TRUE.
 
-The parameter {status} is the status parameter supplied to a successfull call
-to |pcntl_waitpid|.
+{status} The {status} parameter is the status parameter supplied to a
+successful call to |pcntl_waitpid|.
 
-See also |pcntl_waitpid| and |pcntl_wifexited|.
+Returns the return code, as an integer.
+
+|pcntl_waitpid| |pcntl_wifexited|
 
 vim:ft=help:

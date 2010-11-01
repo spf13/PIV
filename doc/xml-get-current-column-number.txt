@@ -10,6 +10,6 @@ This function returns FALSE if {parser} does not refer to a valid parser, or
 else it returns which column on the current line (as given by
 |xml_get_current_line_number|) the parser is currently at.
 
-|xml_get_current_byte_index| |xml_get_current_line_index|
+|xml_get_current_byte_index| |xml_get_current_line_number|
 
 vim:ft=help:

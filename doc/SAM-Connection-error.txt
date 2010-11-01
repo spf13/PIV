@@ -1,0 +1,28 @@
+SAMConnection->error -- Contains the text description of the last failed SAM
+operation.
+
+Contains the text description of the last failed SAM operation on this
+connection. If the last operation completed successfully this property
+contains an empty string.
+
+A string containing the text description of the last error type encountered on
+the connection. An empty string indicates that the last operation on this
+connection completed successfully.
+
+Using the error number and description properties
+
+<?php >
+  $conn = new SAMConnection();
+  $conn->connect(SAM_WMQ, array(SAM_HOST => 'localhost', SAM_PORT => 1506));
+  $msg = new SAMMessage('This is a simple text item');
+  if (!$conn->send('topic://test', $msg)) {
+      // The Send failed!
+      echo "Send failed ($conn->errno) $conn->error";
+  }
+?>
+
+
+
+
+
+vim:ft=help:

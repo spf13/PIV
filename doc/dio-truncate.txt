@@ -9,12 +9,12 @@ the file previously was shorter, it is unspecified whether the file is left
 unchanged or is extended. In the latter case the extended part reads as zero
 bytes.
 
-This function is not implemented on Windows platforms.
-
 {fd} The file descriptor returned by |dio_open|.
 
 {offset} The offset in bytes.
 
 Returns TRUE on success or FALSE on failure.
+
+This function is not implemented on Windows platforms.
 
 vim:ft=help:

@@ -14,7 +14,7 @@ is set and TRUE when the last data is parsed.
 {is_final} If set and TRUE, {data} is the last piece of data sent in this
 parse.
 
-Returns TRUE on success or FALSE on failure.
+Returns 1 on success or 0 on failure.
 
 For unsuccessful parses, error information can be retrieved with
 |xml_get_error_code|, |xml_error_string|, |xml_get_current_line_number|,

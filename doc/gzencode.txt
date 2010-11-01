@@ -23,6 +23,8 @@ checksum.
 
 The encoded string, or FALSE if an error occurred.
 
+Version Description 4.2.0 The {encoding_mode} parameter was added
+
 The resulting data contains the appropriate headers and data structure to make
 a standard .gz file, e.g.: Creating a gzip file
 
@@ -34,9 +36,10 @@ a standard .gz file, e.g.: Creating a gzip file
   fclose($fp);
 ?>
 
-Version Description 4.2 {level} was added. |gzencode| only had the {data} and
-the optional {encoding_mode} parameters before.
 
-|gzdeflate| |gzinflate| |gzuncompress| |gzcompress|
+
+
+
+|gzdecode| |gzdeflate| |gzinflate| |gzuncompress| |gzcompress|
 
 vim:ft=help:

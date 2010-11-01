@@ -1,0 +1,14 @@
+m_numrows -- Number of rows returned in a comma delimited response
+
+  int m_numrows(resource conn, int identifier)~
+
+This function is currently not documented; only its argument list is
+available.
+
+{ conn}An MCVE_CONN resource returned by |m_initengine|.
+
+{identifier}
+
+
+
+vim:ft=help:

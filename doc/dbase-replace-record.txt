@@ -8,7 +8,7 @@ Replaces the given record in the database with the given data.
 |dbase_create|.
 
 {record} An indexed array of data. The number of items must be equal to the
-number of fields in the database, otherwise |dbase_add_record| will fail.
+number of fields in the database, otherwise |dbase_replace_record| will fail.
 
 If you're using |dbase_get_record| return value for this parameter, remember
 to reset the key named deleted.
@@ -39,6 +39,10 @@ Updating a record in the database
     dbase_close($db);
   }
 ?>
+
+
+
+
 
 |dbase_add_record| |dbase_delete_record|
 

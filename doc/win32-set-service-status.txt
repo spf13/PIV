@@ -1,0 +1,17 @@
+win32_set_service_status -- Update the service status
+
+  bool win32_set_service_status(int status)~
+
+Informs the SCM of the current status of a running service. This call is only
+valid for a running service process.
+
+{status} The service status code, one of WIN32_SERVICE_RUNNING,
+WIN32_SERVICE_STOPPED, WIN32_SERVICE_STOP_PENDING,
+WIN32_SERVICE_START_PENDING, WIN32_SERVICE_CONTINUE_PENDING,
+WIN32_SERVICE_PAUSE_PENDING, WIN32_SERVICE_PAUSED.
+
+Returns TRUE on success or FALSE on failure.
+
+|win32_start_service_ctrl_dispatcher|
+
+vim:ft=help:

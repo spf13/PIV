@@ -1,0 +1,39 @@
+ssh2_auth_pubkey_file -- Authenticate using a public key
+
+  bool ssh2_auth_pubkey_file(resource session, string username, string pubkeyfile, string privkeyfile [, string passphrase])~
+
+Authenticate using a public key read from a file.
+
+{session} An SSH connection link identifier, obtained from a call to
+|ssh2_connect|.
+
+{username}
+
+{pubkeyfile}
+
+{privkeyfile}
+
+{passphrase} If {privkeyfile} is encrypted (which it should be), the
+{passphrase} must be provided.
+
+Returns TRUE on success or FALSE on failure.
+
+Authentication using a public key
+
+<?php >
+  $connection = ssh2_connect('shell.example.com', 22, array('hostkey'=>'ssh-rsa'));
+  
+  if (ssh2_auth_pubkey_file($connection, 'username',
+                            '/home/username/.ssh/id_rsa.pub',
+                            '/home/username/.ssh/id_rsa', 'secret')) {
+    echo "Public Key Authentication Successful\n";
+  } else {
+    die('Public Key Authentication Failed');
+  }
+?>
+
+
+
+
+
+vim:ft=help:

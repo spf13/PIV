@@ -1,0 +1,41 @@
+radius_cvt_addr -- Converts raw data to IP-Address
+
+  string radius_cvt_addr(string data)~
+
+
+
+|radius_cvt_addr| example
+
+<?php >
+  while ($resa = radius_get_attr($res)) {
+  
+      if (!is_array($resa)) {
+          printf ("Error getting attribute: %s\n",  radius_strerror($res));
+          exit;
+      }
+  
+      $attr = $resa['attr'];
+      $data = $resa['data'];
+      
+      switch ($attr) {
+  
+      case RADIUS_FRAMED_IP_ADDRESS:
+          $ip = radius_cvt_addr($data);
+          echo "IP: $ip<br>\n";
+          break;
+  
+      case RADIUS_FRAMED_IP_NETMASK:
+          $mask = radius_cvt_addr($data);
+          echo "MASK: $mask<br>\n";
+          break;
+      }
+  }
+?>
+
+
+
+
+
+|radius_cvt_int| |radius_cvt_string|
+
+vim:ft=help:

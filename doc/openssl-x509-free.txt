@@ -5,4 +5,8 @@ openssl_x509_free -- Free certificate resource
 |openssl_x509_free| frees the certificate associated with the specified
 {x509cert} resource from memory.
 
+{x509cert}
+
+No value is returned.
+
 vim:ft=help:

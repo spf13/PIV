@@ -1,0 +1,16 @@
+newt_grid_basic_window --
+
+  resource newt_grid_basic_window(resource text, resource middle, resource buttons)~
+
+This function is currently not documented; only its argument list is
+available.
+
+{text}
+
+{middle}
+
+{buttons}
+
+
+
+vim:ft=help:

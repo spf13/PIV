@@ -6,8 +6,8 @@ pg_field_type -- Returns the type name for the corresponding field number
 {field_number} in the given PostgreSQL {result} resource.
 
 If the field uses a PostgreSQL domain (rather than a basic type), it is the
-name of the domain's underlying type that is returned, rather than the name
-of the domain itself.
+name of the domain's underlying type that is returned, rather than the name of
+the domain itself.
 
 This function used to be called |pg_fieldtype|.
 
@@ -32,6 +32,8 @@ Getting information about fields
 The above example will output:
 
   Title field type: varchar
+
+
 
 |pg_field_prtlen| |pg_field_name| |pg_field_type_oid|
 

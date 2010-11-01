@@ -1,9 +1,5 @@
-ocicollsize -- Return the size of a collection
+ocicollsize -- Alias of
 
-  int ocicollsize()~
-
-This function was renamed to |oci_collection_size| after PHP >= 5.0.0. For
-downward compatibility |ocicollsize| can also be used. This is deprecated,
-however.
+This function is an alias of: .
 
 vim:ft=help:

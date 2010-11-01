@@ -1,0 +1,14 @@
+maxdb->ssl_set -- Used for establishing secure connections using SSL
+
+Procedural style:
+
+  bool maxdb_ssl_set(resource link, string key, string cert, string ca, string capath, string cipher)~
+
+Object oriented style (method):
+
+  bool ssl_set(resource link, string key, string cert, string ca, string capath, string cipher, string key, string cert, string ca, string capath, string cipher)~
+
+This function is currently not documented; only its argument list is
+available.
+
+vim:ft=help:

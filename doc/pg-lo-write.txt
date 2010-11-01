@@ -32,6 +32,10 @@ The number of bytes written to the large object, or FALSE on error.
      pg_query($database, "commit");
 ?>
 
+
+
+
+
 |pg_lo_create| |pg_lo_open|
 
 vim:ft=help:

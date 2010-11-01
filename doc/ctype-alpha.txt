@@ -29,7 +29,9 @@ A |ctype_alpha| example (using the default locale)
 The above example will output:
 
   The string KjgWZC consists of all letters.
-  The string arf12 does not consists of all letters.
+  The string arf12 does not consist of all letters.
+
+
 
 |ctype_upper| |ctype_lower| |setlocale|
 

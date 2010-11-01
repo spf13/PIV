@@ -1,0 +1,20 @@
+SDO_DAS_DataFactory::getDataFactory -- Get a data factory instance
+
+  SDO_DAS_DataFactory SDO_DAS_DataFactory::getDataFactory()~
+
+This function is EXPERIMENTAL. The behaviour of this function, its name, and
+surrounding documentation may change without notice in a future release of
+PHP. This function should be used at your own risk.
+
+Static method to get an instance of an SDO_DAS_DataFactory. This instance is
+initially only configured with the basic SDO types. A Data Access Service is
+responsible for populating the data factory model and then allowing PHP
+applications to create SDOs based on the model through the SDO_DataFactory
+interface. PHP applications should always obtain a data factory from a
+configured Data Access Service, not through this interface.
+
+None.
+
+Returns an SDO_DAS_DataFactory.
+
+vim:ft=help:

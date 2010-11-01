@@ -7,6 +7,12 @@ valid for the current session. I do not think this function will be needed
 very often. In most cases it will be easier to identify with the opening of
 the connection.
 
-See also |hw_connect|.
+{link} The connection identifier.
+
+{username} The username.
+
+{password} The password.
+
+|hw_connect|
 
 vim:ft=help:

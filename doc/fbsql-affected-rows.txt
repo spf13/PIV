@@ -4,9 +4,7 @@ operation
   int fbsql_affected_rows([resource link_identifier])~
 
 |fbsql_affected_rows| returns the number of rows affected by the last INSERT,
-UPDATE or DELETE query associated with {link_identifier}. If the link
-identifier isn't specified, the last link opened by |fbsql_connect| is
-assumed.
+UPDATE or DELETE query associated with {link_identifier}.
 
 If you are using transactions, you need to call |fbsql_affected_rows| after
 your INSERT, UPDATE, or DELETE query, not after the commit.
@@ -19,8 +17,15 @@ the same as the old value. This creates the possibility that
 |fbsql_affected_rows| may not actually equal the number of rows matched, only
 the number of rows that were literally affected by the query.
 
+{ link_identifier}A FrontBase link identifier returned by |fbsql_connect| or
+|fbsql_pconnect|.
+
+If optional and not specified, the function will try to find an open link to
+the FrontBase server and if no such link is found it will try to create one as
+if |fbsql_connect| was called with no arguments.
+
 If the last query failed, this function will return -1.
 
-See also: |fbsql_num_rows|.
+|fbsql_num_rows|
 
 vim:ft=help:

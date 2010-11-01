@@ -1,9 +1,7 @@
 pg_query_params -- Submits a command to the server and waits for the result,
 with the ability to pass parameters separately from the SQL command text.
 
-  resource pg_query_params(resource connection, string query, array params)~
-
-  resource pg_query_params(resource connection, string query, array params, string query, array params)~
+  resource pg_query_params([resource connection, string query, array params])~
 
 Submits a command to the server and waits for the result, with the ability to
 pass parameters separately from the SQL command text.
@@ -27,7 +25,7 @@ can be semicolons in it, but not more than one nonempty command.)
 present, the default connection is used. The default connection is the last
 connection made by |pg_connect| or |pg_pconnect|.
 
-{query} The parameterised SQL statement. Must contain only a single statement.
+{query} The parameterized SQL statement. Must contain only a single statement.
 (multiple statements separated by semi-colons are not allowed.) If any
 parameters are used, they are referred to as $1, $2, etc.
 
@@ -51,6 +49,10 @@ Using |pg_query_params|
   $str = pg_escape_string("Joe's Widgets");
   $result = pg_query($dbconn, "SELECT * FROM shops WHERE name = '{$str}'");
 ?>
+
+
+
+
 
 |pg_query|
 

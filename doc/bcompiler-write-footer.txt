@@ -3,12 +3,11 @@ compiled data
 
   bool bcompiler_write_footer(resource filehandle)~
 
-This function is EXPERIMENTAL. The behaviour of this function, the name of
-this function, and anything else documented about this function may change
-without notice in a future release of PHP. Use this function at your own
-risk.
-
 Writes the single character \x00 to indicate End of compiled data.
+
+{filehandle} A file handle as returned by |fopen|.
+
+Returns TRUE on success or FALSE on failure.
 
 |bcompiler_write_footer| example
 
@@ -21,6 +20,14 @@ Writes the single character \x00 to indicate End of compiled data.
   fclose($fh);
 ?>
 
-See also |bcompiler_write_header|, and |bcompiler_write_header|.
+
+
+
+
+This function is EXPERIMENTAL. The behaviour of this function, its name, and
+surrounding documentation may change without notice in a future release of
+PHP. This function should be used at your own risk.
+
+|bcompiler_write_header|
 
 vim:ft=help:

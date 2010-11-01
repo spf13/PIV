@@ -4,6 +4,8 @@ get_include_path -- Gets the current include_path configuration option
 
 Gets the current include_path configuration option value.
 
+Returns the path, as a string.
+
 |get_include_path| example
 
 <?php >
@@ -14,6 +16,10 @@ Gets the current include_path configuration option value.
   echo ini_get('include_path');
 ?>
 
-See also |ini_get|, |restore_include_path|, |set_include_path|, and |include|.
+
+
+
+
+|ini_get| |restore_include_path| |set_include_path| |include|
 
 vim:ft=help:

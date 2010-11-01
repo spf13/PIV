@@ -17,6 +17,10 @@ Returns TRUE if {var} is a resource, FALSE otherwise.
   }
 ?>
 
+
+
+
+
 The resource-type documentation |get_resource_type|
 
 vim:ft=help:

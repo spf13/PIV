@@ -1,0 +1,34 @@
+pcntl_sigprocmask -- Sets and retrieves blocked signals
+
+  bool pcntl_sigprocmask(int how, array set [, array oldset])~
+
+The |pcntl_sigprocmask| function adds, removes or sets blocked signals,
+depending on the {how} parameter.
+
+{how} Sets the behavior of |pcntl_sigprocmask|. Possible values: SIG_BLOCK:
+Add the signals to the currently blocked signals. SIG_UNBLOCK: Remove the
+signals from the currently blocked signals. SIG_SETMASK: Replace the currently
+blocked signals by the given list of signals.
+
+{set} List of signals.
+
+{oldset} The {oldset} parameter is set to an array containing the list of the
+previously blocked signals.
+
+Returns TRUE on success or FALSE on failure.
+
+|pcntl_sigprocmask| example
+
+<?php >
+  pcntl_sigprocmask(SIG_BLOCK, array(SIGHUP));
+  $oldset = array();
+  pcntl_sigprocmask(SIG_UNBLOCK, array(SIGHUP), $oldset);
+?>
+
+
+
+
+
+|pcntl_sigwaitinfo| |pcntl_sigtimedwait|
+
+vim:ft=help:

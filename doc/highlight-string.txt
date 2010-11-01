@@ -2,13 +2,19 @@ highlight_string -- Syntax highlighting of a string
 
   mixed highlight_string(string str [, bool return])~
 
-The |highlight_string| function outputs a syntax highlighted version of {str}
-using the colors defined in the built-in syntax highlighter for PHP.
+Outputs or returns a syntax highlighted version of the given PHP code using
+the colors defined in the built-in syntax highlighter for PHP.
 
-If the second parameter {return} is set to TRUE then |highlight_string| will
-return the highlighted code as a string instead of printing it out. If the
-second parameter is not set to TRUE then |highlight_string| will return TRUE
-on success, FALSE on failure.
+{str} The PHP code to be highlighted. This should include the opening tag.
+
+{return} Set this parameter to TRUE to make this function return the
+highlighted code.
+
+If {return} is set to TRUE, returns the highlighted code as a string instead
+of printing it out. Otherwise, it will return TRUE on success, FALSE on
+failure.
+
+Version Description 4.2.0 The {return} parameter was added.
 
 |highlight_string| example
 
@@ -30,9 +36,11 @@ The above example will output (in PHP 5):
   </span>
   </code>
 
-The {return} parameter became available in PHP 4.2.0. Before this time it
-behaved like the default, which is FALSE
 
-See also |highlight_file|.
+
+This function uses internal output buffering with this parameter so it can not
+be used inside an |ob_start| callback function.
+
+|highlight_file|
 
 vim:ft=help:

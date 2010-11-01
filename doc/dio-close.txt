@@ -16,6 +16,10 @@ Closing an open file descriptor
   dio_close($fd);
 ?>
 
+
+
+
+
 |dio_open|
 
 vim:ft=help:

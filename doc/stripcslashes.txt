@@ -5,6 +5,10 @@ stripcslashes -- Un-quote string quoted with addcslashes
 Returns a string with backslashes stripped off. Recognizes C-like \n, \r ...,
 octal and hexadecimal representation.
 
-See also |addcslashes|.
+{str} The string to be unescaped.
+
+Returns the unescaped string.
+
+|addcslashes|
 
 vim:ft=help:

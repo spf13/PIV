@@ -2,22 +2,21 @@ mb_substitute_character -- Set/Get substitution character
 
   mixed mb_substitute_character([mixed substrchar])~
 
-|mb_substitute_character| specifies substitution character when input
-character encoding is invalid or character code is not exist in output
-character encoding. Invalid characters may be substituted NULL(no output),
-string or integer value (Unicode character code value).
+Specifies a substitution character when input character encoding is invalid or
+character code does not exist in output character encoding. Invalid characters
+may be substituted NULL (no output), string or integer value (Unicode
+character code value).
 
 This setting affects |mb_convert_encoding|, |mb_convert_variables|,
 |mb_output_handler|, and |mb_send_mail|.
 
-{substchar} : Specify Unicode value as integer or specify as string as follows
-"none" : no output
+{substrchar} Specify the Unicode value as an integer, or as one of the
+following strings: "none" : no output
 
 "long" : Output character code value (Example: U+3000,JIS+7E7E)
 
-Return Value: If {substchar} is set, it returns TRUE for success, otherwise
-returns FALSE. If {substchar} is not set, it returns Unicode value or
-"none"/"long".
+If {substchar} is set, it returns TRUE for success, otherwise returns FALSE.
+If {substchar} is not set, it returns the Unicode value, or "none" or "long".
 
 |mb_substitute_character| example
 
@@ -31,5 +30,9 @@ returns FALSE. If {substchar} is not set, it returns Unicode value or
   /* Display current setting */
   echo mb_substitute_character();
 ?>
+
+
+
+
 
 vim:ft=help:

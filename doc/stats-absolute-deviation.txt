@@ -1,0 +1,13 @@
+stats_absolute_deviation -- Returns the absolute deviation of an array of
+values
+
+  float stats_absolute_deviation(array a)~
+
+This function is currently not documented; only its argument list is
+available.
+
+{a}
+
+
+
+vim:ft=help:

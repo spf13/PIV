@@ -1,0 +1,14 @@
+newt_checkbox_tree_get_entry_value --
+
+  string newt_checkbox_tree_get_entry_value(resource checkboxtree, mixed data)~
+
+This function is currently not documented; only its argument list is
+available.
+
+{checkboxtree}
+
+{data}
+
+
+
+vim:ft=help:

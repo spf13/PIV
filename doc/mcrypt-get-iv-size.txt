@@ -3,21 +3,23 @@ cipher/mode combination
 
   int mcrypt_get_iv_size(string cipher, string mode)~
 
-|mcrypt_get_iv_size| returns the size of the Initialisation Vector (IV) in
-bytes. On error the function returns FALSE. If the IV is ignored in the
-specified cipher/mode combination zero is returned.
-
-{cipher} is one of the MCRYPT_ciphername constants of the name of the
-algorithm as string.
-
-{mode} is one of the MCRYPT_MODE_modename constants or one of "ecb", "cbc",
-"cfb", "ofb", "nofb" or "stream". The IV is ignored in ECB mode as this mode
-does not require it. You will need to have the same IV (think: starting
-point) both at encryption and decryption stages, otherwise your encryption
-will fail.
+Gets the size of the IV belonging to a specific {cipher}/{mode} combination.
 
 It is more useful to use the |mcrypt_enc_get_iv_size| function as this uses
 the resource returned by |mcrypt_module_open|.
+
+{cipher} One of the MCRYPT_ciphername constants of the name of the algorithm
+as string.
+
+{mode} {mode} is one of the MCRYPT_MODE_modename constants or one of "ecb",
+"cbc", "cfb", "ofb", "nofb" or "stream". The IV is ignored in ECB mode as this
+mode does not require it. You will need to have the same IV (think: starting
+point) both at encryption and decryption stages, otherwise your encryption
+will fail.
+
+Returns the size of the Initialisation Vector (IV) in bytes. On error the
+function returns FALSE. If the IV is ignored in the specified cipher/mode
+combination zero is returned.
 
 |mcrypt_get_iv_size| example
 
@@ -27,7 +29,10 @@ the resource returned by |mcrypt_module_open|.
       echo mcrypt_get_iv_size('des', 'ecb') . "\n";
 ?>
 
-See also |mcrypt_get_block_size|, |mcrypt_enc_get_iv_size| and
-|mcrypt_create_iv|.
+
+
+
+
+|mcrypt_get_block_size| |mcrypt_enc_get_iv_size| |mcrypt_create_iv|
 
 vim:ft=help:

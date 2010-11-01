@@ -1,6 +1,6 @@
 DomNode->replace_child -- Replaces a child
 
-  domelement DomNode->replace_child(domelement oldnode, domelement newnode)~
+  domelement DomNode->replace_child(domelement newnode, domelement oldnode)~
 
 (PHP 4.2) This function replaces the child {oldnode} with the passed new node.
 If the new node is already a child it will not be added a second time. If the

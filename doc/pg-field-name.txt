@@ -52,6 +52,8 @@ The above example will output:
   storage length: -1 bytes
   field type: varchar
 
+
+
 |pg_field_num|
 
 vim:ft=help:

@@ -7,8 +7,8 @@ This function sets the element set name for retrieval.
 Call this function before |yaz_search| or |yaz_present| to specify the element
 set name for records to be retrieved.
 
-If this function seems effectless, see the description of the piggybacking
-option in |yaz_connect|.
+If this function appears to have no effect, see the description of the
+piggybacking option in |yaz_connect|.
 
 {id} The connection resource returned by |yaz_connect|.
 

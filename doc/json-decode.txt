@@ -1,0 +1,87 @@
+json_decode -- Decodes a JSON string
+
+  mixed json_decode(string json [, bool assoc [, int depth]])~
+
+Takes a JSON encoded string and converts it into a PHP variable.
+
+{json} The {json} string being decoded.
+
+{assoc} When TRUE, returned objects will be converted into associative arrays.
+
+{depth} User specified nesting limit.
+
+Returns an object or if the optional {assoc} parameter is TRUE, an associative
+array is instead returned.
+
+|json_decode| examples
+
+<?php >
+  $json = '{"a":1,"b":2,"c":3,"d":4,"e":5}';
+  
+  var_dump(json_decode($json));
+  var_dump(json_decode($json, true));
+?>
+
+The above example will output:
+
+  object(stdClass)#1 (5) {
+      ["a"] => int(1)
+      ["b"] => int(2)
+      ["c"] => int(3)
+      ["d"] => int(4)
+      ["e"] => int(5)
+  }
+  
+  array(5) {
+      ["a"] => int(1)
+      ["b"] => int(2)
+      ["c"] => int(3)
+      ["d"] => int(4)
+      ["e"] => int(5)
+  }
+
+Another example
+
+<?php >
+  $json = '{"foo-bar": 12345}';
+  
+  $obj = json_decode($json);
+  print $obj->{'foo-bar'}; // 12345
+?>
+
+
+
+common mistakes using |json_decode|
+
+<?php >
+  // the following strings are valid JavaScript but not valid JSON
+  
+  // the name and value must be enclosed in double quotes
+  // single quotes are not valid 
+  $bad_json = "{ 'bar': 'baz' }";
+  json_decode($bad_json); // null
+  
+  // the name must be enclosed in double quotes
+  $bad_json = '{ bar: "baz" }';
+  json_decode($bad_json); // null
+  
+  // trailing commas are not allowed
+  $bad_json = '{ bar: "baz", }';
+  json_decode($bad_json); // null
+?>
+
+
+
+
+
+The JSON spec is not JavaScript, but a subset of JavaScript.
+
+This function will return FALSE if the JSON encoded data is deeper than 127
+elements.
+
+Version Description 5.3.0 Added the optional {depth} 5.2.3 The nesting limit
+was increased from 20 to 128
+
+|json_encode|
+
+vim:ft=help:

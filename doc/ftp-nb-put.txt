@@ -39,6 +39,8 @@ Returns FTP_FAILED or FTP_FINISHED or FTP_MOREDATA.
   }
 ?>
 
+
+
 Resuming an upload with |ftp_nb_put|
 
 <?php >
@@ -61,6 +63,10 @@ Resuming an upload with |ftp_nb_put|
      exit(1);
   }
 ?>
+
+
+
+
 
 |ftp_nb_fput| |ftp_nb_continue| |ftp_put| |ftp_fput|
 

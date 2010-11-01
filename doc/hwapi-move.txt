@@ -1,7 +1,13 @@
 hw_api->move -- Moves object between collections
 
-  bool hw_api->move(array parameter)~
+  bool move(array parameter)~
 
-See also |hw_objrec2array|.
+Moves object between collections.
+
+{parameter}
+
+Returns TRUE on success or FALSE on failure.
+
+|hw_objrec2array|
 
 vim:ft=help:

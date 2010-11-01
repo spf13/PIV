@@ -1,0 +1,29 @@
+radius_put_attr -- Attaches a binary attribute
+
+  bool radius_put_attr(resource radius_handle, int type, string value)~
+
+This function is currently not documented; only its argument list is
+available.
+
+Returns TRUE on success or FALSE on failure.
+
+|radius_put_attr| example
+
+<?php >
+  mt_srand(time());
+  $chall = mt_rand();
+  $chapval = md5(pack('Ca*',1 , 'sepp' . $chall));
+  $pass = pack('CH*', 1, $chapval);
+  if (!radius_put_attr($res, RADIUS_CHAP_PASSWORD, $pass)) {
+      echo 'RadiusError:' . radius_strerror($res). "\n<br />";
+      exit;
+  }
+?>
+
+
+
+
+
+|radius_get_attr| |radius_get_vendor_attr| |radius_put_vendor_attr|
+
+vim:ft=help:

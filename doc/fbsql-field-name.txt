@@ -2,19 +2,18 @@ fbsql_field_name -- Get the name of the specified field in a result
 
   string fbsql_field_name(resource result [, int field_index])~
 
-|fbsql_field_name| returns the name of the specified field index. {result}
-must be a valid result identifier and {field_index} is the numerical offset
-of the field.
+Returns the name of the specified field index.
 
-{field_index} starts at 0.
+{result} A result pointer returned by |fbsql_list_fields|.
 
-e.g. The index of the third field would actually be 2, the index of the fourth
-field would be 3 and so on.
+{field_index} The numerical offset of the field. The field index starts at 0.
+
+Returns the name as a string, or FALSE if the field doesn't exist.
 
 |fbsql_field_name| example
 
 <?php >
-  // The users table consists of three fields: 
+  // The users table consists of three fields:
   //   user_id
   //   username
   //   password.
@@ -29,5 +28,9 @@ The above example will output:
 
   user_id
   password
+
+
+
+|fbsql_field_type|
 
 vim:ft=help:

@@ -32,6 +32,10 @@ Inserting a record in a dBase database
   }
 ?>
 
+
+
+
+
 |dbase_delete_record| |dbase_replace_record|
 
 vim:ft=help:

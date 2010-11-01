@@ -1,0 +1,29 @@
+kadm5_chpass_principal -- Changes the principal's password
+
+  bool kadm5_chpass_principal(resource handle, string principal, string password)~
+
+|kadm5_chpass_principal| sets the new password {password} for the {principal}.
+
+{handle} A KADM5 handle.
+
+{principal} The principal.
+
+{password} The new password.
+
+Returns TRUE on success or FALSE on failure.
+
+Example of changing principal's password
+
+<?php >
+  $handle = kadm5_init_with_password("afs-1", "GONICUS.LOCAL", "admin/admin", "password");
+  
+  kadm5_chpass_principal($handle, "burbach@GONICUS.LOCAL", "newpassword");
+  
+  kadm5_destroy($handle);
+?>
+
+
+
+
+
+vim:ft=help:

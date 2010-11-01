@@ -1,0 +1,39 @@
+filter_input -- Gets a specific external variable by name and optionally
+filters it
+
+  mixed filter_input(int type, string variable_name [, int filter [, mixed options]])~
+
+{type} One of INPUT_GET, INPUT_POST, INPUT_COOKIE, INPUT_SERVER, INPUT_ENV,
+INPUT_SESSION (not implemented yet) and INPUT_REQUEST (not implemented yet).
+
+{variable_name} Name of a variable to get.
+
+{filter} Filter to apply. Defaults to FILTER_DEFAULT.
+
+{options} Associative array of options or bitwise disjunction of flags. If
+filter accepts options, flags can be provided in "flags" field of array.
+
+Value of the requested variable on success, FALSE if the filter fails, or NULL
+if the {variable_name} variable is not set. If the flag FILTER_NULL_ON_FAILURE
+is used, it returns FALSE if the variable is not set and NULL if the filter
+fails.
+
+A |filter_input| example
+
+<?php >
+  $search_html = filter_input(INPUT_GET, 'search', FILTER_SANITIZE_SPECIAL_CHARS);
+  $search_url = filter_input(INPUT_GET, 'search', FILTER_SANITIZE_ENCODED);
+  echo "You have searched for $search_html.\n";
+  echo "<a href='?search=$search_url'>Search again.</a>";
+?>
+
+The above example will output something similar to:
+
+  You have searched for Me &amp;#38; son.
+  <a href='?search=Me%20%26%20son'>Search again.</a>
+
+
+
+|filter_var| |filter_input_array| |filter_var_array|
+
+vim:ft=help:

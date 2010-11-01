@@ -1,8 +1,8 @@
 exif_tagname -- Get the header name for an index
 
-  string exif_tagname(string index)~
+  string exif_tagname(int index)~
 
-This function is currently not documented; only the argument list is
+This function is currently not documented; only its argument list is
 available.
 
 {index} The image index

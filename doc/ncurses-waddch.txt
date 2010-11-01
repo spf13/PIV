@@ -3,7 +3,11 @@ cursor
 
   int ncurses_waddch(resource window, int ch)~
 
-This function is currently not documented; only the argument list is
+This function is currently not documented; only its argument list is
 available.
+
+{window}
+
+{ch}
 
 vim:ft=help:

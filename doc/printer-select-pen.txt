@@ -6,8 +6,13 @@ The function selects a pen as the active drawing object of the actual device
 context. A pen is used to draw lines and curves. I.e. if you draw a single
 line the pen is used. If you draw an rectangle the pen is used to draw the
 borders, while the brush is used to fill the shape. If you haven't selected a
-pen before drawing shapes, the shape won't be outlined. {printer_handle} must
-be a valid handle to a printer. {pen_handle} must be a valid handle to a pen.
+pen before drawing shapes, the shape won't be outlined.
+
+{printer_handle} {printer_handle} must be a valid printer handle.
+
+{pen_handle} {pen_handle} must be a valid pen handle.
+
+No value is returned.
 
 |printer_select_pen| example
 
@@ -27,5 +32,9 @@ be a valid handle to a printer. {pen_handle} must be a valid handle to a pen.
   printer_end_doc($handle);
   printer_close($handle);
 ?>
+
+
+
+
 
 vim:ft=help:

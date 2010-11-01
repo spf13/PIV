@@ -1,0 +1,40 @@
+libxml_use_internal_errors -- Disable libxml errors and allow user to fetch
+error information as needed
+
+  bool libxml_use_internal_errors([bool use_errors])~
+
+|libxml_use_internal_errors| allows you to disable standard libxml errors and
+enable user error handling.
+
+{use_errors} Whether to enable user error handling. Defaults to FALSE.
+
+This function returns the previous value of {use_errors}.
+
+A |libxml_use_internal_errors| example This example demonstrates the basic
+usage of libxml errors and the value returned by this function.
+
+<?php >
+  // enable user error handling
+  var_dump(libxml_use_internal_errors(true));
+  
+  $doc = DOMDocument::load('file.xml');
+  
+  if (!$doc) {
+      $errors = libxml_get_errors();
+      foreach ($errors as $error) {
+          // handle errors here
+      }
+  
+      libxml_clear_errors();
+  }
+?>
+
+The above example will output:
+
+  bool(false)
+
+
+
+|libxml_clear_errors| |libxml_get_errors|
+
+vim:ft=help:

@@ -1,0 +1,56 @@
+json_last_error -- Returns the last error occurred
+
+  int json_last_error()~
+
+Returns the last error (if any) occurred by last JSON parsing.
+
+This function has no parameters.
+
+Returns an integer, the value can be one of the following constants:
+
+|json_last_error| example
+
+<?php >
+  // A valid json string
+  $json[] = '{"Organization": "PHP Documentation Team"}';
+  
+  // An invalid json string which will cause an syntax 
+  // error, in this case we used ' instead of " for quotation
+  $json[] = "{'Organization': 'PHP Documentation Team'}";
+  
+  
+  foreach($json as $string)
+  {
+  	echo 'Decoding: ' . $string;
+  	json_decode($string);
+  
+  	switch(json_last_error())
+  	{
+  		case JSON_ERROR_DEPTH:
+  			echo ' - Maximum stack depth exceeded';
+  		break;
+  		case JSON_ERROR_CTRL_CHAR:
+  			echo ' - Unexpected control character found';
+  		break;
+  		case JSON_ERROR_SYNTAX:
+  			echo ' - Syntax error, malformed JSON';
+  		break;
+  		case JSON_ERROR_NONE:
+  			echo ' - No errors';
+  		break;
+  	}
+  
+  	echo PHP_EOL;
+  }
+?>
+
+The above example will output:
+
+  Decoding: {"Organization": "PHP Documentation Team"} - No errors
+  Decoding: {'Organization': 'PHP Documentation Team'} - Syntax error, malformed JSON
+
+
+
+|json_decode|
+
+vim:ft=help:

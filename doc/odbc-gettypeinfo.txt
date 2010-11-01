@@ -1,11 +1,17 @@
-odbc_gettypeinfo -- Returns a result identifier containing information about
-data types supported by the data source
+odbc_gettypeinfo -- Retrieves information about data types supported by the
+data source
 
   resource odbc_gettypeinfo(resource connection_id [, int data_type])~
 
-Retrieves information about data types supported by the data source. Returns
-an ODBC result identifier or FALSE on failure. The optional argument
-{data_type} can be used to restrict the information to a single data type.
+Retrieves information about data types supported by the data source.
+
+{connection_id} The ODBC connection identifier, see |odbc_connect| for
+details.
+
+{data_type} The data type, which can be used to restrict the information to a
+single data type.
+
+Returns an ODBC result identifier or FALSE on failure.
 
 The result set has the following columns: TYPE_NAME
 

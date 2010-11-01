@@ -7,8 +7,11 @@ Procedural style:
 
 Object oriented style (property):
 
-|tidy_get_error_buffer| returns warnings and errors which occurred parsing the
-specified document.
+Returns warnings and errors which occurred parsing the specified document.
+
+{object} The Tidy object.
+
+Returns the error buffer as a string.
 
 |tidy_get_error_buffer| example
 
@@ -27,6 +30,6 @@ The above example will output:
   line 1 column 1 - Warning: missing <!DOCTYPE> declaration
   line 1 column 1 - Warning: inserting missing 'title' element
 
-See also |tidy_access_count|, |tidy_error_count| and |tidy_warning_count|.
+
 
 vim:ft=help:

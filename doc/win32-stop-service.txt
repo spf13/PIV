@@ -1,0 +1,15 @@
+win32_stop_service -- Stops a service
+
+  int win32_stop_service(string servicename [, string machine])~
+
+Stops a named service. Requires administrative privileges.
+
+{servicename} The short name of the service.
+
+{machine} Optional machine name. If omitted, the local machine is used.
+
+Returns WIN32_NO_ERROR on success, or a win32 error code on failure.
+
+|win32_start_service|
+
+vim:ft=help:

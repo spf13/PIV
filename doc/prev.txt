@@ -2,14 +2,15 @@ prev -- Rewind the internal array pointer
 
   mixed prev(array array)~
 
-Returns the array value in the previous place that's pointed to by the
-internal array pointer, or FALSE if there are no more elements. If the array
-contains empty elements then this function will return FALSE for these
-elements as well. To properly traverse an array which may contain empty
-elements see the |each| function.
+Rewind the internal array pointer.
 
 |prev| behaves just like |next|, except it rewinds the internal array pointer
 one place instead of advancing it.
+
+{array} The input array.
+
+Returns the array value in the previous place that's pointed to by the
+internal array pointer, or FALSE if there are no more elements.
 
 Example use of |prev| and friends
 
@@ -22,6 +23,19 @@ Example use of |prev| and friends
   $mode = end($transport);     // $mode = 'plane';
 ?>
 
-See also |current|, |end|, |next|, and |reset|.
+
+
+
+
+This function may return Boolean FALSE, but may also return a non-Boolean
+value which evaluates to FALSE, such as 0 or "". Please read the section on
+Booleans for more information. Use the === operator for testing the return
+value of this function.
+
+You won't be able to distinguish the beginning of an array from a boolean
+FALSE element. To properly traverse an array which may contain FALSE elements,
+see the |each| function.
+
+|current| |end| |next| |reset| |each|
 
 vim:ft=help:

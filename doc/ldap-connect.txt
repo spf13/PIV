@@ -2,23 +2,25 @@ ldap_connect -- Connect to an LDAP server
 
   resource ldap_connect([string hostname [, int port]])~
 
+Establishes a connection to a LDAP server on a specified {hostname} and
+{port}.
+
+{hostname} If you are using OpenLDAP 2.x.x you can specify a URL instead of
+the hostname. To use LDAP with SSL, compile OpenLDAP 2.x.x with SSL support,
+configure PHP with SSL, and set this parameter as ldaps://hostname/.
+
+{port} The port to connect to. Not used when using URLs. Defaults to 389.
+
 Returns a positive LDAP link identifier on success, or FALSE on error. When
 OpenLDAP 2.x.x is used, |ldap_connect| will always return a resource as it
 does not actually connect but just initializes the connecting parameters. The
 actual connect happens with the next calls to ldap_* funcs, usually with
 |ldap_bind|.
 
-|ldap_connect| establishes a connection to a LDAP server on a specified
-{hostname} and {port}. Both the arguments are optional. If no arguments are
-specified then the link identifier of the already opened link will be
-returned. If only {hostname} is specified, then the port defaults to 389.
+If no arguments are specified then the link identifier of the already opened
+link will be returned.
 
-If you are using OpenLDAP 2.x.x you can specify a URL instead of the hostname.
-To use LDAP with SSL, compile OpenLDAP 2.x.x with SSL support, configure PHP
-with SSL, and use ldaps://hostname/ as host parameter. The port parameter is
-not used when using URLs.
-
-URL and SSL support were added in 4.0.4.
+Version Description 4.0.4 URL and SSL support was added.
 
 Example of connecting to LDAP server.
 
@@ -28,9 +30,11 @@ Example of connecting to LDAP server.
   $ldapport = 389;                 // your ldap server's port number
   
   // Connecting to LDAP
-  $ldapconn = ldap_connect($ldaphost, $ldapport) 
+  $ldapconn = ldap_connect($ldaphost, $ldapport)
             or die("Could not connect to $ldaphost");
 ?>
+
+
 
 Example of connecting securely to LDAP server.
 
@@ -40,10 +44,14 @@ Example of connecting securely to LDAP server.
   $ldaphost = "ldaps://ldap.example.com/";
   
   // Connecting to LDAP
-  $ldapconn = ldap_connect($ldaphost) 
+  $ldapconn = ldap_connect($ldaphost)
             or die("Could not connect to {$ldaphost}");
 ?>
 
-See also |ldap_bind|.
+
+
+
+
+|ldap_bind|
 
 vim:ft=help:

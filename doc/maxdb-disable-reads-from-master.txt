@@ -1,0 +1,14 @@
+maxdb->disable_reads_from_master -- Disable reads from master
+
+Procedural style:
+
+  bool maxdb_disable_reads_from_master(resource link)~
+
+Object oriented style (method):
+
+  void disable_reads_from_master(resource link)~
+
+This function is currently not documented; only its argument list is
+available.
+
+vim:ft=help:

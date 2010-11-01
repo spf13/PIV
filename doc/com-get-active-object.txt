@@ -6,18 +6,20 @@ COM object
 |com_get_active_object| is similar to creating a new instance of a object,
 except that it will only return an object to your script if the object is
 already running. OLE applications use something known as the Running Object
-Table to allow well-known applications to be launched only once; this
-function exposes the COM library function GetActiveObject() to get a handle
-on a running instance.
+Table to allow well-known applications to be launched only once; this function
+exposes the COM library function GetActiveObject() to get a handle on a
+running instance.
 
-{progid} must be either the ProgID or CLSID for the object that you want to
-access (for example Word.Application). {code_page} acts in precisely the same
-way that it does for the class.
+{progid} {progid} must be either the ProgID or CLSID for the object that you
+want to access (for example Word.Application).
+
+{code_page} Acts in precisely the same way that it does for the class.
 
 If the requested object is running, it will be returned to your script just
-like any other COM object. Otherwise a com_exception will be raised. There
-are a variety of reasons why this function might fail, the most common being
-that the object is not already running. In that situation, the exception
+like any other COM object.
+
+There are a variety of reasons why this function might fail, the most common
+being that the object is not already running. In that situation, the exception
 error code will be MK_E_UNAVAILABLE; you can use the getCode method of the
 exception object to check the exception code.
 

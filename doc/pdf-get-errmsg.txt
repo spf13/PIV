@@ -1,0 +1,8 @@
+PDF_get_errmsg -- Get error text
+
+  string PDF_get_errmsg(resource pdfdoc)~
+
+Gets the text of the last thrown exception or the reason for a failed function
+call.
+
+vim:ft=help:

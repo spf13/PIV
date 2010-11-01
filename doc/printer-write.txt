@@ -1,11 +1,14 @@
 printer_write -- Write data to the printer
 
-  bool printer_write(resource handle, string content)~
+  bool printer_write(resource printer_handle, string content)~
 
-Writes {content} directly to the printer. Returns TRUE on success or FALSE on
-failure.
+Writes {content} directly to the printer.
 
-{handle} must be a valid handle to a printer.
+{printer_handle} {printer_handle} must be a valid printer handle.
+
+{content} The data to be written.
+
+Returns TRUE on success or FALSE on failure.
 
 |printer_write| example
 
@@ -14,5 +17,9 @@ failure.
   printer_write($handle, "Text to print");
   printer_close($handle);
 ?>
+
+
+
+
 
 vim:ft=help:

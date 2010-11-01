@@ -3,7 +3,7 @@ context
 
   bool xpath_register_ns_auto(XPathContext xpath_context [, object context_node])~
 
-This function is currently not documented; only the argument list is
+This function is currently not documented; only its argument list is
 available.
 
 Returns TRUE on success or FALSE on failure.

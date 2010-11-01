@@ -2,9 +2,19 @@ dngettext -- Plural version of dgettext
 
   string dngettext(string domain, string msgid1, string msgid2, int n)~
 
-The |dngettext| function allows you to override the current domain for a
+The |dngettext| function allows you to override the current {domain} for a
 single plural message lookup.
 
-See also |ngettext|.
+{domain} The domain
+
+{msgid1}
+
+{msgid2}
+
+{n}
+
+A string on success.
+
+|ngettext|
 
 vim:ft=help:

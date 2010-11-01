@@ -27,6 +27,8 @@ The above example will output:
 
   1 tuples are affected.
 
+
+
 |pg_query| |pg_query_params| |pg_execute| |pg_num_rows|
 
 vim:ft=help:

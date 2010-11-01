@@ -1,0 +1,27 @@
+openssl_encrypt -- Encrypts data
+
+  ReturnType openssl_encrypt(string data, string method, string password [, bool raw_output])~
+
+Encrypts given data with given method and key, returns a raw or base64 encoded
+string
+
+This function is currently not documented; only its argument list is
+available.
+
+{data} The data.
+
+{method} The cipher method.
+
+{password} The password.
+
+{raw_output} Setting to TRUE will return as raw output data, otherwise the
+return value is base64 encoded.
+
+Returns the encrypted string on success, or FALSE on failure.
+
+Emits an E_WARNING level error if an unknown cipher algorithm is passed in via
+the {method} parameter.
+
+|openssl_decrypt|
+
+vim:ft=help:

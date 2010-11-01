@@ -2,13 +2,19 @@ mb_detect_encoding -- Detect character encoding
 
   string mb_detect_encoding(string str [, mixed encoding_list [, bool strict]])~
 
-|mb_detect_encoding| detects character encoding in string {str}. It returns
-detected character encoding.
+Detects character encoding in string {str}.
 
-{encoding_list} is list of character encoding. Encoding order may be specified
-by array or comma separated list string.
+{str} The string being detected.
+
+{encoding_list} {encoding_list} is list of character encoding. Encoding order
+may be specified by array or comma separated list string.
 
 If {encoding_list} is omitted, detect_order is used.
+
+{strict} {strict} specifies whether to use the strict encoding detection or
+not. Default is FALSE.
+
+The detected character encoding.
 
 |mb_detect_encoding| example
 
@@ -29,6 +35,10 @@ If {encoding_list} is omitted, detect_order is used.
   echo mb_detect_encoding($str, $ary);
 ?>
 
-See also |mb_detect_order|.
+
+
+
+
+|mb_detect_order|
 
 vim:ft=help:

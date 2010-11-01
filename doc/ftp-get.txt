@@ -14,7 +14,7 @@ exists).
 
 {mode} The transfer mode. Must be either FTP_ASCII or FTP_BINARY.
 
-{resumepos}
+{resumepos} The position in the remote file to start downloading from.
 
 Returns TRUE on success or FALSE on failure.
 
@@ -41,6 +41,10 @@ Returns TRUE on success or FALSE on failure.
   // close the connection
   ftp_close($conn_id);
 ?>
+
+
+
+
 
 Version Description 4.3.0 {resumepos} was added.
 

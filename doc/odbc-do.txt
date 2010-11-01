@@ -1,7 +1,5 @@
-odbc_do -- Synonym for odbc_exec
+odbc_do -- Alias of odbc_exec
 
-  resource odbc_do(resource conn_id, string query)~
-
-|odbc_do| will execute a query on the given connection.
+This function is an alias of: |odbc_exec|.
 
 vim:ft=help:

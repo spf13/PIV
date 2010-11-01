@@ -2,35 +2,49 @@ func_get_arg -- Return an item from the argument list
 
   mixed func_get_arg(int arg_num)~
 
-Returns the argument which is at the {arg_num}'th offset into a user-defined
-function's argument list. Function arguments are counted starting from zero.
-|func_get_arg| will generate a warning if called from outside of a function
-definition. This function cannot be used directly as a function parameter.
-Instead, its result may be assigned to a variable, which can then be passed
-to the function.
+Gets the specified argument from a user-defined function's argument list.
 
-If {arg_num} is greater than the number of arguments actually passed, a
-warning will be generated and |func_get_arg| will return FALSE.
+This function may be used in conjunction with |func_get_args| and
+|func_num_args| to allow user-defined functions to accept variable-length
+argument lists.
 
-Because this function depends on the current scope to determine parameter
-details, it cannot be used as a function parameter. If you must pass this
-value, assign the results to a variable, and pass the variable.
+{arg_num} The argument offset. Function arguments are counted starting from
+zero.
+
+Returns the specified argument, or FALSE on error.
+
+Version Description 5.3.0 This function can now be used in parameter lists.
+
+Generates a warning if called from outside of a user-defined function, or if
+{arg_num} is greater than the number of arguments actually passed.
+
+|func_get_arg| example
 
 <?php >
-  function foo() 
+  function foo()
   {
        $numargs = func_num_args();
        echo "Number of arguments: $numargs<br />\n";
        if ($numargs >= 2) {
-       echo "Second argument is: " . func_get_arg(1) . "<br />\n";
+           echo "Second argument is: " . func_get_arg(1) . "<br />\n";
        }
-  } 
+  }
   
   foo (1, 2, 3);
 ?>
 
-|func_get_arg| may be used in conjunction with |func_num_args| and
-|func_get_args| to allow user-defined functions to accept variable-length
-argument lists.
+
+
+
+
+Because this function depends on the current scope to determine parameter
+details, it cannot be used as a function parameter. If this value must be
+passed, the results should be assigned to a variable, and that variable should
+be passed.
+
+This function returns a copy of the passed arguments only, and does not
+account for default (non-passed) arguments.
+
+|func_get_args| |func_num_args|
 
 vim:ft=help:

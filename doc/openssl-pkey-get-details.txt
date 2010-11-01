@@ -1,0 +1,15 @@
+openssl_pkey_get_details -- Returns an array with the key details
+
+  array openssl_pkey_get_details(resource key)~
+
+This function returns the key details (bits, key, type).
+
+{key} Resource holding the key.
+
+Returns an array with the key details in success or FALSE in failure. Returned
+array has indexes bits (number of bits), key (string representation of the
+public key) and type (type of the key which is one of OPENSSL_KEYTYPE_RSA,
+OPENSSL_KEYTYPE_DSA, OPENSSL_KEYTYPE_DH, OPENSSL_KEYTYPE_EC or -1 meaning
+unknown).
+
+vim:ft=help:

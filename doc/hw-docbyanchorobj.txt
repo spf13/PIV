@@ -4,4 +4,10 @@ hw_DocByAnchorObj -- Object record object belonging to anchor
 
 Returns an th object record of the document to which {anchorID} belongs.
 
+{connection} The connection identifier.
+
+{anchorID} The anchor identifier.
+
+Returns an object record.
+
 vim:ft=help:

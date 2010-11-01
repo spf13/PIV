@@ -9,17 +9,18 @@ mysql_db_query -- Send a MySQL query
 {query} The MySQL query.
 
 { link_identifier}The MySQL connection. If the link identifier is not
-specified, the last link opened by |mysql_connect| is assumed. If no such
-link is found, it will try to create one as if |mysql_connect| was called
-with no arguments. If by chance no connection is found or established, an
-E_WARNING level warning is generated.
+specified, the last link opened by |mysql_connect| is assumed. If no such link
+is found, it will try to create one as if |mysql_connect| was called with no
+arguments. If by chance no connection is found or established, an E_WARNING
+level error is generated.
 
 Returns a positive MySQL result resource to the query result, or FALSE on
 error. The function also returns TRUE/FALSE for INSERT/UPDATE/DELETE queries
 to indicate success/failure.
 
-Version Description 4.0.6 This function is deprecated, do not use this
-function. Use |mysql_select_db| and |mysql_query| instead.
+Version Description 5.3.0 This function now throws an E_DEPRECATED notice.
+4.0.6 This function is deprecated, do not use this function. Use
+|mysql_select_db| and |mysql_query| instead.
 
 |mysql_db_query| alternative example
 
@@ -49,6 +50,10 @@ function. Use |mysql_select_db| and |mysql_query| instead.
   
   mysql_free_result($result);
 ?>
+
+
+
+
 
 Be aware that this function does NOT switch back to the database you were
 connected before. In other words, you can't use this function to temporarily

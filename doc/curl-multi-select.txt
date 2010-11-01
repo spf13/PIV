@@ -3,9 +3,16 @@ which can then be "selected"
 
   int curl_multi_select(resource mh [, float timeout])~
 
-This function is currently not documented; only the argument list is
-available.
+Get all the sockets associated with the cURL extension, which can then be
+"selected".
 
-See also |curl_multi_init|.
+{mh} A cURL multi handle returned by |curl_multi_init|.
+
+{timeout} Time, in seconds, to wait for a response.
+
+On success, returns the number of descriptors contained in, the descriptor
+sets. On failure, this function will return FALSE.
+
+|curl_multi_init|
 
 vim:ft=help:

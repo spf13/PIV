@@ -5,8 +5,12 @@ asinh -- Inverse hyperbolic sine
 Returns the inverse hyperbolic sine of {arg}, i.e. the value whose hyperbolic
 sine is {arg}.
 
-This function is not implemented on Windows platforms.
+{arg} The argument to process
 
-See also: |asin|, |acosh|, and |atanh|.
+The inverse hyperbolic sine of {arg}
+
+Version Description 5.3.0 This function is now available on all platforms
+
+|sinh| |asin| |acosh| |atanh|
 
 vim:ft=help:

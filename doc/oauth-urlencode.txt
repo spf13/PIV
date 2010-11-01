@@ -1,0 +1,11 @@
+oauth_urlencode -- Encode a URI to RFC3686
+
+  string oauth_urlencode(string uri)~
+
+Encodes a URI to RFC3686.
+
+{uri} URI to encode.
+
+Returns an RFC3686 encoded string.
+
+vim:ft=help:

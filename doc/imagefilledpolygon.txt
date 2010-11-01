@@ -2,13 +2,19 @@ imagefilledpolygon -- Draw a filled polygon
 
   bool imagefilledpolygon(resource image, array points, int num_points, int color)~
 
-|imagefilledpolygon| creates a filled polygon in image {image}.
+|imagefilledpolygon| creates a filled polygon in the given {image}.
 
-{points} is an array containing the x and y co-ordinates of the polygons
-vertices consecutively.
+{ image}An image resource, returned by one of the image creation functions,
+such as |imagecreatetruecolor|.
 
-The parameter {num_points} is the total number of vertices, which must be
-larger than 3.
+{points} An array containing the x and y coordinates of the polygons vertices
+consecutively.
+
+{num_points} Total number of vertices, which must be bigger than 3.
+
+{color} A color identifier created with |imagecolorallocate|.
+
+Returns TRUE on success or FALSE on failure.
 
 |imagefilledpolygon| example
 
@@ -24,11 +30,14 @@ larger than 3.
               );
   
   // create image
-  $image = imagecreate(250, 250);
+  $image = imagecreatetruecolor(250, 250);
   
-  // some colors
+  // allocate colors
   $bg   = imagecolorallocate($image, 200, 200, 200);
   $blue = imagecolorallocate($image, 0, 0, 255);
+  
+  // fill the background
+  imagefilledrectangle($image, 0, 0, 249, 249, $bg);
   
   // draw a polygon
   imagefilledpolygon($image, $values, 6, $blue);
@@ -38,5 +47,9 @@ larger than 3.
   imagepng($image);
   imagedestroy($image);
 ?>
+
+The above example will output something similar to:
+
+
 
 vim:ft=help:

@@ -1,0 +1,14 @@
+stats_stat_percentile -- Not documented
+
+  float stats_stat_percentile(float df, float xnonc)~
+
+This function is currently not documented; only its argument list is
+available.
+
+{df}
+
+{xnonc}
+
+
+
+vim:ft=help:

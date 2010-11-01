@@ -1,0 +1,29 @@
+XMLWriter::writeDTD -- Write full DTD tag
+
+Oriented object style
+
+  bool writeDTD(string name [, string publicId [, string systemId [, string subset]]])~
+
+Procedural style
+
+  bool xmlwriter_write_dtd(string name [, string publicId [, string systemId [, string subset, resource xmlwriter, string name [, string publicId [, string systemId [, string subset]]]]]])~
+
+Writes a full DTD.
+
+{ xmlwriter}Only for procedural calls. The XMLWriter resource that is being
+modified. This resource comes from a call to |xmlwriter_open_uri| or
+|xmlwriter_open_memory|.
+
+{name} The DTD name.
+
+{publicId} The external subset public identifier.
+
+{systemId} The external subset system identifier.
+
+{subset} The content of the DTD.
+
+Returns TRUE on success or FALSE on failure.
+
+XMLWriter::startDTD XMLWriter::endDTD
+
+vim:ft=help:

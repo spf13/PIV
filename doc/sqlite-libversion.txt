@@ -4,6 +4,8 @@ sqlite_libversion -- Returns the version of the linked SQLite library
 
 Returns the version of the linked SQLite library.
 
+Returns the librart version, as a string.
+
 |sqlite_libencoding|
 
 vim:ft=help:

@@ -1,0 +1,21 @@
+XMLWriter::startCData -- Create start CDATA tag
+
+Oriented object style
+
+  bool startCData()~
+
+Procedural style
+
+  bool xmlwriter_start_cdata(resource xmlwriter)~
+
+Starts a CDATA.
+
+{ xmlwriter}Only for procedural calls. The XMLWriter resource that is being
+modified. This resource comes from a call to |xmlwriter_open_uri| or
+|xmlwriter_open_memory|.
+
+Returns TRUE on success or FALSE on failure.
+
+XMLWriter::endCData XMLWriter::writeCData
+
+vim:ft=help:

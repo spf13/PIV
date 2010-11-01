@@ -37,6 +37,8 @@ Opening a file descriptor
   dio_close($fd);
 ?>
 
+
+
 |dio_close|
 
 vim:ft=help:

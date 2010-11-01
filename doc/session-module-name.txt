@@ -2,7 +2,10 @@ session_module_name -- Get and/or set the current session module
 
   string session_module_name([string module])~
 
-|session_module_name| returns the name of the current session module. If
-{module} is specified, that module will be used instead.
+|session_module_name| gets the name of the current session module.
+
+{module} If {module} is specified, that module will be used instead.
+
+Returns the name of the current session module.
 
 vim:ft=help:

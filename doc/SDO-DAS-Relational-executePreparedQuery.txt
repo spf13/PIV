@@ -1,0 +1,128 @@
+SDO_DAS_Relational::executePreparedQuery -- Executes an SQL query passed as a
+prepared statement, with a list of values to substitute for placeholders, and
+return the results as a normalised data graph.
+
+  SDODataObject SDO_DAS_Relational::executePreparedQuery(PDO database_handle, PDOStatement prepared_statement, array value_list [, array column_specifier])~
+
+This function is EXPERIMENTAL. The behaviour of this function, its name, and
+surrounding documentation may change without notice in a future release of
+PHP. This function should be used at your own risk.
+
+Executes a given query against the relational database, using the supplied PDO
+database handle. Differs from the simpler |executeQuery| in that it takes a
+prepared statement and a list of values. This is the appropriate call to use
+either when the statement is to executed a number of times with different
+arguments, and there is therefore a performance benefit to be had from
+preparing the statement only once, or when the the SQL statement is to contain
+varying values taken from a source that cannot be completely trusted. In this
+latter case it may be unsafe to construct the SQL statement by simply
+concatenating the parts of the statement together, since the values may
+contain pieces of SQL. To guard against this, a so-called SQL injection
+attack, it is safer to prepare the SQL statement with placeholders (also known
+as parameter markers, denoted by '?') and supply a list of the values to be
+substituted as a separate argument. Otherwise this function is the same as
+|executeQuery| in that it uses the model that it built from the the metadata
+to interpret the result set and returns a data graph.
+
+PDO_database_handle Constructed using the PDO extension. A typical line to
+construct a PDO database handle might look like this:
+
+  $dbh = new PDO("mysql:dbname=COMPANYDB;host=localhost",DATABASE_USER,DATABASE_PASSWORD);
+
+
+
+prepared_statement A prepared SQL statement to be executed against the
+database. This will have been prepared by PDO's |prepare| method.
+
+value_list An array of the values to be substituted into the SQL statement in
+place of the placeholders. In the event that there are no placeholders or
+parameter markers in the SQL statement then this argument can be specified as
+NULL or as an empty array;
+
+column_specifier The Relational DAS needs to examine the result set and for
+every column, know which table and which column of that table it came from. In
+some circumstances it can find this information for itself, but sometimes it
+cannot. In these cases a column specifier is needed, which is an array that
+identifies the columns. Each entry in the array is simply a string in the form
+table-name.column_name.
+
+The column specifier is needed when there are duplicate column names in the
+database metadata, For example, in the database used within the examples, all
+the tables have both a id and a name column. When the Relational DAS fetches
+the result set from PDO it can do so with the PDO_FETCH_ASSOC attribute, which
+will cause the columns in the results set to be labelled with the column name,
+but will not distinguish duplicates. So this will only work when there are no
+duplicates possible in the results set.
+
+To summarise, specify a column specifier array whenever there is any
+uncertainty about which column could be from which table and only omit it when
+every column name in the database metadata is unique.
+
+All of the examples in the Examples use a column specifier. There is one
+example in the Scenarios directory of the installation that does not: that
+which works with just the employee table, and because it works with just one
+table, there can not exist duplicate column names.
+
+Returns a data graph. Specifically, it returns a root object of a special
+type. Under this root object will be the data from the result set. The root
+object will have a multi-valued containment property with the same name as the
+application root type specified on the constructor, and that property will
+contain one or more data objects of the application root type.
+
+In the event that the query returns no data, the special root object will
+still be returned but the containment property for the application root type
+will be empty.
+
+|SDO_DAS_Relational::executePreparedQuery| can throw an
+SDO_DAS_Relational_Exception if it is unable to construct the data graph
+correctly. This can occur for a number of reasons: for example if it finds
+that it does not have primary keys in the result set for all the objects. It
+also catches any PDO exceptions and obtains PDO diagnostic information which
+it includes in an SDO_DAS_Relational_Exception which it then throws.
+
+Retrieving a data object using |executePreparedQuery| In this example a single
+data object is retrieved from the database - or possibly more than one if
+there is more than one company called 'Acme'. For each company returned, the
+name and id properties are echoed.
+
+Other examples of the use of |executePreparedQuery| can be found in the
+example code supplied in sdo/DAS/Relational/Scenarios .
+
+<?php >
+  require_once 'SDO/DAS/Relational.php';
+  require_once 'company_metadata.inc.php';
+  
+  /**************************************************************
+   * Construct the DAS with the metadata
+   ***************************************************************/
+  $das = new SDO_DAS_Relational ($database_metadata,'company',$SDO_reference_metadata);
+  
+  /**************************************************************
+   * Get a database connection
+   ***************************************************************/
+  $dbh = new PDO(PDO_DSN,DATABASE_USER,DATABASE_PASSWORD);
+  
+  /**************************************************************
+   * Issue a query to obtain a company object - possibly more if they exist
+   * Use a prepared query with a placeholder.
+   ***************************************************************/
+  $name = 'Acme';
+  $pdo_stmt = $dbh->prepare('select name, id from company where name=?');
+  $root = $das->executePreparedQuery(
+      $dbh, 
+      $pdo_stmt,
+      array($name), 
+      array('company.name', 'company.id'));
+  
+  /**************************************************************
+   * Echo name and id 
+   ***************************************************************/
+  foreach ($root['company'] as $company) {
+      echo "Company obtained from the database has name = " . 
+      $company['name'] . " and id " . $company['id'] . "\n";
+  }
+?>
+
+
+
+vim:ft=help:

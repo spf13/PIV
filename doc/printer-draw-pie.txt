@@ -1,25 +1,28 @@
 printer_draw_pie -- Draw a pie
 
-  void printer_draw_pie(resource handle, int rec_x, int rec_y, int rec_x1, int rec_y1, int rad1_x, int rad1_y, int rad2_x, int rad2_y)~
+  void printer_draw_pie(resource printer_handle, int rec_x, int rec_y, int rec_x1, int rec_y1, int rad1_x, int rad1_y, int rad2_x, int rad2_y)~
 
-The function simply draws an pie. {handle} must be a valid handle to a
-printer.
+The function draws an pie.
 
-{rec_x} is the upper left x coordinate of the bounding rectangle.
+{printer_handle} {printer_handle} must be a valid printer handle.
 
-{rec_y} is the upper left y coordinate of the bounding rectangle.
+{rec_x} {rec_x} is the upper left x coordinate of the bounding rectangle.
 
-{rec_x1} is the lower right x coordinate of the bounding rectangle.
+{rec_y} {rec_y} is the upper left y coordinate of the bounding rectangle.
 
-{rec_y1} is the lower right y coordinate of the bounding rectangle.
+{rec_x1} {rec_x1} is the lower right x coordinate of the bounding rectangle.
 
-{rad1_x} is x coordinate of the first radial's ending.
+{rec_y1} {rec_y1} is the lower right y coordinate of the bounding rectangle.
 
-{rad1_y} is y coordinate of the first radial's ending.
+{rad1_x} {rad1_x} is x coordinate of the first radial's ending.
 
-{rad2_x} is x coordinate of the second radial's ending.
+{rad1_y} {rad1_y} is y coordinate of the first radial's ending.
 
-{rad2_y} is y coordinate of the second radial's ending.
+{rad2_x} {rad2_x} is x coordinate of the second radial's ending.
+
+{rad2_y} {rad2_y} is y coordinate of the second radial's ending.
+
+No value is returned.
 
 |printer_draw_pie| example
 
@@ -41,7 +44,11 @@ printer.
   
   printer_end_page($handle);
   printer_end_doc($handle);
-  printer_close($handle); 
+  printer_close($handle);
 ?>
+
+
+
+
 
 vim:ft=help:

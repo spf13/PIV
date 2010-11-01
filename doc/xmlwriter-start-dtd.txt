@@ -1,0 +1,27 @@
+XMLWriter::startDTD -- Create start DTD tag
+
+Oriented object style
+
+  bool startDTD(string qualifiedName [, string publicId [, string systemId]])~
+
+Procedural style
+
+  bool xmlwriter_start_dtd(string qualifiedName [, string publicId [, string systemId, resource xmlwriter, string qualifiedName [, string publicId [, string systemId]]]])~
+
+Starts a DTD.
+
+{ xmlwriter}Only for procedural calls. The XMLWriter resource that is being
+modified. This resource comes from a call to |xmlwriter_open_uri| or
+|xmlwriter_open_memory|.
+
+{qualifiedName} The qualified name of the document type to create.
+
+{publicId} The external subset public identifier.
+
+{systemId} The external subset system identifier.
+
+Returns TRUE on success or FALSE on failure.
+
+XMLWriter::endDTD XMLWriter::writeDTD
+
+vim:ft=help:

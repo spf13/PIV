@@ -3,8 +3,10 @@ files
 
   array get_included_files()~
 
-Returns an array of the names of all files that have been included using
-|include|, |include_once|, |require| or |require_once|.
+Gets the names of all files that have been included using |include|,
+|include_once|, |require| or |require_once|.
+
+Returns an array of the names of all files.
 
 The script originally called is considered an "included file," so it will be
 listed together with the files referenced by |include| and family.
@@ -12,12 +14,17 @@ listed together with the files referenced by |include| and family.
 Files that are included or required multiple times only show up once in the
 returned array.
 
-Files included using the auto_prepend_file configuration directive are not
-included in the returned array.
+Version Description 4.0.1 In PHP 4.0.1 and previous versions this function
+assumed that the required files ended in the extension .php; other extensions
+would not be returned. The array returned by |get_included_files| was an
+associative array and only listed files included by |include| and
+|include_once|.
 
-|get_included_files| example (abc.php)
+|get_included_files| example
 
 <?php >
+  // This file is abc.php
+  
   include 'test1.php';
   include_once 'test2.php';
   require 'test3.php';
@@ -30,7 +37,7 @@ included in the returned array.
   }
 ?>
 
-will generate the following output:
+The above example will output:
 
   abc.php
   test1.php
@@ -38,12 +45,11 @@ will generate the following output:
   test3.php
   test4.php
 
-In PHP 4.0.1pl2 and previous versions |get_included_files| assumed that the
-required files ended in the extension .php; other extensions would not be
-returned. The array returned by |get_included_files| was an associative array
-and only listed files included by |include| and |include_once|.
 
-See also |include|, |include_once|, |require|, |require_once|, and
-|get_required_files|.
+
+Files included using the auto_prepend_file configuration directive are not
+included in the returned array.
+
+|include| |include_once| |require| |require_once| |get_required_files|
 
 vim:ft=help:

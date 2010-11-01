@@ -13,7 +13,7 @@ linked against libmcrypt 2.4.x or 2.5.x.
 This example shows how to use this function when linked against libmcrypt
 2.4.x and 2.5.x. It is more useful to use the |mcrypt_enc_get_key_size|
 function as this uses the resource returned by |mcrypt_module_open|.
-|mcrypt_get_block_size| example
+|mcrypt_get_key_size| example
 
 <?php >
       echo mcrypt_get_key_size('tripledes', 'ecb');
@@ -22,7 +22,11 @@ function as this uses the resource returned by |mcrypt_module_open|.
   Prints:
   24
 
-See also: |mcrypt_get_block_size|, |mcrypt_end_get_key_size| and
+
+
+
+
+See also: |mcrypt_get_block_size|, |mcrypt_enc_get_key_size| and
 |mcrypt_encrypt|.
 
 vim:ft=help:

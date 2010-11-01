@@ -1,0 +1,25 @@
+radius_put_string -- Attaches a string attribute
+
+  bool radius_put_string(resource radius_handle, int type, string value)~
+
+This function is currently not documented; only its argument list is
+available.
+
+Returns TRUE on success or FALSE on failure.
+
+|radius_put_string| example
+
+<?php >
+  if (!radius_put_string($res, RADIUS_USER_NAME, 'billy')) {
+      echo 'RadiusError:' . radius_strerror($res). "\n<br />";
+      exit;
+  }
+?>
+
+
+
+
+
+|radius_put_int| |radius_put_vendor_int| |radius_put_vendor_string|
+
+vim:ft=help:

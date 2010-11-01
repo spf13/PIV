@@ -5,6 +5,11 @@ krsort -- Sort an array by key in reverse order
 Sorts an array by key in reverse order, maintaining key to data correlations.
 This is useful mainly for associative arrays.
 
+{array} The input array.
+
+{sort_flags} You may modify the behavior of the sort using the optional
+parameter {sort_flags}, for details see |sort|.
+
 Returns TRUE on success or FALSE on failure.
 
 |krsort| example
@@ -24,9 +29,8 @@ The above example will output:
   b = banana
   a = orange
 
-You may modify the behavior of the sort using the optional parameter
-{sort_flags}, for details see |sort|.
 
-See also |asort|, |arsort|, |ksort|, |sort|, |natsort|, and |rsort|.
+
+|arsort| |ksort| The comparison of array sorting functions
 
 vim:ft=help:

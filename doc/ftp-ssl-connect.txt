@@ -4,10 +4,10 @@ ftp_ssl_connect -- Opens an Secure SSL-FTP connection
 
 |ftp_ssl_connect| opens a SSL-FTP connection to the specified {host}.
 
-|ftp_ssl_connect| is only available if OpenSSL support is enabled into your
-version of PHP. If it's undefined and you've compiled FTP support then this
-is why. For Windows you must compile your own PHP binaries to support this
-function.
+|ftp_ssl_connect| is only available if both the ftp module and the OpenSSL
+support is built statically into php, this means that on Windows this function
+will be undefined in the official PHP builds. To make this function available
+on Windows you must compile your own PHP binaries.
 
 {host} The FTP server address. This parameter shouldn't have any trailing
 slashes and shouldn't be prefixed with ftp://.
@@ -20,6 +20,10 @@ operations. If omitted, the default value is 90 seconds. The timeout can be
 changed and queried at any time with |ftp_set_option| and |ftp_get_option|.
 
 Returns a SSL-FTP stream on success or FALSE on error.
+
+Version Description 5.2.2 The function was changed to return FALSE when it
+can't use an SSL connection, instead of fallbacking to a non-SSL one as
+previously.
 
 |ftp_ssl_connect| example
 
@@ -35,6 +39,10 @@ Returns a SSL-FTP stream on success or FALSE on error.
   // close the ssl connection
   ftp_close($conn_id);
 ?>
+
+
+
+
 
 |ftp_connect|
 

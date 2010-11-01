@@ -1,5 +1,4 @@
-stream_filter_register -- Register a stream filter implemented as a PHP class
-derived from php_user_filter
+stream_filter_register -- Register a user defined stream filter
 
   bool stream_filter_register(string filtername, string classname)~
 
@@ -7,35 +6,34 @@ derived from php_user_filter
 registered stream used with all the other filesystem functions (such as
 |fopen|, |fread| etc.).
 
-To implement a filter, you need to define a class as an extension of
-php_user_filter with a number of member functions as defined below. When
+{filtername} The filter name to be registered.
+
+{classname} To implement a filter, you need to define a class as an extension
+of php_user_filter with a number of member functions as defined below. When
 performing read/write operations on the stream to which your filter is
 attached, PHP will pass the data through your filter (and any other filters
-attached to that stream) so that the data may be modified as desired. You
-must implement the methods exactly as described below - doing otherwise will
-lead to undefined behaviour.
-
-|stream_filter_register| will return FALSE if the {filtername} is already
-defined.
+attached to that stream) so that the data may be modified as desired. You must
+implement the methods exactly as described below - doing otherwise will lead
+to undefined behaviour.
 
   int filter(string filtername, string classname, resource in, resource out, int consumed, bool closing)~
 
 This method is called whenever data is read from or written to the attached
 stream (such as with |fread| or |fwrite|). {in} is a resource pointing to a
-bucket brigade which contains one or more bucket objects containing data to
-be filtered. {out} is a resource pointing to a second bucket brigade into
-which your modified buckets should be placed. {consumed}, which must always
-be declared by reference, should be incremented by the length of the data
-which your filter reads in and alters. In most cases this means you will
-increment {consumed} by $bucket->datalen for each $bucket. If the stream is
-in the process of closing (and therefore this is the last pass through the
-filterchain), the {closing} parameter will be set to TRUE The filter method
+bucket brigade which contains one or more bucket objects containing data to be
+filtered. {out} is a resource pointing to a second bucket brigade into which
+your modified buckets should be placed. {consumed}, which must always be
+declared by reference, should be incremented by the length of the data which
+your filter reads in and alters. In most cases this means you will increment
+{consumed} by $bucket->datalen for each $bucket. If the stream is in the
+process of closing (and therefore this is the last pass through the
+filterchain), the {closing} parameter will be set to TRUE. The filter method
 must return one of three values upon completion. Return Value Meaning
 PSFS_PASS_ON Filter processed successfully with data available in the {out}
 bucket brigade. PSFS_FEED_ME Filter processed successfully, however no data
 was available to return. More data is required from the stream or prior
-filter. PSFS_ERR_FATAL (default) The filter experienced an unrecoverable
-error and cannot continue.
+filter. PSFS_ERR_FATAL (default) The filter experienced an unrecoverable error
+and cannot continue.
 
   bool onCreate(string filtername, string classname, resource in, resource out, int consumed, bool closing)~
 
@@ -51,23 +49,30 @@ Property Contents FilterClass->filtername A string containing the name the
 filter was instantiated with. Filters may be registered under multiple names
 or under wildcards. Use this property to determine which name was used.
 FilterClass->params The contents of the {params} parameter passed to
-|stream_filter_append| or |stream_filter_prepend|.
+|stream_filter_append| or |stream_filter_prepend|. FilterClass->stream The
+stream resource being filtered. Maybe available only during filter calls when
+the closing parameter is set to FALSE.
 
   void onClose(string filtername, string classname, resource in, resource out, int consumed, bool closing)~
 
 This method is called upon filter shutdown (typically, this is also during
 stream shutdown), and is executed after the flush method is called. If any
-resources were allocated or initialzed during onCreate this would be the time
-to destroy or dispose of them.
+resources were allocated or initialzed during onCreate() this would be the
+time to destroy or dispose of them.
 
-The example below implements a filter named strtoupper on the foo-bar.txt
-stream which will capitalize all letter characters written to/read from that
-stream. Filter for capitalizing characters on foo-bar.txt stream
+Returns TRUE on success or FALSE on failure.
+
+|stream_filter_register| will return FALSE if the {filtername} is already
+defined.
+
+Filter for capitalizing characters on foo-bar.txt stream The example below
+implements a filter named strtoupper on the foo-bar.txt stream which will
+capitalize all letter characters written to/read from that stream.
 
 <?php >
   /* Define our filter class */
   class strtoupper_filter extends php_user_filter {
-    function filter($in, $out, &amp;$consumed, $closing) 
+    function filter($in, $out, &amp;$consumed, $closing)
     {
       while ($bucket = stream_bucket_make_writeable($in)) {
         $bucket->data = strtoupper($bucket->data);
@@ -76,7 +81,7 @@ stream. Filter for capitalizing characters on foo-bar.txt stream
       }
       return PSFS_PASS_ON;
     }
-  } 
+  }
   
   /* Register our filter with PHP */
   stream_filter_register("strtoupper", "strtoupper_filter")
@@ -104,6 +109,8 @@ The above example will output:
   WORD - 2
   EASY AS 123
 
+
+
 Registering a generic filter class to match multiple filter names.
 
 <?php >
@@ -111,7 +118,7 @@ Registering a generic filter class to match multiple filter names.
   class string_filter extends php_user_filter {
     var $mode;
   
-    function filter($in, $out, &amp;$consumed, $closing) 
+    function filter($in, $out, &amp;$consumed, $closing)
     {
       while ($bucket = stream_bucket_make_writeable($in)) {
         if ($this->mode == 1) {
@@ -126,7 +133,7 @@ Registering a generic filter class to match multiple filter names.
       return PSFS_PASS_ON;
     }
   
-    function onCreate() 
+    function onCreate()
     {
       if ($this->filtername == 'str.toupper') {
         $this->mode = 1;
@@ -140,7 +147,7 @@ Registering a generic filter class to match multiple filter names.
   
       return true;
     }
-  } 
+  }
   
   /* Register our filter with PHP */
   stream_filter_register("str.*", "string_filter")
@@ -148,7 +155,7 @@ Registering a generic filter class to match multiple filter names.
   
   $fp = fopen("foo-bar.txt", "w");
   
-  /* Attach the registered filter to the stream just opened 
+  /* Attach the registered filter to the stream just opened
      We could alternately bind to str.tolower here */
   stream_filter_append($fp, "str.toupper");
   
@@ -169,7 +176,8 @@ The above example will output:
   WORD - 2
   EASY AS 123
 
-See also |stream_wrapper_register|, |stream_filter_prepend|, and
-|stream_filter_append|.
+
+
+|stream_wrapper_register| |stream_filter_append| |stream_filter_prepend|
 
 vim:ft=help:

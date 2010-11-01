@@ -10,8 +10,8 @@ Gets a record from a database as an indexed array.
 {record_number} The index of the record.
 
 An indexed array with the record. This array will also include an associative
-key named deleted which is set to 1 if the record has been marked for
-deletion (see |dbase_delete_record|).
+key named deleted which is set to 1 if the record has been marked for deletion
+(see |dbase_delete_record|).
 
 Each field is converted to the appropriate PHP type, except: Dates are left as
 strings.

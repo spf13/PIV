@@ -1,23 +1,42 @@
 print_r -- Prints human-readable information about a variable
 
-  bool print_r(mixed expression [, bool return])~
-
-The {return} parameter was added in PHP 4.3.0
+  mixed print_r(mixed expression [, bool return])~
 
 |print_r| displays information about a variable in a way that's readable by
-humans. If given a string, integer or float, the value itself will be
-printed. If given an array, values will be presented in a format that shows
-keys and elements. Similar notation is used for objects. |print_r| and
-|var_export| will also show protected and private properties of objects with
-PHP 5, on the contrary to |var_dump|.
+humans.
+
+|print_r|, |var_dump| and |var_export| will also show protected and private
+properties of objects with PHP 5. Static class members will not be shown.
 
 Remember that |print_r| will move the array pointer to the end. Use |reset| to
 bring it back to beginning.
 
+{expression} The expression to be printed.
+
+{return} If you would like to capture the output of |print_r|, use the
+{return} parameter. If this parameter is set to TRUE, |print_r| will return
+its output, instead of printing it (which it does by default).
+
+If given a string, integer or float, the value itself will be printed. If
+given an array, values will be presented in a format that shows keys and
+elements. Similar notation is used for objects.
+
+This function uses internal output buffering with this parameter so it can not
+be used inside an |ob_start| callback function.
+
+Version Description 4.3.0 The {return} parameter was added. If you need to
+capture the output of |print_r| with an older version of PHP prior, use the
+output-control functions. 4.0.4 Prior to PHP 4.0.4, |print_r| will continue
+forever if given an array or object that contains a direct or indirect
+reference to itself. An example is print_r($GLOBALS) because $GLOBALS is
+itself a global variable that contains a reference to itself.
+
+|print_r| example
+
   <pre>
 <?php >
-      $a = array ('a' => 'apple', 'b' => 'banana', 'c' => array ('x', 'y', 'z'));
-      print_r ($a);
+  $a = array ('a' => 'apple', 'b' => 'banana', 'c' => array ('x', 'y', 'z'));
+  print_r ($a);
 ?>
   </pre>
 
@@ -37,25 +56,19 @@ The above example will output:
   )
   </pre>
 
-If you would like to capture the output of |print_r|, use the {return}
-parameter. If this parameter is set to TRUE, |print_r| will return its
-output, instead of printing it (which it does by default).
+
 
 {return} parameter example
 
 <?php >
-      $b = array ('m' => 'monkey', 'foo' => 'bar', 'x' => array ('x', 'y', 'z'));
-      $results = print_r($b, true); //$results now contains output from print_r
+  $b = array ('m' => 'monkey', 'foo' => 'bar', 'x' => array ('x', 'y', 'z'));
+  $results = print_r($b, true); // $results now contains output from print_r
 ?>
 
-If you need to capture the output of |print_r| with a version of PHP prior to
-4.3.0, use the output-control functions.
 
-Prior to PHP 4.0.4, |print_r| will continue forever if given an array or
-object that contains a direct or indirect reference to itself. An example is
-print_r($GLOBALS) because $GLOBALS is itself a global variable that contains
-a reference to itself.
 
-See also |ob_start|, |var_dump| and |var_export|.
+
+
+|ob_start| |var_dump| |var_export|
 
 vim:ft=help:

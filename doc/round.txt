@@ -1,9 +1,23 @@
 round -- Rounds a float
 
-  float round(float val [, int precision])~
+  float round(float val [, int precision [, int mode]])~
 
 Returns the rounded value of {val} to specified {precision} (number of digits
 after the decimal point). {precision} can also be negative or zero (default).
+
+PHP doesn't handle strings like "12,300.2" correctly by default. See
+converting from strings.
+
+The {precision} parameter was introduced in PHP 4.
+
+{val} The value to round
+
+{precision} The optional number of decimal digits to round to, defaults to 0
+
+{mode} One of PHP_ROUND_HALF_UP, PHP_ROUND_HALF_DOWN, PHP_ROUND_HALF_EVEN, or
+PHP_ROUND_HALF_ODD.
+
+The rounded value
 
 |round| examples
 
@@ -18,11 +32,12 @@ after the decimal point). {precision} can also be negative or zero (default).
   echo round(5.055, 2);    // 5.06
 ?>
 
-PHP doesn't handle strings like "12,300.2" correctly by default. See
-converting from strings.
 
-The {precision} parameter was introduced in PHP 4.
 
-See also: |ceil|, |floor|, and |number_format|.
+
+
+Version Description 5.3.0 The {mode} parameter was introduced.
+
+|ceil| |floor| |number_format|
 
 vim:ft=help:

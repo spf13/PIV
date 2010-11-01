@@ -4,6 +4,10 @@ sybase_num_rows -- Get number of rows in a result set
 
 |sybase_num_rows| returns the number of rows in a result set.
 
-See also |sybase_num_fields|, |sybase_query| and |sybase_fetch_row|.
+{result}
+
+Returns the number of rows as an integer.
+
+|sybase_num_fields| |sybase_query| |sybase_fetch_row|
 
 vim:ft=help:

@@ -1,0 +1,17 @@
+SAMMessage->body -- The body of the message.
+
+The "body" property contains the actual body of the message. It may not always
+be set.
+
+Setting a text string into the body of a message
+
+<?php >
+  $msg = new SAMMessage();
+  $msg->body = 'This is a simple message';
+?>
+
+
+
+
+
+vim:ft=help:

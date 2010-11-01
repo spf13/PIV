@@ -6,6 +6,8 @@ option
 Restores the include_path configuration option back to its original master
 value as set in php.ini
 
+No value is returned.
+
 |restore_include_path| example
 
 <?php >
@@ -24,6 +26,10 @@ value as set in php.ini
   echo get_include_path();  // .:/usr/local/lib/php
 ?>
 
-See also |ini_restore|, |set_include_path|, |get_include_path|, and |include|.
+
+
+
+
+|ini_restore| |get_include_path| |set_include_path| |include|
 
 vim:ft=help:

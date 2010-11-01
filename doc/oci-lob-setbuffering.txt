@@ -1,0 +1,19 @@
+OCI-Lob->setBuffering -- Changes current state of buffering for the large
+object
+
+  bool setBuffering(bool on_off)~
+
+Sets the buffering for the large object, depending on the value of the
+{on_off} parameter.
+
+Use of this function may provide performance improvements by buffering small
+reads and writes of LOBs by reducing the number of network round-trips and LOB
+versions. |oci_lob_flush| should be used to flush buffers, when you have
+finished working with the large object.
+
+{on_off} TRUE for on and FALSE for off.
+
+Returns TRUE on success or FALSE on failure. Repeated calls to this method
+with the same flag will return TRUE.
+
+vim:ft=help:

@@ -1,0 +1,12 @@
+m_connect -- Establish the connection to MCVE
+
+  int m_connect(resource conn)~
+
+This function is currently not documented; only its argument list is
+available.
+
+{ conn}An MCVE_CONN resource returned by |m_initengine|.
+
+
+
+vim:ft=help:

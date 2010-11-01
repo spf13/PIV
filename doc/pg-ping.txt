@@ -24,6 +24,10 @@ Returns TRUE on success or FALSE on failure.
     die("Connection is broken\n");
 ?>
 
+
+
+
+
 |pg_connection_status| |pg_connection_reset|
 
 vim:ft=help:

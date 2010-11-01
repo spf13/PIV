@@ -1,0 +1,94 @@
+maxdb->real_escape_string -- Escapes special characters in a string for use in
+a SQL statement, taking into account the current charset of the connection
+
+Procedural style:
+
+  string maxdb_real_escape_string(resource link, string escapestr)~
+
+Object oriented style (method):
+
+  string real_escape_sring(resource link, string escapestr, string escapestr)~
+
+This function is used to create a legal SQL string that you can use in a SQL
+statement. The string escapestr is encoded to an escaped SQL string, taking
+into account the current character set of the connection.
+
+Characters encoded are ', ".
+
+Returns an escaped string.
+
+Object oriented style
+
+<?php >
+  $maxdb = new maxdb("localhost", "MONA", "RED", "DEMODB");
+  
+  /* check connection */
+  if (maxdb_connect_errno()) {
+     printf("Connect failed: %s\n", maxdb_connect_error());
+     exit();
+  }
+  
+  $maxdb->query("CREATE TABLE temp.mycity LIKE hotel.city");
+  
+  $city = "'s Hertogenbosch";
+  
+  /* this query will fail, cause we didn't escape $city */
+  if (!$maxdb->query("INSERT into temp.mycity VALUES ('11111','$city','NY')")) {
+     printf("Error: %s\n", $maxdb->sqlstate);
+  }
+  
+  $city = $maxdb->real_escape_string($city);
+  
+  /* this query with escaped $city will work */
+  if ($maxdb->query("INSERT into temp.mycity VALUES ('22222','$city','NY')")) {
+     printf("%d Row inserted.\n", $maxdb->affected_rows);
+  }
+  
+  $maxdb->close();
+?>
+
+
+
+Procedural style
+
+<?php >
+  $link = maxdb_connect("localhost", "MONA", "RED", "DEMODB");
+  
+  /* check connection */
+  if (maxdb_connect_errno()) {
+     printf("Connect failed: %s\n", maxdb_connect_error());
+     exit();
+  }
+  
+  maxdb_query($link, "CREATE TABLE temp.mycity LIKE hotel.city");
+  
+  $city = "'s Hertogenbosch";
+  
+  /* this query will fail, cause we didn't escape $city */
+  if (!maxdb_query($link, "INSERT into temp.mycity VALUES ('11111','$city','NY')")) {
+     printf("Error: %s\n", maxdb_sqlstate($link));
+  }
+  
+  $city = maxdb_real_escape_string($link, $city);
+  
+  /* this query with escaped $city will work */
+  if (maxdb_query($link, "INSERT into temp.mycity VALUES ('22222','$city','NY')")) {
+     printf("%d Row inserted.\n", maxdb_affected_rows($link));
+  }
+  
+  maxdb_close($link);
+?>
+
+
+
+The above example will output something similar to:
+
+
+
+  Warning: maxdb_query(): -5016 POS(43) Missing delimiter: ) <...>
+  Error: 42000
+  1 Row inserted.
+
+|maxdb_character_set_name|
+
+vim:ft=help:

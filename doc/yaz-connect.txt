@@ -42,12 +42,23 @@ support piggyback or they ignore element set names. For those, piggyback
 should be disabled.
 
 charset A string that specifies character set to be used in Z39.50 language
-and character set negotiation. Use strings such as: ISO-8859-1, UTF-8,
-UTF-16.
+and character set negotiation. Use strings such as: ISO-8859-1, UTF-8, UTF-16.
 
 Most Z39.50 servers do not support this feature (and thus, this is ignored).
 Many servers use the ISO-8859-1 encoding for queries and messages.
 MARC21/USMARC records are not affected by this setting.
+
+preferredMessageSize An integer that specifies the maximum byte size of all
+records to be returned by a target during retrieval. See the Z39.50 standard
+for more information.
+
+This option is supported in PECL YAZ 1.0.5 or later.
+
+maximumRecordSize An integer that specifies the maximum byte size of a single
+record to be returned by a target during retrieval. This entity is referred to
+as Exceptional-record-size in the Z39.50 standard.
+
+This option is supported in PECL YAZ 1.0.5 or later.
 
 A connection resource on success, FALSE on error.
 

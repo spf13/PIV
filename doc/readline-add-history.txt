@@ -4,4 +4,8 @@ readline_add_history -- Adds a line to the history
 
 This function adds a line to the command line history.
 
+{line} The line to be added in the history.
+
+Returns TRUE on success or FALSE on failure.
+
 vim:ft=help:

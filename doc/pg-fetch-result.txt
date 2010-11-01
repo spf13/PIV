@@ -7,6 +7,8 @@ pg_fetch_result -- Returns values from a result resource
 |pg_fetch_result| returns the value of a particular row and field (column) in
 a PostgreSQL result resource.
 
+This function used to be called |pg_result|.
+
 {result} PostgreSQL query result resource, returned by |pg_query|,
 |pg_query_params| or |pg_execute| (among others).
 
@@ -14,7 +16,7 @@ a PostgreSQL result resource.
 omitted, next row is fetched.
 
 {field} A string representing the name of the field (column) to fetch,
-otherwise and int representing the field number to fetch. Fields are numbered
+otherwise an int representing the field number to fetch. Fields are numbered
 from 0 upwards.
 
 Boolean is returned as "t" or "f". All other types, including arrays are
@@ -39,6 +41,8 @@ other error.
 The above example will output:
 
   First field in the second row is: 2
+
+
 
 |pg_query| |pg_fetch_array|
 

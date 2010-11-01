@@ -1,25 +1,31 @@
 debug_backtrace -- Generates a backtrace
 
-  array debug_backtrace()~
+  array debug_backtrace([bool provide_object])~
 
 |debug_backtrace| generates a PHP backtrace.
+
+{provide_object} Whether or not to populate the "object" index. Defaults to
+TRUE.
 
 Returns an associative array. The possible returned elements are as follows:
 
 Possible returned elements from |debug_backtrace| Name Type Description
-function string The current function name. See also __FUNCTION__. line
-integer The current line number. See also __LINE__. file string The current
-file name. See also __FILE__. class string The current class name. See also
-__CLASS__ type string The current call type. If a method call, "->" is
-returned. If a static method call, "::" is returned. If a function call,
-nothing is returned. args array If inside a function, this lists the
-functions arguments. If inside an included file, this lists the included file
-name(s).
+function string The current function name. See also __FUNCTION__. line integer
+The current line number. See also __LINE__. file string The current file name.
+See also __FILE__. class string The current class name. See also __CLASS__
+object object The current object. type string The current call type. If a
+method call, "->" is returned. If a static method call, "::" is returned. If a
+function call, nothing is returned. args array If inside a function, this
+lists the functions arguments. If inside an included file, this lists the
+included file name(s).
+
+Version Description 5.2.5 Added the optional parameter {provide_object}. 5.1.1
+Added the current object as a possible return element.
 
 |debug_backtrace| example
 
 <?php >
-  // filename: a.php
+  // filename: /tmp/a.php
   
   function a_test($str)
   {
@@ -30,7 +36,7 @@ name(s).
   a_test('friend');
 ?>
 <?php >
-  // filename: b.php
+  // filename: /tmp/b.php
   include_once '/tmp/a.php';
 ?>
 
@@ -59,6 +65,8 @@ Results similar to the following when executing /tmp/b.php:
       ["function"] => string(12) "include_once"
     }
   }
+
+
 
 |trigger_error| |debug_print_backtrace|
 

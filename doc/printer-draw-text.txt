@@ -2,8 +2,17 @@ printer_draw_text -- Draw text
 
   void printer_draw_text(resource printer_handle, string text, int x, int y)~
 
-The function simply draws {text} at position {x}, {y} using the selected font.
-{printer_handle} must be a valid handle to a printer.
+The function draws {text} at position {x}, {y} using the selected font.
+
+{printer_handle} {printer_handle} must be a valid handle to a printer.
+
+{text} The text to be written.
+
+{x} {x} is the x coordinate of the position.
+
+{y} {y} is the y coordinate of the position.
+
+No value is returned.
 
 |printer_draw_text| example
 
@@ -21,5 +30,9 @@ The function simply draws {text} at position {x}, {y} using the selected font.
   printer_end_doc($handle);
   printer_close($handle);
 ?>
+
+
+
+
 
 vim:ft=help:

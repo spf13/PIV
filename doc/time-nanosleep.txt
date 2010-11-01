@@ -4,8 +4,9 @@ time_nanosleep -- Delay for a number of seconds and nanoseconds
 
 Delays program execution for the given number of {seconds} and {nanoseconds}.
 
-{seconds} must be a positive integer, and {nanoseconds} must be a positive
-integer less than 1 billion.
+{seconds} Must be a positive integer.
+
+{nanoseconds} Must be a positive integer less than 1 billion.
 
 Returns TRUE on success or FALSE on failure.
 
@@ -15,7 +16,7 @@ delay
 
 nanoseconds - number of nanoseconds remaining in the delay
 
-|sleep|, |usleep|, |set_time_limit|
+Version Description 5.3.0 This function is now available on Windows platforms.
 
 |time_nanosleep| example
 
@@ -34,7 +35,7 @@ nanoseconds - number of nanoseconds remaining in the delay
   $nano = time_nanosleep(2, 100000);
   
   if ($nano === true) {
-      echo "Slept for 2 seconds, 100 milliseconds.\n";
+      echo "Slept for 2 seconds, 100 microseconds.\n";
   } elseif ($nano === false) {
       echo "Sleeping failed.\n";
   } elseif (is_array($nano)) {
@@ -45,6 +46,10 @@ nanoseconds - number of nanoseconds remaining in the delay
   }
 ?>
 
-This function is not implemented on Windows platforms.
+
+
+
+
+|sleep| |usleep| |time_sleep_until| |set_time_limit|
 
 vim:ft=help:

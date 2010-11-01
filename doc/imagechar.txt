@@ -4,8 +4,24 @@ imagechar -- Draw a character horizontally
 
 |imagechar| draws the first character of {c} in the image identified by
 {image} with its upper-left at {x},{y} (top left is 0, 0) with the color
-{color}. If {font} is 1, 2, 3, 4 or 5, a built-in font is used (with higher
-numbers corresponding to larger fonts).
+{color}.
+
+{ image}An image resource, returned by one of the image creation functions,
+such as |imagecreatetruecolor|.
+
+{ font}Can be 1, 2, 3, 4, 5 for built-in fonts in latin2 encoding (where
+higher numbers corresponding to larger fonts) or any of your own font
+identifiers registered with |imageloadfont|.
+
+{x} x-coordinate of the start.
+
+{y} y-coordinate of the start.
+
+{c} The character to draw.
+
+{color} A color identifier created with |imagecolorallocate|.
+
+Returns TRUE on success or FALSE on failure.
 
 |imagechar| example
 
@@ -24,6 +40,10 @@ numbers corresponding to larger fonts).
   imagepng($im);
 ?>
 
-See also |imagecharup| and |imageloadfont|.
+The above example will output something similar to:
+
+
+
+|imagecharup| |imageloadfont|
 
 vim:ft=help:

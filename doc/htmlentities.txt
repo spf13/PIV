@@ -1,26 +1,36 @@
 htmlentities -- Convert all applicable characters to HTML entities
 
-  string htmlentities(string string [, int quote_style [, string charset]])~
+  string htmlentities(string string [, int quote_style [, string charset [, bool double_encode]]])~
 
 This function is identical to |htmlspecialchars| in all ways, except with
 |htmlentities|, all characters which have HTML character entity equivalents
 are translated into these entities.
 
-Like |htmlspecialchars|, the optional second {quote_style} parameter lets you
-define what will be done with 'single' and "double" quotes. It takes on one
-of three constants with the default being ENT_COMPAT: Available {quote_style}
-constants Constant Name Description ENT_COMPAT Will convert double-quotes and
-leave single-quotes alone. ENT_QUOTES Will convert both double and single
-quotes. ENT_NOQUOTES Will leave both double and single quotes unconverted.
-
-Support for the optional {quote} parameter was added in PHP 4.0.3.
-
-Like |htmlspecialchars|, it takes an optional third argument {charset} which
-defines character set used in conversion. Support for this argument was added
-in PHP 4.1.0. Presently, the ISO-8859-1 character set is used as the default.
-
 If you're wanting to decode instead (the reverse) you can use
 |html_entity_decode|.
+
+{string} The input string.
+
+{quote_style} Like |htmlspecialchars|, the optional second {quote_style}
+parameter lets you define what will be done with 'single' and "double" quotes.
+It takes on one of three constants with the default being ENT_COMPAT:
+Available {quote_style} constants Constant Name Description ENT_COMPAT Will
+convert double-quotes and leave single-quotes alone. ENT_QUOTES Will convert
+both double and single quotes. ENT_NOQUOTES Will leave both double and single
+quotes unconverted.
+
+{charset} Like |htmlspecialchars|, it takes an optional third argument
+{charset} which defines character set used in conversion. Presently, the
+ISO-8859-1 character set is used as the default.
+
+&reference.strings.charsets; {double_encode} When {double_encode} is turned
+off PHP will not encode existing html entities. The default is to convert
+everything.
+
+Returns the encoded string.
+
+Version Description 5.2.3 The {double_encode} parameter was added. 4.1.0 The
+{charset} parameter was added. 4.0.3 The {quote_style} parameter was added.
 
 A |htmlentities| example
 
@@ -34,7 +44,11 @@ A |htmlentities| example
   echo htmlentities($str, ENT_QUOTES);
 ?>
 
-See also |html_entity_decode|, |get_html_translation_table|,
-|htmlspecialchars|, |nl2br|, and |urlencode|.
+
+
+
+
+|html_entity_decode| |get_html_translation_table| |htmlspecialchars| |nl2br|
+|urlencode|
 
 vim:ft=help:

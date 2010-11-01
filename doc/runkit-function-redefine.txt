@@ -1,0 +1,39 @@
+runkit_function_redefine -- Replace a function definition with a new
+implementation
+
+  bool runkit_function_redefine(string funcname, string arglist, string code)~
+
+By default, only userspace functions may be removed, renamed, or modified. In
+order to override internal functions, you must enable the
+runkit.internal_override setting in php.ini.
+
+{funcname} Name of function to redefine
+
+{arglist} New list of arguments to be accepted by function
+
+{code} New code implementation
+
+Returns TRUE on success or FALSE on failure.
+
+A |runkit_function_redefine| example
+
+<?php >
+  function testme() {
+    echo "Original Testme Implementation\n";
+  }
+  testme();
+  runkit_function_redefine('testme','','echo "New Testme Implementation\n";');
+  testme();
+?>
+
+The above example will output:
+
+  Original Testme Implementation
+  New Testme Implementation
+
+
+
+|runkit_function_add| |runkit_function_copy| |runkit_function_rename|
+|runkit_function_remove|
+
+vim:ft=help:

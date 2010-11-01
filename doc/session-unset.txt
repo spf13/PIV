@@ -4,6 +4,8 @@ session_unset -- Free all session variables
 
 The |session_unset| function frees all session variables currently registered.
 
+No value is returned.
+
 If $_SESSION (or $HTTP_SESSION_VARS for PHP 4.0.6 or less) is used, use
 |unset| to unregister a session variable, i.e. unset ($_SESSION['varname']);.
 

@@ -4,7 +4,13 @@ pspell_config_ignore -- Ignore words less than N characters long
 
 |pspell_config_ignore| should be used on a config before calling
 |pspell_new_config|. This function allows short words to be skipped by the
-spell checker. Words less than {n} characters will be skipped.
+spell checker.
+
+{dictionary_link}
+
+{n} Words less than {n} characters will be skipped.
+
+Returns TRUE on success or FALSE on failure.
 
 |pspell_config_ignore|
 
@@ -14,5 +20,9 @@ spell checker. Words less than {n} characters will be skipped.
   $pspell_link = pspell_new_config($pspell_config);
   pspell_check($pspell_link, "abcd");    //will not result in an error
 ?>
+
+
+
+
 
 vim:ft=help:

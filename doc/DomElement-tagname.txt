@@ -1,4 +1,4 @@
-DomElement->tagname() -- Returns the name of the current element
+DomElement->tagname -- Returns the name of the current element
 
   string tagname()~
 
@@ -22,6 +22,10 @@ Getting the node name
   echo $root->tagname;     // chapter
   echo $root->node_name(); // chapter
 ?>
+
+
+
+
 
 Use the tagName property of the DOMElement object.
 

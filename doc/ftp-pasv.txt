@@ -6,6 +6,9 @@ ftp_pasv -- Turns passive mode on or off
 initiated by the client, rather than by the server. It may be needed if the
 client is behind firewall.
 
+Please note that |ftp_pasv| can only be called after a successfull login or
+otherwise it will fail.
+
 {ftp_stream} The link identifier of the FTP connection.
 
 {pasv} If TRUE, the passive mode is turned on, else it's turned off.
@@ -37,5 +40,9 @@ Returns TRUE on success or FALSE on failure.
   // close the connection
   ftp_close($conn_id);
 ?>
+
+
+
+
 
 vim:ft=help:

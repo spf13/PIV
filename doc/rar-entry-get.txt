@@ -4,7 +4,13 @@ rar_entry_get -- Get entry object from the Rar archive
 
 Get entry object from the Rar archive.
 
-|Rar::| example
+{rar_file} A Rar file resource, opened with |rar_open|.
+
+{entry_name} Path to the entry within the Rar archive.
+
+|rar_entry_get| returns entry object or FALSE on error.
+
+|rar_entry_get| example
 
 <?php >
   $rar_file = rar_open('example.rar') or die("Failed to open Rar archive");
@@ -14,6 +20,8 @@ Get entry object from the Rar archive.
   print_r($entry);
 ?>
 
-|rar_get_entry| returns entry object or FALSE on error.
+
+
+
 
 vim:ft=help:

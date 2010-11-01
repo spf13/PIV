@@ -1,8 +1,8 @@
-pdf_restore -- Restores formerly saved environment
+PDF_restore -- Restore graphics state
 
-  bool pdf_restore(resource pdfdoc)~
+  bool PDF_restore(resource p)~
 
-Restore the most recently saved graphics state. Returns TRUE on success or
+Restores the most recently saved graphics state. Returns TRUE on success or
 FALSE on failure.
 
 vim:ft=help:

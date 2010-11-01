@@ -1,13 +1,16 @@
-aggregate_info -- Returns an associative array of the methods and properties
-from each class that has been aggregated to the object
+aggregate_info -- Gets aggregation information for a given object
 
   array aggregate_info(object object)~
 
-Will return the aggregation information for a particular object as an
-associative array of arrays of methods and properties. The key for the main
-array is the name of the aggregated class.
+Gets the aggregation information for the given {object}.
 
-For example the code below Using |aggregate_info|
+{object}
+
+Returns the aggregation information as an associative array of arrays of
+methods and properties. The key for the main array is the name of the
+aggregated class.
+
+Using |aggregate_info|
 
 <?php >
   class Slicer {
@@ -65,7 +68,7 @@ For example the code below Using |aggregate_info|
   print_r(aggregate_info($obj));
 ?>
 
-Will produce the output
+The above example will output:
 
   Array
   (
@@ -90,9 +93,8 @@ As you can see, all properties and methods of the Dicer class have been
 aggregated into our new object, with the exception of the class constructor
 and the method _secret_super_dicing
 
-See also |aggregate|, |aggregate_methods|, |aggregate_methods_by_list|,
-|aggregate_methods_by_regexp|, |aggregate_properties|,
-|aggregate_properties_by_list|, |aggregate_properties_by_regexp|,
-|deaggregate|
+|aggregate| |aggregate_methods| |aggregate_methods_by_list|
+|aggregate_methods_by_regexp| |aggregate_properties|
+|aggregate_properties_by_list| |aggregate_properties_by_regexp| |deaggregate|
 
 vim:ft=help:

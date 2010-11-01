@@ -3,18 +3,27 @@ array
 
   array oci_fetch_assoc(resource statement)~
 
-|oci_fetch_assoc| returns the next row from the result data as an associative
-array (identical to |oci_fetch_array| call with OCI_ASSOC flag).
+Returns the next row from the result data as an associative array.
 
-This function sets NULL fields to PHP NULL value.
+Calling |oci_fetch_assoc| is identical to calling |oci_fetch_array| with
+OCI_ASSOC.
 
-Subsequent call to |oci_fetch_assoc| will return next row or FALSE if there is
-no more rows.
+A subsequent call to |oci_fetch_assoc| will return the next row or FALSE if
+there are no more rows.
 
-Don't forget, that Oracle returns all field names in uppercase and associative
-indices in the result array will be uppercased too.
+For details on the data type mapping performed by the oci8 driver, see the
+datatypes supported by the driver
 
-See also |oci_fetch_array|, |oci_fetch_object|, |oci_fetch_row| and
-|oci_fetch_all|.
+{statement} A valid OCI statement identifier.
+
+Returns an associative array, or FALSE if there are no more rows in the
+{statement}.
+
+This function sets NULL fields to the PHP NULL value.
+
+Oracle returns all field names in uppercase and associative indices in the
+result array will be uppercased too.
+
+|oci_fetch_array| |oci_fetch_object| |oci_fetch_row| |oci_fetch_all|
 
 vim:ft=help:

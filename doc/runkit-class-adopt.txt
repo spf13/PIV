@@ -1,0 +1,36 @@
+runkit_class_adopt -- Convert a base class to an inherited class, add
+ancestral methods when appropriate
+
+  bool runkit_class_adopt(string classname, string parentname)~
+
+{classname} Name of class to be adopted
+
+{parentname} Parent class which child class is extending
+
+Returns TRUE on success or FALSE on failure.
+
+A |runkit_class_adopt| example
+
+<?php >
+  class myParent {
+    function parentFunc() {
+      echo "Parent Function Output\n";
+    }
+  }
+  
+  class myChild {
+  }
+  
+  runkit_class_adopt('myChild','myParent');
+  myChild::parentFunc();
+?>
+
+The above example will output:
+
+  Parent Function Output
+
+
+
+|runkit_class_emancipate|
+
+vim:ft=help:

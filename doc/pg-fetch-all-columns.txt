@@ -6,7 +6,7 @@ array
 |pg_fetch_all_columns| returns an array that contains all rows (records) in a
 particular column of the result resource.
 
-This function sets NULL fields to PHP NULL value.
+This function sets NULL fields to the PHP NULL value.
 
 {result} PostgreSQL query result resource, returned by |pg_query|,
 |pg_query_params| or |pg_execute| (among others).
@@ -39,6 +39,10 @@ result, or on any other error.
   
   var_dump($arr);
 ?>
+
+
+
+
 
 |pg_fetch_all|
 

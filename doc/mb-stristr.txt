@@ -1,0 +1,26 @@
+mb_stristr -- Finds first occurrence of a string within another, case
+insensitive
+
+  string mb_stristr(string haystack, string needle [, bool part [, string encoding]])~
+
+|mb_stristr| finds the first occurrence of {needle} in {haystack} and returns
+the portion of {haystack}. Unlike |mb_strstr|, |mb_stristr| is
+case-insensitive. If {needle} is not found, it returns FALSE.
+
+{haystack} The string from which to get the first occurrence of {needle}
+
+{needle} The string to find in {haystack}
+
+{part} Determines which portion of {haystack} this function returns. If set to
+TRUE, it returns all of {haystack} from the beginning to the first occurrence
+of {needle}. If set to FALSE, it returns all of {haystack} from the first
+occurrence of {needle} to the end, Default value is FALSE.
+
+{encoding} Character encoding name to use. If it is omitted, internal
+character encoding is used.
+
+Returns the portion of {haystack}, or FALSE if {needle} is not found.
+
+|stristr| |strstr| |mb_strstr|
+
+vim:ft=help:

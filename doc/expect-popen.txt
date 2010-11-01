@@ -1,0 +1,30 @@
+expect_popen -- Execute command via Bourne shell, and open the PTY stream to
+the process
+
+  resource expect_popen(string command)~
+
+Execute command via Bourne shell, and open the PTY stream to the process.
+
+{command} Command to execute.
+
+Returns an open PTY stream to the process'es stdio, stdout and stderr.
+
+On failure this function returns FALSE.
+
+|expect_popen| example
+
+<?php >
+  // Login to the PHP.net CVS repository:
+  $stream = expect_popen ("cvs -d :pserver:anonymous@cvs.php.net:/repository login");
+  sleep (3);
+  fwrite ($stream, "phpfi\n");
+  fclose ($stream);
+?>
+
+
+
+
+
+|popen|
+
+vim:ft=help:

@@ -1,0 +1,15 @@
+stats_rand_gen_f -- Generates a random deviate
+
+  float stats_rand_gen_f(float dfn, float dfd)~
+
+Generates a random deviate from the F (variance ratio) distribution with "dfn"
+degrees of freedom in the numerator and "dfd" degrees of freedom in the
+denominator. Method : directly generates ratio of chisquare variates.
+
+{dfn}
+
+{dfd}
+
+
+
+vim:ft=help:

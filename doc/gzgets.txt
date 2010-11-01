@@ -3,8 +3,8 @@ gzgets -- Get line from file pointer
   string gzgets(resource zp, int length)~
 
 Gets a (uncompressed) string of up to length - 1 bytes read from the given
-file pointer. Reading ends when length - 1 bytes have been read, on a
-newline, or on EOF (whichever comes first).
+file pointer. Reading ends when length - 1 bytes have been read, on a newline,
+or on EOF (whichever comes first).
 
 {zp} The gz-file pointer. It must be valid, and must point to a file
 successfully opened by |gzopen|.
@@ -21,8 +21,12 @@ The uncompressed string, or FALSE on error.
      $buffer = gzgets($handle, 4096);
      echo $buffer;
   }
-  gzlose($handle);
+  gzclose($handle);
 ?>
+
+
+
+
 
 |gzopen| |gzgetc| |gzwrite|
 

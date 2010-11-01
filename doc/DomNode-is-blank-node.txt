@@ -2,7 +2,9 @@ DomNode->is_blank_node -- Checks if node is blank
 
   bool DomNode->is_blank_node()~
 
-This function is currently not documented; only the argument list is
+This function is currently not documented; only its argument list is
 available.
+
+
 
 vim:ft=help:

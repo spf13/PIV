@@ -1,18 +1,17 @@
 imagecreatefromstring -- Create a new image from the image stream in the
 string
 
-  resource imagecreatefromstring(string image)~
+  resource imagecreatefromstring(string data)~
 
 |imagecreatefromstring| returns an image identifier representing the image
-obtained from the given string. These types will be automatically detected if
+obtained from the given {data}. These types will be automatically detected if
 your build of PHP supports them: JPEG, PNG, GIF, WBMP, and GD2.
+
+{image} A string containing the image data.
 
 An image resource will be returned on success. FALSE is returned if the image
 type is unsupported, the data is not in a recognised format, or the image is
 corrupt and cannot be loaded.
-
-|imagecreatefromjpeg|, |imagecreatefrompng|, |imagecreatefromgif| and
-|imagecreate|
 
 |imagecreatefromstring| example
 
@@ -27,10 +26,18 @@ corrupt and cannot be loaded.
   if ($im !== false) {
       header('Content-Type: image/png');
       imagepng($im);
+      imagedestroy($im);
   }
   else {
-      echo 'An error occured.';
+      echo 'An error occurred.';
   }
 ?>
+
+The above example will output something similar to:
+
+
+
+|imagecreatefromjpeg| |imagecreatefrompng| |imagecreatefromgif|
+|imagecreatetruecolor|
 
 vim:ft=help:

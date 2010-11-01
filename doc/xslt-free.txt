@@ -4,6 +4,10 @@ xslt_free -- Free XSLT processor
 
 Free the XSLT processor identified by the given handle.
 
+{xh} The XSLT processor link identifier, created with |xslt_create|.
+
+No value is returned.
+
 |xslt_create|
 
 vim:ft=help:

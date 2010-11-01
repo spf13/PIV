@@ -1,7 +1,10 @@
-pdf_get_pdi_parameter -- Get some PDI string parameters
+PDF_get_pdi_parameter -- Get PDI string parameter [deprecated]
 
-  string pdf_get_pdi_parameter(resource pdfdoc, string key, int document, int page, int index)~
+  string PDF_get_pdi_parameter(resource p, string key, int doc, int page, int reserved)~
 
-Get the contents of some PDI {document} parameter with string type.
+Gets the contents of a PDI document parameter with string type.
+
+This function is deprecated since PDFlib version 7, use |PDF_pcos_get_string|
+instead.
 
 vim:ft=help:

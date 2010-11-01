@@ -1,0 +1,18 @@
+SDO_DataObject::getSequence -- Get the sequence for a data object
+
+  SDO_Sequence SDO_DataObject::getSequence()~
+
+This function is EXPERIMENTAL. The behaviour of this function, its name, and
+surrounding documentation may change without notice in a future release of
+PHP. This function should be used at your own risk.
+
+Return the SDO_Sequence for this SDO_DataObject. Accessing the SDO_DataObject
+through the SDO_Sequence interface acts on the same SDO_DataObject instance
+data, but preserves ordering across properties.
+
+None.
+
+The SDO_Sequence for this SDO_DataObject, or returns NULL if the
+SDO_DataObject is not of a type which can have a sequence.
+
+vim:ft=help:

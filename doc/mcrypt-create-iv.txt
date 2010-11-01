@@ -2,12 +2,16 @@ mcrypt_create_iv -- Create an initialization vector (IV) from a random source
 
   string mcrypt_create_iv(int size [, int source])~
 
-|mcrypt_create_iv| is used to create an IV.
+Create an initialization vector (IV) from a random source.
 
-Parameter {size} determines the size of the IV, parameter {source} (defaults
-to random value) specifies the source of the IV.
+The IV is only meant to give an alternative seed to the encryption routines.
+This IV does not need to be secret at all, though it can be desirable. You
+even can send it along with your ciphertext without losing security.
 
-The source can be MCRYPT_RAND (system random number generator),
+{size} Determines the size of the IV, parameter {source} (defaults to random
+value) specifies the source of the IV.
+
+{source} The source can be MCRYPT_RAND (system random number generator),
 MCRYPT_DEV_RANDOM (read data from /dev/random) and MCRYPT_DEV_URANDOM (read
 data from /dev/urandom). MCRYPT_RAND is the only one supported on Windows
 because Windows (of course) doesn't have /dev/random or /dev/urandom.
@@ -16,6 +20,8 @@ When using MCRYPT_RAND, remember to call |srand| before |mcrypt_create_iv| to
 initialize the random number generator; it is not seeded automatically like
 |rand| is.
 
+Returns the initialization vector, or FALSE on error.
+
 |mcrypt_create_iv| example
 
 <?php >
@@ -23,14 +29,12 @@ initialize the random number generator; it is not seeded automatically like
       $iv = mcrypt_create_iv($size, MCRYPT_DEV_RANDOM);
 ?>
 
-The IV is only meant to give an alternative seed to the encryption routines.
-This IV does not need to be secret at all, though it can be desirable. You
-even can send it along with your ciphertext without losing security.
 
-More information can be found at
-http://www.ciphersbyritter.com/GLOSSARY.HTM#IV,
-http://fn2.freenet.edmonton.ab.ca/~jsavard/crypto/co0409.htm and in chapter
-9.3 of Applied Cryptography by Schneier (ISBN 0-471-11709-9) for a discussion
-of this topic.
+
+
+
+http://www.ciphersbyritter.com/GLOSSARY.HTM#IV
+http://www.quadibloc.com/crypto/co0409.htm Chapter 9.3 of Applied Cryptography
+by Schneier (ISBN 0-471-11709-9)
 
 vim:ft=help:

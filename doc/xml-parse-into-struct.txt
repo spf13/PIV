@@ -3,8 +3,16 @@ xml_parse_into_struct -- Parse XML data into an array structure
   int xml_parse_into_struct(resource parser, string data, array values [, array index])~
 
 This function parses an XML file into 2 parallel array structures, one
-({index}) containing pointers to the location of the appropriate values in
-the {values} array. These last two parameters must be passed by reference.
+({index}) containing pointers to the location of the appropriate values in the
+{values} array. These last two parameters must be passed by reference.
+
+{parser}
+
+{data}
+
+{values}
+
+{index}
 
 |xml_parse_into_struct| returns 0 for failure and 1 for success. This is not
 the same as FALSE and TRUE, be careful with operators such as ===.
@@ -70,6 +78,8 @@ When we run that code, the output will be:
   
   )
 
+
+
 Event-driven parsing (based on the expat library) can get complicated when you
 have an XML document that is complex. This function does not produce a DOM
 style object, but it generates structures amenable of being transversed in a
@@ -81,21 +91,23 @@ information
   <?xml version="1.0"?>
   <moldb>
   
-      <molecule>
-          <name>Alanine</name>
-          <symbol>ala</symbol>
-          <code>A</code>
-          <type>hydrophobic</type>
-      </molecule>
+    <molecule>
+        <name>Alanine</name>
+        <symbol>ala</symbol>
+        <code>A</code>
+        <type>hydrophobic</type>
+    </molecule>
   
-      <molecule>
-          <name>Lysine</name>
-          <symbol>lys</symbol>
-          <code>K</code>
-          <type>charged</type>
-      </molecule>
+    <molecule>
+        <name>Lysine</name>
+        <symbol>lys</symbol>
+        <code>K</code>
+        <type>charged</type>
+    </molecule>
   
   </moldb>
+
+
 
 And some code to parse the document and generate the appropriate objects:
 parsemoldb.php - parses moldb.xml into an array of molecular objects
@@ -154,6 +166,8 @@ parsemoldb.php - parses moldb.xml into an array of molecular objects
   echo "** Database of AminoAcid objects:\n";
   print_r($db);
 ?>
+
+
 
 After executing parsemoldb.php, the variable $db contains an array of
 AminoAcid objects, and the output of the script confirms that:

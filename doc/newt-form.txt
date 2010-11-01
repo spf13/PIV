@@ -1,0 +1,38 @@
+newt_form -- Create a form
+
+  resource newt_form([resource vert_bar [, string help [, int flags]]])~
+
+Create a new form.
+
+{vert_bar} Vertical scrollbar which should be associated with the form
+
+{help} Help text string
+
+{flags} Various flags
+
+Returns a resource link to the created form component, or FALSE on error.
+
+A |newt_form| example Displays a single button "Quit", which closes the
+application once it's pressed.
+
+<?php >
+  newt_init();
+  newt_cls();
+  
+  $myform = newt_form();
+  $button = newt_button (5, 12, "Quit");
+  
+  newt_form_add_component ($myform, $button);
+  newt_refresh ();
+  newt_run_form ($myform);
+  
+  newt_finished ();
+  newt_form_destroy ($myform);
+?>
+
+
+
+|newt_form_run| |newt_run_form| |newt_form_add_component|
+|newt_form_add_components| |newt_form_destroy|
+
+vim:ft=help:

@@ -5,6 +5,10 @@ session_decode -- Decodes session data from a string
 |session_decode| decodes the session data in {data}, setting variables stored
 in the session.
 
-See also |session_encode|.
+{data} The encoded data to be stored.
+
+Returns TRUE on success or FALSE on failure.
+
+|session_encode|
 
 vim:ft=help:

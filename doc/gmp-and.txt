@@ -1,8 +1,16 @@
-gmp_and -- Logical AND
+gmp_and -- Bitwise AND
 
   resource gmp_and(resource a, resource b)~
 
-Calculates logical AND of two GMP numbers.
+Calculates bitwise AND of two GMP numbers.
+
+{a} It can be either a GMP number resource, or a numeric string given that it
+is possible to convert the latter to a number.
+
+{b} It can be either a GMP number resource, or a numeric string given that it
+is possible to convert the latter to a number.
+
+A GMP number representing the bitwise AND comparison.
 
 |gmp_and| example
 
@@ -13,7 +21,7 @@ Calculates logical AND of two GMP numbers.
   echo gmp_strval($and2) . "\n";
 ?>
 
-The printout of the above program will be:
+The above example will output:
 
   4
   0

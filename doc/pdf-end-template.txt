@@ -1,7 +1,7 @@
-pdf_end_template -- Finish template
+PDF_end_template -- Finish template
 
-  bool pdf_end_template(resource pdfdoc)~
+  bool PDF_end_template(resource p)~
 
-Finish the template definition. Returns TRUE on success or FALSE on failure.
+Finishes a template definition. Returns TRUE on success or FALSE on failure.
 
 vim:ft=help:

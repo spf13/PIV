@@ -3,10 +3,19 @@ openssl_pkcs7_decrypt -- Decrypts an S/MIME encrypted message
   bool openssl_pkcs7_decrypt(string infilename, string outfilename, mixed recipcert [, mixed recipkey])~
 
 Decrypts the S/MIME encrypted message contained in the file specified by
-{infilename} using the certificate and its associated private key specified
-by {recipcert} and {recipkey}.
+{infilename} using the certificate and its associated private key specified by
+{recipcert} and {recipkey}.
 
-The decrypted message is output to the file specified by {outfilename}
+{infilename}
+
+{outfilename} The decrypted message is written to the file specified by
+{outfilename}.
+
+{recipcert}
+
+{recipkey}
+
+Returns TRUE on success or FALSE on failure.
 
 |openssl_pkcs7_decrypt| example
 
@@ -22,5 +31,9 @@ The decrypted message is output to the file specified by {outfilename}
       echo "failed to decrypt!";
   }
 ?>
+
+
+
+
 
 vim:ft=help:

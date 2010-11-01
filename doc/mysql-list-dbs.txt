@@ -6,10 +6,10 @@ Returns a result pointer containing the databases available from the current
 mysql daemon.
 
 { link_identifier}The MySQL connection. If the link identifier is not
-specified, the last link opened by |mysql_connect| is assumed. If no such
-link is found, it will try to create one as if |mysql_connect| was called
-with no arguments. If by chance no connection is found or established, an
-E_WARNING level warning is generated.
+specified, the last link opened by |mysql_connect| is assumed. If no such link
+is found, it will try to create one as if |mysql_connect| was called with no
+arguments. If by chance no connection is found or established, an E_WARNING
+level error is generated.
 
 Returns a result pointer resource on success, or FALSE on failure. Use the
 |mysql_tablename| function to traverse this result pointer, or any function
@@ -32,7 +32,9 @@ The above example will output something similar to:
   database2
   database3
 
-For downward compatibility, the following deprecated alias may be used:
+
+
+For backward compatibility, the following deprecated alias may be used:
 |mysql_listdbs|
 
 |mysql_db_name| |mysql_select_db|

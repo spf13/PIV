@@ -1,25 +1,29 @@
 SQLiteDatabase->exec -- Executes a result-less query against a given database
 
-  bool sqlite_exec(resource dbhandle, string query)~
+  bool sqlite_exec(resource dbhandle, string query [, string error_msg])~
 
-  bool sqlite_exec(resource dbhandle, string query, string query, resource dbhandle)~
+  bool sqlite_exec(resource dbhandle, string query [, string error_msg, string query, resource dbhandle])~
 
 Object oriented style (method):
 
-  bool exec(resource dbhandle, string query, string query, resource dbhandle, string query)~
+  bool queryExec(resource dbhandle, string query [, string error_msg, string query, resource dbhandle, string query [, string error_msg]])~
 
 Executes an SQL statement given by the {query} against a given database handle
 (specified by the {dbhandle} parameter).
 
 SQLite will execute multiple queries separated by semicolons, so you can use
-it to execute a batch of SQL that you have loaded from a file or have
-embedded in a script.
+it to execute a batch of SQL that you have loaded from a file or have embedded
+in a script.
+
+{dbhandle} The SQLite Database resource; returned from |sqlite_open| when used
+procedurally. This parameter is not required when using the object-oriented
+method.
 
 {query} The query to be executed.
 
-{dbhandle} The SQLite Database resource; returned from |sqlite_open | when
-used procedurally. This parameter is not required when using the
-object-oriented method.
+{error_msg} The specified variable will be filled if an error occurs. This is
+specially important because SQL syntax errors can't be fetched using the
+|sqlite_last_error| function.
 
 Two alternative syntaxes are supported for compatibility with other database
 extensions (such as MySQL). The preferred form is the first, where the
@@ -31,29 +35,39 @@ failure. If you need to run a query that returns rows, see |sqlite_query|.
 The column names returned by SQLITE_ASSOC and SQLITE_BOTH will be case-folded
 according to the value of the sqlite.assoc_case configuration option.
 
+Version Description 5.1.0 Added the {error_msg} parameter
+
 Procedural example
 
 <?php >
   $dbhandle = sqlite_open('mysqlitedb');
-  $query = sqlite_exec($dbhandle, "UPDATE users SET email='jDoe@example.com' WHERE username='jDoe'");
+  $query = sqlite_exec($dbhandle, "UPDATE users SET email='jDoe@example.com' WHERE username='jDoe'", $error);
   if (!$query) {
-      exit('Error in query.');
+      exit("Error in query: '$error'");
   } else {
       echo 'Number of rows modified: ', sqlite_changes($dbhandle);
   }
 ?>
 
+
+
+
+
 Object-oriented example
 
 <?php >
   $dbhandle = new SQLiteDatabase('mysqlitedb');
-  $query = $dbhandle->exec("UPDATE users SET email='jDoe@example.com' WHERE username='jDoe'");
+  $query = $dbhandle->queryExec("UPDATE users SET email='jDoe@example.com' WHERE username='jDoe'", $error);
   if (!$query) {
-      exit('Error in query.');
+      exit("Error in query: '$error'");
   } else {
       echo 'Number of rows modified: ', $dbhandle->changes();
   }
 ?>
+
+
+
+
 
 |sqlite_query| |sqlite_unbuffered_query| |sqlite_array_query|
 

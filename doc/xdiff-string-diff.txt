@@ -1,16 +1,25 @@
 xdiff_string_diff -- Make unified diff of two strings
 
-  string xdiff_string_diff(string str1, string str2 [, int context [, bool minimal]])~
+  string xdiff_string_diff(string old_data, string new_data [, int context [, bool minimal]])~
 
-|xdiff_string_diff| makes unified diff of strings {str1} and {str2}. {context}
-indicated how many lines of context you want to include in diff result. Set
-{minimal} to TRUE if you want to minimalize size of diff (can take a long
-time).
+Makes an unified diff containing differences between {old_data} string and
+{new_data} string and returns it. The resulting diff is human-readable. An
+optional {context} parameter specifies how many lines of context should be
+added around each change (with default value of 3). Setting {minimal}
+parameter to true will result in outputting the shortest patch file possible
+(can take a long time).
 
-This function doesn't work well with binary strings. To make diff of binary
-strings use |xdiff_string_diff_binary|.
+{old_data} First string with data. It acts as "old" data.
 
-Returns string with result or FALSE if an internal error happened.
+{new_data} Second string with data. It acts as "new" data.
+
+{context} Indicates how many lines of context you want to include in the diff
+result. Default is 3.
+
+{minimal} Set this parameter to TRUE if you want to minimalize the size of the
+result (can take a long time).
+
+Returns string with resulting diff or FALSE if an internal error happened.
 
 |xdiff_string_diff| example The following code makes unified diff of two
 articles.
@@ -26,6 +35,11 @@ articles.
   }
 ?>
 
-See also |xdiff_file_diff|.
+
+
+This function doesn't work well with binary strings. To make diff of binary
+strings use |xdiff_string_bdiff|/|xdiff_string_rabdiff|.
+
+|xdiff_string_patch|
 
 vim:ft=help:

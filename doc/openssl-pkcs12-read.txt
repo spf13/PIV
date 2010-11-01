@@ -1,0 +1,16 @@
+openssl_pkcs12_read -- Parse a PKCS#12 Certificate Store into an array
+
+  bool openssl_pkcs12_read(string pkcs12, array certs, string pass)~
+
+|openssl_pkcs12_read| parses the PKCS#12 certificate store supplied by
+{pkcs12} into a array named {certs}.
+
+{pkcs12}
+
+{certs} On success, this will hold the Certificate Store Data.
+
+{pass} Encryption password for unlocking the PKCS#12 file.
+
+Returns TRUE on success or FALSE on failure.
+
+vim:ft=help:

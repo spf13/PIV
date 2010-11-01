@@ -1,5 +1,5 @@
 proc_close -- Close a process opened by proc_open and return the exit code of
-that process.
+that process
 
   int proc_close(resource process)~
 
@@ -10,5 +10,7 @@ returns its exit code. If you have open pipes to that process, you should
 the child process may not be able to exit while the pipes are open.
 
 {process} The |proc_open| resource that will be closed.
+
+Returns the termination status of the process that was run.
 
 vim:ft=help:

@@ -2,6 +2,8 @@ stream_get_wrappers -- Retrieve list of registered streams
 
   array stream_get_wrappers()~
 
+Retrieve list of registered streams available on the running system.
+
 Returns an indexed array containing the name of all stream wrappers available
 on the running system.
 
@@ -23,6 +25,8 @@ The above example will output something similar to:
       [5] => compress.zlib
   )
 
+
+
 Checking for the existence of a stream wrapper
 
 <?php >
@@ -34,6 +38,8 @@ Checking for the existence of a stream wrapper
   }
 ?>
 
-See also |stream_wrapper_register|.
+
+
+
 
 vim:ft=help:

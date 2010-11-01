@@ -2,7 +2,12 @@ gmp_abs -- Absolute value
 
   resource gmp_abs(resource a)~
 
-Returns absolute value of {a}.
+Get the absolute value of a number.
+
+{a} It can be either a GMP number resource, or a numeric string given that it
+is possible to convert the latter to a number.
+
+Returns the absolute value of {a}, as a GMP number.
 
 |gmp_abs| example
 
@@ -14,9 +19,11 @@ Returns absolute value of {a}.
   echo gmp_strval($abs2) . "\n";
 ?>
 
-The printout of the above program will be:
+The above example will output:
 
   274982683358
   274982683358
+
+
 
 vim:ft=help:

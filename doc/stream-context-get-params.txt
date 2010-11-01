@@ -1,0 +1,36 @@
+stream_context_get_params -- Retrieves parameters from a context
+
+  array stream_context_get_params(resource stream_or_context)~
+
+Retrieves parameter and options information from the stream or context.
+
+{stream_or_context} A stream resource or a context resource
+
+Returns an associate array containing all context options and parameters.
+
+|stream_context_get_params| example Basic usage example
+
+<?php >
+  $ctx = stream_context_create();
+  $params = array("notification" => "stream_notification_callback");
+  stream_context_set_params($ctx, $params);
+  
+  var_dump(stream_context_get_params($ctx));
+?>
+
+The above example will output something similar to:
+
+  array(2) {
+    ["notification"]=>
+    string(28) "stream_notification_callback"
+    ["options"]=>
+    array(0) {
+    }
+  }
+
+
+
+|stream_context_set_option| |stream_context_get_params|
+|stream_context_set_params|
+
+vim:ft=help:

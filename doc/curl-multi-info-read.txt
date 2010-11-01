@@ -1,10 +1,27 @@
 curl_multi_info_read -- Get information about the current transfers
 
-  array curl_multi_info_read(resource mh)~
+  array curl_multi_info_read(resource mh [, int msgs_in_queue])~
 
-This function is currently not documented; only the argument list is
-available.
+Ask the multi handle if there are any messages or information from the
+individual transfers. Messages may include information such as an error code
+from the transfer or just the fact that a transfer is completed.
 
-See also |curl_multi_init|.
+Repeated calls to this function will return a new result each time, until a
+FALSE is returned as a signal that there is no more to get at this point. The
+integer pointed to with {msgs_in_queue} will contain the number of remaining
+messages after this function was called.
+
+The data the returned resource points to will not survive calling
+|curl_multi_remove_handle|.
+
+{mh} A cURL multi handle returned by |curl_multi_init|.
+
+{msgs_in_queue} Number of messages that are still in the queue
+
+On success, returns an associative array for the message, FALSE on failure.
+
+Version Description 5.2.0 {msgs_in_queue} was added.
+
+|curl_multi_init|
 
 vim:ft=help:

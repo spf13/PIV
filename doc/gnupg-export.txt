@@ -1,0 +1,35 @@
+gnupg_export -- Exports a key
+
+  string gnupg_export(resource identifier, string fingerprint)~
+
+Exports the key {fingerprint}.
+
+{identifier} The gnupg identifier, from a call to |gnupg_init| or gnupg.
+
+{fingerprint} The fingerprint key.
+
+On success, this function returns the keydata. On failure, this function
+returns FALSE.
+
+Procedural |gnupg_export| example
+
+<?php >
+  $res = gnupg_init();
+  $export = gnupg_export($res,"8660281B6051D071D94B5B230549F9DC851566DC");
+  echo $export;
+?>
+
+
+
+OO |gnupg_export| example
+
+<?php >
+  $gpg = new gnupg();
+  $export = $gpg -> export("8660281B6051D071D94B5B230549F9DC851566DC");
+?>
+
+
+
+
+
+vim:ft=help:

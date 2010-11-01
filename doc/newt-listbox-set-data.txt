@@ -1,0 +1,16 @@
+newt_listbox_set_data --
+
+  void newt_listbox_set_data(resource listbox, int num, mixed data)~
+
+This function is currently not documented; only its argument list is
+available.
+
+{listbox}
+
+{num}
+
+{data}
+
+No value is returned.
+
+vim:ft=help:

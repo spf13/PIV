@@ -1,0 +1,46 @@
+mqseries_begin -- MQseries MQBEGIN
+
+  void mqseries_begin(resource hconn, array beginOptions, resource compCode, resource reason)~
+
+The |mqseries_begin| (MQBEGIN) call begins a unit of work that is coordinated
+by the queue manager, and that may involve external resource managers.
+
+Using |mqseries_begin| starts the unit of work. Either |mqseries_back| or
+|mqseries_cmit| ends the unit of work.
+
+{hConn} Connection handle.
+
+This handle represents the connection to the queue manager.
+
+{compCode} Completion code.
+
+{reason} Reason code qualifying the compCode.
+
+No value is returned.
+
+|mqseries_begin| example
+
+<?php >
+      $mqbo = array();
+      mqseries_begin(	$conn, 
+                      $mqbo,
+                      $comp_code,
+                      $reason);
+      if ($comp_code !== MQSERIES_MQCC_OK) {
+          /* reason code 2121 is a warning for more information see MQSeries reference manual.*/
+          if ($reason !== 2121) {
+              printf("CompCode:%d Reason:%d Text:%s<br>\n", $comp_code, $reason, mqseries_strerror($reason));
+          }
+      }
+?>
+
+
+
+
+
+|mqseries_begin| will not function when using MQSeries Client to connect to a
+Queueu Manager.
+
+|mqseries_conn| |mqseries_connx| |mqseries_back| |mqseries_cmit|
+
+vim:ft=help:

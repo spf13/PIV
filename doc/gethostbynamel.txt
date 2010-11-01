@@ -1,26 +1,33 @@
-gethostbynamel -- Get a list of IP addresses corresponding to a given Internet
-host name
+gethostbynamel -- Get a list of IPv4 addresses corresponding to a given
+Internet host name
 
   array gethostbynamel(string hostname)~
 
-Returns a list of IP addresses to which the Internet host specified by
-{hostname} resolves. Returns FALSE if {hostname} could not be resolved.
+Returns a list of IPv4 addresses to which the Internet host specified by
+{hostname} resolves.
+
+{hostname} The host name.
+
+Returns an array of IPv4 addresses or FALSE if {hostname} could not be
+resolved.
 
 |gethostbynamel| example
 
 <?php >
-    $hosts = gethostbynamel('www.example.com');
-    print_r($hosts);
+  $hosts = gethostbynamel('www.example.com');
+  print_r($hosts);
 ?>
 
-The printout of the above program will be:
+The above example will output:
 
   Array
   (
       [0] => 192.0.34.166
   )
 
-See also |gethostbyname|, |gethostbyaddr|, |checkdnsrr|, |getmxrr|, and the
-named(8) manual page.
+
+
+|gethostbyname| |gethostbyaddr| |checkdnsrr| |getmxrr| the named(8) manual
+page
 
 vim:ft=help:

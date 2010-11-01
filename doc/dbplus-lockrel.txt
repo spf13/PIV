@@ -2,12 +2,17 @@ dbplus_lockrel -- Request write lock on relation
 
   int dbplus_lockrel(resource relation)~
 
-This function is EXPERIMENTAL. The behaviour of this function, the name of
-this function, and anything else documented about this function may change
-without notice in a future release of PHP. Use this function at your own
-risk.
+Requests a write lock on the given {relation}.
 
-|dbplus_lockrel| will request a write lock on the given relation. Other
-clients may still query the relation, but can't alter it while it is locked.
+Other clients may still query the relation, but can't alter it while it is
+locked.
+
+{relation} A relation opened by |dbplus_open|.
+
+
+
+This function is EXPERIMENTAL. The behaviour of this function, its name, and
+surrounding documentation may change without notice in a future release of
+PHP. This function should be used at your own risk.
 
 vim:ft=help:

@@ -1,0 +1,14 @@
+newt_listbox_set_current_by_key --
+
+  void newt_listbox_set_current_by_key(resource listbox, mixed key)~
+
+This function is currently not documented; only its argument list is
+available.
+
+{listbox}
+
+{key}
+
+No value is returned.
+
+vim:ft=help:

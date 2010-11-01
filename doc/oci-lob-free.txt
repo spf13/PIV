@@ -1,0 +1,10 @@
+OCI-Lob->free -- Frees resources associated with the LOB descriptor
+
+  bool free()~
+
+Frees resources associated with the descriptor, previously allocated with
+|oci_new_descriptor|.
+
+Returns TRUE on success or FALSE on failure.
+
+vim:ft=help:

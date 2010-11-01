@@ -1,15 +1,16 @@
-printer_open -- Open connection to a printer
+printer_open -- Opens a connection to a printer
 
-  resource printer_open([string devicename])~
+  resource printer_open([string printername])~
 
-This function tries to open a connection to the printer {devicename}, and
-returns a handle on success or FALSE on failure.
-
-If no parameter was given it tries to open a connection to the default printer
-(if not specified in php.ini as printer.default_printer, PHP tries to detect
-it).
+This function tries to open a connection to the given printer.
 
 |printer_open| also starts a device context.
+
+{printername} The printer name. If no parameter was given it tries to open a
+connection to the default printer (if not specified in php.ini as
+printer.default_printer, PHP tries to detect it).
+
+Returns a printer handle on success or FALSE on failure.
 
 |printer_open| example
 
@@ -17,5 +18,9 @@ it).
   $handle = printer_open("HP Deskjet 930c");
   $handle = printer_open();
 ?>
+
+
+
+
 
 vim:ft=help:

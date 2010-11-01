@@ -10,6 +10,9 @@ This function is useful to provide you users a list of genres from which they
 may choose one. When updating the ID3 tag you will always have to specify the
 genre as an integer ranging from 0 to 147.
 
+Returns an array containing all possible genres that may be stored in an ID3
+tag.
+
 |id3_get_genre_list| example
 
 <?php >
@@ -17,7 +20,7 @@ genre as an integer ranging from 0 to 147.
   print_r($genres);
 ?>
 
-This will output:
+The above example will output:
 
   Array
   (
@@ -171,6 +174,8 @@ This will output:
       [147] => SynthPop
   )
 
-See also |id3_get_genre_name| and |id3_get_genre_id|.
+
+
+|id3_get_genre_name| |id3_get_genre_id|
 
 vim:ft=help:

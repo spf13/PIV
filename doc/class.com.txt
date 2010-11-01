@@ -15,15 +15,15 @@ A Class ID is the UUID that uniquely identifies a given class.
 
 A Moniker is a special form of naming, similar in concept to a URL scheme,
 that identifies a resource and specifies how it should be loaded. As an
-example, you could load up Word and get an object representing a word
-document by specifying the full path to the word document as the module name,
-or you can use LDAP: as a moniker to use the ADSI interface to LDAP.
+example, you could load up Word and get an object representing a word document
+by specifying the full path to the word document as the module name, or you
+can use LDAP: as a moniker to use the ADSI interface to LDAP.
 
 server_name The name of the DCOM server on which the component should be
 loaded and run. If NULL, the object is run using the default for the
-application. The default is typically to run it on the local machine,
-although the administrator might have configured the application to launch on
-a different machine.
+application. The default is typically to run it on the local machine, although
+the administrator might have configured the application to launch on a
+different machine.
 
 If you specify a non-NULL value for server, PHP will refuse to load the object
 unless the configuration option is set to TRUE.
@@ -31,17 +31,17 @@ unless the configuration option is set to TRUE.
 If {server_name} is an array, it should contain the following elements (case
 sensitive!). Note that they are all optional (although you need to specify
 both Username and Password together); if you omit the Server setting, the
-default server will be used (as mentioned above), and the instantiation of
-the object will not be affected by the directive. DCOM server name
-{server_name} key type description Server string The name of the server.
-Username string The username to connect as. Password string The password for
-{Username}. Flags integer One or more of the following constants, logically
-OR'd together: CLSCTX_INPROC_SERVER, CLSCTX_INPROC_HANDLER,
-CLSCTX_LOCAL_SERVER, CLSCTX_REMOTE_SERVER, CLSCTX_SERVER and CLSCTX_ALL. The
-default value if not specified here is CLSCTX_SERVER if you also omit
-{Server}, or CLSCTX_REMOTE_SERVER if you do specify a server. You should
-consult the Microsoft documentation for CoCreateInstance for more information
-on the meaning of these constants; you will typically never have to use them.
+default server will be used (as mentioned above), and the instantiation of the
+object will not be affected by the directive. DCOM server name {server_name}
+key type description Server string The name of the server. Username string The
+username to connect as. Password string The password for {Username}. Flags
+integer One or more of the following constants, logically OR'd together:
+CLSCTX_INPROC_SERVER, CLSCTX_INPROC_HANDLER, CLSCTX_LOCAL_SERVER,
+CLSCTX_REMOTE_SERVER, CLSCTX_SERVER and CLSCTX_ALL. The default value if not
+specified here is CLSCTX_SERVER if you also omit {Server}, or
+CLSCTX_REMOTE_SERVER if you do specify a server. You should consult the
+Microsoft documentation for CoCreateInstance for more information on the
+meaning of these constants; you will typically never have to use them.
 
 codepage Specifies the codepage that is used to convert strings to
 unicode-strings and vice versa. The conversion is applied whenever a PHP
@@ -97,8 +97,8 @@ and you should use instead.
 
 Returns a variant representing a SafeArray that has 10 elements; each element
 will be an empty/null variant. This function was supposed to return an array
-containing all the elements from the iterator, but was never completed. Do
-not use.
+containing all the elements from the iterator, but was never completed. Do not
+use.
 
   variant COM::Next(string module_name [, mixed server_name [, int codepage [, string typelib]]])~
 
@@ -138,6 +138,10 @@ COM example (1)
   $word = null;
 ?>
 
+
+
+
+
 COM example (2)
 
 <?php >
@@ -170,5 +174,9 @@ COM example (2)
   $rs = null;
   $conn = null;
 ?>
+
+
+
+
 
 vim:ft=help:

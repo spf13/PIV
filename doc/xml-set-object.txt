@@ -6,6 +6,12 @@ This function allows to use {parser} inside {object}. All callback functions
 could be set with |xml_set_element_handler| etc and assumed to be methods of
 {object}.
 
+{parser}
+
+{object}
+
+Returns TRUE on success or FALSE on failure.
+
 |xml_set_object| example
 
 <?php >
@@ -46,5 +52,9 @@ could be set with |xml_set_element_handler| etc and assumed to be methods of
   $xml_parser = new xml();
   $xml_parser->parse("<A ID='hallo'>PHP</A>");
 ?>
+
+
+
+
 
 vim:ft=help:

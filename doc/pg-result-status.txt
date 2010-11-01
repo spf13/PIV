@@ -17,6 +17,8 @@ PGSQL_TUPLES_OK, PGSQL_COPY_OUT, PGSQL_COPY_IN, PGSQL_BAD_RESPONSE,
 PGSQL_NONFATAL_ERROR and PGSQL_FATAL_ERROR if PGSQL_STATUS_LONG is specified.
 Otherwise, a string containing the PostgreSQL command tag is returned.
 
+Version Description 4.3.0 The {type} parameter was added.
+
 |pg_result_status| example
 
 <?php >
@@ -39,6 +41,8 @@ Otherwise, a string containing the PostgreSQL command tag is returned.
 The above example will output:
 
   Copy began.
+
+
 
 |pg_connection_status|
 

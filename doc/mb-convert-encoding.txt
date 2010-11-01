@@ -2,14 +2,20 @@ mb_convert_encoding -- Convert character encoding
 
   string mb_convert_encoding(string str, string to_encoding [, mixed from_encoding])~
 
-|mb_convert_encoding| converts character encoding of string {str} from
-{from_encoding} to {to_encoding}.
+Converts the character encoding of string {str} to {to_encoding} from
+optionally {from_encoding}.
 
-{str} : String to be converted.
+{str} The string being encoded.
 
-{from_encoding} is specified by character code name before conversion. it can
-be array or string - comma separated enumerated list. If it is not specified,
-the internal encoding will be used.
+{to_encoding} The type of encoding that {str} is being converted to.
+
+{from_encoding} Is specified by character code names before conversion. It is
+either an array, or a comma separated enumerated list. If {from_encoding} is
+not specified, the internal encoding will be used.
+
+"auto" may be used, which expands to "ASCII,JIS,UTF-8,EUC-JP,SJIS".
+
+The encoded string.
 
 |mb_convert_encoding| example
 
@@ -27,6 +33,10 @@ the internal encoding will be used.
   $str = mb_convert_encoding($str, "EUC-JP", "auto");
 ?>
 
-See also |mb_detect_order|.
+
+
+
+
+|mb_detect_order|
 
 vim:ft=help:

@@ -5,10 +5,10 @@ mysql_stat -- Get current system status
 |mysql_stat| returns the current server status.
 
 { link_identifier}The MySQL connection. If the link identifier is not
-specified, the last link opened by |mysql_connect| is assumed. If no such
-link is found, it will try to create one as if |mysql_connect| was called
-with no arguments. If by chance no connection is found or established, an
-E_WARNING level warning is generated.
+specified, the last link opened by |mysql_connect| is assumed. If no such link
+is found, it will try to create one as if |mysql_connect| was called with no
+arguments. If by chance no connection is found or established, an E_WARNING
+level error is generated.
 
 Returns a string with the status for uptime, threads, queries, open tables,
 flush tables and queries per second. For a complete list of other status
@@ -37,6 +37,8 @@ The above example will output something similar to:
       [7] => Queries per second avg: 245.595
   )
 
+
+
 Alternative |mysql_stat| example
 
 <?php >
@@ -59,6 +61,8 @@ The above example will output something similar to:
   bdb_shared_data = OFF
   bdb_tmpdir = /var/tmp/
   ...
+
+
 
 |mysql_get_server_info| |mysql_list_processes|
 

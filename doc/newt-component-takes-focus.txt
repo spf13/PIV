@@ -1,0 +1,14 @@
+newt_component_takes_focus --
+
+  void newt_component_takes_focus(resource component, bool takes_focus)~
+
+This function is currently not documented; only its argument list is
+available.
+
+{component}
+
+{takes_focus}
+
+No value is returned.
+
+vim:ft=help:

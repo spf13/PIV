@@ -32,6 +32,10 @@ Returns the newly created directory name on success or FALSE on error.
   ftp_close($conn_id);
 ?>
 
+
+
+
+
 |ftp_rmdir|
 
 vim:ft=help:

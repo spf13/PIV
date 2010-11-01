@@ -12,7 +12,9 @@ type, and the key/value pair in question will not be flipped.
 If a value has several occurrences, the latest key will be used as its values,
 and all others will be lost.
 
-|array_flip| returns FALSE if it fails.
+{trans} An array of key/value pairs to be flipped.
+
+Returns the flipped array on success and FALSE on failure.
 
 |array_flip| example
 
@@ -20,6 +22,10 @@ and all others will be lost.
   $trans = array_flip($trans);
   $original = strtr($str, $trans);
 ?>
+
+
+
+
 
 |array_flip| example : collision
 
@@ -37,6 +43,8 @@ now $trans is:
       [2] => c
   )
 
-See also |array_values|, |array_keys|, and |array_reverse|.
+
+
+|array_values| |array_keys| |array_reverse|
 
 vim:ft=help:

@@ -13,8 +13,8 @@ position specified by parameter {pos}.
 {type} The {type} specifies the form of the returned record.
 
 It is the application which is responsible for actually ensuring that the
-records are returned from the Z39.50/SRW server in the proper format. The
-type given only specifies a conversion to take place on the client side (in
+records are returned from the Z39.50/SRW server in the proper format. The type
+given only specifies a conversion to take place on the client side (in
 PHP/YAZ).
 
 Besides conversion of the transfer record to a string/array, PHP/YAZ it is
@@ -118,6 +118,10 @@ will output:
           )
   )
 
+
+
+
+
 Working with MARCXML The following PHP snippet returns a MARC21/USMARC record
 as MARCXML. The original record is returned in marc-8 (unknown to most XML
 parsers), so we convert it to UTF-8 (which all XML parsers must support).
@@ -125,6 +129,8 @@ parsers), so we convert it to UTF-8 (which all XML parsers must support).
 <?php >
   $rec = yaz_record($id, $p, "xml; charset=marc-8,utf-8");
 ?>
+
+
 
 The record $rec can be processed with the Sablotron XSLT processor as follows:
 
@@ -139,5 +145,7 @@ The record $rec can be processed with the Sablotron XSLT processor as follows:
 ?>
 
 For PHP 5 the XSL extension must be used instead of Sablotron XSLT.
+
+
 
 vim:ft=help:

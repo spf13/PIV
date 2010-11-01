@@ -5,6 +5,20 @@ gmp_div_r -- Remainder of the division of numbers
 Calculates remainder of the integer division of {n} by {d}. The remainder has
 the sign of the {n} argument, if not zero.
 
+{n} The number being divided.
+
+It can be either a GMP number resource, or a numeric string given that it is
+possible to convert the latter to a number.
+
+{d} The number that {n} is being divided by.
+
+It can be either a GMP number resource, or a numeric string given that it is
+possible to convert the latter to a number.
+
+{round} See the |gmp_div_q| function for description of the {round} argument.
+
+The remainder, as a GMP number.
+
 |gmp_div_r| example
 
 <?php >
@@ -12,12 +26,12 @@ the sign of the {n} argument, if not zero.
   echo gmp_strval($div) . "\n";
 ?>
 
-The printout of the above program will be:
+The above example will output:
 
   5
 
-See the |gmp_div_q| function for description of the {round} argument.
 
-See also |gmp_div_q|, |gmp_div_qr|
+
+|gmp_div_q| |gmp_div_qr|
 
 vim:ft=help:

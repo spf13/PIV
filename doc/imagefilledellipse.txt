@@ -1,19 +1,29 @@
 imagefilledellipse -- Draw a filled ellipse
 
-  bool imagefilledellipse(resource image, int cx, int cy, int w, int h, int color)~
+  bool imagefilledellipse(resource image, int cx, int cy, int width, int height, int color)~
 
-|imagefilledellipse| draws an ellipse centered at {cx}, {cy} (top left is 0,
-0) in the image represented by {image}. {W} and {h} specifies the ellipse's
-width and height respectively. The ellipse is filled using {color}. Returns
-TRUE on success or FALSE on failure.
+Draws an ellipse centered at the specified coordinate on the given {image}.
 
-This function was added in PHP 4.0.6 and requires GD 2.0.1 or later
+{ image}An image resource, returned by one of the image creation functions,
+such as |imagecreatetruecolor|.
+
+{cx} x-coordinate of the center.
+
+{cy} y-coordinate of the center.
+
+{width} The ellipse width.
+
+{height} The ellipse height.
+
+{color} The fill color. A color identifier created with |imagecolorallocate|.
+
+Returns TRUE on success or FALSE on failure.
 
 |imagefilledellipse| example
 
 <?php >
   // create a blank image
-  $image = imagecreate(400, 300);
+  $image = imagecreatetruecolor(400, 300);
   
   // fill the background color
   $bg = imagecolorallocate($image, 0, 0, 0);
@@ -29,8 +39,12 @@ This function was added in PHP 4.0.6 and requires GD 2.0.1 or later
   imagepng($image);
 ?>
 
-This function requires GD 2.0.1 or later.
+The above example will output something similar to:
 
-See also |imageellipse| and |imagefilledarc|.
+
+
+This function requires GD 2.0.1 or later (2.0.28 or later is recommended).
+
+|imageellipse| |imagefilledarc|
 
 vim:ft=help:

@@ -2,10 +2,11 @@ id3_get_genre_id -- Get the id for a genre
 
   int id3_get_genre_id(string genre)~
 
-|id3_get_genre_id| returns the id for a genre. If the specified genre is not
-available in the genre list, |id3_get_genre_id| will return FALSE
+|id3_get_genre_id| returns the id for a genre.
 
-In an ID3 tag, the genre is stored using a integer ranging from 0 to 147.
+{genre} An integer ranging from 0 to 147
+
+The genre id or FALSE on errors.
 
 |id3_get_genre_id| example
 
@@ -14,10 +15,12 @@ In an ID3 tag, the genre is stored using a integer ranging from 0 to 147.
   echo $id;
 ?>
 
-This will output:
+The above example will output:
 
   20
 
-See also |id3_get_genre_list| and |id3_get_genre_name|.
+
+
+|id3_get_genre_name| |id3_get_genre_list|
 
 vim:ft=help:

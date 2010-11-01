@@ -8,18 +8,10 @@ pg_fetch_object -- Fetch a row as an object
 fetched row's field names. It can optionally instantiate an object of a
 specific class, and pass parameters to that class's constructor.
 
-This function sets NULL fields to PHP NULL value.
+This function sets NULL fields to the PHP NULL value.
 
 Speed-wise, the function is identical to |pg_fetch_array|, and almost as fast
 as |pg_fetch_row| (the difference is insignificant).
-
-{row} became optional in PHP 4.1.0.
-
-{result_type} default changed from PGSQL_BOTH to PGSQL_ASSOC from PHP 4.3.0,
-since the numeric index was illegal.
-
-{class_name} and {params} were added in PHP 5.0. The old form with
-{result_type} still exists for backwards compatibility.
 
 {result} PostgreSQL query result resource, returned by |pg_query|,
 |pg_query_params| or |pg_execute| (among others).
@@ -30,7 +22,7 @@ omitted, next row is fetched.
 {result_type} Ignored and deprecated. Defaults to PGSQL_ASSOC.
 
 {class_name} The name of the class to instantiate, set the properties of and
-return. If not specified, an stdClass object is returned.
+return. If not specified, a stdClass object is returned.
 
 {params} An optional array of parameters to pass to the constructor for
 {class_name} objects.
@@ -40,6 +32,11 @@ values are returned as NULL.
 
 FALSE is returned if {row} exceeds the number of rows in the set, there are no
 more rows, or on any other error.
+
+Version Description 5.0.0 {class_name} and {params} were added. The old form
+with {result_type} still exists for backwards compatibility. 4.3.0
+{result_type} default changed from PGSQL_BOTH to PGSQL_ASSOC, since the
+numeric index was illegal. 4.1.0 The parameter {row} became optional.
 
 |pg_fetch_object| example
 
@@ -64,6 +61,10 @@ more rows, or on any other error.
   pg_free_result($qu);
   pg_close($db_conn);
 ?>
+
+
+
+
 
 |pg_query| |pg_fetch_array| |pg_fetch_assoc| |pg_fetch_row| |pg_fetch_result|
 

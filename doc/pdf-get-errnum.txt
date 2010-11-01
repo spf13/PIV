@@ -1,0 +1,8 @@
+PDF_get_errnum -- Get error number
+
+  int PDF_get_errnum(resource pdfdoc)~
+
+Gets the number of the last thrown exception or the reason for a failed
+function call.
+
+vim:ft=help:

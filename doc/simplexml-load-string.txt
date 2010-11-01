@@ -1,17 +1,24 @@
 simplexml_load_string -- Interprets a string of XML into an object
 
-  object simplexml_load_string(string data [, string class_name [, int options]])~
+  object simplexml_load_string(string data [, string class_name [, int options [, string ns [, bool is_prefix]]]])~
 
-This function will take the well-formed xml string {data} and return an object
-of class SimpleXMLElement with properties containing the data held within the
-xml document. If any errors occur, it returns FALSE.
+Takes a well-formed XML string and returns it as an object.
 
-You may use the optional {class_name} parameter so that
+{data} A well-formed XML string
+
+{class_name} You may use this optional parameter so that
 |simplexml_load_string| will return an object of the specified class. That
 class should extend the SimpleXMLElement class.
 
-Since PHP 5.1.0 and Libxml 2.6.0, you may also use the {options} parameter to
-specify additional Libxml parameters.
+{options} Since PHP 5.1.0 and Libxml 2.6.0, you may also use the {options}
+parameter to specify additional Libxml parameters.
+
+{ns}
+
+{is_prefix}
+
+Returns an object of class SimpleXMLElement with properties containing the
+data held within the xml document. On errors, it will return FALSE.
 
 Interpret an XML string
 
@@ -33,7 +40,7 @@ Interpret an XML string
   var_dump($xml);
 ?>
 
-This script will display:
+The above example will output:
 
   SimpleXMLElement Object
   (
@@ -46,6 +53,10 @@ This script will display:
 
 At this point, you can go about using $xml->body and such.
 
-See also: |simplexml_load_file|.
+
+
+
+
+|simplexml_load_file| SimpleXMLElement::__construct
 
 vim:ft=help:

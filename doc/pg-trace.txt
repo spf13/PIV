@@ -38,6 +38,10 @@ Returns TRUE on success or FALSE on failure.
   }
 ?>
 
+
+
+
+
 |fopen| |pg_untrace|
 
 vim:ft=help:

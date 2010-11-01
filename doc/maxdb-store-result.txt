@@ -1,0 +1,19 @@
+maxdb->store_result -- Transfers a result set from the last query
+
+Procedural style:
+
+  resource maxdb_store_result(resource link)~
+
+Object oriented style (method):
+
+  object store_result(resource link)~
+
+This function has no functionally effect.
+
+Returns a result resource or FALSE if an error occurred.
+
+See |maxdb_multi_query|.
+
+|maxdb_real_query| |maxdb_use_result|
+
+vim:ft=help:

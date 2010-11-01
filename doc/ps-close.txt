@@ -1,0 +1,19 @@
+ps_close -- Closes a PostScript document
+
+  bool ps_close(resource psdoc)~
+
+Closes the PostScript document.
+
+This function writes the trailer of the PostScript document. It also writes
+the bookmark tree. |ps_close| does not free any resources, which is done by
+|ps_delete|.
+
+This function is also called by |ps_delete| if it has not been called before.
+
+{psdoc} Resource identifier of the postscript file as returned by |ps_new|.
+
+Returns TRUE on success or FALSE on failure.
+
+|ps_open_file| |ps_delete|
+
+vim:ft=help:

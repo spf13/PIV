@@ -1,13 +1,28 @@
-imagefilledarc -- Draw a partial ellipse and fill it
+imagefilledarc -- Draw a partial arc and fill it
 
-  bool imagefilledarc(resource image, int cx, int cy, int w, int h, int s, int e, int color, int style)~
+  bool imagefilledarc(resource image, int cx, int cy, int width, int height, int start, int end, int color, int style)~
 
-|imagefilledarc| draws a partial ellipse centered at {cx}, {cy} (top left is
-0, 0) in the image represented by {image}. Returns TRUE on success or FALSE
-on failure. {W} and {h} specifies the ellipse's width and height respectively
-while the start and end points are specified in degrees indicated by the {s}
-and {e} arguments. {style} is a bitwise OR of the following possibilities:
-IMG_ARC_PIE
+Draws a partial arc centered at the specified coordinate in the given {image}.
+
+{ image}An image resource, returned by one of the image creation functions,
+such as |imagecreatetruecolor|.
+
+{cx} x-coordinate of the center.
+
+{cy} y-coordinate of the center.
+
+{width} The arc width.
+
+{height} The arc height.
+
+{start} The arc start angle, in degrees.
+
+{end} The arc end angle, in degrees. 0° is located at the three-o'clock
+position, and the arc is drawn clockwise.
+
+{color} A color identifier created with |imagecolorallocate|.
+
+{style} A bitwise OR of the following possibilities: IMG_ARC_PIE
 
 IMG_ARC_CHORD
 
@@ -23,13 +38,13 @@ IMG_ARC_NOFILL, indicates that the beginning and ending angles should be
 connected to the center - this is a good way to outline (rather than fill) a
 'pie slice'.
 
+Returns TRUE on success or FALSE on failure.
+
 Creating a 3D looking pie
 
 <?php >
-  // this example is provided by poxy at klam dot is
-  
   // create image
-  $image = imagecreate(100, 100);
+  $image = imagecreatetruecolor(100, 100);
   
   // allocate some solors
   $white    = imagecolorallocate($image, 0xFF, 0xFF, 0xFF);
@@ -43,8 +58,8 @@ Creating a 3D looking pie
   // make the 3D effect
   for ($i = 60; $i > 50; $i--) {
      imagefilledarc($image, 50, $i, 100, 50, 0, 45, $darknavy, IMG_ARC_PIE);
-    imagefilledarc($image, 50, $i, 100, 50, 45, 75 , $darkgray, IMG_ARC_PIE);
-    imagefilledarc($image, 50, $i, 100, 50, 75, 360 , $darkred, IMG_ARC_PIE);
+     imagefilledarc($image, 50, $i, 100, 50, 45, 75 , $darkgray, IMG_ARC_PIE);
+     imagefilledarc($image, 50, $i, 100, 50, 75, 360 , $darkred, IMG_ARC_PIE);
   }
   
   imagefilledarc($image, 50, 50, 100, 50, 0, 45, $navy, IMG_ARC_PIE);
@@ -58,6 +73,10 @@ Creating a 3D looking pie
   imagedestroy($image);
 ?>
 
-This function requires GD 2.0.1 or later.
+The above example will output something similar to:
+
+
+
+This function requires GD 2.0.1 or later (2.0.28 or later is recommended).
 
 vim:ft=help:

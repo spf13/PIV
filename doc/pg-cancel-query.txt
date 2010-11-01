@@ -34,6 +34,8 @@ The above example will output:
   First call to pg_get_result(): Resource id #3
   Resource id #3 has 3 records
 
+
+
 |pg_send_query| |pg_connection_busy|
 
 vim:ft=help:

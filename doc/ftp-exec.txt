@@ -1,4 +1,4 @@
-ftp_exec -- Requests execution of a program on the FTP server
+ftp_exec -- Requests execution of a command on the FTP server
 
   bool ftp_exec(resource ftp_stream, string command)~
 
@@ -14,18 +14,29 @@ otherwise returns FALSE.
 |ftp_exec| example
 
 <?php >
+  // variable initialization
   $command = 'ls -al >files.txt';
   
+  // set up basic connection
   $conn_id = ftp_connect($ftp_server);
   
+  // login with username and password
   $login_result = ftp_login($conn_id, $ftp_user_name, $ftp_user_pass);
   
+  // execute command
   if (ftp_exec($conn_id, $command)) {
-      echo "$command executed successfully<br />\n";
+      echo "$command executed successfully\n";
   } else {
-      echo 'could not execute ' . $command;
+      echo "could not execute $command\n";
   }
+  
+  // close the connection
+  ftp_close($conn_id);
 ?>
+
+
+
+
 
 |ftp_raw|
 

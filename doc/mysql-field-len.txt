@@ -10,7 +10,7 @@ call to |mysql_query|.
 { field_offset}The numerical field offset. The {field_offset} starts at 0. If
 {field_offset} does not exist, an error of level E_WARNING is also issued.
 
-The name of the specified field index on success, or FALSE on failure.
+The length of the specified field index on success, or FALSE on failure.
 
 |mysql_field_len| example
 
@@ -27,7 +27,11 @@ The name of the specified field index on success, or FALSE on failure.
   echo $length;
 ?>
 
-For downward compatibility, the following deprecated alias may be used:
+
+
+
+
+For backward compatibility, the following deprecated alias may be used:
 |mysql_fieldlen|
 
 |mysql_fetch_lengths| |strlen|

@@ -1,0 +1,27 @@
+sys_getloadavg -- Gets system load average
+
+  array sys_getloadavg()~
+
+Returns three samples representing the average system load (the number of
+processes in the system run queue) over the last 1, 5 and 15 minutes,
+respectively.
+
+Returns an array with three samples (last 1, 5 and 15 minutes).
+
+A |sys_getloadavg| example
+
+<?php >
+  $load = sys_getloadavg();
+  if ($load[0] > 80) {
+      header('HTTP/1.1 503 Too busy, try again later');
+      die('Server too busy. Please try again later.');
+  }
+?>
+
+
+
+
+
+This function is not implemented on Windows platforms.
+
+vim:ft=help:

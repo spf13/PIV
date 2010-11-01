@@ -1,4 +1,4 @@
-DomDocumentType->system_id() -- Returns the system id of document type
+DomDocumentType->system_id -- Returns the system id of document type
 
   string system_id()~
 
@@ -23,6 +23,8 @@ Retrieving the system id
 The above example will output:
 
   /share/sgml/Norman_Walsh/db3xml10/db3xml10.dtd
+
+
 
 Use the systemId property of the DOMDocumentType object.
 

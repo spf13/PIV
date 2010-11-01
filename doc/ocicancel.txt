@@ -1,10 +1,5 @@
-ocicancel -- Cancel reading from cursor
+ocicancel -- Alias of oci_cancel
 
-  bool ocicancel(resource stmt)~
-
-If you do not want read more data from a cursor, then call |ocicancel|.
-
-This function was renamed to |oci_cancel| after PHP >= 5.0.0. For downward
-compatibility |ocicancel| can also be used. This is deprecated, however.
+This function is an alias of: |oci_cancel|.
 
 vim:ft=help:

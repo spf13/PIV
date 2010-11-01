@@ -20,6 +20,10 @@ the newly opened file.
   bzclose($bz);
 ?>
 
+
+
+
+
 |bzclose|
 
 vim:ft=help:

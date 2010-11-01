@@ -5,10 +5,9 @@ classkit_method_redefine -- Dynamically changes the code of the given method
 This function cannot be used to manipulate the currently running (or chained)
 method.
 
-This function is EXPERIMENTAL. The behaviour of this function, the name of
-this function, and anything else documented about this function may change
-without notice in a future release of PHP. Use this function at your own
-risk.
+This function is EXPERIMENTAL. The behaviour of this function, its name, and
+surrounding documentation may change without notice in a future release of
+PHP. This function should be used at your own risk.
 
 {classname} The class in which to redefine the method
 
@@ -58,6 +57,8 @@ The above example will output:
 
   Before: foo!
   After: bar!
+
+
 
 |classkit_method_add| |classkit_method_copy| |classkit_method_remove|
 |classkit_method_rename|

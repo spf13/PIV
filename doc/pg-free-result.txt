@@ -34,6 +34,8 @@ The above example will output:
 
   First field in the second row is: 2
 
+
+
 |pg_query| |pg_query_params| |pg_execute|
 
 vim:ft=help:

@@ -2,9 +2,12 @@ ob_get_clean -- Get current buffer contents and delete current output buffer
 
   string ob_get_clean()~
 
-This will return the contents of the output buffer and end output buffering.
-If output buffering isn't active then FALSE is returned. |ob_get_clean|
-essentially executes both |ob_get_contents| and |ob_end_clean|.
+Gets the current buffer contents and delete current output buffer.
+
+|ob_get_clean| essentially executes both |ob_get_contents| and |ob_end_clean|.
+
+Returns the contents of the output buffer and end output buffering. If output
+buffering isn't active then FALSE is returned.
 
 A simple |ob_get_clean| example
 
@@ -19,10 +22,12 @@ A simple |ob_get_clean| example
   var_dump($out);
 ?>
 
-Our example will output:
+The above example will output:
 
   string(11) "hello world"
 
-See also |ob_start| and |ob_get_contents|.
+
+
+|ob_get_contents| |ob_start|
 
 vim:ft=help:

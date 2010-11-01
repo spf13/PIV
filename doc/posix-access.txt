@@ -4,10 +4,6 @@ posix_access -- Determine accessibility of a file
 
 |posix_access| checks the user's permission of a file.
 
-When safe mode is enabled, PHP checks whether the files or directories you are
-about to operate on have the same UID (owner) as the script that is being
-executed.
-
 {file} The name of the file to be tested.
 
 {mode} A mask consisting of one or more of POSIX_F_OK, POSIX_R_OK, POSIX_W_OK
@@ -34,6 +30,11 @@ writable, otherwise will print an error message.
       echo "Error $error: " . posix_strerror($error);
   }
 ?>
+
+
+
+When safe mode is enabled, PHP checks whether the files or directories being
+operated upon have the same UID (owner) as the script that is being executed.
 
 |posix_get_last_error| |posix_strerror|
 

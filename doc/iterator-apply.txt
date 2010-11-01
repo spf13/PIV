@@ -1,0 +1,17 @@
+iterator_apply -- Apply a user function to every element of an iterator
+
+  int iterator_apply(Traversable iterator, callback function [, array args])~
+
+Calls a function for every element in an iterator.
+
+{iterator} The class to walk through.
+
+{function} The callback function to call on every element.
+
+{args} Arguments to pass to the callback function.
+
+Returns the iteration count.
+
+|array_walk|
+
+vim:ft=help:

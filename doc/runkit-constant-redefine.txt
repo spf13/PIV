@@ -1,0 +1,14 @@
+runkit_constant_redefine -- Redefine an already defined constant
+
+  bool runkit_constant_redefine(string constname, mixed newvalue)~
+
+{constname} Constant to redefine. Either string indicating global constant, or
+classname::constname indicating class constant.
+
+{newvalue} New value to assign to constant.
+
+Returns TRUE on success or FALSE on failure.
+
+|runkit_constant_add| |runkit_constant_remove|
+
+vim:ft=help:

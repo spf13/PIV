@@ -1,0 +1,30 @@
+ps_add_launchlink -- Adds link which launches file
+
+  bool ps_add_launchlink(resource psdoc, float llx, float lly, float urx, float ury, string filename)~
+
+Places a hyperlink at the given position pointing to a file program which is
+being started when clicked on. The hyperlink's source position is a rectangle
+with its lower left corner at (llx, lly) and its upper right corner at (urx,
+ury). The rectangle has by default a thin blue border.
+
+The note will not be visible if the document is printed or viewed but it will
+show up if the document is converted to pdf by either Acrobat Distiller™ or
+Ghostview.
+
+{psdoc} Resource identifier of the postscript file as returned by |ps_new|.
+
+{llx} The x-coordinate of the lower left corner.
+
+{lly} The y-coordinate of the lower left corner.
+
+{urx} The x-coordinate of the upper right corner.
+
+{ury} The y-coordinate of the upper right corner.
+
+{filename} The path of the program to be started, when the link is clicked on.
+
+Returns TRUE on success or FALSE on failure.
+
+|ps_add_locallink| |ps_add_pdflink| |ps_add_weblink|
+
+vim:ft=help:

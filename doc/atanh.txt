@@ -5,8 +5,12 @@ atanh -- Inverse hyperbolic tangent
 Returns the inverse hyperbolic tangent of {arg}, i.e. the value whose
 hyperbolic tangent is {arg}.
 
-This function is not implemented on Windows platforms.
+{arg} The argument to process
 
-See also: |atan|, |asinh|, and |acosh|.
+Inverse hyperbolic tangent of {arg}
+
+Version Description 5.3.0 This function is now available on all platforms
+
+|tanh| |atan| |asinh| |acosh|
 
 vim:ft=help:

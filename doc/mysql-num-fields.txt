@@ -23,7 +23,11 @@ A |mysql_num_fields| example
   echo mysql_num_fields($result);
 ?>
 
-For downward compatibility, the following deprecated alias may be used:
+
+
+
+
+For backward compatibility, the following deprecated alias may be used:
 |mysql_numfields|
 
 |mysql_select_db| |mysql_query| |mysql_fetch_field| |mysql_num_rows|

@@ -3,10 +3,29 @@ posix_setgid -- Set the GID of the current process
   bool posix_setgid(int gid)~
 
 Set the real group ID of the current process. This is a privileged function
-and you need appropriate privileges (usually root) on your system to be able
-to perform this function. The appropriate order of function calls is
+and needs appropriate privileges (usually root) on the system to be able to
+perform this function. The appropriate order of function calls is
 |posix_setgid| first, |posix_setuid| last.
 
+If the caller is a super user, this will also set the effective group id.
+
+{gid} The group id.
+
 Returns TRUE on success or FALSE on failure.
+
+|posix_setgid| example This example will print out the effective group id,
+once it is changed.
+
+<?php >
+  echo 'My real group id is '.posix_getgid(); //20
+  posix_setgid(40);
+  echo 'My real group id is '.posix_getgid(); //40
+  echo 'My effective group id is '.posix_getegid(); //40
+?>
+
+
+
+|posix_getgrgid| for information on how to convert this into a useable group
+name |posix_getgid| get real group id.
 
 vim:ft=help:

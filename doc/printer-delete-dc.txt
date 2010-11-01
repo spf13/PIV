@@ -1,9 +1,12 @@
 printer_delete_dc -- Delete a device context
 
-  bool printer_delete_dc(resource handle)~
+  bool printer_delete_dc(resource printer_handle)~
 
-The function deletes the device context. Returns TRUE on success or FALSE on
-failure. For an example see |printer_create_dc|. {handle} must be a valid
-handle to a printer.
+The function deletes the device context. For an example see
+|printer_create_dc|.
+
+{printer_handle} {printer_handle} must be a valid printer handle.
+
+Returns TRUE on success or FALSE on failure.
 
 vim:ft=help:

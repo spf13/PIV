@@ -23,10 +23,10 @@ associative and numerical indices. SQLITE_BOTH is the default for this
 function.
 
 {decode_binary} When the {decode_binary} parameter is set to TRUE (the
-default), PHP will decode the binary encoding it applied to the data if it
-was encoded using the |sqlite_escape_string|. You should normally leave this
-value at its default, unless you are interoperating with databases created by
-other sqlite capable applications.
+default), PHP will decode the binary encoding it applied to the data if it was
+encoded using the |sqlite_escape_string|. You should normally leave this value
+at its default, unless you are interoperating with databases created by other
+sqlite capable applications.
 
 Returns an array of the next row from a result set; FALSE if the next position
 is beyond the final row.
@@ -39,11 +39,14 @@ Procedural example
 <?php >
   $dbhandle = sqlite_open('sqlitedb');
   $query = sqlite_query($dbhandle, 'SELECT name, email FROM users LIMIT 25');
-  $result = sqlite_fetch_all($query, SQLITE_ASSOC);
-  foreach ($result as $entry) {
+  while ($entry = sqlite_fetch_array($query, SQLITE_ASSOC)) {
       echo 'Name: ' . $entry['name'] . '  E-mail: ' . $entry['email'];
   }
 ?>
+
+
+
+
 
 Object-oriented example
 
@@ -53,11 +56,14 @@ Object-oriented example
   $query = $dbhandle->query('SELECT name, email FROM users LIMIT 25'); // buffered result set
   $query = $dbhandle->unbufferedQuery('SELECT name, email FROM users LIMIT 25'); // unbuffered result set
   
-  $result = $query->fetchAll(SQLITE_ASSOC);
-  foreach ($result as $entry) {
+  while ($entry = $query->fetch(SQLITE_ASSOC)) {
       echo 'Name: ' . $entry['name'] . '  E-mail: ' . $entry['email'];
   }
 ?>
+
+
+
+
 
 |sqlite_array_query| |sqlite_fetch_string|
 

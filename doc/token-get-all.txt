@@ -11,9 +11,9 @@ value into its string representation.
 {source} The PHP source to parse.
 
 An array of token identifiers. Each individual token identifier is either a
-single character (i.e.: ;, ., >, !, etc...), or a two element array
-containing the token index in element 0, and the string content of the
-original token in element 1.
+single character (i.e.: ;, ., >, !, etc...), or a three element array
+containing the token index in element 0, the string content of the original
+token in element 1 and the line number in element 2.
 
 |token_get_all| examples
 
@@ -30,5 +30,11 @@ original token in element 1.
      This would be equivalent to putting a comment outside of <?php ?> tags in a normal file. */
   $tokens = token_get_all('/* comment */'); // => array(array(T_INLINE_HTML, '/* comment */'));
 ?>
+
+
+
+
+
+Version Description 5.2.2 Line numbers are returned in element 2
 
 vim:ft=help:

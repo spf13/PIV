@@ -4,6 +4,10 @@ tanh -- Hyperbolic tangent
 
 Returns the hyperbolic tangent of {arg}, defined as sinh(arg)/cosh(arg).
 
-See also: |tan|, |atanh|, |sin|, and |cos|.
+{arg} The argument to process
+
+The hyperbolic tangent of {arg}
+
+|tan| |atanh| |sinh| |cosh|
 
 vim:ft=help:

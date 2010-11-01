@@ -1,12 +1,5 @@
-ocisetprefetch -- Sets number of rows to be prefetched
+ocisetprefetch -- Alias of oci_set_prefetch
 
-  bool ocisetprefetch(resource stmt, int rows)~
-
-Sets the number of top level rows to be prefetched to {rows}. The default
-value for {rows} is 1 row.
-
-This function was renamed to |oci_set_prefetch| after PHP >= 5.0.0. For
-downward compatibility |ocisetprefetch| can also be used. This is deprecated,
-however.
+This function is an alias of: |oci_set_prefetch|.
 
 vim:ft=help:

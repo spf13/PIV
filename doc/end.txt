@@ -5,13 +5,21 @@ end -- Set the internal pointer of an array to its last element
 |end| advances {array}'s internal pointer to the last element, and returns its
 value.
 
-A simple |end| example
+{array} The array.
+
+Returns the value of the last element or FALSE for empty array.
+
+|end| example
 
 <?php >
   $fruits = array('apple', 'banana', 'cranberry');
   echo end($fruits); // cranberry
 ?>
 
-See also |current|, |each|, |prev|, |next| and |reset|.
+
+
+
+
+|current| |each| |prev| |reset| |next|
 
 vim:ft=help:

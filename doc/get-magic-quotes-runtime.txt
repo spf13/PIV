@@ -3,9 +3,25 @@ magic_quotes_runtime
 
   int get_magic_quotes_runtime()~
 
-Returns the current active configuration setting of magic_quotes_runtime (0
-for off, 1 for on).
+Returns the current active configuration setting of magic_quotes_runtime.
 
-See also |get_magic_quotes_gpc| and |set_magic_quotes_runtime|.
+Returns 0 if magic quotes runtime is off, 1 otherwise.
+
+|get_magic_quotes_runtime| example
+
+<?php >
+  // Check if magic_quotes_runtime is active
+  if(get_magic_quotes_runtime())
+  {
+  	// Deactive
+  	set_magic_quotes_runtime(false);
+  }
+?>
+
+
+
+
+
+|get_magic_quotes_gpc| |set_magic_quotes_runtime|
 
 vim:ft=help:

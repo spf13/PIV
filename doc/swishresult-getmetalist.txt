@@ -1,0 +1,12 @@
+SwishResult->getMetaList -- Get a list of meta entries
+
+  array SwishResult->getMetaList()~
+
+This function is EXPERIMENTAL. The behaviour of this function, its name, and
+surrounding documentation may change without notice in a future release of
+PHP. This function should be used at your own risk.
+
+Returns the same array as |swish->getmetalist|, but uses the index file from
+the result handle.
+
+vim:ft=help:

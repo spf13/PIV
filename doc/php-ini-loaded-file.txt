@@ -1,0 +1,31 @@
+php_ini_loaded_file -- Retrieve a path to the loaded php.ini file
+
+  string php_ini_loaded_file()~
+
+Check if a php.ini file is loaded, and retrieve its path.
+
+This function has no parameters.
+
+The loaded php.ini path, or FALSE if one is not loaded.
+
+|php_ini_loaded_file| example
+
+<?php >
+  $inipath = php_ini_loaded_file();
+  
+  if ($inipath) {
+      echo 'Loaded php.ini: ' . $inipath;
+  } else {
+      echo 'A php.ini file is not loaded';
+  }
+?>
+
+The above example will output something similar to:
+
+  Loaded php.ini: /usr/local/php/php.ini
+
+
+
+|php_ini_scanned_files| |phpinfo| The configuration file
+
+vim:ft=help:

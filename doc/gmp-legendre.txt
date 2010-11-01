@@ -5,6 +5,16 @@ gmp_legendre -- Legendre symbol
 Compute the Legendre symbol of {a} and {p}. {p} should be odd and must be
 positive.
 
+{a} It can be either a GMP number resource, or a numeric string given that it
+is possible to convert the latter to a number.
+
+{p} It can be either a GMP number resource, or a numeric string given that it
+is possible to convert the latter to a number.
+
+Should be odd and must be positive.
+
+A GMP number resource.
+
 |gmp_legendre| example
 
 <?php >
@@ -12,9 +22,11 @@ positive.
   echo gmp_legendre("2", "3") . "\n";
 ?>
 
-The printout of the above program will be:
+The above example will output:
 
   1
   0
+
+
 
 vim:ft=help:

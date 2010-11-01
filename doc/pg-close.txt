@@ -30,6 +30,8 @@ The above example will output:
 
   Connected successfully
 
+
+
 |pg_connect|
 
 vim:ft=help:

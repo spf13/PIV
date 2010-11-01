@@ -3,13 +3,21 @@ or not
 
   int stream_socket_sendto(resource socket, string data [, int flags [, string address]])~
 
-The function |stream_socket_sendto| sends the data specified by {data} through
-the socket specified by {socket}. The address specified when the socket stream
-was created will be used unless an alternate address is specified in
-{address}.
+Sends the specified {data} through the {socket}.
 
-The value of {flags} can be any combination of the following: possible values
-for {flags} STREAM_OOB Process OOB (out-of-band) data.
+{socket} The socket to send {data} to.
+
+{data} The data to be sent.
+
+{flags} The value of {flags} can be any combination of the following: possible
+values for {flags} STREAM_OOB Process OOB (out-of-band) data.
+
+{address} The address specified when the socket stream was created will be
+used unless an alternate address is specified in {address}.
+
+If specified, it must be in dotted quad (or [ipv6]) format.
+
+Returns a result code, as an integer.
 
 |stream_socket_sendto| Example
 
@@ -27,7 +35,8 @@ for {flags} STREAM_OOB Process OOB (out-of-band) data.
   fclose($socket);
 ?>
 
-See also |stream_socket_recvfrom|, |stream_socket_client|, and
-|stream_socket_server|.
+
+
+
 
 vim:ft=help:

@@ -10,8 +10,8 @@ The function parses the XML document in the given file.
 function.
 
 You can use one of the following constants for it: DOMXML_LOAD_PARSING
-(default), DOMXML_LOAD_VALIDATING or DOMXML_LOAD_RECOVERING. You can add to
-it also DOMXML_LOAD_DONT_KEEP_BLANKS, DOMXML_LOAD_SUBSTITUTE_ENTITIES and
+(default), DOMXML_LOAD_VALIDATING or DOMXML_LOAD_RECOVERING. You can add to it
+also DOMXML_LOAD_DONT_KEEP_BLANKS, DOMXML_LOAD_SUBSTITUTE_ENTITIES and
 DOMXML_LOAD_COMPLETE_ATTRS by bitwise or.
 
 {error} If used, it will contain the error messages. {error} must be passed in
@@ -29,6 +29,10 @@ Opening an XML document from a file
   
   $root = $dom->document_element();
 ?>
+
+
+
+
 
 Version Description 4.3.0 The parameters {mode} and {error} were added.
 

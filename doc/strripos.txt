@@ -3,11 +3,21 @@ string
 
   int strripos(string haystack, string needle [, int offset])~
 
-Returns the numeric position of the last occurrence of {needle} in the
-{haystack} string. Unlike |strrpos|, |strripos| is case-insensitive. Also
-note that string positions start at 0, and not 1.
+Find position of last occurrence of a case-insensitive string in a string.
+Unlike |strrpos|, |strripos| is case-insensitive.
 
-Note that the {needle} may be a string of one or more characters.
+{haystack} The string to search in
+
+{needle} Note that the {needle} may be a string of one or more characters.
+
+{offset} The {offset} parameter may be specified to begin searching an
+arbitrary number of characters into the string.
+
+Negative offset values will start the search at {offset} characters from the
+start of the string.
+
+Returns the numerical position of the last occurrence of {needle}. Also note
+that string positions start at 0, and not 1.
 
 If {needle} is not found, FALSE is returned.
 
@@ -32,17 +42,13 @@ A simple |strripos| example
   }
 ?>
 
-Outputs:
+The above example will output:
 
   Congratulations!
      We found the last (aB) in (ababcd) at position (2)
 
-The {offset} parameter may be specified to begin searching an arbitrary number
-of characters into the string.
 
-Negative offset values will start the search at {offset} characters from the
-start of the string.
 
-See also |strrpos|, |strrchr|, |substr|, |stripos| and |stristr|.
+|strpos| |stripos| |strrchr| |substr| |stristr| |strstr|
 
 vim:ft=help:

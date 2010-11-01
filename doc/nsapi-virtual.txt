@@ -12,9 +12,9 @@ pending headers are sent too.
 You cannot make recursive requests with this function to other PHP scripts. If
 you want to include PHP scripts, use |include| or |require|.
 
-This function depends on a undocumented feature of the Netscape/iPlanet/SunONE
+This function depends on a undocumented feature of the Netscape/iPlanet/Sun
 webservers. Use |phpinfo| to determine if it is available. In the Unix
-environment it should always work, in windows it depends on the name of a
+environment it should always work, in Windows it depends on the name of a
 ns-httpdXX.dll file.
 
 Read the note about subrequests in the NSAPI section (UNIX, Windows) if you

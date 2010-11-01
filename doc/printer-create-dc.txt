@@ -1,10 +1,13 @@
 printer_create_dc -- Create a new device context
 
-  void printer_create_dc(resource handle)~
+  void printer_create_dc(resource printer_handle)~
 
 The function creates a new device context. A device context is used to
-customize the graphic objects of the document. {handle} must be a valid
-handle to a printer.
+customize the graphic objects of the document.
+
+{printer_handle} {printer_handle} must be a valid printer handle.
+
+No value is returned.
 
 |printer_create_dc| example
 
@@ -31,5 +34,9 @@ handle to a printer.
   printer_end_doc($handle);
   printer_close($handle);
 ?>
+
+
+
+
 
 vim:ft=help:

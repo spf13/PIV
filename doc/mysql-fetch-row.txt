@@ -8,8 +8,8 @@ internal data pointer ahead.
 { result}The result resource that is being evaluated. This result comes from a
 call to |mysql_query|.
 
-Returns an numerical array that corresponds to the fetched row, or FALSE if
-there are no more rows.
+Returns an numerical array of strings that corresponds to the fetched row, or
+FALSE if there are no more rows.
 
 |mysql_fetch_row| fetches one row of data from the result associated with the
 specified result identifier. The row is returned as an array. Each result
@@ -29,9 +29,13 @@ Fetching one row with |mysql_fetch_row|
   echo $row[1]; // the email value
 ?>
 
-This function sets NULL fields to PHP NULL value.
 
-|mysql_fetch_array| |mysql_fetch_assoc| |mysql_data_object| |mysql_data_seek|
+
+
+
+This function sets NULL fields to the PHP NULL value.
+
+|mysql_fetch_array| |mysql_fetch_assoc| |mysql_fetch_object| |mysql_data_seek|
 |mysql_fetch_lengths| |mysql_result|
 
 vim:ft=help:

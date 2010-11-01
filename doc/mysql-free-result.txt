@@ -27,7 +27,7 @@ A |mysql_free_result| example
       echo 'Could not run query: ' . mysql_error();
       exit;
   }
-  /* Use the result, assuming we're done with it afterwords */
+  /* Use the result, assuming we're done with it afterwards */
   $row = mysql_fetch_assoc($result);
   
   /* Now we free up the result and continue on with our script */
@@ -37,7 +37,11 @@ A |mysql_free_result| example
   echo $row['email'];
 ?>
 
-For downward compatibility, the following deprecated alias may be used:
+
+
+
+
+For backward compatibility, the following deprecated alias may be used:
 |mysql_freeresult|
 
 |mysql_query| |is_resource|

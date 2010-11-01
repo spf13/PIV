@@ -5,8 +5,8 @@ pg_last_error -- Get the last error message string of a connection
 |pg_last_error| returns the last error message for a given {connection}.
 
 Error messages may be overwritten by internal PostgreSQL (libpq) function
-calls. It may not return an appropriate error message if multiple errors
-occur inside a PostgreSQL module function.
+calls. It may not return an appropriate error message if multiple errors occur
+inside a PostgreSQL module function.
 
 Use |pg_result_error|, |pg_result_error_field|, |pg_result_status| and
 |pg_connection_status| for better error handling.
@@ -23,15 +23,17 @@ on error.
 |pg_last_error| example
 
 <?php >
-  $pgsql_conn = pg_connect("dbname=mark host=localhost");
+    $dbconn = pg_connect("dbname=publisher") or die("Could not connect");
   
-  if ($pgsql_conn) {
-     print "Successfully connected to: " . pg_host($pgsql_conn) . "<br/>\n";
-  } else {
-     print pg_last_error($pgsql_conn);
-     exit;
-  }
+    // Query that fails
+    $res = pg_query($dbconn, "select * from doesnotexist");
+    
+    echo pg_last_error($dbconn);
 ?>
+
+
+
+
 
 |pg_result_error| |pg_result_error_field|
 

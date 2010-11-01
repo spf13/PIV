@@ -1,7 +1,11 @@
 hw_api->userlist -- Returns a list of all logged in users
 
-  array hw_api->userlist(array parameter)~
+  array userlist(array parameter)~
 
-See also |hwapi_user|.
+Returns a list of all logged in users.
+
+{parameter}
+
+
 
 vim:ft=help:

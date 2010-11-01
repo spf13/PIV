@@ -1,0 +1,27 @@
+SAMMessage->__construct -- Creates a new Message object
+
+Creates a new SAMMessage object optionally specifying a message body.
+
+{body} The optional body for the message.
+
+Creating a message
+
+<?php >
+  $msg = new SAMMessage();
+?>
+
+
+
+
+
+Creating a message with a simple text payload
+
+<?php >
+  $msg = new SAMMessage('This is a simple text message');
+?>
+
+
+
+
+
+vim:ft=help:

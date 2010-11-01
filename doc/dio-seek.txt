@@ -21,6 +21,8 @@ file; a positive count specifies a position past the current end. If you set
 the position past the current end, and actually write data, you will extend
 the file with zeros up to that position.
 
+
+
 Positioning in a file
 
 <?php >
@@ -42,5 +44,9 @@ Positioning in a file
   
   dio_close($fd);
 ?>
+
+
+
+
 
 vim:ft=help:

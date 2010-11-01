@@ -1,0 +1,15 @@
+oauth_get_sbs -- Generate a Signature Base String
+
+  string oauth_get_sbs(string http_method, string uri, array request_parameters)~
+
+Generates a Signature Base String according to pecl/oauth.
+
+{http_method} The HTTP method.
+
+{uri} URI to encode.
+
+{request_parameters} Array of request parameters.
+
+Returns a Signature Base String.
+
+vim:ft=help:

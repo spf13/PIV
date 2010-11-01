@@ -6,6 +6,10 @@ Returns a string containing a hexadecimal representation of the given {number}
 argument. The largest number that can be converted is 4294967295 in decimal
 resulting to "ffffffff".
 
+{number} Decimal value to convert
+
+Hexadecimal string representation of {number}
+
 |dechex| example
 
 <?php >
@@ -18,6 +22,8 @@ The above example will output:
   a
   2f
 
-See also |hexdec|, |decbin|, |decoct| and |base_convert|.
+
+
+|hexdec| |decbin| |decoct| |base_convert|
 
 vim:ft=help:

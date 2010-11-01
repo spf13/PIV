@@ -8,8 +8,8 @@ If you want to deliver thumbnails through this function, you should send the
 mimetype information using the |header| function.
 
 It is possible that |exif_thumbnail| cannot create an image but can determine
-its size. In this case, the return value is FALSE but {width} and {height}
-are set.
+its size. In this case, the return value is FALSE but {width} and {height} are
+set.
 
 {filename} The name of the image file being read. This image contains an
 embedded thumbnail.
@@ -44,6 +44,10 @@ format.
       echo 'No thumbnail available';
   }
 ?>
+
+
+
+
 
 |exif_read_data| |image_type_to_mime_type|
 

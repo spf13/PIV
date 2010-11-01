@@ -1,0 +1,25 @@
+radius_put_vendor_attr -- Attaches a vendor specific binary attribute
+
+  bool radius_put_vendor_attr(resource radius_handle, int vendor, int type, string value)~
+
+This function is currently not documented; only its argument list is
+available.
+
+Returns TRUE on success or FALSE on failure.
+
+|radius_put_vendor_attr| example
+
+<?php >
+  if (!radius_put_vendor_attr($res, RADIUS_VENDOR_MICROSOFT, RAD_MICROSOFT_MS_CHAP_CHALLENGE, $challenge)) {
+      echo 'RadiusError:' . radius_strerror($res). "\n<br />";
+      exit;
+  }
+?>
+
+
+
+
+
+|radius_get_vendor_attr|
+
+vim:ft=help:

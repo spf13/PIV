@@ -9,6 +9,12 @@ of both arguments are used to determine the quadrant of the result.
 The function returns the result in radians, which is between -PI and PI
 (inclusive).
 
-See also |acos| and |atan|.
+{y} Dividend parameter
+
+{x} Divisor parameter
+
+The arc tangent of {y}/{x} in radians.
+
+|atan|
 
 vim:ft=help:

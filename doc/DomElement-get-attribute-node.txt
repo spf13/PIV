@@ -1,4 +1,4 @@
-DomElement->get_attribute_node() -- Returns the node of the given attribute
+DomElement->get_attribute_node -- Returns the node of the given attribute
 
   DomAttribute get_attribute_node(string name)~
 
@@ -24,6 +24,10 @@ Getting an attribute node
       echo 'Language is: ' . $attribute->value() . "\n";
   }
 ?>
+
+
+
+
 
 Use .
 

@@ -5,8 +5,14 @@ hw_cp -- Copies objects
 Copies the objects with object ids as specified in the second parameter to the
 collection with the id {destination id}.
 
-The value return is the number of copied objects.
+{connection} The connection identifier.
 
-See also |hw_mv|.
+{object_id_array} An array of object ids.
+
+{destination_id} The target collection id.
+
+Returns the number of copied objects.
+
+|hw_mv|
 
 vim:ft=help:

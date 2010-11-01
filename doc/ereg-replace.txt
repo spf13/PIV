@@ -5,16 +5,18 @@ ereg_replace -- Replace regular expression
 This function scans {string} for matches to {pattern}, then replaces the
 matched text with {replacement}.
 
-The modified string is returned. (Which may mean that the original string is
-returned if there are no matches to be replaced.)
+{pattern} A POSIX extended regular expression.
 
-If {pattern} contains parenthesized substrings, {replacement} may contain
-substrings of the form \\digit, which will be replaced by the text matching
-the digit'th parenthesized substring; \\0 will produce the entire contents of
-string. Up to nine substrings may be used. Parentheses may be nested, in which
-case they are counted by the opening parenthesis.
+{replacement} If {pattern} contains parenthesized substrings, {replacement}
+may contain substrings of the form \\digit, which will be replaced by the text
+matching the digit'th parenthesized substring; \\0 will produce the entire
+contents of string. Up to nine substrings may be used. Parentheses may be
+nested, in which case they are counted by the opening parenthesis.
 
-If no matches are found in {string}, then {string} will be returned unchanged.
+{string} The input string.
+
+The modified string is returned. If no matches are found in {string}, then it
+will be returned unchanged.
 
 For example, the following code snippet prints "This was a test" three times:
 
@@ -26,6 +28,10 @@ For example, the following code snippet prints "This was a test" three times:
   echo ereg_replace("( )is", "\\1was", $string);
   echo ereg_replace("(( )is)", "\\2was", $string);
 ?>
+
+
+
+
 
 One thing to take note of is that if you use an integer value as the
 {replacement} parameter, you may not get the results you expect. This is
@@ -48,6 +54,10 @@ character, and apply that. For instance:
   echo $string;   /* Output: 'This string has 4 words.' */
 ?>
 
+
+
+
+
 Replace URLs with links
 
 <?php >
@@ -55,9 +65,16 @@ Replace URLs with links
                        "<a href=\"\\0\">\\0</a>", $text);
 ?>
 
+
+
+
+
+As of PHP 5.3.0 the regex extension is deprecated, calling this function will
+issue an E_DEPRECATED notice.
+
 |preg_replace|, which uses a Perl-compatible regular expression syntax, is
 often a faster alternative to |ereg_replace|.
 
-See also |ereg|, |eregi|, |eregi_replace|, |str_replace|, and |preg_match|.
+|ereg| |eregi| |eregi_replace| |str_replace| |preg_match|
 
 vim:ft=help:

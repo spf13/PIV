@@ -1,8 +1,5 @@
-ociloadlob -- Loads a large object
+ociloadlob -- Alias of
 
-  string ociloadlob()~
-
-This function was renamed to |oci_lob_load| after PHP >= 5.0.0. For downward
-compatibility |ociloadlob| can also be used. This is deprecated, however.
+This function is an alias of: .
 
 vim:ft=help:

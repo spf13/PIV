@@ -1,0 +1,9 @@
+stream_resolve_include_path -- Determine what file will be opened by calls to
+fopen with a relative path
+
+  string stream_resolve_include_path(string filename [, resource context])~
+
+This function is currently not documented; only its argument list is
+available.
+
+vim:ft=help:

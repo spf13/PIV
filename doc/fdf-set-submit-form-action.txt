@@ -2,9 +2,21 @@ fdf_set_submit_form_action -- Sets a submit form action of a field
 
   bool fdf_set_submit_form_action(resource fdf_document, string fieldname, int trigger, string script, int flags)~
 
-The |fdf_set_submit_form_action| sets a submit form action for the given field
-{fieldname}.
+Sets a submit form action for the given field.
 
-See also |fdf_set_javascript_action|.
+{fdf_document} The FDF document handle, returned by |fdf_create|, |fdf_open|
+or |fdf_open_string|.
+
+{fieldname} Name of the FDF field, as a string.
+
+{trigger}
+
+{script}
+
+{flags}
+
+Returns TRUE on success or FALSE on failure.
+
+|fdf_set_javascript_action|
 
 vim:ft=help:

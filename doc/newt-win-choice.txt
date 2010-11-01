@@ -1,0 +1,20 @@
+newt_win_choice --
+
+  int newt_win_choice(string title, string button1_text, string button2_text, string format [, mixed args [, mixed ...]])~
+
+This function is currently not documented; only its argument list is
+available.
+
+{title}
+
+{button1_text}
+
+{button2_text}
+
+{format}
+
+{args}
+
+
+
+vim:ft=help:

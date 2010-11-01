@@ -1,0 +1,35 @@
+db2_close -- Closes a database connection
+
+  bool db2_close(resource connection)~
+
+This function closes a DB2 client connection created with |db2_connect| and
+returns the corresponding resources to the database server.
+
+If you attempt to close a persistent DB2 client connection created with
+|db2_pconnect|, the close request is ignored and the persistent DB2 client
+connection remains available for the next caller.
+
+{connection} Specifies an active DB2 client connection.
+
+Returns TRUE on success or FALSE on failure.
+
+Closing a connection The following example demonstrates a successful attempt
+to close a connection to an IBM DB2, Cloudscape, or Apache Derby database.
+
+<?php >
+  $conn = db2_connect('SAMPLE', 'db2inst1', 'ibmdb2');
+  $rc = db2_close($conn);
+  if ($rc) {
+      echo "Connection was successfully closed.";
+  }
+?>
+
+The above example will output:
+
+  Connection was successfully closed.
+
+
+
+|db2_connect| |db2_pclose| |db2_pconnect|
+
+vim:ft=help:

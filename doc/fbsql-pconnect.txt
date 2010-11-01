@@ -2,17 +2,12 @@ fbsql_pconnect -- Open a persistent connection to a FrontBase Server
 
   resource fbsql_pconnect([string hostname [, string username [, string password]]])~
 
-Returns: A positive FrontBase persistent link identifier on success, or FALSE
-on error.
+Establishes a persistent connection to a FrontBase server.
 
-|fbsql_pconnect| establishes a connection to a FrontBase server. The following
-defaults are assumed for missing optional parameters: {host} = 'localhost',
-{username} = "_SYSTEM" and {password} = empty password.
-
-To set Frontbase server port number, use |fbsql_select_db|.
+To set the server port number, use |fbsql_select_db|.
 
 |fbsql_pconnect| acts very much like |fbsql_connect| with two major
-differences.
+differences:
 
 First, when connecting, the function would first try to find a (persistent)
 link that's already open with the same host, username and password. If one is
@@ -23,5 +18,16 @@ Second, the connection to the SQL server will not be closed when the execution
 of the script ends. Instead, the link will remain open for future use.
 
 This type of links is therefore called 'persistent'.
+
+{hostname} The server host name. Defaults to localhost.
+
+{username} The user name for the connection. Defaults to _SYSTEM.
+
+{password} The password for the connection. Defaults to the empty string.
+
+Returns a positive FrontBase persistent link identifier on success, or FALSE
+on error.
+
+|fbsql_connect|
 
 vim:ft=help:

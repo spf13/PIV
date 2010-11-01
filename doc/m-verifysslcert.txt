@@ -1,0 +1,14 @@
+m_verifysslcert -- Set whether or not to verify the server ssl certificate
+
+  bool m_verifysslcert(resource conn, int tf)~
+
+This function is currently not documented; only its argument list is
+available.
+
+{ conn}An MCVE_CONN resource returned by |m_initengine|.
+
+{tf}
+
+
+
+vim:ft=help:

@@ -2,12 +2,12 @@ imap_check -- Check current mailbox
 
   object imap_check(resource imap_stream)~
 
-Returns information about the current mailbox. Returns FALSE on failure.
+Checks information about the current mailbox.
 
-The |imap_check| function checks the current mailbox status on the server and
-returns the information in an object with following properties:
+{ imap_stream}An IMAP stream returned by |imap_open|.
 
-Date - current system time formatted according to RFC822
+Returns the information in an object with following properties: Date - current
+system time formatted according to RFC2822
 
 Driver - protocol used to access this mailbox: POP3, IMAP, NNTP
 
@@ -17,6 +17,8 @@ Nmsgs - number of messages in the mailbox
 
 Recent - number of recent messages in the mailbox
 
+Returns FALSE on failure.
+
 |imap_check| example
 
 <?php >
@@ -24,7 +26,7 @@ Recent - number of recent messages in the mailbox
   var_dump($imap_obj);
 ?>
 
-this will output :
+The above example will output something similar to:
 
   object(stdClass)(5) {
     ["Date"]=>
@@ -39,5 +41,7 @@ this will output :
     ["Recent"]=>
     int(0)
   }
+
+
 
 vim:ft=help:

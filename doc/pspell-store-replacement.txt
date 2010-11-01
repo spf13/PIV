@@ -8,8 +8,16 @@ take advantage of this function, you have to use |pspell_new_personal| to open
 the dictionary. In order to permanently save the replacement pair, you have to
 use |pspell_config_personal| and |pspell_config_repl| to set the path where to
 save your custom wordlists, and then use |pspell_save_wordlist| for the
-changes to be written to disk. Please, note that this function will not work
-unless you have pspell .11.2 and aspell .32.5 or later.
+changes to be written to disk.
+
+{dictionary_link} A dictionary link identifier, opened with
+|pspell_new_personal|
+
+{misspelled} The misspelled word.
+
+{correct} The fixed spelling for the {misspelled} word.
+
+Returns TRUE on success or FALSE on failure.
 
 |pspell_store_replacement|
 
@@ -22,5 +30,12 @@ unless you have pspell .11.2 and aspell .32.5 or later.
   pspell_store_replacement($pspell_link, $misspelled, $correct);
   pspell_save_wordlist($pspell_link);
 ?>
+
+
+
+
+
+This function will not work unless you have pspell .11.2 and aspell .32.5 or
+later.
 
 vim:ft=help:

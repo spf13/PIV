@@ -1,5 +1,6 @@
-pdf_add_annotation -- Deprecated: Adds annotation
+PDF_add_annotation -- Add annotation [deprecated]
 
-This function is deprecated, use |pdf_add_note| instead.
+This function is deprecated, use |PDF_create_annotation| with {type=Text}
+instead.
 
 vim:ft=help:

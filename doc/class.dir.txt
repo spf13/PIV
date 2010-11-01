@@ -1,10 +1,10 @@
-dir -- Directory class
+dir -- Return an instance of the Directory class
 
-  string read()~
+  string Directory::read()~
 
-  void rewind()~
+  void Directory::rewind()~
 
-  void close()~
+  void Directory::close()~
 
 A pseudo-object oriented mechanism for reading a directory. The given
 {directory} is opened. Two properties are available once the directory has
@@ -13,11 +13,11 @@ such as |readdir|, |rewinddir| and |closedir|. The path property is set to
 path the directory that was opened. Three methods are available: read, rewind
 and close.
 
-|dir| example Please note the fashion in which |dir|'s return value is checked
-in the example below. We are explicitly testing whether the return value is
-identical to (equal to and of the same type as--see Comparison Operators for
-more information) FALSE since otherwise, any directory entry whose name
-evaluates to FALSE will stop the loop.
+|dir| example Please note the fashion in which |dir::read|'s return value is
+checked in the example below. We are explicitly testing whether the return
+value is identical to (equal to and of the same type as - see Comparison
+Operators for more information) FALSE since otherwise, any directory entry
+whose name evaluates to FALSE will stop the loop.
 
 <?php >
   $d = dir("/etc/php5");
@@ -39,11 +39,9 @@ The above example will output something similar to:
   cgi
   cli
 
+
+
 The order in which directory entries are returned by the read method is
 system-dependent.
-
-This defines the internal class Directory, meaning that you will not be able
-to define your own classes with that name. For a full list of predefined
-classes in PHP, please see Predefined Classes.
 
 vim:ft=help:

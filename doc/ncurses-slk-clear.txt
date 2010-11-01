@@ -2,12 +2,12 @@ ncurses_slk_clear -- Clears soft labels from screen
 
   bool ncurses_slk_clear()~
 
-This function is EXPERIMENTAL. The behaviour of this function, the name of
-this function, and anything else documented about this function may change
-without notice in a future release of PHP. Use this function at your own
-risk.
+This function is EXPERIMENTAL. The behaviour of this function, its name, and
+surrounding documentation may change without notice in a future release of
+PHP. This function should be used at your own risk.
 
-The function |ncurses_slk_clear| clears soft label keys from screen. Returns
-TRUE on error, otherwise FALSE.
+The function |ncurses_slk_clear| clears soft label keys from screen.
+
+Returns TRUE on errors, FALSE otherwise.
 
 vim:ft=help:

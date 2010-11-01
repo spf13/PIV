@@ -1,11 +1,12 @@
-OCI-Collection->max -- Gets the maximum number of elements in the collection
+OCI-Collection->max -- Returns the maximum number of elements in the
+collection
 
-  int OCI-Collection->max()~
+  int max()~
 
-Returns the maximum number of elements in the collection. If the returned
-value is 0, then the number of elements is not limited. |OCI-Collection->max|
-returns FALSE in case of error.
+Returns the maximum number of elements in the collection.
 
-See also |oci_collection_size|.
+Returns the maximum number as an integer, or FALSE on errors.
+
+If the returned value is 0, then the number of elements is not limited.
 
 vim:ft=help:

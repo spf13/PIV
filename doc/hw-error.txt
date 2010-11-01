@@ -2,7 +2,12 @@ hw_Error -- Error number
 
   int hw_error(int connection)~
 
-Returns the last error number. If the return value is 0 no error has occurred.
-The error relates to the last command.
+Returns the last error number, for the last command.
+
+{connection} The connection identifier.
+
+Returns the last error number or 0 if no error occurred.
+
+|hw_errormsg|
 
 vim:ft=help:

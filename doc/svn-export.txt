@@ -1,0 +1,32 @@
+svn_export -- Export the contents of a SVN directory
+
+  bool svn_export(string frompath, string topath [, bool working_copy])~
+
+Export the contents of either a working copy or repository into a 'clean'
+directory.
+
+{frompath} The path to the current repository.
+
+{topath} The path to the new repository.
+
+{working_copy} If TRUE, it will export uncommitted files from the working
+copy. Default value is TRUE
+
+Returns TRUE on success or FALSE on failure.
+
+|svn_export| example
+
+<?php >
+  $working_dir     = '../';
+  $new_working_dir = '/home/user/devel/foo/trunk';
+  
+  svn_export($working_dir, $new_working_dir);
+?>
+
+
+
+
+
+|svn_import|
+
+vim:ft=help:

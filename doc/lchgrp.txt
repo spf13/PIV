@@ -1,0 +1,40 @@
+lchgrp -- Changes group ownership of symlink
+
+  bool lchgrp(string filename, mixed group)~
+
+Attempts to change the group of the symlink {filename} to {group}.
+
+Only the superuser may change the group of a symlink arbitrarily; other users
+may change the group of a symlink to any group of which that user is a member.
+
+{filename} Path to the symlink.
+
+{group} The group specified by name or number.
+
+Returns TRUE on success or FALSE on failure.
+
+Changing the group of a symbolic link
+
+<?php >
+  $target = 'output.php';
+  $link = 'output.html';
+  symlink($target, $link);
+  
+  lchgrp($link, 8);
+?>
+
+
+
+
+
+This function will not work on remote files as the file to be examined must be
+accessible via the server"s filesystem.
+
+When safe mode is enabled, PHP checks whether the files or directories being
+operated upon have the same UID (owner) as the script that is being executed.
+
+This function is not implemented on Windows platforms.
+
+|chgrp| |lchown| |chown| |chmod|
+
+vim:ft=help:

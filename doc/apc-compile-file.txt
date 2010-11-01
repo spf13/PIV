@@ -1,0 +1,13 @@
+apc_compile_file -- Stores a file in the bytecode cache, bypassing all
+filters.
+
+  bool apc_compile_file(string filename)~
+
+Stores a file in the bytecode cache, bypassing all filters.
+
+{filename} Full or relative path to a PHP file that will be compiled and
+stored in the bytecode cache.
+
+Returns TRUE on success or FALSE on failure.
+
+vim:ft=help:

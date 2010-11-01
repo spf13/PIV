@@ -3,8 +3,11 @@ frame
 
   void swf_startdoaction()~
 
-The |swf_startdoaction| function starts the description of an action list for
-the current frame. This must be called before actions are defined for the
-current frame.
+Starts the description of an action list for the current frame. This must be
+called before actions are defined for the current frame.
+
+No value is returned.
+
+|swf_enddoaction|
 
 vim:ft=help:

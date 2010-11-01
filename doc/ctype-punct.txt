@@ -30,6 +30,8 @@ The above example will output:
   The string !@ # $ does not consist of all punctuation.
   The string *&$() consists of all punctuation.
 
+
+
 |ctype_cntrl| |ctype_graph|
 
 vim:ft=help:

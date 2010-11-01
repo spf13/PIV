@@ -2,11 +2,6 @@ dbplus_tcl -- Execute TCL code on server side
 
   string dbplus_tcl(int sid, string script)~
 
-This function is EXPERIMENTAL. The behaviour of this function, the name of
-this function, and anything else documented about this function may change
-without notice in a future release of PHP. Use this function at your own
-risk.
-
 A db++ server will prepare a TCL interpreter for each client connection. This
 interpreter will enable the server to execute TCL code provided by the client
 as a sort of stored procedures to improve the performance of database
@@ -17,6 +12,16 @@ should be executed by. |dbplus_resolve| will provide this connection id. The
 function will return whatever the TCL code returns or a TCL error message if
 the TCL code fails.
 
-See also |dbplus_resolve|.
+{sid}
+
+{script}
+
+
+
+This function is EXPERIMENTAL. The behaviour of this function, its name, and
+surrounding documentation may change without notice in a future release of
+PHP. This function should be used at your own risk.
+
+|dbplus_resolve|
 
 vim:ft=help:

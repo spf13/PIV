@@ -1,0 +1,11 @@
+SDO_DAS_XML_Document::setEncoding -- Sets the given string as encoding
+
+  void SDO_DAS_XML_Document::setEncoding(string encoding)~
+
+Sets the given string as encoding.
+
+{encoding} Encoding string.
+
+None.
+
+vim:ft=help:

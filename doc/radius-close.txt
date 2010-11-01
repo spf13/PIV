@@ -1,0 +1,10 @@
+radius_close -- Frees all ressources
+
+  bool radius_close(resource radius_handle)~
+
+It is not needed to call this function because php frees all resources at the
+end of each request.
+
+Returns TRUE on success or FALSE on failure.
+
+vim:ft=help:

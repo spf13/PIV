@@ -1,0 +1,16 @@
+win32_start_service -- Starts a service
+
+  int win32_start_service(string servicename [, string machine])~
+
+Attempts to start the named service. Usually requires administrative
+privileges.
+
+{servicename} The short name of the service.
+
+{machine} Optional machine name. If omitted, the local machine is used.
+
+Returns WIN32_NO_ERROR on success, or some other win32 error code on failure.
+
+|win32_stop_service|
+
+vim:ft=help:

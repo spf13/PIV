@@ -14,7 +14,7 @@ query string.
 
 {connection} PostgreSQL database connection resource.
 
-{query} The parameterised SQL statement. Must contain only a single statement.
+{query} The parameterized SQL statement. Must contain only a single statement.
 (multiple statements separated by semi-colons are not allowed.) If any
 parameters are used, they are referred to as $1, $2, etc.
 
@@ -39,6 +39,10 @@ Using |pg_send_query_params|
     $str = pg_escape_string('Perth');
     pg_send_query($dbconn, "select count(*) from authors where city = '${str}'");
 ?>
+
+
+
+
 
 |pg_send_query|
 

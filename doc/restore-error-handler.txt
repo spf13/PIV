@@ -6,7 +6,7 @@ Used after changing the error handler function using |set_error_handler|, to
 revert to the previous error handler (which could be the built-in or a user
 defined function).
 
-This function always returns TRUE
+This function always returns TRUE.
 
 |restore_error_handler| example Decide if |unserialize| caused an error, then
 restore the original error handler.
@@ -26,6 +26,8 @@ restore the original error handler.
 The above example will output:
 
   Invalid serialized value.
+
+
 
 Calling |restore_error_handler| from the error_handler function is ignored.
 

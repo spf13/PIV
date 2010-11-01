@@ -4,13 +4,23 @@ index check, compares indexes by a callback function
   array array_intersect_uassoc(array array1, array array2 [, array ..., callback key_compare_func])~
 
 |array_intersect_uassoc| returns an array containing all the values of
-{array1} that are present in all the arguments. Note that the keys are used
-in the comparison unlike in |array_intersect|.
+{array1} that are present in all the arguments. Note that the keys are used in
+the comparison unlike in |array_intersect|.
 
 The index comparison is done by a user supplied callback function. It must
 return an integer less than, equal to, or greater than zero if the first
-argument is considered to be respectively less than, equal to, or greater
-than the second.
+argument is considered to be respectively less than, equal to, or greater than
+the second.
+
+{array1} Initial array for comparison of the arrays.
+
+{array2} First array to compare keys against.
+
+{array} Variable list of array arguments to compare values against.
+
+{key_compare_func} User supplied callback function to do the comparison.
+
+Returns the values of {array1} whose values exist in all of the arguments.
 
 |array_intersect_uassoc| example
 
@@ -28,7 +38,9 @@ The above example will output:
       [b] => brown
   )
 
-See also |array_intersect|, |array_intersect_assoc|, |array_uintersect_assoc|,
-|array_uintersect_uassoc|, |array_intersect_key| and |array_intersect_ukey|.
+
+
+|array_intersect| |array_intersect_assoc| |array_uintersect_assoc|
+|array_uintersect_uassoc| |array_intersect_key| |array_intersect_ukey|
 
 vim:ft=help:

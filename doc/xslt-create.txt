@@ -5,13 +5,15 @@ xslt_create -- Create a new XSLT processor
 Create and return a new XSLT processor resource for manipulation by the other
 XSLT functions.
 
+Returns an XSLT processor link identifier on success, or FALSE on error.
+
 |xslt_create| example
 
 <?php >
-  function xml2html($xmldata, $xsl) 
-  { 
+  function xml2html($xmldata, $xsl)
+  {
       /* $xmldata -> your XML */
-      /* $xsl -> XSLT file */     
+      /* $xsl -> XSLT file */
   
       $path = 'include';
       $arguments = array('/_xml' => $xmldata);
@@ -25,9 +27,13 @@ XSLT functions.
       }
       xslt_free($xsltproc);
       return $html;
-  }            
+  }
 ?>
 
-|xslt_free|.
+
+
+
+
+|xslt_free|
 
 vim:ft=help:

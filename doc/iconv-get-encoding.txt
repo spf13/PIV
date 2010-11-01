@@ -3,11 +3,13 @@ extension
 
   mixed iconv_get_encoding([string type])~
 
-|iconv_get_encoding| returns the current value of the internal configuration
-variable if successful, or FALSE on failure.
+Retrieve internal configuration variables of iconv extension.
 
-The value of the optional {type} can be: all input_encoding output_encoding
-internal_encoding
+{type} The value of the optional {type} can be: all input_encoding
+output_encoding internal_encoding
+
+Returns the current value of the internal configuration variable if
+successful, or FALSE on failure.
 
 If {type} is omitted or set to "all", |iconv_get_encoding| returns an array
 that stores all these variables.
@@ -22,7 +24,7 @@ that stores all these variables.
 ?>
   </pre>
 
-The printout of the above program will be:
+The above example will output:
 
   Array
   (
@@ -31,6 +33,8 @@ The printout of the above program will be:
       [internal_encoding] => UTF-8
   )
 
-See also |iconv_set_encoding| and |ob_iconv_handler|.
+
+
+|iconv_set_encoding| |ob_iconv_handler|
 
 vim:ft=help:

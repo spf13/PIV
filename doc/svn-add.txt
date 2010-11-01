@@ -1,0 +1,47 @@
+svn_add -- Schedules the addition of an item in a working directory
+
+  bool svn_add(string path [, bool recursive [, bool force]])~
+
+Adds the file, directory or symbolic link at {path} to the working directory.
+The item will be added to the repository the next time you call |svn_commit|
+on the working copy.
+
+{path} Path of item to add.
+
+Relative paths will be resolved as if the current working directory was the
+one that contains the PHP binary. To use the calling script"s working
+directory, use |realpath| or dirname(__FILE__).
+
+{recursive} If item is directory, whether or not to recursively add all of its
+contents. Default is TRUE
+
+{force} If true, Subversion will recurse into already versioned directories in
+order to add unversioned files that may be hiding in those directories.
+Default is FALSE
+
+Returns TRUE on success or FALSE on failure.
+
+This function is EXPERIMENTAL. The behaviour of this function, its name, and
+surrounding documentation may change without notice in a future release of
+PHP. This function should be used at your own risk.
+
+|svn_add| example In a working directory where svn status returns:
+
+  $ svn status
+  ?      foobar.txt
+
+...this code:
+
+<?php >
+  svn_add('foobar.txt');
+?>
+
+...will schedule foobar.txt for addition into the repository.
+
+
+
+
+
+SVN documentation on svn add
+
+vim:ft=help:

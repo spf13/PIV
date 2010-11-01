@@ -6,14 +6,14 @@ Retrieves the ID generated for an AUTO_INCREMENT column by the previous INSERT
 query.
 
 { link_identifier}The MySQL connection. If the link identifier is not
-specified, the last link opened by |mysql_connect| is assumed. If no such
-link is found, it will try to create one as if |mysql_connect| was called
-with no arguments. If by chance no connection is found or established, an
-E_WARNING level warning is generated.
+specified, the last link opened by |mysql_connect| is assumed. If no such link
+is found, it will try to create one as if |mysql_connect| was called with no
+arguments. If by chance no connection is found or established, an E_WARNING
+level error is generated.
 
 The ID generated for an AUTO_INCREMENT column by the previous INSERT query on
-success, 0 if the previous query does not generate an AUTO_INCREMENT value,
-or FALSE if no MySQL connection was established.
+success, 0 if the previous query does not generate an AUTO_INCREMENT value, or
+FALSE if no MySQL connection was established.
 
 |mysql_insert_id| example
 
@@ -28,11 +28,15 @@ or FALSE if no MySQL connection was established.
   printf("Last inserted record has id %d\n", mysql_insert_id());
 ?>
 
+
+
+
+
 |mysql_insert_id| converts the return type of the native MySQL C API function
-mysql_insert_id() to a type of long (named int in PHP). If your
-AUTO_INCREMENT column has a column type of BIGINT, the value returned by
-|mysql_insert_id| will be incorrect. Instead, use the internal MySQL SQL
-function LAST_INSERT_ID() in an SQL query.
+mysql_insert_id() to a type of long (named int in PHP). If your AUTO_INCREMENT
+column has a column type of BIGINT, the value returned by |mysql_insert_id|
+will be incorrect. Instead, use the internal MySQL SQL function
+LAST_INSERT_ID() in an SQL query.
 
 Because |mysql_insert_id| acts on the last performed query, be sure to call
 |mysql_insert_id| immediately after the query that generates the value.

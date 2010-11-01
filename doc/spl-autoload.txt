@@ -1,0 +1,18 @@
+spl_autoload -- Default implementation for __autoload()
+
+  void spl_autoload(string class_name [, string file_extensions])~
+
+This function is intended to be used as a default implementation for
+__autoload(). If nothing else is specified and autoload_register() is called
+without any parameters then this functions will be used for any later call to
+__autoload().
+
+{class_name}
+
+{file_extensions} By default it checks all include paths to contain filenames
+built up by the lowercase class name appended by the filename extensions .inc
+and .php.
+
+No value is returned.
+
+vim:ft=help:

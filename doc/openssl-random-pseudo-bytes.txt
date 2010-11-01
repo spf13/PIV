@@ -1,0 +1,43 @@
+openssl_random_pseudo_bytes -- Generate a pseudo-random string
+
+  bool openssl_random_pseudo_bytes(string length, string strong)~
+
+|openssl_random_pseudo_bytes| returns a string with {length} caracters. It
+also indicates if it has used a strong algorithm to produce those
+pseudo-random bytes in the second argument.
+
+{length} The length of the desired string. Must be a positive integer. PHP
+will try to cast this parameter to a non-null integer to use it.
+
+{strong} If a strong algorithm was used, or not, as a boolean. This parameter
+will be NULL if an error occurrs.
+
+Returns the generated string in cas of success, or FALSE in case of error.
+
+|openssl_random_pseudo_bytes| example
+
+<?php >
+  for ($i = -1; $i < 5; $i++) {
+      var_dump(bin2hex(openssl_random_pseudo_bytes($i, $strong)));
+  	var_dump($strong);
+  }
+?>
+
+The above example will output something similar to:
+
+  string(0) ""
+  NULL
+  string(0) ""
+  NULL
+  string(2) "f6"
+  bool(true)
+  string(4) "8999"
+  bool(true)
+  string(6) "c202c9"
+  bool(true)
+  string(8) "45261b8f"
+  bool(true)
+
+
+
+vim:ft=help:

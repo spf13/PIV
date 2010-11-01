@@ -4,9 +4,9 @@ timestamp
   int strtotime(string time [, int now])~
 
 The function expects to be given a string containing a US English date format
-and will try to parse that format into a Unix timestamp (the number of
-seconds since January 1 1970 00:00:00 GMT), relative to the timestamp given
-in {now}, or the current time if none is supplied.
+and will try to parse that format into a Unix timestamp (the number of seconds
+since January 1 1970 00:00:00 UTC), relative to the timestamp given in {now},
+or the current time if {now} is not supplied.
 
 This function will use the TZ environment variable (if available) to calculate
 the timestamp. Since PHP 5.1.0 there are easier ways to define the timezone
@@ -14,16 +14,25 @@ that is used across all date/time functions. That process is explained in the
 |date_default_timezone_get| function page.
 
 If the number of the year is specified in a two digit format, the values
-between 0-69 are mapped to 2000-2069 and 70-100 to 1970-2000.
+between 00-69 are mapped to 2000-2069 and 70-99 to 1970-1999. See the notes
+below for possible differences on 32bit systems (possible dates might end on
+2038-01-19 03:14:07).
 
-{time} The string to parse, according to the GNU Date Input Formats syntax
+{time} The string to parse. Before PHP 5.0.0, microseconds weren't allowed in
+the time, since PHP 5.0.0 they are allowed but ignored.
 
-{now} The timestamp used to calculate the returned value
+{now} The timestamp which is used as a base for the calculation of relative
+dates.
 
 Returns a timestamp on success, FALSE otherwise. Previous to PHP 5.1.0, this
 function would return -1 on failure.
 
+Every call to a date/time function will generate a E_NOTICE if the time zone
+is not valid, and/or a E_STRICT or E_WARNING message if using the system
+settings or the TZ environment variable. See also |date_default_timezone_set|
+
 Version Description 5.1.0 It now returns FALSE on failure, instead of -1.
+5.1.0 Now issues the E_STRICT and E_NOTICE time zone errors.
 
 A |strtotime| example
 
@@ -37,6 +46,10 @@ A |strtotime| example
   echo strtotime("last Monday"), "\n";
 ?>
 
+
+
+
+
 Checking for failure
 
 <?php >
@@ -46,21 +59,29 @@ Checking for failure
   if (($timestamp = strtotime($str)) === false) {
       echo "The string ($str) is bogus";
   } else {
-      echo "$str == " . date('l dS of F Y h:i:s A', $timestamp);
+      echo "$str == " . date('l dS \o\f F Y h:i:s A', $timestamp);
   }
 ?>
+
+
+
+
 
 In PHP 5 up to 5.0.2, "now" and other relative times are wrongly computed from
 today's midnight. It differs from other versions where it is correctly
 computed from current time.
 
-The valid range of a timestamp is typically from Fri, 13 Dec 1901 20:45:54 GMT
-to Tue, 19 Jan 2038 03:14:07 GMT. (These are the dates that correspond to the
-minimum and maximum values for a 32-bit signed integer.) Additionally, not
-all platforms support negative timestamps, therefore your date range may be
-limited to no earlier than the Unix epoch. This means that e.g. dates prior
-to Jan 1, 1970 will not work on Windows, some Linux distributions, and a few
-other operating systems.
+In PHP versions prior to 4.4.0, "next" is incorrectly computed as +2. A
+typical solution to this is to use "+1".
+
+The valid range of a timestamp is typically from Fri, 13 Dec 1901 20:45:54 UTC
+to Tue, 19 Jan 2038 03:14:07 UTC. (These are the dates that correspond to the
+minimum and maximum values for a 32-bit signed integer.) Additionally, not all
+platforms support negative timestamps, therefore your date range may be
+limited to no earlier than the Unix epoch. This means that e.g. dates prior to
+Jan 1, 1970 will not work on Windows, some Linux distributions, and a few
+other operating systems. PHP 5.1.0 and newer versions overcome this limitation
+though.
 
 |strptime|
 

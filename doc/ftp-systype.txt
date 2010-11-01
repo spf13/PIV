@@ -2,7 +2,7 @@ ftp_systype -- Returns the system type identifier of the remote FTP server
 
   string ftp_systype(resource ftp_stream)~
 
-Returns the system type identifier of the remove FTP server.
+Returns the system type identifier of the remote FTP server.
 
 {ftp_stream} The link identifier of the FTP connection.
 
@@ -26,5 +26,7 @@ Returns the remote system type, or FALSE on error.
 The above example will output something similar to:
 
   Example.com is powered by UNIX
+
+
 
 vim:ft=help:

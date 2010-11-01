@@ -1,8 +1,5 @@
-ocicloselob -- Closes lob descriptor
+ocicloselob -- Alias of
 
-  bool ocicloselob()~
-
-This function was renamed to |oci_lob_close| after PHP >= 5.0.0. For downward
-compatibility |ocicloselob| can also be used. This is deprecated, however.
+This function is an alias of: .
 
 vim:ft=help:

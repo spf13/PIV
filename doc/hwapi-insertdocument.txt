@@ -1,13 +1,16 @@
 hw_api->insertdocument -- Inserts a new object of type document
 
-  hw_api_object hw_api->insertdocument(array parameter)~
+  hw_api_object insertdocument(array parameter)~
 
 This function is a shortcut for |hwapi_insert|. It inserts an object with
-content and sets some of the attributes required for a document. The
-parameter array contains the required elements 'object', 'parentIdentifier'
-and 'content' and the optional elements 'mode', 'parameter' and
-'attributeSelector'. See |hwapi_insert| for the meaning of each element.
+content and sets some of the attributes required for a document.
 
-See also |hwapi_insert| |hwapi_insertanchor|, |hwapi_insertcollection|.
+{parameter} The parameter array contains the required elements 'object',
+'parentIdentifier' and 'content' and the optional elements 'mode', 'parameter'
+and 'attributeSelector'.
+
+See |hwapi_insert| for the meaning of each element.
+
+
 
 vim:ft=help:

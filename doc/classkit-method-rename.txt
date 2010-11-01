@@ -5,10 +5,9 @@ classkit_method_rename -- Dynamically changes the name of the given method
 This function cannot be used to manipulate the currently running (or chained)
 method.
 
-This function is EXPERIMENTAL. The behaviour of this function, the name of
-this function, and anything else documented about this function may change
-without notice in a future release of PHP. Use this function at your own
-risk.
+This function is EXPERIMENTAL. The behaviour of this function, its name, and
+surrounding documentation may change without notice in a future release of
+PHP. This function should be used at your own risk.
 
 {classname} The class in which to rename the method
 
@@ -41,6 +40,8 @@ Returns TRUE on success or FALSE on failure.
 The above example will output:
 
   foo!
+
+
 
 |classkit_method_add| |classkit_method_copy| |classkit_method_redefine|
 |classkit_method_remove|

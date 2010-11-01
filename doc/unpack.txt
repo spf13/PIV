@@ -2,12 +2,19 @@ unpack -- Unpack data from binary string
 
   array unpack(string format, string data)~
 
-|unpack| from binary string into array according to {format}. Returns array
-containing unpacked elements of binary string.
+Unpacks from a binary string into an array according to the given {format}.
 
 |unpack| works slightly different from Perl as the unpacked data is stored in
-an associative array. To accomplish this you have to name the different
-format codes and separate them by a slash /. |unpack| example
+an associative array. To accomplish this you have to name the different format
+codes and separate them by a slash /.
+
+{format} See |pack| for an explanation of the format codes.
+
+{data} The packed data.
+
+Returns an associative array containing unpacked elements of binary string.
+
+|unpack| example
 
 <?php >
   $array = unpack("c2chars/nint", $binarydata);
@@ -15,11 +22,15 @@ format codes and separate them by a slash /. |unpack| example
 
 The resulting array will contain the entries "chars1", "chars2" and "int".
 
-Note that PHP internally stores integral values as signed. If you unpack a
-large unsigned long and it is of the same size as PHP internally stored
-values the result will be a negative number even though unsigned unpacking
-was specified.
 
-See also |pack| for an explanation of the format codes.
+
+
+
+Note that PHP internally stores integral values as signed. If you unpack a
+large unsigned long and it is of the same size as PHP internally stored values
+the result will be a negative number even though unsigned unpacking was
+specified.
+
+|pack|
 
 vim:ft=help:

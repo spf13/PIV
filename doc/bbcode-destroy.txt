@@ -1,0 +1,11 @@
+bbcode_destroy -- Close BBCode_container resource
+
+  bool bbcode_destroy(resource bbcode_container)~
+
+This function closes the resource opened by |bbcode_create|.
+
+{bbcode} BBCode_Container resource returned by |bbcode_create|.
+
+Returns TRUE on success or FALSE on failure.
+
+vim:ft=help:

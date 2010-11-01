@@ -25,6 +25,8 @@ The above example will output something similar to:
 
   42.24.42.240
 
-|apache_sentenv| |getenv| Superglobals
+
+
+|apache_setenv| |getenv| Superglobals
 
 vim:ft=help:

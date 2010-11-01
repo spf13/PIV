@@ -2,8 +2,15 @@ yp_next -- Returns the next key-value pair in the named map
 
   array yp_next(string domain, string map, string key)~
 
-|yp_next| returns the next key-value pair in the named map after the specified
-key or FALSE.
+Returns the next key-value pair in the named {map} after the specified {key}.
+
+{domain}
+
+{map}
+
+{key}
+
+Returns the next key-value pair as an array, or FALSE on errors.
 
 Example for NIS next
 
@@ -17,10 +24,14 @@ Example for NIS next
   
   $key = key($entry);
   
-  echo "The next entry after joe has key " . $key 
+  echo "The next entry after joe has key " . $key
         . " and value " . $entry[$key];
 ?>
 
-See also |yp_first| and |yp_get_default_domain|.
+
+
+
+
+|yp_first| |yp_get_default_domain|
 
 vim:ft=help:

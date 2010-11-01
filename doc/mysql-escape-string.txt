@@ -14,8 +14,9 @@ connection argument and does not respect the current charset setting.
 
 Returns the escaped string.
 
-Version Description 4.3.0 This function became deprecated, do not use this
-function. Instead, use |mysql_real_escape_string|.
+Version Description 5.3.0 This function now throws an E_DEPRECATED notice.
+4.3.0 This function became deprecated, do not use this function. Instead, use
+|mysql_real_escape_string|.
 
 |mysql_escape_string| example
 
@@ -28,6 +29,8 @@ function. Instead, use |mysql_real_escape_string|.
 The above example will output:
 
   Escaped string: Zak\'s Laptop
+
+
 
 |mysql_escape_string| does not escape % and _.
 

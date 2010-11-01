@@ -4,9 +4,20 @@ the given message
   array imap_fetch_overview(resource imap_stream, string sequence [, int options])~
 
 This function fetches mail headers for the given {sequence} and returns an
-overview of their contents. {sequence} will contain a sequence of message
-indices or UIDs, if {flags} contains FT_UID. The returned value is an array
-of objects describing one message header each: subject - the messages subject
+overview of their contents.
+
+{ imap_stream}An IMAP stream returned by |imap_open|.
+
+{sequence} A message sequence description. You can enumerate desired messages
+with the X,Y syntax, or retrieve all messages within an interval with the X:Y
+syntax
+
+{options} {sequence} will contain a sequence of message indices or UIDs, if
+this parameter is set to FT_UID.
+
+Returns an array of objects describing one message header each. The object
+will only define a property if it exists. The possible properties are: subject
+- the messages subject
 
 from - who sent it
 
@@ -41,18 +52,24 @@ draft - this message is flagged as being a draft
 |imap_fetch_overview| example
 
 <?php >
-  $mbox = imap_open("{your.imap.host:143}", "username", "password")
+  $mbox = imap_open("{imap.example.org:143}INBOX", "username", "password")
        or die("can't connect: " . imap_last_error());
-   
-  $overview = imap_fetch_overview($mbox, "2,4:6", 0);
-   
-  if (is_array($overview)) {
-      foreach ($overview as $val) {
-          echo "$val->msgno - $val->date - $val->subject\n";
-      }
+  
+  $MC = imap_check($mbox);
+  
+  // Fetch an overview for all messages in INBOX
+  $result = imap_fetch_overview($mbox,"1:{$MC->Nmsgs}",0);
+  foreach ($result as $overview) {
+      echo "#{$overview->msgno} ({$overview->date}) - From: {$overview->from}
+      {$overview->subject}\n";
   }
-   
   imap_close($mbox);
 ?>
+
+
+
+
+
+|imap_fetchheader|
 
 vim:ft=help:

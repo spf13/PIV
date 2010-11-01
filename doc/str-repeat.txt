@@ -2,9 +2,16 @@ str_repeat -- Repeat a string
 
   string str_repeat(string input, int multiplier)~
 
-Returns {input_str} repeated {multiplier} times. {multiplier} has to be
-greater than or equal to 0. If the {multiplier} is set to 0, the function
-will return an empty string.
+Returns {input} repeated {multiplier} times.
+
+{input} The string to be repeated.
+
+{multiplier} Number of time the {input} string should be repeated.
+
+{multiplier} has to be greater than or equal to 0. If the {multiplier} is set
+to 0, the function will return an empty string.
+
+Returns the repeated string.
 
 |str_repeat| example
 
@@ -16,6 +23,8 @@ The above example will output:
 
   -=-=-=-=-=-=-=-=-=-=
 
-See also for, |str_pad|, and |substr_count|.
+
+
+for |str_pad| |substr_count|
 
 vim:ft=help:

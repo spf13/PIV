@@ -1,0 +1,21 @@
+XMLWriter::endCData -- End current CDATA
+
+Oriented object style
+
+  bool endCData()~
+
+Procedural style
+
+  bool xmlwriter_end_cdata(resource xmlwriter)~
+
+Ends the current CDATA section.
+
+{ xmlwriter}Only for procedural calls. The XMLWriter resource that is being
+modified. This resource comes from a call to |xmlwriter_open_uri| or
+|xmlwriter_open_memory|.
+
+Returns TRUE on success or FALSE on failure.
+
+XMLWriter::startCData XMLWriter::writeCData
+
+vim:ft=help:

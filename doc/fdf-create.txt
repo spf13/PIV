@@ -2,8 +2,12 @@ fdf_create -- Create a new FDF document
 
   resource fdf_create()~
 
-The |fdf_create| creates a new FDF document. This function is needed if one
-would like to populate input fields in a PDF document with data.
+Creates a new FDF document.
+
+This function is needed if one would like to populate input fields in a PDF
+document with data.
+
+Returns a FDF document handle, or FALSE on error.
 
 Populating a PDF document
 
@@ -20,6 +24,10 @@ Populating a PDF document
   unlink("outtest.fdf");
 ?>
 
-See also |fdf_close|, |fdf_save|, |fdf_open|.
+
+
+
+
+|fdf_close| |fdf_save| |fdf_open|
 
 vim:ft=help:

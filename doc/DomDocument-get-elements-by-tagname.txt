@@ -3,6 +3,8 @@ tagname in document or empty array, if not found
 
   array DomDocument->get_elements_by_tagname(string name)~
 
+
+
 See also |domdocument_add_root|
 
 vim:ft=help:

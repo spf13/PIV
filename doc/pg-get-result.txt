@@ -6,8 +6,8 @@ pg_get_result -- Get asynchronous query result
 by |pg_send_query|, |pg_send_query_params| or |pg_send_execute|.
 
 |pg_send_query| and the other asynchronous query functions can send multiple
-queries to a PostgreSQL server and |pg_get_result| is used to get each
-query's results, one by one.
+queries to a PostgreSQL server and |pg_get_result| is used to get each query's
+results, one by one.
 
 {connection} PostgreSQL database connection resource.
 
@@ -40,6 +40,8 @@ The above example will output:
   
   Second call to pg_get_result(): Resource id #4
   Resource id #4 has 1 records
+
+
 
 |pg_send_query|
 

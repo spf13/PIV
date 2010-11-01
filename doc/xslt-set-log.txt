@@ -2,11 +2,6 @@ xslt_set_log -- Set the log file to write log messages to
 
   void xslt_set_log(resource xh [, mixed log])~
 
-{xh} A reference to the XSLT parser.
-
-{log} This parameter is either a boolean value which toggles logging on and
-off, or a string containing the logfile in which log errors too.
-
 This function allows you to set the file in which you want XSLT log messages
 to, XSLT log messages are different than error messages, in that log messages
 are not actually error messages but rather messages related to the state of
@@ -18,7 +13,14 @@ By default logging is disabled, in order to enable logging you must first call
 want to set the log file to debug to, you must then pass it a string
 containing the filename.
 
-Please note that file:// is needed in front of path if you use Windows.
+{xh} The XSLT processor link identifier, created with |xslt_create|.
+
+{log} This parameter is either a boolean value which toggles logging on and
+off, or a string containing the logfile in which log errors too.
+
+No value is returned.
+
+Please note that file:// is needed in front of the path when using Windows.
 
 Using the XSLT Logging features
 
@@ -32,5 +34,9 @@ Using the XSLT Logging features
   
   xslt_free($xh);
 ?>
+
+
+
+
 
 vim:ft=help:

@@ -1,0 +1,16 @@
+SAMConnection->__construct -- Creates a new connection to a Messaging Server
+
+Creates a new SAMConnection object.
+
+Creating a connection object and connecting to a Messaging Server
+
+<?php >
+  $conn = new SAMConnection();
+  $conn->connect(SAM_WMQ, array(SAM_HOST => localhost, SAM_PORT => 1414, SAM_BROKER => 'bull'));
+?>
+
+
+
+
+
+vim:ft=help:

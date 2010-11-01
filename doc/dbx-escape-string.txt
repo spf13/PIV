@@ -3,8 +3,14 @@ sql-statement
 
   string dbx_escape_string(object link_identifier, string text)~
 
-|dbx_escape_string| returns the text, escaped where necessary (such as quotes,
-backslashes etc). It returns NULL on error.
+Escape the given string so that it can safely be used in an sql-statement.
+
+{link_identifier} The DBX link object returned by |dbx_connect|
+
+{text} The string to escape.
+
+Returns the text, escaped where necessary (such as quotes, backslashes etc).
+On error, NULL is returned.
 
 |dbx_escape_string| example
 
@@ -20,6 +26,10 @@ backslashes etc). It returns NULL on error.
   dbx_close($link);
 ?>
 
-See also |dbx_query|.
+
+
+
+
+|dbx_query|
 
 vim:ft=help:

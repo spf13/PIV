@@ -1,0 +1,20 @@
+px_set_value -- Sets a value
+
+  bool px_set_value(resource pxdoc, string name, float value)~
+
+Sets various values.
+
+{pxdoc} Resource identifier of the paradox database as returned by |px_new|.
+
+{name} {name} can be one of the following.
+
+numprimkeys The number of primary keys. Paradox databases always use the first
+numprimkeys fields for the primary index.
+
+{value}
+
+Returns TRUE on success or FALSE on failure.
+
+|px_set_parameter|
+
+vim:ft=help:

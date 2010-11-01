@@ -1,0 +1,21 @@
+openssl_pkcs12_export -- Exports a PKCS#12 Compatible Certificate Store File
+to variable.
+
+  bool openssl_pkcs12_export(mixed x509, string out, mixed priv_key, string pass [, array args])~
+
+|openssl_pkcs12_export| stores {x509} into a string named by {out} in a
+PKCS#12 file format.
+
+{x509}
+
+{out} On success, this will hold the PKCS#12.
+
+{priv_key} Private key component of PKCS#12 file.
+
+{pass} Encryption password for unlocking the PKCS#12 file.
+
+{args}
+
+Returns TRUE on success or FALSE on failure.
+
+vim:ft=help:

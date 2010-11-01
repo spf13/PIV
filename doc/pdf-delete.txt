@@ -1,10 +1,8 @@
-pdf_delete -- Deletes a PDF object
+PDF_delete -- Delete PDFlib object
 
-  bool pdf_delete(resource pdfdoc)~
+  bool PDF_delete(resource pdfdoc)~
 
-Delete the PDF resource, and free all internal resources. Returns TRUE on
+Deletes a PDFlib object, and frees all internal resources. Returns TRUE on
 success or FALSE on failure.
-
-See also |pdf_new|.
 
 vim:ft=help:

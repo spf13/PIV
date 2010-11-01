@@ -3,12 +3,38 @@ encoding and write to destfp
 
   bool mailparse_stream_encode(resource sourcefp, resource destfp, string encoding)~
 
-This function is EXPERIMENTAL. The behaviour of this function, the name of
-this function, and anything else documented about this function may change
-without notice in a future release of PHP. Use this function at your own
-risk.
+Streams data from the source file pointer, apply {encoding} and write to the
+destination file pointer.
 
-This function is currently not documented; only the argument list is
-available.
+{sourcefp} A valid file handle. The file is streamed through the parser.
+
+{destfp} The destination file handle in which the encoded data will be
+written.
+
+{encoding} One of the character encodings supported by the mbstring module.
+
+Returns TRUE on success or FALSE on failure.
+
+|mailparse_stream_encode| example
+
+<?php >
+  // email.eml contents: hello, this is some text=hello.
+  $fp = fopen('email.eml', 'r');
+  
+  $dest = tmpfile();
+  
+  mailparse_stream_encode($fp, $dest, "quoted-printable");
+  
+  rewind($dest);
+  
+  // Display new file contents
+  fpassthru($dest);
+?>
+
+The above example will output:
+
+  hello, this is some text=3Dhello.
+
+
 
 vim:ft=help:

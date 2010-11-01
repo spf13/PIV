@@ -1,0 +1,5 @@
+date_modify -- Alias of DateTime::modify
+
+This function is an alias of: DateTime::modify
+
+vim:ft=help:

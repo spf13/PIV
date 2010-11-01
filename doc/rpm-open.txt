@@ -1,0 +1,28 @@
+rpm_open -- Opens an RPM file
+
+  resource rpm_open(string filename)~
+
+|rpm_open| will open an RPM file and will determine if the file is a valid RPM
+file.
+
+{filename} The filename of the RPM file you wish to open.
+
+If the open succeeds, then |rpm_open| will return a file pointer resource to
+the newly opened file. On error, the function will return FALSE.
+
+|rpm_open| example
+
+<?php >
+  $file = "/path/to/file.rpm";
+  $rpmr = rpm_open($file);
+  
+  rpm_close($rpmr);
+?>
+
+
+
+
+
+|rpm_close|
+
+vim:ft=help:

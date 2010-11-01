@@ -1,0 +1,27 @@
+XMLWriter::startElementNS -- Create start namespaced element tag
+
+Oriented object style
+
+  bool startElementNS(string prefix, string name, string uri)~
+
+Procedural style
+
+  bool xmlwriter_start_element_ns(string prefix, string name, string uri, resource xmlwriter, string prefix, string name, string uri)~
+
+Starts a namespaced element.
+
+{ xmlwriter}Only for procedural calls. The XMLWriter resource that is being
+modified. This resource comes from a call to |xmlwriter_open_uri| or
+|xmlwriter_open_memory|.
+
+{prefix} The namespace prefix.
+
+{name} The element name.
+
+{uri} The namespace URI.
+
+Returns TRUE on success or FALSE on failure.
+
+XMLWriter::endElement XMLWriter::writeElementNS
+
+vim:ft=help:

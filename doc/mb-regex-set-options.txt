@@ -2,12 +2,13 @@ mb_regex_set_options -- Set/Get the default options for mbregex functions
 
   string mb_regex_set_options([string options])~
 
-|mb_regex_set_options| sets the default options described by {options} for
-multibyte regex functions.
+Sets the default options described by {options} for multibyte regex functions.
 
-Returns the previous options. If {options} is omitted, it returns the string
-that describes the current options.
+{options} The options to set.
 
-See also |mb_split|, |mb_ereg| and |mb_eregi|
+The previous options. If {options} is omitted, it returns the string that
+describes the current options.
+
+|mb_split| |mb_ereg| |mb_eregi|
 
 vim:ft=help:

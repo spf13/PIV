@@ -2,11 +2,13 @@ fgetc -- Gets character from file pointer
 
   string fgetc(resource handle)~
 
+Gets a character from the given file pointer.
+
+{handle} The file pointer must be valid, and must point to a file successfully
+opened by |fopen| or |fsockopen| (and not yet closed by |fclose|).
+
 Returns a string containing a single character read from the file pointed to
 by {handle}. Returns FALSE on EOF.
-
-The file pointer must be valid, and must point to a file successfully opened
-by |fopen| or |fsockopen|.
 
 This function may return Boolean FALSE, but may also return a non-Boolean
 value which evaluates to FALSE, such as 0 or "". Please read the section on
@@ -25,8 +27,12 @@ A |fgetc| example
   }
 ?>
 
+
+
+
+
 This function is binary-safe.
 
-See also |fread|, |fopen|, |popen|, |fsockopen|, and |fgets|.
+|fread| |fopen| |popen| |fsockopen| |fgets|
 
 vim:ft=help:

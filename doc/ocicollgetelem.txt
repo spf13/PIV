@@ -1,9 +1,5 @@
-ocicollgetelem -- Retrieve the value at collection index ndx
+ocicollgetelem -- Alias of
 
-  string ocicollgetelem(int ndx)~
-
-This function was renamed to |oci_collection_element_get| after PHP >= 5.0.0.
-For downward compatibility |ocicollgetelem| can also be used. This is
-deprecated, however.
+This function is an alias of: .
 
 vim:ft=help:

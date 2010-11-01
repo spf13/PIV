@@ -2,51 +2,25 @@ odbc_fetch_into -- Fetch one result row into array
 
   int odbc_fetch_into(resource result_id, array result_array [, int rownumber])~
 
-  bool odbc_fetch_into(resource result_id, array result_array [, int rownumber, resource result_id [, int rownumber, array result_array]])~
+Fetch one result row into array.
 
-Returns the number of columns in the result; FALSE on error. {result_array}
-must be passed by reference, but it can be of any type since it will be
+{result_id} The result resource.
+
+{result_array} The result array that can be of any type since it will be
 converted to type array. The array will contain the column values starting at
 array index 0.
 
-As of PHP 4.0.5 the {result_array} does not need to be passed by reference any
-longer.
+{rownumber} The row number.
 
-As of PHP 4.0.6 the {rownumber} cannot be passed as a constant, but rather as
-a variable.
+Returns the number of columns in the result; FALSE on error.
 
-As of PHP 4.2.0 the {result_array} and {rownumber} have been swapped. This
-allows the rownumber to be a constant again. This change will also be the
-last one to this function.
+Version Description 4.2.0 The {result_array} and {rownumber} parameters have
+been swapped. This allows the rownumber to be a constant again. 4.0.6 The
+{rownumber} can no longer be passed in as a constant, but rather as a
+variable. This again changed in 4.2.0. 4.0.5 The {result_array} parameter no
+longer needs to be passed in by reference.
 
-|odbc_fetch_into| pre 4.0.6 example
-
-<?php >
-  $rc = odbc_fetch_into($res_id, $my_array);
-?>
-
-or
-
-<?php >
-  $rc = odbc_fetch_into($res_id, $row, $my_array);
-         
-  $rc = odbc_fetch_into($res_id, 1, $my_array);
-?>
-
-|odbc_fetch_into| 4.0.6 example
-
-<?php >
-  $rc = odbc_fetch_into($res_id, $my_array);
-?>
-
-or
-
-<?php >
-  $row = 1;
-  $rc = odbc_fetch_into($res_id, $row, $my_array);
-?>
-
-|odbc_fetch_into| 4.2.0 example
+|odbc_fetch_into| examples
 
 <?php >
   $rc = odbc_fetch_into($res_id, $my_array);
@@ -57,5 +31,7 @@ or
 <?php >
   $rc = odbc_fetch_into($res_id, $my_array, 2);
 ?>
+
+
 
 vim:ft=help:

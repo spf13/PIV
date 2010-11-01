@@ -1,0 +1,19 @@
+SDO_Model_Type::isOpenType -- Test to see if this type is an open type
+
+  bool SDO_Model_Type::isOpenType()~
+
+This function is EXPERIMENTAL. The behaviour of this function, its name, and
+surrounding documentation may change without notice in a future release of
+PHP. This function should be used at your own risk.
+
+Test to see if this type is open. Returns TRUE if this type is open, otherwise
+returns FALSE. An SDO_DataObject whose type is open can have properties added
+to them which are not described by the type. This capability is used to
+support working with XML documents whose schema support open content, such as
+that defined by an <xsd:any> element.
+
+None.
+
+Returns TRUE if this type is open, otherwise returns FALSE.
+
+vim:ft=help:

@@ -2,7 +2,8 @@ lzf_decompress -- LZF decompression
 
   string lzf_decompress(string data)~
 
-|lzf_compress| decompresses the given {data}.
+|lzf_compress| decompresses the given {data} string containing lzf encoded
+data.
 
 {data} The compressed string.
 

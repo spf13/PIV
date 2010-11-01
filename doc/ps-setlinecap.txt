@@ -1,0 +1,16 @@
+ps_setlinecap -- Sets appearance of line ends
+
+  bool ps_setlinecap(resource psdoc, int type)~
+
+Sets how line ends look like.
+
+{psdoc} Resource identifier of the postscript file as returned by |ps_new|.
+
+{type} The type of line ends. Possible values are PS_LINECAP_BUTT,
+PS_LINECAP_ROUND, or PS_LINECAP_SQUARED.
+
+Returns TRUE on success or FALSE on failure.
+
+|ps_setlinejoin| |ps_setlinewidth| |ps_setmiterlimit|
+
+vim:ft=help:

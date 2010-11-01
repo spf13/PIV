@@ -1,0 +1,40 @@
+ssh2_shell -- Request an interactive shell
+
+  resource ssh2_shell(resource session [, string term_type [, array env [, int width [, int height [, int width_height_type]]]]])~
+
+Open a shell at the remote end and allocate a stream for it.
+
+{session} An SSH connection link identifier, obtained from a call to
+|ssh2_connect|.
+
+{term_type} {term_type} should correspond to one of the entries in the target
+system's /etc/termcap file and defaults to vanilla.
+
+{env} {env} may be passed as an associative array of name/value pairs to set
+in the target environment.
+
+{width} Width of the virtual terminal.
+
+{height} Height of the virtual terminal.
+
+{width_height_type} {width_height_type} should be one of SSH2_TERM_UNIT_CHARS
+or SSH2_TERM_UNIT_PIXELS.
+
+
+
+Executing a command
+
+<?php >
+  $connection = ssh2_connect('shell.example.com', 22);
+  ssh2_auth_password($connection, 'username', 'password');
+  
+  $stream = ssh2_shell($connection, 'vt102', null, 80, 24, SSH2_TERM_UNIT_CHARS);
+?>
+
+
+
+
+
+|ssh2_exec| |ssh2_tunnel| |ssh2_fetch_stream|
+
+vim:ft=help:

@@ -5,17 +5,23 @@ xslt_set_object -- Sets the object in which to resolve callback functions
 This function allows to use the {processor} inside an {object} and to resolve
 all callback functions in it.
 
-The callback functions can be declared with |xml_set_sax_handlers|,
+The callback functions can be declared with |xslt_set_sax_handlers|,
 |xslt_set_scheme_handlers| or |xslt_set_error_handler| and are assumed to be
 methods of {object}.
+
+{processor} The XSLT processor link identifier, created with |xslt_create|.
+
+{obj} An object.
+
+Returns TRUE on success or FALSE on failure.
 
 Using your own error handler as a method
 
 <?php >
   class my_xslt_processor {
-      
+  
       var $_xh; // our XSLT processor
-      
+  
       function my_xslt_processor()
       {
           $this->_xh = xslt_create();
@@ -34,5 +40,7 @@ Using your own error handler as a method
       }
   }
 ?>
+
+
 
 vim:ft=help:

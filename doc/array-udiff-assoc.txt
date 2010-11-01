@@ -3,6 +3,23 @@ check, compares data by a callback function
 
   array array_udiff_assoc(array array1, array array2 [, array ..., callback data_compare_func])~
 
+Computes the difference of arrays with additional index check, compares data
+by a callback function.
+
+Please note that this function only checks one dimension of a n-dimensional
+array. Of course you can check deeper dimensions by using, for example,
+array_udiff_assoc($array1[0], $array2[0], "some_comparison_func");.
+
+{array1} The first array.
+
+{array2} The second array.
+
+{data_compare_func} The callback comparison function.
+
+The user supplied callback function is used for comparison. It must return an
+integer less than, equal to, or greater than zero if the first argument is
+considered to be respectively less than, equal to, or greater than the second.
+
 |array_udiff_assoc| returns an array containing all the values from {array1}
 that are not present in any of the other arguments. Note that the keys are
 used in the comparison unlike |array_diff| and |array_udiff|. The comparison
@@ -15,12 +32,12 @@ uses internal function for comparison.
 <?php >
   class cr {
       private $priv_member;
-      function cr($val) 
+      function cr($val)
       {
           $this->priv_member = $val;
       }
-      
-      function comp_func_cr($a, $b) 
+  
+      static function comp_func_cr($a, $b)
       {
           if ($a->priv_member === $b->priv_member) return 0;
           return ($a->priv_member > $b->priv_member)? 1:-1;
@@ -54,20 +71,13 @@ The above example will output:
           )
   )
 
+
+
 In our example above you see the "1" => new cr(4) pair is present in both
-arrays and thus it is not in the ouput from the function.
+arrays and thus it is not in the output from the function.
 
-For comparison is used the user supplied callback function. It must return an
-integer less than, equal to, or greater than zero if the first argument is
-considered to be respectively less than, equal to, or greater than the
-second.
-
-Please note that this function only checks one dimension of a n-dimensional
-array. Of course you can check deeper dimensions by using, for example,
-array_udiff_assoc($array1[0], $array2[0], "some_comparison_func");.
-
-See also |array_diff|, |array_diff_assoc|, |array_diff_uassoc|, |array_udiff|,
-|array_udiff_uassoc|, |array_intersect|, |array_intersect_assoc|,
-|array_uintersect|, |array_uintersect_assoc| and |array_uintersect_uassoc|.
+|array_diff| |array_diff_assoc| |array_diff_uassoc| |array_udiff|
+|array_udiff_uassoc| |array_intersect| |array_intersect_assoc|
+|array_uintersect| |array_uintersect_assoc| |array_uintersect_uassoc|
 
 vim:ft=help:

@@ -1,0 +1,14 @@
+ps_end_template -- End a template
+
+  bool ps_end_template(resource psdoc)~
+
+Ends a template which was started with |ps_begin_template|. Once a template
+has been ended, it can be used like an image.
+
+{psdoc} Resource identifier of the postscript file as returned by |ps_new|.
+
+Returns TRUE on success or FALSE on failure.
+
+|ps_begin_template|
+
+vim:ft=help:

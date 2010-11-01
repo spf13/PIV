@@ -5,17 +5,25 @@ array_slice -- Extract a slice of the array
 |array_slice| returns the sequence of elements from the array {array} as
 specified by the {offset} and {length} parameters.
 
-If {offset} is non-negative, the sequence will start at that offset in the
-{array}. If {offset} is negative, the sequence will start that far from the
-end of the {array}.
+{array} The input array.
 
-If {length} is given and is positive, then the sequence will have that many
-elements in it. If {length} is given and is negative then the sequence will
-stop that many elements from the end of the array. If it is omitted, then the
-sequence will have everything from {offset} up until the end of the {array}.
+{offset} If {offset} is non-negative, the sequence will start at that offset
+in the {array}. If {offset} is negative, the sequence will start that far from
+the end of the {array}.
 
-Note that |array_slice| will reset the array keys by default. Since PHP 5.0.2,
-you can change this behaviour by setting {preserve_keys} to TRUE.
+{length} If {length} is given and is positive, then the sequence will have
+that many elements in it. If {length} is given and is negative then the
+sequence will stop that many elements from the end of the array. If it is
+omitted, then the sequence will have everything from {offset} up until the end
+of the {array}.
+
+{preserve_keys} Note that |array_slice| will reorder and reset the array
+indices by default. You can change this behaviour by setting {preserve_keys}
+to TRUE.
+
+Returns the slice.
+
+Version Description 5.0.2 The optional {preserve_keys} parameter was added.
 
 |array_slice| examples
 
@@ -44,6 +52,8 @@ The above example will output:
       [3] => d
   )
 
-See also |array_splice| and |unset|.
+
+
+|array_splice| |unset|
 
 vim:ft=help:

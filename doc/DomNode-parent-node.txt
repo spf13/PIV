@@ -21,4 +21,8 @@ document of a node
   print_r($children);
 ?>
 
+
+
+
+
 vim:ft=help:

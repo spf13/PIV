@@ -2,7 +2,12 @@ urldecode -- Decodes URL-encoded string
 
   string urldecode(string str)~
 
-Decodes any %## encoding in the given string. The decoded string is returned.
+Decodes any %## encoding in the given string.
+
+{str} The string to be decoded.
+
+Returns the decoded string.
+
 |urldecode| example
 
 <?php >
@@ -16,6 +21,13 @@ Decodes any %## encoding in the given string. The decoded string is returned.
   }
 ?>
 
-See also |urlencode|, |rawurlencode| and |rawurldecode|.
+
+
+
+
+The superglobals $_GET and $_REQUEST are already decoded. Using |urldecode| on
+an element in $_GET or $_REQUEST could have unexpected and dangerous results.
+
+|urlencode| |rawurlencode| |rawurldecode|
 
 vim:ft=help:

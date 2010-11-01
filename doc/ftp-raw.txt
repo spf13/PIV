@@ -9,8 +9,7 @@ Sends an arbitrary {command} to the FTP server.
 {command} The command to execute.
 
 Returns the server's response as an array of strings. No parsing is performed
-on the response string, nor does |ftp_raw| determine if the command
-succeeded.
+on the response string, nor does |ftp_raw| determine if the command succeeded.
 
 Using |ftp_raw| to login to an FTP server manually.
 
@@ -22,6 +21,10 @@ Using |ftp_raw| to login to an FTP server manually.
   ftp_raw($fp, "USER joeblow");
   ftp_raw($fp, "PASS secret");
 ?>
+
+
+
+
 
 |ftp_exec|
 

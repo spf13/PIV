@@ -3,14 +3,21 @@ string
 
   bool mb_ereg_search([string pattern [, string option]])~
 
+Performs a multibyte regular expression match for a predefined multibyte
+string.
+
+{pattern} The search pattern.
+
+{option} The search option. Defaults to 'ms'.
+
 |mb_ereg_search| returns TRUE if the multibyte string matches with the regular
-expression, FALSE for otherwise. The string for matching is set by
+expression, or FALSE otherwise. The string for matching is set by
 |mb_ereg_search_init|. If {pattern} is not specified, the previous one is
 used.
 
-The internal encoding or the character encoding specified in
-|mb_regex_encoding| will be used as character encoding.
+The internal encoding or the character encoding specified by
+|mb_regex_encoding| will be used as the character encoding for this function.
 
-See also: |mb_regex_encoding|, |mb_ereg_search_init|.
+|mb_regex_encoding| |mb_ereg_search_init|
 
 vim:ft=help:

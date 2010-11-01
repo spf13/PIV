@@ -3,16 +3,21 @@ indices
 
   mixed dbplus_rcrtexact(string name, resource relation [, bool overwrite])~
 
-This function is EXPERIMENTAL. The behaviour of this function, the name of
-this function, and anything else documented about this function may change
-without notice in a future release of PHP. Use this function at your own
-risk.
-
 |dbplus_rcrtexact| will create an exact but empty copy of the given {relation}
-under a new {name}. An existing relation by the same {name} will only be
-overwritten if {overwrite} is TRUE and no other process is currently using
-the relation.
+under a new {name}.
+
+{name}
+
+{relation} The copied relation, opened by |dbplus_open|.
+
+{overwrite} An existing relation by the same {name} will only be overwritten
+if this parameter is set to TRUE and no other process is currently using the
+relation.
 
 Returns resource on success or DBPLUS_ERR_UNKNOWN on failure.
+
+This function is EXPERIMENTAL. The behaviour of this function, its name, and
+surrounding documentation may change without notice in a future release of
+PHP. This function should be used at your own risk.
 
 vim:ft=help:

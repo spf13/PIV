@@ -15,23 +15,23 @@ output a gif, you can create PHP scripts that output images directly.
 {return_var} If the {return_var} argument is present, the return status of the
 Unix command will be placed here.
 
-If you are going to allow data coming from user input to be passed to this
-function, then you should be using |escapeshellarg| or |escapeshellcmd| to
-make sure that users cannot trick the system into executing arbitrary
-commands.
+No value is returned.
 
-If you start a program using this function and want to leave it running in the
-background, you have to make sure that the output of that program is
-redirected to a file or some other output stream or else PHP will hang until
+When allowing user-supplied data to be passed to this function, use
+|escapeshellarg| or |escapeshellcmd| to ensure that users cannot trick the
+system into executing arbitrary commands.
+
+If a program is started with this function, in order for it to continue
+running in the background, the output of the program must be redirected to a
+file or another output stream. Failing to do so will cause PHP to hang until
 the execution of the program ends.
 
-When safe mode is enabled, you can only execute executables within the
-safe_mode_exec_dir. For practical reasons it is currently not allowed to have
+When safe mode is enabled, you can only execute files within the
+safe_mode_exec_dir. For practical reasons, it is currently not allowed to have
 .. components in the path to the executable.
 
-With safe mode enabled, all words following the initial command string are
-treated as a single argument. Thus, echo y | echo x becomes echo "y | echo
-x".
+With safe mode enabled, the command string is escaped with |escapeshellcmd|.
+Thus, echo y | echo x becomes echo y \| echo x.
 
 |exec| |system| |popen| |escapeshellcmd| backtick operator
 

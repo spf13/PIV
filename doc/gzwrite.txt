@@ -29,6 +29,10 @@ stream.
   gzclose($gz);
 ?>
 
+
+
+
+
 |gzread| |gzopen|
 
 vim:ft=help:

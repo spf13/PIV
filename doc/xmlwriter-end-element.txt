@@ -1,0 +1,21 @@
+XMLWriter::endElement -- End current element
+
+Oriented object style
+
+  bool endElement()~
+
+Procedural style
+
+  bool xmlwriter_end_element(resource xmlwriter)~
+
+Ends the current element.
+
+{ xmlwriter}Only for procedural calls. The XMLWriter resource that is being
+modified. This resource comes from a call to |xmlwriter_open_uri| or
+|xmlwriter_open_memory|.
+
+Returns TRUE on success or FALSE on failure.
+
+XMLWriter::startElement XMLWriter::writeElement
+
+vim:ft=help:

@@ -6,23 +6,36 @@ htmlspecialchars and htmlentities
 |get_html_translation_table| will return the translation table that is used
 internally for |htmlspecialchars| and |htmlentities|.
 
-There are two new constants (HTML_ENTITIES, HTML_SPECIALCHARS) that allow you
-to specify the table you want. Default value for {table} is
-HTML_SPECIALCHARS. And as in the |htmlspecialchars| and |htmlentities|
-functions you can optionally specify the {quote_style} you are working with.
-The default is ENT_COMPAT mode. See the description of these modes in
-|htmlspecialchars|.
-
 Special characters can be encoded in several ways. E.g. " can be encoded as ",
 &#34; or &#x22. |get_html_translation_table| returns only the most common form
 for them.
+
+{table} There are two new constants (HTML_ENTITIES, HTML_SPECIALCHARS) that
+allow you to specify the table you want. Default value for {table} is
+HTML_SPECIALCHARS.
+
+{quote_style} Like the |htmlspecialchars| and |htmlentities| functions you can
+optionally specify the {quote_style} you are working with. The default is
+ENT_COMPAT mode. See the description of these modes in |htmlspecialchars|.
+
+Returns the translation table as an array.
 
 Translation Table Example
 
 <?php >
   $trans = get_html_translation_table(HTML_ENTITIES);
-  $str = "Hallo &amp; <Frau> & Krämer";
+  $str = "Hallo &amp; <Frau> & KrÃ¤mer";
   $encoded = strtr($str, $trans);
+  
+  echo $encoded;
 ?>
+
+The above example will output:
+
+  Hallo &amp; <Frau> & Kr&auml;mer
+
+
+
+|htmlspecialchars| |htmlentities| |html_entity_decode|
 
 vim:ft=help:

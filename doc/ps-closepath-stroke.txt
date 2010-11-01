@@ -1,0 +1,14 @@
+ps_closepath_stroke -- Closes and strokes path
+
+  bool ps_closepath_stroke(resource psdoc)~
+
+Connects the last point with first point of a path and draws the resulting
+closed line.
+
+{psdoc} Resource identifier of the postscript file as returned by |ps_new|.
+
+Returns TRUE on success or FALSE on failure.
+
+|ps_closepath|
+
+vim:ft=help:

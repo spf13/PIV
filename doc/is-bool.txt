@@ -25,6 +25,10 @@ Returns TRUE if {var} is a boolean, FALSE otherwise.
   }
 ?>
 
+
+
+
+
 |is_float| |is_int| |is_string| |is_object| |is_array|
 
 vim:ft=help:

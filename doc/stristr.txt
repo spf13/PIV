@@ -1,22 +1,35 @@
 stristr -- Case-insensitive strstr
 
-  string stristr(string haystack, string needle)~
+  string stristr(string haystack, mixed needle [, bool before_needle])~
 
 Returns all of {haystack} from the first occurrence of {needle} to the end.
+
+{haystack} The string to search in
+
+{needle} If {needle} is not a string, it is converted to an integer and
+applied as the ordinal value of a character.
+
+{before_needle} If TRUE (the default is FALSE), |stristr| returns the part of
+the {haystack} before the first occurrence of the {needle}.
+
 {needle} and {haystack} are examined in a case-insensitive manner.
 
-If {needle} is not found, returns FALSE.
+Returns the matched substring. If {needle} is not found, returns FALSE.
 
-If {needle} is not a string, it is converted to an integer and applied as the
-ordinal value of a character.
+Version Description 5.3.0 Added the optional parameter {before_needle}. 4.3.0
+|stristr| was made binary safe.
 
 |stristr| example
 
 <?php >
     $email = 'USER@EXAMPLE.com';
-    echo stristr($email, 'e');
-  // outputs ER@EXAMPLE.com
+    echo stristr($email, 'e'); // outputs ER@EXAMPLE.com
+    echo stristr($email, 'e', true); // As of PHP 5.3.0, outputs US
 ?>
+
+
+
+
 
 Testing if a string is found or not
 
@@ -28,6 +41,10 @@ Testing if a string is found or not
   // outputs: "earth" not found in string
 ?>
 
+
+
+
+
 Using a non "string" needle
 
 <?php >
@@ -36,8 +53,12 @@ Using a non "string" needle
   // outputs: APPLE
 ?>
 
+
+
+
+
 This function is binary-safe.
 
-See also |strstr|, |strrchr|, |substr|, and |ereg|.
+|strstr| |strrchr| |substr| |preg_match|
 
 vim:ft=help:

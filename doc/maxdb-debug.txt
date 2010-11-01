@@ -1,0 +1,31 @@
+maxdb_debug -- Performs debugging operations
+
+  void maxdb_debug(string debug)~
+
+The |maxdb_debug| can be used to trace the SQLDBC communication. The following
+strings can be used as a parameter to |maxdb_debug|:
+
+|maxdb_debug| doesn't return any value.
+
+Procedural style
+
+<?php >
+  maxdb_debug("trace packet 200");
+  
+  $link = maxdb_connect("localhost", "MONA", "RED", "DEMODB");
+  
+  /* check connection */
+  if (!$link) {
+     printf("Connect failed: %s\n", maxdb_connect_error());
+     exit();
+  }
+  
+  /* close connection */
+  maxdb_close($link);
+?>
+
+
+
+The above example produces no output.
+
+vim:ft=help:

@@ -2,8 +2,13 @@ odbc_field_name -- Get the columnname
 
   string odbc_field_name(resource result_id, int field_number)~
 
-|odbc_field_name| will return the name of the field occupying the given column
-number in the given ODBC result identifier. Field numbering starts at 1. FALSE
-is returned on error.
+Gets the name of the field occupying the given column number in the given
+result identifier.
+
+{result_id} The result identifier.
+
+{field_number} The field number. Field numbering starts at 1.
+
+Returns the field name as a string, or FALSE on error.
 
 vim:ft=help:

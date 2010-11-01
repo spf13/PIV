@@ -4,6 +4,10 @@ xslt_getopt -- Get options on a given xsl processor
 
 |xslt_getopt| returns the options on the given {processor}.
 
-|xslt_setopt|.
+{processor} The XSLT processor link identifier, created with |xslt_create|.
+
+Returns the options, a bitmask constructed with the XSLT_SABOPT_XXX constants.
+
+|xslt_setopt|
 
 vim:ft=help:

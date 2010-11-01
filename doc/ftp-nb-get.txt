@@ -42,6 +42,8 @@ Returns FTP_FAILED or FTP_FINISHED or FTP_MOREDATA.
   }
 ?>
 
+
+
 Resuming a download with |ftp_nb_get|
 
 <?php >
@@ -64,6 +66,8 @@ Resuming a download with |ftp_nb_get|
   }
 ?>
 
+
+
 Resuming a download at position 100 to a new file with |ftp_nb_get|
 
 <?php >
@@ -80,6 +84,10 @@ Resuming a download at position 100 to a new file with |ftp_nb_get|
      $ret = ftp_nb_continue($my_connection);
   }
 ?>
+
+
+
+
 
 In the example above, newfile is 100 bytes smaller than README on the FTP
 server because we started reading at offset 100. If we didn't disable

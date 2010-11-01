@@ -1,0 +1,19 @@
+mailparse_msg_extract_whole_part_file -- Extracts a message section including
+headers without decoding the transfer encoding
+
+  string mailparse_msg_extract_whole_part_file(resource mimemail, string filename [, callback callbackfunc])~
+
+This function is currently not documented; only its argument list is
+available.
+
+{mimemail} A valid MIME resource.
+
+{filename}
+
+{callbackfunc}
+
+
+
+|mailparse_msg_extract_part| |mailparse_msg_extract_part_file|
+
+vim:ft=help:

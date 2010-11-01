@@ -3,8 +3,11 @@ specified document
 
   int tidy_warning_count(tidy object)~
 
-|tidy_warning_count| returns the number of Tidy warnings encountered for the
-specified document.
+Returns the number of Tidy warnings encountered for the specified document.
+
+{object} The Tidy object.
+
+Returns the number of warnings.
 
 |tidy_warning_count| example
 
@@ -18,6 +21,10 @@ specified document.
   echo tidy_warning_count($tidy) . "\n"; //5
 ?>
 
-See also |tidy_access_count| and |tidy_error_count|.
+
+
+
+
+|tidy_error_count| |tidy_access_count|
 
 vim:ft=help:

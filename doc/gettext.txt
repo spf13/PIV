@@ -2,9 +2,12 @@ gettext -- Lookup a message in the current domain
 
   string gettext(string message)~
 
-This function returns a translated string if one is found in the translation
-table, or the submitted message if not found. You may use the underscore
-character '_' as an alias to this function.
+Looks up a message in the current domain.
+
+{message}
+
+Returns a translated string if one is found in the translation table, or the
+submitted message if not found.
 
 |gettext|-check
 
@@ -27,6 +30,12 @@ character '_' as an alias to this function.
   echo _("Have a nice day");
 ?>
 
-See also |setlocale|.
+
+
+
+
+You may use the underscore character '_' as an alias to this function.
+
+|setlocale|
 
 vim:ft=help:

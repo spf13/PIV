@@ -1,0 +1,24 @@
+unicode_set_subst_char -- Set the substitution character for string conversion
+errors
+
+  bool unicode_set_subst_char(unicode character)~
+
+When converting a string from or to unicode, an invalid or unconvertible
+character may be encountered. When the conversion error mode is set to
+U_CONV_ERROR_SUBST, the character that caused the error is substituted by a
+character set by this function. The default substitution character is ?.
+
+{character} The substitution character to use.
+
+Returns TRUE on success or FALSE on failure.
+
+Emits a E_WARNING level error if {character} is invalid.
+
+This function is EXPERIMENTAL. The behaviour of this function, its name, and
+surrounding documentation may change without notice in a future release of
+PHP. This function should be used at your own risk.
+
+|unicode_set_error_mode| |unicode_get_error_mode| |unicode_encode|
+|unicode_decode|
+
+vim:ft=help:

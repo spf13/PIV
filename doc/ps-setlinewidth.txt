@@ -1,0 +1,15 @@
+ps_setlinewidth -- Sets width of a line
+
+  bool ps_setlinewidth(resource psdoc, float width)~
+
+Sets the line width for all following drawing operations.
+
+{psdoc} Resource identifier of the postscript file as returned by |ps_new|.
+
+{width} The width of lines in points.
+
+Returns TRUE on success or FALSE on failure.
+
+|ps_setlinecap| |ps_setlinejoin| |ps_setmiterlimit|
+
+vim:ft=help:

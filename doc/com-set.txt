@@ -1,11 +1,8 @@
 com_set -- Assigns a value to a COM component's property
 
-  void com_set(resource com_object, string property, mixed value)~
+Deprecated, use the OO syntax instead.
 
-Sets the value of the {property} of the COM component referenced by
-{com_object}. Returns the newly set value if succeeded, FALSE on error.
-
-Don't use com_set(), use OO syntax instead
+OO syntax
 
 <?php >
   // do this
@@ -13,5 +10,12 @@ Don't use com_set(), use OO syntax instead
   // instead of this:
   com_set($obj, 'property', $value);
 ?>
+
+
+
+
+
+This function does not exist in PHP 5; instead, you should use the regular and
+more natural OO syntax to access properties or call methods.
 
 vim:ft=help:

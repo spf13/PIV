@@ -1,29 +1,27 @@
-ifx_fetch_row -- Get row as enumerated array
+ifx_fetch_row -- Get row as an associative array
 
-  array ifx_fetch_row(int result_id [, mixed position])~
+  array ifx_fetch_row(resource result_id [, mixed position])~
+
+Fetches one row of data from the result associated with the specified result
+identifier.
+
+Subsequent calls to |ifx_fetch_row| would return the next row in the result
+set, or FALSE if there are no more rows.
+
+{result_id} {result_id} is a valid resultid returned by |ifx_query| or
+|ifx_prepare| (select type queries only!).
+
+{position} An optional parameter for a "fetch" operation on "scroll" cursors:
+NEXT, PREVIOUS, CURRENT, FIRST, LAST or a number. If you specify a number, an
+"absolute" row fetch is executed. This parameter is optional, and only valid
+for SCROLL cursors.
 
 Returns an associative array that corresponds to the fetched row, or FALSE if
 there are no more rows.
 
 Blob columns are returned as integer blob id values for use in |ifx_get_blob|
 unless you have used ifx_textasvarchar(1) or ifx_byteasvarchar(1), in which
-case blobs are returned as string values. Returns FALSE on error
-
-{result_id} is a valid resultid returned by |ifx_query| or |ifx_prepare|
-(select type queries only!).
-
-{position} is an optional parameter for a "fetch" operation on "scroll"
-cursors: "NEXT", "PREVIOUS", "CURRENT", "FIRST", "LAST" or a number. If you
-specify a number, an "absolute" row fetch is executed. This parameter is
-optional, and only valid for SCROLL cursors.
-
-|ifx_fetch_row| fetches one row of data from the result associated with the
-specified result identifier. The row is returned as an array. Each result
-column is stored in an array offset, starting at offset 0, with the column
-name as key.
-
-Subsequent calls to |ifx_fetch_row| would return the next row in the result
-set, or FALSE if there are no more rows.
+case blobs are returned as string values.
 
 Informix fetch rows
 
@@ -52,5 +50,9 @@ Informix fetch rows
   }
   ifx_free_result ($rid);
 ?>
+
+
+
+
 
 vim:ft=help:

@@ -42,6 +42,10 @@ Returns TRUE on success or FALSE on failure.
   fclose($fp);
 ?>
 
+
+
+
+
 Version Description 4.3.0 {startpos} was added.
 
 |ftp_put| |ftp_nb_fput| |ftp_nb_put|

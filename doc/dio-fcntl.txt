@@ -6,8 +6,6 @@ The |dio_fcntl| function performs the operation specified by {cmd} on the file
 descriptor {fd}. Some commands require additional arguments {args} to be
 supplied.
 
-This function is not implemented on Windows platforms.
-
 {fd} The file descriptor returned by |dio_open|.
 
 {cmd} Can be one of the following operations: F_SETLK - Lock is set or
@@ -53,5 +51,11 @@ Setting and clearing a lock
   
   dio_close($fd);
 ?>
+
+
+
+
+
+This function is not implemented on Windows platforms.
 
 vim:ft=help:

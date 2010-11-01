@@ -6,16 +6,26 @@ openssl_pkcs7_sign -- Sign an S/MIME message
 signs them using the certificate and its matching private key specified by
 {signcert} and {privkey} parameters.
 
-{headers} is an array of headers that will be prepended to the data after it
-has been signed (see |openssl_pkcs7_encrypt| for more information about the
-format of this parameter.
+{infilename}
 
-{flags} can be used to alter the output - see PKCS7 constants - if not
+{outfilename}
+
+{signcert}
+
+{privkey}
+
+{headers} {headers} is an array of headers that will be prepended to the data
+after it has been signed (see |openssl_pkcs7_encrypt| for more information
+about the format of this parameter.
+
+{flags} {flags} can be used to alter the output - see PKCS7 constants - if not
 specified, it defaults to PKCS7_DETACHED.
 
-{extracerts} specifies the name of a file containing a bunch of extra
-certificates to include in the signature which can for example be used to
-help the recipient to verify the certificate that you used.
+{extracerts} {extracerts} specifies the name of a file containing a bunch of
+extra certificates to include in the signature which can for example be used
+to help the recipient to verify the certificate that you used.
+
+Returns TRUE on success or FALSE on failure.
 
 |openssl_pkcs7_sign| example
 
@@ -43,5 +53,9 @@ help the recipient to verify the certificate that you used.
       exec(ini_get("sendmail_path") . " < signed.txt");
   }
 ?>
+
+
+
+
 
 vim:ft=help:

@@ -1,5 +1,11 @@
 hw_api_object->title -- Returns the title attribute
 
-  string hw_api_object->title(array parameter)~
+  string title(array parameter)~
+
+Returns the title attribute.
+
+{parameter}
+
+Returns the title as a string.
 
 vim:ft=help:

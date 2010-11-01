@@ -1,10 +1,8 @@
-pdf_setfont -- Set the current font
+PDF_setfont -- Set font
 
-  bool pdf_setfont(resource pdfdoc, int font, float size)~
+  bool PDF_setfont(resource pdfdoc, int font, float fontsize)~
 
-Set the current font in the given {size}, using a {font} handle returned by
-|pdf_findfont|. Returns TRUE on success or FALSE on failure.
-
-See also |pdf_findfont|.
+Sets the current font in the specified {size}, using a {font} handle returned
+by |PDF_load_font|. Returns TRUE on success or FALSE on failure.
 
 vim:ft=help:

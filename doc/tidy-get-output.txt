@@ -2,7 +2,11 @@ tidy_get_output -- Return a string representing the parsed tidy markup
 
   string tidy_get_output(tidy object)~
 
-|tidy_get_output| returns a string with the repaired html.
+Gets a string with the repaired html.
+
+{object} The Tidy object.
+
+Returns the parsed tidy markup.
 
 |tidy_get_output| example
 
@@ -26,5 +30,7 @@ The above example will output:
   <p>paragraph</p>
   </body>
   </html>
+
+
 
 vim:ft=help:

@@ -1,0 +1,12 @@
+newt_redraw_help_line --
+
+  void newt_redraw_help_line()~
+
+This function is currently not documented; only its argument list is
+available.
+
+
+
+No value is returned.
+
+vim:ft=help:

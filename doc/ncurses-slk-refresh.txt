@@ -1,13 +1,11 @@
 ncurses_slk_refresh -- Copies soft label keys to screen
 
-  bool ncurses_slk_refresh()~
+  int ncurses_slk_refresh()~
 
-This function is EXPERIMENTAL. The behaviour of this function, the name of
-this function, and anything else documented about this function may change
-without notice in a future release of PHP. Use this function at your own
-risk.
+This function is EXPERIMENTAL. The behaviour of this function, its name, and
+surrounding documentation may change without notice in a future release of
+PHP. This function should be used at your own risk.
 
-|ncurses_slk_refresh| copies soft label keys from virtual screen to physical
-screen. Returns TRUE on error, otherwise FALSE.
+Copies soft label keys from virtual screen to physical screen.
 
 vim:ft=help:

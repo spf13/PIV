@@ -1,0 +1,7 @@
+PDF_end_item -- Close structure element or other content item
+
+  bool PDF_end_item(resource pdfdoc, int id)~
+
+Closes a structure element or other content item.
+
+vim:ft=help:

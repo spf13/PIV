@@ -34,6 +34,10 @@ Returns TRUE on success or FALSE on failure.
      pg_copy_from($db, $table_name, $rows);
 ?>
 
+
+
+
+
 |pg_copy_to|
 
 vim:ft=help:

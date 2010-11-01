@@ -9,8 +9,8 @@ Determine whether a variable is considered to be empty.
 |empty| only checks variables as anything else will result in a parse error.
 In other words, the following will not work: empty(trim($name)).
 
-|empty| is the opposite of (boolean) {var}, except that no warning is
-generated when the variable is not set.
+|empty| is the opposite of (boolean) var, except that no warning is generated
+when the variable is not set.
 
 Returns FALSE if {var} has a non-empty and non-zero value.
 
@@ -39,9 +39,17 @@ A simple |empty| / |isset| comparison.
   }
 ?>
 
+
+
+
+
 Because this is a language construct and not a function, it cannot be called
 using variable functions
 
-|isset| |unset| |array_key_exists| |count| |strlen| The type comparison tables
+When using |empty| on inaccessible object properties, the __isset overloading
+method will be called, if declared.
+
+|isset| __isset |unset| |array_key_exists| |count| |strlen| The type
+comparison tables
 
 vim:ft=help:

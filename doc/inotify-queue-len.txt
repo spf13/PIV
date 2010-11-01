@@ -1,0 +1,16 @@
+inotify_queue_len -- Return a number upper than zero if there are pending
+events
+
+  int inotify_queue_len(resource inotify_instance)~
+
+This function allows to know if |inotify_read| will block or not. If a number
+upper than zero is returned, there are pending events and |inotify_read| will
+not block.
+
+{inotify_instance} Resource returned by |inotify_init|
+
+Returns a number upper than zero if there are pending events.
+
+|inotify_init| |stream_select| |stream_set_blocking|
+
+vim:ft=help:

@@ -1,0 +1,14 @@
+stmt->reset -- Resets a prepared statement
+
+Procedural style:
+
+  bool maxdb_stmt_reset(resource stmt)~
+
+Object oriented style (method):
+
+  bool reset(resource stmt)~
+
+This function is currently not documented; only its argument list is
+available.
+
+vim:ft=help:

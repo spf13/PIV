@@ -1,9 +1,7 @@
-pdf_closepath -- Closes path
+PDF_closepath -- Close current path
 
-  bool pdf_closepath(resource pdfdoc)~
+  bool PDF_closepath(resource p)~
 
-Close the current path. Returns TRUE on success or FALSE on failure.
-
-See also |pdf_closepath_stroke| and |pdf_closepath_fil_stroke|.
+Closes the current path. Returns TRUE on success or FALSE on failure.
 
 vim:ft=help:

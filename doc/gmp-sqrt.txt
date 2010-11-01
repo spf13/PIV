@@ -2,7 +2,12 @@ gmp_sqrt -- Calculate square root
 
   resource gmp_sqrt(resource a)~
 
-Calculates square root of {a} and returns the integer portion of the result.
+Calculates square root of {a}.
+
+{a} It can be either a GMP number resource, or a numeric string given that it
+is possible to convert the latter to a number.
+
+The integer portion of the square root, as a GMP number.
 
 |gmp_sqrt| example
 
@@ -16,10 +21,12 @@ Calculates square root of {a} and returns the integer portion of the result.
   echo gmp_strval($sqrt3) . "\n";
 ?>
 
-The printout of the above program will be:
+The above example will output:
 
   3
   2
   1234567890
+
+
 
 vim:ft=help:

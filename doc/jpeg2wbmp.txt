@@ -1,15 +1,42 @@
 jpeg2wbmp -- Convert JPEG image file to WBMP image file
 
-  int jpeg2wbmp(string jpegname, string wbmpname, int d_height, int d_width, int threshold)~
+  bool jpeg2wbmp(string jpegname, string wbmpname, int dest_height, int dest_width, int threshold)~
 
-Converts the {jpegname} JPEG file to WBMP format, and saves it as {wbmpname}.
-With the {d_height} and {d_width} you specify the height and width of the
-destination image.
+Converts a JPEG file into a WBMP file.
 
-JPEG support is only available if PHP was compiled against GD-1.8 or later.
+{jpegname} Path to JPEG file.
+
+{wbmpname} Path to destination WBMP file.
+
+{dest_height} Destination image height.
+
+{dest_width} Destination image width.
+
+{threshold} Threshold value, between 0 and 8 (inclusive).
+
+Returns TRUE on success or FALSE on failure.
+
+|jpeg2wbmp| example
+
+<?php >
+  // Path to the target jpeg
+  $path = './test.jpg';
+  
+  // Get the image sizes
+  $image = getimagesize($path);
+  
+  // Convert image
+  jpeg2wbmp($path, './test.wbmp', $image[1], $image[0], 5);
+?>
+
+
+
+
 
 WBMP support is only available if PHP was compiled against GD-1.8 or later.
 
-See also |png2wbmp|.
+JPEG support is only available if PHP was compiled against GD-1.8 or later.
+
+|png2wbmp|
 
 vim:ft=help:

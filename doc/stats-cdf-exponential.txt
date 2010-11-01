@@ -1,0 +1,16 @@
+stats_cdf_exponential -- Not documented
+
+  float stats_cdf_exponential(float par1, float par2, int which)~
+
+This function is currently not documented; only its argument list is
+available.
+
+{par1}
+
+{par2}
+
+{which}
+
+
+
+vim:ft=help:

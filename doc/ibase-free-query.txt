@@ -2,7 +2,10 @@ ibase_free_query -- Free memory allocated by a prepared query
 
   bool ibase_free_query(resource query)~
 
-Free a query prepared by |ibase_prepare|. Returns TRUE on success or FALSE on
-failure.
+Frees a prepared query.
+
+{query} A query prepared with |ibase_prepare|.
+
+Returns TRUE on success or FALSE on failure.
 
 vim:ft=help:

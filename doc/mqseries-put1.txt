@@ -1,0 +1,28 @@
+mqseries_put1 -- MQSeries MQPUT1
+
+  void mqseries_put1(resource hconn, resource objDesc, resource msgDesc, resource pmo, string buffer, resource compCode, resource reason)~
+
+The |mqseries_put1| (MQPUT1) call puts one message on a queue. The queue need
+not be open.
+
+{hConn} Connection handle.
+
+This handle represents the connection to the queue manager.
+
+{objDesc} Object descriptor. (MQOD)
+
+This is a structure which identifies the queue to which the message is added.
+
+{msgDesc} Message descriptor (MQMD).
+
+{pmo} Put message options (MQPMO).
+
+{compCode} Completion code.
+
+{reason} Reason code qualifying the compCode.
+
+No value is returned.
+
+|mqseries_conn| |mqseries_connx| |mqseries_open| |mqseries_get|
+
+vim:ft=help:

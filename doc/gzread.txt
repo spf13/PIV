@@ -23,6 +23,10 @@ The data that have been read.
   gzclose($zd);
 ?>
 
+
+
+
+
 |gzwrite| |gzopen| |gzgets| |gzgetss| |gzfile| |gzpassthru|
 
 vim:ft=help:

@@ -1,0 +1,66 @@
+Memcache::setServerParams -- Changes server parameters and status at runtime
+
+  bool Memcache::setServerParams(string host [, int port [, int timeout [, int retry_interval [, bool status [, callback failure_callback]]]]])~
+
+|Memcache::setServerParams| changes server parameters at runtime. You can also
+use the |memcache_set_server_params| function.
+
+This function has been added to Memcache version 2.1.0.
+
+{host} Point to the host where memcached is listening for connections.
+
+{port} Point to the port where memcached is listening for connections. This
+parameter is optional and its default value is 11211.
+
+{timeout} Value in seconds which will be used for connecting to the daemon.
+Think twice before changing the default value of 1 second - you can lose all
+the advantages of caching if your connection is too slow.
+
+{retry_interval} Controls how often a failed server will be retried, the
+default value is 15 seconds. Setting this parameter to -1 disables automatic
+retry. Neither this nor the {persistent} parameter has any effect when the
+extension is loaded dynamically via |dl|.
+
+{status} Controls if the server should be flagged as online. Setting this
+parameter to FALSE and {retry_interval} to -1 allows a failed server to be
+kept in the pool so as not to affect the key distribution algoritm. Requests
+for this server will then failover or fail immediately depending on the
+{memcache.allow_failover} setting. Default to TRUE, meaning the server should
+be considered online.
+
+{failure_callback} Allows the user to specify a callback function to run upon
+encountering an error. The callback is run before failover is attempted. The
+function takes two parameters, the hostname and port of the failed server.
+
+Returns TRUE on success or FALSE on failure.
+
+|Memcache::setServerParams| example
+
+<?php >
+  function _callback_memcache_failure($host, $port) {
+      print "memcache '$host:$port' failed";
+  }
+  
+  /* OO API */
+  
+  $memcache = new Memcache;
+  
+  // Add the server in offline mode
+  $memcache->addServer('memcache_host', 11211, false, 1, 1, -1, false);
+  
+  // Bring the server back online
+  $memcache->setServerParams('memcache_host', 11211, 1, 15, true, '_callback_memcache_failure');
+  
+  /* procedural API */
+  
+  $memcache_obj = memcache_connect('memcache_host', 11211);
+  memcache_set_server_params($memcache_obj, 'memcache_host', 11211, 1, 15, true, '_callback_memcache_failure');
+?>
+
+
+
+
+
+|Memcache::addServer| |Memcache::getServerStatus|
+
+vim:ft=help:

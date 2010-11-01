@@ -34,6 +34,10 @@ Returns the new file permissions on success or FALSE on error.
   ftp_close($conn_id);
 ?>
 
+
+
+
+
 |chmod|
 
 vim:ft=help:

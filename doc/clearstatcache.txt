@@ -1,6 +1,6 @@
 clearstatcache -- Clears file status cache
 
-  void clearstatcache()~
+  void clearstatcache([bool clear_realpath_cache [, string filename]])~
 
 When you use |stat|, |lstat|, or any of the other functions listed in the
 affected functions list (below), PHP caches the information those functions
@@ -14,8 +14,9 @@ file.
 
 You should also note that PHP doesn't cache information about non-existent
 files. So, if you call |file_exists| on a file that doesn't exist, it will
-return FALSE until you create the file. If you create the file, it will
-return TRUE even if you then delete the file.
+return FALSE until you create the file. If you create the file, it will return
+TRUE even if you then delete the file. However |unlink| clears the cache
+automatically.
 
 This function caches information about specific filenames, so you only need to
 call |clearstatcache| if you are performing multiple operations on the same
@@ -26,5 +27,47 @@ Affected functions include |stat|, |lstat|, |file_exists|, |is_writable|,
 |is_readable|, |is_executable|, |is_file|, |is_dir|, |is_link|, |filectime|,
 |fileatime|, |filemtime|, |fileinode|, |filegroup|, |fileowner|, |filesize|,
 |filetype|, and |fileperms|.
+
+{clear_realpath_cache} Whenever to clear realpath cache or not (defaults to
+FALSE).
+
+{filename} Clear realpath cache on a specific filename, only used if
+{clear_realpath_cache} is TRUE.
+
+No value is returned.
+
+Version Description 5.3.0 Added optional {clear_realpath_cache} and {filename}
+parameters.
+
+|clearstatcache| example
+
+<?php >
+  $file = 'output_log.txt';
+  
+  function get_owner($file)
+  {
+      $stat = stat($file);
+      $user = posix_getpwuid($stat['uid']);
+      return $user['name'];
+  }
+  
+  $format = "UID @ %s: %s\n";
+  
+  printf($format, date('r'), get_owner($file));
+  
+  chown($path, 'ross');
+  printf($format, date('r'), get_owner($file));
+  
+  clearstatcache();
+  printf($format, date('r'), get_owner($file));
+?>
+
+The above example will output something similar to:
+
+  UID @ Sun, 12 Oct 2008 20:48:28 +0100: root
+  UID @ Sun, 12 Oct 2008 20:48:28 +0100: root
+  UID @ Sun, 12 Oct 2008 20:48:28 +0100: ross
+
+
 
 vim:ft=help:

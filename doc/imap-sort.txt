@@ -1,12 +1,13 @@
-imap_sort -- Sort an array of message headers
+imap_sort -- Gets and sort messages
 
-  array imap_sort(resource stream, int criteria, int reverse [, int options [, string search_criteria [, string charset]]])~
+  array imap_sort(resource imap_stream, int criteria, int reverse [, int options [, string search_criteria [, string charset]]])~
 
-Returns an array of message numbers sorted by the given parameters.
+Gets and sorts message numbers by the given parameters.
 
-{Reverse} is 1 for reverse-sorting.
+{ imap_stream}An IMAP stream returned by |imap_open|.
 
-Criteria can be one (and only one) of the following: SORTDATE - message Date
+{criteria} Criteria can be one (and only one) of the following: SORTDATE -
+message Date
 
 SORTARRIVAL - arrival date
 
@@ -20,11 +21,19 @@ SORTCC - mailbox in first cc address
 
 SORTSIZE - size of message in octets
 
-The flags are a bitmask of one or more of the following: SE_UID - Return UIDs
-instead of sequence numbers
+{reverse} Set this to 1 for reverse sorting
+
+{options} The {options} are a bitmask of one or more of the following: SE_UID
+- Return UIDs instead of sequence numbers
 
 SE_NOPREFETCH - Don't prefetch searched messages
 
-Parameter {charset} was added in PHP 4.3.3.
+{search_criteria}
+
+{charset}
+
+Returns an array of message numbers sorted by the given parameters.
+
+Version Description 4.3.3 The {charset} parameter was added
 
 vim:ft=help:

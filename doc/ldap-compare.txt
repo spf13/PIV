@@ -2,10 +2,18 @@ ldap_compare -- Compare value of attribute found in entry specified with DN
 
   mixed ldap_compare(resource link_identifier, string dn, string attribute, string value)~
 
-Returns TRUE if {value} matches otherwise returns FALSE. Returns -1 on error.
+Compare {value} of {attribute} with value of same attribute in an LDAP
+directory entry.
 
-|ldap_compare| is used to compare {value} of {attribute} to value of same
-attribute in LDAP directory entry specified with {dn}.
+{link_identifier} An LDAP link identifier, returned by |ldap_connect|.
+
+{dn} The distinguished name of an LDAP entity.
+
+{attribute} The attribute name.
+
+{value} The compared value.
+
+Returns TRUE if {value} matches otherwise returns FALSE. Returns -1 on error.
 
 The following example demonstrates how to check whether or not given password
 matches the one defined in DN specified entry.
@@ -14,16 +22,16 @@ Complete example of password check
 
 <?php >
   $ds=ldap_connect("localhost");  // assuming the LDAP server is on this host
-        
+  
   if ($ds) {
   
-      // bind 
+      // bind
       if (ldap_bind($ds)) {
   
           // prepare data
           $dn = "cn=Matti Meikku, ou=My Unit, o=My Company, c=FI";
           $value = "secretpassword";
-          $attr = "password"; 
+          $attr = "password";
   
           // compare value
           $r=ldap_compare($ds, $dn, $attr, $value);
@@ -38,7 +46,7 @@ Complete example of password check
   
       } else {
           echo "Unable to bind to LDAP server.";
-      }          
+      }
   
       ldap_close($ds);
   
@@ -47,8 +55,10 @@ Complete example of password check
   }
 ?>
 
-|ldap_compare| can NOT be used to compare BINARY values!
 
-This function was added in 4.0.2.
+
+
+
+|ldap_compare| can NOT be used to compare BINARY values!
 
 vim:ft=help:

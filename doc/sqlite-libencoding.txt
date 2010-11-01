@@ -21,6 +21,8 @@ It is not recommended that you use PHP in a web-server configuration with a
 version of the SQLite library compiled with UTF-8 support, since libsqlite
 will abort the process if it detects a problem with the UTF-8 encoding.
 
+Returns the library encoding.
+
 |sqlite_lib_version|
 
 vim:ft=help:

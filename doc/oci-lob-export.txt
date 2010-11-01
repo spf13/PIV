@@ -1,10 +1,14 @@
-lob->export -- Exports LOB's contents to a file
+OCI-Lob->export -- Exports LOB's contents to a file
 
-  bool lob->export(string filename [, int start [, int length]])~
+  bool export(string filename [, int start [, int length]])~
 
-Exports LOB's contents to a file, which name is given in parameter {filename}.
-Optional parameter {start} indicates from what position to start export and
-parameter {length} - length of data to be exported.
+Exports LOB contents to a file.
+
+{filename} Path to the file.
+
+{start} Indicates from where to start exporting.
+
+{length} Indicates the length of data to be exported.
 
 Returns TRUE on success or FALSE on failure.
 

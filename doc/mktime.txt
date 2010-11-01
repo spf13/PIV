@@ -7,8 +7,7 @@ timestamp is a long integer containing the number of seconds between the Unix
 Epoch (January 1 1970 00:00:00 GMT) and the time specified.
 
 Arguments may be left out in order from right to left; any arguments thus
-omitted will be set to the current value according to the local date and
-time.
+omitted will be set to the current value according to the local date and time.
 
 {hour} The number of the hour.
 
@@ -23,8 +22,8 @@ time.
 {year} The number of the year, may be a two or four digit value, with values
 between 0-69 mapping to 2000-2069 and 70-100 to 1970-2000. On systems where
 time_t is a 32bit signed integer, as most common today, the valid range for
-{year} is somewhere between 1901 and 2038, although this limitation is
-overcome as of PHP 5.1.0.
+{year} is somewhere between 1901 and 2038. However, before PHP 5.1.0 this
+range was limited from 1970 to 2038 on some systems (e.g. Windows).
 
 {is_dst} This parameter can be set to 1 if the time is during daylight savings
 time (DST), 0 if it is not, or -1 (the default) if it is unknown whether the
@@ -40,11 +39,34 @@ As of PHP 5.1.0, this parameter became deprecated. As a result, the new
 timezone handling features should be used instead.
 
 |mktime| returns the Unix timestamp of the arguments given. If the arguments
-are invalid (eg. if the year, month and day are all 0), the function returns
--1.
+are invalid, the function returns FALSE (before PHP 5.1 it returned -1).
 
-Version Description 3.0.10 Added {is_dst} parameter 5.1.0 the {is_dst}
-parameter became deprecated
+Every call to a date/time function will generate a E_NOTICE if the time zone
+is not valid, and/or a E_STRICT or E_WARNING message if using the system
+settings or the TZ environment variable. See also |date_default_timezone_set|
+
+Version Description 5.3.0 |mktime| now throws E_DEPRECATED notice if the
+{is_dst} parameter is used. 5.1.0 The {is_dst} parameter became deprecated.
+Made the function return FALSE on error, instead of -1. Fixed the function to
+accept the year, month and day to be all passed as zero. 5.1.0 Now issues the
+E_STRICT and E_NOTICE time zone errors.
+
+|mktime| basic example
+
+<?php >
+  // Set the default timezone to use. Available as of PHP 5.1
+  date_default_timezone_set('UTC');
+  
+  // Prints: July 1, 2000 is on a Saturday
+  echo "July 1, 2000 is on a " . date("l", mktime(0, 0, 0, 7, 1, 2000));
+  
+  // Prints something like: 2006-04-05T01:02:03+00:00
+  echo date('c', mktime(1, 2, 3, 4, 5, 2006));
+?>
+
+
+
+
 
 |mktime| example |mktime| is useful for doing date arithmetic and validation,
 as it will automatically calculate the correct value for out-of-range input.
@@ -57,6 +79,8 @@ For example, each of the following lines produces the string "Jan-01-1998".
   echo date("M-d-Y", mktime(0, 0, 0, 1, 1, 98));
 ?>
 
+
+
 Last day of next month The last day of any given month can be expressed as the
 "0" day of the next month, not the -1 day. Both of the following examples will
 produce the string "The last day in Feb 2000 is: 29".
@@ -68,8 +92,11 @@ produce the string "The last day in Feb 2000 is: 29".
   echo strftime("Last day in Feb 2000 is: %d", $lastday);
 ?>
 
-Negative timestamps are not supported under any known version of Windows.
-Therefore the range of valid years includes only 1970 through 2038.
+
+
+Before PHP 5.1.0, negative timestamps were not supported under any known
+version of Windows and some other systems as well. Therefore the range of
+valid years was limited to 1970 through 2038.
 
 |gmmktime| |date| |time|
 

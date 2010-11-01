@@ -42,6 +42,8 @@ The above example will output something similar to:
       [1] => 16
   )
 
+
+
 |mysql_field_len| |mysql_fetch_row| |strlen|
 
 vim:ft=help:

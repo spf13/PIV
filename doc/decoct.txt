@@ -6,6 +6,10 @@ Returns a string containing an octal representation of the given {number}
 argument. The largest number that can be converted is 4294967295 in decimal
 resulting to "37777777777".
 
+{number} Decimal value to convert
+
+Octal string representation of {number}
+
 |decoct| example
 
 <?php >
@@ -18,6 +22,8 @@ The above example will output:
   17
   410
 
-See also |octdec|, |decbin|, |dechex| and |base_convert|.
+
+
+|octdec| |decbin| |dechex| |base_convert|
 
 vim:ft=help:

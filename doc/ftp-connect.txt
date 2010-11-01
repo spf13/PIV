@@ -25,6 +25,10 @@ Returns a FTP stream on success or FALSE on error.
   $conn_id = ftp_connect($ftp_server) or die("Couldn't connect to $ftp_server"); 
 ?>
 
+
+
+
+
 Version Description 4.2.0 {timeout} was added.
 
 |ftp_close| |ftp_ssl_connect|

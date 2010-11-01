@@ -1,5 +1,11 @@
 hw_api_object->attreditable -- Checks whether an attribute is editable
 
-  bool hw_api_object->attreditable(array parameter)~
+  bool attreditable(array parameter)~
+
+Checks whether an attribute is editable.
+
+{parameter}
+
+Returns TRUE if the attribute is editable, FALSE otherwise.
 
 vim:ft=help:

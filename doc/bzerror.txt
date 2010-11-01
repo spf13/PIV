@@ -20,6 +20,10 @@ error message in the errstr entry.
   echo $error["errstr"];
 ?>
 
+
+
+
+
 |bzerrno| |bzerrstr|
 
 vim:ft=help:

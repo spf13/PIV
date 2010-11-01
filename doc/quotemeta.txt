@@ -7,9 +7,15 @@ that is among these:
 
   . \ + * ? [ ^ ] ( $ )
 
+
+
+{str} The input string.
+
+Returns the string with meta characters quoted.
+
 This function is binary-safe.
 
-See also |addslashes|, |htmlentities|, |htmlspecialchars|, |nl2br|, and
-|stripslashes|.
+|addslashes| |addcslashes| |htmlentities| |htmlspecialchars| |nl2br|
+|stripslashes| |stripcslashes| |preg_match|
 
 vim:ft=help:

@@ -10,7 +10,9 @@ involves string comparison.
 
 Instead, use the is_* functions.
 
-Possibles values for the returned string are: "boolean" (since PHP 4)
+{var} The variable being type checked.
+
+Possibles values for the returned string are: "boolean"
 
 "integer"
 
@@ -23,18 +25,34 @@ not simply "float")
 
 "object"
 
-"resource" (since PHP 4)
+"resource"
 
-"NULL" (since PHP 4)
-
-"user function" (PHP 3 only, deprecated)
+"NULL"
 
 "unknown type"
 
-For PHP 4, you should use |function_exists| and |method_exists| to replace the
-prior usage of |gettype| on a function.
+|gettype| example
 
-See also |settype|, |is_array|, |is_bool|, |is_float|, |is_int|, |is_null|,
-|is_numeric|, |is_object|, |is_resource|, |is_scalar|, and |is_string|.
+<?php >
+  $data = array(1, 1., NULL, new stdClass, 'foo');
+  
+  foreach ($data as $value) {
+      echo gettype($value), "\n";
+  }
+?>
+
+The above example will output something similar to:
+
+  integer
+  double
+  NULL
+  object
+  string
+
+
+
+|settype| |is_array| |is_bool| |is_float| |is_int| |is_null| |is_numeric|
+|is_object| |is_resource| |is_scalar| |is_string| |function_exists|
+|method_exists|
 
 vim:ft=help:

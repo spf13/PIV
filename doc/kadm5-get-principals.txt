@@ -1,0 +1,30 @@
+kadm5_get_principals -- Gets all principals from the Kerberos database
+
+  array kadm5_get_principals(resource handle)~
+
+|kadm5_get_principals| returns an array containing the principals's names.
+
+{handle} A KADM5 handle.
+
+Returns array of principals on success, or FALSE on failure.
+
+|kadm5_get_principals| example
+
+<?php >
+  $handle = kadm5_init_with_password("afs-1", "GONICUS.LOCAL", "admin/admin", "password");
+  
+  print "<h1>get_principals</h1>\n";
+  foreach (kadm5_get_principals($handle) as $principal) {
+      echo "$principal<br />\n";
+  }
+  
+  kadm5_destroy($handle);
+?>
+
+
+
+
+
+|kadm5_get_principal|
+
+vim:ft=help:

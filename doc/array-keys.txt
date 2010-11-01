@@ -5,8 +5,19 @@ array_keys -- Return all the keys of an array
 |array_keys| returns the keys, numeric and string, from the {input} array.
 
 If the optional {search_value} is specified, then only the keys for that value
-are returned. Otherwise, all the keys from the {input} are returned. As of PHP
-5, you can use {strict} parameter for comparison including type (===).
+are returned. Otherwise, all the keys from the {input} are returned.
+
+{input} An array containing keys to return.
+
+{search_value} If specified, then only keys containing these values are
+returned.
+
+{strict} Determines if strict comparison (===) should be used during the
+search.
+
+Returns an array of all the keys in {input}.
+
+Version Description 5.0.0 Added the {strict} parameter.
 
 |array_keys| example
 
@@ -41,6 +52,8 @@ The above example will output:
       [1] => size
   )
 
-See also |array_values| and |array_key_exists|.
+
+
+|array_values| |array_key_exists|
 
 vim:ft=help:

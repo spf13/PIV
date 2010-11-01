@@ -1,0 +1,24 @@
+mysql_set_charset -- Sets the client character set
+
+  bool mysql_set_charset(string charset [, resource link_identifier])~
+
+Sets the default character set for the current connection.
+
+{charset} A valid character set name.
+
+{ link_identifier}The MySQL connection. If the link identifier is not
+specified, the last link opened by |mysql_connect| is assumed. If no such link
+is found, it will try to create one as if |mysql_connect| was called with no
+arguments. If by chance no connection is found or established, an E_WARNING
+level error is generated.
+
+Returns TRUE on success or FALSE on failure.
+
+This function requires MySQL 5.0.7 or later.
+
+This is the preferred way to change the charset. Using |mysql_query| to
+execute SET NAMES .. is not recommended.
+
+|mysql_client_encoding| List of character sets that MySQL supports
+
+vim:ft=help:

@@ -1,8 +1,6 @@
 pg_parameter_status -- Looks up a current parameter setting of the server.
 
-  string pg_parameter_status(resource connection, string param_name)~
-
-  string pg_parameter_status(resource connection, string param_name, string param_name)~
+  string pg_parameter_status([resource connection, string param_name])~
 
 Looks up a current parameter setting of the server.
 
@@ -48,5 +46,7 @@ A string containing the value of the parameter, FALSE on failure or invalid
 The above example will output:
 
   Server encoding: SQL_ASCII
+
+
 
 vim:ft=help:

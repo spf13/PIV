@@ -23,8 +23,8 @@ Additional information can be found on the CCL page.
 No value is returned.
 
 In the example below, the CCL parser is configured to support three CCL
-fields: ti, au and isbn. Each field is mapped to their BIB-1 equivalent. It
-is assumed that variable $id is the connection ID.
+fields: ti, au and isbn. Each field is mapped to their BIB-1 equivalent. It is
+assumed that variable $id is the connection ID.
 
 CCL configuration
 
@@ -36,6 +36,8 @@ CCL configuration
   );
   yaz_ccl_conf($id, $fields);
 ?>
+
+
 
 |yaz_ccl_parse|
 

@@ -4,9 +4,13 @@ shmop_read -- Read data from shared memory block
 
 |shmop_read| will read a string from shared memory block.
 
-|shmop_read| takes 3 parameters: shmid, which is the shared memory block
-identifier created by |shmop_open|, offset from which to start reading and
-count on the number of bytes to read.
+{shmid} The shared memory block identifier created by |shmop_open|
+
+{start} Offset from which to start reading
+
+{count} The number of bytes to read
+
+Returns the data or FALSE on failure.
 
 Reading shared memory block
 
@@ -14,7 +18,13 @@ Reading shared memory block
   $shm_data = shmop_read($shm_id, 0, 50);
 ?>
 
+
+
+
+
 This example will read 50 bytes from shared memory block and place the data
 inside $shm_data.
+
+|shmop_write|
 
 vim:ft=help:

@@ -4,6 +4,10 @@ log10 -- Base-10 logarithm
 
 Returns the base-10 logarithm of {arg}.
 
-See Also: |log|
+{arg} The argument to process
+
+The base-10 logarithm of {arg}
+
+|log|
 
 vim:ft=help:

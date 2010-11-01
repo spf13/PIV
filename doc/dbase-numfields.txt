@@ -22,6 +22,10 @@ The number of fields in the database, or FALSE if an error occurs.
   }
 ?>
 
+
+
+
+
 |dbase_numrecords|
 
 vim:ft=help:

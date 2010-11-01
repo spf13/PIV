@@ -1,0 +1,33 @@
+gnupg_addsignkey -- Add a key for signing
+
+  bool gnupg_addsignkey(resource identifier, string fingerprint [, string passphrase])~
+
+{identifier} The gnupg identifier, from a call to |gnupg_init| or gnupg.
+
+{fingerprint} The fingerprint key.
+
+{passphrase} The pass phrase.
+
+Returns TRUE on success or FALSE on failure.
+
+Procedural |gnupg_addsignkey| example
+
+<?php >
+  $res = gnupg_init();
+  gnupg_addsignkey($res,"8660281B6051D071D94B5B230549F9DC851566DC","test");
+?>
+
+
+
+OO |gnupg_addsignkey| example
+
+<?php >
+  $gpg = new gnupg();
+  $gpg -> addsignkey("8660281B6051D071D94B5B230549F9DC851566DC","test");
+?>
+
+
+
+
+
+vim:ft=help:

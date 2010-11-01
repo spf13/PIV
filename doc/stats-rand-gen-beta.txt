@@ -1,0 +1,5 @@
+stats_rand_gen_beta -- Generates beta random deviate
+
+  float stats_rand_gen_beta(float a, float b)~
+
+vim:ft=help:

@@ -1,0 +1,11 @@
+OCI-Lob->getBuffering -- Returns current state of buffering for the large
+object
+
+  bool getBuffering()~
+
+Tells whether the buffering for the large object is on or off.
+
+Returns FALSE if buffering for the large object is off and TRUE if buffering
+is used.
+
+vim:ft=help:

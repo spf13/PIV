@@ -1,7 +1,10 @@
-pdf_open_ccitt -- Opens a new image file with raw CCITT data
+PDF_open_ccitt -- Open raw CCITT image [deprecated]
 
-  int pdf_open_ccitt(resource pdfdoc, string filename, int width, int height, int BitReverse, int k, int Blackls1)~
+  int PDF_open_ccitt(resource pdfdoc, string filename, int width, int height, int BitReverse, int k, int Blackls1)~
 
-Open a raw CCITT image.
+Opens a raw CCITT image.
+
+This function is deprecated since PDFlib version 5, use |PDF_load_image|
+instead.
 
 vim:ft=help:

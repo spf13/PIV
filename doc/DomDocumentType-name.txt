@@ -1,4 +1,4 @@
-DomDocumentType->name() -- Returns name of document type
+DomDocumentType->name -- Returns name of document type
 
   string name()~
 
@@ -19,6 +19,10 @@ Getting the document type's name
   $doctype = $dom->doctype();
   echo $doctype->name(); // chapter
 ?>
+
+
+
+
 
 Use the name property of the DOMDocumentType object.
 

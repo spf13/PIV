@@ -2,32 +2,15 @@ dbx_query -- Send a query and fetch all results (if any)
 
   mixed dbx_query(object link_identifier, string sql_statement [, int flags])~
 
-|dbx_query| returns an object or 1 on success, and 0 on failure. The result
-object is returned only if the query given in {sql_statement} produces a
-result set (i.e. a SELECT query, even if the result set is empty).
+Sends a query and fetch all results.
 
-How to handle the returned value
+{link_identifier} The DBX link object returned by |dbx_connect|
 
-<?php >
-  $link   = dbx_connect(DBX_ODBC, "", "db", "username", "password")
-      or die("Could not connect");
-  
-  $result = dbx_query($link, 'SELECT id, parentid, description FROM table');
-  
-  if (is_object($result) ) {
-      // ... do some stuff here, see detailed examples below ...
-      // first, print out field names and types 
-      // then, draw a table filled with the returned field values
-  } else {
-      exit("Query failed");
-  }
-  
-  dbx_close($link);
-?>
+{sql_statement} SQL statement.
 
-The {flags} parameter is used to control the amount of information that is
-returned. It may be any combination of the following constants with the
-bitwise OR operator (|). The DBX_COLNAMES_* flags override the
+{flags} The {flags} parameter is used to control the amount of information
+that is returned. It may be any combination of the following constants with
+the bitwise OR operator (|). The DBX_COLNAMES_* flags override the
 dbx.colnames_case setting from php.ini. DBX_RESULT_INDEX It is always set,
 that is, the returned object has a data property which is a 2 dimensional
 array indexed numerically. For example, in the expression data[2][3] 2 stands
@@ -47,22 +30,22 @@ Associated results are actually references to the numerically indexed data, so
 modifying data[0][0] causes that data[0]['field_name_for_first_column'] is
 modified as well.
 
-DBX_RESULT_UNBUFFERED (PHP 5) This flag will not create the data property, and
-the rows property will initially be 0. Use this flag for large datasets, and
-use |dbx_fetch_row| to retrieve the results row by row.
+DBX_RESULT_UNBUFFERED This flag will not create the data property, and the
+rows property will initially be 0. Use this flag for large datasets, and use
+|dbx_fetch_row| to retrieve the results row by row.
 
 The |dbx_fetch_row| function will return rows that are conformant to the flags
 set with this query. Incidentally, it will also update the rows each time it
 is called.
 
-DBX_COLNAMES_UNCHANGED (available from PHP 4.3.0) The case of the returned
-column names will not be changed.
+DBX_COLNAMES_UNCHANGED The case of the returned column names will not be
+changed.
 
-DBX_COLNAMES_UPPERCASE (available from PHP 4.3.0) The case of the returned
-column names will be changed to uppercase.
+DBX_COLNAMES_UPPERCASE The case of the returned column names will be changed
+to uppercase.
 
-DBX_COLNAMES_LOWERCASE (available from PHP 4.3.0) The case of the returned
-column names will be changed to lowercase.
+DBX_COLNAMES_LOWERCASE The case of the returned column names will be changed
+to lowercase.
 
 Note that DBX_RESULT_INDEX is always used, regardless of the actual value of
 {flags} parameter. This means that only the following combinations are
@@ -73,9 +56,13 @@ DBX_RESULT_INDEX | DBX_RESULT_INFO
 DBX_RESULT_INDEX | DBX_RESULT_INFO | DBX_RESULT_ASSOC - this is the default,
 if {flags} is not specified.
 
+|dbx_query| returns an object or 1 on success, and 0 on failure. The result
+object is returned only if the query given in {sql_statement} produces a
+result set (i.e. a SELECT query, even if the result set is empty).
+
 The returned object has four or five properties depending on {flags}: handle
-It is a valid handle for the connected database, and as such it can be used
-in module specific functions (if required).
+It is a valid handle for the connected database, and as such it can be used in
+module specific functions (if required).
 
 <?php >
   $result = dbx_query($link, "SELECT id FROM table");
@@ -107,9 +94,11 @@ lists each field's name and type
   }
 ?>
 
+
+
 data This property contains the actual resulting data, possibly associated
-with column names as well depending on {flags}. If DBX_RESULT_ASSOC is set,
-it is possible to use $result->data[2]["field_name"].
+with column names as well depending on {flags}. If DBX_RESULT_ASSOC is set, it
+is possible to use $result->data[2]["field_name"].
 
 outputs the content of data property into HTML table
 
@@ -127,6 +116,8 @@ outputs the content of data property into HTML table
   echo "</table>\n";
 ?>
 
+
+
 How to handle UNBUFFERED queries
 
 <?php >
@@ -143,10 +134,38 @@ How to handle UNBUFFERED queries
   echo "</table>\n";
 ?>
 
+
+
+Version Description 5.0.0 Introduced DBX_RESULT_UNBUFFERED. 4.3.0 Introduced
+DBX_COLNAMES_UNCHANGED, DBX_COLNAMES_UPPERCASE, and DBX_COLNAMES_LOWERCASE.
+
+How to handle the returned value
+
+<?php >
+  $link   = dbx_connect(DBX_ODBC, "", "db", "username", "password")
+      or die("Could not connect");
+  
+  $result = dbx_query($link, 'SELECT id, parentid, description FROM table');
+  
+  if (is_object($result) ) {
+      // ... do some stuff here, see detailed examples below ...
+      // first, print out field names and types 
+      // then, draw a table filled with the returned field values
+  } else {
+      exit("Query failed");
+  }
+  
+  dbx_close($link);
+?>
+
+
+
+
+
 Always refer to the module-specific documentation as well.
 
 Column names for queries on an Oracle database are returned in lowercase.
 
-See also |dbx_escape_string|, |dbx_fetch_row| and |dbx_connect|.
+|dbx_escape_string| |dbx_fetch_row| |dbx_connect|
 
 vim:ft=help:

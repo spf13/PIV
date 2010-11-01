@@ -1,15 +1,17 @@
-ftell -- Tells file pointer read/write position
+ftell -- Returns the current position of the file read/write pointer
 
   int ftell(resource handle)~
 
-Returns the position of the file pointer referenced by {handle}; i.e., its
-offset into the file stream.
+Returns the position of the file pointer referenced by {handle}.
+
+{handle} The file pointer must be valid, and must point to a file successfully
+opened by |fopen| or |popen|. |ftell| gives undefined results for append-only
+streams (opened with "a" flag).
+
+Returns the position of the file pointer referenced by {handle} as an integer;
+i.e., its offset into the file stream.
 
 If an error occurs, returns FALSE.
-
-The file pointer must be valid, and must point to a file successfully opened
-by |fopen| or |popen|. |ftell| gives undefined results for append-only
-streams (opened with "a" flag).
 
 |ftell| example
 
@@ -24,6 +26,10 @@ streams (opened with "a" flag).
   fclose($fp);
 ?>
 
-See also |fopen|, |popen|, |fseek|, and |rewind|.
+
+
+
+
+|fopen| |popen| |fseek| |rewind|
 
 vim:ft=help:

@@ -1,0 +1,83 @@
+maxdb->real_connect -- Opens a connection to a MaxDB server
+
+Procedural style
+
+  bool maxdb_real_connect(resource link [, string hostname [, string username [, string passwd [, string dbname [, int port [, string socket]]]]]])~
+
+Object oriented style (method)
+
+  bool real_connect(resource link [, string hostname [, string username [, string passwd [, string dbname [, int port [, string socket [, string hostname [, string username [, string passwd [, string dbname [, int port [, string socket]]]]]]]]]]]])~
+
+|maxdb_real_connect| attempts to establish a connection to a MaxDB database
+engine running on {hostname}.
+
+This function differs from |maxdb_connect|:
+
+|maxdb_real_connect| needs a valid resource which has to be created by
+function |maxdb_init|
+
+With function |maxdb_options| you can set various options for connection.
+
+Returns TRUE on success or FALSE on failure.
+
+Object oriented style
+
+<?php >
+  /* create a connection object which is not connected */
+  $maxdb = maxdb_init();
+  
+  /* set connection options */
+  $maxdb->options(MAXDB_UNICODE, "FALSE");
+  $maxdb->options(MAXDB_TIMEOUT, 5);
+  
+  /* connect to server */
+  $maxdb->real_connect('localhost', 'MONA', 'RED', 'DEMODB');
+  
+  /* check connection */
+  if (maxdb_connect_errno()) {
+     printf("Connect failed: %s\n", maxdb_connect_error());
+     exit();
+  }
+  
+  printf ("Connection: %s\n.", $maxdb->host_info);
+  
+  $maxdb->close();
+?>
+
+
+
+Procedural style
+
+<?php >
+  /* create a connection object which is not connected */
+  $link = maxdb_init();
+  
+  /* set connection options */
+  maxdb_options($link, MAXDB_UNICODE, "FALSE");
+  maxdb_options($link, MAXDB_TIMEOUT, 5);
+  
+  /* connect to server */
+  maxdb_real_connect($link, 'localhost', 'MONA', 'RED', 'DEMODB');
+  
+  /* check connection */
+  if (maxdb_connect_errno()) {
+     printf("Connect failed: %s\n", maxdb_connect_error());
+     exit();
+  }
+  
+  printf ("Connection: %s\n.", maxdb_get_host_info($link));
+  
+  maxdb_close($link);
+?>
+
+
+
+The above example will output something similar to:
+
+
+
+  Connection: localhost <...>
+
+|maxdb_connect| |maxdb_init| |maxdb_options| |maxdb_ssl_set| |maxdb_close|
+
+vim:ft=help:

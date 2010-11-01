@@ -27,6 +27,10 @@ Removing a child
   echo "</PRE>";
 ?>
 
+
+
+
+
 See also |domnode_append_child|.
 
 vim:ft=help:

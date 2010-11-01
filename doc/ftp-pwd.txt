@@ -2,6 +2,8 @@ ftp_pwd -- Returns the current directory name
 
   string ftp_pwd(resource ftp_stream)~
 
+
+
 {ftp_stream} The link identifier of the FTP connection.
 
 Returns the current directory name or FALSE on error.
@@ -24,6 +26,10 @@ Returns the current directory name or FALSE on error.
   // close the connection
   ftp_close($conn_id);
 ?>
+
+
+
+
 
 |ftp_chdir| |ftp_cdup|
 

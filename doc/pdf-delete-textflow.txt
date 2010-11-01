@@ -1,0 +1,7 @@
+PDF_delete_textflow -- Delete textflow object
+
+  bool PDF_delete_textflow(resource pdfdoc, int textflow)~
+
+Deletes a textflow and the associated data structures.
+
+vim:ft=help:

@@ -3,9 +3,16 @@ Memcache::delete -- Delete item from the server
   bool Memcache::delete(string key [, int timeout])~
 
 |Memcache::delete| deletes item with the {key}. If parameter {timeout} is
-specified, the item will expire after {timeout} seconds.
+specified, the item will expire after {timeout} seconds. Also you can use
+|memcache_delete| function.
 
-Also you can use |memcache_delete| function. See example below.
+{key} The key associated with the item to delete.
+
+{timeout} Execution time of the item. If it's equal to zero, the item will be
+deleted right away whereas if you set it to 30, the item will be deleted in 30
+seconds.
+
+Returns TRUE on success or FALSE on failure.
 
 |Memcache::delete| example
 
@@ -14,7 +21,7 @@ Also you can use |memcache_delete| function. See example below.
   $memcache_obj = memcache_connect('memcache_host', 11211);
   
   /* after 10 seconds item will be deleted by the server */
-  memcache_delete('key_to_delete', 10);
+  memcache_delete($memcache_obj, 'key_to_delete', 10);
   
   /* OO API */
   $memcache_obj = new Memcache;
@@ -23,6 +30,10 @@ Also you can use |memcache_delete| function. See example below.
   $memcache_obj->delete('key_to_delete', 10);
 ?>
 
-Returns TRUE on success or FALSE on failure.
+
+
+
+
+|Memcache::set| |Memcache::replace|
 
 vim:ft=help:

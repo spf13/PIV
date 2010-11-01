@@ -5,6 +5,8 @@ stream_get_transports -- Retrieve list of registered socket transports
 Returns an indexed array containing the name of all socket transports
 available on the running system.
 
+Returns an indexed array of socket transports names.
+
 Using |stream_get_transports|
 
 <?php >
@@ -12,8 +14,7 @@ Using |stream_get_transports|
   print_r($xportlist);
 ?>
 
-Output will be similar to the following. Note: there may be more or fewer
-transports in your version of PHP.
+The above example will output something similar to:
 
   Array (
     [0] => tcp
@@ -22,6 +23,6 @@ transports in your version of PHP.
     [3] => udg
   )
 
-See also |stream_get_filters|, and |stream_get_wrappers|.
+
 
 vim:ft=help:

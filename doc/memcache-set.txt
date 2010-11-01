@@ -4,17 +4,28 @@ Memcache::set -- Store data at the server
 
 |Memcache::set| stores an item {var} with {key} on the memcached server.
 Parameter {expire} is expiration time in seconds. If it's 0, the item never
-expires (but memcached server doesn't guarantee this item to be stored all
-the time, it could be deleted from the cache to make place for other items).
+expires (but memcached server doesn't guarantee this item to be stored all the
+time, it could be deleted from the cache to make place for other items). You
+can use MEMCACHE_COMPRESSED constant as {flag} value if you want to use
+on-the-fly compression (uses zlib). Remember that resource variables (i.e.
+file and connection descriptors) cannot be stored in the cache, because they
+cannot be adequately represented in serialized state.
 
-You can use MEMCACHE_COMPRESSED constant as {flag} value if you want to use
-on-the-fly compression (uses zlib).
+Also you can use |memcache_set| function.
 
-Also you can use |memcache_set| function. See example below.
+{key} The key that will be associated with the item.
 
-Remember that resource variables (i.e. file and connection descriptors) cannot
-be stored in the cache, because they cannot be adequately represented in
-serialized state.
+{var} The variable to store. Strings and integers are stored as is, other
+types are stored serialized.
+
+{flag} Use MEMCACHE_COMPRESSED to store the item compressed (uses zlib).
+
+{expire} Expiration time of the item. If it's equal to zero, the item will
+never expire. You can also use Unix timestamp or a number of seconds starting
+from current time, but in the latter case the number of seconds may not exceed
+2592000 (30 days).
+
+Returns TRUE on success or FALSE on failure.
 
 |Memcache::set| example
 
@@ -33,6 +44,8 @@ serialized state.
   
   echo memcache_get($memcache_obj, 'var_key');
 ?>
+
+
 
 |Memcache::set| example
 
@@ -53,8 +66,10 @@ serialized state.
   echo $memcache_obj->get('var_key');
 ?>
 
-Returns TRUE on success or FALSE on failure.
 
-See also |Memcache::add|, |Memcache::replace|.
+
+
+
+|Memcache::add| |Memcache::replace|
 
 vim:ft=help:

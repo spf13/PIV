@@ -28,6 +28,7 @@ No value is returned.
   
   a();
 ?>
+
 <?php >
   // test.php file
   // this is the file you should run
@@ -45,6 +46,8 @@ The above example will output something similar to:
   #1  b() called at [/tmp/include.php:6]
   #2  a() called at [/tmp/include.php:17]
   #3  include(/tmp/include.php) called at [/tmp/test.php:3]
+
+
 
 |debug_backtrace|
 

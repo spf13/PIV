@@ -1,0 +1,63 @@
+SwishSearch->setSort -- Set the sort order
+
+  void SwishSearch->setSort(string sort)~
+
+This function is EXPERIMENTAL. The behaviour of this function, its name, and
+surrounding documentation may change without notice in a future release of
+PHP. This function should be used at your own risk.
+
+{sort} Sort order of the results is a string containing name of a result
+property combined with sort direction ("asc" or "desc"). Examples: "swishrank
+desc", "swishdocpath asc", "swishtitle asc", "swishdocsize desc",
+"swishlastmodified desc" etc.
+
+No value is returned.
+
+Basic |SwishSearch->setSort| example
+
+<?php >
+  try {
+  
+      $swish = new Swish("index.swish-e");
+      $search = $swish->prepare();
+  
+      $results = $search->execute("time");
+      echo "First query found: ", $results->hits, " hits\n";
+  
+      $i = 0;
+      while($result = $results->nextResult()) {
+          echo "Hit #", ++$i, " - ", $result->swishdocsize, " bytes\n";
+      }
+  
+      $search->setSort("swishdocsize desc"); //sort by document size
+      $results = $search->execute("time");
+      echo "Second query found: ", $results->hits, " hits\n";
+  
+      $i = 0;
+      while($result = $results->nextResult()) {
+          echo "Hit #", ++$i, " - ", $result->swishdocsize, " bytes\n";
+      }
+  
+  } catch (SwishException $e) {
+      echo $e->getMessage(), "\n";
+  }
+?>
+
+The above example will output something similar to:
+
+  First query found: 5 hits
+  Hit #1 - 4261 bytes
+  Hit #2 - 37937 bytes
+  Hit #3 - 7126 bytes
+  Hit #4 - 15427 bytes
+  Hit #5 - 4768 bytes
+  Second query found: 5 hits
+  Hit #1 - 37937 bytes
+  Hit #2 - 15427 bytes
+  Hit #3 - 7126 bytes
+  Hit #4 - 4768 bytes
+  Hit #5 - 4261 bytes
+
+
+
+vim:ft=help:

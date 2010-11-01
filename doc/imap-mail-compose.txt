@@ -3,6 +3,17 @@ sections
 
   string imap_mail_compose(array envelope, array body)~
 
+Create a MIME message based on the given {envelope} and {body} sections.
+
+{envelope} An associative array of headers fields
+
+{body} An indexed array of bodies
+
+A body is an associative array which can consist of the following keys:
+"type", "encoding", "subtype", "description" and "contents.data"
+
+Returns the MIME message.
+
 |imap_mail_compose| example
 
 <?php >
@@ -35,5 +46,9 @@ sections
   
   echo nl2br(imap_mail_compose($envelope, $body));
 ?>
+
+
+
+
 
 vim:ft=help:

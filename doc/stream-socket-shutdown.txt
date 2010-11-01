@@ -1,0 +1,38 @@
+stream_socket_shutdown -- Shutdown a full-duplex connection
+
+  bool stream_socket_shutdown(resource stream, int how)~
+
+Shutdowns (partially or not) a full-duplex connection.
+
+{stream} An open stream (opened with |stream_socket_client|, for example)
+
+{how} One of the following constants: STREAM_SHUT_RD (disable further
+receptions), STREAM_SHUT_WR (disable further transmissions) or
+STREAM_SHUT_RDWR (disable further receptions and transmissions).
+
+Returns TRUE on success or FALSE on failure.
+
+A |stream_socket_shutdown| example
+
+<?php >
+  $server = stream_socket_server('tcp://127.0.0.1:1337');
+  $client = stream_socket_client('tcp://127.0.0.1:1337');
+  
+  var_dump(fputs($client, "hello"));
+  
+  stream_socket_shutdown($client, STREAM_SHUT_WR);
+  var_dump(fputs($client, "hello")); // doesn't work now
+?>
+
+The above example will output something similar to:
+
+  int(5)
+  
+  Notice: fputs(): send of 5 bytes failed with errno=32 Broken pipe in test.php on line 9
+  int(0)
+
+
+
+|fclose|
+
+vim:ft=help:

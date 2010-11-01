@@ -2,8 +2,6 @@ pg_send_query -- Sends asynchronous query
 
   bool pg_send_query(resource connection, string query)~
 
-  bool pg_send_query(resource connection, string query, string query)~
-
 |pg_send_query| sends a query or queries asynchronously to the {connection}.
 Unlike |pg_query|, it can send multiple queries at once to PostgreSQL and get
 the results one by one using |pg_get_result|.
@@ -16,9 +14,7 @@ Although the user can send multiple queries at once, multiple queries cannot
 be sent over a busy connection. If a query is sent while the connection is
 busy, it waits until the last query is finished and discards all its results.
 
-{connection} PostgreSQL database connection resource. When {connection} is not
-present, the default connection is used. The default connection is the last
-connection made by |pg_connect| or |pg_pconnect|.
+{connection} PostgreSQL database connection resource.
 
 {query} The SQL statement or statements to be executed.
 
@@ -53,6 +49,8 @@ The above example will output:
   
   Second call to pg_get_result(): Resource id #4
   Resource id #4 has 1 records
+
+
 
 |pg_query| |pg_cancel_query| |pg_get_result| |pg_connection_busy|
 

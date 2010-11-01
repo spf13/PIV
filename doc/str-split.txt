@@ -2,10 +2,15 @@ str_split -- Convert a string to an array
 
   array str_split(string string [, int split_length])~
 
-Converts a string to an array. If the optional {split_length} parameter is
-specified, the returned array will be broken down into chunks with each being
-{split_length} in length, otherwise each chunk will be one character in
-length.
+Converts a string to an array.
+
+{string} The input string.
+
+{split_length} Maximum length of the chunk.
+
+If the optional {split_length} parameter is specified, the returned array will
+be broken down into chunks with each being {split_length} in length, otherwise
+each chunk will be one character in length.
 
 FALSE is returned if {split_length} is less than 1. If the {split_length}
 length exceeds the length of {string}, the entire string is returned as the
@@ -23,7 +28,7 @@ Example uses of |str_split|
   print_r($arr2);
 ?>
 
-Output may look like:
+The above example will output:
 
   Array
   (
@@ -44,24 +49,13 @@ Output may look like:
   Array
   (
       [0] => Hel
-      [1] => lo 
+      [1] => lo
       [2] => Fri
       [3] => end
   )
 
-Examples related to |str_split|
 
-<?php >
-  $str = "Hello Friend";
-  
-  echo $str{0};  // H
-  echo $str{8};  // i
-  
-  // Creates: array('H','e','l','l','o',' ','F','r','i','e','n','d')
-  $arr1 = preg_split('//', $str, -1, PREG_SPLIT_NO_EMPTY);
-?>
 
-See also |chunk_split|, |preg_split|, |split|, |count_chars|,
-|str_word_count|, and for.
+|chunk_split| |preg_split| |explode| |count_chars| |str_word_count| for
 
 vim:ft=help:

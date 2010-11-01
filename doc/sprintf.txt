@@ -4,10 +4,10 @@ sprintf -- Return a formatted string
 
 Returns a string produced according to the formatting string {format}.
 
-The format string is composed of zero or more directives: ordinary characters
-(excluding %) that are copied directly to the result, and conversion
-specifications, each of which results in fetching its own parameter. This
-applies to both |sprintf| and |printf|.
+{format} The format string is composed of zero or more directives: ordinary
+characters (excluding %) that are copied directly to the result, and
+conversion specifications, each of which results in fetching its own
+parameter. This applies to both |sprintf| and |printf|.
 
 Each conversion specification consists of a percent sign (%), followed by one
 or more of these elements, in order: An optional sign specifier that forces a
@@ -16,10 +16,10 @@ number if it's negative. This specifier forces positive numbers to have the +
 sign attached as well, and was added in PHP 4.3.0.
 
 An optional padding specifier that says what character will be used for
-padding the results to the right string size. This may be a space character
-or a 0 (zero character). The default is to pad with spaces. An alternate
-padding character can be specified by prefixing it with a single quote (').
-See the examples below.
+padding the results to the right string size. This may be a space character or
+a 0 (zero character). The default is to pad with spaces. An alternate padding
+character can be specified by prefixing it with a single quote ('). See the
+examples below.
 
 An optional alignment specifier that says if the result should be
 left-justified or right-justified. The default is right-justified; a -
@@ -28,7 +28,8 @@ character here will make it left-justified.
 An optional number, a width specifier that says how many characters (minimum)
 this conversion should result in.
 
-An optional precision specifier that says how many decimal digits should be
+An optional precision specifier in the form of a period (`.') followed by an
+optional decimal digit string that says how many decimal digits should be
 displayed for floating-point numbers. When using this specifier on a string,
 it acts as a cutoff point, setting a maximum character limit to the string.
 
@@ -38,32 +39,39 @@ the argument is treated as an integer, and presented as a binary number. c -
 the argument is treated as an integer, and presented as the character with
 that ASCII value. d - the argument is treated as an integer, and presented as
 a (signed) decimal number. e - the argument is treated as scientific notation
-(e.g. 1.2e+2). u - the argument is treated as an integer, and presented as an
-unsigned decimal number. f - the argument is treated as a float, and presented
-as a floating-point number (locale aware). F - the argument is treated as a
-float, and presented as a floating-point number (non-locale aware). Available
-since PHP 4.3.10 and PHP 5.0.3. o - the argument is treated as an integer, and
-presented as an octal number. s - the argument is treated as and presented as
-a string. x - the argument is treated as an integer and presented as a
-hexadecimal number (with lowercase letters). X - the argument is treated as
-an integer and presented as a hexadecimal number (with uppercase letters).
+(e.g. 1.2e+2). The precision specifier stands for the number of digits after
+the decimal point since PHP 5.2.1. In earlier versions, it was taken as number
+of significant digits (one less). u - the argument is treated as an integer,
+and presented as an unsigned decimal number. f - the argument is treated as a
+float, and presented as a floating-point number (locale aware). F - the
+argument is treated as a float, and presented as a floating-point number
+(non-locale aware). Available since PHP 4.3.10 and PHP 5.0.3. o - the argument
+is treated as an integer, and presented as an octal number. s - the argument
+is treated as and presented as a string. x - the argument is treated as an
+integer and presented as a hexadecimal number (with lowercase letters). X -
+the argument is treated as an integer and presented as a hexadecimal number
+(with uppercase letters).
 
-As of PHP 4.0.6 the format string supports argument numbering/swapping. Here
-is an example: Argument swapping
+The format string supports argument numbering/swapping. Here is an example:
+Argument swapping
 
 <?php >
-  $format = "There are %d monkeys in the %s";
+  $format = 'There are %d monkeys in the %s';
   printf($format, $num, $location);
 ?>
+
+
 
 This might output, "There are 5 monkeys in the tree". But imagine we are
-creating a format string in a separate file, commonly because we would like
-to internationalize it and we rewrite it as: Argument swapping
+creating a format string in a separate file, commonly because we would like to
+internationalize it and we rewrite it as: Argument swapping
 
 <?php >
-  $format = "The %s contains %d monkeys";
+  $format = 'The %s contains %d monkeys';
   printf($format, $num, $location);
 ?>
+
+
 
 We now have a problem. The order of the placeholders in the format string does
 not match the order of the arguments in the code. We would like to leave the
@@ -72,20 +80,32 @@ placeholders refer to. We would write the format string like this instead:
 Argument swapping
 
 <?php >
-  $format = "The %2\$s contains %1\$d monkeys";
+  $format = 'The %2$s contains %1$d monkeys';
   printf($format, $num, $location);
 ?>
+
+
 
 An added benefit here is that you can repeat the placeholders without adding
 more arguments in the code. For example: Argument swapping
 
 <?php >
-  $format = "The %2\$s contains %1\$d monkeys.
-             That's a nice %2\$s full of %1\$d monkeys.";
+  $format = 'The %2$s contains %1$d monkeys.
+             That\'s a nice %2$s full of %1$d monkeys.';
   printf($format, $num, $location);
 ?>
 
-See also |printf|, |sscanf|, |fscanf|, |vsprintf|, and |number_format|.
+
+
+
+
+{args}
+
+{...}
+
+Returns a string produced according to the formatting string {format}.
+
+Version Description 4.0.6 Support for argument numbering/swapping was added
 
 |printf|: various examples
 
@@ -111,7 +131,7 @@ See also |printf|, |sscanf|, |fscanf|, |vsprintf|, and |number_format|.
   printf("%%+d = '%+d'\n", $u); // sign specifier on a negative integer
 ?>
 
-The printout of this program would be:
+The above example will output:
 
   %b = '10100111101010011010101101'
   %c = 'A'
@@ -141,7 +161,7 @@ The printout of this program would be:
   printf("[%10.10s]\n", $t); // left-justification but with a cutoff of 10 characters
 ?>
 
-The printout of this program would be:
+The above example will output:
 
   [monkey]
   [    monkey]
@@ -156,6 +176,8 @@ The printout of this program would be:
   $isodate = sprintf("%04d-%02d-%02d", $year, $month, $day);
 ?>
 
+
+
 |sprintf|: formatting currency
 
 <?php >
@@ -167,12 +189,18 @@ The printout of this program would be:
   // echo $formatted will output "123.10"
 ?>
 
+
+
 |sprintf|: scientific notation
 
 <?php >
   $number = 362525200;
   
-  echo sprintf("%.3e", $number); // outputs 3.63e+8
+  echo sprintf("%.3e", $number); // outputs 3.625e+8
 ?>
+
+
+
+|printf| |sscanf| |fscanf| |vsprintf| |number_format|
 
 vim:ft=help:

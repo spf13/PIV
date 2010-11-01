@@ -1,6 +1,8 @@
 pg_lo_create -- Create a large object
 
-  int pg_lo_create([resource connection])~
+  int pg_lo_create([resource connection [, mixed object_id]])~
+
+  int pg_lo_create([resource connection [, mixed object_id, mixed object_id]])~
 
 |pg_lo_create| creates a large object and returns the OID of the large object.
 PostgreSQL access modes INV_READ, INV_WRITE, and INV_ARCHIVE are not
@@ -20,7 +22,14 @@ This function used to be called |pg_locreate|.
 present, the default connection is used. The default connection is the last
 connection made by |pg_connect| or |pg_pconnect|.
 
+{object_id} If an {object_id} is given the function will try to create a large
+object with this id, else a free object id is assigned by the server. The
+parameter was added in PHP 5.3 and relies on functionality that first appeared
+in PostgreSQL 8.1.
+
 A large object OID or FALSE on error.
+
+Version Description 5.3.0 The optional {object_id} was added.
 
 |pg_lo_create| example
 
@@ -35,5 +44,9 @@ A large object OID or FALSE on error.
      pg_lo_close($handle);
      pg_query($database, "commit");
 ?>
+
+
+
+
 
 vim:ft=help:

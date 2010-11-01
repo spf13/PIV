@@ -1,13 +1,15 @@
 imap_deletemailbox -- Delete a mailbox
 
-  bool imap_deletemailbox(resource imap_stream, string mbox)~
+  bool imap_deletemailbox(resource imap_stream, string mailbox)~
 
-|imap_deletemailbox| deletes the specified mailbox (see |imap_open| for the
-format of {mbox} names).
+Deletes the specified {mailbox}.
 
-Returns TRUE on success or FALSE on failure..
+{ imap_stream}An IMAP stream returned by |imap_open|.
 
-See also |imap_createmailbox|, |imap_renamemailbox|, and |imap_open| for the
-format of {mbox}.
+{mailbox} The mailbox name, see |imap_open| for more information
+
+Returns TRUE on success or FALSE on failure.
+
+|imap_createmailbox| |imap_renamemailbox| |imap_open| for the format of {mbox}
 
 vim:ft=help:

@@ -1,13 +1,16 @@
 mailparse_msg_parse -- Incrementally parse data into buffer
 
-  bool mailparse_msg_parse(resource rfc2045buf, string data)~
+  bool mailparse_msg_parse(resource mimemail, string data)~
 
-This function is EXPERIMENTAL. The behaviour of this function, the name of
-this function, and anything else documented about this function may change
-without notice in a future release of PHP. Use this function at your own
-risk.
+Incrementally parse data into the supplied mime mail resource.
 
-This function is currently not documented; only the argument list is
-available.
+This function allow you to stream portions of a file at a time, rather than
+read and parse the whole thing.
+
+{mimemail} A valid MIME resource.
+
+{data}
+
+Returns TRUE on success or FALSE on failure.
 
 vim:ft=help:

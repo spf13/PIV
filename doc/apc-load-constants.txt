@@ -1,0 +1,38 @@
+apc_load_constants -- Loads a set of constants from the cache
+
+  bool apc_load_constants(string key [, bool case_sensitive])~
+
+Loads a set of constants from the cache.
+
+{key} The name of the constant set (that was stored with
+|apc_define_constants|) to be retrieved.
+
+{case_sensitive} The default behaviour for constants is to be declared
+case-sensitive; i.e. CONSTANT and Constant represent different values. If this
+parameter evaluates to FALSE the constants will be declared as
+case-insensitive symbols.
+
+Returns TRUE on success or FALSE on failure.
+
+|apc_load_constants| example
+
+<?php >
+  $constants = array(
+      'ONE'   => 1,
+      'TWO'   => 2,
+      'THREE' => 3,
+  );
+  apc_define_constants('numbers', $constants);
+  apc_load_constants('numbers');
+  echo ONE, TWO, THREE;
+?>
+
+The above example will output:
+
+  123
+
+
+
+|apc_define_constants| |define| |constant| Or the PHP constants reference
+
+vim:ft=help:

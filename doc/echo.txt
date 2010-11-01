@@ -4,10 +4,23 @@ echo -- Output one or more strings
 
 Outputs all parameters.
 
-|echo| is not actually a function (it is a language construct) so you are not
-required to use parentheses with it. In fact, if you want to pass more than
-one parameter to echo, you must not enclose the parameters within
-parentheses.
+|echo| is not actually a function (it is a language construct), so you are not
+required to use parentheses with it. |echo| (unlike some other language
+constructs) does not behave like a function, so it cannot always be used in
+the context of a function. Additionally, if you want to pass more than one
+parameter to |echo|, the parameters must not be enclosed within parentheses.
+
+|echo| also has a shortcut syntax, where you can immediately follow the
+opening tag with an equals sign. This short syntax only works with the
+short_open_tag configuration setting enabled.
+
+  I have <?=$foo?> foo.
+
+{arg1} The parameter to output.
+
+{...}
+
+No value is returned.
 
 |echo| examples
 
@@ -15,7 +28,7 @@ parentheses.
   echo "Hello World";
   
   echo "This spans
-  multiple lines. The newlines will be 
+  multiple lines. The newlines will be
   output as well";
   
   echo "This spans\nmultiple lines. The newlines will be\noutput as well.";
@@ -29,9 +42,9 @@ parentheses.
   echo "foo is $foo"; // foo is foobar
   
   // You can also use arrays
-  $bar = array("value" => "foo");
+  $baz = array("value" => "foo");
   
-  echo "this is {$bar['value']} !"; // this is foo !
+  echo "this is {$baz['value']} !"; // this is foo !
   
   // Using single quotes will print the variable name, not the value
   echo 'foo is $foo'; // foo is $foo
@@ -51,19 +64,19 @@ parentheses.
   line with just a semicolon. no extra whitespace!
   END;
   
-  // Because echo is not a function, following code is invalid. 
+  // Because echo does not behave like a function, the following code is invalid.
   ($some_var) ? echo 'true' : echo 'false';
   
   // However, the following examples will work:
-  ($some_var) ? print('true'): print('false'); // print is a function
+  ($some_var) ? print 'true' : print 'false'; // print is also a construct, but
+                                              // it behaves like a function, so
+                                              // it may be used in this context.
   echo $some_var ? 'true': 'false'; // changing the statement around
 ?>
 
-|echo| also has a shortcut syntax, where you can immediately follow the
-opening tag with an equals sign. This short syntax only works with the
-short_open_tag configuration setting enabled.
 
-  I have <?=$foo?> foo.
+
+
 
 For a short discussion about the differences between |print| and |echo|, see
 this FAQTs Knowledge Base Article:
@@ -72,6 +85,6 @@ http://www.faqts.com/knowledge_base/view.phtml/aid/1/fid/40
 Because this is a language construct and not a function, it cannot be called
 using variable functions
 
-See also |print|, |printf|, and |flush|.
+|print| |printf| |flush| Heredoc syntax
 
 vim:ft=help:

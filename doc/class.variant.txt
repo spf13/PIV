@@ -36,6 +36,10 @@ Variant example, PHP 4.x style
   print "The value is " . $v->value . "<br/>";
 ?>
 
+
+
+
+
 Variant example, PHP 5 style
 
 <?php >
@@ -44,12 +48,16 @@ Variant example, PHP 5 style
   print "The value is " . $v . "<br/>";
 ?>
 
+
+
+
+
 The reason for the change is that, internally, the COM extension sees VARIANT,
 COM and DOTNET classes as the same thing, and the design philosophy for these
 classes is that all property and member accesses are passed through to COM
-with no interference. The new syntax is more natural and less effort, and
-most of the removed virtual properties didn't make any sense in a PHP context
-in any case.
+with no interference. The new syntax is more natural and less effort, and most
+of the removed virtual properties didn't make any sense in a PHP context in
+any case.
 
 PHP 5 takes a much simpler approach to handling VARIANTs; when returning a
 value or fetching a variant property, the variant is converted to a PHP value
@@ -57,9 +65,9 @@ only when there is a direct mapping between the types that would not result in
 a loss of information. In all other cases, the result is returned as an
 instance of the VARIANT class. You can force PHP to convert or evaluate the
 variant as a PHP native type by using a casting operator explicitly, or
-implicitly casting to a string by |print|ing it. You may use the wide range
-of variant functions to perform arithmetic operations on variants without
-forcing a conversion or risking a loss of data.
+implicitly casting to a string by |print|ing it. You may use the wide range of
+variant functions to perform arithmetic operations on variants without forcing
+a conversion or risking a loss of data.
 
 See also |variant_get_type|.
 

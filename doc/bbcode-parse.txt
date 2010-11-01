@@ -1,0 +1,14 @@
+bbcode_parse -- Parse a string following a given rule set
+
+  string bbcode_parse(resource bbcode_container, string to_parse)~
+
+This function parse the string to_parse following the rules in the
+bbcode_container created by |bbcode_create|
+
+{bbcode_container} BBCode_Container resource returned by |bbcode_create|.
+
+{to_parse} The string we need to parse.
+
+Returns TRUE on success or FALSE on failure.
+
+vim:ft=help:

@@ -2,17 +2,19 @@ fbsql_fetch_row -- Get a result row as an enumerated array
 
   array fbsql_fetch_row(resource result)~
 
-Returns: An array that corresponds to the fetched row, or FALSE if there are
-no more rows.
-
 |fbsql_fetch_row| fetches one row of data from the result associated with the
-specified result identifier. The row is returned as an array. Each result
-column is stored in an array offset, starting at offset 0.
+specified result identifier.
 
 Subsequent call to |fbsql_fetch_row| would return the next row in the result
 set, or FALSE if there are no more rows.
 
-See also: |fbsql_fetch_array|, |fbsql_fetch_object|, |fbsql_data_seek|,
-|fbsql_fetch_lengths|, and |fbsql_result|.
+{ result}A result identifier returned by |fbsql_query| or |fbsql_db_query|.
+
+Returns an array that corresponds to the fetched row where each result column
+is stored in an offset, starting at offset 0, or FALSE if there are no more
+rows.
+
+|fbsql_fetch_array| |fbsql_fetch_assoc| |fbsql_fetch_object| |fbsql_data_seek|
+|fbsql_fetch_lengths| |fbsql_result|
 
 vim:ft=help:

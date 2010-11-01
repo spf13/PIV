@@ -15,18 +15,25 @@ The name of the table on success.
 A |mysql_field_table| example
 
 <?php >
-  $result = mysql_query("SELECT name,comment FROM people,comments");
-  if (!$result) {
-      echo 'Could not run query: ' . mysql_error();
-      exit;
-  }
+  $query = "SELECT account.*, country.* FROM account, country WHERE country.name = 'Portugal' AND account.country_id = country.id";
   
-  // Assuming name is in the people table
-  $table = mysql_field_table($result, 'name');
-  echo $table; // people
+  // get the result from the DB
+  $result = mysql_query($query);
+  
+  // Lists the table name and then the field name
+  for ($i = 0; $i < mysql_num_fields($result); ++$i) {
+      $table = mysql_field_table($result, $i);
+      $field = mysql_field_name($result, $i);
+  
+      echo  "$table: $field\n";
+  }
 ?>
 
-For downward compatibility, the following deprecated alias may be used:
+
+
+
+
+For backward compatibility, the following deprecated alias may be used:
 |mysql_fieldtable|
 
 |mysql_list_tables|

@@ -1,0 +1,22 @@
+SDO_Sequence::move -- Move an item to another sequence position
+
+  void SDO_Sequence::move(int toIndex, int fromIndex)~
+
+This function is EXPERIMENTAL. The behaviour of this function, its name, and
+surrounding documentation may change without notice in a future release of
+PHP. This function should be used at your own risk.
+
+Modify the position of the item in the sequence, without altering the value of
+the property in the SDO_DataObject.
+
+{toIndex} The destination sequence index. If this index is less than zero or
+greater than the size of the sequence then the value is appended.
+
+{fromIndex} The source sequence index.
+
+None.
+
+{SDO_IndexOutOfBoundsException} Thrown if the fromIndex sequence index is less
+than zero or greater than the size of the sequence.
+
+vim:ft=help:

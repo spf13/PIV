@@ -19,6 +19,10 @@ name of the matching token constant.
   echo token_name(T_FUNCTION); // -> "T_FUNCTION"
 ?>
 
+
+
+
+
 List of Parser Tokens
 
 vim:ft=help:

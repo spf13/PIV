@@ -3,16 +3,20 @@ create_function -- Create an anonymous (lambda-style) function
   string create_function(string args, string code)~
 
 Creates an anonymous function from the parameters passed, and returns a unique
-name for it. Usually the {args} will be passed as a single quote delimited
-string, and this is also recommended for the {code}. The reason for using
-single quoted strings, is to protect the variable names from parsing,
-otherwise, if you use double quotes there will be a need to escape the
-variable names, e.g. \$avar.
+name for it.
 
-You can use this function, to (for example) create a function from information
-gathered at run time:
+Usually these parameters will be passed as single quote delimited strings. The
+reason for using single quoted strings, is to protect the variable names from
+parsing, otherwise, if you use double quotes there will be a need to escape
+the variable names, e.g. \$avar. {args} The function arguments.
 
-Creating an anonymous function with |create_function|
+{code} The function code.
+
+Returns a unique function name as a string, or FALSE on error.
+
+Creating an anonymous function with |create_function| You can use this
+function, to (for example) create a function from information gathered at run
+time:
 
 <?php >
   $newfunc = create_function('$a,$b', 'return "ln($a) + ln($b) = " . log($a * $b);');
@@ -23,13 +27,15 @@ Creating an anonymous function with |create_function|
   // ln(2) + ln(2.718281828459) = 1.6931471805599
 ?>
 
+
+
 Or, perhaps to have general handler function that can apply a set of
 operations to a list of parameters:
 
 Making a general processing function with |create_function|
 
 <?php >
-  function process($var1, $var2, $farr) 
+  function process($var1, $var2, $farr)
   {
       foreach ($farr as $f) {
           echo $f($var1, $var2) . "\n";
@@ -63,7 +69,7 @@ Making a general processing function with |create_function|
   process("Twas brilling and the slithy toves", "Twas the night", $garr);
 ?>
 
-and when you run the code above, the output will be:
+The above example will output:
 
   Using the first array of anonymous functions
   parameters: 2.3445, M_PI
@@ -79,6 +85,8 @@ and when you run the code above, the output will be:
   CRCs: -725381282 , 1908338681
   similar(a,b) = 11(45.833333333333%)
 
+
+
 But perhaps the most common use for of lambda-style (anonymous) functions is
 to create callback functions, for example when using |array_walk| or |usort|
 
@@ -87,10 +95,10 @@ Using anonymous functions as callback functions
 <?php >
   $av = array("the ", "a ", "that ", "this ");
   array_walk($av, create_function('&amp;$v,$k', '$v = $v . "mango";'));
-  print_r($av); 
+  print_r($av);
 ?>
 
-outputs:
+The above example will output:
 
   Array
   (
@@ -107,7 +115,7 @@ an array of strings ordered from shorter to longer
   print_r($sv);
 ?>
 
-outputs:
+The above example will output:
 
   Array
   (
@@ -124,7 +132,7 @@ sort it from longer to shorter
   print_r($sv);
 ?>
 
-outputs:
+The above example will output:
 
   Array
   (
@@ -133,5 +141,9 @@ outputs:
     [2] => larger
     [3] => small
   )
+
+
+
+Anonymous functions
 
 vim:ft=help:

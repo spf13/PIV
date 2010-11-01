@@ -28,6 +28,10 @@ Number of bytes read or FALSE on error.
      pg_query($database, "commit");
 ?>
 
+
+
+
+
 |pg_lo_read|
 
 vim:ft=help:

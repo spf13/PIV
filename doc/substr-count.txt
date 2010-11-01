@@ -44,6 +44,10 @@ A |substr_count| example
   echo substr_count($text2, 'gcdgcd');
 ?>
 
+
+
+
+
 |count_chars| |strpos| |substr| |strstr|
 
 vim:ft=help:

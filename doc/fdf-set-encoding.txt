@@ -2,9 +2,17 @@ fdf_set_encoding -- Sets FDF character encoding
 
   bool fdf_set_encoding(resource fdf_document, string encoding)~
 
-|fdf_set_encoding| sets the character encoding in FDF document {fdf_document}.
-{encoding} should be the valid encoding name. Currently the following values
-are supported: "Shift-JIS", "UHC", "GBK","BigFive". An empty string resets
-the encoding to the default PDFDocEncoding/Unicode scheme.
+Sets the character encoding for the FDF document.
+
+{fdf_document} The FDF document handle, returned by |fdf_create|, |fdf_open|
+or |fdf_open_string|.
+
+{encoding} The encoding name. The following values are supported: "Shift-JIS",
+"UHC", "GBK" and "BigFive".
+
+An empty string resets the encoding to the default PDFDocEncoding/Unicode
+scheme.
+
+Returns TRUE on success or FALSE on failure.
 
 vim:ft=help:

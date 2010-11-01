@@ -1,0 +1,22 @@
+SDO_DataObject::createDataObject -- Create a child SDO_DataObject
+
+  SDO_DataObject SDO_DataObject::createDataObject(mixed identifier)~
+
+This function is EXPERIMENTAL. The behaviour of this function, its name, and
+surrounding documentation may change without notice in a future release of
+PHP. This function should be used at your own risk.
+
+Create a child SDO_DataObject of the default type for the property identified.
+The data object is automatically inserted into the tree and a reference to it
+is returned.
+
+{identifier} Identifies the property for the data object type to be created.
+Can be either a property name (string), a property index (int), or an
+SDO_Model_Property.
+
+Returns the newly created SDO_DataObject.
+
+{SDO_PropertyNotFoundException} Thrown if the identifier does not correspond
+to a property of the data object.
+
+vim:ft=help:

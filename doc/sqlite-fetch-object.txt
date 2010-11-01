@@ -9,7 +9,7 @@ Object oriented style (method):
 
   object fetchObject(resource result [, string class_name [, array ctor_params [, bool decode_binary [, string class_name [, array ctor_params [, bool decode_binary [, string class_name [, array ctor_params [, bool decode_binary]]]]]]]]])~
 
-This function is currently not documented; only the argument list is
+This function is currently not documented; only its argument list is
 available.
 
 vim:ft=help:

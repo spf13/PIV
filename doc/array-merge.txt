@@ -2,9 +2,8 @@ array_merge -- Merge one or more arrays
 
   array array_merge(array array1 [, array array2 [, array ...]])~
 
-|array_merge| merges the elements of one or more arrays together so that the
-values of one are appended to the end of the previous one. It returns the
-resulting array.
+Merges the elements of one or more arrays together so that the values of one
+are appended to the end of the previous one. It returns the resulting array.
 
 If the input arrays have the same string keys, then the later value for that
 key will overwrite the previous one. If, however, the arrays contain numeric
@@ -13,6 +12,36 @@ appended.
 
 If only one array is given and the array is numerically indexed, the keys get
 reindexed in a continuous way.
+
+{array1} Initial array to merge.
+
+{array} Variable list of arrays to recursively merge.
+
+Returns the resulting array.
+
+Version Description 5.0.0 The behavior of |array_merge| was modified in PHP 5.
+Unlike PHP 4, |array_merge| now only accepts parameters of type array.
+However, you can use typecasting to merge other types. See the example below
+for details.
+
+|array_merge| PHP 5 example
+
+<?php >
+  $beginning = 'foo';
+  $end = array(1 => 'bar');
+  $result = array_merge((array)$beginning, (array)$end);
+  print_r($result);
+?>
+
+The above example will output:
+
+  Array
+      (
+          [0] => foo
+          [1] => bar
+      )
+
+
 
 |array_merge| example
 
@@ -36,6 +65,8 @@ The above example will output:
       [4] => 4
   )
 
+
+
 Simple |array_merge| example
 
 <?php >
@@ -52,7 +83,7 @@ Don't forget that numeric keys will be renumbered!
   )
 
 If you want to completely preserve the arrays and just want to append them to
-each other, use the + operator:
+each other (not overwriting the previous keys), use the + operator:
 
 <?php >
   $array1 = array();
@@ -67,27 +98,8 @@ The numeric key will be preserved and thus the association remains.
       [1] => data
   )
 
-The behavior of |array_merge| was modified in PHP 5. Unlike PHP 4,
-|array_merge| now only accepts parameters of type array. However, you can use
-typecasting to merge other types. See the example below for details.
 
-|array_merge| PHP 5 example
 
-<?php >
-  $beginning = 'foo';
-  $end = array(1 => 'bar');
-  $result = array_merge((array)$beginning, (array)$end);
-  print_r($result);
-?>
-
-The above example will output:
-
-  Array
-  (
-      [0] => foo
-      [1] => bar
-  )
-
-See also |array_merge_recursive|, |array_combine| and array operators.
+|array_merge_recursive| |array_combine| array operators
 
 vim:ft=help:

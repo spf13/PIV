@@ -1,8 +1,6 @@
 pg_lo_export -- Export a large object to file
 
-  bool pg_lo_export(resource connection, int oid, string pathname)~
-
-  bool pg_lo_export(resource connection, int oid, string pathname, int oid, string pathname)~
+  bool pg_lo_export([resource connection, int oid, string pathname])~
 
 |pg_lo_export| takes a large object in a PostgreSQL database and saves its
 contents to a file on the local filesystem.
@@ -35,6 +33,10 @@ Returns TRUE on success or FALSE on failure.
      pg_lo_export($database, $oid, '/tmp/lob.dat');
      pg_query($database, "commit");
 ?>
+
+
+
+
 
 |pg_lo_import|
 

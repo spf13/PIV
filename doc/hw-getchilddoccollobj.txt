@@ -4,6 +4,12 @@ hw_GetChildDocCollObj -- Object records of child documents of collection
 
 Returns an array of object records for child documents of a collection.
 
-See also |hw_childrenobj|, and |hw_getchildcollobj|.
+{connection} The connection identifier.
+
+{objectID} The object identifier.
+
+Returns an array of object records.
+
+|hw_childrenobj| |hw_getchildcollobj|
 
 vim:ft=help:

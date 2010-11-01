@@ -7,7 +7,7 @@ Object oriented style (method):
 
   array singleQuery(resource db, string query [, bool first_row_only [, bool decode_binary, string query [, bool first_row_only [, bool decode_binary]]]])~
 
-This function is currently not documented; only the argument list is
+This function is currently not documented; only its argument list is
 available.
 
 vim:ft=help:

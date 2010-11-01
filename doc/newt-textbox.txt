@@ -1,0 +1,20 @@
+newt_textbox --
+
+  resource newt_textbox(int left, int top, int width, int height [, int flags])~
+
+This function is currently not documented; only its argument list is
+available.
+
+{left}
+
+{top}
+
+{width}
+
+{height}
+
+{flags}
+
+
+
+vim:ft=help:

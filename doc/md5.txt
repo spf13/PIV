@@ -3,12 +3,17 @@ md5 -- Calculate the md5 hash of a string
   string md5(string str [, bool raw_output])~
 
 Calculates the MD5 hash of {str} using the RSA Data Security, Inc. MD5
-Message-Digest Algorithm, and returns that hash. The hash is a 32-character
-hexadecimal number. If the optional {raw_output} is set to TRUE, then the md5
-digest is instead returned in raw binary format with a length of 16.
+Message-Digest Algorithm, and returns that hash.
 
-The optional {raw_output} parameter was added in PHP 5.0.0 and defaults to
-FALSE
+{str} The string.
+
+{raw_output} If the optional {raw_output} is set to TRUE, then the md5 digest
+is instead returned in raw binary format with a length of 16. Defaults to
+FALSE.
+
+Returns the hash as a 32-character hexadecimal number.
+
+Version Description 5.0.0 The {raw_output} parameter was added.
 
 A |md5| example
 
@@ -21,6 +26,10 @@ A |md5| example
   }
 ?>
 
-See also |crc32|, |md5_file|, and |sha1|.
+
+
+
+
+|md5_file| |sha1_file| |crc32| |sha1| |hash|
 
 vim:ft=help:

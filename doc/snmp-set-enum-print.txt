@@ -3,7 +3,10 @@ instead of the raw integer
 
   void snmp_set_enum_print(int enum_print)~
 
-This function is currently not documented; only the argument list is
+This function is currently not documented; only its argument list is
 available.
+
+|snmp_set_enum_print| is only available when using the UCD SNMP library. This
+function is not available when using the Windows SNMP library.
 
 vim:ft=help:

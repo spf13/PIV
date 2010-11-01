@@ -4,8 +4,9 @@ shmop_close -- Close shared memory block
 
 |shmop_close| is used to close a shared memory block.
 
-|shmop_close| takes the shmid, which is the shared memory block identifier
-created by |shmop_open|.
+{shmid} The shared memory block identifier created by |shmop_open|
+
+No value is returned.
 
 Closing shared memory block
 
@@ -13,6 +14,12 @@ Closing shared memory block
   shmop_close($shm_id);
 ?>
 
+
+
+
+
 This example will close shared memory block identified by $shm_id.
+
+|shmop_open|
 
 vim:ft=help:

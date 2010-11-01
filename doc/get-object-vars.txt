@@ -1,65 +1,62 @@
-get_object_vars -- Returns an associative array of object properties
+get_object_vars -- Gets the properties of the given object
 
-  array get_object_vars(object obj)~
+  array get_object_vars(object object)~
 
-This function returns an associative array of defined object properties for
-the specified object {obj}.
+Gets the accessible non-static properties of the given {object} according to
+scope.
 
-In versions prior to PHP 4.2.0, if the variables declared in the class of
-which the {obj} is an instance, have not been assigned a value, those will
-not be returned in the array. In versions after PHP 4.2.0, the key will be
-assigned with a NULL value.
+{object} An object instance.
+
+Returns an associative array of defined object accessible non-static
+properties for the specified {object} in scope. If a property have not been
+assigned a value, it will be returned with a NULL value.
+
+Version Description prior to 4.2.0 If the variables declared in the class of
+which the {object} is an instance, have not been assigned a value, those will
+not be returned in the array
 
 Use of |get_object_vars|
 
 <?php >
-  class Point2D {
-      var $x, $y;
-      var $label;
-  
-      function Point2D($x, $y) 
-      {
-          $this->x = $x;
-          $this->y = $y;
-      }
-  
-      function setLabel($label) 
-      {
-          $this->label = $label;
-      }
-  
-      function getPoint() 
-      {
-          return array("x" => $this->x,
-                       "y" => $this->y,
-                       "label" => $this->label);
+  class foo {
+      private $a;
+      public $b = 1;
+      public $c;
+      private $d;
+      static $e;
+     
+      public function test() {
+          var_dump(get_object_vars($this));
       }
   }
   
-  // "$label" is declared but not defined
-  $p1 = new Point2D(1.233, 3.445);
-  print_r(get_object_vars($p1));
+  $test = new foo;
+  var_dump(get_object_vars($test));
   
-  $p1->setLabel("point #1");
-  print_r(get_object_vars($p1));
+  $test->test();
 ?>
 
 The above example will output:
 
-  Array
-   (
-       [x] => 1.233
-       [y] => 3.445
-       [label] =>
-   )
-  
-   Array
-   (
-       [x] => 1.233
-       [y] => 3.445
-       [label] => point #1
-   )
+  array(2) {
+    ["b"]=>
+    int(1)
+    ["c"]=>
+    NULL
+  }
+  array(4) {
+    ["a"]=>
+    NULL
+    ["b"]=>
+    int(1)
+    ["c"]=>
+    NULL
+    ["d"]=>
+    NULL
+  }
 
-See also |get_class_methods| and |get_class_vars|.
+
+
+|get_class_methods| |get_class_vars|
 
 vim:ft=help:

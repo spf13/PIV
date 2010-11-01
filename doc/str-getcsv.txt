@@ -1,0 +1,22 @@
+str_getcsv -- Parse a CSV string into an array
+
+  array str_getcsv(string input [, string delimiter [, string enclosure [, string escape]]])~
+
+Similar to |fgetcsv| this functions parses a string as its input unlike
+|fgetcsv| which takes a file as its input.
+
+{input} The string to parse.
+
+{delimiter} Set the field delimiter (one character only). Defaults as a comma.
+
+{enclosure} Set the field enclosure character (one character only). Defaults
+as a double quotation mark.
+
+{escape} Set the escape character (one character only). Defaults as a
+backslash (\)
+
+Returns an indexed array containing the fields read.
+
+|fgetcsv|
+
+vim:ft=help:

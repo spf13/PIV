@@ -6,16 +6,14 @@ pg_insert -- Insert array into table
 {table_name}. If {options} is specified, |pg_convert| is applied to
 {assoc_array} with the specified options.
 
-This function is EXPERIMENTAL. The behaviour of this function, the name of
-this function, and anything else documented about this function may change
-without notice in a future release of PHP. Use this function at your own
-risk.
+This function is EXPERIMENTAL. The behaviour of this function, its name, and
+surrounding documentation may change without notice in a future release of
+PHP. This function should be used at your own risk.
 
 {connection} PostgreSQL database connection resource.
 
 {table_name} Name of the table into which to insert rows. The table
-{table_name} must at least have as many columns as {assoc_array} has
-elements.
+{table_name} must at least have as many columns as {assoc_array} has elements.
 
 {assoc_array} An array whose keys are field names in the table {table_name},
 and whose values are the values of those fields that are to be inserted.
@@ -39,6 +37,10 @@ PGSQL_DML_STRING is passed via {options}.
         echo "User must have sent wrong inputs\n";
     }
 ?>
+
+
+
+
 
 |pg_convert|
 

@@ -1,0 +1,35 @@
+hash_file -- Generate a hash value using the contents of a given file
+
+  string hash_file(string algo, string filename [, bool raw_output])~
+
+{algo} Name of selected hashing algorithm (i.e. "md5", "sha256", "haval160,4",
+etc..)
+
+{filename} URL describing location of file to be hashed; Supports fopen
+wrappers.
+
+{raw_output} When set to TRUE, outputs raw binary data. Default value (FALSE)
+outputs lowercase hexits.
+
+Returns a string containing the calculated message digest as lowercase hexits
+unless {raw_output} is set to true in which case the raw binary representation
+of the message digest is returned.
+
+Using |hash_file|
+
+<?php >
+  /* Create a file to calculate hash of */
+  file_put_contents('example.txt', 'The quick brown fox jumped over the lazy dog.');
+  
+  echo hash_file('md5', 'example.txt');
+?>
+
+The above example will output:
+
+  5c6ffbdd40d9556b73a21e63c3e0e904
+
+
+
+|hash| |hash_hmac_file| |hash_update_file| |md5_file| |sha1_file|
+
+vim:ft=help:

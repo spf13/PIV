@@ -1,0 +1,25 @@
+stream_is_local -- Checks if a stream is a local stream
+
+  bool stream_is_local(mixed stream_or_url)~
+
+Checks if a stream, or a URL, is a local one or not.
+
+{stream_or_url} The stream resource or URL to check.
+
+Returns TRUE on success or FALSE on failure.
+
+|stream_is_local| example Basic usage example.
+
+<?php >
+  var_dump(stream_is_local("http://example.com"));
+  var_dump(stream_is_local("/etc"));
+?>
+
+The above example will output something similar to:
+
+  bool(false)
+  bool(true)
+
+
+
+vim:ft=help:

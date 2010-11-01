@@ -2,8 +2,16 @@ array_reverse -- Return an array with elements in reverse order
 
   array array_reverse(array array [, bool preserve_keys])~
 
-|array_reverse| takes input {array} and returns a new array with the order of
-the elements reversed, preserving the keys if {preserve_keys} is TRUE.
+Takes an input {array} and returns a new array with the order of the elements
+reversed.
+
+{array} The input array.
+
+{preserve_keys} If set to TRUE keys are preserved.
+
+Returns the reversed array.
+
+Version Description 4.0.3 The {preserve_keys} parameter was added.
 
 |array_reverse| example
 
@@ -40,8 +48,8 @@ be:
       [0] => php
   )
 
-The second parameter was added in PHP 4.0.3.
 
-See also |array_flip|.
+
+|array_flip|
 
 vim:ft=help:

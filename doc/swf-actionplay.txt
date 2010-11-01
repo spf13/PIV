@@ -4,4 +4,8 @@ swf_actionplay -- Start playing the flash movie from the current frame
 
 Start playing the flash movie from the current frame.
 
+No value is returned.
+
+|swf_actionstop|
+
 vim:ft=help:

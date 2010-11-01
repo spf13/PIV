@@ -1,0 +1,14 @@
+newt_checkbox_tree_set_current --
+
+  void newt_checkbox_tree_set_current(resource checkboxtree, mixed data)~
+
+This function is currently not documented; only its argument list is
+available.
+
+{checkboxtree}
+
+{data}
+
+No value is returned.
+
+vim:ft=help:

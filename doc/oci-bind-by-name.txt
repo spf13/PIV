@@ -1,56 +1,74 @@
 oci_bind_by_name -- Binds the PHP variable to the Oracle placeholder
 
-  bool oci_bind_by_name(resource stmt, string ph_name, mixed variable [, int maxlength [, int type]])~
+  bool oci_bind_by_name(resource statement, string ph_name, mixed variable [, int maxlength [, int type]])~
 
-|oci_bind_by_name| binds the PHP variable {variable} to the Oracle placeholder
-{ph_name}. Whether it will be used for input or output will be determined at
-run-time and the necessary storage space will be allocated. The {length}
-parameter sets the maximum length for the bind. If you set {length} to -1
-|oci_bind_by_name| will use the current length of {variable} to set the
-maximum length.
+Binds the PHP variable {variable} to the Oracle placeholder {ph_name}. Whether
+it will be used for input or output will be determined at run-time and the
+necessary storage space will be allocated.
 
-If you need to bind an abstract datatype (LOB/ROWID/BFILE) you need to
-allocate it first using the |oci_new_descriptor| function. The {length} is
-not used for abstract datatypes and should be set to -1. The {type} parameter
-tells Oracle which descriptor is used. Possible values are: OCI_B_FILE - for
-BFILEs;
+{statement} An OCI statement.
 
-OCI_B_CFILE - for CFILEs;
+{ph_name} The placeholder.
 
-OCI_B_CLOB - for CLOBs;
+{variable} The PHP variable.
 
-OCI_B_BLOB - for BLOBs;
+{maxlength} Sets the maximum length for the bind. If you set it to -1, this
+function will use the current length of {variable} to set the maximum length.
 
-OCI_B_ROWID - for ROWIDs;
+{type} If you need to bind an abstract datatype (LOB/ROWID/BFILE) you need to
+allocate it first using the |oci_new_descriptor| function. The {length} is not
+used for abstract datatypes and should be set to -1. The {type} parameter
+tells Oracle which descriptor is used. Default to SQLT_CHR. Possible values
+are: SQLT_FILE - for BFILEs;
 
-OCI_B_NTY - for named datatypes;
+SQLT_CFILE - for CFILEs;
 
-OCI_B_CURSOR - for cursors, that were created before with |oci_new_cursor|.
+SQLT_CLOB - for CLOBs;
 
-|oci_bind_by_name|example
+SQLT_BLOB - for BLOBs;
+
+SQLT_RDD - for ROWIDs;
+
+SQLT_NTY - for named datatypes;
+
+SQLT_INT - for integers;
+
+SQLT_CHR - for VARCHARs;
+
+SQLT_BIN - for RAW columns;
+
+SQLT_LNG - for LONG columns;
+
+SQLT_LBI - for LONG RAW columns;
+
+SQLT_RSET - for cursors, that were created before with |oci_new_cursor|.
+
+Returns TRUE on success or FALSE on failure.
+
+|oci_bind_by_name| example
 
 <?php >
   /* oci_bind_by_name example thies at thieso dot net (980221)
-    inserts 3 records into emp, and uses the ROWID for updating the 
+    inserts 3 records into emp, and uses the ROWID for updating the
     records just after the insert.
   */
   
   $conn = oci_connect("scott", "tiger");
   
   $stmt = oci_parse($conn, "
-                            INSERT INTO 
-                                       emp (empno, ename) 
-                                                VALUES 
-                                       (:empno,:ename) 
-                              RETURNING 
-                                       ROWID 
-                                   INTO 
+                            INSERT INTO
+                                       emp (empno, ename)
+                                 VALUES
+                                       (:empno,:ename)
+                              RETURNING
+                                       ROWID
+                                   INTO
                                        :rid
-                                           ");
+                           ");
   
   $data = array(
-                1111 => "Larry", 
-                2222 => "Bill", 
+                1111 => "Larry",
+                2222 => "Bill",
                 3333 => "Jim"
                );
   
@@ -62,12 +80,12 @@ OCI_B_CURSOR - for cursors, that were created before with |oci_new_cursor|.
   
   $update = oci_parse($conn, "
                               UPDATE
-                                    emp 
-                                 SET 
-                                    sal = :sal 
-                               WHERE 
+                                    emp
+                                 SET
+                                    sal = :sal
+                               WHERE
                                     ROWID = :rid
-                               ");
+                             ");
   oci_bind_by_name($update, ":rid", $rowid, -1, OCI_B_ROWID);
   oci_bind_by_name($update, ":sal", $sal,   32);
   
@@ -76,7 +94,7 @@ OCI_B_CURSOR - for cursors, that were created before with |oci_new_cursor|.
   foreach ($data as $empno => $ename) {
       oci_execute($stmt);
       oci_execute($update);
-  } 
+  }
   
   $rowid->free();
   
@@ -84,17 +102,17 @@ OCI_B_CURSOR - for cursors, that were created before with |oci_new_cursor|.
   oci_free_statement($stmt);
   
   $stmt = oci_parse($conn, "
-                            SELECT 
-                                  * 
-                              FROM 
-                                  emp 
-                             WHERE 
-                                  empno 
-                                IN 
+                            SELECT
+                                  *
+                              FROM
+                                  emp
+                             WHERE
+                                  empno
+                                IN
                                   (1111,2222,3333)
-                                ");
+                           ");
   oci_execute($stmt);
-                                
+  
   while ($row = oci_fetch_assoc($stmt)) {
       var_dump($row);
   }
@@ -104,20 +122,23 @@ OCI_B_CURSOR - for cursors, that were created before with |oci_new_cursor|.
   /* delete our "junk" from the emp table.... */
   $stmt = oci_parse($conn, "
                             DELETE FROM
-                                       emp 
-                                  WHERE 
-                                       empno 
-                                     IN 
+                                       emp
+                                  WHERE
+                                       empno
+                                     IN
                                        (1111,2222,3333)
-                                     ");
+                           ");
   oci_execute($stmt);
   oci_free_statement($stmt);
   
   oci_close($conn);
 ?>
 
-Remember, that this function strips trailing whitespace. See the following
-example:
+
+
+
+
+Remember, this function strips trailing whitespace. See the following example:
 
 |oci_bind_by_name| example
 
@@ -135,6 +156,10 @@ example:
       */
 ?>
 
+
+
+
+
 |oci_bind_by_name| example
 
 <?php >
@@ -150,12 +175,16 @@ example:
       */
 ?>
 
-Do not use magic_quotes_gpc or |addslashes| and |oci_bind_by_name|
-simultaneously as no quoting is needed and any magically applied quotes will
-be written into your database as |oci_bind_by_name| is not able to
-distinguish magically added quotings from those added intentionally.
+
+
+
 
 Returns TRUE on success or FALSE on failure.
+
+Do not use magic_quotes_gpc or |addslashes| and |oci_bind_by_name|
+simultaneously as no quoting is needed and any magically applied quotes will
+be written into your database as |oci_bind_by_name| is not able to distinguish
+magically added quotings from those added intentionally.
 
 In PHP versions before 5.0.0 you must use |ocibindbyname| instead. This name
 still can be used, it was left as alias of |oci_bind_by_name| for downwards

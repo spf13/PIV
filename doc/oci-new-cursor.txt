@@ -2,7 +2,12 @@ oci_new_cursor -- Allocates and returns a new cursor (statement handle)
 
   resource oci_new_cursor(resource connection)~
 
-|oci_new_cursor| allocates a new statement handle on the specified connection.
+Allocates a new statement handle on the specified connection.
+
+{connection} An Oracle connection identifier, returned by |oci_connect| or
+|oci_pconnect|.
+
+Returns a new statement handle, or FALSE on error.
 
 Using REF CURSOR in an Oracle's stored procedure
 
@@ -20,11 +25,15 @@ Using REF CURSOR in an Oracle's stored procedure
   while ($data = oci_fetch_row($curs)) {
       var_dump($data);
   }
-   
+  
   oci_free_statement($stmt);
   oci_free_statement($curs);
   oci_close($conn);
 ?>
+
+
+
+
 
 Using REF CURSOR in an Oracle's select statement
 
@@ -62,7 +71,9 @@ Using REF CURSOR in an Oracle's select statement
   oci_close($conn);
 ?>
 
-|oci_new_cursor| returns FALSE on error.
+
+
+
 
 In PHP versions before 5.0.0 you must use |ocinewcursor| instead. This name
 still can be used, it was left as alias of |oci_new_cursor| for downwards

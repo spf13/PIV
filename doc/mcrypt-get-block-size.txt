@@ -13,17 +13,22 @@ linked against libmcrypt 2.4.x or 2.5.x.
 It is more useful to use the |mcrypt_enc_get_block_size| function as this uses
 the resource returned by |mcrypt_module_open|.
 
-This example shows how to use this function when linked against libmcrypt
-2.4.x and 2.5.x. |mcrypt_get_block_size| example
+{cipher} One of the MCRYPT_ciphername constants or the name of the algorithm
+as string.
+
+{module} The module.
+
+Gets the block size, as an integer.
+
+|mcrypt_get_block_size| example This example shows how to use this function
+when linked against libmcrypt 2.4.x and 2.5.x.
 
 <?php >
-      echo mcrypt_get_block_size('tripledes', 'ecb');
+  echo mcrypt_get_block_size('tripledes', 'ecb'); // 8
 ?>
-  
-  Prints:
-  8
 
-See also: |mcrypt_get_key_size|, |mcrypt_enc_get_block_size| and
-|mcrypt_encrypt|.
+
+
+|mcrypt_get_key_size| |mcrypt_enc_get_block_size| |mcrypt_encrypt|
 
 vim:ft=help:

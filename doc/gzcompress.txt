@@ -24,6 +24,10 @@ The compressed string or FALSE if an error occurred.
   echo $compressed;
 ?>
 
+
+
+
+
 |gzdeflate| |gzinflate| |gzuncompress| |gzencode|
 
 vim:ft=help:

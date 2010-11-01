@@ -2,7 +2,7 @@ ncurses_reset_shell_mode -- Resets the shell mode saved by def_shell_mode
 
   int ncurses_reset_shell_mode()~
 
-This function is currently not documented; only the argument list is
+This function is currently not documented; only its argument list is
 available.
 
 vim:ft=help:

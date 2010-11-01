@@ -3,20 +3,43 @@ realpath -- Returns canonicalized absolute pathname
   string realpath(string path)~
 
 |realpath| expands all symbolic links and resolves references to '/./', '/../'
-and extra '/' characters in the input {path} and return the canonicalized
-absolute pathname. The resulting path will have no symbolic link, '/./' or
-'/../' components.
+and extra '/' characters in the input {path}. and return the canonicalized
+absolute pathname.
 
-|realpath| returns FALSE on failure, e.g. if the file does not exist. On BSD
-systems |realpath| doesn't fail if only the last {path} component doesn't
-exist, while other systems will return FALSE.
+{path} The path being checked.
+
+Returns the canonicalized absolute pathname on success. The resulting path
+will have no symbolic link, '/./' or '/../' components.
+
+|realpath| returns FALSE on failure, e.g. if the file does not exist.
+
+Version Description 5.3.0 Prior to this release |realpath| would not fail on
+*BSD systems if only the last last {path} component did not exist.
 
 |realpath| example
 
 <?php >
-  $real_path = realpath("../../index.php");
+  chdir('/var/www/');
+  echo realpath('./../../etc/passwd');
 ?>
 
-See also |basename|, |dirname|, and |pathinfo|.
+The above example will output:
+
+  /etc/passwd
+
+|realpath| on Windows On windows |realpath| will change unix style paths to
+windows style.
+
+<?php >
+  echo realpath('/windows/system32');
+?>
+
+The above example will output:
+
+  C:\WINDOWS\System32
+
+
+
+|basename| |dirname| |pathinfo|
 
 vim:ft=help:

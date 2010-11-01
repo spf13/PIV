@@ -29,6 +29,8 @@ The above example will output:
   The string AR1012 does not consist of all hexadecimal digits.
   The string ab12bc99 consists of all hexadecimal digits.
 
+
+
 |ctype_digit|
 
 vim:ft=help:

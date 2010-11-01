@@ -1,16 +1,15 @@
-udm_get_res_field -- Fetch mnoGoSearch result field
+udm_get_res_field -- Fetch a result field
 
   string udm_get_res_field(resource res, int row, int field)~
 
-|udm_get_res_field| returns result field value on success, FALSE on error.
+Fetch a mnoGoSearch result field.
 
-{res} - a link to result identifier, received after call to |udm_find|.
+{res} {res} - a link to result identifier, received after call to |udm_find|.
 
-{row} - the number of the link on the current page. May have values from 0 to
-{UDM_PARAM_NUM_ROWS-1}.
+{row} {row} - the number of the link on the current page. May have values from
+0 to {UDM_PARAM_NUM_ROWS-1}.
 
-{field} - field identifier, may have the following values:
-
+{field} {field} - field identifier, may have the following values:
 UDM_FIELD_URL - document URL field
 
 UDM_FIELD_CONTENT - document Content-type field (for example, text/html).
@@ -40,5 +39,7 @@ UDM_FIELD_ORDER - the number of the current document in set of found
 documents.
 
 UDM_FIELD_CRC - document CRC.
+
+|udm_get_res_field| returns result field value on success, FALSE on error.
 
 vim:ft=help:

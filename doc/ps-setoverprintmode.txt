@@ -1,0 +1,16 @@
+ps_setoverprintmode -- Sets overprint mode
+
+  bool ps_setoverprintmode(resource psdoc, int mode)~
+
+This function is currently not documented; only its argument list is
+available.
+
+
+
+{psdoc} Resource identifier of the postscript file as returned by |ps_new|.
+
+{mode}
+
+Returns TRUE on success or FALSE on failure.
+
+vim:ft=help:

@@ -1,0 +1,30 @@
+gnupg_getprotocol -- Returns the currently active protocol for all operations
+
+  int gnupg_getprotocol(resource identifier)~
+
+{identifier} The gnupg identifier, from a call to |gnupg_init| or gnupg.
+
+Returns the currently active protocol, which can be one of
+GNUPG_PROTOCOL_OpenPGP or GNUPG_PROTOCOL_CMS.
+
+Procedural |gnupg_getprotocol| example
+
+<?php >
+  $res = gnupg_init();
+  echo gnupg_getprotocol($res);
+?>
+
+
+
+OO |gnupg_getprotocol| example
+
+<?php >
+  $gpg = new gnupg();
+  echo $gpg -> getprotocol();
+?>
+
+
+
+
+
+vim:ft=help:

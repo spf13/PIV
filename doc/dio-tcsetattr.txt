@@ -4,8 +4,6 @@ dio_tcsetattr -- Sets terminal attributes and baud rate for a serial port
 
 |dio_tcsetattr| sets the terminal attributes and baud rate of the open {fd}.
 
-This function is not implemented on Windows platforms.
-
 {fd} The file descriptor returned by |dio_open|.
 
 {options} The currently available options are: 'baud' - baud rate of the port
@@ -43,5 +41,11 @@ Setting the baud rate on a serial port
     }
   } 
 ?>
+
+
+
+
+
+This function is not implemented on Windows platforms.
 
 vim:ft=help:

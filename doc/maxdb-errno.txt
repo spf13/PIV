@@ -1,0 +1,68 @@
+maxdb->errno -- Returns the error code for the most recent function call
+
+Procedural style:
+
+  int maxdb_errno(resource link)~
+
+Object oriented style (property):
+
+The |maxdb_errno| function will return the last error code for the most recent
+MaxDB function call that can succeed or fail with respect to the database link
+defined by the {link} parameter. If no errors have occured, this function will
+return zero.
+
+An error code value for the last call, if it failed. zero means no error
+occurred.
+
+Object oriented style
+
+<?php >
+  $maxdb = new maxdb("localhost", "MONA", "RED", "DEMODB");
+  
+  /* check connection */
+  if (maxdb_connect_errno()) {
+     printf("Connect failed: %s\n", maxdb_connect_error());
+     exit();
+  }
+  
+  if (!$maxdb->query("SELECT xxx FROM hotel.city")) {
+     printf("Errorcode: %d\n", $maxdb->errno);
+  }
+  
+  /* close connection */
+  $maxdb->close();
+?>
+
+
+
+Procedural style
+
+<?php >
+  $link = maxdb_connect("localhost", "MONA", "RED", "DEMODB");
+  
+  /* check connection */
+  if (maxdb_connect_errno()) {
+     printf("Connect failed: %s\n", maxdb_connect_error());
+     exit();
+  }
+  
+  if (!maxdb_query($link, "SELECT xxx FROM hotel.city")) {
+     printf("Errorcode: %d\n", maxdb_errno($link));
+  }
+  
+  /* close connection */
+  maxdb_close($link);
+?>
+
+
+
+The above example will output something similar to:
+
+
+
+  PHP Warning:  maxdb_query(): -4005 POS(8) Unknown column name:XXX [42000] <...>
+  Errorcode: -4005
+
+|maxdb_connect_errno| |maxdb_connect_error| |maxdb_error| |maxdb_sqlstate|
+
+vim:ft=help:

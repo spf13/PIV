@@ -5,15 +5,21 @@ imagesetstyle -- Set the style for line drawing
 |imagesetstyle| sets the style to be used by all line drawing functions (such
 as |imageline| and |imagepolygon|) when drawing with the special color
 IMG_COLOR_STYLED or lines of images with color IMG_COLOR_STYLEDBRUSHED.
+
+{ image}An image resource, returned by one of the image creation functions,
+such as |imagecreatetruecolor|.
+
+{style} An array of pixel colors. You can use the IMG_COLOR_TRANSPARENT
+constant to add a transparent pixel.
+
 Returns TRUE on success or FALSE on failure.
 
-The {style} parameter is an array of pixels. Following example script draws a
-dashed line from upper left to lower right corner of the canvas:
-|imagesetstyle| example
+Following example script draws a dashed line from upper left to lower right
+corner of the canvas: |imagesetstyle| example
 
 <?php >
   header("Content-type: image/jpeg");
-  $im  = imagecreate(100, 100);
+  $im  = imagecreatetruecolor(100, 100);
   $w   = imagecolorallocate($im, 255, 255, 255);
   $red = imagecolorallocate($im, 255, 0, 0);
   
@@ -36,8 +42,10 @@ dashed line from upper left to lower right corner of the canvas:
   imagedestroy($im);
 ?>
 
-See also |imagesetbrush|, |imageline|.
+The above example will output something similar to:
 
-This function was added in PHP 4.0.6
+
+
+|imagesetbrush| |imageline|
 
 vim:ft=help:

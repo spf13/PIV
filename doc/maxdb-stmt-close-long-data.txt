@@ -1,0 +1,21 @@
+stmt->close_long_data -- Ends a sequence of maxdb_stmt_send_long_data
+
+Procedural style:
+
+  bool maxdb_stmt_close_long_data(resource stmt, int param_nr)~
+
+Object oriented style (method):
+
+  bool maxdb_stmt->close_long_data(resource stmt, int param_nr)~
+
+This function has to be called after a sequence of
+|maxdb_stmt_send_long_data|, that was started after |maxdb_execute|.
+
+{param_nr} indicates which parameter to associate the end of data with.
+Parameters are numbered beginning with 0.
+
+Returns TRUE on success or FALSE on failure.
+
+|maxdb_prepare| |maxdb_stmt_bind_param|
+
+vim:ft=help:

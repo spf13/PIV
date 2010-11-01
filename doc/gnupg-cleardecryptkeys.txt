@@ -1,0 +1,30 @@
+gnupg_cleardecryptkeys -- Removes all keys which were set for decryption
+before
+
+  bool gnupg_cleardecryptkeys(resource identifier)~
+
+{identifier} The gnupg identifier, from a call to |gnupg_init| or gnupg.
+
+Returns TRUE on success or FALSE on failure.
+
+Procedural |gnupg_cleardecryptkeys| example
+
+<?php >
+  $res = gnupg_init();
+  gnupg_cleardecryptkeys($res);
+?>
+
+
+
+OO |gnupg_cleardecryptkeys| example
+
+<?php >
+  $gpg = new gnupg();
+  $gpg -> cleardecryptkeys();
+?>
+
+
+
+
+
+vim:ft=help:

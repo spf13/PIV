@@ -11,13 +11,11 @@ Returns an array with the converted values on success, FALSE otherwise.
 
 If there are boolean fields in {table_name} don't use the constant TRUE in
 {assoc_array}. It will be converted to the string 'TRUE' which is no valid
-entry for boolean fields in PostgreSQL. Use one of t, true, 1, y, yes
-instead.
+entry for boolean fields in PostgreSQL. Use one of t, true, 1, y, yes instead.
 
-This function is EXPERIMENTAL. The behaviour of this function, the name of
-this function, and anything else documented about this function may change
-without notice in a future release of PHP. Use this function at your own
-risk.
+This function is EXPERIMENTAL. The behaviour of this function, its name, and
+surrounding documentation may change without notice in a future release of
+PHP. This function should be used at your own risk.
 
 {connection} PostgreSQL database connection resource.
 
@@ -29,6 +27,24 @@ risk.
 PGSQL_CONV_IGNORE_NOT_NULL, combined.
 
 An array of converted values, or FALSE on error.
+
+|pg_convert| example
+
+<?php >
+    $dbconn = pg_connect('dbname=foo');
+    
+    $tmp = array(
+        'author' => 'Joe Thackery',
+        'year' => 2005,
+        'title' => 'My Life, by Joe Thackery'
+    );
+    
+    $vals = pg_convert($dbconn, 'authors', $tmp);
+?>
+
+
+
+
 
 |pg_meta_data|
 

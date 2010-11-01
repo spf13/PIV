@@ -4,6 +4,10 @@ sqrt -- Square root
 
 Returns the square root of {arg}.
 
+{arg} The argument to process
+
+The square root of {arg} or the special value NAN for negative numbers.
+
 |sqrt| example
 
 <?php >
@@ -12,6 +16,10 @@ Returns the square root of {arg}.
   echo sqrt(10); // 3.16227766 ...
 ?>
 
-See also |pow|.
+
+
+
+
+|pow|
 
 vim:ft=help:

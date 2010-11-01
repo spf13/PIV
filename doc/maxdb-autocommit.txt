@@ -1,0 +1,58 @@
+maxdb->auto_commit -- Turns on or off auto-commiting database modifications
+
+Procedural style:
+
+  bool maxdb_autocommit(resource link, bool mode)~
+
+Object oriented style (method)
+
+  bool auto_commit(resource link, bool mode, bool mode)~
+
+|maxdb_autocommit| is used to turn on or off auto-commit mode on queries for
+the database connection represented by the {link} resource.
+
+Returns TRUE on success or FALSE on failure.
+
+Object oriented style
+
+<?php >
+  $maxdb = new maxdb("localhost", "MONA", "RED", "DEMODB");
+  
+  if (maxdb_connect_errno()) {
+     printf("Connect failed: %s\n", maxdb_connect_error());
+     exit();
+  }
+  
+  /* turn autocommit on */
+  $maxdb->autocommit(TRUE);
+  
+  /* close connection */
+  $maxdb->close();
+?>
+
+
+
+Procedural style
+
+<?php >
+  $link = maxdb_connect("localhost", "MONA", "RED", "DEMODB");
+  
+  if (!$link) {
+     printf("Can't connect to localhost. Error: %s\n", maxdb_connect_error());
+     exit();
+  }
+  
+  /* turn autocommit on */
+  maxdb_autocommit($link, TRUE);
+  
+  /* close connection */
+  maxdb_close($link);
+?>
+
+
+
+The above example will output something similar to:
+
+|maxdb_commit| |maxdb_rollback|
+
+vim:ft=help:

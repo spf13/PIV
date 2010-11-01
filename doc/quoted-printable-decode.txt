@@ -6,7 +6,13 @@ string
 This function returns an 8-bit binary string corresponding to the decoded
 quoted printable string (according to RFC2045, section 6.7, not RFC2821,
 section 4.5.2, so additional periods are not stripped from the beginning of
-line). This function is similar to |imap_qprint|, except this one does not
-require the IMAP module to work.
+line).
+
+This function is similar to |imap_qprint|, except this one does not require
+the IMAP module to work.
+
+{str} The input string.
+
+Returns the 8-bit binary string.
 
 vim:ft=help:

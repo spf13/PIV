@@ -2,7 +2,10 @@ swf_popmatrix -- Restore a previous transformation matrix
 
   void swf_popmatrix()~
 
-The |swf_popmatrix| function pushes the current transformation matrix back
-onto the stack.
+Pushes the current transformation matrix back onto the stack.
+
+No value is returned.
+
+|swf_pushmatrix|
 
 vim:ft=help:

@@ -7,17 +7,23 @@ Generates the cyclic redundancy checksum polynomial of 32-bit lengths of the
 transmitted.
 
 Because PHP's integer type is signed, and many crc32 checksums will result in
-negative integers, you need to use the "%u" formatter of |sprintf| or
-|printf| to get the string representation of the unsigned crc32 checksum.
+negative integers, you need to use the "%u" formatter of |sprintf| or |printf|
+to get the string representation of the unsigned crc32 checksum.
 
-This second example shows how to print a converted checksum with the |printf|
-function: Displaying a crc32 checksum
+{str} The data.
+
+Returns the crc32 checksum of {str} as an integer.
+
+Displaying a crc32 checksum This example shows how to print a converted
+checksum with the |printf| function:
 
 <?php >
   $checksum = crc32("The quick brown fox jumped over the lazy dog.");
   printf("%u\n", $checksum);
 ?>
 
-See also |md5| and |sha1|.
+
+
+|md5| |sha1|
 
 vim:ft=help:

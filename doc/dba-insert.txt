@@ -6,8 +6,8 @@ dba_insert -- Insert entry
 database.
 
 {key} The key of the entry to be inserted. If this key already exist in the
-database, this function will fail. Use |dba_replace| if you need to replace
-an existent key.
+database, this function will fail. Use |dba_replace| if you need to replace an
+existent key.
 
 {value} The value to be inserted.
 

@@ -1,8 +1,10 @@
 Rar::getAttr -- Get attributes of the entry
 
-  int Rar::getAttr()~
+  int getAttr()~
 
 |Rar::getAttr| returns attributes of the archive entry.
+
+Returns the attributes or FALSE on error.
 
 |Rar::getAttr| example
 
@@ -57,8 +59,8 @@ Rar::getAttr -- Get attributes of the entry
   rar_close($rar_file);
 ?>
 
-|Rar::getAttr| returns FALSE on error.
 
-See also |Rar::getHostOs|.
+
+
 
 vim:ft=help:

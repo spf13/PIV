@@ -5,10 +5,25 @@ id3_set_tag -- Update information stored in an ID3 tag
 |id3_set_tag| is used to change the information stored of an ID3 tag. If no
 tag has been present, it will be added to the file.
 
-Instead of a filename you may also pass a valid stream resource.
+{filename} The path to the MP3 file
 
-The optional {version} parameter allows you to specify the version of the tag
-as MP3 files may contain both, version 1.x and version 2.x tags.
+Instead of a filename you may also pass a valid stream resource
+
+{tag} An associative array of tag keys and values
+
+The following keys may be used in the associative array:
+
+Keys in the associative array key possible value available in version title
+string with maximum of 30 characters v1.0, v1.1 artist string with maximum of
+30 characters v1.0, v1.1 album string with maximum of 30 characters v1.0, v1.1
+year 4 digits v1.0, v1.1 genre integer value between 0 and 147 v1.0, v1.1
+comment string with maximum of 30 characters (28 in v1.1) v1.0, v1.1 track
+integer between 0 and 255 v1.1
+
+{version} Allows you to specify the version of the tag as MP3 files may
+contain both, version 1.x and version 2.x tags
+
+Returns TRUE on success or FALSE on failure.
 
 |id3_set_tag| example
 
@@ -28,17 +43,10 @@ If the file is writable, this will output:
 
   Tag succesfully updated
 
-Currently |id3_set_tag| only supports version 1.0 and 1.1.
 
-The following keys may be used in the associative array:
 
-Keys in the associative array key possible value available in version title
-string with maximum of 30 characters v1.0, v1.1 artist string with maximum of
-30 characters v1.0, v1.1 album string with maximum of 30 characters v1.0, v1.1
-year 4 digits v1.0, v1.1 genre integer value between 0 and 147 v1.0, v1.1
-comment string with maximum of 30 characters (28 in v1.1) v1.0, v1.1 track
-integer between 0 and 255 v1.1
+Currently |id3_remove_tag| only supports version 1.0 and 1.1.
 
-See also |id3_get_tag|, |id3_remove_tag| and |id3_get_version|.
+|id3_remove_tag| |id3_get_tag| |id3_get_version|
 
 vim:ft=help:

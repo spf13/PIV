@@ -1,8 +1,7 @@
-pdf_setlinewidth -- Sets line width
+PDF_setlinewidth -- Set line width
 
-  bool pdf_setlinewidth(resource pdfdoc, float width)~
+  bool PDF_setlinewidth(resource p, float width)~
 
-Sets the current linewidth to {width}. Returns TRUE on success or FALSE on
-failure.
+Sets the current line width. Returns TRUE on success or FALSE on failure.
 
 vim:ft=help:

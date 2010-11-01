@@ -1,0 +1,25 @@
+openssl_digest -- Computes a digest
+
+  ReturnType openssl_digest(string data, string method [, bool raw_output])~
+
+Computes a digest hash value for the given data using a given method, and
+returns a raw or binhex encoded string.
+
+This function is currently not documented; only its argument list is
+available.
+
+{data} The data.
+
+{method} The digest method.
+
+{raw_output} Setting to TRUE will return as raw output data, otherwise the
+return value is binhex encoded.
+
+Returns the digested hash value on success, or FALSE on failure.
+
+Emits an E_WARNING level error if an unknown signature algorithm is passed via
+the {method} parameter.
+
+|openssl_get_cipher_methods|
+
+vim:ft=help:

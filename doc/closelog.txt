@@ -5,6 +5,8 @@ closelog -- Close connection to system logger
 |closelog| closes the descriptor being used to write to the system logger. The
 use of |closelog| is optional.
 
-See also |define_syslog_variables|, |syslog| and |openlog|.
+Returns TRUE on success or FALSE on failure.
+
+|syslog| |openlog|
 
 vim:ft=help:

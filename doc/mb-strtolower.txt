@@ -2,11 +2,14 @@ mb_strtolower -- Make a string lowercase
 
   string mb_strtolower(string str [, string encoding])~
 
-|mb_strtolower| returns {str} with all alphabetic characters converted to
-lowercase.
+Returns {str} with all alphabetic characters converted to lowercase.
 
-{encoding} specifies the encoding of {str}; if omitted, the internal character
-encoding value will be used.
+{str} The string being lowercased.
+
+{encoding} The {encoding} parameter is the character encoding. If it is
+omitted, the internal character encoding value will be used.
+
+{str} with all alphabetic characters converted to lowercase.
 
 For more information about the Unicode properties, please see
 http://www.unicode.org/unicode/reports/tr21/.
@@ -24,6 +27,10 @@ property, such as A-umlaut (&Auml;).
   echo $str; // Prints mary had a little lamb and she loved it so
 ?>
 
-See also |strtolower|, |mb_strtoupper| and |mb_convert_case|.
+
+
+
+
+|mb_strtoupper| |mb_convert_case| |strtolower|
 
 vim:ft=help:

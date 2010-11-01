@@ -2,15 +2,25 @@ fbsql_list_fields -- List FrontBase result fields
 
   resource fbsql_list_fields(string database_name, string table_name [, resource link_identifier])~
 
-|fbsql_list_fields| retrieves information about the given tablename. Arguments
-are the database name and the table name. A result pointer is returned which
-can be used with |fbsql_field_flags|, |fbsql_field_len|, |fbsql_field_name|,
-and |fbsql_field_type|.
+Retrieves information about the given table.
 
-A result identifier is a positive integer. The function returns FALSE if an
-error occurs. A string describing the error will be placed in $phperrmsg, and
-unless the function was called as @fbsql() then this error string will also be
-printed out.
+{database_name} The database name.
+
+{table_name} The table name.
+
+{ link_identifier}A FrontBase link identifier returned by |fbsql_connect| or
+|fbsql_pconnect|.
+
+If optional and not specified, the function will try to find an open link to
+the FrontBase server and if no such link is found it will try to create one as
+if |fbsql_connect| was called with no arguments.
+
+Returns a result pointer which can be used with the fbsql_field_xxx functions,
+or FALSE on error.
+
+A string describing the error will be placed in $phperrmsg, and unless the
+function was called as @fbsql() then this error string will also be printed
+out.
 
 |fbsql_list_fields| example
 
@@ -25,11 +35,15 @@ printed out.
   }
 ?>
 
-The above example will output:
+The above example will output something similar to:
 
   field1
   field2
   field3
   ...
+
+
+
+|fbsql_field_len| |fbsql_field_name| |fbsql_field_type| |fbsql_field_flags|
 
 vim:ft=help:

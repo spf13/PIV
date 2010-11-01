@@ -2,12 +2,19 @@ gmp_setbit -- Set bit
 
   void gmp_setbit(resource a, int index [, bool set_clear])~
 
-Sets bit {index} in {a}. {set_clear} defines if the bit is set to 0 or 1. By
-default the bit is set to 1. Index starts at 0.
+Sets bit {index} in {a}.
 
-Unlike most of the other GMP functions, |gmp_setbit| must be called with a GMP
-resource that already exists (using |gmp_init| for example). One will not be
-automatically created.
+{a} The number being set to.
+
+It can be either a GMP number resource, or a numeric string given that it is
+possible to convert the latter to a number.
+
+{index} The set bit.
+
+{set_clear} Defines if the bit is set to 0 or 1. By default the bit is set to
+1. Index starts at 0.
+
+A GMP number resource.
 
 |gmp_setbit| example
 
@@ -17,10 +24,16 @@ automatically created.
   echo gmp_strval($a) . "\n";
 ?>
 
-The printout of the above program will be:
+The above example will output:
 
   255
 
-See also |gmp_clrbit|.
+
+
+Unlike most of the other GMP functions, |gmp_setbit| must be called with a GMP
+resource that already exists (using |gmp_init| for example). One will not be
+automatically created.
+
+|gmp_clrbit| |gmp_testbit|
 
 vim:ft=help:

@@ -3,14 +3,15 @@ performed
 
   bool ncurses_isendwin()~
 
-This function is EXPERIMENTAL. The behaviour of this function, the name of
-this function, and anything else documented about this function may change
-without notice in a future release of PHP. Use this function at your own
-risk.
+This function is EXPERIMENTAL. The behaviour of this function, its name, and
+surrounding documentation may change without notice in a future release of
+PHP. This function should be used at your own risk.
 
-|ncurses_isendwin| returns TRUE, if |ncurses_endwin| has been called without
-any subsequent calls to |ncurses_wrefresh|, otherwise FALSE.
+Checks if ncurses is in endwin mode.
 
-See also |ncurses_endwin| and |ncurses_wrefresh|.
+Returns TRUE, if |ncurses_end| has been called without any subsequent calls to
+|ncurses_wrefresh|, FALSE otherwise.
+
+|ncurses_end| |ncurses_wrefresh|
 
 vim:ft=help:

@@ -1,0 +1,18 @@
+SDO_DAS_Setting::isSet -- Test whether a property was set prior to being
+modified
+
+  bool SDO_DAS_Setting::isSet()~
+
+This function is EXPERIMENTAL. The behaviour of this function, its name, and
+surrounding documentation may change without notice in a future release of
+PHP. This function should be used at your own risk.
+
+Test whether a property was set prior to being modified. If it was set prior
+to being modified then the SDO_DAS_Setting will also contain the old value.
+
+None.
+
+Returns TRUE if the property was set prior to being modified, otherwise
+returns FALSE.
+
+vim:ft=help:

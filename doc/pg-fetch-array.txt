@@ -6,18 +6,14 @@ pg_fetch_array -- Fetch a row as an array
 (record).
 
 |pg_fetch_array| is an extended version of |pg_fetch_row|. In addition to
-storing the data in the numeric indices (field number) to the result array,
-it can also store the data using associative indices (field name). It stores
-both indicies by default.
+storing the data in the numeric indices (field number) to the result array, it
+can also store the data using associative indices (field name). It stores both
+indicies by default.
 
-This function sets NULL fields to PHP NULL value.
+This function sets NULL fields to the PHP NULL value.
 
 |pg_fetch_array| is NOT significantly slower than using |pg_fetch_row|, and is
 significantly easier to use.
-
-{row} became optional in PHP 4.1.0.
-
-{result_type} was added in PHP 4.0.0.
 
 {result} PostgreSQL query result resource, returned by |pg_query|,
 |pg_query_params| or |pg_execute| (among others).
@@ -38,6 +34,9 @@ Database NULL values are returned as NULL.
 
 FALSE is returned if {row} exceeds the number of rows in the set, there are no
 more rows, or on any other error.
+
+Version Description 4.1.0 The {row} parameter became optional. 4.0.0 The
+{result_type} parameter was added.
 
 |pg_fetch_array| example
 
@@ -69,6 +68,10 @@ more rows, or on any other error.
   echo $arr["author"] . " <- Row 3 Author\n";
   echo $arr[1] . " <- Row 3 E-mail\n";
 ?>
+
+
+
+
 
 |pg_fetch_row| |pg_fetch_object| |pg_fetch_result|
 

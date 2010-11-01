@@ -17,6 +17,18 @@ Version Description 5.0.0 Added the {raw_output} parameter 5.1.0 Changed the
 function to use the streams API. It means that you can use it with wrappers,
 like md5_file('http://example.com/..')
 
+Usage example of |md5_file|
+
+<?php >
+  $file = 'php-5.3.0alpha2-Win32-VC9-x64.zip';
+  
+  echo 'MD5 file hash of ' . $file . ': ' . md5_file($file);
+?>
+
+
+
+
+
 |md5| |sha1_file| |crc32|
 
 vim:ft=help:

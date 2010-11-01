@@ -1,15 +1,37 @@
 link -- Create a hard link
 
-  bool link(string target, string link)~
+  bool link(string to_path, string from_path)~
 
-|link| creates a hard link. Returns TRUE on success or FALSE on failure.
+|link| creates a hard link.
+
+{to_path} Target of the link.
+
+{from_path} The link name.
+
+Returns TRUE on success or FALSE on failure.
+
+For Windows only: This function requires PHP to run in an elevated mode or
+with the UAC disabled.
+
+Version Description 5.3.0 This function is now available on Windows platforms
+(Vista, Server 2008 or greater).
+
+Creating a simple hard link
+
+<?php >
+  $from_path = 'source.ext';  // This is the file that already exists
+  $to_path   = 'newfile.ext'; // This the filename that you want to link it to
+  
+  link($from_path, $to_path);
+?>
+
+
+
+
 
 This function will not work on remote files as the file to be examined must be
-accessible via the servers filesystem.
+accessible via the server"s filesystem.
 
-This function is not implemented on Windows platforms.
-
-See also the |symlink| to create soft links, and |readlink| along with
-|linkinfo|.
+|symlink| |readlink| |linkinfo|
 
 vim:ft=help:

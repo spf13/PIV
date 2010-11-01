@@ -1,0 +1,39 @@
+lchown -- Changes user ownership of symlink
+
+  bool lchown(string filename, mixed user)~
+
+Attempts to change the owner of the symlink {filename} to user {user}.
+
+Only the superuser may change the owner of a symlink.
+
+{filename} Path to the file.
+
+{user} User name or number.
+
+Returns TRUE on success or FALSE on failure.
+
+Changing the owner of a symbolic link
+
+<?php >
+  $target = 'output.php';
+  $link = 'output.html';
+  symlink($target, $link);
+  
+  lchown($link, 8);
+?>
+
+
+
+
+
+This function will not work on remote files as the file to be examined must be
+accessible via the server"s filesystem.
+
+When safe mode is enabled, PHP checks whether the files or directories being
+operated upon have the same UID (owner) as the script that is being executed.
+
+This function is not implemented on Windows platforms.
+
+|chown| |lchgrp| |chgrp| |chmod|
+
+vim:ft=help:

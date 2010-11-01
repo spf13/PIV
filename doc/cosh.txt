@@ -4,6 +4,10 @@ cosh -- Hyperbolic cosine
 
 Returns the hyperbolic cosine of {arg}, defined as (exp(arg) + exp(-arg))/2.
 
-See also: |cos|, |acosh|, |sin|, and |tan|.
+{arg} The argument to process
+
+The hyperbolic cosine of {arg}
+
+|cos| |acosh| |sinh| |cosh|
 
 vim:ft=help:

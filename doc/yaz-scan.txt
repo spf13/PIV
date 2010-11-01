@@ -36,7 +36,7 @@ PHP function that scans titles
     yaz_wait();
     $errno = yaz_errno($id);
     if ($errno == 0) {
-      $ar = yaz_scan_result($id, &amp;$options);
+      $ar = yaz_scan_result($id, $options);
       echo 'Scan ok; ';
       foreach ($options as $key => $val) {
         echo "$key = $val &amp;nbsp;";
@@ -52,5 +52,9 @@ PHP function that scans titles
     }
   }
 ?>
+
+
+
+
 
 vim:ft=help:

@@ -1,8 +1,10 @@
 Rar::getName -- Get name of the entry
 
-  string Rar::getName()~
+  string getName()~
 
 |Rar::getName| returns full name of the archive entry.
+
+Returns the entry name as a string, or FALSE on error.
 
 |Rar::getName| example
 
@@ -14,6 +16,8 @@ Rar::getName -- Get name of the entry
   echo "Entry name: " . $entry->getName();
 ?>
 
-|Rar::getName| returns FALSE on error.
+
+
+
 
 vim:ft=help:

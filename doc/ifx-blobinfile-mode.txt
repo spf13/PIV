@@ -1,8 +1,12 @@
 ifx_blobinfile_mode -- Set the default blob mode for all select queries
 
-  void ifx_blobinfile_mode(int mode)~
+  bool ifx_blobinfile_mode(int mode)~
 
-Set the default blob mode for all select queries. Mode "0" means save
-Byte-Blobs in memory, and mode "1" means save Byte-Blobs in a file.
+Set the default blob mode for all select queries.
+
+{mode} Mode "0" means save Byte-Blobs in memory, and mode "1" means save
+Byte-Blobs in a file.
+
+Returns TRUE on success or FALSE on failure.
 
 vim:ft=help:

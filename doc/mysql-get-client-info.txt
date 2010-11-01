@@ -17,6 +17,8 @@ The above example will output something similar to:
 
   MySQL client info: 3.23.39
 
+
+
 |mysql_get_host_info| |mysql_get_proto_info| |mysql_get_server_info|
 
 vim:ft=help:

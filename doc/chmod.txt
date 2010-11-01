@@ -2,16 +2,17 @@ chmod -- Changes file mode
 
   bool chmod(string filename, int mode)~
 
-Attempts to change the mode of the file specified by {filename} to that given
-in {mode}.
+Attempts to change the mode of the specified file to that given in {mode}.
 
-Note that {mode} is not automatically assumed to be an octal value, so strings
-(such as "g+w") will not work properly. To ensure the expected operation, you
-need to prefix {mode} with a zero (0):
+{filename} Path to the file.
+
+{mode} Note that {mode} is not automatically assumed to be an octal value, so
+strings (such as "g+w") will not work properly. To ensure the expected
+operation, you need to prefix {mode} with a zero (0):
 
 <?php >
-  chmod("/somedir/somefile", 755);   // decimal; probably incorrect   
-  chmod("/somedir/somefile", "u+rwx,go+rx"); // string; incorrect       
+  chmod("/somedir/somefile", 755);   // decimal; probably incorrect
+  chmod("/somedir/somefile", "u+rwx,go+rx"); // string; incorrect
   chmod("/somedir/somefile", 0755);  // octal; correct value of mode
 ?>
 
@@ -41,15 +42,16 @@ chmod' and 'man 2 chmod'.
 Returns TRUE on success or FALSE on failure.
 
 The current user is the user under which PHP runs. It is probably not the same
-user you use for normal shell or FTP access.
+user you use for normal shell or FTP access. The mode can be changed only by
+user who owns the file on most systems.
 
 This function will not work on remote files as the file to be examined must be
-accessible via the servers filesystem.
+accessible via the server"s filesystem.
 
 When safe mode is enabled, PHP checks whether the files or directories you are
 about to operate on have the same UID (owner) as the script that is being
-executed. In addition, you cannot set the SUID, SGID and sticky bits
+executed. In addition, you cannot set the SUID, SGID and sticky bits.
 
-See also |chown| and |chgrp|.
+|chown| |chgrp| |fileperms| |stat|
 
 vim:ft=help:

@@ -2,9 +2,25 @@ imagecharup -- Draw a character vertically
 
   bool imagecharup(resource image, int font, int x, int y, string c, int color)~
 
-|imagecharup| draws the character {c} vertically in the image identified by
-{image} at coordinates {x}, {y} (top left is 0, 0) with the color {color}. If
-{font} is 1, 2, 3, 4 or 5, a built-in font is used.
+Draws the character {c} vertically at the specified coordinate on the given
+{image}.
+
+{ image}An image resource, returned by one of the image creation functions,
+such as |imagecreatetruecolor|.
+
+{ font}Can be 1, 2, 3, 4, 5 for built-in fonts in latin2 encoding (where
+higher numbers corresponding to larger fonts) or any of your own font
+identifiers registered with |imageloadfont|.
+
+{x} x-coordinate of the start.
+
+{y} y-coordinate of the start.
+
+{c} The character to draw.
+
+{color} A color identifier created with |imagecolorallocate|.
+
+Returns TRUE on success or FALSE on failure.
 
 |imagecharup| example
 
@@ -23,6 +39,10 @@ imagecharup -- Draw a character vertically
   imagepng($im);
 ?>
 
-See also |imagechar| and |imageloadfont|.
+The above example will output something similar to:
+
+
+
+|imagechar| |imageloadfont|
 
 vim:ft=help:

@@ -1,11 +1,13 @@
 printer_close -- Close an open printer connection
 
-  void printer_close(resource handle)~
+  void printer_close(resource printer_handle)~
 
 This function closes the printer connection. |printer_close| also closes the
 active device context.
 
-{handle} must be a valid handle to a printer.
+{printer_handle} {printer_handle} must be a valid handle to a printer.
+
+No value is returned.
 
 |printer_close| example
 
@@ -13,5 +15,9 @@ active device context.
   $handle = printer_open();
   printer_close($handle);
 ?>
+
+
+
+
 
 vim:ft=help:

@@ -1,17 +1,23 @@
-SimpleXMLElement->attributes -- Identifies an element's attributes
+SimpleXMLElement::attributes -- Identifies an element's attributes
 
-  SimpleXMLElement simplexml_element->attributes([string data])~
+  SimpleXMLElement attributes([string ns [, bool is_prefix]])~
 
 This function provides the attributes and values defined within an xml tag.
 
 SimpleXML has made a rule of adding iterative properties to most methods. They
 cannot be viewed using |var_dump| or anything else which can examine objects.
 
+{ns} An optional namespace for the retrieved attributes
+
+{is_prefix} Default to FALSE
+
+
+
 Interpret an XML string
 
 <?php >
   $string = <<<XML
-  <a>
+  <a xmlns:b>
    <foo name="one" game="lonely">1</foo>
   </a>
   XML;
@@ -22,9 +28,11 @@ Interpret an XML string
   }
 ?>
 
-This script will display:
+The above example will output:
 
   name="one"
   game="lonely"
+
+
 
 vim:ft=help:

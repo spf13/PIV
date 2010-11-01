@@ -3,8 +3,8 @@ DomNode->insert_before -- Inserts new node as child
   domelement DomNode->insert_before(domelement newnode, domelement refnode)~
 
 This function inserts the new node {newnode} right before the node {refnode}.
-The return value is the inserted node. If you plan to do further
-modifications on the appended child you must use the returned node.
+The return value is the inserted node. If you plan to do further modifications
+on the appended child you must use the returned node.
 
 (PHP >= 4.3 only) If {newnode} already is part of a document, it will be first
 unlinked from its existing context. If {refnode} is NULL, then {newnode} will
@@ -37,6 +37,10 @@ Adding a child
   echo htmlentities($xmlfile);
   echo "</pre>";
 ?>
+
+
+
+
 
 See also |domnode_append_child|.
 

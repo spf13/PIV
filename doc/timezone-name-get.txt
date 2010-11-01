@@ -1,0 +1,5 @@
+timezone_name_get -- Alias of DateTimeZone::getName
+
+This function is an alias of: DateTimeZone::getName
+
+vim:ft=help:

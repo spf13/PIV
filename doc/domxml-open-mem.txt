@@ -10,14 +10,16 @@ The function parses the XML document in the given string.
 function.
 
 You can use one of the following constants for it: DOMXML_LOAD_PARSING
-(default), DOMXML_LOAD_VALIDATING or DOMXML_LOAD_RECOVERING. You can add to
-it also DOMXML_LOAD_DONT_KEEP_BLANKS, DOMXML_LOAD_SUBSTITUTE_ENTITIES and
+(default), DOMXML_LOAD_VALIDATING or DOMXML_LOAD_RECOVERING. You can add to it
+also DOMXML_LOAD_DONT_KEEP_BLANKS, DOMXML_LOAD_SUBSTITUTE_ENTITIES and
 DOMXML_LOAD_COMPLETE_ATTRS by bitwise or.
 
 {error} If used, it will contain the error messages. {error} must be passed in
 by reference.
 
 Returns a DomDocument instance of the given XML contents.
+
+Version Description 4.3.0 The {mode} and {error} parameters were added.
 
 Opening an XML document in a string
 
@@ -31,6 +33,10 @@ Opening an XML document in a string
   
   $root = $dom->document_element();
 ?>
+
+
+
+
 
 |domxml_open_file| |domxml_new_doc|
 

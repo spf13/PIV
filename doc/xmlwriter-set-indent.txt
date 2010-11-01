@@ -1,0 +1,23 @@
+XMLWriter::setIndent -- Toggle indentation on/off
+
+Oriented object style
+
+  bool setIndent(bool indent)~
+
+Procedural style
+
+  bool xmlwriter_set_indent(bool indent, resource xmlwriter, bool indent)~
+
+Toggles indentation on or off.
+
+{ xmlwriter}Only for procedural calls. The XMLWriter resource that is being
+modified. This resource comes from a call to |xmlwriter_open_uri| or
+|xmlwriter_open_memory|.
+
+{indent} Whether indentation is enabled. Defaults to FALSE.
+
+Returns TRUE on success or FALSE on failure.
+
+XMLWriter::setIndentString
+
+vim:ft=help:

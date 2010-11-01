@@ -1,0 +1,24 @@
+XMLWriter::setIndentString -- Set string used for indenting
+
+Oriented object style
+
+  bool setIndentString(string indentString)~
+
+Procedural style
+
+  bool xmlwriter_set_indent_string(string indentString, resource xmlwriter, string indentString)~
+
+Sets the string which will be used to indent each element/attribute of the
+resulting xml.
+
+{ xmlwriter}Only for procedural calls. The XMLWriter resource that is being
+modified. This resource comes from a call to |xmlwriter_open_uri| or
+|xmlwriter_open_memory|.
+
+{indentString} The indentation string.
+
+Returns TRUE on success or FALSE on failure.
+
+XMLWriter::setIndent
+
+vim:ft=help:

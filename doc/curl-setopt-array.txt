@@ -1,0 +1,69 @@
+curl_setopt_array -- Set multiple options for a cURL transfer
+
+  bool curl_setopt_array(resource ch, array options)~
+
+Sets multiple options for a cURL session. This function is useful for setting
+a large amount of cURL options without repetitively calling |curl_setopt|.
+
+{ch} A cURL handle returned by |curl_init|.
+
+{options} An array specifying which options to set and their values. The keys
+should be valid |curl_setopt| constants or their integer equivalents.
+
+Returns TRUE if all options were successfully set. If an option could not be
+successfully set, FALSE is immediately returned, ignoring any future options
+in the {options} array.
+
+Initializing a new cURL session and fetching a web page
+
+<?php >
+  // create a new cURL resource
+  $ch = curl_init();
+  
+  // set URL and other appropriate options
+  $options = array(CURLOPT_URL => 'http://www.example.com/',
+                   CURLOPT_HEADER => false
+                  );
+  
+  curl_setopt_array($ch, $options);
+  
+  // grab URL and pass it to the browser
+  curl_exec($ch);
+  
+  // close cURL resource, and free up system resources
+  curl_close($ch);
+?>
+
+
+
+
+
+Prior to PHP 5.1.4 this function can be simulated with:
+
+Our own implementation of |curl_setopt_array|
+
+<?php >
+  if (!function_exists('curl_setopt_array')) {
+     function curl_setopt_array(&amp;$ch, $curl_options)
+     {
+         foreach ($curl_options as $option => $value) {
+             if (!curl_setopt($ch, $option, $value)) {
+                 return false;
+             } 
+         }
+         return true;
+     }
+  }
+?>
+
+
+
+
+
+As with |curl_setopt|, passing an array to CURLOPT_POST will encode the data
+as multipart/form-data, while passing a URL-encoded string will encode the
+data as application/x-www-form-urlencoded.
+
+|curl_setopt|
+
+vim:ft=help:

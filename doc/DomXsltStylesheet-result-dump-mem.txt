@@ -1,4 +1,4 @@
-DomXsltStylesheet->result_dump_mem() -- Dumps the result from a
+DomXsltStylesheet->result_dump_mem -- Dumps the result from a
 XSLT-Transformation back into a string
 
   string result_dump_mem(DomDocument xmldoc)~
@@ -19,5 +19,9 @@ Outputting the result of a XSLT transformation
   $result =  $xsldoc->process($xmldoc);
   echo $xsldoc->result_dump_mem($result);     
 ?>
+
+
+
+
 
 vim:ft=help:

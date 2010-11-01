@@ -5,6 +5,13 @@ array_count_values -- Counts all the values of an array
 |array_count_values| returns an array using the values of the {input} array as
 keys and their frequency in {input} as values.
 
+{input} The array of values to count
+
+Returns an associative array of values from {input} as keys and their count as
+value.
+
+Throws E_WARNING for every element which is not string or integer.
+
 |array_count_values| example
 
 <?php >
@@ -21,6 +28,8 @@ The above example will output:
       [world] => 1
   )
 
-See also |count|, |array_unique|, |array_values|, and |count_chars|.
+
+
+|count| |array_unique| |array_values| |count_chars|
 
 vim:ft=help:

@@ -1,0 +1,19 @@
+maxdb_stmt->close -- Closes a prepared statement
+
+Procedural style:
+
+  bool maxdb_stmt_close(resource stmt)~
+
+Object oriented style (method):
+
+  bool maxdb_stmt->close(resource stmt)~
+
+Closes a prepared statement. |maxdb_stmt_close| also deallocates the statement
+handle pointed to by {stmt}. If the current statement has pending or unread
+results, this function cancels them so that the next query can be executed.
+
+Returns TRUE on success or FALSE on failure.
+
+|maxdb_prepare|
+
+vim:ft=help:

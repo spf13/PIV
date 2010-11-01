@@ -1,0 +1,18 @@
+ps_open_file -- Opens a file for output
+
+  bool ps_open_file(resource psdoc [, string filename])~
+
+Creates a new file on disk and writes the PostScript document into it. The
+file will be closed when |ps_close| is called.
+
+{psdoc} Resource identifier of the postscript file as returned by |ps_new|.
+
+{filename} The name of the postscript file. If {filename} is not passed the
+document will be created in memory and all output will go straight to the
+browser.
+
+Returns TRUE on success or FALSE on failure.
+
+|ps_close|
+
+vim:ft=help:

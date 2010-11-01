@@ -1,8 +1,5 @@
-ocisavelobfile -- Saves a large object file
+ocisavelobfile -- Alias of
 
-  bool ocisavelobfile()~
-
-This function was renamed to |oci_lob_import| after PHP >= 5.0.0. For downward
-compatibility |ocisavelobfile| can also be used. This is deprecated, however.
+This function is an alias of: .
 
 vim:ft=help:

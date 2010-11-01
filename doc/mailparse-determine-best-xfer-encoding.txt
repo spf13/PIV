@@ -1,14 +1,25 @@
-mailparse_determine_best_xfer_encoding -- Figures out the best way of encoding
-the content read from the file pointer fp, which must be seek-able
+mailparse_determine_best_xfer_encoding -- Gets the best way of encoding
 
   string mailparse_determine_best_xfer_encoding(resource fp)~
 
-This function is EXPERIMENTAL. The behaviour of this function, the name of
-this function, and anything else documented about this function may change
-without notice in a future release of PHP. Use this function at your own
-risk.
+Figures out the best way of encoding the content read from the given file
+pointer.
 
-This function is currently not documented; only the argument list is
-available.
+{fp} A valid file pointer, which must be seek-able.
+
+Returns one of the character encodings supported by the mbstring module.
+
+|mailparse_determine_best_xfer_encoding| example
+
+<?php >
+  $fp = fopen('somemail.eml', 'r');
+  echo 'Best encoding: ' . mailparse_determine_best_xfer_encoding($fp);
+?>
+
+The above example will output something similar to:
+
+  Best encoding: 7bit
+
+
 
 vim:ft=help:

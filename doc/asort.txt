@@ -7,6 +7,11 @@ correlation with the array elements they are associated with. This is used
 mainly when sorting associative arrays where the actual element order is
 significant.
 
+{array} The input array.
+
+{sort_flags} You may modify the behavior of the sort using the optional
+parameter {sort_flags}, for details see |sort|.
+
 Returns TRUE on success or FALSE on failure.
 
 |asort| example
@@ -29,9 +34,10 @@ The above example will output:
 The fruits have been sorted in alphabetical order, and the index associated
 with each element has been maintained.
 
-You may modify the behavior of the sort using the optional parameter
-{sort_flags}, for details see |sort|.
 
-See also |arsort|, |rsort|, |ksort|, and |sort|.
+
+
+
+|arsort| The comparison of array sorting functions
 
 vim:ft=help:

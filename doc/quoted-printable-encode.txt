@@ -1,0 +1,16 @@
+quoted_printable_encode -- Convert a 8 bit string to a quoted-printable string
+
+  string quoted_printable_encode(string str)~
+
+Returns a quoted printable string created according to RFC2045, section 6.7.
+
+This function is similar to |imap_8bit|, except this one does not require the
+IMAP module to work.
+
+{str} The input string.
+
+Returns the encoded string.
+
+|quoted_printable_decode|
+
+vim:ft=help:

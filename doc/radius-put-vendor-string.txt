@@ -1,0 +1,12 @@
+radius_put_vendor_string -- Attaches a vendor specific string attribute
+
+  bool radius_put_vendor_string(resource radius_handle, int vendor, int type, string value)~
+
+This function is currently not documented; only its argument list is
+available.
+
+Returns TRUE on success or FALSE on failure.
+
+|radius_put_vendor_int|
+
+vim:ft=help:

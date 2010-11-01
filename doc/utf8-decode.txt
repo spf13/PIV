@@ -5,6 +5,10 @@ to single-byte ISO-8859-1
 
 This function decodes {data}, assumed to be UTF-8 encoded, to ISO-8859-1.
 
-See also |utf8_encode| for an explanation of UTF-8 encoding.
+{data} An UTF-8 encoded string.
+
+Returns the ISO-8859-1 translation of {data}.
+
+|utf8_encode| for an explanation of UTF-8 encoding
 
 vim:ft=help:

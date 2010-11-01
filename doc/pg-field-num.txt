@@ -28,6 +28,8 @@ The above example will output:
 
   Column 'title' is field number: 2
 
+
+
 |pg_field_name|
 
 vim:ft=help:

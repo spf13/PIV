@@ -30,6 +30,10 @@ Decompressing a String
   echo "\n<br />\n";
 ?>
 
+
+
+
+
 |bzcompress|
 
 vim:ft=help:

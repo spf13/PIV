@@ -5,6 +5,8 @@ php_logo_guid -- Gets the logo guid
 This function returns the ID which can be used to display the PHP logo using
 the built-in image. Logo is displayed only if expose_php is On.
 
+Returns PHPE9568F34-D428-11d2-A769-00AA001ACF42.
+
 |php_logo_guid| example
 
 <?php >
@@ -12,6 +14,10 @@ the built-in image. Logo is displayed only if expose_php is On.
        '?=' . php_logo_guid() . '" alt="PHP Logo !" />';
 ?>
 
-See also |phpinfo|, |phpversion|, |phpcredits| and |zend_logo_guid|.
+
+
+
+
+|phpinfo| |phpversion| |phpcredits| |zend_logo_guid|
 
 vim:ft=help:

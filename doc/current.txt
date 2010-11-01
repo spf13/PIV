@@ -5,14 +5,17 @@ current -- Return the current element in an array
 Every array has an internal pointer to its "current" element, which is
 initialized to the first element inserted into the array.
 
+{array} The array.
+
 The |current| function simply returns the value of the array element that's
 currently being pointed to by the internal pointer. It does not move the
 pointer in any way. If the internal pointer points beyond the end of the
-elements list, |current| returns FALSE. If the array contains empty elements
-(0 or "", the empty string) then this function will return FALSE for these
-elements as well. This makes it impossible to determine if you are really at
-the end of the list in such an array using |current|. To properly traverse an
-array that may contain empty elements, use the |each| function.
+elements list or the array is empty, |current| returns FALSE.
+
+This function may return Boolean FALSE, but may also return a non-Boolean
+value which evaluates to FALSE, such as 0 or "". Please read the section on
+Booleans for more information. Use the === operator for testing the return
+value of this function.
 
 Example use of |current| and friends
 
@@ -24,8 +27,22 @@ Example use of |current| and friends
   $mode = prev($transport);    // $mode = 'foot';
   $mode = end($transport);     // $mode = 'plane';
   $mode = current($transport); // $mode = 'plane';
+  
+  $arr = array();
+  var_dump(current($arr)); // bool(false)
+  
+  $arr = array(array());
+  var_dump(current($arr)); // array(0) { }
 ?>
 
-See also |end|, |key|, |next|, |prev|, and |reset|.
+
+
+
+
+You won't be able to distinguish the end of an array from a boolean FALSE
+element. To properly traverse an array which may contain FALSE elements, see
+the |each| function.
+
+|end| |key| |each| |prev| |reset| |next|
 
 vim:ft=help:

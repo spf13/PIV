@@ -1,0 +1,20 @@
+runkit_lint_file -- Check the PHP syntax of the specified file
+
+  bool runkit_lint_file(string filename)~
+
+The |runkit_lint_file| function performs a syntax (lint) check on the
+specified filename testing for scripting errors. This is similar to using php
+-l from the commandline.
+
+Sandbox support (required for |runkit_lint|, |runkit_lint_file|, and the
+Runkit_Sandbox class) is only available as of PHP 5.1.0 or specially patched
+versions of PHP 5.0, and requires that thread safety be enabled. See the
+README file included in the runkit package for more information.
+
+{filename} File containing PHP Code to be lint checked
+
+Returns TRUE on success or FALSE on failure.
+
+|runkit_lint|
+
+vim:ft=help:

@@ -3,11 +3,15 @@ recode_file -- Recode from file to file according to recode request
   bool recode_file(string request, resource input, resource output)~
 
 Recode the file referenced by file handle {input} into the file referenced by
-file handle {output} according to the recode {request}. Returns FALSE, if
-unable to comply, TRUE otherwise.
+file handle {output} according to the recode {request}.
 
-This function does not currently process filehandles referencing remote files
-(URLs). Both filehandles must refer to local files.
+{request} The desired recode request type
+
+{input} A local file handle resource for the {input}
+
+{output} A local file handle resource for the {output}
+
+Returns FALSE, if unable to comply, TRUE otherwise.
 
 Basic |recode_file| example
 
@@ -16,5 +20,14 @@ Basic |recode_file| example
   $output = fopen('output.txt', 'w');
   recode_file("us..flat", $input, $output);
 ?>
+
+
+
+
+
+This function does not currently process file handles referencing remote files
+(URLs). Both file handles must refer to local files.
+
+|fopen|
 
 vim:ft=help:

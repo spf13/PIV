@@ -1,14 +1,18 @@
 mb_encode_numericentity -- Encode character to HTML numeric string reference
 
-  string mb_encode_numericentity(string str, array convmap [, string encoding])~
+  string mb_encode_numericentity(string str, array convmap, string encoding)~
 
-|mb_encode_numericentity| converts specified character codes in string {str}
-from HTML numeric character reference to character code. It returns converted
-string.
+Converts specified character codes in string {str} from HTML numeric character
+reference to character code.
 
-{convmap} is array specifies code area to convert.
+{str} The string being encoded.
 
-{encoding} is character encoding.
+{convmap} {convmap} is array specifies code area to convert.
+
+{encoding} The {encoding} parameter is the character encoding. If it is
+omitted, the internal character encoding value will be used.
+
+The converted string.
 
 {convmap} example
 
@@ -20,6 +24,10 @@ string.
   // Specify Unicode value for start_codeN and end_codeN
   // Add offsetN to value and take bit-wise 'AND' with maskN, then
   // it converts value to numeric string reference.
+
+
+
+
 
 |mb_encode_numericentity| example
 
@@ -44,6 +52,10 @@ string.
   $str = mb_encode_numericentity($str, $convmap, "sjis-win");
 ?>
 
-See also |mb_decode_numericentity|.
+
+
+
+
+|mb_decode_numericentity|
 
 vim:ft=help:

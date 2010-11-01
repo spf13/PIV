@@ -1,13 +1,20 @@
 readdir -- Read entry from directory handle
 
-  string readdir(resource dir_handle)~
+  string readdir([resource dir_handle])~
 
 Returns the filename of the next file from the directory. The filenames are
 returned in the order in which they are stored by the filesystem.
 
 {dir_handle} The directory handle resource previously opened with |opendir|.
+If the directory handle is not specified, the last link opened by |opendir| is
+assumed.
 
 Returns the filename on success, or FALSE on failure.
+
+This function may return Boolean FALSE, but may also return a non-Boolean
+value which evaluates to FALSE, such as 0 or "". Please read the section on
+Booleans for more information. Use the === operator for testing the return
+value of this function.
 
 List all files in a directory Please note the fashion in which |readdir|'s
 return value is checked in the examples below. We are explicitly testing
@@ -37,6 +44,8 @@ directory named "0").
   }
 ?>
 
+
+
 List all files in the current directory and strip out . and ..
 
 <?php >
@@ -50,6 +59,10 @@ List all files in the current directory and strip out . and ..
   }
 ?>
 
-|is_dir| |glob|
+
+
+
+
+|is_dir| |glob| |opendir| |scandir|
 
 vim:ft=help:

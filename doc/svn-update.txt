@@ -1,0 +1,38 @@
+svn_update -- Update working copy
+
+  int svn_update(string path [, int revno [, bool recurse]])~
+
+Update working copy at {path} to revision {revno}. If {recurse} is true,
+directories will be recursively updated.
+
+{path} Path to local working copy.
+
+Relative paths will be resolved as if the current working directory was the
+one that contains the PHP binary. To use the calling script"s working
+directory, use |realpath| or dirname(__FILE__).
+
+{revno} Revision number to update to, default is SVN_REVISION_HEAD.
+
+{recurse} Whether or not to recursively update directories, default is TRUE.
+
+Returns new revision number on success, returns FALSE on failure.
+
+This function is EXPERIMENTAL. The behaviour of this function, its name, and
+surrounding documentation may change without notice in a future release of
+PHP. This function should be used at your own risk.
+
+Basic example This example demonstrates basic usage of this function:
+
+<?php >
+  echo svn_update(realpath('working-copy'));
+?>
+
+The above example will output something similar to:
+
+  234
+
+
+
+|svn_checkout| |svn_commit| SVN documentation for svn update
+
+vim:ft=help:

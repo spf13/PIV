@@ -2,8 +2,26 @@ eregi -- Case insensitive regular expression match
 
   int eregi(string pattern, string string [, array regs])~
 
-This function is identical to |ereg| except that this ignores case distinction
+This function is identical to |ereg| except that it ignores case distinction
 when matching alphabetic characters.
+
+{pattern} Case insensitive regular expression.
+
+{string} The input string.
+
+{regs} If matches are found for parenthesized substrings of {pattern} and the
+function is called with the third argument {regs}, the matches will be stored
+in the elements of the array {regs}.
+
+$regs[1] will contain the substring which starts at the first left
+parenthesis; $regs[2] will contain the substring starting at the second, and
+so on. $regs[0] will contain a copy of the complete string matched.
+
+Returns the length of the matched string if a match for {pattern} was found in
+{string}, or FALSE if no matches were found or an error occurred.
+
+If the optional parameter {regs} was not passed or the length of the matched
+string is 0, this function returns 1.
 
 |eregi| example
 
@@ -14,6 +32,13 @@ when matching alphabetic characters.
   }
 ?>
 
-See also |ereg|, |ereg_replace|, |eregi_replace|, |stripos|, and |stristr|.
+
+
+
+
+As of PHP 5.3.0 the regex extension is deprecated, calling this function will
+issue an E_DEPRECATED notice.
+
+|ereg| |ereg_replace| |eregi_replace| |stripos| |stristr|
 
 vim:ft=help:

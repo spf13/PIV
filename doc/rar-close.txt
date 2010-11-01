@@ -4,6 +4,8 @@ rar_close -- Close Rar archive and free all resources
 
 Close Rar archive and free all allocated resources.
 
-|rar_close| returns FALSE on error.
+{rar_file} A Rar file resource, opened with |rar_open|.
+
+Returns TRUE on success or FALSE on failure.
 
 vim:ft=help:

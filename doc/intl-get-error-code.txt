@@ -1,0 +1,26 @@
+intl_get_error_code -- Get the last error code
+
+  int intl_get_error_code()~
+
+Useful to handle errors occurred in static methods when there's no object to
+get error code from.
+
+Error code returned by the last API function call.
+
+|intl_get_error_code| example
+
+<?php >
+  $coll = collator_create( '<bad_param>' );
+  if( !$coll ) {
+      handle_error( intl_get_error_code() );
+  }
+?>
+
+
+
+
+
+|intl_is_failure| |intl_error_name| |intl_get_error_message|
+|collator_get_error_code| |numfmt_get_error_code|
+
+vim:ft=help:

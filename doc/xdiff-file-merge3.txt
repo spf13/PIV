@@ -1,9 +1,20 @@
 xdiff_file_merge3 -- Merge 3 files into one
 
-  mixed xdiff_file_merge3(string file1, string file2, string file3, string dest)~
+  mixed xdiff_file_merge3(string old_file, string new_file1, string new_file2, string dest)~
 
-|xdiff_file_merge3| merges files {file1}, {file2} and {file3} into one and
-stores result in file {dest}.
+Merges three files into one and stores the result in a file {dest}. The
+{old_file} is an original version while {new_file1} and {new_file2} are
+modified versions of an original.
+
+{old_file} Path to the first file. It acts as "old" file.
+
+{new_file1} Path to the second file. It acts as modified version of
+{old_file}.
+
+{new_file2} Path to the third file. It acts as modified version of {old_file}.
+
+{dest} Path of the resulting file, containing merged changed from both
+{new_file1} and {new_file2}.
 
 Returns TRUE if merge was successful, string with rejected chunks if it was
 not or FALSE if an internal error happened.
@@ -22,6 +33,8 @@ not or FALSE if an internal error happened.
   }
 ?>
 
-See also |xdiff_string_merge3|.
+
+
+|xdiff_string_merge3|
 
 vim:ft=help:

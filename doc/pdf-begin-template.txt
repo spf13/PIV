@@ -1,7 +1,10 @@
-pdf_begin_template -- Starts new template
+PDF_begin_template -- Start template definition [deprecated]
 
-  int pdf_begin_template(resource pdfdoc, float width, float height)~
+  int PDF_begin_template(resource pdfdoc, float width, float height)~
 
-Start a new template definition.
+Starts a new template definition.
+
+This function is deprecated since PDFlib version 7, use
+|PDF_begin_template_ext| instead.
 
 vim:ft=help:

@@ -33,6 +33,8 @@ The above example will output:
 
   Seek position is: 50000
 
+
+
 |pg_lo_seek|
 
 vim:ft=help:

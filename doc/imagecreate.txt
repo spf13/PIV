@@ -1,25 +1,35 @@
 imagecreate -- Create a new palette based image
 
-  resource imagecreate(int x_size, int y_size)~
+  resource imagecreate(int width, int height)~
 
-|imagecreate| returns an image identifier representing a blank image of size
-{x_size} by {y_size}.
+|imagecreate| returns an image identifier representing a blank image of
+specified size.
 
 We recommend the use of |imagecreatetruecolor|.
+
+{width} The image width.
+
+{height} The image height.
+
+Returns an image resource identifier on success, FALSE on errors.
 
 Creating a new GD image stream and outputting an image.
 
 <?php >
   header("Content-type: image/png");
-  $im = @imagecreate(100, 50)
+  $im = @imagecreate(110, 20)
       or die("Cannot Initialize new GD image stream");
-  $background_color = imagecolorallocate($im, 255, 255, 255);
+  $background_color = imagecolorallocate($im, 0, 0, 0);
   $text_color = imagecolorallocate($im, 233, 14, 91);
   imagestring($im, 1, 5, 5,  "A Simple Text String", $text_color);
   imagepng($im);
   imagedestroy($im);
 ?>
 
-See also |imagedestroy| and |imagecreatetruecolor|.
+The above example will output something similar to:
+
+
+
+|imagedestroy| |imagecreatetruecolor|
 
 vim:ft=help:

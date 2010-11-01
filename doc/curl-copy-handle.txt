@@ -2,13 +2,16 @@ curl_copy_handle -- Copy a cURL handle along with all of its preferences
 
   resource curl_copy_handle(resource ch)~
 
-This function copies a cURL handle, returning a new cURL handle with the same
-preferences.
+Copies a cURL handle keeping the same preferences.
 
-Copying a cURL handle.
+{ch} A cURL handle returned by |curl_init|.
+
+Returns a new cURL handle.
+
+Copying a cURL handle
 
 <?php >
-  // create a new curl resource
+  // create a new cURL resource
   $ch = curl_init();
   
   // set URL and other appropriate options
@@ -21,9 +24,13 @@ Copying a cURL handle.
   // grab URL (http://www.example.com/) and pass it to the browser
   curl_exec($ch2);
   
-  // close curl resources, and free up system resources
+  // close cURL resources, and free up system resources
   curl_close($ch2);
   curl_close($ch);
 ?>
+
+
+
+
 
 vim:ft=help:

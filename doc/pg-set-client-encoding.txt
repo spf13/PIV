@@ -1,8 +1,6 @@
 pg_set_client_encoding -- Set the client encoding
 
-  int pg_set_client_encoding(string encoding)~
-
-  int pg_set_client_encoding(string encoding, resource connection, string encoding)~
+  int pg_set_client_encoding([resource connection, string encoding])~
 
 |pg_set_client_encoding| sets the client encoding and returns 0 if success or
 -1 if error.
@@ -24,6 +22,36 @@ The exact list of available encodings depends on your PostgreSQL version, so
 check your PostgreSQL manual for a more specific list.
 
 Returns 0 on success or -1 on error.
+
+|pg_set_client_encoding| example
+
+<?php >
+  $conn = pg_pconnect("dbname=publisher");
+  if (!$conn) {
+    echo "An error occured.\n";
+    exit;
+  }
+  
+  // Set the client encoding to UNICODE.  Data will be automatically
+  // converted from the backend encoding to the frontend.
+  pg_set_client_encoding($conn, "UNICODE");
+  
+  $result = pg_query($conn, "SELECT author, email FROM authors");
+  if (!$result) {
+    echo "An error occured.\n";
+    exit;
+  }
+  
+  // Write out UTF-8 data
+  while ($row = pg_fetch_row($result)) {
+    echo "Author: $row[0]  E-mail: $row[1]";
+    echo "<br />\n";
+  }
+?>
+
+
+
+
 
 |pg_client_encoding|
 

@@ -16,8 +16,8 @@ position within the file. This is enabled by default.
 {value} This parameter depends on which {option} is chosen to be altered.
 
 Returns TRUE if the option could be set; FALSE if not. A warning message will
-be thrown if the {option} is not supported or the passed {value} doesn't
-match the expected value for the given {option}.
+be thrown if the {option} is not supported or the passed {value} doesn't match
+the expected value for the given {option}.
 
 |ftp_set_option| example
 
@@ -25,6 +25,10 @@ match the expected value for the given {option}.
   // Set the network timeout to 10 seconds
   ftp_set_option($conn_id, FTP_TIMEOUT_SEC, 10);
 ?>
+
+
+
+
 
 |ftp_get_option|
 

@@ -1,10 +1,11 @@
-pdf_setgray -- Sets drawing and filling color to gray value
+PDF_setgray -- Set color to gray [deprecated]
 
-  bool pdf_setgray(resource pdfdoc, float gray)~
+  bool PDF_setgray(resource p, float g)~
 
-Set the current fill and stroke color. Returns TRUE on success or FALSE on
-failure.
+Sets the current fill and stroke color to a gray value between 0 and 1
+inclusive. Returns TRUE on success or FALSE on failure.
 
-PDFlib V4.0: Deprecated, use |pdf_setcolor| instead.
+This function is deprecated since PDFlib version 4, use |PDF_setcolor|
+instead.
 
 vim:ft=help:

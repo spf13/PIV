@@ -1,10 +1,12 @@
 Rar::getPackedSize -- Get packed size of the entry
 
-  int Rar::getPackedSize()~
+  int getPackedSize()~
 
 Get packed size of the archive entry.
 
-|Rar::| example
+Returns the packed size, or FALSE on error.
+
+|Rar::getPackedSize| example
 
 <?php >
   $rar_file = rar_open('example.rar') or die("Failed to open Rar archive");
@@ -14,6 +16,8 @@ Get packed size of the archive entry.
   echo "Packed size of " . $entry->getName() . " = " . $entry->getPackedSize() . " bytes";
 ?>
 
-|Rar::getPackedSize| returns FALSE on error.
+
+
+
 
 vim:ft=help:

@@ -1,0 +1,56 @@
+locale_set_default -- Set the default Locale
+
+  bool locale_set_default(string name)~
+
+Sets the default Locale for PHP programs. Please note that this has nothing to
+do with |setlocale| nor with the system locale.
+
+{name} The new Locale name. A comprehensive list of the supported locales is
+available at .
+
+Returns TRUE on success or FALSE on failure.
+
+A |locale_set_default| example This example demonstrates a possible usage of
+|locale_set_default| to localize the |sort| functions.
+
+<?php >
+  // the list of the strings to sort
+  $array = array(
+      'caramelo',
+      'cacto',
+      'caçada'
+  );
+  
+  // set our locale (Portuguese, in this case)
+  locale_set_default('pt_PT');
+  
+  // sort using the locale we previously set
+  sort($array, SORT_LOCALE_STRING);
+  
+  print_r($array);
+?>
+
+The above example will output:
+
+  Array
+  (
+      [0] => caçada
+      [1] => cacto
+      [2] => caramelo
+  )
+
+If we didn't use the locale, PHP would sort the string using the ASCII
+characters value, thus returning (wrongly):
+
+  Array
+  (
+      [0] => cacto
+      [1] => caramelo
+      [2] => caçada
+  )
+
+
+
+|locale_get_default|
+
+vim:ft=help:

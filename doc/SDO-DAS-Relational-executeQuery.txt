@@ -1,0 +1,67 @@
+SDO_DAS_Relational::executeQuery -- Executes a given SQL query against a
+relational database and returns the results as a normalised data graph.
+
+  SDODataObject SDO_DAS_Relational::executeQuery(PDO database_handle, string SQL_statement [, array column_specifier])~
+
+This function is EXPERIMENTAL. The behaviour of this function, its name, and
+surrounding documentation may change without notice in a future release of
+PHP. This function should be used at your own risk.
+
+Executes a given query against the relational database, using the supplied PDO
+database handle. Uses the model that it built from the the metadata to
+interpret the result set. Returns a data graph.
+
+PDO_database_handle Constructed using the PDO extension. A typical line to
+construct a PDO database handle might look like this:
+
+  $dbh = new PDO("mysql:dbname=COMPANYDB;host=localhost",DATABASE_USER,DATABASE_PASSWORD);
+
+
+
+SQL_statement The SQL statement to be executed against the database.
+
+column_specifier The Relational DAS needs to examine the result set and for
+every column, know which table and which column of that table it came from. In
+some circumstances it can find this information for itself, but sometimes it
+cannot. In these cases a column specifier is needed, which is an array that
+identifies the columns. Each entry in the array is simply a string in the form
+table-name.column_name.
+
+The column specifier is needed when there are duplicate column names in the
+database metadata. For example, in the database used within the examples, all
+the tables have both a id and a name column. When the Relational DAS fetches
+the result set from PDO it can do so with the PDO_FETCH_ASSOC attribute, which
+will cause the columns in the results set to be labelled with the column name,
+but will not distinguish duplicates. So this will only work when there are no
+duplicates possible in the results set.
+
+To summarise, specify a column specifier array whenever there is any
+uncertainty about which column could be from which table and only omit it when
+every column name in the database metadata is unique.
+
+All of the examples in the Examples use a column specifier. There is one
+example in the Scenarios directory of the installation that does not: that
+which works with just the employee table, and because it works with just one
+table, there can not exist duplicate column names.
+
+Returns a data graph. Specifically, it returns a root object of a special
+type. Under this root object will be the data from the result set. The root
+object will have a multi-valued containment property with the same name as the
+application root type specified on the constructor, and that property will
+contain one or more data objects of the application root type.
+
+In the event that the query returns no data, the special root object will
+still be returned but the containment property for the application root type
+will be empty.
+
+|SDO_DAS_Relational::executeQuery| can throw an SDO_DAS_Relational_Exception
+if it is unable to construct the data graph correctly. This can occur for a
+number of reasons: for example if it finds that it does not have primary keys
+in the result set for all the objects. It also catches any PDO exceptions and
+obtains PDO diagnostic information which it includes in an
+SDO_DAS_Relational_Exception which it then throws.
+
+Please see the Examples section in the general information about the
+Relational DAS for many examples of calling this method.
+
+vim:ft=help:

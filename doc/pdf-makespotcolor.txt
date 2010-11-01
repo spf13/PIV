@@ -1,10 +1,8 @@
-pdf_makespotcolor -- Makes a spotcolor
+PDF_makespotcolor -- Make spot color
 
-  int pdf_makespotcolor(resource pdfdoc, string spotname)~
+  int PDF_makespotcolor(resource p, string spotname)~
 
-Make a named spot color from the current color. Returns TRUE on success or
-FALSE on failure.
-
-See also |pdf_setcolor|.
+Finds a built-in spot color name, or makes a named spot color from the current
+fill color. Returns TRUE on success or FALSE on failure.
 
 vim:ft=help:

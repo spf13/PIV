@@ -4,6 +4,20 @@ get_current_user -- Gets the name of the owner of the current PHP script
 
 Returns the name of the owner of the current PHP script.
 
-See also |getmyuid|, |getmygid|, |getmypid|, |getmyinode|, and |getlastmod|.
+Returns the username as a string.
+
+|get_current_user| example
+
+<?php >
+  echo 'Current script owner: ' . get_current_user();
+?>
+
+The above example will output something similar to:
+
+  Current script owner: SYSTEM
+
+
+
+|getmyuid| |getmygid| |getmypid| |getmyinode| |getlastmod|
 
 vim:ft=help:

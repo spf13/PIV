@@ -1,0 +1,27 @@
+openssl_decrypt -- Decrypts data
+
+  ReturnType openssl_decrypt(string data, string method, string password [, string raw_input])~
+
+Takes a raw or base64 encoded string and decrypts it using a given method and
+key.
+
+This function is currently not documented; only its argument list is
+available.
+
+{data} The data.
+
+{method} The cipher method.
+
+{password} The password.
+
+{raw_input} Setting to TRUE will take a raw encoded string, otherwise a base64
+string is assumed for the {data} parameter.
+
+The decrypted string on success, or FALSE on failure.
+
+Emits an E_WARNING level error if an unknown cipher algorithm is passed via
+the {method} parameter.
+
+|openssl_encrypt|
+
+vim:ft=help:

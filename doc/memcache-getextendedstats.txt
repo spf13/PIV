@@ -1,0 +1,73 @@
+Memcache::getExtendedStats -- Get statistics from all servers in pool
+
+  array Memcache::getExtendedStats([string type [, int slabid [, int limit]]])~
+
+|Memcache::getExtendedStats| returns a two-dimensional associative array with
+server statistics. Array keys correspond to host:port of server and values
+contain the individual server statistics. A failed server will have its
+corresponding entry set to FALSE. You can also use the
+|memcache_get_extended_stats| function.
+
+This function has been added to Memcache version 2.0.0.
+
+{type} The type of statistics to fetch. Valid values are {reset, malloc, maps,
+cachedump, slabs, items, sizes}. According to the memcached protocol spec
+these additional arguments "are subject to change for the convenience of
+memcache developers".
+
+{slabid} Used in conjunction with {type} set to cachedump to identify the slab
+to dump from. The cachedump command ties up the server and is strictly to be
+used for debugging purposes.
+
+{limit} Used in conjunction with {type} set to cachedump to limit the number
+of entries to dump. Default value is 100.
+
+Returns a two-dimensional associative array of server statistics or FALSE on
+failure.
+
+|Memcache::getExtendedStats| example
+
+<?php >
+      $memcache_obj = new Memcache;
+      $memcache_obj->addServer('memcache_host', 11211);
+      $memcache_obj->addServer('failed_host', 11211);
+      
+      $stats = $memcache_obj->getExtendedStats();
+      print_r($stats);
+?>
+
+The above example will output:
+
+  Array
+  (
+      [memcache_host:11211] => Array
+          (
+              [pid] => 3756
+              [uptime] => 603011
+              [time] => 1133810435
+              [version] => 1.1.12
+              [rusage_user] => 0.451931
+              [rusage_system] => 0.634903
+              [curr_items] => 2483
+              [total_items] => 3079
+              [bytes] => 2718136
+              [curr_connections] => 2
+              [total_connections] => 807
+              [connection_structures] => 13
+              [cmd_get] => 9748
+              [cmd_set] => 3096
+              [get_hits] => 5976
+              [get_misses] => 3772
+              [bytes_read] => 3448968
+              [bytes_written] => 2318883
+              [limit_maxbytes] => 33554432
+          )
+  
+      [failed_host:11211] => false
+  )
+
+
+
+|Memcache::getVersion| |Memcache::getStats|
+
+vim:ft=help:

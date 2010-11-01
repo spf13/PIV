@@ -4,8 +4,7 @@ object
   DOMElement dom_import_simplexml(SimpleXMLElement node)~
 
 This function takes the node {node} of class SimpleXML and makes it into a
-DOMElement node. This new object can then be used as a native DOMElement
-node.
+DOMElement node. This new object can then be used as a native DOMElement node.
 
 {node} The SimpleXMLElement node.
 
@@ -33,6 +32,8 @@ Import SimpleXML into DOM with |dom_import_simplexml|
   
   echo $dom->saveXML();
 ?>
+
+
 
 |simplexml_import_dom|
 

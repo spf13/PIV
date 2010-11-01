@@ -1,0 +1,18 @@
+SDO_DAS_ChangeSummary::getChangedDataObjects -- Get the changed data objects
+from a change summary
+
+  SDO_List SDO_DAS_ChangeSummary::getChangedDataObjects()~
+
+This function is EXPERIMENTAL. The behaviour of this function, its name, and
+surrounding documentation may change without notice in a future release of
+PHP. This function should be used at your own risk.
+
+Get an SDO_List of the SDO_DataObjects which have been changed. These data
+objects can then be used to identify the types of change made to each, along
+with the old values.
+
+None.
+
+Returns an SDO_List of SDO_DataObjects.
+
+vim:ft=help:

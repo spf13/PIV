@@ -6,10 +6,22 @@ session_start -- Initialize session data
 current session id that's being passed via a request, such as GET, POST, or a
 cookie.
 
-This function always returns TRUE.
+If you want to use a named session, you must call |session_name| before
+calling |session_start|.
 
-If you are using cookie-based sessions, you must call |session_start| before
-anything is outputted to the browser.
+|session_start| will register internal output handler for URL rewriting when
+trans-sid is enabled. If a user uses ob_gzhandler or like with |ob_start|, the
+order of output handler is important for proper output. For example, user must
+register ob_gzhandler before session start.
+
+This function returns TRUE if session was started with success otherwise
+FALSE.
+
+Version Description 5.3.0 If session fails to start for some reason, then
+FALSE is returned where previously TRUE always was returned. 4.3.3 As of now,
+calling |session_start| while the session has already been started will result
+in an error of level E_NOTICE. Also, the second session start will simply be
+ignored.
 
 A session example: page1.php
 
@@ -30,6 +42,10 @@ A session example: page1.php
   // Or maybe pass along the session id, if needed
   echo '<br /><a href="page2.php?' . SID . '">page 2</a>';
 ?>
+
+
+
+
 
 After viewing page1.php, the second page page2.php will magically contain the
 session data. Read the session reference for information on propagating
@@ -52,20 +68,18 @@ A session example: page2.php
   echo '<br /><a href="page1.php">page 1</a>';
 ?>
 
-If you want to use a named session, you must call |session_name| before
-calling |session_start|.
 
-|session_start| will register internal output handler for URL rewriting when
-trans-sid is enabled. If a user uses ob_gzhandler or like with |ob_start|,
-the order of output handler is important for proper output. For example, user
-must register ob_gzhandler before session start.
+
+
+
+If you are using cookie-based sessions, you must call |session_start| before
+anything is outputted to the browser.
 
 Use of zlib.output_compression is recommended rather than |ob_gzhandler|
 
-As of PHP 4.3.3, calling |session_start| while the session has already been
-started will result in an error of level E_NOTICE. Also, the second session
-start will simply be ignored.
+This function will send out several HTTP headers depending on the
+configuration. See |session_cache_limiter| to customize these headers.
 
-See also $_SESSION, session.auto_start, and |session_id|.
+$_SESSION The session.auto_start configuration directive |session_id|
 
 vim:ft=help:

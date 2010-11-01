@@ -4,31 +4,33 @@ odbc_setoption -- Adjust ODBC settings
 
 This function allows fiddling with the ODBC options for a particular
 connection or query result. It was written to help find work around to
-problems in quirky ODBC drivers. You should probably only use this function
-if you are an ODBC programmer and understand the effects the various options
-will have. You will certainly need a good ODBC reference to explain all the
+problems in quirky ODBC drivers. You should probably only use this function if
+you are an ODBC programmer and understand the effects the various options will
+have. You will certainly need a good ODBC reference to explain all the
 different options and values that can be used. Different driver versions
 support different options.
 
 Because the effects may vary depending on the ODBC driver, use of this
 function in scripts to be made publicly available is strongly discouraged.
 Also, some ODBC options are not available to this function because they must
-be set before the connection is established or the query is prepared.
-However, if on a particular job it can make PHP work so your boss doesn't
-tell you to use a commercial product, that's all that really matters.
+be set before the connection is established or the query is prepared. However,
+if on a particular job it can make PHP work so your boss doesn't tell you to
+use a commercial product, that's all that really matters.
 
-Returns TRUE on success or FALSE on failure.
-
-{id} is a connection id or result id on which to change the settings.For
+{id} Is a connection id or result id on which to change the settings. For
 SQLSetConnectOption(), this is a connection id. For SQLSetStmtOption(), this
 is a result id.
 
-{Function} is the ODBC function to use. The value should be 1 for
+{function} Is the ODBC function to use. The value should be 1 for
 SQLSetConnectOption() and 2 for SQLSetStmtOption().
 
-Parameter {option} is the option to set.
+{option} The option to set.
 
-Parameter {param} is the value for the given {option}. ODBC Setoption Examples
+{param} The value for the given {option}.
+
+Returns TRUE on success or FALSE on failure.
+
+|odbc_setoption| examples
 
 <?php >
   // 1. Option 102 of SQLSetConnectOption() is SQL_AUTOCOMMIT.
@@ -45,5 +47,9 @@ Parameter {param} is the value for the given {option}. ODBC Setoption Examples
   odbc_setoption($result, 2, 0, 30);
   odbc_execute($result);
 ?>
+
+
+
+
 
 vim:ft=help:

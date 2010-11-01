@@ -1,0 +1,29 @@
+gnupg_clearsignkeys -- Removes all keys which were set for signing before
+
+  bool gnupg_clearsignkeys(resource identifier)~
+
+{identifier} The gnupg identifier, from a call to |gnupg_init| or gnupg.
+
+Returns TRUE on success or FALSE on failure.
+
+Procedural |gnupg_clearsignkeys| example
+
+<?php >
+  $res = gnupg_init();
+  gnupg_clearsignkeys($res);
+?>
+
+
+
+OO |gnupg_clearsignkeys| example
+
+<?php >
+  $gpg = new gnupg();
+  $gpg -> clearsignkeys();
+?>
+
+
+
+
+
+vim:ft=help:

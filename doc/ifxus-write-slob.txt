@@ -2,8 +2,14 @@ ifxus_write_slob -- Writes a string into the slob object
 
   int ifxus_write_slob(int bid, string content)~
 
-Writes a string into the slob object. {bid} is an existing slob id and
-{content} the content to write. Return FALSE on error otherwise bytes
-written.
+Writes a string into the slob object.
+
+{bid} An existing slob id.
+
+{content} The content to write, as a string.
+
+Returns the bytes written as an integer, or FALSE on errors.
+
+|ifxus_read_slob|
 
 vim:ft=help:

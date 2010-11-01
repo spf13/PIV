@@ -1,0 +1,30 @@
+runkit_function_add -- Add a new function, similar to create_function
+
+  bool runkit_function_add(string funcname, string arglist, string code)~
+
+{funcname} Name of function to be created
+
+{arglist} Comma separated argument list
+
+{code} Code making up the function
+
+Returns TRUE on success or FALSE on failure.
+
+A |runkit_function_add| example
+
+<?php >
+  runkit_function_add('testme','$a,$b','echo "The value of a is $a\n"; echo "The value of b is $b\n";');
+  testme(1,2);
+?>
+
+The above example will output:
+
+  The value of a is 1
+  The value of b is 2
+
+
+
+|create_function| |runkit_function_redefine| |runkit_function_copy|
+|runkit_function_rename| |runkit_function_remove| |runkit_method_add|
+
+vim:ft=help:

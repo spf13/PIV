@@ -18,6 +18,10 @@ A string containing the {connection} options, or FALSE on error.
      echo pg_options($pgsql_conn);
 ?>
 
+
+
+
+
 |pg_connect|
 
 vim:ft=help:

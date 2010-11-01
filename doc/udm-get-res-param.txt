@@ -2,12 +2,11 @@ udm_get_res_param -- Get mnoGoSearch result parameters
 
   string udm_get_res_param(resource res, int param)~
 
-|udm_get_res_param| returns result parameter value on success, FALSE on error.
+Gets the mnoGoSearch result parameters.
 
-{res} - a link to result identifier, received after call to |udm_find|.
+{res} {res} - a link to result identifier, received after call to |udm_find|.
 
-{param} - parameter identifier, may have the following values:
-
+{param} {param} - parameter identifier, may have the following values:
 UDM_PARAM_NUM_ROWS - number of received found links on the current page. It is
 equal to UDM_PARAM_PAGE_SIZE for all search pages, on the last page - the rest
 of links.
@@ -24,5 +23,7 @@ page.
 
 UDM_PARAM_LAST_DOC - the number of the last document displayed on current
 page.
+
+|udm_get_res_param| returns result parameter value on success, FALSE on error.
 
 vim:ft=help:

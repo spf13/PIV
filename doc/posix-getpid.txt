@@ -4,4 +4,18 @@ posix_getpid -- Return the current process identifier
 
 Return the process identifier of the current process.
 
+Returns the identifier, as an integer.
+
+Example use of |posix_getpid|
+
+<?php >
+  echo posix_getpid(); //8805
+?>
+
+
+
+
+
+|posix_kill| to kill a process. POSIX man page GETPID(2)
+
 vim:ft=help:

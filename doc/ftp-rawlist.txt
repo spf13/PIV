@@ -46,6 +46,8 @@ The above example will output something similar to:
     string(73) "lrwxrwxrwx   1 vincent  vincent        11 Jul 12 12:16 www -> public_html"
   }
 
+
+
 Version Description 4.3.0 {recursive} was added.
 
 |ftp_nlist|

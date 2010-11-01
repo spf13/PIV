@@ -1,0 +1,67 @@
+maxdb->character_set_name -- Returns the default character set for the
+database connection
+
+Procedural style:
+
+  string maxdb_character_set_name(resource link)~
+
+Object oriented style (method):
+
+  string character_set_name(resource link)~
+
+Returns the current character set for the database connection specified by the
+{link} parameter.
+
+The default character set for the current connection, either ascii or unicode.
+
+Object oriented style
+
+<?php >
+  /* Open a connection */
+  $maxdb = new maxdb("localhost", "MONA", "RED", "DEMODB");
+  
+  /* check connection */
+  if (maxdb_connect_errno()) {
+     printf("Connect failed: %s\n", maxdb_connect_error());
+     exit();
+  }
+  
+  /* Print current character set */
+  $charset = $maxdb->character_set_name();
+  printf ("Current character set is %s\n", $charset);
+  
+  $maxdb->close();
+?>
+
+
+
+Procedural style
+
+<?php >
+  $link = maxdb_connect("localhost", "MONA", "RED", "DEMODB");
+  
+  /* check connection */
+  if (!$link) {
+     printf("Connect failed: %s\n", maxdb_connect_error());
+     exit();
+  }
+  
+  /* Print current character set */
+  $charset = maxdb_character_set_name($link);
+  printf ("Current character set is %s\n",$charset);
+  
+  /* close connection */
+  maxdb_close($link);
+?>
+
+
+
+The above example will output something similar to:
+
+
+
+  Current character set is ascii
+
+|maxdb_client_encoding| |maxdb_real_escape_string|
+
+vim:ft=help:

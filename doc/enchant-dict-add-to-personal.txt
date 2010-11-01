@@ -1,0 +1,15 @@
+enchant_dict_add_to_personal -- add a word to personal word list
+
+  void enchant_dict_add_to_personal(resource dict, string word)~
+
+Add a word to personal word list of the given dictionary.
+
+{dict} Dictionary resource
+
+{word} The word to add
+
+Returns TRUE on success or FALSE on failure.
+
+|enchant_broker_request_pwl_dict| |enchant_broker_request_dict|
+
+vim:ft=help:

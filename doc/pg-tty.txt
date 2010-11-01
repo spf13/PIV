@@ -27,4 +27,8 @@ A string containing the debug TTY of the {connection}, or FALSE on error.
   }
 ?>
 
+
+
+
+
 vim:ft=help:

@@ -3,20 +3,28 @@ localtime -- Get the local time
   array localtime([int timestamp [, bool is_associative]])~
 
 The |localtime| function returns an array identical to that of the structure
-returned by the C function call. The first argument to |localtime| is the
-timestamp, if this is not given the current time as returned from |time| is
-used. The second argument to the |localtime| is the {is_associative}, if this
-is set to FALSE or not supplied than the array is returned as a regular,
-numerically indexed array. If the argument is set to TRUE then |localtime| is
-an associative array containing all the different elements of the structure
-returned by the C function call to localtime. The names of the different keys
-of the associative array are as follows: "tm_sec" - seconds
+returned by the C function call.
+
+{timestamp} The optional {timestamp} parameter is an integer Unix timestamp
+that defaults to the current local time if a {timestamp} is not given. In
+other words, it defaults to the value of |time|.
+
+{is_associative} If set to FALSE or not supplied then the array is returned as
+a regular, numerically indexed array. If the argument is set to TRUE then
+|localtime| returns an associative array containing all the different elements
+of the structure returned by the C function call to localtime. The names of
+the different keys of the associative array are as follows:
+
+"tm_sec" - seconds
 
 "tm_min" - minutes
 
 "tm_hour" - hour
 
 "tm_mday" - day of the month
+
+Months are from 0 (Jan) to 11 (Dec) and days of the week are from 0 (Sun) to 6
+(Sat).
 
 "tm_mon" - month of the year, starting with 0 for January
 
@@ -28,10 +36,14 @@ of the associative array are as follows: "tm_sec" - seconds
 
 "tm_isdst" - Is daylight savings time in effect
 
-Months are from 0 (Jan) to 11 (Dec) and days of the week are from 0 (Sun) to 6
-(Sat).
+Every call to a date/time function will generate a E_NOTICE if the time zone
+is not valid, and/or a E_STRICT or E_WARNING message if using the system
+settings or the TZ environment variable. See also |date_default_timezone_set|
 
-|time| example
+Version Description 5.1.0 Now issues the E_STRICT and E_NOTICE time zone
+errors.
+
+|localtime| example
 
 <?php >
   $localtime = localtime();
@@ -52,7 +64,7 @@ The above example will output something similar to:
       [5] => 105
       [6] => 0
       [7] => 92
-      [9] => 1
+      [8] => 1
   )
   
   Array
@@ -67,5 +79,7 @@ The above example will output something similar to:
       [tm_yday] => 92
       [tm_isdst] => 1
   )
+
+
 
 vim:ft=help:

@@ -1,0 +1,127 @@
+PDO::sqliteCreateAggregate -- Registers an aggregating User Defined Function
+for use in SQL statements
+
+  bool sqliteCreateAggregate(string function_name, callback step_func, callback finalize_func [, int num_args])~
+
+This function is EXPERIMENTAL. The behaviour of this function, its name, and
+surrounding documentation may change without notice in a future release of
+PHP. This function should be used at your own risk.
+
+This method is similar to except that it registers functions that can be used
+to calculate a result aggregated across all the rows of a query.
+
+The key difference between this method and is that two functions are required
+to manage the aggregate.
+
+{function_name} The name of the function used in SQL statements.
+
+{step_func} Callback function called for each row of the result set. Your PHP
+function should accumulate the result and store it in the aggregation context.
+
+  bool (string function_name, callback step_func, callback finalize_func [, int num_args, mixed context, int rownumber, mixed value1 [, mixed value2 [, mixed ..]]])~
+
+This function need to be defined as:
+
+context will be NULL for the first row; on subsequent rows it will have the
+value that was previously returned from the step function; you should use this
+to maintain the aggregate state.
+
+rownumber will hold the current row number.
+
+{finalize_func} Callback function to aggregate the "stepped" data from each
+row. Once all the rows have been processed, this function will be called and
+it should then take the data from the aggregation context and return the
+result. Callback functions should return a type understood by SQLite (i.e.
+scalar type).
+
+  bool (string function_name, callback step_func, callback finalize_func [, int num_args, mixed context, int rownumber, mixed value1 [, mixed value2 [, mixed .., mixed context, int rownumber]]])~
+
+This function need to be defined as:
+
+context will hold the return value from the very last call to the step
+function.
+
+rownumber will hold the number of rows over which the aggregate was performed.
+
+The return value of this function will be used as the return value for the
+aggregate.
+
+{num_args} Hint to the SQLite parser if the callback function accepts a
+predetermined number of arguments.
+
+Returns TRUE on success or FALSE on failure.
+
+max_length aggregation function example
+
+<?php >
+  $data = array(
+     'one',
+     'two',
+     'three',
+     'four',
+     'five',
+     'six',
+     'seven',
+     'eight',
+     'nine',
+     'ten',
+     );
+  $db = new PDO('sqlite::memory:');
+  $db->exec("CREATE TABLE strings(a)");
+  $insert = $db->prepare('INSERT INTO strings VALUES (?)');
+  foreach ($data as $str) {
+      $insert->execute(array($str));
+  }
+  $insert = null;
+  
+  function max_len_step(&amp;$context, $rownumber, $string) 
+  {
+      if (strlen($string) > $context) {
+          $context = strlen($string);
+      }
+  	return $context;
+  }
+  
+  function max_len_finalize(&amp;$context, $rownumber) 
+  {
+      return $context;
+  }
+  
+  $db->sqliteCreateAggregate('max_len', 'max_len_step', 'max_len_finalize');
+  
+  var_dump($db->query('SELECT max_len(a) from strings')->fetchAll());
+?>
+
+
+
+
+
+In this example, we are creating an aggregating function that will calculate
+the length of the longest string in one of the columns of the table. For each
+row, the max_len_step function is called and passed a {context} parameter. The
+context parameter is just like any other PHP variable and be set to hold an
+array or even an object value. In this example, we are simply using it to hold
+the maximum length we have seen so far; if the {string} has a length longer
+than the current maximum, we update the context to hold this new maximum
+length.
+
+After all of the rows have been processed, SQLite calls the max_len_finalize
+function to determine the aggregate result. Here, we could perform some kind
+of calculation based on the data found in the {context}. In our simple example
+though, we have been calculating the result as the query progressed, so we
+simply need to return the context value.
+
+It is NOT recommended for you to store a copy of the values in the context and
+then process them at the end, as you would cause SQLite to use a lot of memory
+to process the query - just think of how much memory you would need if a
+million rows were stored in memory, each containing a string 32 bytes in
+length.
+
+You can use and to override SQLite native SQL functions.
+
+This method is not available with the SQLite2 driver. Use the old style sqlite
+API for that instead.
+
+|sqlite_create_function| |sqlite_create_aggregate|
+
+vim:ft=help:

@@ -1,0 +1,23 @@
+XMLWriter::writeRaw -- Write a raw XML text
+
+Oriented object style
+
+  bool writeRaw(string content)~
+
+Procedural style
+
+  bool xmlwriter_write_raw(string content, resource xmlwriter, string content)~
+
+Writes a raw xml text.
+
+{ xmlwriter}Only for procedural calls. The XMLWriter resource that is being
+modified. This resource comes from a call to |xmlwriter_open_uri| or
+|xmlwriter_open_memory|.
+
+{content} The text string to write.
+
+Returns TRUE on success or FALSE on failure.
+
+XMLWriter::text
+
+vim:ft=help:

@@ -4,6 +4,10 @@ str_shuffle -- Randomly shuffles a string
 
 |str_shuffle| shuffles a string. One permutation of all possible is created.
 
+{str} The input string.
+
+Returns the shuffled string.
+
 |str_shuffle| example
 
 <?php >
@@ -14,6 +18,10 @@ str_shuffle -- Randomly shuffles a string
   echo $shuffled;
 ?>
 
-See also |shuffle| and |rand|.
+
+
+
+
+|shuffle| |rand|
 
 vim:ft=help:

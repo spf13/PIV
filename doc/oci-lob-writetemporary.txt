@@ -1,0 +1,17 @@
+OCI-Lob->writeTemporary -- Writes temporary large object
+
+  bool writeTemporary(string data [, int lob_type])~
+
+Creates a temporary large object and writes {data} to it.
+
+You should use when you are done with this object.
+
+{data} The data to write.
+
+{lob_type} Can be one of the following: OCI_TEMP_BLOB is used to create
+temporary BLOBs OCI_TEMP_CLOB (default value) is used to create temporary
+CLOBs
+
+Returns TRUE on success or FALSE on failure.
+
+vim:ft=help:

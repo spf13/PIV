@@ -1,0 +1,14 @@
+ps_fill_stroke -- Fills and strokes the current path
+
+  bool ps_fill_stroke(resource psdoc)~
+
+Fills and draws the path constructed with previously called drawing functions
+like |ps_lineto|.
+
+{psdoc} Resource identifier of the postscript file as returned by |ps_new|.
+
+Returns TRUE on success or FALSE on failure.
+
+|ps_fill| |ps_stroke|
+
+vim:ft=help:

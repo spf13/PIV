@@ -1,85 +1,97 @@
 session_set_save_handler -- Sets user-level session storage functions
 
-  bool session_set_save_handler(string open, string close, string read, string write, string destroy, string gc)~
+  bool session_set_save_handler(callback open, callback close, callback read, callback write, callback destroy, callback gc)~
 
 |session_set_save_handler| sets the user-level session storage functions which
 are used for storing and retrieving data associated with a session. This is
-most useful when a storage method other than those supplied by PHP sessions
-is preferred. i.e. Storing the session data in a local database. Returns TRUE
-on success or FALSE on failure.
+most useful when a storage method other than those supplied by PHP sessions is
+preferred. i.e. Storing the session data in a local database.
 
-The "write" handler is not executed until after the output stream is closed.
-Thus, output from debugging statements in the "write" handler will never be
-seen in the browser. If debugging output is necessary, it is suggested that
-the debug output be written to a file instead.
+{open} Open function, this works like a constructor in classes and is executed
+when the session is being opened. The open function expects two parameters,
+where the first is the save path and the second is the session name.
 
-The following example provides file based session storage similar to the PHP
-sessions default save handler {files}. This example could easily be extended
-to cover database storage using your favorite PHP supported database engine.
+{close} Close function, this works like a destructor in classes and is
+executed when the session operation is done.
 
-Read function must return string value always to make save handler work as
-expected. Return empty string if there is no data to read. Return values from
-other handlers are converted to boolean expression. TRUE for success, FALSE
-for failure.
+{read} Read function must return string value always to make save handler work
+as expected. Return empty string if there is no data to read. Return values
+from other handlers are converted to boolean expression. TRUE for success,
+FALSE for failure.
 
-|session_set_save_handler| example
+{write} The "write" handler is not executed until after the output stream is
+closed. Thus, output from debugging statements in the "write" handler will
+never be seen in the browser. If debugging output is necessary, it is
+suggested that the debug output be written to a file instead.
+
+{destroy} The destroy handler, this is executed when a session is destroyed
+with |session_destroy| and takes the session id as its only parameter.
+
+{gc} The garbage collector, this is executed when the session garbage
+collector is executed and takes the max session lifetime as its only
+parameter.
+
+Returns TRUE on success or FALSE on failure.
+
+|session_set_save_handler| example The following example provides file based
+session storage similar to the PHP sessions default save handler {files}. This
+example could easily be extended to cover database storage using your favorite
+PHP supported database engine.
 
 <?php >
-  function open($save_path, $session_name) 
+  function open($save_path, $session_name)
   {
-    global $sess_save_path, $sess_session_name;
-         
+    global $sess_save_path;
+  
     $sess_save_path = $save_path;
-    $sess_session_name = $session_name;
     return(true);
   }
   
-  function close() 
+  function close()
   {
     return(true);
   }
   
-  function read($id) 
+  function read($id)
   {
-    global $sess_save_path, $sess_session_name;
+    global $sess_save_path;
   
     $sess_file = "$sess_save_path/sess_$id";
-    if ($fp = @fopen($sess_file, "r")) {
-      $sess_data = fread($fp, filesize($sess_file));
-      return($sess_data);
-    } else {
-      return(""); // Must return "" here.
-    }
-  
+    return (string) @file_get_contents($sess_file);
   }
   
-  function write($id, $sess_data) 
+  function write($id, $sess_data)
   {
-    global $sess_save_path, $sess_session_name;
+    global $sess_save_path;
   
     $sess_file = "$sess_save_path/sess_$id";
     if ($fp = @fopen($sess_file, "w")) {
-      return(fwrite($fp, $sess_data));
+      $return = fwrite($fp, $sess_data);
+      fclose($fp);
+      return $return;
     } else {
       return(false);
     }
   
   }
   
-  function destroy($id) 
+  function destroy($id)
   {
-    global $sess_save_path, $sess_session_name;
-         
+    global $sess_save_path;
+  
     $sess_file = "$sess_save_path/sess_$id";
     return(@unlink($sess_file));
   }
   
-  /*********************************************
-   * WARNING - You will need to implement some *
-   * sort of garbage collection routine here.  *
-   *********************************************/
-  function gc($maxlifetime) 
+  function gc($maxlifetime)
   {
+    global $sess_save_path;
+  
+    foreach (glob("$sess_save_path/sess_*") as $filename) {
+      if (filemtime($filename) + $maxlifetime < time()) {
+        @unlink($filename);
+      }
+    }
     return true;
   }
   
@@ -90,6 +102,19 @@ for failure.
   // proceed to use sessions normally
 ?>
 
-See also the session.save_handler configuration directive.
+
+
+As of PHP 5.0.5 the {write} and {close} handlers are called after object
+destruction and therefore cannot use objects or throw exceptions. The object
+destructors can however use sessions.
+
+It is possible to call |session_write_close| from the destructor to solve this
+chicken and egg problem.
+
+Current working directory is changed with some SAPIs if session is closed in
+the script termination. It is possible to close the session earlier with
+|session_write_close|.
+
+The session.save_handler configuration directive
 
 vim:ft=help:

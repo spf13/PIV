@@ -2,8 +2,10 @@ ncurses_panel_below -- Returns the panel below panel
 
   resource ncurses_panel_below(resource panel)~
 
-This function is currently not documented; only the argument list is
+This function is currently not documented; only its argument list is
 available.
+
+{panel}
 
 If panel is null, returns the top panel in the stack.
 

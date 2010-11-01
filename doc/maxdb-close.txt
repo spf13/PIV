@@ -1,0 +1,18 @@
+maxdb->close -- Closes a previously opened database connection
+
+Procedural style:
+
+  bool maxdb_close(resource link)~
+
+Object oriented style (method):
+
+  bool close(resource link)~
+
+The |maxdb_close| function closes a previously opened database connection
+specified by the {link} parameter.
+
+Returns TRUE on success or FALSE on failure.
+
+|maxdb_connect| |maxdb_init| |maxdb_real_connect|
+
+vim:ft=help:

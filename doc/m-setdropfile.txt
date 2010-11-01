@@ -1,0 +1,14 @@
+m_setdropfile -- Set the connection method to Drop-File
+
+  int m_setdropfile(resource conn, string directory)~
+
+This function is currently not documented; only its argument list is
+available.
+
+{ conn}An MCVE_CONN resource returned by |m_initengine|.
+
+{directory}
+
+
+
+vim:ft=help:

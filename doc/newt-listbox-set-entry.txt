@@ -1,0 +1,16 @@
+newt_listbox_set_entry --
+
+  void newt_listbox_set_entry(resource listbox, int num, string text)~
+
+This function is currently not documented; only its argument list is
+available.
+
+{listbox}
+
+{num}
+
+{text}
+
+No value is returned.
+
+vim:ft=help:

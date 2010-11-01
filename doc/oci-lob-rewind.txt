@@ -1,11 +1,10 @@
-lob->rewind -- Moves the internal pointer to the beginning of the large object
+OCI-Lob->rewind -- Moves the internal pointer to the beginning of the large
+object
 
-  bool lob->rewind()~
+  bool rewind()~
 
 Sets the internal pointer to the beginning of the large object.
 
 Returns TRUE on success or FALSE on failure.
-
-See also |oci_lob_seek| and |oci_lob_tell|.
 
 vim:ft=help:

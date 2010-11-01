@@ -1,0 +1,26 @@
+date_create -- Returns new DateTime object
+
+  DateTime date_create([string time [, DateTimeZone timezone]])~
+
+{time} String in a format accepted by |strtotime|, defaults to "now".
+
+{timezone} Time zone of the time.
+
+Returns DateTime object on success or FALSE on failure.
+
+|date_create| example
+
+<?php >
+  date_default_timezone_set('Europe/London');
+  
+  $datetime = date_create('2008-08-03 14:52:10');
+  echo date_format($datetime, DATE_ATOM);
+?>
+
+The above example will output:
+
+  2008-08-03T14:52:10+01:00
+
+
+
+vim:ft=help:

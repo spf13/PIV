@@ -1,0 +1,17 @@
+ps_delete -- Deletes all resources of a PostScript document
+
+  bool ps_delete(resource psdoc)~
+
+Mainly frees memory used by the document. Also closes a file, if it was not
+closed before with |ps_close|. You should in any case close the file with
+|ps_close| before, because |ps_close| not just closes the file but also
+outputs a trailor containing PostScript comments like the number of pages in
+the document and adding the bookmark hierarchy.
+
+{psdoc} Resource identifier of the postscript file as returned by |ps_new|.
+
+Returns TRUE on success or FALSE on failure.
+
+|ps_close|
+
+vim:ft=help:

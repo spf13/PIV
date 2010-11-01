@@ -3,9 +3,12 @@ the backend
 
   string xslt_backend_info()~
 
-|xslt_backend_info| returns a string with information about the compilation
-setting of the backend or an error string when no information available.
+|xslt_backend_info| gets information about the compilation settings of the
+backend.
 
-|xslt_backend_name| and |xslt_backend_version|.
+Returns a string with information about the compilation setting of the backend
+or an error string when no information available.
+
+|xslt_backend_name| |xslt_backend_version|
 
 vim:ft=help:

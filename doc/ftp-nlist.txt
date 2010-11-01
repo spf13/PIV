@@ -38,6 +38,8 @@ The above example will output something similar to:
     [2]=>
     string(3) "www"
 
+
+
 |ftp_rawlist|
 
 vim:ft=help:

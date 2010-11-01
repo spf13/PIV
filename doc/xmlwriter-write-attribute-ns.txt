@@ -1,0 +1,30 @@
+XMLWriter::writeAttributeNS -- Write full namespaced attribute
+
+Oriented object style
+
+  bool writeAttributeNS(string prefix, string name, string uri, string content)~
+
+Procedural style
+
+  bool xmlwriter_write_attribute_ns(string prefix, string name, string uri, string content, resource xmlwriter, string prefix, string name, string uri, string content)~
+
+Writes a full namespaced attribute.
+
+{ xmlwriter}Only for procedural calls. The XMLWriter resource that is being
+modified. This resource comes from a call to |xmlwriter_open_uri| or
+|xmlwriter_open_memory|.
+
+{prefix} The namespace prefix.
+
+{name} The attribute name.
+
+{uri} The namespace URI.
+
+{content} The attribute value.
+
+Returns TRUE on success or FALSE on failure.
+
+XMLWriter::writeAttribute XMLWriter::startAttribute
+XMLWriter::startAttributeNS XMLWriter::endAttribute
+
+vim:ft=help:

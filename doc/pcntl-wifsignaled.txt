@@ -1,14 +1,17 @@
-pcntl_wifsignaled -- Returns TRUE if status code represents a termination due
-to a signal
+pcntl_wifsignaled -- Checks whether the status code represents a termination
+due to a signal
 
   bool pcntl_wifsignaled(int status)~
 
-Returns TRUE if the child process exited because of a signal which was not
+Checks whether the child process exited because of a signal which was not
 caught.
 
-The parameter {status} is the status parameter supplied to a successfull call
-to |pcntl_waitpid|.
+{status} The {status} parameter is the status parameter supplied to a
+successful call to |pcntl_waitpid|.
 
-See also |pcntl_waitpid| and |pcntl_signal|.
+Returns TRUE if the child process exited because of a signal which was not
+caught, FALSE otherwise.
+
+|pcntl_waitpid| |pcntl_signal|
 
 vim:ft=help:

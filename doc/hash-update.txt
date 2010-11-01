@@ -1,0 +1,13 @@
+hash_update -- Pump data into an active hashing context
+
+  bool hash_update(resource context, string data)~
+
+{context} Hashing context returned by |hash_init|.
+
+{data} Message to be included in the hash digest.
+
+Returns TRUE.
+
+|hash_init| |hash_update_file| |hash_update_stream| |hash_final|
+
+vim:ft=help:

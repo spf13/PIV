@@ -1,0 +1,13 @@
+OCI-Collection->assignElem -- Assigns a value to the element of the collection
+
+  bool assignElem(int index, mixed value)~
+
+Assigns a value to the element with index {index}.
+
+{index} The element index. First index is 1.
+
+{value} Can be a string or a number.
+
+Returns TRUE on success or FALSE on failure.
+
+vim:ft=help:

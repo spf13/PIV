@@ -1,13 +1,11 @@
-mailparse_msg_create -- Returns a handle that can be used to parse a message
+mailparse_msg_create -- Create a mime mail resource
 
   resource mailparse_msg_create()~
 
-This function is EXPERIMENTAL. The behaviour of this function, the name of
-this function, and anything else documented about this function may change
-without notice in a future release of PHP. Use this function at your own
-risk.
+Create a MIME mail resource.
 
-This function is currently not documented; only the argument list is
-available.
+Returns a handle that can be used to parse a message.
+
+|mailparse_msg_free| |mailparse_msg_parse_file|
 
 vim:ft=help:

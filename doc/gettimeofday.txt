@@ -5,8 +5,10 @@ gettimeofday -- Get current time
 This is an interface to gettimeofday(2). It returns an associative array
 containing the data returned from the system call.
 
-Since PHP 5.1.0 there is an optional parameter, {return_float}, which makes
-|gettimeofday| return a float when it is set to TRUE.
+{return_float} When set to TRUE, a float instead of an array is returned.
+
+By default an array is returned. If {return_float} is set, then a float is
+returned.
 
 Array keys: "sec" - seconds since the Unix Epoch
 
@@ -15,6 +17,8 @@ Array keys: "sec" - seconds since the Unix Epoch
 "minuteswest" - minutes west of Greenwich
 
 "dsttime" - type of dst correction
+
+Version Description 5.1.0 The {return_float} parameter was added.
 
 |gettimeofday| example
 
@@ -35,5 +39,7 @@ The above example will output something similar to:
   )
   
   1073504408.23910
+
+
 
 vim:ft=help:

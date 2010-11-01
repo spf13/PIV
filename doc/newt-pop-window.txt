@@ -1,0 +1,12 @@
+newt_pop_window -- Removes the top window from the display
+
+  void newt_pop_window()~
+
+Removes the top window from the display, and redraws the display areas which
+the window overwrote.
+
+No value is returned.
+
+|newt_open_window| |newt_centered_window|
+
+vim:ft=help:

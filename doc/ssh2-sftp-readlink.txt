@@ -1,0 +1,30 @@
+ssh2_sftp_readlink -- Return the target of a symbolic link
+
+  string ssh2_sftp_readlink(resource sftp, string link)~
+
+Returns the target of a symbolic link.
+
+{sftp} An SSH2 SFTP resource opened by |ssh2_sftp|.
+
+{link} Path of the symbolic link.
+
+Returns the target of the symbolic {link}.
+
+Reading a symbolic link
+
+<?php >
+  $connection = ssh2_connect('shell.example.com', 22);
+  ssh2_auth_password($connection, 'username', 'password');
+  $sftp = ssh2_sftp($connection);
+  
+  $target = ssh2_sftp_readlink($sftp, '/tmp/mysql.sock');
+  /* $target is now (e.g.): '/var/run/mysql.sock' */
+?>
+
+
+
+
+
+|readlink| |ssh2_sftp_symlink|
+
+vim:ft=help:

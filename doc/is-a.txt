@@ -1,10 +1,22 @@
-is_a -- Returns TRUE if the object is of this class or has this class as one
-of its parents
+is_a -- Checks if the object is of this class or has this class as one of its
+parents
 
   bool is_a(object object, string class_name)~
 
-This function returns TRUE if the object is of this class or has this class as
-one of its parents, FALSE otherwise.
+Checks if the given {object} is of this class or has this class as one of its
+parents.
+
+{object} The tested object
+
+{class_name} The class name
+
+Returns TRUE if the object is of this class or has this class as one of its
+parents, FALSE otherwise.
+
+Version Description 5.3.0 This function is no longer deprecated, and will
+therefore no longer throw E_STRICT warnings. 5.0.0 This function became
+deprecated in favour of the instanceof operator. Calling this function will
+result in an E_STRICT warning.
 
 |is_a| example
 
@@ -23,8 +35,7 @@ one of its parents, FALSE otherwise.
   }
 ?>
 
-The |is_a| function is deprecated as of PHP 5 in favor of the instanceof type
-operator. In the above example we could use the following in PHP 5:
+
 
 Using the instanceof operator in PHP 5
 
@@ -34,6 +45,10 @@ Using the instanceof operator in PHP 5
   }
 ?>
 
-See also |get_class|, |get_parent_class|, and |is_subclass_of|.
+
+
+
+
+|get_class| |get_parent_class| |is_subclass_of|
 
 vim:ft=help:

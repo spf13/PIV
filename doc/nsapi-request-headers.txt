@@ -25,4 +25,8 @@ Returns an associative array with all the HTTP headers.
   }
 ?>
 
+
+
+
+
 vim:ft=help:

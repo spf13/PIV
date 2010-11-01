@@ -14,12 +14,11 @@ if it does not exist.
 
 {mode} The mode of the file. Intended to be used to open the database in
 read-only mode. Presently, this parameter is ignored by the sqlite library.
-The default value for mode is the octal value 0666 and this is the
-recommended value.
+The default value for mode is the octal value 0666 and this is the recommended
+value.
 
 {error_message} Passed by reference and is set to hold a descriptive error
-message explaining why the database could not be opened if there was an
-error.
+message explaining why the database could not be opened if there was an error.
 
 Returns a resource (database handle) on success, FALSE on error.
 
@@ -36,6 +35,10 @@ Returns a resource (database handle) on success, FALSE on error.
   }
 ?>
 
+
+
+
+
 On Unix platforms, SQLite is sensitive to scripts that use the fork() system
 call. If you do have such a script, it is recommended that you close the
 handle prior to forking and then re-open it in the child and/or parent. For
@@ -48,11 +51,11 @@ cannot even open the database at all, and if it succeeds, the locking
 behaviour may be undefined.
 
 Starting with SQLite library version 2.8.2, you can specify :memory: as the
-{filename} to create a database that lives only in the memory of the
-computer. This is useful mostly for temporary processing, as the in-memory
-database will be destroyed when the process ends. It can also be useful when
-coupled with the ATTACH DATABASE SQL statement to load other databases and
-move and query data between them.
+{filename} to create a database that lives only in the memory of the computer.
+This is useful mostly for temporary processing, as the in-memory database will
+be destroyed when the process ends. It can also be useful when coupled with
+the ATTACH DATABASE SQL statement to load other databases and move and query
+data between them.
 
 SQLite is safe mode and open_basedir aware.
 

@@ -5,6 +5,13 @@ disk_free_space -- Returns available space in directory
 Given a string containing a directory, this function will return the number of
 bytes available on the corresponding filesystem or disk partition.
 
+{directory} A directory of the filesystem or disk partition.
+
+Given a file name instead of a directory, the behaviour of the function is
+unspecified and may differ between operating systems and PHP versions.
+
+Returns the number of available bytes as a float.
+
 |disk_free_space| example
 
 <?php >
@@ -16,9 +23,13 @@ bytes available on the corresponding filesystem or disk partition.
   disk_free_space("D:");
 ?>
 
-This function will not work on remote files as the file to be examined must be
-accessible via the servers filesystem.
 
-See also |disk_total_space|
+
+
+
+This function will not work on remote files as the file to be examined must be
+accessible via the server"s filesystem.
+
+|disk_total_space|
 
 vim:ft=help:

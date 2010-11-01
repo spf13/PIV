@@ -1,0 +1,68 @@
+maxdb_error -- Returns a string description of the last error
+
+Procedural style:
+
+  string maxdb_error(resource link)~
+
+Object oriented style (property)
+
+The |maxdb_error| function is identical to the corresponding |maxdb_errno|
+function in every way, except instead of returning an integer error code the
+|maxdb_error| function will return a string representation of the last error
+to occur for the database connection represented by the {link} parameter. If
+no error has occured, this function will return an empty string.
+
+A string that describes the error. An empty string if no error occurred.
+
+Object oriented style
+
+<?php >
+  $maxdb = new maxdb("localhost", "MONA", "RED", "DEMODB");
+  
+  /* check connection */
+  if (maxdb_connect_errno()) {
+     printf("Connect failed: %s\n", maxdb_connect_error());
+     exit();
+  }
+  
+  if (!$maxdb->query("SELECT xxx FROM hotel.city")) {
+     printf("Errormessage: %s\n", $maxdb->error);
+  }
+  
+  /* close connection */
+  $maxdb->close();
+?>
+
+
+
+Procedural style
+
+<?php >
+  $link = maxdb_connect("localhost", "MONA", "RED", "DEMODB");
+  
+  /* check connection */
+  if (maxdb_connect_errno()) {
+     printf("Connect failed: %s\n", maxdb_connect_error());
+     exit();
+  }
+  
+  if (!maxdb_query($link, "SELECT xxx FROM hotel.city")) {
+     printf("Errormessgae: %s\n", maxdb_error($link));
+  }
+  
+  /* close connection */
+  maxdb_close($link);
+?>
+
+
+
+The above example will output something similar to:
+
+
+
+  PHP Warning:  maxdb_query(): -4005 POS(8) Unknown column name:XXX [42000]
+  Errormessgae: POS(8) Unknown column name:XXX
+
+|maxdb_connect_errno| |maxdb_connect_error| |maxdb_errno| |maxdb_sqlstate|
+
+vim:ft=help:

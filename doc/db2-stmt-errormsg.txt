@@ -1,0 +1,19 @@
+db2_stmt_errormsg -- Returns a string containing the last SQL statement error
+message
+
+  string db2_stmt_errormsg([resource stmt])~
+
+Returns a string containing the last SQL statement error message.
+
+If you do not pass a statement resource as an argument to |db2_stmt_errormsg|,
+the driver returns the error message associated with the last attempt to
+return a statement resource, for example, from |db2_prepare| or |db2_exec|.
+
+{stmt} A valid statement resource.
+
+Returns a string containing the error message and SQLCODE value for the last
+error that occurred issuing an SQL statement.
+
+|db2_conn_error| |db2_conn_errormsg| |db2_stmt_error|
+
+vim:ft=help:

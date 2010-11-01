@@ -1,0 +1,18 @@
+runkit_function_rename -- Change a function's name
+
+  bool runkit_function_rename(string funcname, string newname)~
+
+By default, only userspace functions may be removed, renamed, or modified. In
+order to override internal functions, you must enable the
+runkit.internal_override setting in php.ini.
+
+{funcname} Current function name
+
+{newname} New function name
+
+Returns TRUE on success or FALSE on failure.
+
+|runkit_function_add| |runkit_function_copy| |runkit_function_redefine|
+|runkit_function_remove|
+
+vim:ft=help:

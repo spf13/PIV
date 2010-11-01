@@ -1,12 +1,12 @@
 zip_entry_close -- Close a directory entry
 
-  void zip_entry_close(resource zip_entry)~
+  bool zip_entry_close(resource zip_entry)~
 
 Closes the specified directory entry.
 
 {zip_entry} A directory entry previously opened |zip_entry_open|.
 
-No value is returned.
+Returns TRUE on success or FALSE on failure.
 
 |zip_entry_open| |zip_entry_read|
 

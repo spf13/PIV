@@ -1,8 +1,5 @@
-ocisavelob -- Saves a large object
+ocisavelob -- Alias of
 
-  bool ocisavelob()~
-
-This function was renamed to |oci_lob_save| after PHP >= 5.0.0. For downward
-compatibility |ocisavelob| can also be used. This is deprecated, however.
+This function is an alias of: .
 
 vim:ft=help:

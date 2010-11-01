@@ -3,8 +3,12 @@ encountered for specified document
 
   int tidy_config_count(tidy object)~
 
-|tidy_config_count| returns the number of errors encountered in the
-configuration of the specified tidy {object}.
+Returns the number of errors encountered in the configuration of the specified
+tidy {object}.
+
+{object} The Tidy object.
+
+Returns the number of errors.
 
 |tidy_config_count| example
 
@@ -18,5 +22,9 @@ configuration of the specified tidy {object}.
   /* This outputs 1, because 'bogus' isn't a valid doctype */
   echo tidy_config_count($tidy);
 ?>
+
+
+
+
 
 vim:ft=help:

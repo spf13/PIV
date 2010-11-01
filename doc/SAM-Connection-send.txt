@@ -1,0 +1,98 @@
+SAMConnection->send -- Send a message to a queue or publish an item to a
+topic.
+
+  string send(string target, SAMMessage msg [, array properties])~
+
+The "send" method is used to send a message to a specific queue or to publish
+to a specific topic. The method returns a correlation id that can be used as a
+selector to identify reply or response messages when these are requested.
+
+{target} If sending a message, the identity of the queue (queue://queuename)
+or if publishing to a topic the identity of the topic (topic://topicname) to
+which the message is to be delivered.
+
+{msg} The message to be sent or published.
+
+{properties} An optional associative array of properties describing other
+parameters to control the receive operation. Property name Possible values
+SAM_DELIVERYMODE Indicates whether the messaging server should ensure delivery
+or whether it is acceptable for messages to be lost in the case of system
+failures. The value of this property may be set to either SAM_PERSISTENT, to
+indicate that message loss is not acceptable, or SAM_NON_PERSISTENT, if
+message loss is acceptable. The resulting behaviour of the send will vary
+depending on the capabilities of the messaging server the PHP script is
+currently connected to. If the server does not support persistent messages and
+SAM_PERSISTENT is specified the send request will fail with an error
+indication showing the capability is not available. SAM_PRIORITY A numeric
+value between 0 and 9 indicating the desired message delivery priority. A
+priority value of 0 indicates the lowest priority while 9 indicates highest
+priority. If no priority is specified a default will be assigned which is
+dependent on the messaging server being used. SAM_CORRELID A string to be
+assigned as a correlation id for this message. If no value is given the
+messaging server may assign a value automatically. SAM_TIMETOLIVE A time in
+milliseconds indicating how long the messaging server should retain the
+message on a queue before discarding it. The default value is 0 indicating the
+message should be retained indefinitely. SAM_WMQ_TARGET_CLIENT This property
+is only valid when using WebSphere MQ and indicates whether or not an RFH2
+header should be included with the message. This option may be set to either
+'jms' or 'mq'. The default is 'jms' which means that an RFH2 header is
+included. If the value 'mq' is specified then no RFH2 is included with the
+message.
+
+A correlation id string that can be used in a subsequent receive call as a
+selector to obtain any reply or response that has been requested or FALSE if
+an error occurred.
+
+A correlation id will only be returned for a successful send to a queue
+destination (queue://xxxx) in which case it will reflect the message identity
+of the message on the queue. In the case of a send being used to publish data
+to a topic the return value will be TRUE as no correlation id is available for
+return.
+
+Send a message to a queue
+
+<?php >
+  $msg = new SAMMessage('This is a simple text message');
+  $correlId = $conn->send('queue://send/test', $msg);
+  if (!$correlId) {
+      // The send failed!
+      echo "Send failed ($conn->errno) $conn->error";
+  }
+?>
+
+
+
+
+
+Publish a message to a topic
+
+<?php >
+  $msg = new SAMMessage('This is a simple text item');
+  if (!$conn->send('topic://test', $msg)) {
+      // The Send failed!
+      echo "Send failed ($conn->errno) $conn->error";
+  }
+?>
+
+
+
+Send a request and receive a response
+
+<?php >
+  $msg = new SAMMessage('This is a simple text message');
+  $msg->header->SAM_REPLY_TO = 'queue://receive/test';
+  $correlid = $conn->send('queue://send/test', $msg);
+  
+  if (!$correlid) {
+      // The Send failed!
+      echo "Send failed ($conn->errno) $conn->error";
+  } else {
+      $resp = $conn->receive('queue://receive/test', array(SAM_CORRELID => $correlid));
+  }
+?>
+
+
+
+
+
+vim:ft=help:

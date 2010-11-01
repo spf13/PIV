@@ -2,17 +2,20 @@ ldap_get_option -- Get the current value for given option
 
   bool ldap_get_option(resource link_identifier, int option, mixed retval)~
 
-Sets {retval} to the value of the specified option. Returns TRUE on success or
-FALSE on failure.
+Sets {retval} to the value of the specified option.
 
-The parameter {option} can be one of: LDAP_OPT_DEREF, LDAP_OPT_SIZELIMIT,
-LDAP_OPT_TIMELIMIT, LDAP_OPT_PROTOCOL_VERSION, LDAP_OPT_ERROR_NUMBER,
-LDAP_OPT_REFERRALS, LDAP_OPT_RESTART, LDAP_OPT_HOST_NAME,
-LDAP_OPT_ERROR_STRING, LDAP_OPT_MATCHED_DN. These are described in
-draft-ietf-ldapext-ldap-c-api-xx.txt
+{link_identifier} An LDAP link identifier, returned by |ldap_connect|.
 
-This function is only available when using OpenLDAP 2.x.x OR Netscape
-Directory SDK x.x, and was added in PHP 4.0.4
+{option} The parameter {option} can be one of: Option Type LDAP_OPT_DEREF
+integer LDAP_OPT_SIZELIMIT integer LDAP_OPT_TIMELIMIT integer
+LDAP_OPT_NETWORK_TIMEOUT integer LDAP_OPT_PROTOCOL_VERSION integer
+LDAP_OPT_ERROR_NUMBER integer LDAP_OPT_REFERRALS bool LDAP_OPT_RESTART bool
+LDAP_OPT_HOST_NAME string LDAP_OPT_ERROR_STRING string LDAP_OPT_MATCHED_DN
+string LDAP_OPT_SERVER_CONTROLS array LDAP_OPT_CLIENT_CONTROLS array
+
+{retval} This will be set to the option value.
+
+Returns TRUE on success or FALSE on failure.
 
 Check protocol version
 
@@ -25,6 +28,13 @@ Check protocol version
   }
 ?>
 
-See also |ldap_set_option|.
+
+
+
+
+This function is only available when using OpenLDAP 2.x.x OR Netscape
+Directory SDK x.x.
+
+|ldap_set_option|
 
 vim:ft=help:

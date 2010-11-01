@@ -3,20 +3,27 @@ sem_get -- Get a semaphore id
   resource sem_get(int key [, int max_acquire [, int perm [, int auto_release]]])~
 
 |sem_get| returns an id that can be used to access the System V semaphore with
-the given {key}. The semaphore is created if necessary using the permission
-bits specified in {perm} (defaults to 0666). The number of processes that can
-acquire the semaphore simultaneously is set to {max_acquire} (defaults to 1).
-Actually this value is set only if the process finds it is the only process
-currently attached to the semaphore.
-
-Optional parameter {auto_release} specifies if the semaphore should be
-automatically released on request shutdown. It is available since PHP 4.3.0.
-
-Returns a positive semaphore identifier on success, or FALSE on error.
+the given {key}.
 
 A second call to |sem_get| for the same key will return a different semaphore
 identifier, but both identifiers access the same underlying semaphore.
 
-See also |sem_acquire|, |sem_release|, and |ftok|.
+{key}
+
+{max_acquire} The number of processes that can acquire the semaphore
+simultaneously is set to {max_acquire} (defaults to 1).
+
+{perm} The semaphore permissions. Defaults to 0666. Actually this value is set
+only if the process finds it is the only process currently attached to the
+semaphore.
+
+{auto_release} Specifies if the semaphore should be automatically released on
+request shutdown.
+
+Returns a positive semaphore identifier on success, or FALSE on error.
+
+Version Description 4.3.0 The {auto_release} parameter was added.
+
+|sem_acquire| |sem_release| |ftok|
 
 vim:ft=help:

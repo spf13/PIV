@@ -2,7 +2,7 @@ lzf_compress -- LZF compression
 
   string lzf_compress(string data)~
 
-|lzf_compress| compresses the given {data}.
+|lzf_compress| compresses the given {data} string using LZF encoding.
 
 {data} The string to compress.
 

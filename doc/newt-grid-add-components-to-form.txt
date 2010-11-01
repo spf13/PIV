@@ -1,0 +1,16 @@
+newt_grid_add_components_to_form --
+
+  void newt_grid_add_components_to_form(resource grid, resource form, bool recurse)~
+
+This function is currently not documented; only its argument list is
+available.
+
+{grid}
+
+{form}
+
+{recurse}
+
+No value is returned.
+
+vim:ft=help:

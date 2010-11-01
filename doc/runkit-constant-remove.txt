@@ -1,0 +1,12 @@
+runkit_constant_remove -- Remove/Delete an already defined constant
+
+  bool runkit_constant_remove(string constname)~
+
+{constname} Name of constant to remove. Either a string indicating a global
+constant, or classname::constname indicating a class constant.
+
+Returns TRUE on success or FALSE on failure.
+
+|define| |runkit_constant_add| |runkit_constant_redefine|
+
+vim:ft=help:

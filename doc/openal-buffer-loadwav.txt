@@ -4,7 +4,7 @@ openal_buffer_loadwav -- Load a .wav file into a buffer
 
 An Open AL(Buffer) resource (previously created by |openal_buffer_create|).
 
-Path to .WAV file on local file system.
+Path to .wav file on local file system.
 
 Returns TRUE on success or FALSE on failure.
 

@@ -1,0 +1,18 @@
+ps_shading_pattern -- Creates a pattern based on a shading
+
+  int ps_shading_pattern(resource psdoc, int shadingid, string optlist)~
+
+Creates a pattern based on a shading, which has to be created before with
+|ps_shading|. Shading patterns can be used like regular patterns.
+
+{psdoc} Resource identifier of the postscript file as returned by |ps_new|.
+
+{shadingid} The identifier of a shading previously created with |ps_shading|.
+
+{optlist} This argument is not currently used.
+
+The identifier of the pattern or FALSE in case of an error.
+
+|ps_shading| |ps_shfill|
+
+vim:ft=help:

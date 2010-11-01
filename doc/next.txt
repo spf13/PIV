@@ -2,18 +2,20 @@ next -- Advance the internal array pointer of an array
 
   mixed next(array array)~
 
+|next| behaves like |current|, with one difference. It advances the internal
+array pointer one place forward before returning the element value. That means
+it returns the next array value and advances the internal array pointer by
+one.
+
+{array} The array being affected.
+
 Returns the array value in the next place that's pointed to by the internal
 array pointer, or FALSE if there are no more elements.
 
-|next| behaves like |current|, with one difference. It advances the internal
-array pointer one place forward before returning the element value. That
-means it returns the next array value and advances the internal array pointer
-by one. If advancing the internal array pointer results in going beyond the
-end of the element list, |next| returns FALSE. If the array contains empty
-elements, or elements that have a key value of 0 then this function will
-return FALSE for these elements as well. To properly traverse an array which
-may contain empty elements or elements with key values of 0 see the |each|
-function.
+This function may return Boolean FALSE, but may also return a non-Boolean
+value which evaluates to FALSE, such as 0 or "". Please read the section on
+Booleans for more information. Use the === operator for testing the return
+value of this function.
 
 Example use of |next| and friends
 
@@ -26,6 +28,14 @@ Example use of |next| and friends
   $mode = end($transport);     // $mode = 'plane';
 ?>
 
-See also |current|, |end|, |prev|, and |reset|.
+
+
+
+
+You won't be able to distinguish the end of an array from a boolean FALSE
+element. To properly traverse an array which may contain FALSE elements, see
+the |each| function.
+
+|current| |end| |prev| |reset| |each|
 
 vim:ft=help:

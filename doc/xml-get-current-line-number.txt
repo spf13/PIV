@@ -9,6 +9,6 @@ Gets the current line number for the given XML parser.
 This function returns FALSE if {parser} does not refer to a valid parser, or
 else it returns which line the parser is currently at in its data buffer.
 
-|xml_get_current_column_index| |xml_get_current_byte_index|
+|xml_get_current_column_number| |xml_get_current_byte_index|
 
 vim:ft=help:

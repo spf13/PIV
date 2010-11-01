@@ -6,6 +6,18 @@ cal_to_jd -- Converts from a supported calendar to Julian Day Count
 {calendar}. Supported {calendar}s are CAL_GREGORIAN, CAL_JULIAN, CAL_JEWISH
 and CAL_FRENCH.
 
-See also |cal_from_jd|.
+{calendar} Calendar to convert from, one of CAL_GREGORIAN, CAL_JULIAN,
+CAL_JEWISH or CAL_FRENCH.
+
+{month} The month as a number, the valid range depends on the {calendar}
+
+{day} The day as a number, the valid range depends on the {calendar}
+
+{year} The year as a number, the valid range depends on the {calendar}
+
+A Julian Day number.
+
+|cal_from_jd| |frenchtojd| |gregoriantojd| |jewishtojd| |juliantojd|
+|unixtojd|
 
 vim:ft=help:

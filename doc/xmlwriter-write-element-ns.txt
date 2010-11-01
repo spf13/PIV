@@ -1,0 +1,31 @@
+XMLWriter::writeElementNS -- Write full namespaced element tag
+
+Oriented object style
+
+  bool writeElementNS(string prefix, string name, string uri [, string content])~
+
+Procedural style
+
+  bool xmlwriter_write_element_ns(string prefix, string name, string uri [, string content, resource xmlwriter, string prefix, string name, string uri [, string content]])~
+
+Writes a full namespaced element tag.
+
+{ xmlwriter}Only for procedural calls. The XMLWriter resource that is being
+modified. This resource comes from a call to |xmlwriter_open_uri| or
+|xmlwriter_open_memory|.
+
+{prefix} The namespace prefix.
+
+{name} The element name.
+
+{uri} The namespace URI.
+
+{content} The element contents.
+
+Returns TRUE on success or FALSE on failure.
+
+Version Description PHP 5.2.3 The {content} parameter became optional.
+
+XMLWriter::startElementNS XMLWriter::endElement XMLWriter::writeElement
+
+vim:ft=help:

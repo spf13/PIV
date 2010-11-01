@@ -43,6 +43,10 @@ failure.
   mysql_close($link);
 ?>
 
+
+
+
+
 Calls to |mysql_result| should not be mixed with calls to other functions that
 deal with the result set.
 

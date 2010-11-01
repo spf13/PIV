@@ -1,0 +1,49 @@
+date_parse_from_format -- Get info about given date
+
+  array date_parse_from_format(string format, string date)~
+
+Returns associative array with detailed info about given date.
+
+{format} Format accepted by |date| with some extras.
+
+{date} String representing the date.
+
+Returns associative array with detailed info about given date.
+
+|date_parse_from_format| example
+
+<?php >
+  $date = "6.1.2009 13:00+01:00";
+  print_r(date_parse_from_format("j.n.Y H:iP", $date));
+?>
+
+The above example will output:
+
+  Array
+  (
+      [year] => 2009
+      [month] => 1
+      [day] => 6
+      [hour] => 13
+      [minute] => 0
+      [second] => 0
+      [fraction] => 
+      [warning_count] => 0
+      [warnings] => Array
+          (
+          )
+  
+      [error_count] => 0
+      [errors] => Array
+          (
+          )
+  
+      [is_localtime] => 1
+      [zone_type] => 1
+      [zone] => -60
+      [is_dst] => 
+  )
+
+
+
+vim:ft=help:

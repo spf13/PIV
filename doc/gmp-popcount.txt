@@ -2,7 +2,12 @@ gmp_popcount -- Population count
 
   int gmp_popcount(resource a)~
 
-Return the population count of {a}.
+Get the population count.
+
+{a} It can be either a GMP number resource, or a numeric string given that it
+is possible to convert the latter to a number.
+
+The population count of {a}, as an integer.
 
 |gmp_popcount| example
 
@@ -13,9 +18,11 @@ Return the population count of {a}.
   echo gmp_popcount($pop2) . "\n";
 ?>
 
-The printout of the above program will be:
+The above example will output:
 
   3
   7
+
+
 
 vim:ft=help:

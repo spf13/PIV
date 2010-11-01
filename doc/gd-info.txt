@@ -2,8 +2,10 @@ gd_info -- Retrieve information about the currently installed GD library
 
   array gd_info()~
 
-Returns an associative array describing the version and capabilities of the
-installed GD library.
+Gets information about the version and capabilities of the installed GD
+library.
+
+Returns an associative array.
 
 Elements of array returned by |gd_info| Attribute Meaning GD Version string
 value describing the installed libgd version. Freetype Support boolean value.
@@ -11,12 +13,12 @@ TRUE if Freetype Support is installed. Freetype Linkage string value
 describing the way in which Freetype was linked. Expected values are: 'with
 freetype', 'with TTF library', and 'with unknown library'. This element will
 only be defined if Freetype Support evaluated to TRUE. T1Lib Support boolean
-value. TRUE if T1Lib support is included. GIF Read Support boolean value.
-TRUE if support for reading GIF images is included. GIF Create Support
-boolean value. TRUE if support for creating GIF images is included. JPG
-Support boolean value. TRUE if JPG support is included. PNG Support boolean
-value. TRUE if PNG support is included. WBMP Support boolean value. TRUE if
-WBMP support is included. XBM Support boolean value. TRUE if XBM support is
+value. TRUE if T1Lib support is included. GIF Read Support boolean value. TRUE
+if support for reading GIF images is included. GIF Create Support boolean
+value. TRUE if support for creating GIF images is included. JPG Support
+boolean value. TRUE if JPG support is included. PNG Support boolean value.
+TRUE if PNG support is included. WBMP Support boolean value. TRUE if WBMP
+support is included. XBM Support boolean value. TRUE if XBM support is
 included.
 
 Using |gd_info|
@@ -25,7 +27,7 @@ Using |gd_info|
   var_dump(gd_info());
 ?>
 
-The typical output is :
+The above example will output something similar to:
 
   array(9) {
     ["GD Version"]=>
@@ -48,6 +50,8 @@ The typical output is :
     bool(false)
   }
 
-See also |imagepng|, |imagejpeg|, |imagegif|, |imagewbmp|, and |imagetypes|.
+
+
+|imagepng| |imagejpeg| |imagegif| |imagewbmp| |imagetypes|
 
 vim:ft=help:

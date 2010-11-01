@@ -1,0 +1,33 @@
+timezone_name_from_abbr -- Returns the timezone name from abbreviation
+
+  string timezone_name_from_abbr(string abbr [, int gmtOffset [, int isdst]])~
+
+{abbr} Time zone abbreviation.
+
+{gmtOffset} Offset from GMT in seconds. Defaults to -1 which means that first
+found time zone corresponding to {abbr} is returned. Otherwise exact offset is
+searched and only if not found then the first time zone with any offset is
+returned.
+
+{isdst} Daylight saving time indicator. If {abbr} doesn't exist then the time
+zone is searched solely by {offset} and {isdst}.
+
+Returns time zone name on success or FALSE on failure.
+
+A |timezone_name_from_abbr| example
+
+<?php >
+  echo timezone_name_from_abbr("CET") . "\n";
+  echo timezone_name_from_abbr("", 3600, 0) . "\n";
+?>
+
+The above example will output something similar to:
+
+  Europe/Berlin
+  Europe/Paris
+
+
+
+|timezone_abbreviations_list|
+
+vim:ft=help:

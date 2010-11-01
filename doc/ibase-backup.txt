@@ -3,7 +3,7 @@ immediately
 
   mixed ibase_backup(resource service_handle, string source_db, string dest_file [, int options [, bool verbose]])~
 
-This function is currently not documented; only the argument list is
+This function is currently not documented; only its argument list is
 available.
 
 vim:ft=help:

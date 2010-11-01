@@ -1,0 +1,44 @@
+inclued_get_data -- Get the inclued data
+
+  array inclued_get_data()~
+
+Get the inclued data.
+
+This function has no parameters.
+
+The inclued data.
+
+|inclued_get_data| example See the inclued examples section for ways to create
+a graphs with this data.
+
+<?php >
+  include 'x.php';
+  
+  $clue = inclued_get_data();
+  
+  print_r($clue);
+?>
+
+The above example will output something similar to:
+
+  Array
+  (
+    [includes] => Array
+      (
+        [0] => Array
+          (
+            [operation] => include
+            [op_type] => 2
+            [filename] => x.php
+            [opened_path] => /tmp/x.php
+            [fromfile] => /tmp/z.php
+            [fromline] => 2
+          )
+      )
+  )
+
+
+
+inclued examples |debug_backtrace| |include|
+
+vim:ft=help:

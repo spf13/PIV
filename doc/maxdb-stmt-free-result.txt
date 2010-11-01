@@ -1,0 +1,19 @@
+stmt->free_result -- Frees stored result memory for the given statement handle
+
+Procedural style:
+
+  void maxdb_stmt_free_result(resource stmt)~
+
+Object oriented style (method):
+
+  void free_result(resource stmt)~
+
+The |maxdb_stmt_free_result| function frees the result memory associated with
+the statement represented by the {stmt} parameter, which was allocated by
+|maxdb_stmt_store_result|.
+
+This function doesn't return any value.
+
+|maxdb_stmt_store_result|
+
+vim:ft=help:

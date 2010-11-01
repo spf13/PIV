@@ -1,8 +1,16 @@
-gmp_or -- Logical OR
+gmp_or -- Bitwise OR
 
   resource gmp_or(resource a, resource b)~
 
-Calculates logical inclusive OR of two GMP numbers.
+Calculates bitwise inclusive OR of two GMP numbers.
+
+{a} It can be either a GMP number resource, or a numeric string given that it
+is possible to convert the latter to a number.
+
+{b} It can be either a GMP number resource, or a numeric string given that it
+is possible to convert the latter to a number.
+
+A GMP number resource.
 
 |gmp_or| example
 
@@ -13,9 +21,11 @@ Calculates logical inclusive OR of two GMP numbers.
   echo gmp_strval($or2, 16) . "\n";
 ?>
 
-The printout of the above program will be:
+The above example will output:
 
   fffffff6
   fffffff2
+
+
 
 vim:ft=help:

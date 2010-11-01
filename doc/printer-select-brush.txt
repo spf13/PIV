@@ -4,10 +4,16 @@ printer_select_brush -- Select a brush
 
 The function selects a brush as the active drawing object of the actual device
 context. A brush is used to fill shapes. If you draw an rectangle the brush is
-used to draw the shapes, while the pen is used to draw the border. If you
-haven't selected a brush before drawing shapes, the shape won't be filled.
-{printer_handle} must be a valid handle to a printer. {brush_handle} must be
-a valid handle to a brush.
+used to draw the shapes, while the pen is used to draw the border.
+
+If you haven't selected a brush before drawing shapes, the shape won't be
+filled.
+
+{printer_handle} {printer_handle} must be a valid printer handle.
+
+{brush_handle} {brush_handle} must be a valid brush handle.
+
+No value is returned.
 
 |printer_select_brush| example
 
@@ -36,5 +42,9 @@ a valid handle to a brush.
   printer_end_doc($handle);
   printer_close($handle);
 ?>
+
+
+
+
 
 vim:ft=help:

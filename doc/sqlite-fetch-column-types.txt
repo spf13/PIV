@@ -12,9 +12,9 @@ specified {table_name} table.
 
 {table_name} The table name to query.
 
-{dbhandle} The SQLite Database resource; returned from |sqlite_open | when
-used procedurally. This parameter is not required when using the
-object-oriented method.
+{dbhandle} The SQLite Database resource; returned from |sqlite_open| when used
+procedurally. This parameter is not required when using the object-oriented
+method.
 
 {result_type} The optional {result_type} parameter accepts a constant and
 determines how the returned array will be indexed. Using SQLITE_ASSOC will
@@ -42,6 +42,10 @@ Procedural example
   }
 ?>
 
+
+
+
+
 Object-oriented example
 
 <?php >
@@ -58,5 +62,7 @@ The above example will output:
 
   Column: bar  Type: VARCHAR
   Column: arf  Type: TEXT
+
+
 
 vim:ft=help:

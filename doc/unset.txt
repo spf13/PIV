@@ -2,31 +2,14 @@ unset -- Unset a given variable
 
   void unset(mixed var [, mixed var [, mixed ...]])~
 
-|unset| destroys the specified variables. Note that in PHP 3, |unset| will
-always return TRUE (actually, the integer value 1). In PHP 4, however,
-|unset| is no longer a true function: it is now a statement. As such no value
-is returned, and attempting to take the value of |unset| results in a parse
-error.
-
-|unset| example
-
-<?php >
-  // destroy a single variable
-  unset($foo);
-  
-  // destroy a single element of an array
-  unset($bar['quux']);
-  
-  // destroy more than one variable
-  unset($foo1, $foo2, $foo3);
-?>
+|unset| destroys the specified variables.
 
 The behavior of |unset| inside of a function can vary depending on what type
 of variable you are attempting to destroy.
 
 If a globalized variable is |unset| inside of a function, only the local
-variable is destroyed. The variable in the calling environment will retain
-the same value as before |unset| was called.
+variable is destroyed. The variable in the calling environment will retain the
+same value as before |unset| was called.
 
 <?php >
   function destroy_foo() 
@@ -43,6 +26,19 @@ the same value as before |unset| was called.
 The above example will output:
 
   bar
+
+If you would like to |unset| a global variable inside of a function, you can
+use the $GLOBALS array to do so:
+
+<?php >
+  function foo() 
+  {
+      unset($GLOBALS['bar']);
+  }
+  
+  $bar = "something";
+  foo();
+?>
 
 If a variable that is PASSED BY REFERENCE is |unset| inside of a function,
 only the local variable is destroyed. The variable in the calling environment
@@ -68,15 +64,18 @@ The above example will output:
   something
 
 If a static variable is |unset| inside of a function, |unset| destroys the
-variable and all its references.
+variable only in the context of the rest of a function. Following calls will
+restore the previous value of a variable.
 
 <?php >
-  function foo() 
+  function foo()
   {
-      static $a;
-      $a++;
-      echo "$a\n";
-      unset($a);
+      static $bar;
+      $bar++;
+      echo "Before unset: $bar, ";
+      unset($bar);
+      $bar = 23;
+      echo "after unset: $bar\n";
   }
   
   foo();
@@ -86,26 +85,58 @@ variable and all its references.
 
 The above example will output:
 
-  1
-  2
-  3
+  Before unset: 1, after unset: 23
+  Before unset: 2, after unset: 23
+  Before unset: 3, after unset: 23
 
-If you would like to |unset| a global variable inside of a function, you can
-use the $GLOBALS array to do so:
+{var} The variable to be unset.
+
+{var} Another variable ..
+
+{...}
+
+No value is returned.
+
+Version Description 4.0.1 Added support for multiple arguments. 4.0.0 |unset|
+became an expression. (In PHP 3, |unset| would always return 1).
+
+|unset| example
 
 <?php >
-  function foo() 
-  {
-      unset($GLOBALS['bar']);
-  }
+  // destroy a single variable
+  unset($foo);
   
-  $bar = "something";
-  foo();
+  // destroy a single element of an array
+  unset($bar['quux']);
+  
+  // destroy more than one variable
+  unset($foo1, $foo2, $foo3);
 ?>
+
+
+
+Using (unset) casting
+
+<?php >
+  $name = 'Felipe';
+  
+  var_dump((unset) $name);
+?>
+
+
+
+
 
 Because this is a language construct and not a function, it cannot be called
 using variable functions
 
-See also |isset|, |empty|, and |array_splice|.
+It is possible to unset even object properties visible in current context.
+
+It is not possible to unset $this inside an object method since PHP 5.
+
+When using |unset| on inaccessible object properties, the __unset overloading
+method will be called, if declared.
+
+|isset| |empty| __unset |array_splice|
 
 vim:ft=help:

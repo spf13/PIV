@@ -2,7 +2,9 @@ ncurses_panel_window -- Returns the window associated with panel
 
   resource ncurses_panel_window(resource panel)~
 
-This function is currently not documented; only the argument list is
+This function is currently not documented; only its argument list is
 available.
+
+{panel}
 
 vim:ft=help:

@@ -1,9 +1,11 @@
-pdf_add_note -- Sets annotation for current page
+PDF_add_note -- Set annotation for current page [deprecated]
 
-  bool pdf_add_note(resource pdfdoc, float llx, float lly, float urx, float ury, string contents, string title, string icon, int open)~
+  bool PDF_add_note(resource pdfdoc, float llx, float lly, float urx, float ury, string contents, string title, string icon, int open)~
 
-Sets an annotation for the current page. {icon} is one of comment, insert,
-note, paragraph, newparagraph, key, or help. Returns TRUE on success or FALSE
-on failure.
+Sets an annotation for the current page. Returns TRUE on success or FALSE on
+failure.
+
+This function is deprecated since PDFlib version 6, use
+|PDF_create_annotation| with {type=Text} instead.
 
 vim:ft=help:

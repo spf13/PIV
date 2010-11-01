@@ -1,0 +1,21 @@
+ssh2_publickey_remove -- Remove an authorized publickey
+
+  bool ssh2_publickey_remove(resource pkey, string algoname, string blob)~
+
+Removes an authorized publickey.
+
+{pkey} Publickey Subsystem Resource
+
+{algoname} Publickey algorithm (e.g.): ssh-dss, ssh-rsa
+
+{blob} Publickey blob as raw binary data
+
+Returns TRUE on success or FALSE on failure.
+
+The public key subsystem is used for managing public keys on a server to which
+the client is already authenticated. To authenticate to a remote system using
+public key authentication, use the |ssh2_auth_pubkey_file| function instead.
+
+|ssh2_publickey_init| |ssh2_publickey_add| |ssh2_publickey_list|
+
+vim:ft=help:

@@ -20,6 +20,10 @@ The uncompressed character or FALSE on EOF (unlike |gzeof|).
   gzclose($gz);
 ?>
 
+
+
+
+
 |gzopen| |gzgets|
 
 vim:ft=help:

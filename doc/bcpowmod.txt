@@ -1,11 +1,22 @@
 bcpowmod -- Raise an arbitrary precision number to another, reduced by a
 specified modulus
 
-  string bcpowmod(string x, string y, string modulus [, int scale])~
+  string bcpowmod(string left_operand, string right_operand, string modulus [, int scale])~
 
-Use the fast-exponentiation method to raise {x} to the power {y} with respect
-to the modulus {modulus}. The optional {scale} can be used to set the number
-of digits after the decimal place in the result.
+Use the fast-exponentiation method to raise {left_operand} to the power
+{right_operand} with respect to the modulus {modulus}.
+
+{left_operand} The left operand, as a string.
+
+{right_operand} The right operand, as a string.
+
+{modulus} The modulus, as a string.
+
+{ scale}This optional parameter is used to set the number of digits after the
+decimal place in the result. You can also set the global default scale for all
+functions by using |bcscale|.
+
+Returns the result as a string, or NULL if {modulus} is 0.
 
 Because this method uses the modulus operation, non-natural numbers may give
 unexpected results. A natural number is any positive non-zero integer.
@@ -18,9 +29,9 @@ version however, executes in less time and can accept larger parameters.
   
   $b = bcmod(bcpow($x, $y), $mod);
   
-  // $a and $b are equal to each other. 
+  // $a and $b are equal to each other.
 ?>
 
-|bcpow| and |bcmod|.
+|bcpow| |bcmod|
 
 vim:ft=help:

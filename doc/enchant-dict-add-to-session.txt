@@ -1,0 +1,16 @@
+enchant_dict_add_to_session -- add 'word' to this spell-checking session
+
+  void enchant_dict_add_to_session(resource dict, string word)~
+
+Add a word to the given dictionary. It will be added only for the active
+spell-checking session.
+
+{dict} Dictionary resource
+
+{word} The word to add
+
+Returns TRUE on success or FALSE on failure.
+
+|enchant_broker_request_dict|
+
+vim:ft=help:

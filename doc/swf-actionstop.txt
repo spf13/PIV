@@ -4,4 +4,8 @@ swf_actionstop -- Stop playing the flash movie at the current frame
 
 Stop playing the flash movie at the current frame.
 
+No value is returned.
+
+|swf_actionplay|
+
 vim:ft=help:

@@ -1,0 +1,15 @@
+snmp_set_oid_output_format -- Set the OID output format
+
+  void snmp_set_oid_output_format(int oid_format)~
+
+|snmp_set_oid_output_format| sets the output format to be full or numeric.
+
+{oid_format} Set it to SNMP_OID_OUTPUT_FULL if you want a full output,
+SNMP_OID_OUTPUT_NUMERIC otherwise.
+
+No value is returned.
+
+|snmp_set_oid_output_format| is only available when using the UCD SNMP
+library. This function is not available when using the Windows SNMP library.
+
+vim:ft=help:

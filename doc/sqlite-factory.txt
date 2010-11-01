@@ -11,12 +11,11 @@ SQLiteDatabase object is returned rather than a resource. Please see the
 
 {mode} The mode of the file. Intended to be used to open the database in
 read-only mode. Presently, this parameter is ignored by the sqlite library.
-The default value for mode is the octal value 0666 and this is the
-recommended value.
+The default value for mode is the octal value 0666 and this is the recommended
+value.
 
 {error_message} Passed by reference and is set to hold a descriptive error
-message explaining why the database could not be opened if there was an
-error.
+message explaining why the database could not be opened if there was an error.
 
 Returns a SQLiteDatabase object on success, NULL on error.
 
@@ -31,6 +30,10 @@ Returns a SQLiteDatabase object on success, NULL on error.
   $dbhandle = new SQLiteDatabase('sqlitedb');
   $dbhandle->query('SELECT user_id, username FROM users');
 ?>
+
+
+
+
 
 |sqlite_open| |sqlite_popen|
 

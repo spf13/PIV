@@ -1,0 +1,11 @@
+newt_resume -- Resume using the newt interface after calling newt_suspend
+
+  void newt_resume()~
+
+Resume using the newt interface after calling |newt_suspend|.
+
+No value is returned.
+
+|newt_suspend|
+
+vim:ft=help:

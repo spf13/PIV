@@ -1,0 +1,17 @@
+enchant_dict_store_replacement -- Add a correction for a word
+
+  void enchant_dict_store_replacement(resource dict, string mis, string cor)~
+
+Add a correction for 'mis' using 'cor'. Notes that you replaced @mis with
+@cor, so it's possibly more likely that future occurrences of @mis will be
+replaced with @cor. So it might bump @cor up in the suggestion list.
+
+{dict} Dictionary resource
+
+{mis} The work to fix
+
+{cor} The correct word
+
+Returns TRUE on success or FALSE on failure.
+
+vim:ft=help:

@@ -1,0 +1,66 @@
+maxdb_get_server_version -- Returns the version of the MaxDB server as an
+integer
+
+Procedural style:
+
+  int maxdb_get_server_version(resource link)~
+
+Object oriented style (property):
+
+The |maxdb_get_server_version| function returns the version of the server
+connected to (represented by the {link} parameter) as an integer.
+
+The form of this version number is main_version * 10000 + minor_version * 100
++ sub_version (i.e. version 7.5.0 is 70500).
+
+An integer representing the server version.
+
+Object oriented style
+
+<?php >
+  $maxdb = new maxdb("localhost", "MONA", "RED", "DEMODB");
+  
+  /* check connection */
+  if (maxdb_connect_errno()) {
+     printf("Connect failed: %s\n", maxdb_connect_error());
+     exit();
+  }
+  
+  /* print server version */
+  printf("Server version: %d\n", $maxdb->server_version);
+  
+  /* close connection */
+  $maxdb->close();
+?>
+
+
+
+Procedural style
+
+<?php >
+  $link = maxdb_connect("localhost", "MONA", "RED", "DEMODB");
+  
+  /* check connection */
+  if (maxdb_connect_errno()) {
+     printf("Connect failed: %s\n", maxdb_connect_error());
+     exit();
+  }
+  
+  /* print server version */
+  printf("Server version: %d\n", maxdb_get_server_version($link));
+  
+  /* close connection */
+  maxdb_close($link);
+?>
+
+
+
+The above example will output something similar to:
+
+
+
+  Server version: 7<...>
+
+|maxdb_get_client_info| |maxdb_get_client_version| |maxdb_get_server_info|
+
+vim:ft=help:

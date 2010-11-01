@@ -3,12 +3,12 @@ ctype_cntrl -- Check for control character(s)
   bool ctype_cntrl(string text)~
 
 Checks if all of the characters in the provided string, {text}, are control
-characters. Control characters are e.g. line feed, tab, esc.
+characters. Control characters are e.g. line feed, tab, escape.
 
 {text} The tested string.
 
-Returns TRUE if every character in {text} is a letter from the current locale,
-FALSE otherwise.
+Returns TRUE if every character in {text} is a control character from the
+current locale, FALSE otherwise.
 
 A |ctype_cntrl| example
 
@@ -26,7 +26,9 @@ A |ctype_cntrl| example
 The above example will output:
 
   The string 'string1' consists of all control characters.
-  The string 'string2' does not consists of all control characters.
+  The string 'string2' does not consist of all control characters.
+
+
 
 |ctype_print|
 

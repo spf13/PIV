@@ -2,21 +2,27 @@ class_exists -- Checks if the class has been defined
 
   bool class_exists(string class_name [, bool autoload])~
 
-This function returns TRUE if the class given by {class_name} has been
-defined, FALSE otherwise.
+This function checks whether or not the given class has been defined.
+
+{class_name} The class name. The name is matched in a case-insensitive manner.
+
+{autoload} Whether or not to call __autoload by default. Defaults to TRUE.
+
+Returns TRUE if {class_name} is a defined class, FALSE otherwise.
+
+Version Description 5.0.2 No longer returns TRUE for defined interfaces. Use
+|interface_exists|. 5.0.0 The {autoload} parameter was added.
 
 |class_exists| example
 
 <?php >
-  // Check the class exists before trying to use it
+  // Check that the class exists before trying to use it
   if (class_exists('MyClass')) {
       $myclass = new MyClass();
   }
 ?>
 
-|class_exists| will attempt to call __autoload by default, if you don't want
-|class_exists| to call __autoload, you can set the parameter {autoload} to
-FALSE.
+
 
 {autoload} parameter example
 
@@ -25,19 +31,21 @@ FALSE.
   {
       include($class . '.php');
   
-      // Check to see if the include declared the class
+      // Check to see whether the include declared the class
       if (!class_exists($class, false)) {
           trigger_error("Unable to load class: $class", E_USER_WARNING);
       }
   }
-      
+  
   if (class_exists('MyClass')) {
       $myclass = new MyClass();
   }
 ?>
 
-The {autoload} parameter was added in PHP 5
 
-See also |interface_exists|, and |get_declared_classes|.
+
+
+
+|function_exists| |interface_exists| |get_declared_classes|
 
 vim:ft=help:

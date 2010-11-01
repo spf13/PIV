@@ -1,7 +1,7 @@
-pdf_open_pdi_page -- Prepare a page
+PDF_open_pdi_page -- Prepare a page
 
-  int pdf_open_pdi_page(resource pdfdoc, int dochandle, int pagenumber, string pagelabel)~
+  int PDF_open_pdi_page(resource p, int doc, int pagenumber, string optlist)~
 
-Prepare a page for later use with |pdf_place_image|
+Prepares a page for later use with |PDF_fit_pdi_page|.
 
 vim:ft=help:

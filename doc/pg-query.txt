@@ -1,8 +1,6 @@
 pg_query -- Execute a query
 
-  resource pg_query(string query)~
-
-  resource pg_query(string query, resource connection, string query)~
+  resource pg_query([resource connection, string query])~
 
 |pg_query| executes the {query} on the specified database {connection}.
 
@@ -19,7 +17,11 @@ compatibility reasons, but users are encouraged to use the newer name.
 present, the default connection is used. The default connection is the last
 connection made by |pg_connect| or |pg_pconnect|.
 
-{query} The SQL statement or statements to be executed.
+{query} The SQL statement or statements to be executed. When multiple
+statements are passed to the function, they are automatically executed as one
+transaction, unless there are explicit BEGIN/COMMIT commands included in the
+query string. However, using multiple transactions in one function call is not
+recommended.
 
 A query result resource on success, or FALSE on failure.
 
@@ -43,6 +45,28 @@ A query result resource on success, or FALSE on failure.
     echo "<br />\n";
   }
 ?>
+
+
+
+
+
+Using |pg_query| with multiple statements
+
+<?php >
+  $conn = pg_pconnect("dbname=publisher");
+  
+  // these statements will be executed as one transaction
+  
+  $query = "UPDATE authors SET author=UPPER(author) WHERE id=1;";
+  $query .= "UPDATE authors SET author=LOWER(author) WHERE id=2;";
+  $query .= "UPDATE authors SET author=NULL WHERE id=3;";
+  
+  pg_query($conn, $query);
+?>
+
+
+
+
 
 |pg_connect| |pg_pconnect| |pg_fetch_array| |pg_fetch_object| |pg_num_rows|
 |pg_affected_rows|

@@ -1,0 +1,44 @@
+db2_result -- Returns a single column from a row in the result set
+
+  mixed db2_result(resource stmt, mixed column)~
+
+Use |db2_result| to return the value of a specified column in the current row
+of a result set. You must call |db2_fetch_row| before calling |db2_result| to
+set the location of the result set pointer.
+
+{stmt} A valid stmt resource.
+
+{column} Either an integer mapping to the 0-indexed field in the result set,
+or a string matching the name of the column.
+
+Returns the value of the requested field if the field exists in the result
+set. Returns NULL if the field does not exist, and issues a warning.
+
+A |db2_result| example The following example demonstrates how to iterate
+through a result set with |db2_fetch_row| and retrieve columns from the result
+set with |db2_result|.
+
+<?php >
+  $sql = 'SELECT name, breed FROM animals WHERE weight < ?';
+  $stmt = db2_prepare($conn, $sql);
+  db2_execute($stmt, array(10));
+  while (db2_fetch_row($stmt)) {
+      $name = db2_result($stmt, 0);
+      $breed = db2_result($stmt, 'BREED');
+      print "$name $breed";
+  }
+?>
+
+The above example will output:
+
+  cat Pook
+  gold fish Bubbles
+  budgerigar Gizmo
+  goat Rickety Ride
+
+
+
+|db2_fetch_array| |db2_fetch_assoc| |db2_fetch_both| |db2_fetch_object|
+|db2_fetch_row|
+
+vim:ft=help:

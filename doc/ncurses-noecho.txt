@@ -2,14 +2,14 @@ ncurses_noecho -- Switch off keyboard input echo
 
   bool ncurses_noecho()~
 
-This function is EXPERIMENTAL. The behaviour of this function, the name of
-this function, and anything else documented about this function may change
-without notice in a future release of PHP. Use this function at your own
-risk.
+This function is EXPERIMENTAL. The behaviour of this function, its name, and
+surrounding documentation may change without notice in a future release of
+PHP. This function should be used at your own risk.
 
-|ncurses_noecho| prevents echoing of user typed characters. Returns TRUE if
-any error occurred, otherwise FALSE.
+Prevents echoing of user typed characters.
 
-See also: |ncurses_echo|, |ncurses_getch|
+Returns TRUE if any error occurred, FALSE otherwise.
+
+|ncurses_echo| |ncurses_getch|
 
 vim:ft=help:

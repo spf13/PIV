@@ -6,17 +6,21 @@ Set an error handler function for the XSLT processor given by {xh}, this
 function will be called whenever an error occurs in the XSLT transformation
 (this function is also called for notices).
 
+{xh} The XSLT processor link identifier, created with |xslt_create|.
+
   void (resource xh, mixed handler, resource xh, int error_level, int error_code, array messages)~
 
-The user function needs to accept four parameters: the XSLT processor, the
-error level, the error code and an array of messages. The function can be
-shown as:
+{handler} The user function needs to accept four parameters: the XSLT
+processor, the error level, the error code and an array of messages. The
+function can be shown as:
+
+No value is returned.
 
 |xslt_set_error_handler| Example
 
 <?php >
   // Our XSLT error handler
-  function xslt_error_handler($handler, $errno, $level, $info) 
+  function xslt_error_handler($handler, $errno, $level, $info)
   {
     // for now, let's just see the arguments
     var_dump(func_get_args());
@@ -70,6 +74,6 @@ The above example will output something similar to:
     }
   }
 
-|xslt_set_object| if you want to use an object method as handler.
+|xslt_set_object| if you want to use an object method as handler
 
 vim:ft=help:

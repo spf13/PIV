@@ -1,0 +1,26 @@
+apc_delete -- Removes a stored variable from the cache
+
+  bool apc_delete(string key)~
+
+Removes a stored variable from the cache.
+
+{key} The {key} used to store the value (with |apc_store|).
+
+Returns TRUE on success or FALSE on failure.
+
+A |apc_delete| example
+
+<?php >
+  $bar = 'BAR';
+  apc_store('foo', $bar);
+  apc_delete('foo');
+  // this is obviously useless in this form
+?>
+
+
+
+
+
+|apc_store| |apc_fetch|
+
+vim:ft=help:

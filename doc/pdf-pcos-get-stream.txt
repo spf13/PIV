@@ -1,0 +1,8 @@
+PDF_pcos_get_stream -- Get contents of pCOS path with type stream, fstream, or
+string
+
+  string PDF_pcos_get_stream(resource p, int doc, string optlist, string path)~
+
+Gets the contents of a pCOS path with type stream, fstream, or string.
+
+vim:ft=help:

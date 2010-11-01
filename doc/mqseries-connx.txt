@@ -1,0 +1,51 @@
+mqseries_connx -- MQSeries MQCONNX
+
+  void mqseries_connx(string qManagerName, array connOptions, resource hconn, resource compCode, resource reason)~
+
+The |mqseries_connx| (MQCONNX) call connects an application program to a queue
+manager. It provides a queue manager connection handle, which is used by the
+application on subsequent MQ calls.
+
+{qManagerName} Name of queue manager.
+
+Name of the queue manager the application wishes to connect.
+
+{connOps} Options that control the action of function
+
+See also the MQCNO structure.
+
+{hConn} Connection handle.
+
+This handle represents the connection to the queue manager.
+
+{compCode} Completion code.
+
+{reason} Reason code qualifying the compCode.
+
+No value is returned.
+
+|mqseries_connx| example
+
+<?php >
+      $mqcno = array(
+          'Version' => MQSERIES_MQCNO_VERSION_2,
+          'Options' => MQSERIES_MQCNO_STANDARD_BINDING,
+          'MQCD' => array('ChannelName' => 'MQNX9420.CLIENT',
+          'ConnectionName' => 'localhost',
+          'TransportType' => MQSERIES_MQXPT_TCP)
+      );
+  
+      mqseries_connx('MQNX9420', $mqcno, $conn, $comp_code,$reason);
+      if ($comp_code !== MQSERIES_MQCC_OK) {		
+          printf("Connx CompCode:%d Reason:%d Text:%s<br>\n", $comp_code, $reason, mqseries_strerror($reason));
+          exit;
+      }
+?>
+
+
+
+
+
+|mqseries_disc|
+
+vim:ft=help:

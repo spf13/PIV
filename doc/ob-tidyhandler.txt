@@ -2,8 +2,13 @@ ob_tidyhandler -- ob_start callback function to repair the buffer
 
   string ob_tidyhandler(string input [, int mode])~
 
-|ob_tidyhandler| is intended to be used as a callback function for |ob_start|
-to repair the buffer.
+Callback function for |ob_start| to repair the buffer.
+
+{input} The buffer.
+
+{mode} The buffer mode.
+
+Returns the modified buffer.
 
 |ob_tidyhandler| example
 
@@ -25,6 +30,8 @@ The above example will output:
   </body>
   </html>
 
-See also |ob_start|.
+
+
+|ob_start|
 
 vim:ft=help:

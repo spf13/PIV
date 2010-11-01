@@ -1,5 +1,6 @@
-pdf_setpolydash -- Deprecated: Sets complicated dash pattern
+PDF_setpolydash -- Set complicated dash pattern [deprecated]
 
-This function is deprecated, use |pdf_setdash| instead.
+This function is deprecated since PDFlib version 5, use |PDF_setdashpattern|
+instead.
 
 vim:ft=help:

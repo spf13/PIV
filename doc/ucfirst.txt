@@ -7,7 +7,13 @@ character is alphabetic.
 
 Note that 'alphabetic' is determined by the current locale. For instance, in
 the default "C" locale characters such as umlaut-a (&auml;) will not be
-converted. |ucfirst| example
+converted.
+
+{str} The input string.
+
+Returns the resulting string.
+
+|ucfirst| example
 
 <?php >
   $foo = 'hello world!';
@@ -18,6 +24,10 @@ converted. |ucfirst| example
   $bar = ucfirst(strtolower($bar)); // Hello world!
 ?>
 
-See also |strtolower|, |strtoupper|, and |ucwords|.
+
+
+
+
+|lcfirst| |strtolower| |strtoupper| |ucwords|
 
 vim:ft=help:

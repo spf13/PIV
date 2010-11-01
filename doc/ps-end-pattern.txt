@@ -1,0 +1,14 @@
+ps_end_pattern -- End a pattern
+
+  bool ps_end_pattern(resource psdoc)~
+
+Ends a pattern which was started with |ps_begin_pattern|. Once a pattern has
+been ended, it can be used like a color to fill areas.
+
+{psdoc} Resource identifier of the postscript file as returned by |ps_new|.
+
+Returns TRUE on success or FALSE on failure.
+
+|ps_begin_pattern|
+
+vim:ft=help:

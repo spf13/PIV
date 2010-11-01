@@ -2,9 +2,12 @@ connection_status -- Returns connection status bitfield
 
   int connection_status()~
 
-Returns the connection status bitfield. See the Connection Handling
-description in the Features chapter for a complete explanation.
+Gets the connection status bitfield.
 
-See also |connection_aborted|, and |ignore_user_abort|.
+Returns the connection status bitfield, which can be used against the
+CONNECTION_XXX constants to determine the connection status.
+
+|connection_aborted| |ignore_user_abort| Connection Handling for a complete
+description of connection handling in PHP.
 
 vim:ft=help:

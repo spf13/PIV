@@ -1,0 +1,14 @@
+stats_dens_pmf_poisson -- Not documented
+
+  float stats_dens_pmf_poisson(float x, float lb)~
+
+This function is currently not documented; only its argument list is
+available.
+
+{x}
+
+{lb}
+
+
+
+vim:ft=help:

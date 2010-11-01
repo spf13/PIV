@@ -29,6 +29,10 @@ A string containing {len} bytes from the large object, or FALSE on error.
      echo $data;
 ?>
 
+
+
+
+
 |pg_lo_read_all|
 
 vim:ft=help:

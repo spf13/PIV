@@ -2,16 +2,24 @@ preg_grep -- Return array entries that match the pattern
 
   array preg_grep(string pattern, array input [, int flags])~
 
-|preg_grep| returns the array consisting of the elements of the {input} array
-that match the given {pattern}.
+Returns the array consisting of the elements of the {input} array that match
+the given {pattern}.
 
-{flags} can be the following flag: PREG_GREP_INVERT If this flag is passed,
-|preg_grep| returns the elements of the input array that do not match the
-given {pattern}. This flag is available since PHP 4.2.0.
+{pattern} The pattern to search for, as a string.
 
-Since PHP 4.0.4, the results returned by |preg_grep| are indexed using the
-keys from the input array. If this behavior is undesirable, use
-|array_values| on the array returned by |preg_grep| to reindex the values.
+{input} The input array.
+
+{flags} If set to PREG_GREP_INVERT, this function returns the elements of the
+input array that do not match the given {pattern}.
+
+Returns an array indexed using the keys from the {input} array.
+
+Version Description 4.2.0 The {flags} parameter was added. 4.0.4 Prior to this
+version, the returned array was indexed regardless of the keys of the {input}
+array.
+
+If you want to reproduce this old behavior, use |array_values| on the returned
+array to reindex the values.
 
 |preg_grep| example
 
@@ -20,5 +28,9 @@ keys from the input array. If this behavior is undesirable, use
   // containing floating point numbers
   $fl_array = preg_grep("/^(\d+)?\.\d+$/", $array);
 ?>
+
+
+
+
 
 vim:ft=help:

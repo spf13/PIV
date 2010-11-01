@@ -29,6 +29,8 @@ The above example will output:
   The string 'string2' consists of all (visibly) printable characters.
   The string 'string3' consists of all (visibly) printable characters.
 
+
+
 |ctype_alnum| |ctype_print| |ctype_punct|
 
 vim:ft=help:

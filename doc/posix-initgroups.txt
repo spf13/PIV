@@ -1,0 +1,15 @@
+posix_initgroups -- Calculate the group access list
+
+  bool posix_initgroups(string name, int base_group_id)~
+
+Calculates the group access list for the user specified in name.
+
+{name} The user to calculate the list for.
+
+{base_group_id} Typically the group number from the password file.
+
+Returns TRUE on success or FALSE on failure.
+
+The Unix manual page for initgroups(3).
+
+vim:ft=help:

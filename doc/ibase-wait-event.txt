@@ -8,6 +8,14 @@ This function suspends execution of the script until one of the specified
 events is posted by the database. The name of the event that was posted is
 returned. This function accepts up to 15 event arguments.
 
-See also |ibase_set_event_handler| and |ibase_free_event_handler|.
+{event_name1} The event name.
+
+{event_name2}
+
+{...}
+
+Returns the name of the event that was posted.
+
+|ibase_set_event_handler| |ibase_free_event_handler|
 
 vim:ft=help:

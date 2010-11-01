@@ -2,7 +2,13 @@ yp_order -- Returns the order number for a map
 
   int yp_order(string domain, string map)~
 
-|yp_order| returns the order number for a map or FALSE.
+Gets the order number for a map.
+
+{domain}
+
+{map}
+
+Returns the order number for a map or FALSE on error.
 
 Example for the NIS order
 
@@ -11,6 +17,10 @@ Example for the NIS order
       echo "Order number for this map is: " . $number;
 ?>
 
-See also |yp_get_default_domain|.
+
+
+
+
+|yp_get_default_domain|
 
 vim:ft=help:

@@ -1,12 +1,12 @@
-lob->truncate -- Truncates large object
+OCI-Lob->truncate -- Truncates large object
 
-  bool lob->truncate([int length])~
+  bool truncate([int length])~
 
-If parameter {length} is given, |lob->truncate| truncates large object to
-{length} bytes. Otherwise, |lob->truncate| will purge the LOB completely.
+Truncates the LOB.
+
+{length} If provided, this method will truncate the LOB to {length} bytes.
+Otherwise, it will completrely purge the LOB.
 
 Returns TRUE on success or FALSE on failure.
-
-See also |oci_lob_erase|.
 
 vim:ft=help:

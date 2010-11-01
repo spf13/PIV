@@ -1,0 +1,30 @@
+enchant_broker_dict_exists -- Whether a dictionary exists or not. Using
+non-empty tag
+
+  bool enchant_broker_dict_exists(resource broker, string tag)~
+
+Tells if a dictionary exists or not, using a non-empty tags
+
+{broker} Broker resource
+
+{tag} non-empty tag in the LOCALE format, ex: us_US, ch_DE, etc.
+
+Returns TRUE when the tag exist or FALSE when not.
+
+A |enchant_broker_dict_exists| example
+
+<?php >
+  $tag = 'en_US';
+  $r = enchant_broker_init();
+  if (enchant_broker_dict_exists($r,$tag)) {
+      echo $tag . " dictionary found.\n";
+  }
+?>
+
+
+
+
+
+|enchant_broker_describe|
+
+vim:ft=help:

@@ -23,6 +23,10 @@ PostgreSQL backend PID
   $pid = pg_get_pid($conn);
 ?>
 
+
+
+
+
 |pg_get_notify|
 
 vim:ft=help:

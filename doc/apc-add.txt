@@ -1,0 +1,47 @@
+apc_add -- Cache a variable in the data store
+
+  bool apc_add(string key, mixed var [, int ttl])~
+
+Caches a variable in the data store, only if it's not already stored.
+
+Unlike many other mechanisms in PHP, variables stored using |apc_add| will
+persist between requests (until the value is removed from the cache).
+
+{key} Store the variable using this name. {key}s are cache-unique, so
+attempting to use |apc_add| to store data with a key that already exists will
+not overwrite the existing data, and will instead return FALSE. (This is the
+only difference between |apc_add| and |apc_store|.)
+
+{var} The variable to store
+
+{ttl} Time To Live; store {var} in the cache for {ttl} seconds. After the
+{ttl} has passed, the stored variable will be expunged from the cache (on the
+next request). If no {ttl} is supplied (or if the {ttl} is 0), the value will
+persist until it is removed from the cache manually, or otherwise fails to
+exist in the cache (clear, restart, etc.).
+
+Returns TRUE on success or FALSE on failure.
+
+A |apc_add| example
+
+<?php >
+  $bar = 'BAR';
+  apc_add('foo', $bar);
+  var_dump(apc_fetch('foo'));
+  echo "\n";
+  $bar = 'NEVER GETS SET';
+  apc_add('foo', $bar);
+  var_dump(apc_fetch('foo'));
+  echo "\n";
+?>
+
+The above example will output:
+
+  string(3) "BAR"
+  string(3) "BAR"
+
+
+
+|apc_store| |apc_fetch| |apc_delete|
+
+vim:ft=help:

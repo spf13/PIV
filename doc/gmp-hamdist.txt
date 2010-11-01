@@ -5,6 +5,18 @@ gmp_hamdist -- Hamming distance
 Returns the hamming distance between {a} and {b}. Both operands should be
 non-negative.
 
+{a} It can be either a GMP number resource, or a numeric string given that it
+is possible to convert the latter to a number.
+
+It should be positive.
+
+{b} It can be either a GMP number resource, or a numeric string given that it
+is possible to convert the latter to a number.
+
+It should be positive.
+
+A GMP number resource.
+
 |gmp_hamdist| example
 
 <?php >
@@ -16,11 +28,13 @@ non-negative.
   echo gmp_popcount(gmp_xor($ham1, $ham2)) . "\n";
 ?>
 
-The printout of the above program will be:
+The above example will output:
 
   6
   6
 
-See also |gmp_popcount|, |gmp_xor|
+
+
+|gmp_popcount| |gmp_xor|
 
 vim:ft=help:

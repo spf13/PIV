@@ -2,26 +2,33 @@ preg_split -- Split string by a regular expression
 
   array preg_split(string pattern, string subject [, int limit [, int flags]])~
 
-Returns an array containing substrings of {subject} split along boundaries
-matched by {pattern}.
+Split the given string by a regular expression.
 
-If {limit} is specified, then only substrings up to {limit} are returned, and
-if {limit} is -1, it actually means "no limit", which is useful for
-specifying the {flags}.
+{pattern} The pattern to search for, as a string.
 
-{flags} can be any combination of the following flags (combined with bitwise |
-operator): PREG_SPLIT_NO_EMPTY If this flag is set, only non-empty pieces will
-be returned by |preg_split|.
+{subject} The input string.
+
+{limit} If specified, then only substrings up to {limit} are returned, and if
+{limit} is -1, it actually means "no limit", which is useful for specifying
+the {flags}.
+
+{flags} {flags} can be any combination of the following flags (combined with
+bitwise | operator): PREG_SPLIT_NO_EMPTY If this flag is set, only non-empty
+pieces will be returned by |preg_split|.
 
 PREG_SPLIT_DELIM_CAPTURE If this flag is set, parenthesized expression in the
-delimiter pattern will be captured and returned as well. This flag was added
-for 4.0.5.
+delimiter pattern will be captured and returned as well.
 
 PREG_SPLIT_OFFSET_CAPTURE If this flag is set, for every occurring match the
 appendant string offset will also be returned. Note that this changes the
 return value in an array where every element is an array consisting of the
 matched string at offset 0 and its string offset into {subject} at offset 1.
-This flag is available since PHP 4.3.0 .
+
+Returns an array containing substrings of {subject} split along boundaries
+matched by {pattern}.
+
+Version Description 4.3.0 The PREG_SPLIT_OFFSET_CAPTURE was added 4.0.5 The
+PREG_SPLIT_DELIM_CAPTURE was added 4.0.0 The {flags} parameter was added
 
 |preg_split| example : Get the parts of a search string
 
@@ -31,6 +38,10 @@ This flag is available since PHP 4.3.0 .
   $keywords = preg_split("/[\s,]+/", "hypertext language, programming");
 ?>
 
+
+
+
+
 Splitting a string into component characters
 
 <?php >
@@ -38,6 +49,10 @@ Splitting a string into component characters
   $chars = preg_split('//', $str, -1, PREG_SPLIT_NO_EMPTY);
   print_r($chars);
 ?>
+
+
+
+
 
 Splitting a string into matches and their offsets
 
@@ -47,7 +62,7 @@ Splitting a string into matches and their offsets
   print_r($chars);
 ?>
 
-will yield:
+The above example will output:
 
   Array
   (
@@ -71,9 +86,11 @@ will yield:
   
   )
 
-Parameter {flags} was added in PHP 4 Beta 3.
 
-See also |spliti|, |split|, |implode|, |preg_match|, |preg_match_all|, and
-|preg_replace|.
+
+If you don't need the power of regular expressions, you can choose faster
+(albeit simpler) alternatives like |explode| or |str_split|.
+
+|spliti| |split| |implode| |preg_match| |preg_match_all| |preg_replace|
 
 vim:ft=help:

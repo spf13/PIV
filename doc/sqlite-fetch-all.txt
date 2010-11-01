@@ -25,10 +25,10 @@ associative and numerical indices. SQLITE_BOTH is the default for this
 function.
 
 {decode_binary} When the {decode_binary} parameter is set to TRUE (the
-default), PHP will decode the binary encoding it applied to the data if it
-was encoded using the |sqlite_escape_string|. You should normally leave this
-value at its default, unless you are interoperating with databases created by
-other sqlite capable applications.
+default), PHP will decode the binary encoding it applied to the data if it was
+encoded using the |sqlite_escape_string|. You should normally leave this value
+at its default, unless you are interoperating with databases created by other
+sqlite capable applications.
 
 Returns an array of the remaining rows in a result set. If called right after
 |sqlite_query|, it returns all rows. If called after |sqlite_fetch_array|, it
@@ -49,6 +49,10 @@ Procedural example
   }
 ?>
 
+
+
+
+
 Object-oriented example
 
 <?php >
@@ -62,6 +66,10 @@ Object-oriented example
       echo 'Name: ' . $entry['name'] . '  E-mail: ' . $entry['email'];
   }
 ?>
+
+
+
+
 
 |sqlite_fetch_array|
 

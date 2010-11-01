@@ -4,6 +4,8 @@ sybase_get_last_message -- Returns the last message from the server
 
 |sybase_get_last_message| returns the last message reported by the server.
 
-See also |sybase_min_message_severity|.
+Returns the message as a string.
+
+|sybase_min_message_severity|
 
 vim:ft=help:

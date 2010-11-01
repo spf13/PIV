@@ -1,0 +1,14 @@
+stats_rand_setall -- Not documented
+
+  void stats_rand_setall(int iseed1, int iseed2)~
+
+This function is currently not documented; only its argument list is
+available.
+
+{iseed1}
+
+{iseed2}
+
+
+
+vim:ft=help:

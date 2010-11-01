@@ -1,12 +1,18 @@
-array_change_key_case -- Returns an array with all string keys lowercased or
-uppercased
+array_change_key_case -- Changes all keys in an array
 
   array array_change_key_case(array input [, int case])~
 
-|array_change_key_case| changes the keys in the {input} array to be all
-lowercase or uppercase. The change depends on the last optional {case}
-parameter. You can pass two constants there, CASE_UPPER and CASE_LOWER. The
-default is CASE_LOWER. The function will leave number indices as is.
+Returns an array with all keys from {input} lowercased or uppercased. Numbered
+indices are left as is.
+
+{input} The array to work on
+
+{case} Either CASE_UPPER or CASE_LOWER (default)
+
+Returns an array with its keys lower or uppercased, or FALSE if {input} is not
+an array.
+
+Throws E_WARNING if {input} is not an array.
 
 |array_change_key_case| example
 
@@ -22,6 +28,8 @@ The above example will output:
       [FIRST] => 1
       [SECOND] => 4
   )
+
+
 
 If an array has indices that will be the same once run through this function
 (e.g. "keY" and "kEY"), the value that is later in the array will override

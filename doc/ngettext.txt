@@ -2,9 +2,17 @@ ngettext -- Plural version of gettext
 
   string ngettext(string msgid1, string msgid2, int n)~
 
-|ngettext| returns correct plural form of message identified by {msgid1} and
-{msgid2} for count {n}. Some languages have more than one form for plural
-messages dependent on the count.
+The plural version of |gettext|. Some languages have more than one form for
+plural messages dependent on the count.
+
+{msgid1}
+
+{msgid2}
+
+{n}
+
+Returns correct plural form of message identified by {msgid1} and {msgid2} for
+count {n}.
 
 |ngettext| example
 
@@ -14,5 +22,9 @@ messages dependent on the count.
   printf(ngettext("%d window", "%d windows", 2), 2); // 2 okna
   printf(ngettext("%d window", "%d windows", 5), 5); // 5 oken
 ?>
+
+
+
+
 
 vim:ft=help:

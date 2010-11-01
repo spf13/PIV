@@ -48,6 +48,10 @@ Using |pg_connect|
   //connect to a database named "test" on the host "sheep" with a username and password
 ?>
 
+
+
+
+
 |pg_pconnect| |pg_close| |pg_host| |pg_port| |pg_tty| |pg_options| |pg_dbname|
 
 vim:ft=help:

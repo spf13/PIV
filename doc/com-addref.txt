@@ -4,8 +4,8 @@ com_addref -- Increases the components reference counter [deprecated]
 
 Increases the components reference counter.
 
-You should never need to use this function.
+No value is returned.
 
-This function has gone away in PHP 5.
+You should never need to use this function.
 
 vim:ft=help:

@@ -1,0 +1,13 @@
+stats_rand_phrase_to_seeds -- generate two seeds for the RGN random number
+generator
+
+  array stats_rand_phrase_to_seeds(string phrase)~
+
+This function is currently not documented; only its argument list is
+available.
+
+{phrase}
+
+
+
+vim:ft=help:

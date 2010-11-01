@@ -2,15 +2,29 @@ gmp_div_q -- Divide numbers
 
   resource gmp_div_q(resource a, resource b [, int round])~
 
-Divides {a} by {b} and returns the integer result. The result rounding is
-defined by the {round}, which can have the following values:
-{GMP_ROUND_ZERO}: The result is truncated towards 0.
+Divides {a} by {b} and returns the integer result.
 
-{GMP_ROUND_PLUSINF}: The result is rounded towards +infinity.
+{a} The number being divided.
 
-{GMP_ROUND_MINUSINF}: The result is rounded towards -infinity.
+It can be either a GMP number resource, or a numeric string given that it is
+possible to convert the latter to a number.
 
-This function can also be called as |gmp_div|.
+{b} The number that {a} is being divided by.
+
+It can be either a GMP number resource, or a numeric string given that it is
+possible to convert the latter to a number.
+
+{round} The result rounding is defined by the {round}, which can have the
+following values: GMP_ROUND_ZERO: The result is truncated towards 0.
+
+GMP_ROUND_PLUSINF: The result is rounded towards +infinity.
+
+GMP_ROUND_MINUSINF: The result is rounded towards -infinity.
+
+It can be either a GMP number resource, or a numeric string given that it is
+possible to convert the latter to a number.
+
+A GMP number resource.
 
 |gmp_div_q| example
 
@@ -31,14 +45,18 @@ This function can also be called as |gmp_div|.
   echo gmp_strval($div5) . "\n";
 ?>
 
-The printout of the above program will be:
+The above example will output:
 
   20
   0
   1
   0
-  1
+  -1
 
-See also |gmp_div_r|, |gmp_div_qr|
+
+
+This function can also be called as |gmp_div|.
+
+|gmp_div_r| |gmp_div_qr|
 
 vim:ft=help:

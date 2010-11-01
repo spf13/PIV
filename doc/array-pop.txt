@@ -3,10 +3,15 @@ array_pop -- Pop the element off the end of array
   mixed array_pop(array array)~
 
 |array_pop| pops and returns the last value of the {array}, shortening the
-{array} by one element. If {array} is empty (or is not an array), NULL will
-be returned.
+{array} by one element. If {array} is empty (or is not an array), NULL will be
+returned. Will additionally produce a Warning when called on a non-array.
 
 This function will |reset| the array pointer after use.
+
+{array} The array to get the value from.
+
+Returns the last value of {array}. If {array} is empty (or is not an array),
+NULL will be returned.
 
 |array_pop| example
 
@@ -27,6 +32,10 @@ After this, $stack will have only 3 elements:
 
 and raspberry will be assigned to $fruit.
 
-See also |array_push|, |array_shift|, and |array_unshift|.
+
+
+
+
+|array_push| |array_shift| |array_unshift|
 
 vim:ft=help:

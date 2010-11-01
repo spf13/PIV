@@ -5,10 +5,9 @@ pg_update -- Update table
 |pg_update| updates records that matches condition with data. If options is
 specified, |pg_convert| is applied to data with specified options.
 
-This function is EXPERIMENTAL. The behaviour of this function, the name of
-this function, and anything else documented about this function may change
-without notice in a future release of PHP. Use this function at your own
-risk.
+This function is EXPERIMENTAL. The behaviour of this function, its name, and
+surrounding documentation may change without notice in a future release of
+PHP. This function should be used at your own risk.
 
 {connection} PostgreSQL database connection resource.
 
@@ -41,6 +40,10 @@ PGSQL_DML_STRING is passed via {options}.
         echo "User must have sent wrong inputs\n";
     }
 ?>
+
+
+
+
 
 |pg_convert|
 

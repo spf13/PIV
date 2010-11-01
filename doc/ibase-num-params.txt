@@ -6,6 +6,10 @@ This function returns the number of parameters in the prepared query specified
 by {query}. This is the number of binding arguments that must be present when
 calling |ibase_execute|.
 
-See also |ibase_prepare| and |ibase_param_info|.
+{query} The prepared query handle.
+
+Returns the number of parameters as an integer.
+
+|ibase_prepare| |ibase_param_info|
 
 vim:ft=help:

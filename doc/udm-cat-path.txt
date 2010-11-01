@@ -3,8 +3,11 @@ udm_cat_path -- Get the path to the current category
   array udm_cat_path(resource agent, string category)~
 
 Returns an array describing the path in the categories tree from the tree root
-to the current one, specified by {category}. {agent} is the agent identifier
-returned by a previous call to |>udm_alloc_agent|.
+to the current one, specified by {category}.
+
+{agent} A link to Agent, received after call to |udm_alloc_agent|.
+
+{category}
 
 The returned array consists of pairs. Elements with even index numbers contain
 the category paths, odd elements contain the corresponding category names.
@@ -21,6 +24,8 @@ following array:
    $array[4] will contain '02031D'
    $array[5] will contain 'Ferrari'
 
+
+
 Specifying path to the current category in the following format: '> Root >
 Sport > Auto > Ferrari'
 
@@ -34,6 +39,10 @@ Sport > Auto > Ferrari'
     }
 ?>
 
-See also |udm_cat_list|.
+
+
+
+
+|udm_cat_list|
 
 vim:ft=help:

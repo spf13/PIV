@@ -2,22 +2,30 @@ array_filter -- Filters elements of an array using a callback function
 
   array array_filter(array input [, callback callback])~
 
-|array_filter| iterates over each value in the {input} array passing them to
-the {callback} function. If the { callback} function returns true, the
-current value from {input} is returned into the result array. Array keys are
-preserved.
+Iterates over each value in the {input} array passing them to the {callback}
+function. If the { callback} function returns true, the current value from
+{input} is returned into the result array. Array keys are preserved.
+
+{input} The array to iterate over
+
+{callback} The callback function to use
+
+If no {callback} is supplied, all entries of {input} equal to FALSE (see
+converting to boolean) will be removed.
+
+Returns the filtered array.
 
 |array_filter| example
 
 <?php >
-  function odd($var) 
+  function odd($var)
   {
-      return($var % 2 == 1);
+      return($var &amp; 1);
   }
   
-  function even($var) 
+  function even($var)
   {
-      return($var % 2 == 0);
+      return(!($var &amp; 1));
   }
   
   $array1 = array("a"=>1, "b"=>2, "c"=>3, "d"=>4, "e"=>5);
@@ -47,14 +55,6 @@ The above example will output:
       [6] => 12
   )
 
-Users may not change the array itself from the callback function. e.g.
-Add/delete an element, unset the array that |array_filter| is applied to. If
-the array is changed, the behavior of this function is undefined.
-
-If the {callback} function is not supplied, |array_filter| will remove all the
-entries of {input} that are equal to FALSE. See converting to boolean for more
-information.
-
 |array_filter| without {callback}
 
 <?php >
@@ -77,6 +77,11 @@ The above example will output:
       [2] => -1
   )
 
-See also |array_map|, |array_reduce|, and |array_walk|.
+
+
+If the array is changed from the callback function (e.g. element added,
+deleted or unset) the behavior of this function is undefined.
+
+|array_map| |array_reduce| |array_walk|
 
 vim:ft=help:

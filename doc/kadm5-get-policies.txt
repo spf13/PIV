@@ -1,0 +1,28 @@
+kadm5_get_policies -- Gets all policies from the Kerberos database
+
+  array kadm5_get_policies(resource handle)~
+
+Gets an array containing the policies's names.
+
+{handle} A KADM5 handle.
+
+Returns array of policies on success, or FALSE on failure.
+
+|kadm5_get_policies| example
+
+<?php >
+  $handle = kadm5_init_with_password("afs-1", "GONICUS.LOCAL", "admin/admin", "password");
+  
+  print "<h1>get_policies</h1>\n";
+  foreach (kadm5_get_policies($handle) as $policy) {
+      echo "$policy<br />\n";
+  }
+  
+  kadm5_destroy($handle);
+?>
+
+
+
+
+
+vim:ft=help:

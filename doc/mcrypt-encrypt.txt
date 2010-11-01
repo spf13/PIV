@@ -2,28 +2,32 @@ mcrypt_encrypt -- Encrypts plaintext with given parameters
 
   string mcrypt_encrypt(string cipher, string key, string data, string mode [, string iv])~
 
-|mcrypt_encrypt| encrypts the data and returns the encrypted data.
+Encrypts the data and returns it.
 
-{Cipher} is one of the MCRYPT_ciphername constants of the name of the
-algorithm as string.
+{cipher} One of the MCRYPT_ciphername constants of the name of the algorithm
+as string.
 
-{Key} is the key with which the data will be encrypted. If it's smaller that
-the required keysize, it is padded with '\0'. It is better not to use ASCII
-strings for keys. It is recommended to use the mhash functions to create a
-key from a string.
+{key} The key with which the data will be encrypted. If it's smaller that the
+required keysize, it is padded with '\0'. It is better not to use ASCII
+strings for keys.
 
-{Data} is the data that will be encrypted with the given cipher and mode. If
-the size of the data is not n * blocksize, the data will be padded with '\0'.
+It is recommended to use the mhash functions to create a key from a string.
+
+{data} The data that will be encrypted with the given cipher and mode. If the
+size of the data is not n * blocksize, the data will be padded with '\0'.
+
 The returned crypttext can be larger that the size of the data that is given
 by {data}.
 
-{Mode} is one of the MCRYPT_MODE_modename constants of one of "ecb", "cbc",
+{mode} One of the MCRYPT_MODE_modename constants of one of "ecb", "cbc",
 "cfb", "ofb", "nofb" or "stream".
 
-The {IV} parameter is used for the initialisation in CBC, CFB, OFB modes, and
-in some algorithms in STREAM mode. If you do not supply an IV, while it is
-needed for an algorithm, the function issues a warning and uses an IV with
-all bytes set to '\0'.
+{iv} Used for the initialisation in CBC, CFB, OFB modes, and in some
+algorithms in STREAM mode. If you do not supply an IV, while it is needed for
+an algorithm, the function issues a warning and uses an IV with all bytes set
+to '\0'.
+
+Returns the encrypted data, as a string.
 
 |mcrypt_encrypt| Example
 
@@ -42,6 +46,8 @@ The above example will output:
 
   42
   64
+
+
 
 See also |mcrypt_module_open| for a more advanced API and an example.
 

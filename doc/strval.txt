@@ -2,11 +2,34 @@ strval -- Get string value of a variable
 
   string strval(mixed var)~
 
-Returns the string value of {var}. See the documentation on string for more
+Get the string value of a variable. See the documentation on string for more
 information on converting to string.
+
+{var} The variable that is being converted to a string.
 
 {var} may be any scalar type. You cannot use |strval| on arrays or objects.
 
-See also |floatval|, |intval|, |settype| and Type juggling.
+The string value of {var}.
+
+|strval| example using PHP5's magic __toString method
+
+<?php >
+  class StrValTest
+  {
+  	public function __toString()
+  	{
+  		return __CLASS__;
+  	}
+  }
+  
+  // Prints 'StrValTest'
+  echo strval(new StrValTest);
+?>
+
+
+
+
+
+|floatval| |intval| |settype| Type juggling
 
 vim:ft=help:

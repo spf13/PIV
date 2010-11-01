@@ -25,6 +25,10 @@ created, and a PHP error is raised.
   }
 ?>
 
-See also |pcntl_waitpid| and |pcntl_signal|.
+
+
+
+
+|pcntl_waitpid| |pcntl_signal|
 
 vim:ft=help:

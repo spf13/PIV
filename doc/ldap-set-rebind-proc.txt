@@ -3,7 +3,7 @@ chasing
 
   bool ldap_set_rebind_proc(resource link, callback callback)~
 
-This function is currently not documented; only the argument list is
+This function is currently not documented; only its argument list is
 available.
 
 vim:ft=help:

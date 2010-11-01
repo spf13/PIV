@@ -4,9 +4,8 @@ dbase_create -- Creates a database
 
 |dbase_create| creates a dBase database with the given definition.
 
-When safe mode is enabled, PHP checks whether the files or directories you are
-about to operate on have the same UID (owner) as the script that is being
-executed.
+When safe mode is enabled, PHP checks whether the files or directories being
+operated upon have the same UID (owner) as the script that is being executed.
 
 This function is affected by open_basedir.
 
@@ -39,6 +38,10 @@ Creating a dBase database file
     echo "Error, can't create the database\n";
   }
 ?>
+
+
+
+
 
 |dbase_open| |dbase_close|
 

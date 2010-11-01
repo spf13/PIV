@@ -3,21 +3,31 @@ basename -- Returns filename component of path
   string basename(string path [, string suffix])~
 
 Given a string containing a path to a file, this function will return the base
-name of the file. If the filename ends in {suffix} this will also be cut off.
+name of the file.
+
+{path} A path.
 
 On Windows, both slash (/) and backslash (\) are used as directory separator
 character. In other environments, it is the forward slash (/).
+
+{suffix} If the filename ends in {suffix} this will also be cut off.
+
+Returns the base name of the given {path}.
+
+Version Description 4.1.0 The {suffix} parameter was added
 
 |basename| example
 
 <?php >
   $path = "/home/httpd/html/index.php";
-  $file = basename($path);        // $file is set to "index.php"
+  $file = basename($path);         // $file is set to "index.php"
   $file = basename($path, ".php"); // $file is set to "index"
 ?>
 
-The {suffix} parameter was added in PHP 4.1.0.
 
-See also |dirname|.
+
+
+
+|dirname| |pathinfo|
 
 vim:ft=help:

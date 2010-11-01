@@ -2,15 +2,16 @@ time_sleep_until -- Make the script sleep until the specified time
 
   bool time_sleep_until(float timestamp)~
 
-This function will make the script sleep until the specified {timestamp}. If
-the specified {timestamp} is in the past, |time_sleep_until| will generate a
-E_WARNING and return FALSE.
-
-This function is not implemented on Windows platforms.
+Makes the script sleep until the specified {timestamp}.
 
 {timestamp} The timestamp when the script should wake.
 
 Returns TRUE on success or FALSE on failure.
+
+Version Description 5.3.0 This function is now available on Windows platforms.
+
+If the specified {timestamp} is in the past, this function will generate a
+E_WARNING.
 
 A |time_sleep_until| example
 
@@ -22,6 +23,12 @@ A |time_sleep_until| example
   var_dump(time_sleep_until(time()+0.2));
 ?>
 
-|sleep| |usleep| |time_nanosleep|
+
+
+
+
+All signals will be delivered after the script wakes up.
+
+|sleep| |usleep| |time_nanosleep| |set_time_limit|
 
 vim:ft=help:

@@ -1,22 +1,24 @@
 printer_draw_roundrect -- Draw a rectangle with rounded corners
 
-  void printer_draw_roundrect(resource handle, int ul_x, int ul_y, int lr_x, int lr_y, int width, int height)~
+  void printer_draw_roundrect(resource printer_handle, int ul_x, int ul_y, int lr_x, int lr_y, int width, int height)~
 
-The function simply draws a rectangle with rounded corners.
+The function draws a rectangle with rounded corners.
 
-{handle} must be a valid handle to a printer.
+{printer_handle} {printer_handle} must be a valid printer handle.
 
-{ul_x} is the upper left x coordinate of the rectangle.
+{ul_x} {ul_x} is the upper left x coordinate of the rectangle.
 
-{ul_y} is the upper left y coordinate of the rectangle.
+{ul_y} {ul_y} is the upper left y coordinate of the rectangle.
 
-{lr_x} is the lower right x coordinate of the rectangle.
+{lr_x} {lr_x} is the lower right x coordinate of the rectangle.
 
-{lr_y} is the lower right y coordinate of the rectangle.
+{lr_y} {lr_y} is the lower right y coordinate of the rectangle.
 
-{width} is the width of the ellipse.
+{width} {width} is the width of the ellipse.
 
-{height} is the height of the ellipse.
+{height} {height} is the height of the ellipse.
+
+No value is returned.
 
 |printer_draw_roundrect| example
 
@@ -40,5 +42,9 @@ The function simply draws a rectangle with rounded corners.
   printer_end_doc($handle);
   printer_close($handle);
 ?>
+
+
+
+
 
 vim:ft=help:

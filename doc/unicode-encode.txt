@@ -1,0 +1,47 @@
+unicode_encode -- Convert a unicode string in any encoding
+
+  string unicode_encode(unicode input, string encoding [, int errmode])~
+
+Takes a unicode string and converts it to a string in the specified
+{encoding}.
+
+{input} The unicode string that is converted.
+
+{encoding} The new encoding for {input}.
+
+{errmode} Conversion error mode. This parameter determines the action to take
+when the converter cannot convert a character. For a list of available modes,
+refer to |unicode_set_error_mode|. If the parameter is not set, the global
+error mode is used.
+
+A string on success, or FALSE on failure.
+
+Emits a E_WARNING level error if a converter cannot be created for the desired
+{encoding}.
+
+A |unicode_encode| example Note: The characters will be seen instead of
+entities in the output.
+
+<?php >
+  header ('Content-Type: text/plain; charset=ISO-8859-2');
+  
+  $encoded = unicode_encode ('\u0150\u0179', 'ISO-8859-2');
+  
+  echo 'The string itself:', $encoded, PHP_EOL;
+  echo 'The length of the string: ', strlen ($encoded);
+?>
+
+The above example will output something similar to:
+
+  The string itself: &amp;#336;&amp;#377;
+  The length of the string: 2
+
+
+
+This function is EXPERIMENTAL. The behaviour of this function, its name, and
+surrounding documentation may change without notice in a future release of
+PHP. This function should be used at your own risk.
+
+|unicode_set_error_mode| |unicode_decode|
+
+vim:ft=help:

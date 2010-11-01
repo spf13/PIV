@@ -3,10 +3,23 @@ function that failed
 
   int posix_get_last_error()~
 
-Returns the errno (error number) set by the last posix function that failed.
-If no errors exist, 0 is returned. If you're wanting the system error message
-associated with the errno, use |posix_strerror|.
+Retrieve the error number set by the last posix function that failed. The
+system error message associated with the errno may be checked with
+|posix_strerror|.
 
-See also |posix_strerror|.
+Returns the errno (error number) set by the last posix function that failed.
+If no errors exist, 0 is returned.
+
+|posix_get_last_error| example This example attempt to kill a bogus process
+id, which will set the last error. We will then print out the last errno.
+
+<?php >
+  posix_kill(999459,SIGKILL);
+  echo 'Your error returned was '.posix_get_last_error(); //Your error was ___
+?>
+
+
+
+|posix_strerror|
 
 vim:ft=help:

@@ -1,0 +1,19 @@
+SDO_Model_ReflectionDataObject::getContainmentProperty -- Get the property
+which defines the containment relationship to the data object
+
+  SDO_Model_Property SDO_Model_ReflectionDataObject::getContainmentProperty()~
+
+This function is EXPERIMENTAL. The behaviour of this function, its name, and
+surrounding documentation may change without notice in a future release of
+PHP. This function should be used at your own risk.
+
+Get the SDO_Model_Property that contains the SDO_DataObject. This method is
+used to navigate up to the parent's property which contains the data object
+which has been reflected upon.
+
+None.
+
+Returns the container's SDO_Model_Property which references the
+SDO_DataObject, or NULL if it is a root SDO_DataObject.
+
+vim:ft=help:

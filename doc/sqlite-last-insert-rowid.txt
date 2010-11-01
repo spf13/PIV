@@ -13,8 +13,10 @@ Returns the rowid of the row that was most recently inserted into the database
 You can create auto-increment fields in SQLite by declaring them as INTEGER
 PRIMARY KEY in your table schema.
 
-{dbhandle} The SQLite Database resource; returned from |sqlite_open | when
-used procedurally. This parameter is not required when using the
-object-oriented method.
+{dbhandle} The SQLite Database resource; returned from |sqlite_open| when used
+procedurally. This parameter is not required when using the object-oriented
+method.
+
+Returns the row id, as an integer.
 
 vim:ft=help:

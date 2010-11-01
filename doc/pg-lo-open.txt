@@ -37,6 +37,10 @@ A large object resource or FALSE on error.
      pg_query($database, "commit");
 ?>
 
+
+
+
+
 |pg_lo_close| |pg_lo_create|
 
 vim:ft=help:

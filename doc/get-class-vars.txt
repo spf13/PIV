@@ -1,12 +1,21 @@
-get_class_vars -- Returns an array of default properties of the class
+get_class_vars -- Get the default properties of the class
 
   array get_class_vars(string class_name)~
 
-This function will return an associative array of default public properties of
-the class. The resulting array elements are in the form of {varname => value}.
+Get the default properties of the given class.
 
-Prior to PHP 4.2.0, Uninitialized class variables will not be reported by
-|get_class_vars|.
+{class_name} The class name
+
+Returns an associative array of default public properties of the class. The
+resulting array elements are in the form of varname => value.
+
+Version Description 5.0.3 Depending on the scope, |get_class_vars| will only
+return the properties that can be accessed from the current scope. 5.0.2
+Calling |get_class_vars| will now expose all the properties as an array,
+unlike previous behaviour where protected and private properties were prefixed
+with nul bytes. 5.0.1 Calling |get_class_vars| will expose all properties, as
+when converting an object to a class. Prior to 4.2.0 Uninitialized class
+variables will not be reported by |get_class_vars|
 
 |get_class_vars| example
 
@@ -17,7 +26,7 @@ Prior to PHP 4.2.0, Uninitialized class variables will not be reported by
       var $var2 = "xyz";
       var $var3 = 100;
       private $var4; // PHP 5
-      
+  
       // constructor
       function myclass() {
           // change some properties
@@ -48,6 +57,48 @@ The above example will output:
   var2 : xyz
   var3 : 100
 
-See also |get_class_methods|, |get_object_vars|
+
+
+|get_class_vars| and scoping behaviour
+
+<?php >
+  function format($array)
+  {
+  	return implode('|', array_keys($array)) . "\r\n";
+  }
+  
+  class TestCase
+  {
+  	public $a	= 1;
+  	protected $b	= 2;
+  	private $c	= 3;
+  
+  	public static function expose()
+  	{
+  		echo format(get_class_vars(__CLASS__));
+  	}
+  }
+  
+  TestCase::expose();
+  echo format(get_class_vars('TestCase'));
+?>
+
+The above example will output:
+
+  // 5.0.0
+  a| * b| TestCase c
+  a| * b| TestCase c
+  
+  // 5.0.1 - 5.0.2
+  a|b|c
+  a|b|c
+  
+  // 5.0.3 +
+  a|b|c
+  a
+
+
+
+|get_class_methods| |get_object_vars|
 
 vim:ft=help:

@@ -7,12 +7,14 @@ removed. This may be useful for determining the amount of actual code in your
 scripts compared with the amount of comments. This is similar to using php -w
 from the commandline.
 
-This function works as described as of PHP 5.0.1. Before this it would only
-return an empty string. For more information on this bug and its prior
-behavior, see bug report #29606.
+{filename} Path to the PHP file.
 
 The stripped source code will be returned on success, or an empty string on
 failure.
+
+This function works as described as of PHP 5.0.1. Before this it would only
+return an empty string. For more information on this bug and its prior
+behavior, see bug report #29606.
 
 |php_strip_whitespace| example
 
@@ -35,5 +37,9 @@ The above example will output:
 
 Notice the PHP comments are gone, as are the whitespace and newline after the
 first echo statement.
+
+
+
+
 
 vim:ft=help:

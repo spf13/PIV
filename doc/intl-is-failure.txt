@@ -1,0 +1,37 @@
+intl_is_failure -- Check whether the given error code indicates failure
+
+  bool intl_is_failure(int error_code)~
+
+
+
+{error_code} is a value that returned by functions: |intl_get_error_code|,
+|collator_get_error_code| .
+
+TRUE if it the code indicates some failure, and FALSE in case of success or a
+warning.
+
+|intl_is_failure| example
+
+<?php >
+  function check( $err_code )
+  {
+      var_export( intl_is_failure( $err_code ) );
+      echo "\n";
+  }
+  	
+  check( U_ZERO_ERROR );
+  check( U_USING_FALLBACK_WARNING );
+  check( U_ILLEGAL_ARGUMENT_ERROR );
+?>
+
+The above example will output something similar to:
+
+  false
+  false
+  true
+
+
+
+|intl_get_error_code| |collator_get_error_code| |Collator-getErrorCode|
+
+vim:ft=help:

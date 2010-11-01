@@ -4,9 +4,13 @@ pspell_add_to_personal -- Add the word to a personal wordlist
 
 |pspell_add_to_personal| adds a word to the personal wordlist. If you used
 |pspell_new_config| with |pspell_config_personal| to open the dictionary, you
-can save the wordlist later with |pspell_save_wordlist|. Please, note that
-this function will not work unless you have pspell .11.2 and aspell .32.5 or
-later.
+can save the wordlist later with |pspell_save_wordlist|.
+
+{dictionary_link}
+
+{word} The added word.
+
+Returns TRUE on success or FALSE on failure.
 
 |pspell_add_to_personal|
 
@@ -18,5 +22,12 @@ later.
   pspell_add_to_personal($pspell_link, "Vlad");
   pspell_save_wordlist($pspell_link);
 ?>
+
+
+
+
+
+This function will not work unless you have pspell .11.2 and aspell .32.5 or
+later.
 
 vim:ft=help:

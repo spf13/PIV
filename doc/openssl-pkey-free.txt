@@ -4,4 +4,8 @@ openssl_pkey_free -- Frees a private key
 
 This function frees a private key created by |openssl_pkey_new|.
 
+{key} Resource holding the key.
+
+No value is returned.
+
 vim:ft=help:

@@ -3,10 +3,9 @@ resulting op array
 
   array parsekit_compile_string(string phpcode [, array errors [, int options]])~
 
-This function is EXPERIMENTAL. The behaviour of this function, the name of
-this function, and anything else documented about this function may change
-without notice in a future release of PHP. Use this function at your own
-risk.
+This function is EXPERIMENTAL. The behaviour of this function, its name, and
+surrounding documentation may change without notice in a future release of
+PHP. This function should be used at your own risk.
 
 {phpcode} A string containing phpcode. Similar to the argument to |eval|.
 
@@ -127,6 +126,8 @@ The above example will output:
       }
     }
   }
+
+
 
 |parsekit_compile_file|
 

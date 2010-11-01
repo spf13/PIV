@@ -1,0 +1,60 @@
+PDO::sqliteCreateFunction -- Registers a User Defined Function for use in SQL
+statements
+
+  bool sqliteCreateFunction(string function_name, callback callback [, int num_args])~
+
+This function is EXPERIMENTAL. The behaviour of this function, its name, and
+surrounding documentation may change without notice in a future release of
+PHP. This function should be used at your own risk.
+
+This method allows you to register a PHP function with SQLite as an UDF (User
+Defined Function), so that it can be called from within your SQL statements.
+
+The UDF can be used in any SQL statement that can call functions, such as
+SELECT and UPDATE statements and also in triggers.
+
+{function_name} The name of the function used in SQL statements.
+
+{callback} Callback function to handle the defined SQL function.
+
+Callback functions should return a type understood by SQLite (i.e. scalar
+type).
+
+{num_args} Hint to the SQLite parser if the callback function accepts a
+predetermined number of arguments.
+
+Returns TRUE on success or FALSE on failure.
+
+|PDO::sqliteCreateFunction| example
+
+<?php >
+  function md5_and_reverse($string) 
+  {
+      return strrev(md5($string));
+  }
+  
+  $db = new PDO('sqlite:sqlitedb');
+  $db->sqliteCreateFunction('md5rev', 'md5_and_reverse', 1);
+  $rows = $db->query('SELECT md5rev(filename) FROM files')->fetchAll();
+?>
+
+
+
+
+
+In this example, we have a function that calculates the md5 sum of a string,
+and then reverses it. When the SQL statement executes, it returns the value of
+the filename transformed by our function. The data returned in {$rows}
+contains the processed result.
+
+The beauty of this technique is that you do not need to process the result
+using a foreach loop after you have queried for the data.
+
+You can use and to override SQLite native SQL functions.
+
+This method is not available with the SQLite2 driver. Use the old style sqlite
+API for that instead.
+
+|sqlite_create_function| |sqlite_create_aggregate|
+
+vim:ft=help:

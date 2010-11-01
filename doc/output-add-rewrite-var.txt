@@ -2,17 +2,32 @@ output_add_rewrite_var -- Add URL rewriter values
 
   bool output_add_rewrite_var(string name, string value)~
 
-This function rewrite the URLs and forms with the given variable.
+This function adds another name/value pair to the URL rewrite mechanism. The
+name and value will be added to URLs (as GET parameter) and forms (as hidden
+input fields) the same way as the session ID when transparent URL rewriting is
+enabled with session.use_trans_sid. Please note that absolute URLs
+(http://example.com/..) aren't rewritten.
 
-This function buffers the output.
+This function's behavior is controlled by the url_rewriter.tags php.ini
+parameter.
+
+Calling this function will implicitly start output buffering if it is not
+active already.
+
+{name} The variable name.
+
+{value} The variable value.
+
+Returns TRUE on success or FALSE on failure.
 
 |output_add_rewrite_var| example
 
 <?php >
   output_add_rewrite_var('var', 'value');
   
-  // a link
-  echo '<a href="file.php">link</a>';
+  // some links
+  echo '<a href="file.php">link</a>
+  <a href="http://example.com">link2</a>';
   
   // a form
   echo '<form action="script.php" method="post">
@@ -25,6 +40,7 @@ This function buffers the output.
 The above example will output:
 
   <a href="file.php?var=value">link</a>
+  <a href="http://example.com">link2</a>
   
   <form action="script.php" method="post">
   <input type="hidden" name="var" value="value" />
@@ -36,6 +52,8 @@ The above example will output:
       [0] => URL-Rewriter
   )
 
-See also |output_reset_rewrite_vars|, |ob_flush| and |ob_list_handlers|.
+
+
+|output_reset_rewrite_vars| |ob_flush| |ob_list_handlers|
 
 vim:ft=help:

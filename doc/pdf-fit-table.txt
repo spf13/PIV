@@ -1,0 +1,7 @@
+PDF_fit_table -- Place table on page
+
+  string PDF_fit_table(resource pdfdoc, int table, float llx, float lly, float urx, float ury, string optlist)~
+
+Places a table on the page fully or partially.
+
+vim:ft=help:

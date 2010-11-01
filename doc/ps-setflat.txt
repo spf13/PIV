@@ -1,0 +1,16 @@
+ps_setflat -- Sets flatness
+
+  bool ps_setflat(resource psdoc, float value)~
+
+This function is currently not documented; only its argument list is
+available.
+
+
+
+{psdoc} Resource identifier of the postscript file as returned by |ps_new|.
+
+{value} The {value} must be between 0.2 and 1.
+
+Returns TRUE on success or FALSE on failure.
+
+vim:ft=help:

@@ -5,8 +5,10 @@ sqlite_close -- Closes an open SQLite database
 Closes the given {database} handle. If the database was persistent, it will be
 closed and removed from the persistent list.
 
-{dbhandle} The SQLite Database resource; returned from |sqlite_open | when
-used procedurally.
+{dbhandle} The SQLite Database resource; returned from |sqlite_open| when used
+procedurally.
+
+No value is returned.
 
 |sqlite_close| example
 
@@ -14,6 +16,10 @@ used procedurally.
   $dbhandle = sqlite_open('sqlitedb');
   sqlite_close($dbhandle);
 ?>
+
+
+
+
 
 |sqlite_open| |sqlite_popen|
 

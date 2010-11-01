@@ -1,0 +1,14 @@
+px_close -- Closes a paradox database
+
+  bool px_close(resource pxdoc)~
+
+Closes the paradox database. This function will not close the file. You will
+have to call |fclose| afterwards.
+
+{pxdoc} Resource identifier of the paradox database as returned by |px_new|.
+
+Returns TRUE on success or FALSE on failure.
+
+|px_open_fp| The example at |px_new|
+
+vim:ft=help:

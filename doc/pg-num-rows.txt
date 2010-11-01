@@ -25,6 +25,8 @@ The above example will output:
 
   1 row(s) returned.
 
+
+
 |pg_num_fields| |pg_affected_rows|
 
 vim:ft=help:

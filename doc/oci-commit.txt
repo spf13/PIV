@@ -2,50 +2,57 @@ oci_commit -- Commits outstanding statements
 
   bool oci_commit(resource connection)~
 
-|oci_commit| commits all outstanding statements for the active transaction on
-the Oracle connection {connection}.
+Commits all outstanding statements for the active transaction on the Oracle
+{connection}.
+
+{connection} An Oracle connection identifier, returned by |oci_connect| or
+|oci_pconnect|.
+
+Returns TRUE on success or FALSE on failure.
 
 |oci_commit| example
 
 <?php >
-      // Login to Oracle server
-      $conn = oci_connect('scott', 'tiger');
-       
-      // Parse SQL
-      $stmt = oci_parse($conn, "
-                                INSERT INTO 
-                                           employees (name, surname) 
-                                     VALUES 
-                                           ('Maxim', 'Maletsky')
-                               ");
+  // Login to Oracle server
+  $conn = oci_connect('scott', 'tiger');
   
-      /* Execute statement
-         OCI_DEFAULT tells oci_execute() 
-         not to commit statement immediately */
-      oci_execute($stmt, OCI_DEFAULT);
+  // Parse SQL
+  $stmt = oci_parse($conn, "
+                            INSERT INTO
+                                       employees (name, surname)
+                                 VALUES
+                                       ('Maxim', 'Maletsky')
+                           ");
   
-      /*
-      ....
-      Parsing and executing other statements here ...
-      ....
-      */
-      
-      // Commit transaction
-      $committed = oci_commit($conn);
+  /* Execute statement
+     OCI_DEFAULT tells oci_execute()
+     not to commit statement immediately */
+  oci_execute($stmt, OCI_DEFAULT);
   
-      // Test whether commit was successful. If error occurred, return error message
-      if (!$committed) {
-          $error = oci_error($conn);
-          echo 'Commit failed. Oracle reports: ' . $error['message'];
-      }
+  /*
+  ....
+  Parsing and executing other statements here ...
+  ....
+  */
+  
+  // Commit transaction
+  $committed = oci_commit($conn);
+  
+  // Test whether commit was successful. If error occurred, return error message
+  if (!$committed) {
+      $error = oci_error($conn);
+      echo 'Commit failed. Oracle reports: ' . $error['message'];
+  }
 ?>
 
-Returns TRUE on success or FALSE on failure.
 
-In PHP versions before 5.0.0 you must use |ocicommit| instead. This name still
-can be used, it was left as alias of |oci_commit| for downwards compatability.
-This, however, is deprecated and not recommended.
 
-See also |oci_rollback| and |oci_execute|.
+
+
+Transactions are automatically rolled back when you close the connection, or
+when the script ends, whichever is soonest. You need to explicitly call
+|oci_commit| to commit the transaction, or |oci_rollback| to abort it.
+
+|oci_rollback| |oci_execute|
 
 vim:ft=help:

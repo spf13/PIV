@@ -22,6 +22,10 @@ In the latter case, a warning message is also thrown.
   $timeout = ftp_get_option($conn_id, FTP_TIMEOUT_SEC);
 ?>
 
+
+
+
+
 |ftp_set_option|
 
 vim:ft=help:

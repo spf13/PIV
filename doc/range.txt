@@ -2,14 +2,27 @@ range -- Create an array containing a range of elements
 
   array range(mixed low, mixed high [, number step])~
 
-|range| returns an array of elements from {low} to {high}, inclusive. If low >
-high, the sequence will be from high to low.
+Create an array containing a range of elements.
 
-The optional {step} parameter was added in 5.0.0.
+{low} Low value.
 
-If a {step} value is given, it will be used as the increment between elements
-in the sequence. {step} should be given as a positive number. If not
+{high} High value.
+
+{step} If a {step} value is given, it will be used as the increment between
+elements in the sequence. {step} should be given as a positive number. If not
 specified, {step} will default to 1.
+
+Returns an array of elements from {low} to {high}, inclusive. If low > high,
+the sequence will be from high to low.
+
+Version Description 5.0.0 The optional {step} parameter was added. 4.1.0 to
+4.3.2 In PHP versions 4.1.0 through 4.3.2, |range| sees numeric strings as
+strings and not integers. Instead, they will be used for character sequences.
+For example, "4242" is treated as "4". 4.1.0 Prior to PHP 4.1.0, |range| only
+generated incrementing integer arrays. Support for character sequences and
+decrementing arrays was added in 4.1.0. Character sequence values are limited
+to a length of one. If a length greater than one is entered, only the first
+character is used.
 
 |range| examples
 
@@ -36,15 +49,10 @@ specified, {step} will default to 1.
   }
 ?>
 
-Prior to PHP 4.1.0, |range| only generated incrementing integer arrays.
-Support for character sequences and decrementing arrays was added in 4.1.0.
-Character sequence values are limited to a length of one. If a length greater
-than one is entered, only the first character is used.
 
-In PHP versions 4.1.0 through 4.3.2, |range| sees numeric strings as strings
-and not integers. Instead, they will be used for character sequences. For
-example, "4242" is treated as "4".
 
-See also |shuffle|, |array_fill|, and foreach.
+
+
+|shuffle| |array_fill| foreach
 
 vim:ft=help:

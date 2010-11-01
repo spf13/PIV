@@ -6,7 +6,12 @@ document gets processed
 |xslt_set_sax_handlers| registers the SAX {handlers} for the document, given a
 XSLT {processor} resource.
 
-{handlers} should be an array in the following format:
+Using |xslt_set_sax_handlers| doesn't look very different than running a SAX
+parser like |xml_parse| on the result of an |xslt_process| transformation.
+
+{processor} The XSLT processor link identifier, created with |xslt_create|.
+
+{handlers} {handlers} should be an array in the following format:
 
 <?php >
   $handlers = array(
@@ -59,15 +64,14 @@ Each of the individual SAX handler functions are in the format below:
 
   void (resource processor, array handlers, resource processor, resource processor, resource processor, string name, array attributes, resource processor, string name, resource processor, string prefix, string uri, resource processor, string prefix, resource processor, string contents, resource processor, string target, string contents, resource processor, string contents)~
 
-Using |xslt_set_sax_handlers| doesn't look very different than running a SAX
-parser like |xml_parse| on the result of an |xslt_process| transformation.
+No value is returned.
 
 |xslt_set_sax_handlers| Example
 
 <?php >
   // From ohlesbeauxjours at yahoo dot fr
-  // Here's a simple example that applies strtoupper() on 
-  // the content of every <auteur> tag and then displays the 
+  // Here's a simple example that applies strtoupper() on
+  // the content of every <auteur> tag and then displays the
   // resulting XML tree:
   
   $xml='<?xml version="1.0"?>
@@ -95,30 +99,30 @@ parser like |xml_parse| on the result of an |xslt_process| transformation.
   </xsl:stylesheet>';
   
   // Handlers :
-  function start_document() 
+  function start_document()
   {
     // start reading the document
   }
   
-  function end_document() 
+  function end_document()
   {
     // end reading the document
   }
   
-  function start_element($parser, $name, $attributes) 
+  function start_element($parser, $name, $attributes)
   {
     global $result,$tag;
     $result .= "<". $name . ">";
     $tag = $name;
   }
   
-  function end_element($parser, $name) 
+  function end_element($parser, $name)
   {
     global $result;
     $result .= "</" . $name . ">";
   }
   
-  function characters($parser, $data) 
+  function characters($parser, $data)
   {
     global $result,$tag;
     if ($tag == "auteur" ) {
@@ -137,6 +141,8 @@ parser like |xml_parse| on the result of an |xslt_process| transformation.
   xslt_process($xh, 'arg:/_xml', 'arg:/_xsl', NULL, array("/_xml"=>$xml, "/_xsl"=>$xsl));
   xslt_free($xh);
 ?>
+
+
 
 You can also use |xslt_set_object| if you want to implement your handlers in
 an object.
@@ -166,14 +172,14 @@ Object oriented handler
         );
   
         xslt_set_sax_handlers($this->_xh, $handlers);
-      
+  
         xslt_process($this->_xh, 'arg:/_xml', 'arg:/_xsl', NULL, array("/_xml"=>$xml, "/_xsl"=>$xsl));
         xslt_free($this->_xh);
   
   
     }
   
-    function start_document() 
+    function start_document()
     {
           // start reading the document
     }
@@ -201,7 +207,7 @@ Object oriented handler
       }
       $this->buffer .= $data;
     }
-    
+  
     function get_buffer() {
       return $this->buffer;
     }

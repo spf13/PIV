@@ -1,0 +1,16 @@
+SDO_Model_Property::getContainingType -- Get the SDO_Model_Type which contains
+this property
+
+  SDO_Model_Type SDO_Model_Property::getContainingType()~
+
+This function is EXPERIMENTAL. The behaviour of this function, its name, and
+surrounding documentation may change without notice in a future release of
+PHP. This function should be used at your own risk.
+
+Returns the SDO_Model_Type which contains this property.
+
+None.
+
+Returns the SDO_Model_Type which contains this property.
+
+vim:ft=help:

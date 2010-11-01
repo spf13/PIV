@@ -2,10 +2,9 @@ java_last_exception_get -- Get last Java exception
 
   object java_last_exception_get()~
 
-This function is EXPERIMENTAL. The behaviour of this function, the name of
-this function, and anything else documented about this function may change
-without notice in a future release of PHP. Use this function at your own
-risk.
+Gets last Java exception.
+
+Returns an exception object.
 
 The following example demonstrates the usage of Java's exception handler from
 within PHP: Java exception handler
@@ -31,5 +30,13 @@ within PHP: Java exception handler
   // Clear last exception
   java_last_exception_clear();
 ?>
+
+
+
+
+
+This function is EXPERIMENTAL. The behaviour of this function, its name, and
+surrounding documentation may change without notice in a future release of
+PHP. This function should be used at your own risk.
 
 vim:ft=help:

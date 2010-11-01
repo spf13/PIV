@@ -1,0 +1,16 @@
+newt_component_add_callback --
+
+  void newt_component_add_callback(resource component, mixed func_name, mixed data)~
+
+This function is currently not documented; only its argument list is
+available.
+
+{component}
+
+{func_name}
+
+{data}
+
+No value is returned.
+
+vim:ft=help:

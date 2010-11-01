@@ -1,0 +1,25 @@
+mb_strrchr -- Finds the last occurrence of a character in a string within
+another
+
+  string mb_strrchr(string haystack, string needle [, bool part [, string encoding]])~
+
+|mb_strrchr| finds the last occurrence of {needle} in {haystack} and returns
+the portion of {haystack}. If {needle} is not found, it returns FALSE.
+
+{haystack} The string from which to get the last occurrence of {needle}
+
+{needle} The string to find in {haystack}
+
+{part} Determines which portion of {haystack} this function returns. If set to
+TRUE, it returns all of {haystack} from the beginning to the last occurrence
+of {needle}. If set to FALSE, it returns all of {haystack} from the last
+occurrence of {needle} to the end, Default value is FALSE.
+
+{encoding} Character encoding name to use. If it is omitted, internal
+character encoding is used.
+
+Returns the portion of {haystack}. or FALSE if {needle} is not found.
+
+|strrchr| |mb_strstr| |mb_strrichr|
+
+vim:ft=help:

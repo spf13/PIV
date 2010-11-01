@@ -5,11 +5,17 @@ keysizes of the opened algorithm
 
 Returns an array with the key sizes supported by the specified algorithm. If
 it returns an empty array then all key sizes between 1 and
-|mcrypt_module_get_algo_key_size| are supported by the algorithm. The
-optional {lib_dir} parameter can contain the location where the mode module
-is on the system.
+|mcrypt_module_get_algo_key_size| are supported by the algorithm.
 
-See also |mcrypt_enc_get_supported_key_sizes| which is used on open encryption
-modules.
+{algorithm} The algorithm to used.
+
+{lib_dir} The optional {lib_dir} parameter can contain the location of where
+the algorithm module is on the system.
+
+Returns an array with the key sizes supported by the specified algorithm. If
+it returns an empty array then all key sizes between 1 and
+|mcrypt_module_get_algo_key_size| are supported by the algorithm.
+
+|mcrypt_enc_get_supported_key_sizes|
 
 vim:ft=help:

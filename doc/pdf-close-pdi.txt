@@ -1,10 +1,11 @@
-pdf_close_pdi -- Close the input PDF document
+PDF_close_pdi -- Close the input PDF document [deprecated]
 
-  bool pdf_close_pdi(resource pdfdoc, int dochandle)~
+  bool PDF_close_pdi(resource p, int doc)~
 
-Close all open page handles, and close the input PDF document. Returns TRUE on
-success or FALSE on failure.
+Closes all open page handles, and closes the input PDF document. Returns TRUE
+on success or FALSE on failure.
 
-See also |pdf_open_pdi|.
+This function is deprecated since PDFlib version 7, use
+|PDF_close_pdi_document| instead.
 
 vim:ft=help:

@@ -18,4 +18,8 @@ Calculating the hash and subscribing a user
   $db->query($query); // using PHPLIB db interface
 ?>
 
+
+
+
+
 vim:ft=help:

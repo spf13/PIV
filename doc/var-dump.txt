@@ -6,12 +6,12 @@ This function displays structured information about one or more expressions
 that includes its type and value. Arrays and objects are explored recursively
 with values indented to show structure.
 
-In PHP 5 only public, private and protected properties of objects will be
+In PHP 5 all public, private and protected properties of objects will be
 returned in the output.
 
-As with anything that outputs its result directly to the browser, you can use
-the output-control functions to capture the output of this function, and save
-it in a string (for example).
+As with anything that outputs its result directly to the browser, the
+output-control functions can be used to capture the output of this function,
+and save it in a string (for example).
 
 {expression} The variable you want to export.
 
@@ -52,6 +52,8 @@ The above example will output:
 
   float(3.1)
   bool(true)
+
+
 
 |var_export| |print_r|
 

@@ -3,6 +3,10 @@ keysizes of the opened algorithm
 
   array mcrypt_enc_get_supported_key_sizes(resource td)~
 
+Gets the supported key sizes of the opened algorithm.
+
+{td} The encryption descriptor.
+
 Returns an array with the key sizes supported by the algorithm specified by
 the encryption descriptor. If it returns an empty array then all key sizes
 between 1 and |mcrypt_enc_get_key_size| are supported by the algorithm.
@@ -24,5 +28,7 @@ This will print:
     [2]=>
     int(32)
   }
+
+
 
 vim:ft=help:

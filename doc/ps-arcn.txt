@@ -1,0 +1,26 @@
+ps_arcn -- Draws an arc clockwise
+
+  bool ps_arcn(resource psdoc, float x, float y, float radius, float alpha, float beta)~
+
+Draws a portion of a circle with at middle point at ({x}, {y}). The arc starts
+at an angle of {alpha} and ends at an angle of {beta}. It is drawn clockwise
+(use |ps_arc| to draw counterclockwise). The subpath added to the current path
+starts on the arc at angle {beta} and ends on the arc at angle {alpha}.
+
+{psdoc} Resource identifier of the postscript file as returned by |ps_new|.
+
+{x} The x-coordinate of the circle's middle point.
+
+{y} The y-coordinate of the circle's middle point.
+
+{radius} The radius of the circle
+
+{alpha} The starting angle given in degrees.
+
+{beta} The end angle given in degrees.
+
+Returns TRUE on success or FALSE on failure.
+
+|ps_arc|
+
+vim:ft=help:

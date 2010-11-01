@@ -19,10 +19,12 @@ the values from a single column of data.
 the object-oriented method.
 
 {decode_binary} When the {decode_binary} parameter is set to TRUE (the
-default), PHP will decode the binary encoding it applied to the data if it
-was encoded using the |sqlite_escape_string|. You should normally leave this
-value at its default, unless you are interoperating with databases created by
-other sqlite capable applications.
+default), PHP will decode the binary encoding it applied to the data if it was
+encoded using the |sqlite_escape_string|. You should normally leave this value
+at its default, unless you are interoperating with databases created by other
+sqlite capable applications.
+
+Returns the first column value, as a string.
 
 A |sqlite_fetch_single| example
 
@@ -39,6 +41,10 @@ A |sqlite_fetch_single| example
       sqlite_close($dbhandle);
   }
 ?>
+
+
+
+
 
 |sqlite_fetch_array|
 

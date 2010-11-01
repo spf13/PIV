@@ -4,23 +4,23 @@ buffer
   string mb_output_handler(string contents, int status)~
 
 |mb_output_handler| is |ob_start| callback function. |mb_output_handler|
-converts characters in output buffer from internal character encoding to HTTP
-output character encoding.
+converts characters in the output buffer from internal character encoding to
+HTTP output character encoding.
 
-4.1.0 or later version, this handler adds charset HTTP header when following
-conditions are met:
+{contents} The contents of the output buffer.
 
-Does not set Content-Type by header()
+{status} The status of the output buffer.
 
-Default MIME type begins with text/
+The converted string.
 
-http_output setting is other than pass
+Version Description 4.1.0 This handler now adds the charset HTTP header when
+the following conditions are met:
 
-{contents} : Output buffer contents
+Does not set Content-Type, using |header|.
 
-{status} : Output buffer status
+The default MIME type begins with text/.
 
-Return Value: String converted
+The mbstring.http_input setting is something other than pass.
 
 |mb_output_handler| example
 
@@ -28,6 +28,10 @@ Return Value: String converted
   mb_http_output("UTF-8");
   ob_start("mb_output_handler");
 ?>
+
+
+
+
 
 If you want to output some binary data such as image from PHP script with PHP
 4.3.0 or later, Content-Type: header must be send using |header| before any
@@ -43,6 +47,6 @@ If you want to output some binary data such as image from PHP script with PHP
 4.2.x or earlier, you must set output encoding to "pass" using
 |mb_http_output|.
 
-See also |ob_start|.
+|ob_start|
 
 vim:ft=help:

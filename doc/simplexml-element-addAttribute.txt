@@ -1,0 +1,44 @@
+SimpleXMLElement::addAttribute -- Adds an attribute to the SimpleXML element
+
+  void addAttribute(string name, string value [, string namespace])~
+
+Adds an attribute to the SimpleXML element.
+
+{name} The name of the attribute to add.
+
+{value} The value of the attribute.
+
+{namespace} If specified, the namespace to which the attribute belongs.
+
+No value is returned.
+
+Add attributes and children to a SimpleXML element
+
+<?php >
+  include 'example.php';
+   
+  $sxe = new SimpleXMLElement($xmlstr);
+  $sxe->addAttribute('type', 'documentary');
+  
+  $movie = $sxe->addChild('movie');
+  $movie->addChild('title', 'PHP2: More Parser Stories');
+  $movie->addChild('plot', 'This is all about the people who make it work.');
+  
+  $characters = $movie->addChild('characters');
+  $character  = $characters->addChild('character');
+  $character->addChild('name', 'Mr. Parser');
+  $character->addChild('actor', 'John Doe');
+  
+  $rating = $movie->addChild('rating', '5');
+  $rating->addAttribute('type', 'stars');
+   
+  echo $sxe->asXML();
+?>
+
+
+
+
+
+SimpleXMLElement::addChild
+
+vim:ft=help:

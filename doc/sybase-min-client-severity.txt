@@ -4,9 +4,13 @@ sybase_min_client_severity -- Sets minimum client severity
 
 |sybase_min_client_severity| sets the minimum client severity level.
 
-This function is only available using the CT library interface to Sybase, and
-not the DB library.
+{severity}
 
-See also |sybase_min_server_severity|.
+No value is returned.
+
+This function is only available when using the CT library interface to Sybase,
+and not with the DB library.
+
+|sybase_min_server_severity|
 
 vim:ft=help:

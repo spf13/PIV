@@ -1,9 +1,10 @@
-pdf_get_minorversion -- Returns the minor version number of the PDFlib
+PDF_get_minorversion -- Get minor version number [deprecated]
 
-  int pdf_get_minorversion()~
+  int PDF_get_minorversion()~
 
-Returns the minor version number of the PDFlib.
+Returns the minor version number of the PDFlib version.
 
-See also |pdf_get_majorversion|.
+This function is deprecated since PDFlib version 5, use |PDF_get_value| with
+the parameter {minor} instead.
 
 vim:ft=help:

@@ -4,8 +4,14 @@ not
   bool mcrypt_module_is_block_mode(string mode [, string lib_dir])~
 
 This function returns TRUE if the mode outputs blocks of bytes or FALSE if it
-outputs just bytes. (e.g. TRUE for cbc and ecb, and FALSE for cfb and
-stream). The optional {lib_dir} parameter can contain the location where the
-mode module is on the system.
+outputs just bytes. (e.g. TRUE for cbc and ecb, and FALSE for cfb and stream).
+
+{mode} The mode to check.
+
+{lib_dir} The optional {lib_dir} parameter can contain the location of where
+the algorithm module is on the system.
+
+This function returns TRUE if the mode outputs blocks of bytes or FALSE if it
+outputs just bytes. (e.g. TRUE for cbc and ecb, and FALSE for cfb and stream).
 
 vim:ft=help:

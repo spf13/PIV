@@ -1,8 +1,9 @@
-readline_redisplay -- Ask readline to redraw the display
+readline_redisplay -- Redraws the display
 
   void readline_redisplay()~
 
-This function is currently not documented; only the argument list is
-available.
+Redraws readline to redraw the display.
+
+No value is returned.
 
 vim:ft=help:

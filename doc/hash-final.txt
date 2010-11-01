@@ -1,0 +1,30 @@
+hash_final -- Finalize an incremental hash and return resulting digest
+
+  string hash_final(resource context [, bool raw_output])~
+
+{context} Hashing context returned by |hash_init|.
+
+{raw_output} When set to TRUE, outputs raw binary data. Default value (FALSE)
+outputs lowercase hexits.
+
+Returns a string containing the calculated message digest as lowercase hexits
+unless {raw_output} is set to true in which case the raw binary representation
+of the message digest is returned.
+
+|hash_final| example
+
+<?php >
+  $ctx = hash_init('sha1');
+  hash_update($ctx, 'The quick brown fox jumped over the lazy dog.');
+  echo hash_final($ctx);
+?>
+
+The above example will output:
+
+  c0854fb9fb03c41cce3802cb0d220529e6eef94e
+
+
+
+|hash_init| |hash_update| |hash_update_stream| |hash_update_file|
+
+vim:ft=help:

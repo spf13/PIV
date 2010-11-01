@@ -2,10 +2,9 @@ classkit_method_add -- Dynamically adds a new method to a given class
 
   bool classkit_method_add(string classname, string methodname, string args, string code [, int flags])~
 
-This function is EXPERIMENTAL. The behaviour of this function, the name of
-this function, and anything else documented about this function may change
-without notice in a future release of PHP. Use this function at your own
-risk.
+This function is EXPERIMENTAL. The behaviour of this function, its name, and
+surrounding documentation may change without notice in a future release of
+PHP. This function should be used at your own risk.
 
 {classname} The class to which this method will be added
 
@@ -51,6 +50,8 @@ Returns TRUE on success or FALSE on failure.
 The above example will output:
 
   16
+
+
 
 |classkit_method_copy| |classkit_method_redefine| |classkit_method_remove|
 |classkit_method_rename| |create_function|

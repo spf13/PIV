@@ -1,0 +1,24 @@
+XMLWriter::startAttribute -- Create start attribute
+
+Oriented object style
+
+  bool startAttribute(string name)~
+
+Procedural style
+
+  bool xmlwriter_start_attribute(string name, resource xmlwriter, string name)~
+
+Starts an attribute.
+
+{ xmlwriter}Only for procedural calls. The XMLWriter resource that is being
+modified. This resource comes from a call to |xmlwriter_open_uri| or
+|xmlwriter_open_memory|.
+
+{name} The attribute name.
+
+Returns TRUE on success or FALSE on failure.
+
+XMLWriter::startAttributeNS XMLWriter::endAttribute XMLWriter::writeAttribute
+XMLWriter::writeAttributeNS
+
+vim:ft=help:

@@ -1,8 +1,9 @@
-OCI-Collection->free -- Frees resources associated with collection object
+OCI-Collection->free -- Frees the resources associated with the collection
+object
 
-  bool OCI-Collection->free()~
+  bool free()~
 
-Frees resources associated with collection object.
+Frees the resources associated with the collection object.
 
 Returns TRUE on success or FALSE on failure.
 

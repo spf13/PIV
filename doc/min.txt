@@ -1,19 +1,21 @@
 min -- Find lowest value
 
-  mixed min(number arg1, number arg2 [, number ...])~
+  mixed min(array values)~
 
-  mixed min(number arg1, number arg2 [, number ..., array numbers])~
-
-|min| returns the numerically lowest of the parameter values.
+  mixed min(array values, mixed value1, mixed value2 [, mixed value3...])~
 
 If the first and only parameter is an array, |min| returns the lowest value in
-that array. If the first parameter is an integer, string or float, you need at
-least two parameters and |min| returns the smallest of these values. You can
-compare an unlimited number of values.
+that array. If at least two parameters are provided, |min| returns the
+smallest of these values.
 
-PHP will evaluate a non-numeric string as 0, but still return the string if
-it's seen as the numerically lowest value. If multiple arguments evaluate to
-0, |min| will use the first one it sees (the leftmost value).
+PHP will evaluate a non-numeric string as 0 if compared to integer, but still
+return the string if it's seen as the numerically lowest value. If multiple
+arguments evaluate to 0, |min| will return the lowest alphanumerical string
+value if any strings are given, else a numeric 0 is returned.
+
+{values} An array containing the values.
+
+|min| returns the numerically lowest of the parameter values.
 
 Example uses of |min|
 
@@ -34,6 +36,10 @@ Example uses of |min|
   $val = min('string', array(2, 5, 7), 42);   // string
 ?>
 
-See also |max| and |count|.
+
+
+
+
+|max| |count|
 
 vim:ft=help:

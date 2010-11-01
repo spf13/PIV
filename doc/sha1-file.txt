@@ -12,6 +12,24 @@ of 20. Defaults to FALSE.
 
 Returns a string on success, FALSE otherwise.
 
+|sha1_file| example
+
+<?php >
+  foreach(glob('/home/Kalle/myproject/*.php') as $ent)
+  {
+  	if(is_dir($ent))
+  	{
+  		continue;
+  	}
+  
+  	echo $ent . ' (SHA1: ' . sha1_file($ent) . ')', PHP_EOL;
+  }
+?>
+
+
+
+
+
 Version Description 5.0.0 Added the {raw_output} parameter 5.1.0 Changed the
 function to use the streams API. It means that you can use it with wrappers,
 like sha1_file('http://example.com/..')

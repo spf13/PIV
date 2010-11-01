@@ -1,0 +1,11 @@
+filter_id -- Returns the filter ID belonging to a named filter
+
+  int filter_id(string filtername)~
+
+{filtername} Name of a filter to get.
+
+ID of a filter on success or NULL if filter doesn't exist.
+
+|filter_list|
+
+vim:ft=help:

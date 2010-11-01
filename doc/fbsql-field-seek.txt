@@ -6,6 +6,12 @@ Seeks to the specified field offset. If the next call to |fbsql_fetch_field|
 doesn't include a field offset, the field offset specified in
 |fbsql_field_seek| will be returned.
 
-See also: |fbsql_fetch_field|.
+{ result}A result identifier returned by |fbsql_query| or |fbsql_db_query|.
+
+{field_offset} The numerical offset of the field. The field index starts at 0.
+
+Returns TRUE on success or FALSE on failure.
+
+|fbsql_fetch_field|
 
 vim:ft=help:

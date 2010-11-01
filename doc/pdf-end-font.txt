@@ -1,0 +1,7 @@
+PDF_end_font -- Terminate Type 3 font definition
+
+  bool PDF_end_font(resource pdfdoc)~
+
+Terminates a Type 3 font definition.
+
+vim:ft=help:

@@ -33,6 +33,8 @@ The above example will output:
 
   Client encoding is: ISO-8859-1
 
+
+
 |pg_set_client_encoding|
 
 vim:ft=help:

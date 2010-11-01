@@ -1,0 +1,21 @@
+SAMConnection->disconnect -- Disconnects from a Messaging Server
+
+  bool disconnect()~
+
+Calling the "disconnect" method on a SAMConnection object disconnects the PHP
+script from a messaging server. No messages can be sent or received after a
+connection has been disconnected.
+
+Returns TRUE on success or FALSE on failure.
+
+Disconnecting from a Messaging Server
+
+<?php >
+  $conn->disconnect();
+?>
+
+
+
+
+
+vim:ft=help:

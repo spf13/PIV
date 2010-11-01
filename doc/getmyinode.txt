@@ -2,11 +2,10 @@ getmyinode -- Gets the inode of the current script
 
   int getmyinode()~
 
-Returns the current script's inode, or FALSE on error.
+Gets the inode of the current script.
 
-See also |getmygid|, |getmyuid|, |get_current_user|, |getmypid|, and
-|getlastmod|.
+Returns the current script's inode as an integer, or FALSE on error.
 
-This function is not implemented on Windows platforms.
+|getmygid| |getmyuid| |getmypid| |get_current_user| |getlastmod|
 
 vim:ft=help:

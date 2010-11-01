@@ -1,0 +1,31 @@
+hash -- Generate a hash value (message digest)
+
+  string hash(string algo, string data [, bool raw_output])~
+
+{algo} Name of selected hashing algorithm (i.e. "md5", "sha256", "haval160,4",
+etc..)
+
+{data} Message to be hashed.
+
+{raw_output} When set to TRUE, outputs raw binary data. Default value (FALSE)
+outputs lowercase hexits.
+
+Returns a string containing the calculated message digest as lowercase hexits
+unless {raw_output} is set to true in which case the raw binary representation
+of the message digest is returned.
+
+A |hash| example
+
+<?php >
+  echo hash('ripemd160', 'The quick brown fox jumped over the lazy dog.');
+?>
+
+The above example will output:
+
+  ec457d0a974c48d5685a7efa03d137dc8bbde7e3
+
+
+
+|hash_file| |hash_hmac| |hash_init| |md5| |sha1|
+
+vim:ft=help:

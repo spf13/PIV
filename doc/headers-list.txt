@@ -2,9 +2,11 @@ headers_list -- Returns a list of response headers sent (or ready to send)
 
   array headers_list()~
 
-|headers_list| will return a numerically indexed array of headers to be sent
-to the browser / client. To determine whether or not these headers have been
-sent yet, use |headers_sent|.
+|headers_list| will return a list of headers to be sent to the browser /
+client. To determine whether or not these headers have been sent yet, use
+|headers_sent|.
+
+Returns a numerically indexed array of headers.
 
 Examples using |headers_list|
 
@@ -23,11 +25,11 @@ Examples using |headers_list|
   var_dump(headers_list());
 ?>
 
-this will output :
+The above example will output:
 
   array(4) {
     [0]=>
-    string(29) "X-Powered-By: PHP/5.0.0"
+    string(23) "X-Powered-By: PHP/5.1.3"
     [1]=>
     string(19) "Set-Cookie: foo=bar"
     [2]=>
@@ -36,6 +38,8 @@ this will output :
     string(24) "Content-type: text/plain"
   }
 
-See Also: |headers_sent|, |header|, and |setcookie|.
+
+
+|headers_sent| |header| |setcookie| |apache_response_headers|
 
 vim:ft=help:

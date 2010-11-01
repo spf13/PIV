@@ -6,9 +6,11 @@ later)
 PHP 4 uses {server}, {dba_user_name} and {dba_user_password} instead of
 {service_handle} parameter.
 
-This function is currently not documented; only the argument list is
+This function is currently not documented; only its argument list is
 available.
 
-See also |ibase_add_user| and |ibase_modify_user|.
+Returns TRUE on success or FALSE on failure.
+
+|ibase_add_user| |ibase_modify_user|
 
 vim:ft=help:

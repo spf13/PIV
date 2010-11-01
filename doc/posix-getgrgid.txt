@@ -2,9 +2,22 @@ posix_getgrgid -- Return info about a group by group id
 
   array posix_getgrgid(int gid)~
 
-Returns an array of information about a group and FALSE on failure. If {gid}
-isn't a number then NULL is returned and an E_WARNING level error is
-generated.
+Gets information about a group provided its id.
+
+{gid} The group id.
+
+The array elements returned are: The group information array Element
+Description name The name element contains the name of the group. This is a
+short, usually less than 16 character "handle" of the group, not the real,
+full name. passwd The passwd element contains the group's password in an
+encrypted format. Often, for example on a system employing "shadow" passwords,
+an asterisk is returned instead. gid Group ID, should be the same as the {gid}
+parameter used when calling the function, and hence redundant. members This
+consists of an array of string's for all the members in the group.
+
+Version Description 4.2.0 Prior to this version, members was simply an integer
+representing the number of members in the group, and the member names were
+returned with numerical indices.
 
 Example use of |posix_getgrgid|
 
@@ -15,24 +28,23 @@ Example use of |posix_getgrgid|
   print_r($groupinfo);
 ?>
 
-An example output:
+The above example will output something similar to:
 
   Array
   (
       [name]    => toons
       [passwd]  => x
-      [members] => Array 
-          ( 
+      [members] => Array
+          (
               [0] => tom
               [1] => jerry
           )
       [gid]     => 42
   )
 
-As of PHP 4.2.0, members is returned as an array of member usernames in the
-group. Before this time it was simply an integer (the number of members in
-the group) and the member names were returned with numerical indices.
 
-See also |posix_getegid|, |filegroup|, |stat|, and safe_mode_gid.
+
+|posix_getegid| |posix_getgrnam| |filegroup| |stat| safe_mode_gid POSIX man
+page GETGRNAM(3)
 
 vim:ft=help:

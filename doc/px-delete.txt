@@ -1,0 +1,11 @@
+px_delete -- Deletes resource of paradox database
+
+  bool px_delete(resource pxdoc)~
+
+Deletes the resource of the paradox file and frees all memory.
+
+{pxdoc} Resource identifier of the paradox database as returned by |px_new|.
+
+Returns TRUE on success or FALSE on failure.
+
+vim:ft=help:

@@ -1,0 +1,31 @@
+gnupg_addencryptkey -- Add a key for encryption
+
+  bool gnupg_addencryptkey(resource identifier, string fingerprint)~
+
+{identifier} The gnupg identifier, from a call to |gnupg_init| or gnupg.
+
+{fingerprint} The fingerprint key.
+
+Returns TRUE on success or FALSE on failure.
+
+Procedural |gnupg_addencryptkey| example
+
+<?php >
+  $res = gnupg_init();
+  gnupg_addencryptkey($res,"8660281B6051D071D94B5B230549F9DC851566DC");
+?>
+
+
+
+OO |gnupg_addencryptkey| example
+
+<?php >
+  $gpg = new gnupg();
+  $gpg -> addencryptkey("8660281B6051D071D94B5B230549F9DC851566DC");
+?>
+
+
+
+
+
+vim:ft=help:

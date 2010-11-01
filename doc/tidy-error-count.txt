@@ -3,8 +3,11 @@ specified document
 
   int tidy_error_count(tidy object)~
 
-|tidy_error_count| returns the number of Tidy errors encountered for the
-specified document.
+Returns the number of Tidy errors encountered for the specified document.
+
+{object} The Tidy object.
+
+Returns the number of errors.
 
 |tidy_error_count| example
 
@@ -16,7 +19,7 @@ specified document.
   
   echo tidy_error_count($tidy) . "\n"; //1
   
-  echo $tidy->ErrorBuffer;
+  echo $tidy->errorBuffer;
 ?>
 
 The above example will output:
@@ -29,6 +32,6 @@ The above example will output:
   line 2 column 16 - Warning: discarding unexpected </bogustag>
   line 1 column 1 - Warning: inserting missing 'title' element
 
-See also |tidy_access_count| and |tidy_warning_count|.
+
 
 vim:ft=help:

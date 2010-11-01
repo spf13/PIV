@@ -5,10 +5,13 @@ array_shift -- Shift an element off the beginning of array
 |array_shift| shifts the first value of the {array} off and returns it,
 shortening the {array} by one element and moving everything down. All
 numerical array keys will be modified to start counting from zero while
-literal keys won't be touched. If {array} is empty (or is not an array), NULL
-will be returned.
+literal keys won't be touched.
 
 This function will |reset| the array pointer after use.
+
+{array} The input array.
+
+Returns the shifted value, or NULL if {array} is empty or is not an array.
 
 |array_shift| example
 
@@ -18,7 +21,7 @@ This function will |reset| the array pointer after use.
   print_r($stack);
 ?>
 
-This would result in $stack having 3 elements left:
+The above example will output:
 
   Array
   (
@@ -29,6 +32,10 @@ This would result in $stack having 3 elements left:
 
 and orange will be assigned to $fruit.
 
-See also |array_unshift|, |array_push|, and |array_pop|.
+
+
+
+
+|array_unshift| |array_push| |array_pop|
 
 vim:ft=help:

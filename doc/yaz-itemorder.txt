@@ -9,9 +9,8 @@ See this and the specification.
 {id} The connection resource returned by |yaz_connect|.
 
 {args} Must be an associative array with information about the Item Order
-request to be sent. The key of the hash is the name of the corresponding
-ASN.1 tag path. For example, the ISBN below the Item-ID has the key
-item-id,ISBN.
+request to be sent. The key of the hash is the name of the corresponding ASN.1
+tag path. For example, the ISBN below the Item-ID has the key item-id,ISBN.
 
 The ILL-Request parameters are:
 

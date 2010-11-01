@@ -16,6 +16,8 @@ The above example will output something similar to:
 
   10112
 
+
+
 |domxml_version|
 
 vim:ft=help:

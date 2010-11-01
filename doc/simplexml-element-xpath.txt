@@ -1,9 +1,13 @@
-SimpleXMLElement->xpath -- Runs Xpath query on XML data
+SimpleXMLElement::xpath -- Runs XPath query on XML data
 
-  array SimpleXMLElement->xpath(string path)~
+  array xpath(string path)~
 
-The xpath method searches the SimpleXML node for children matching the Xpath
-{path}. It always returns an array of SimpleXMLElement objects.
+The xpath method searches the SimpleXML node for children matching the XPath
+{path}.
+
+{path} An XPath path
+
+Returns an array of SimpleXMLElement objects or FALSE in case of an error.
 
 Xpath
 
@@ -20,7 +24,7 @@ Xpath
   </a>
   XML;
   
-  $xml = simplexml_load_string($string);
+  $xml = new SimpleXMLElement($string);
   
   /* Search for <a><b><c> */
   $result = $xml->xpath('/a/b/c');
@@ -37,7 +41,7 @@ Xpath
   }
 ?>
 
-This script will display:
+The above example will output:
 
   /a/b/c: text
   /a/b/c: stuff
@@ -45,5 +49,9 @@ This script will display:
   b/c: stuff
 
 Notice that the two results are equal.
+
+
+
+
 
 vim:ft=help:

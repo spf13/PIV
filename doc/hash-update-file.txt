@@ -1,0 +1,16 @@
+hash_update_file -- Pump data into an active hashing context from a file
+
+  bool hash_update_file(resource context, string filename [, resource context])~
+
+{context} Hashing context returned by |hash_init|.
+
+{filename} URL describing location of file to be hashed; Supports fopen
+wrappers.
+
+{context} Stream context as returned by |stream_context_create|.
+
+Returns TRUE on success or FALSE on failure.
+
+|hash_init| |hash_update| |hash_update_stream| |hash_final| |hash| |hash_file|
+
+vim:ft=help:

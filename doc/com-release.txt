@@ -4,8 +4,10 @@ com_release -- Decreases the components reference counter [deprecated]
 
 Decreases the components reference counter.
 
-You should never need to use this function.
+No value is returned.
 
-This function has gone away in PHP 5.
+Version Description 5.0.0 This function was removed.
+
+You should never need to use this function.
 
 vim:ft=help:

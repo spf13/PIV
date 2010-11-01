@@ -4,10 +4,10 @@ xattr_get -- Get an extended attribute
 
 This function gets the value of an extended attribute of a file.
 
-Extended attributes have two different namespaces: user and root namespace.
-User namespace is available for all users while root namespace is available
-only for user with root privileges. xattr operates on user namespace by
-default, but you can change that using {flags} argument.
+Extended attributes have two different namespaces: user and root. The user
+namespace is available to all users, while the root namespace is available
+only to users with root privileges. xattr operates on the user namespace by
+default, but this can be changed with the {flags} parameter.
 
 {filename} The file from which we get the attribute.
 
@@ -27,6 +27,10 @@ Checks if system administrator has signed the file
   
   /* ... check if $signature is valid ... */
 ?>
+
+
+
+
 
 |xattr_list| |xattr_set| |xattr_remove|
 

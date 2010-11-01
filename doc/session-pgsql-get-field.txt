@@ -1,0 +1,10 @@
+session_pgsql_get_field -- Get custom field value
+
+  string session_pgsql_get_field()~
+
+This function is currently not documented; only its argument list is
+available.
+
+|session_pgsql_set_field|
+
+vim:ft=help:

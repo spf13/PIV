@@ -1,9 +1,13 @@
-imap_num_msg -- Gives the number of messages in the current mailbox
+imap_num_msg -- Gets the number of messages in the current mailbox
 
   int imap_num_msg(resource imap_stream)~
 
-Return the number of messages in the current mailbox.
+Gets the number of messages in the current mailbox.
 
-See also: |imap_num_recent| and |imap_status|.
+{ imap_stream}An IMAP stream returned by |imap_open|.
+
+Return the number of messages in the current mailbox, as an integer.
+
+|imap_num_recent| |imap_status|
 
 vim:ft=help:

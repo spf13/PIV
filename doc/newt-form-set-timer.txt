@@ -1,0 +1,14 @@
+newt_form_set_timer --
+
+  void newt_form_set_timer(resource form, int milliseconds)~
+
+This function is currently not documented; only its argument list is
+available.
+
+{form}
+
+{milliseconds}
+
+No value is returned.
+
+vim:ft=help:

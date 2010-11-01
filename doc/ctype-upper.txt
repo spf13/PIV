@@ -29,6 +29,8 @@ The above example will output:
   The string LMNSDO consists of all uppercase letters.
   The string akwSKWsm does not consist of all uppercase letters.
 
+
+
 |ctype_alpha| |ctype_lower| |setlocale|
 
 vim:ft=help:

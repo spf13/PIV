@@ -1,0 +1,11 @@
+filter_has_var -- Checks if variable of specified type exists
+
+  bool filter_has_var(int type, string variable_name)~
+
+{type} One of INPUT_GET, INPUT_POST, INPUT_COOKIE, INPUT_SERVER, INPUT_ENV.
+
+{variable_name} Name of a variable to check.
+
+Returns TRUE on success or FALSE on failure.
+
+vim:ft=help:

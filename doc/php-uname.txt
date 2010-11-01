@@ -3,15 +3,17 @@ php_uname -- Returns information about the operating system PHP is running on
   string php_uname([string mode])~
 
 |php_uname| returns a description of the operating system PHP is running on.
-For the name of just the operating system, consider using the PHP_OS
-constant, but be reminded this constant will contain the operating system PHP
-was built on.
+This is the same string you see at the very top of the |phpinfo| output. For
+the name of just the operating system, consider using the PHP_OS constant, but
+keep in mind this constant will contain the operating system PHP was built on.
 
-On Unix, the output reverts to displaying the operating system information PHP
-was built on if it cannot determine the currently running OS.
+On some older UNIX platforms, it may not be able to determine the current OS
+information in which case it will revert to displaying the OS PHP was built
+on. This will only happen if your uname() library call either doesn't exist or
+doesn't work.
 
-{mode} is a single character that defines what information is returned: 'a':
-This is the default. Contains all modes in the sequence "s n r v m".
+{mode} {mode} is a single character that defines what information is returned:
+'a': This is the default. Contains all modes in the sequence "s n r v m".
 
 's': Operating system name. eg. FreeBSD.
 
@@ -22,6 +24,8 @@ This is the default. Contains all modes in the sequence "s n r v m".
 'v': Version information. Varies a lot between operating systems.
 
 'm': Machine type. eg. i386.
+
+Returns the description, as a string.
 
 Some |php_uname| examples
 
@@ -47,10 +51,12 @@ Some |php_uname| examples
   }
 ?>
 
-There are also some related Predefined PHP constants that may come in handy,
-for example:
 
-A few OS related constant examples
+
+
+
+There are also some related Predefined PHP constants that may come in handy,
+for example: A few OS related constant examples
 
 <?php >
   // *nix
@@ -64,6 +70,10 @@ A few OS related constant examples
   echo PATH_SEPARATOR;      // ;
 ?>
 
-See also |phpversion|, |php_sapi_name|, and |phpinfo|.
+
+
+
+
+|phpversion| |php_sapi_name| |phpinfo|
 
 vim:ft=help:

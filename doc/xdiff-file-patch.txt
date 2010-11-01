@@ -2,14 +2,25 @@ xdiff_file_patch -- Patch a file with an unified diff
 
   mixed xdiff_file_patch(string file, string patch, string dest [, int flags])~
 
-|xdiff_file_patch| patches file {file} with unified patch in file {patch} and
-stores result in file {dest}.
+Patches a {file} with a {patch} and stores the result in a file. {patch} has
+to be an unified diff created by |xdiff_file_diff|/|xdiff_string_diff|
+function. An optional {flags} parameter specifies mode of operation.
 
-{flags} can be either XDIFF_PATCH_NORMAL (default mode, normal patch) or
+{file} The original file.
+
+{patch} The unified patch file. It has to be created using
+|xdiff_string_diff|, |xdiff_file_diff| functions or compatible tools.
+
+{dest} Path of the resulting file.
+
+{flags} Can be either XDIFF_PATCH_NORMAL (default mode, normal patch) or
 XDIFF_PATCH_REVERSE (reversed patch).
 
-Returns FALSE if an internal error happened, string with rejected chunks of
-patch or TRUE if patch has been successfully applied.
+Starting from version 1.5.0, you can also use binary OR to enable
+XDIFF_PATCH_IGNORESPACE flag.
+
+Returns FALSE if an internal error happened, string with rejected chunks if
+patch couldn't be applied or TRUE if patch has been successfully applied.
 
 |xdiff_file_patch| example The following code applies unified diff to a file.
 
@@ -37,6 +48,8 @@ Patch reversing example The following code reverses a patch.
   }
 ?>
 
-See also |xdiff_string_patch|.
+
+
+|xdiff_file_diff|
 
 vim:ft=help:

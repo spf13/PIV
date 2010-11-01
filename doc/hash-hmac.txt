@@ -1,0 +1,34 @@
+hash_hmac -- Generate a keyed hash value using the HMAC method
+
+  string hash_hmac(string algo, string data, string key [, bool raw_output])~
+
+{algo} Name of selected hashing algorithm (i.e. "md5", "sha256", "haval160,4",
+etc..)
+
+{data} Message to be hashed.
+
+{key} Shared secret key used for generating the HMAC variant of the message
+digest.
+
+{raw_output} When set to TRUE, outputs raw binary data. Default value (FALSE)
+outputs lowercase hexits.
+
+Returns a string containing the calculated message digest as lowercase hexits
+unless {raw_output} is set to true in which case the raw binary representation
+of the message digest is returned.
+
+|hash_hmac| example
+
+<?php >
+  echo hash_hmac('ripemd160', 'The quick brown fox jumped over the lazy dog.', 'secret');
+?>
+
+The above example will output:
+
+  b8e7ae12510bdfb1812e463a7f086122cf37e4f7
+
+
+
+|hash| |hash_init| |hash_hmac_file|
+
+vim:ft=help:

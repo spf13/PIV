@@ -1,0 +1,23 @@
+XMLWriter::startElement -- Create start element tag
+
+Oriented object style
+
+  bool startElement(string name)~
+
+Procedural style
+
+  bool xmlwriter_start_element(string name, resource xmlwriter, string name)~
+
+Starts an element.
+
+{ xmlwriter}Only for procedural calls. The XMLWriter resource that is being
+modified. This resource comes from a call to |xmlwriter_open_uri| or
+|xmlwriter_open_memory|.
+
+{name} The element name.
+
+Returns TRUE on success or FALSE on failure.
+
+XMLWriter::endElement XMLWriter::writeElement
+
+vim:ft=help:

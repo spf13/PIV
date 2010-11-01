@@ -7,10 +7,20 @@ applying the {callback} function to each one. The number of parameters that
 the {callback} function accepts should match the number of arrays passed to
 the |array_map|
 
+{callback} Callback function to run for each element in each array.
+
+{arr1} An array to run through the {callback} function.
+
+{array} Variable list of array arguments to run through the {callback}
+function.
+
+Returns an array containing all the elements of {arr1} after applying the
+{callback} function to each one.
+
 |array_map| example
 
 <?php >
-  function cube($n) 
+  function cube($n)
   {
       return($n * $n * $n);
   }
@@ -31,15 +41,36 @@ This makes $b have:
       [4] => 125
   )
 
+|array_map| using a lambda function (as of PHP 5.3.0)
+
+<?php >
+  $func = function($value) {
+      return $value * 2;
+  };
+  
+  print_r(array_map($func, range(1, 5)));
+?>
+
+  Array
+  (
+      [0] => 2
+      [1] => 4
+      [2] => 6
+      [3] => 8
+      [4] => 10
+  )
+
+
+
 |array_map| - using more arrays
 
 <?php >
-  function show_Spanish($n, $m) 
+  function show_Spanish($n, $m)
   {
       return("The number $n is called $m in Spanish");
   }
   
-  function map_Spanish($n, $m) 
+  function map_Spanish($n, $m)
   {
       return(array($n => $m));
   }
@@ -96,10 +127,12 @@ The above example will output:
   
   )
 
+
+
 Usually when using two or more arrays, they should be of equal length because
-the callback function is applied in parallel to the corresponding elements.
-If the arrays are of unequal length, the shortest one will be extended with
-empty elements.
+the callback function is applied in parallel to the corresponding elements. If
+the arrays are of unequal length, the shortest one will be extended with empty
+elements.
 
 An interesting use of this function is to construct an array of arrays, which
 can be easily performed by using NULL as the name of the callback function
@@ -156,7 +189,63 @@ The above example will output:
   
   )
 
-See also |array_filter|, |array_reduce|, |array_walk|, and information about
-the callback type.
+
+
+If the array argument contains string keys then the returned array will
+contain string keys if and only if exactly one array is passed. If more than
+one argument is passed then the returned array always has integer keys.
+
+|array_map| - with string keys
+
+<?php >
+  $arr = array("stringkey" => "value");
+  function cb1($a) {
+      return array ($a);
+  }
+  function cb2($a, $b) {
+      return array ($a, $b);
+  }
+  var_dump(array_map("cb1", $arr));
+  var_dump(array_map("cb2", $arr, $arr));
+  var_dump(array_map(null,  $arr));
+  var_dump(array_map(null, $arr, $arr));
+?>
+
+The above example will output:
+
+  array(1) {
+    ["stringkey"]=>
+    array(1) {
+      [0]=>
+      string(5) "value"
+    }
+  }
+  array(1) {
+    [0]=>
+    array(2) {
+      [0]=>
+      string(5) "value"
+      [1]=>
+      string(5) "value"
+    }
+  }
+  array(1) {
+    ["stringkey"]=>
+    string(5) "value"
+  }
+  array(1) {
+    [0]=>
+    array(2) {
+      [0]=>
+      string(5) "value"
+      [1]=>
+      string(5) "value"
+    }
+  }
+
+
+
+|array_filter| |array_reduce| |array_walk| |create_function| information about
+the callback type
 
 vim:ft=help:

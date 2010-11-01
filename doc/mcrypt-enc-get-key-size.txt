@@ -3,7 +3,10 @@ mode
 
   int mcrypt_enc_get_key_size(resource td)~
 
-This function returns the maximum supported key size of the algorithm
-specified by the encryption descriptor {td} in bytes.
+Gets the maximum supported key size of the algorithm in bytes.
+
+{td} The encryption descriptor.
+
+Returns the maximum supported key size of the algorithm in bytes.
 
 vim:ft=help:

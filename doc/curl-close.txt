@@ -1,14 +1,18 @@
-curl_close -- Close a CURL session
+curl_close -- Close a cURL session
 
   void curl_close(resource ch)~
 
-This function closes a CURL session and frees all resources. The CURL handle,
-{ch}, is also deleted.
+Closes a cURL session and frees all resources. The cURL handle, {ch}, is also
+deleted.
 
-Initializing a new CURL session and fetching a webpage
+{ch} A cURL handle returned by |curl_init|.
+
+No value is returned.
+
+Initializing a new cURL session and fetching a web page
 
 <?php >
-  // create a new curl resource
+  // create a new cURL resource
   $ch = curl_init();
   
   // set URL and other appropriate options
@@ -18,10 +22,14 @@ Initializing a new CURL session and fetching a webpage
   // grab URL and pass it to the browser
   curl_exec($ch);
   
-  // close curl resource, and free up system resources
+  // close cURL resource, and free up system resources
   curl_close($ch);
 ?>
 
-See also: |curl_init|.
+
+
+
+
+|curl_init| |curl_multi_close|
 
 vim:ft=help:

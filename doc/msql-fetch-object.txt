@@ -4,8 +4,8 @@ msql_fetch_object -- Fetch row as object
 
 |msql_fetch_object| is similar to |msql_fetch_array|, with one difference - an
 object is returned, instead of an array. Indirectly, that means that you can
-only access the data by the field names, and not by their offsets (numbers
-are illegal property names).
+only access the data by the field names, and not by their offsets (numbers are
+illegal property names).
 
 Speed-wise, the function is identical to |msql_fetch_array|, and almost as
 quick as |msql_fetch_row| (the difference is insignificant).
@@ -39,6 +39,10 @@ if there are no more rows.
   
   msql_free_result($result);
 ?>
+
+
+
+
 
 Version Description 4.3.11 and 5.0.4 A bug was fixed when retrieving data from
 columns containing NULL values. Such columns were not placed into the

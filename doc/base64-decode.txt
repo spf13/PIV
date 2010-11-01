@@ -1,9 +1,18 @@
 base64_decode -- Decodes data encoded with MIME base64
 
-  string base64_decode(string encoded_data)~
+  string base64_decode(string data [, bool strict])~
 
-|base64_decode| decodes {encoded_data} and returns the original data or FALSE
-on failure. The returned data may be binary.
+Decodes a base64 encoded {data}.
+
+{data} The encoded data.
+
+{strict} Returns FALSE if input contains character from outside the base64
+alphabet.
+
+Returns the original data or FALSE on failure. The returned data may be
+binary.
+
+Version Description 5.2.0 {strict} added
 
 |base64_decode| example
 
@@ -12,10 +21,12 @@ on failure. The returned data may be binary.
   echo base64_decode($str);
 ?>
 
-This example will produce:
+The above example will output:
 
   This is an encoded string
 
-See also |base64_encode| and RFC 2045 section 6.8.
+
+
+|base64_encode| RFC 2045 section 6.8
 
 vim:ft=help:

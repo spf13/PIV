@@ -29,4 +29,8 @@ resource.
   echo get_resource_type($doc->doc) . "\n";
 ?>
 
+
+
+
+
 vim:ft=help:

@@ -5,6 +5,14 @@ gmp_gcd -- Calculate GCD
 Calculate greatest common divisor of {a} and {b}. The result is always
 positive even if either of, or both, input operands are negative.
 
+{a} It can be either a GMP number resource, or a numeric string given that it
+is possible to convert the latter to a number.
+
+{b} It can be either a GMP number resource, or a numeric string given that it
+is possible to convert the latter to a number.
+
+A positive GMP number that divides into both {a} and {b}.
+
 |gmp_gcd| example
 
 <?php >
@@ -12,8 +20,10 @@ positive even if either of, or both, input operands are negative.
   echo gmp_strval($gcd) . "\n";
 ?>
 
-The printout of the above program will be:
+The above example will output:
 
   3
+
+
 
 vim:ft=help:

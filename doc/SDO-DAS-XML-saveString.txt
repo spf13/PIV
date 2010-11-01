@@ -1,0 +1,18 @@
+SDO_DAS_XML::saveString -- Saves the SDO_DAS_XML_Document object to a string
+
+  string SDO_DAS_XML::saveString(SDO_XMLDocument xdoc [, int indent])~
+
+Saves the SDO_DAS_XML_Document object to string.
+
+{xdoc} SDO_DAS_XML_Document object.
+
+{indent} Optional argument to specify that the xml should be formatted. A
+non-negative integer is the amount to indent each level of the xml. So, the
+integer 2, for example, will indent the xml so that each contained element is
+two spaces further to the right than its containing element. The integer 0
+will cause the xml to be completely left-aligned. The integer -1 means no
+formatting - the xml will come out on one long line.
+
+xml string.
+
+vim:ft=help:

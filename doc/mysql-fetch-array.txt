@@ -13,12 +13,12 @@ call to |mysql_query|.
 take the following values: MYSQL_ASSOC, MYSQL_NUM, and the default value of
 MYSQL_BOTH.
 
-Returns an array that corresponds to the fetched row, or FALSE if there are no
-more rows. The type of returned array depends on how {result_type} is defined.
-By using MYSQL_BOTH (default), you'll get an array with both associative and
-number indices. Using MYSQL_ASSOC, you only get associative indices (as
-|mysql_fetch_assoc| works), using MYSQL_NUM, you only get number indices (as
-|mysql_fetch_row| works).
+Returns an array of strings that corresponds to the fetched row, or FALSE if
+there are no more rows. The type of returned array depends on how
+{result_type} is defined. By using MYSQL_BOTH (default), you'll get an array
+with both associative and number indices. Using MYSQL_ASSOC, you only get
+associative indices (as |mysql_fetch_assoc| works), using MYSQL_NUM, you only
+get number indices (as |mysql_fetch_row| works).
 
 If two or more columns of the result have the same field names, the last
 column will take precedence. To access the other column(s) of the same name,
@@ -30,7 +30,11 @@ Query with aliased duplicate field names
 
   SELECT table1.field AS foo, table2.field AS bar FROM table1, table2
 
-|mysql_affected_array| with MYSQL_NUM
+
+
+
+
+|mysql_fetch_array| with MYSQL_NUM
 
 <?php >
   mysql_connect("localhost", "mysql_user", "mysql_password") or
@@ -45,6 +49,10 @@ Query with aliased duplicate field names
   
   mysql_free_result($result);
 ?>
+
+
+
+
 
 |mysql_fetch_array| with MYSQL_ASSOC
 
@@ -62,7 +70,11 @@ Query with aliased duplicate field names
   mysql_free_result($result);
 ?>
 
-|mysql_affected_array| with MYSQL_BOTH
+
+
+
+
+|mysql_fetch_array| with MYSQL_BOTH
 
 <?php >
   mysql_connect("localhost", "mysql_user", "mysql_password") or
@@ -78,13 +90,17 @@ Query with aliased duplicate field names
   mysql_free_result($result);
 ?>
 
+
+
+
+
 An important thing to note is that using |mysql_fetch_array| is not
 significantly slower than using |mysql_fetch_row|, while it provides a
 significant added value.
 
 Field names returned by this function are case-sensitive.
 
-This function sets NULL fields to PHP NULL value.
+This function sets NULL fields to the PHP NULL value.
 
 |mysql_fetch_row| |mysql_fetch_assoc| |mysql_data_seek| |mysql_query|
 

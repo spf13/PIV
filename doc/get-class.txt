@@ -1,27 +1,23 @@
 get_class -- Returns the name of the class of an object
 
-  string get_class([object obj])~
+  string get_class([object object])~
 
-This function returns the name of the class of which the object {obj} is an
-instance. Returns FALSE if {obj} is not an object.
+Gets the name of the class of the given {object}.
 
-A class defined in a PHP extension is returned in its original notation. In
-PHP 4 |get_class| returns a user defined class name in lowercase, but in PHP
-5 it will return the class name in it's original notation too, just like
-class names from PHP extensions.
+{object} The tested object
 
-Since PHP 5, {obj} is optional if called from the object's method.
+Returns the name of the class of which {object} is an instance. Returns FALSE
+if {object} is not an object.
+
+Version Description Since 5.0.0 The class name is returned in its original
+notation. Since 5.0.0 The {object} parameter is optional if called from the
+object's method.
 
 Using |get_class|
 
 <?php >
   class foo {
-      function foo() 
-      {
-      // implements some logic
-      }
-  
-      function name() 
+      function name()
       {
           echo "My name is " , get_class($this) , "\n";
       }
@@ -42,6 +38,30 @@ The above example will output:
   Its name is foo
   My name is foo
 
-See also |get_parent_class|, |gettype|, and |is_subclass_of|.
+Using |get_class| in superclass
+
+<?php >
+  abstract class bar {
+  	public function __construct()
+  	{
+  		var_dump(get_class($this));
+  		var_dump(get_class());
+  	}
+  }
+  
+  class foo extends bar {
+  }
+  
+  new foo;
+?>
+
+The above example will output:
+
+  string(3) "foo"
+  string(3) "bar"
+
+
+
+|get_parent_class| |gettype| |is_subclass_of|
 
 vim:ft=help:

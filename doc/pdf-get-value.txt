@@ -1,8 +1,7 @@
-pdf_get_value -- Gets certain numerical value
+PDF_get_value -- Get numerical parameter
 
-  float pdf_get_value(resource pdfdoc, string key, float modifier)~
+  float PDF_get_value(resource p, string key, float modifier)~
 
-Get the contents of some PDFlib parameter with float type. Parameter
-{modifier} is optional before PHP 4.3.5 or with PDFlib less than 5.
+Gets the value of some PDFlib parameter with numerical type.
 
 vim:ft=help:

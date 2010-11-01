@@ -1,0 +1,20 @@
+maxdb->real_query -- Execute an SQL query
+
+Procedural style
+
+  bool maxdb_real_query(resource link, string query)~
+
+Object oriented style (method):
+
+  bool real_query(resource link, string query, string query)~
+
+The |maxdb_real_query| is functionally identical with the |maxdb_query|.
+
+In order to determine if a given query should return a result set or not, see
+|maxdb_field_count|.
+
+Returns TRUE on success or FALSE on failure.
+
+|maxdb_query| |maxdb_store_result| |maxdb_use_result|
+
+vim:ft=help:

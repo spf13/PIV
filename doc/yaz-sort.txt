@@ -34,9 +34,15 @@ ascending you would use the following sort criteria:
 
   1=4 ia
 
+
+
 If the secondary sorting criteria should be author, case sensitive and
 ascending you would use:
 
   1=4 ia 1=1003 sa
+
+
+
+
 
 vim:ft=help:

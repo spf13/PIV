@@ -1,0 +1,12 @@
+timezone_open -- Returns new DateTimeZone object
+
+  DateTimeZone timezone_open(string timezone)~
+
+  DateTimeZone DateTimeZone::__construct(string timezone, string timezone)~
+
+{timezone} Time zone identifier as full name (e.g. Europe/Prague) or
+abbreviation (e.g. CET).
+
+Returns DateTimeZone object on success or FALSE on failure.
+
+vim:ft=help:

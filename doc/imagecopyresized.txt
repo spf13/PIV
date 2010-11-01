@@ -4,20 +4,40 @@ imagecopyresized -- Copy and resize part of an image
 
 |imagecopyresized| copies a rectangular portion of one image to another image.
 {dst_image} is the destination image, {src_image} is the source image
-identifier. If the source and destination coordinates and width and heights
-differ, appropriate stretching or shrinking of the image fragment will be
-performed. The coordinates refer to the upper left corner. This function can
-be used to copy regions within the same image (if {dst_image} is the same as
-{src_image}) but if the regions overlap the results will be unpredictable.
+identifier.
 
-There is a problem due to palette image limitations (255+1 colors). Resampling
-or filtering an image commonly needs more colors than 255, a kind of
-approximation is used to calculate the new resampled pixel and its color.
-With a palette image we try to allocate a new color, if that failed, we
-choose the closest (in theory) computed color. This is not always the closest
-visual color. That may produce a weird result, like blank (or visually blank)
-images. To skip this problem, please use a truecolor image as a destination
-image, such as one created by |imagecreatetruecolor|.
+In other words, |imagecopyresized| will take an rectangular area from
+{src_image} of width {src_w} and height {src_h} at position ({src_x},{src_y})
+and place it in a rectangular area of {dst_image} of width {dst_w} and height
+{dst_h} at position ({dst_x},{dst_y}).
+
+If the source and destination coordinates and width and heights differ,
+appropriate stretching or shrinking of the image fragment will be performed.
+The coordinates refer to the upper left corner. This function can be used to
+copy regions within the same image (if {dst_image} is the same as {src_image})
+but if the regions overlap the results will be unpredictable.
+
+{dst_im} Destination image link resource.
+
+{src_im} Source image link resource.
+
+{dst_x} x-coordinate of destination point.
+
+{dst_y} y-coordinate of destination point.
+
+{src_x} x-coordinate of source point.
+
+{src_y} y-coordinate of source point.
+
+{dst_w} Destination width.
+
+{dst_h} Destination height.
+
+{src_w} Source width.
+
+{src_h} Source height.
+
+Returns TRUE on success or FALSE on failure.
 
 Resizing an image This example will display the image at half size.
 
@@ -35,7 +55,7 @@ Resizing an image This example will display the image at half size.
   $newheight = $height * $percent;
   
   // Load
-  $thumb = imagecreate($newwidth, $newheight);
+  $thumb = imagecreatetruecolor($newwidth, $newheight);
   $source = imagecreatefromjpeg($filename);
   
   // Resize
@@ -45,8 +65,23 @@ Resizing an image This example will display the image at half size.
   imagejpeg($thumb);
 ?>
 
+The above example will output something similar to:
+
 The image will be output at half size, though better quality could be obtained
 using |imagecopyresampled|.
+
+
+
+
+
+There is a problem due to palette image limitations (255+1 colors). Resampling
+or filtering an image commonly needs more colors than 255, a kind of
+approximation is used to calculate the new resampled pixel and its color. With
+a palette image we try to allocate a new color, if that failed, we choose the
+closest (in theory) computed color. This is not always the closest visual
+color. That may produce a weird result, like blank (or visually blank) images.
+To skip this problem, please use a truecolor image as a destination image,
+such as one created by |imagecreatetruecolor|.
 
 |imagecopyresampled|
 

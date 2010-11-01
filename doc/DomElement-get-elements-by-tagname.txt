@@ -1,4 +1,4 @@
-DomElement->get_elements_by_tagname() -- Gets elements by tagname
+DomElement->get_elements_by_tagname -- Gets elements by tagname
 
   array get_elements_by_tagname(string name)~
 
@@ -24,6 +24,10 @@ Getting a content
       echo ' - ' . $node->get_content() . "\n";
   }
 ?>
+
+
+
+
 
 Use .
 

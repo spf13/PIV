@@ -7,6 +7,10 @@ Removes a stream filter previously added to a stream with
 filter's internal buffer will be flushed through to the next filter before
 removing it.
 
+{stream_filter} The stream filter to be removed.
+
+Returns TRUE on success or FALSE on failure.
+
 Dynamicly refiltering a stream
 
 <?php >
@@ -21,16 +25,14 @@ Dynamicly refiltering a stream
   rewind($fp);
   fpassthru($fp);
   fclose($fp);
-  
-  /* Expected Output
-     ---------------
-  
-  Guvf vf a test
-  
-   */
 ?>
 
-See also |stream_filter_register|, |stream_filter_append|, and
-|stream_filter_prepend|.
+The above example will output:
+
+  Guvf vf a test
+
+
+
+|stream_filter_register| |stream_filter_append| |stream_filter_prepend|
 
 vim:ft=help:

@@ -1,10 +1,11 @@
-pdf_close -- Closes a pdf resource
+PDF_close -- Close pdf resource [deprecated]
 
-  bool pdf_close(resource pdfdoc)~
+  bool PDF_close(resource p)~
 
-Close the generated PDF file, and free all document-related resources. Returns
-TRUE on success or FALSE on failure.
+Closes the generated PDF file, and frees all document-related resources.
+Returns TRUE on success or FALSE on failure.
 
-See also |pdf_new|.
+This function is deprecated since PDFlib version 6, use |PDF_end_document|
+instead.
 
 vim:ft=help:

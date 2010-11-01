@@ -15,4 +15,8 @@ Creating a simple HTML document header
   echo htmlentities($doc->dump_mem());
 ?>
 
+
+
+
+
 vim:ft=help:

@@ -1,0 +1,14 @@
+ps_clip -- Clips drawing to current path
+
+  bool ps_clip(resource psdoc)~
+
+Takes the current path and uses it to define the border of a clipping area.
+Everything drawn outside of that area will not be visible.
+
+{psdoc} Resource identifier of the postscript file as returned by |ps_new|.
+
+Returns TRUE on success or FALSE on failure.
+
+|ps_closepath|
+
+vim:ft=help:

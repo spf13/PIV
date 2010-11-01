@@ -1,0 +1,17 @@
+ps_setdash -- Sets appearance of a dashed line
+
+  bool ps_setdash(resource psdoc, float on, float off)~
+
+Sets the length of the black and white portions of a dashed line.
+
+{psdoc} Resource identifier of the postscript file as returned by |ps_new|.
+
+{on} The length of the dash.
+
+{off} The length of the gap between dashes.
+
+Returns TRUE on success or FALSE on failure.
+
+|ps_setpolydash|
+
+vim:ft=help:

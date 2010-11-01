@@ -2,13 +2,16 @@ tidy_save_config -- Save current settings to named file
 
   bool tidy_save_config(string filename)~
 
-|tidy_save_config| saves current settings to the specified file. Only
-non-default values are written.
+Saves current settings to the specified file. Only non-default values are
+written.
 
-See also |tidy_get_config|, |tidy_getopt|, |tidy_reset_config| and
-|tidy_setopt|.
+{filename} Path to the config file.
 
-This function is only avaliable in Tidy 1.0. It became obsolete in Tidy 2.0
+Returns TRUE on success or FALSE on failure.
+
+This function is only available in Tidy 1.0. It became obsolete in Tidy 2.0,
 and thus has been removed.
+
+|tidy_get_config| |tidy_getopt| |tidy_reset_config| |tidy_setopt|
 
 vim:ft=help:

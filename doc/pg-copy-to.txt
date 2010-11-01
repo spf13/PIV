@@ -30,6 +30,10 @@ failure.
      pg_copy_from($db, $table_name, $rows);
 ?>
 
+
+
+
+
 |pg_copy_from|
 
 vim:ft=help:

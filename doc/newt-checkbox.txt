@@ -1,0 +1,20 @@
+newt_checkbox --
+
+  resource newt_checkbox(int left, int top, string text, string def_value [, string seq])~
+
+This function is currently not documented; only its argument list is
+available.
+
+{left}
+
+{top}
+
+{text}
+
+{def_value}
+
+{seq}
+
+
+
+vim:ft=help:

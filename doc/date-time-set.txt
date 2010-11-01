@@ -1,0 +1,5 @@
+date_time_set -- Alias of DateTime::setTime
+
+This function is an alias of: DateTime::setTime
+
+vim:ft=help:

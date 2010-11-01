@@ -17,10 +17,12 @@ the object-oriented method.
 {index_or_name} The column index or name to fetch.
 
 {decode_binary} When the {decode_binary} parameter is set to TRUE (the
-default), PHP will decode the binary encoding it applied to the data if it
-was encoded using the |sqlite_escape_string|. You should normally leave this
-value at its default, unless you are interoperating with databases created by
-other sqlite capable applications.
+default), PHP will decode the binary encoding it applied to the data if it was
+encoded using the |sqlite_escape_string|. You should normally leave this value
+at its default, unless you are interoperating with databases created by other
+sqlite capable applications.
+
+Returns the column value.
 
 Use this function when you are iterating a large result set with many columns,
 or with columns that contain large amounts of data.

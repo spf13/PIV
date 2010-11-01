@@ -3,8 +3,11 @@ mdecrypt_generic -- Decrypt data
   string mdecrypt_generic(resource td, string data)~
 
 This function decrypts data. Note that the length of the returned string can
-in fact be longer then the unencrypted string, due to the padding of the
-data.
+in fact be longer then the unencrypted string, due to the padding of the data.
+
+{td} An encryption descriptor returned by |mcrypt_module_open|
+
+{data} Encrypted data.
 
 |mdecrypt_generic| example
 
@@ -12,8 +15,8 @@ data.
       /* Data */
       $key = 'this is a very long key, even too long for the cipher';
       $plain_text = 'very important data';
-     
-      /* Open module, and create IV */ 
+  
+      /* Open module, and create IV */
       $td = mcrypt_module_open('des', '', 'ecb', '');
       $key = substr($key, 0, mcrypt_enc_get_key_size($td));
       $iv_size = mcrypt_enc_get_iv_size($td);
@@ -42,16 +45,20 @@ data.
       }
 ?>
 
+
+
+
+
 The above example shows how to check if the data before the encryption is the
 same as the data after the decryption. It is very important to reinitialize
-the encryption buffer with |mcrypt_generic_init| before you try to decrypt
-the data.
+the encryption buffer with |mcrypt_generic_init| before you try to decrypt the
+data.
 
 The decryption handle should always be initialized with |mcrypt_generic_init|
 with a key and an IV before calling this function. Where the encryption is
 done, you should free the encryption buffers by calling
 |mcrypt_generic_deinit|. See |mcrypt_module_open| for an example.
 
-See also |mcrypt_generic|, |mcrypt_generic_init|, and |mcrypt_generic_deinit|.
+|mcrypt_generic| |mcrypt_generic_init| |mcrypt_generic_deinit|
 
 vim:ft=help:
