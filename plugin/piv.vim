@@ -9,3 +9,7 @@
 
 " Detect twig filetype
 au BufNewFile,BufRead *.twig      setf htmljinja
+
+" Make sure help set properly for PHP files
+autocmd FileType php set kp=:help
+
