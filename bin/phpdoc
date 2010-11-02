@@ -1,0 +1,42 @@
+#!/usr/bin/env php
+<?php
+function php_search($search)
+{
+    $search = trim($search);
+    if($search == '') throw new Exception('No function given.');
+    $web = file_get_contents('http://php.net/' . $search);
+    if(strpos($web, 'methodsynopsis') === false) {
+        throw new Exception('Function not found');
+    }
+    $matches = array();
+    preg_match('#<div class="methodsynopsis dc-description">(.+?)</div>#sm', $web, $matches);
+    $response['decl'] = strip_tags($matches[1]);
+    list(,,$response['func']) = preg_split('/\s+/m', $response['decl']);
+
+    preg_match('#<p class="para rdfs-comment">(.+?)</p>#sm', $web, $matches);
+    $response['details'] = flatten_html($matches[1]);
+
+    preg_match('#<div class="refsect1 returnvalues">.+?<p class="para">(.+?)</p>#sm', $web, $matches);
+    $response['retval'] = flatten_html($matches[1]);
+    return $response;
+}
+
+function flatten_html($str)
+{
+    return trim(preg_replace("/\s*\n\s*/", ' ', strip_tags($str)));
+}
+
+$search = isset($argv[1]) ? preg_replace('/[^\w ]/', '', $argv[1]) : false;
+if($search === false) exit;
+
+$response = false;
+try{
+    $response = php_search($search);
+} catch(Exception $ex) {
+    die($ex->getMessage());
+}
+
+echo "\x1b[1;31m" . strtoupper($response['func']) . "\x1b[0m\n";
+echo $response['details'] . "\n";
+echo "\t\x1b[1;37m" . preg_replace("/\s*\n\s*/", '', $response['decl']) . "\x1b[0m\n";
+echo "\x1b[1;32mReturn Values:\x1b[0m\n" . $response['retval'] . "\x1b[0m\n";
