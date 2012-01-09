@@ -1,8 +1,8 @@
 " File:        php.vim
 " Description: PHP Integration for VIM plugin
-" Maintainer:  Steve Francia <steve.francia@gmail.com> <http://spf13.com>
-" Version:     0.8
-" Last Change: 23rd April 2010
+" Maintainer:  Steve Francia <piv@spf13.com> <http://spf13.com>
+" Version:     0.9
+" Last Change: 7th January 2012
 
 " Most of the functions and settings are php specific and located in ftplugin/php.vim
 " This file will be for general settings.
