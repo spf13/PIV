@@ -1,8 +1,0 @@
-stream_bucket_append -- Append bucket to brigade
-
-  void stream_bucket_append(resource brigade, resource bucket)~
-
-This function is currently not documented; only its argument list is
-available.
-
-vim:ft=help:

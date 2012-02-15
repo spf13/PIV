@@ -1,5 +1,0 @@
-show_source -- Alias of highlight_file
-
-This function is an alias of: |highlight_file|.
-
-vim:ft=help:

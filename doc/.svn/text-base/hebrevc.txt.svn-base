@@ -1,5 +1,0 @@
-hebrevc -- Convert logical Hebrew text to visual text with newline conversion
-
-  string hebrevc(string hebrew_text [, int max_chars_per_line])~
-
-vim:ft=help:

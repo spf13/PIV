@@ -1,8 +1,0 @@
-ccvs_sale -- Transfer funds from the credit card holder to the merchant
-
-  string ccvs_sale(string session, string invoice)~
-
-This function is currently not documented; only the argument list is
-available.
-
-vim:ft=help:

@@ -1,7 +1,0 @@
-PDF_create_pvf -- Create PDFlib virtual file
-
-  bool PDF_create_pvf(resource pdfdoc, string filename, string data, string optlist)~
-
-Creates a named virtual read-only file from data provided in memory.
-
-vim:ft=help:

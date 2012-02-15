@@ -1,9 +1,0 @@
-ParentIterator::hasChildren -- Check whether the inner iterator's current
-element has children
-
-  bool ParentIterator::hasChildren()~
-
-This function is currently not documented; only the argument list is
-available.
-
-vim:ft=help:

@@ -1,6 +1,0 @@
-PDF_get_fontname -- Get font name [deprecated]
-
-This function is deprecated since PDFlib version 3, use |PDF_get_parameter|
-with the parameter {fontname} instead.
-
-vim:ft=help:

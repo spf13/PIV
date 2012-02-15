@@ -1,7 +1,0 @@
-PDF_fit_textflow -- Format textflow in rectangular area
-
-  string PDF_fit_textflow(resource pdfdoc, int textflow, float llx, float lly, float urx, float ury, string optlist)~
-
-Formats the next portion of a textflow into a rectangular area.
-
-vim:ft=help:

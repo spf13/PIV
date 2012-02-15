@@ -1,5 +1,0 @@
-read_exif_data -- Alias of exif_read_data
-
-This function is an alias of: |exif_read_data|.
-
-vim:ft=help:

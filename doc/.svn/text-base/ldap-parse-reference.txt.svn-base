@@ -1,8 +1,0 @@
-ldap_parse_reference -- Extract information from reference entry
-
-  bool ldap_parse_reference(resource link, resource entry, array referrals)~
-
-This function is currently not documented; only its argument list is
-available.
-
-vim:ft=help:

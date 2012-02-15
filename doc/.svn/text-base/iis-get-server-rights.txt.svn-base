@@ -1,8 +1,0 @@
-iis_get_server_rights -- Gets server rights
-
-  int iis_get_server_rights(int server_instance, string virtual_path)~
-
-This function is currently not documented; only its argument list is
-available.
-
-vim:ft=help:

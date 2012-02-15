@@ -1,7 +1,0 @@
-fbsql_select_db -- Select a FrontBase database
-
-  bool fbsql_select_db([string database_name [, resource link_identifier]])~
-
-Sets the current active database on the given link identifier.
-
-vim:ft=help:

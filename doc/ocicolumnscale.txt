@@ -1,5 +1,0 @@
-ocicolumnscale -- Alias of oci_field_scale
-
-This function is an alias of: |oci_field_scale|.
-
-vim:ft=help:

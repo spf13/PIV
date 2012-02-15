@@ -1,8 +1,0 @@
-ArrayObject::offsetUnset -- Unsets the value at the specified $index
-
-  void ArrayObject::offsetUnset(mixed index)~
-
-This function is currently not documented; only the argument list is
-available.
-
-vim:ft=help:

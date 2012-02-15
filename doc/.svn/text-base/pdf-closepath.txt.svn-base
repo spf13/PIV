@@ -1,7 +1,0 @@
-PDF_closepath -- Close current path
-
-  bool PDF_closepath(resource p)~
-
-Closes the current path. Returns TRUE on success or &false; on failure.
-
-vim:ft=help:

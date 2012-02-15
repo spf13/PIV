@@ -1,8 +1,0 @@
-ora_columnsize -- Returns the size of an Oracle result column
-
-  int ora_columnsize(resource cursor, int column)~
-
-Returns the size of the Oracle column {column} on the cursor {cursor}. Column
-0 is the first column.
-
-vim:ft=help:

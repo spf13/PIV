@@ -1,8 +1,0 @@
-msession_disconnect -- Close connection to msession server
-
-  void msession_disconnect()~
-
-This function is currently not documented; only its argument list is
-available.
-
-vim:ft=help:

@@ -1,5 +1,0 @@
-date_sub -- Alias of DateTime::sub
-
-This function is an alias of: DateTime::sub
-
-vim:ft=help:

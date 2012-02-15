@@ -1,8 +1,0 @@
-ArrayObject::offsetSet -- Sets the value at the specified $index to $newval
-
-  void ArrayObject::offsetSet(mixed index, mixed newval)~
-
-This function is currently not documented; only the argument list is
-available.
-
-vim:ft=help:

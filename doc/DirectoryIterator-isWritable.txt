@@ -1,8 +1,0 @@
-DirectoryIterator::isWritable -- Returns true if file can be written
-
-  bool DirectoryIterator::isWritable()~
-
-This function is currently not documented; only the argument list is
-available.
-
-vim:ft=help:

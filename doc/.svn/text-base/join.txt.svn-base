@@ -1,5 +1,0 @@
-join -- Alias of implode
-
-This function is an alias of: |implode|.
-
-vim:ft=help:

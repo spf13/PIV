@@ -1,9 +1,0 @@
-ncurses_update_panels -- Refreshes the virtual screen to reflect the relations
-between panels in the stack
-
-  void ncurses_update_panels()~
-
-This function is currently not documented; only its argument list is
-available.
-
-vim:ft=help:

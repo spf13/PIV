@@ -1,9 +1,0 @@
-ircg_set_file -- Set logfile for connection
-
-  bool ircg_set_file(resource connection, string path)~
-
-Function |ircg_set_file| specifies a logfile {path} in which all output from
-connection {connection} will be logged. Returns TRUE on success, otherwise
-FALSE.
-
-vim:ft=help:

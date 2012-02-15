@@ -1,8 +1,0 @@
-cpdf_rotate_text -- Sets text rotation angle
-
-  bool cpdf_rotate_text(int pdfdoc, float angle)~
-
-This function is currently not documented; only the argument list is
-available.
-
-vim:ft=help:

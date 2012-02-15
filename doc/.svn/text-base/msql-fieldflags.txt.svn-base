@@ -1,5 +1,0 @@
-msql_fieldflags -- Alias of msql_field_flags
-
-This function is an alias of |msql_field_flags|.
-
-vim:ft=help:

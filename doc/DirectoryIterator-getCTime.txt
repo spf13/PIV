@@ -1,8 +1,0 @@
-DirectoryIterator::getCTime -- Get inode modification time of file
-
-  int DirectoryIterator::getCTime()~
-
-This function is currently not documented; only the argument list is
-available.
-
-vim:ft=help:

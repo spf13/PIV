@@ -1,8 +1,0 @@
-DirectoryIterator::isLink -- Returns true if file is symbolic link
-
-  bool DirectoryIterator::isLink()~
-
-This function is currently not documented; only the argument list is
-available.
-
-vim:ft=help:

@@ -1,7 +1,0 @@
-dbmexists -- Tells if a value exists for a key in a DBM database
-
-  bool dbmexists(resource dbm_identifier, string key)~
-
-Returns TRUE if there is a value associated with the {key}.
-
-vim:ft=help:

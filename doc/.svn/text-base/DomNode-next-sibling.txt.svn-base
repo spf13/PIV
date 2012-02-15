@@ -1,5 +1,0 @@
-DomNode->next_sibling -- Returns the next sibling of node
-
-  domelement DomNode->next_sibling()~
-
-vim:ft=help:

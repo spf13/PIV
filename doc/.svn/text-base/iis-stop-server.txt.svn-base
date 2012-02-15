@@ -1,8 +1,0 @@
-iis_stop_server -- Stops the virtual web server
-
-  int iis_stop_server(int server_instance)~
-
-This function is currently not documented; only its argument list is
-available.
-
-vim:ft=help:

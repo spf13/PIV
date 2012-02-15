@@ -1,9 +1,0 @@
-DirectoryIterator::getPathname -- Return path and filename of current dir
-entry
-
-  string DirectoryIterator::getPathname()~
-
-This function is currently not documented; only the argument list is
-available.
-
-vim:ft=help:

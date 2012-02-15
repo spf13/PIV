@@ -1,9 +1,0 @@
-CachingIterator::__toString -- Return the string representation of the current
-element
-
-  string CachingIterator::__toString()~
-
-This function is currently not documented; only the argument list is
-available.
-
-vim:ft=help:

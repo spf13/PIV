@@ -1,8 +1,0 @@
-openssl_csr_get_subject -- Returns the subject of a CERT
-
-  array openssl_csr_get_subject(mixed csr [, bool use_shortnames])~
-
-This function is currently not documented; only its argument list is
-available.
-
-vim:ft=help:

@@ -1,8 +1,0 @@
-PDF_arcn -- Draw a clockwise circular arc segment
-
-  bool PDF_arcn(resource p, float x, float y, float r, float alpha, float beta)~
-
-Except for the drawing direction, this function behaves exactly like
-|PDF_arc|.
-
-vim:ft=help:

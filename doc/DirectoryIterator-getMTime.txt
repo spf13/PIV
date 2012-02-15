@@ -1,8 +1,0 @@
-DirectoryIterator::getMTime -- Get last modification time of file
-
-  int DirectoryIterator::getMTime()~
-
-This function is currently not documented; only the argument list is
-available.
-
-vim:ft=help:

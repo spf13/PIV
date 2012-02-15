@@ -1,8 +1,0 @@
-mcal_event_init -- Initializes a streams global event structure
-
-  void mcal_event_init(int stream)~
-
-|mcal_event_init| initializes a streams global event structure. this
-effectively sets all elements of the structure to 0, or the default settings.
-
-vim:ft=help:

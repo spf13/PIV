@@ -1,8 +1,0 @@
-PDF_initgraphics -- Reset graphic state
-
-  bool PDF_initgraphics(resource p)~
-
-Reset all color and graphics state parameters to their defaults. Returns TRUE
-on success or &false; on failure.
-
-vim:ft=help:

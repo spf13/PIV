@@ -1,5 +1,0 @@
-strchr -- Alias of strstr
-
-This function is an alias of: |strstr|.
-
-vim:ft=help:

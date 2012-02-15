@@ -1,8 +1,0 @@
-iis_get_dir_security -- Gets Directory Security
-
-  int iis_get_dir_security(int server_instance, string virtual_path)~
-
-This function is currently not documented; only its argument list is
-available.
-
-vim:ft=help:

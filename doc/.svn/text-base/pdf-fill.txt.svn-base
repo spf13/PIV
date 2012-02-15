@@ -1,8 +1,0 @@
-PDF_fill -- Fill current path
-
-  bool PDF_fill(resource p)~
-
-Fills the interior of the current path with the current fill color. Returns
-TRUE on success or &false; on failure.
-
-vim:ft=help:

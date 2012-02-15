@@ -1,8 +1,0 @@
-PDF_get_majorversion -- Get major version number [deprecated]
-
-  int PDF_get_majorversion()~
-
-This function is deprecated since PDFlib version 5, use |PDF_get_value| with
-the parameter {major} instead.
-
-vim:ft=help:

@@ -1,9 +1,0 @@
-mysqli_param_count -- Alias for mysqli_stmt_param_count
-
-This function is an alias of |mysqli_stmt_param_count|.
-
-|mysqli_param_count| is deprecated and will be removed.
-
-|mysqli_stmt_param_count|
-
-vim:ft=help:

@@ -1,7 +1,0 @@
-mcal_day_of_year -- Returns the day of the year of the given date
-
-  int mcal_day_of_year(int year, int month, int day)~
-
-|mcal_day_of_year| returns the day of the year of the given date.
-
-vim:ft=help:

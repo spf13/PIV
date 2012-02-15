@@ -1,8 +1,0 @@
-maxdb_dump_debug_info -- Dump debugging information into the log
-
-  bool maxdb_dump_debug_info(resource link)~
-
-This function is currently not documented; only its argument list is
-available.
-
-vim:ft=help:

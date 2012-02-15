@@ -1,9 +1,0 @@
-OCI-Lob->close -- Closes LOB descriptor
-
-  bool close()~
-
-Closes descriptor of LOB or FILE. This function should be used only with .
-
-Returns TRUE on success or &false; on failure.
-
-vim:ft=help:

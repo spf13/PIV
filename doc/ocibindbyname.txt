@@ -1,5 +1,0 @@
-ocibindbyname -- Alias of oci_bind_by_name
-
-This function is an alias of: |oci_bind_by_name|.
-
-vim:ft=help:

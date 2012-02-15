@@ -1,5 +1,0 @@
-magic_quotes_runtime -- Alias of set_magic_quotes_runtime
-
-This function is an alias of: |set_magic_quotes_runtime|
-
-vim:ft=help:

@@ -1,8 +1,0 @@
-ArrayObject::offsetGet -- Returns the value at the specified $index
-
-  bool ArrayObject::offsetGet(mixed index)~
-
-This function is currently not documented; only the argument list is
-available.
-
-vim:ft=help:

@@ -1,5 +1,0 @@
-pdf_open_png -- Deprecated: Opens a PNG image
-
-This function is deprecated, use |pdf_open_image| instead.
-
-vim:ft=help:

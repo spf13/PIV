@@ -1,8 +1,0 @@
-msession_uniq -- Get unique id
-
-  string msession_uniq(int param [, string classname [, string data]])~
-
-This function is currently not documented; only its argument list is
-available.
-
-vim:ft=help:

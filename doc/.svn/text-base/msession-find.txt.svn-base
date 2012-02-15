@@ -1,8 +1,0 @@
-msession_find -- Find all sessions with name and value
-
-  array msession_find(string name, string value)~
-
-This function is currently not documented; only its argument list is
-available.
-
-vim:ft=help:

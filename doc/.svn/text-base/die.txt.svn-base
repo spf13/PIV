@@ -1,5 +1,0 @@
-die -- Equivalent to exit
-
-This language construct is equivalent to |exit|.
-
-vim:ft=help:

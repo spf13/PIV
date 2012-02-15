@@ -1,5 +1,0 @@
-date_interval_format -- Alias of DateInterval::format
-
-This function is an alias of: DateInterval::format
-
-vim:ft=help:

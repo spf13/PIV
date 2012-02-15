@@ -1,7 +1,0 @@
-mcal_close -- Close an MCAL stream
-
-  bool mcal_close(int mcal_stream [, int flags])~
-
-Closes the given mcal stream.
-
-vim:ft=help:

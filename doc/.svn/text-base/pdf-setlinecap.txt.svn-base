@@ -1,8 +1,0 @@
-PDF_setlinecap -- Set linecap parameter
-
-  bool PDF_setlinecap(resource p, int linecap)~
-
-Sets the {linecap} parameter to control the shape at the end of a path with
-respect to stroking.
-
-vim:ft=help:

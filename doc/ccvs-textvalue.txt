@@ -1,8 +1,0 @@
-ccvs_textvalue -- Get text return value for previous function call
-
-  string ccvs_textvalue(string session)~
-
-This function is currently not documented; only the argument list is
-available.
-
-vim:ft=help:

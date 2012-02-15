@@ -1,8 +1,0 @@
-swfbutton_keypress -- Returns the action flag for keyPress(char)
-
-  int swfbutton_keypress(string str)~
-
-This function is currently not documented; only the argument list is
-available.
-
-vim:ft=help:

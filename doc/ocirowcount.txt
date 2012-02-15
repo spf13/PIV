@@ -1,5 +1,0 @@
-ocirowcount -- Alias of oci_num_rows
-
-This function is an alias of: |oci_num_rows|.
-
-vim:ft=help:

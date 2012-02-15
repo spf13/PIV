@@ -1,8 +1,0 @@
-RecursiveDirectoryIterator::next -- Move to next entry
-
-  void RecursiveDirectoryIterator::next()~
-
-This function is currently not documented; only the argument list is
-available.
-
-vim:ft=help:

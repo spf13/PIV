@@ -1,8 +1,0 @@
-ocifetchinto -- Fetches the next row into an array (deprecated)
-
-  int ocifetchinto(resource statement, array result [, int mode])~
-
-This function is deprecated. Recommended alternatives: |oci_fetch_array|,
-|oci_fetch_object|, |oci_fetch_assoc| and |oci_fetch_row|.
-
-vim:ft=help:

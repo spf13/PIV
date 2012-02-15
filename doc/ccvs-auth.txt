@@ -1,8 +1,0 @@
-ccvs_auth -- Perform credit authorization test on a transaction
-
-  string ccvs_auth(string session, string invoice)~
-
-This function is currently not documented; only the argument list is
-available.
-
-vim:ft=help:

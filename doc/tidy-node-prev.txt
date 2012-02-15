@@ -1,8 +1,0 @@
-tidy_node->prev -- Returns the previous sibling to this node
-
-  tidy_node tidy_node->prev()~
-
-This function is currently not documented; only the argument list is
-available.
-
-vim:ft=help:

@@ -1,7 +1,0 @@
-PDF_info_textline -- Perform textline formatting and query metrics
-
-  float PDF_info_textline(resource pdfdoc, string text, string keyword, string optlist)~
-
-Performs textline formatting and queries the resulting metrics.
-
-vim:ft=help:

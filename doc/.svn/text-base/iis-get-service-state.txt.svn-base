@@ -1,9 +1,0 @@
-iis_get_service_state -- Returns the state for the service defined by
-ServiceId
-
-  int iis_get_service_state(string service_id)~
-
-This function is currently not documented; only its argument list is
-available.
-
-vim:ft=help:

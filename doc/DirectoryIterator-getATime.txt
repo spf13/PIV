@@ -1,8 +1,0 @@
-DirectoryIterator::getATime -- Get last access time of file
-
-  int DirectoryIterator::getATime()~
-
-This function is currently not documented; only the argument list is
-available.
-
-vim:ft=help:

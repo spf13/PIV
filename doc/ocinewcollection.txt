@@ -1,5 +1,0 @@
-ocinewcollection -- Alias of oci_new_collection
-
-This function is an alias of: |oci_new_collection|.
-
-vim:ft=help:

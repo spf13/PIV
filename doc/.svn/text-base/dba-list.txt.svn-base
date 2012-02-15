@@ -1,9 +1,0 @@
-dba_list -- List all open database files
-
-  array dba_list()~
-
-|dba_list| list all open database files.
-
-An associative array, in the form resourceid => filename.
-
-vim:ft=help:

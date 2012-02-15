@@ -1,8 +1,0 @@
-ming_keypress -- Returns the action flag for keyPress(char)
-
-  int ming_keypress(string char)~
-
-This function is currently not documented; only its argument list is
-available.
-
-vim:ft=help:

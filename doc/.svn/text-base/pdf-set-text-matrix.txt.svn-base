@@ -1,6 +1,0 @@
-PDF_set_text_matrix -- Set text matrix [deprecated]
-
-This function is deprecated since PDFlib version 3, use |PDF_scale|,
-|PDF_translate|, |PDF_rotate|, or |PDF_skew| instead.
-
-vim:ft=help:

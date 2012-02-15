@@ -1,7 +1,0 @@
-mcal_is_leap_year -- Returns if the given year is a leap year or not
-
-  bool mcal_is_leap_year(int year)~
-
-|mcal_is_leap_year| returns 1 if the given year is a leap year, 0 if not.
-
-vim:ft=help:

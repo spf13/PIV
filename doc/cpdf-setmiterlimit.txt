@@ -1,8 +1,0 @@
-cpdf_setmiterlimit -- Sets miter limit
-
-  bool cpdf_setmiterlimit(int pdf_document, float value)~
-
-The |cpdf_setmiterlimit| function set the miter limit to a value greater or
-equal than 1. Returns TRUE on success or FALSE on failure.
-
-vim:ft=help:

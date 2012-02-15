@@ -1,8 +1,0 @@
-RecursiveIteratorIterator::next -- Move forward to the next element
-
-  void RecursiveIteratorIterator::next()~
-
-This function is currently not documented; only the argument list is
-available.
-
-vim:ft=help:

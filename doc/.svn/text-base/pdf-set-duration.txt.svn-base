@@ -1,6 +1,0 @@
-PDF_set_duration -- Set duration between pages [deprecated]
-
-This function is deprecated since PDFlib version 3, use the {duration} option
-in |PDF_begin_page_ext| or |PDF_end_page_ext| instead.
-
-vim:ft=help:

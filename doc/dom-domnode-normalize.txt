@@ -1,9 +1,0 @@
-DOMNode->normalize() -- Normalizes the node
-
-  void normalize()~
-
-Normalizes the node.
-
-No value is returned.
-
-vim:ft=help:

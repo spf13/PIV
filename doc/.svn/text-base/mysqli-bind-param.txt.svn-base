@@ -1,9 +1,0 @@
-mysqli_bind_param -- Alias for mysqli_stmt_bind_param
-
-This function is an alias of |mysqli_stmt_bind_param|.
-
-|mysqli_bind_param| is deprecated and will be removed.
-
-|mysqli_stmt_bind_param|
-
-vim:ft=help:

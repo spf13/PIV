@@ -1,5 +1,0 @@
-date_add -- Alias of DateTime::add
-
-This function is an alias of: DateTime::add
-
-vim:ft=help:

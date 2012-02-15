@@ -1,9 +1,0 @@
-Rar::getCrc -- Get CRC of the entry
-
-  int getCrc()~
-
-|Rar::getCrc| returns CRC of the archive entry.
-
-Returns the CRC of the archive entry or FALSE on error.
-
-vim:ft=help:

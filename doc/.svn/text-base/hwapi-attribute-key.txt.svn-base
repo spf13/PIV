@@ -1,9 +1,0 @@
-hw_api_attribute->key -- Returns key of the attribute
-
-  string key()~
-
-Returns the name of the attribute.
-
-Returns the name of the attribute as a string.
-
-vim:ft=help:

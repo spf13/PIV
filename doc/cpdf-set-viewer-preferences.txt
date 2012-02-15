@@ -1,8 +1,0 @@
-cpdf_set_viewer_preferences -- How to show the document in the viewer
-
-  bool cpdf_set_viewer_preferences(int pdfdoc, array preferences)~
-
-This function is currently not documented; only the argument list is
-available.
-
-vim:ft=help:

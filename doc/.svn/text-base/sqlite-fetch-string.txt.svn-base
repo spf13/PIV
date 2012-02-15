@@ -1,5 +1,0 @@
-sqlite_fetch_string -- Alias of sqlite_fetch_single
-
-This function is an alias of: |sqlite_fetch_single|.
-
-vim:ft=help:

@@ -1,8 +1,0 @@
-LimitIterator::next -- Move the iterator forward
-
-  void LimitIterator::next()~
-
-This function is currently not documented; only the argument list is
-available.
-
-vim:ft=help:

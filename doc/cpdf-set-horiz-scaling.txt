@@ -1,8 +1,0 @@
-cpdf_set_horiz_scaling -- Sets horizontal scaling of text
-
-  bool cpdf_set_horiz_scaling(int pdf_document, float scale)~
-
-The |cpdf_set_horiz_scaling| function sets the horizontal scaling to {scale}
-percent. Returns TRUE on success or FALSE on failure.
-
-vim:ft=help:

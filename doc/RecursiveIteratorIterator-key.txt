@@ -1,8 +1,0 @@
-RecursiveIteratorIterator::key -- Access the current key
-
-  mixed RecursiveIteratorIterator::key()~
-
-This function is currently not documented; only the argument list is
-available.
-
-vim:ft=help:

@@ -1,8 +1,0 @@
-ParentIterator::rewind -- Rewind the iterator
-
-  void ParentIterator::rewind()~
-
-This function is currently not documented; only the argument list is
-available.
-
-vim:ft=help:

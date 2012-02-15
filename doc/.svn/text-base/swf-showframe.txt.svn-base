@@ -1,9 +1,0 @@
-swf_showframe -- Display the current frame
-
-  void swf_showframe()~
-
-Outputs the current frame.
-
-No value is returned.
-
-vim:ft=help:

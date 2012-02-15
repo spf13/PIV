@@ -1,5 +1,0 @@
-ocinewdescriptor -- Alias of oci_new_descriptor
-
-This function is an alias of: |oci_new_descriptor|.
-
-vim:ft=help:

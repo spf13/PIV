@@ -1,5 +1,0 @@
-ocifetch -- Alias of oci_fetch
-
-This function is an alias of: |oci_fetch|.
-
-vim:ft=help:

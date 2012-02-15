@@ -1,5 +1,0 @@
-jdtounix -- Convert Julian Day to Unix timestamp
-
-  int jdtounix(int jday)~
-
-vim:ft=help:

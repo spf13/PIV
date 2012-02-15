@@ -1,5 +1,0 @@
-ociinternaldebug -- Alias of oci_internal_debug
-
-This function is an alias of: |oci_internal_debug|.
-
-vim:ft=help:

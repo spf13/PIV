@@ -1,9 +1,0 @@
-cpdf_setlinecap -- Sets linecap parameter
-
-  bool cpdf_setlinecap(int pdf_document, int value)~
-
-The |cpdf_setlinecap| function set the linecap parameter between a {value} of
-0 and 2. 0 = butt end, 1 = round, 2 = projecting square. Returns TRUE on
-success or FALSE on failure.
-
-vim:ft=help:

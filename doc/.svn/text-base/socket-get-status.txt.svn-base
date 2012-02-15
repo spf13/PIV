@@ -1,5 +1,0 @@
-socket_get_status -- Alias of stream_get_meta_data
-
-This function is an alias of: |stream_get_meta_data|.
-
-vim:ft=help:

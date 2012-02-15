@@ -1,8 +1,0 @@
-maxdb_server_end -- Shut down the embedded server
-
-  void maxdb_server_end()~
-
-This function is currently not documented; only its argument list is
-available.
-
-vim:ft=help:

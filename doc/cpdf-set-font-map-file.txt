@@ -1,9 +1,0 @@
-cpdf_set_font_map_file -- Sets fontname to filename translation map when using
-external fonts
-
-  bool cpdf_set_font_map_file(int pdfdoc, string filename)~
-
-This function is currently not documented; only the argument list is
-available.
-
-vim:ft=help:

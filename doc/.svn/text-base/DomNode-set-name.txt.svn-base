@@ -1,9 +1,0 @@
-DomNode->set_name -- Sets name of node
-
-  bool DomNode->set_name()~
-
-Sets name of node.
-
-See also |domnode_node_name|.
-
-vim:ft=help:

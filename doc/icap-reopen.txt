@@ -1,8 +1,0 @@
-icap_reopen -- Reopen ICAP stream to new calendar
-
-  int icap_reopen(int stream_id, string calendar [, int options])~
-
-This function is currently not documented; only the argument list is
-available.
-
-vim:ft=help:

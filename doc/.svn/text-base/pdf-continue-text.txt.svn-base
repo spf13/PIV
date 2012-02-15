@@ -1,7 +1,0 @@
-PDF_continue_text -- Output text in next line
-
-  bool PDF_continue_text(resource p, string text)~
-
-Prints {text} at the next line. Returns TRUE on success or &false; on failure.
-
-vim:ft=help:

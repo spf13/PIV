@@ -1,5 +1,0 @@
-ocirollback -- Alias of oci_rollback
-
-This function is an alias of: |oci_rollback|.
-
-vim:ft=help:

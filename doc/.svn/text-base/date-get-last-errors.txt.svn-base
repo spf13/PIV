@@ -1,5 +1,0 @@
-date_get_last_errors -- Alias of DateTime::getLastErrors
-
-This function is an alias of: DateTime::getLastErrors
-
-vim:ft=help:

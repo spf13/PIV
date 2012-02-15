@@ -1,7 +1,0 @@
-mysqli_client_encoding -- Alias of mysqli_character_set_name
-
-This function is an alias of |mysqli_character_set_name|.
-
-|mysqli_real_escape_string|
-
-vim:ft=help:

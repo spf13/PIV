@@ -1,8 +1,0 @@
-PDF_concat -- Concatenate a matrix to the CTM
-
-  bool PDF_concat(resource p, float a, float b, float c, float d, float e, float f)~
-
-Concatenates a matrix to the current transformation matrix (CTM). Returns TRUE
-on success or &false; on failure.
-
-vim:ft=help:

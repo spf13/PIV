@@ -1,8 +1,0 @@
-maxdb_rpl_parse_enabled -- Check if RPL parse is enabled
-
-  int maxdb_rpl_parse_enabled(resource link)~
-
-This function is currently not documented; only its argument list is
-available.
-
-vim:ft=help:

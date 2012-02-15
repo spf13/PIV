@@ -1,5 +1,0 @@
-cybercash_base64_decode -- base64 decode data for Cybercash
-
-  string cybercash_base64_decode(string inbuff)~
-
-vim:ft=help:

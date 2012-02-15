@@ -1,8 +1,0 @@
-ora_columnname -- Gets the name of an Oracle result column
-
-  string ora_columnname(resource cursor, int column)~
-
-Returns the name of the field/column {column} on the cursor {cursor}. The
-returned name is in all uppercase letters. Column 0 is the first column.
-
-vim:ft=help:

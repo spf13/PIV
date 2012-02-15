@@ -1,8 +1,0 @@
-icap_create_calendar -- Create a new calendar
-
-  string icap_create_calendar(int stream_id, string calendar)~
-
-This function is currently not documented; only the argument list is
-available.
-
-vim:ft=help:

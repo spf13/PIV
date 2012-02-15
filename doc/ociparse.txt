@@ -1,5 +1,0 @@
-ociparse -- Alias of oci_parse
-
-This function is an alias of: |oci_parse|.
-
-vim:ft=help:

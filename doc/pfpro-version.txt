@@ -1,8 +1,0 @@
-pfpro_version -- Returns the version of the Payflow Pro software
-
-  string pfpro_version()~
-
-|pfpro_version| returns the version string of the Payflow Pro library. At the
-time of writing, this was L211.
-
-vim:ft=help:

@@ -1,7 +1,0 @@
-PDF_info_textflow -- Query textflow state
-
-  float PDF_info_textflow(resource pdfdoc, int textflow, string keyword)~
-
-Queries the current state of a textflow.
-
-vim:ft=help:

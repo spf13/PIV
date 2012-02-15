@@ -1,8 +1,0 @@
-ldap_start_tls -- Start TLS
-
-  bool ldap_start_tls(resource link)~
-
-This function is currently not documented; only its argument list is
-available.
-
-vim:ft=help:

@@ -1,9 +1,0 @@
-mcal_event_add_attribute -- Adds an attribute and a value to the streams
-global event structure
-
-  bool mcal_event_add_attribute(int stream, string attribute, string value)~
-
-|mcal_event_add_attribute| adds an attribute to the stream's global event
-structure with the value given by "value".
-
-vim:ft=help:

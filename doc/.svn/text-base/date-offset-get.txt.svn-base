@@ -1,5 +1,0 @@
-date_offset_get -- Alias of DateTime::getOffset
-
-This function is an alias of: DateTime::getOffset
-
-vim:ft=help:

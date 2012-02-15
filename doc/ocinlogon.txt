@@ -1,5 +1,0 @@
-ocinlogon -- Alias of oci_new_connect
-
-This function is an alias of: |oci_new_connect|.
-
-vim:ft=help:

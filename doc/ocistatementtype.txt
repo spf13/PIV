@@ -1,5 +1,0 @@
-ocistatementtype -- Alias of oci_statement_type
-
-This function is an alias of: |oci_statement_type|.
-
-vim:ft=help:

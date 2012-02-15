@@ -1,9 +1,0 @@
-DomNode->has_attributes -- Checks if node has attributes
-
-  bool DomNode->has_attributes()~
-
-This function checks if the node has attributes.
-
-See also |domnode_has_child_nodes|.
-
-vim:ft=help:

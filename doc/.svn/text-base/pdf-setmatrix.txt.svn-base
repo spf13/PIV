@@ -1,8 +1,0 @@
-PDF_setmatrix -- Set current transformation matrix
-
-  bool PDF_setmatrix(resource p, float a, float b, float c, float d, float e, float f)~
-
-Explicitly sets the current transformation matrix. Returns TRUE on success or
-&false; on failure.
-
-vim:ft=help:

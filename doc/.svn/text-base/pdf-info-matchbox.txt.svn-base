@@ -1,7 +1,0 @@
-PDF_info_matchbox -- Query matchbox information
-
-  float PDF_info_matchbox(resource pdfdoc, string boxname, int num, string keyword)~
-
-Queries information about a matchbox on the current page.
-
-vim:ft=help:

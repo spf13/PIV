@@ -1,9 +1,0 @@
-mail -- Send mail
-
-  bool mail(string to, string subject, string message [, string additional_headers [, string additional_parameters]])~
-
-Sends an email.
-
-{to} Receiver, or receivers of the mail.
-
-vim:ft=help:

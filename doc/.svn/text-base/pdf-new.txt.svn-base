@@ -1,7 +1,0 @@
-PDF_new -- Create PDFlib object
-
-  resource PDF_new()~
-
-Creates a new PDFlib object with default settings.
-
-vim:ft=help:

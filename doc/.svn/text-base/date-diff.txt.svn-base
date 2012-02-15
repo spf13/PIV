@@ -1,5 +1,0 @@
-date_diff -- Alias of DateTime::diff
-
-This function is an alias of: DateTime::diff
-
-vim:ft=help:

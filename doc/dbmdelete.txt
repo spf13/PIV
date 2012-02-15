@@ -1,9 +1,0 @@
-dbmdelete -- Deletes the value for a key from a DBM database
-
-  bool dbmdelete(resource dbm_identifier, string key)~
-
-Deletes the value for {key} in the database.
-
-Returns FALSE if the key didn't exist in the database.
-
-vim:ft=help:

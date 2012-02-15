@@ -1,5 +1,0 @@
-gmp_div -- Alias of gmp_div_q
-
-This function is an alias of: |gmp_div_q|.
-
-vim:ft=help:

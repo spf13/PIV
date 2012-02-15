@@ -1,5 +1,0 @@
-ocicolumnprecision -- Alias of oci_field_precision
-
-This function is an alias of: |oci_field_precision|.
-
-vim:ft=help:

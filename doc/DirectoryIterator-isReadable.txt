@@ -1,8 +1,0 @@
-DirectoryIterator::isReadable -- Returns true if file can be read
-
-  bool DirectoryIterator::isReadable()~
-
-This function is currently not documented; only the argument list is
-available.
-
-vim:ft=help:

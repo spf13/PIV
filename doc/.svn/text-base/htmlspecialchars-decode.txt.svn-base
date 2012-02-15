@@ -1,8 +1,0 @@
-htmlspecialchars_decode -- Convert special HTML entities back to characters
-
-  string htmlspecialchars_decode(string string [, int quote_style])~
-
-This function is the opposite of |htmlspecialchars|. It converts special HTML
-entities back to characters.
-
-vim:ft=help:

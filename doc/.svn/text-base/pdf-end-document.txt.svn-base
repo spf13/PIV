@@ -1,7 +1,0 @@
-PDF_end_document -- Close PDF file
-
-  bool PDF_end_document(resource pdfdoc, string optlist)~
-
-Closes the generated PDF file and applies various options.
-
-vim:ft=help:

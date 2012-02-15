@@ -1,8 +1,0 @@
-maxdb_embedded_connect -- Open a connection to an embedded MaxDB server
-
-  resource maxdb_embedded_connect([string dbname])~
-
-This function is currently not documented; only its argument list is
-available.
-
-vim:ft=help:

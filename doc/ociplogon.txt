@@ -1,5 +1,0 @@
-ociplogon -- Alias of oci_pconnect
-
-This function is an alias of: |oci_pconnect|.
-
-vim:ft=help:

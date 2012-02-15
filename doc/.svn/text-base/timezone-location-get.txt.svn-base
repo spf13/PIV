@@ -1,5 +1,0 @@
-timezone_location_get -- Alias of DateTimeZone::getLocation
-
-This function is an alias of: DateTimeZone::getLocation
-
-vim:ft=help:

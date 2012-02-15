@@ -1,5 +1,0 @@
-ocicollassign -- Alias of
-
-This function is an alias of: .
-
-vim:ft=help:

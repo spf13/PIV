@@ -1,5 +1,0 @@
-set_file_buffer -- Alias of stream_set_write_buffer
-
-This function is an alias of: |stream_set_write_buffer|.
-
-vim:ft=help:

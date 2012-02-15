@@ -1,9 +1,0 @@
-cybercash_decr -- Cybercash decrypt
-
-  array cybercash_decr(string wmk, string sk, string inbuff)~
-
-The function returns an associative array with the elements "errcode" and, if
-"errcode" is FALSE, "outbuff" (string), "outLth" (long) and "macbuff"
-(string).
-
-vim:ft=help:

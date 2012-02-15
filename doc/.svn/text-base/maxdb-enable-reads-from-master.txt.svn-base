@@ -1,8 +1,0 @@
-maxdb_enable_reads_from_master -- Enable reads from master
-
-  bool maxdb_enable_reads_from_master(resource link)~
-
-This function is currently not documented; only its argument list is
-available.
-
-vim:ft=help:

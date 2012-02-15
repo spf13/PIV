@@ -1,9 +1,0 @@
-RecursiveIteratorIterator::getDepth -- Get the current depth of the recursive
-iteration
-
-  int RecursiveIteratorIterator::getDepth()~
-
-This function is currently not documented; only the argument list is
-available.
-
-vim:ft=help:

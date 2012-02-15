@@ -1,9 +1,0 @@
-RecursiveIteratorIterator::rewind -- Rewind the iterator to the first element
-of the top level inner iterator
-
-  void RecursiveIteratorIterator::rewind()~
-
-This function is currently not documented; only the argument list is
-available.
-
-vim:ft=help:

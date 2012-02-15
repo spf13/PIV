@@ -1,5 +1,0 @@
-maxdb_escape_string -- Alias of maxdb_real_escape_string
-
-This function is an alias of: |maxdb_real_escape_string|.
-
-vim:ft=help:

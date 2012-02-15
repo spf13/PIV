@@ -1,9 +1,0 @@
-ParentIterator::getChildren -- Return the inner iterator's children contained
-in a ParentIterator
-
-  ParentIterator ParentIterator::getChildren()~
-
-This function is currently not documented; only the argument list is
-available.
-
-vim:ft=help:

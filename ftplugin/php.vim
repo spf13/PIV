@@ -60,7 +60,7 @@ setlocal smartindent
 setlocal textwidth=79
 set formatoptions=qrocb
 
-setlocal nowrap 		" Do not wrap lines automatically
+setlocal nowrap     " Do not wrap lines automatically
 
 " Correct indentation after opening a phpdocblock and automatic * on every
 " line

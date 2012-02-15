@@ -1,7 +1,0 @@
-PDF_utf32_to_utf16 -- Convert string from UTF-32 to UTF-16
-
-  string PDF_utf32_to_utf16(resource pdfdoc, string utf32string, string ordering)~
-
-Converts a string from UTF-32 format to UTF-16.
-
-vim:ft=help:

@@ -1,5 +1,0 @@
-ocicommit -- Alias of oci_commit
-
-This function is an alias of: |oci_commit|.
-
-vim:ft=help:

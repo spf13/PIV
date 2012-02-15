@@ -1,8 +1,0 @@
-cpdf_rotate -- Sets rotation
-
-  bool cpdf_rotate(int pdf_document, float angle)~
-
-The |cpdf_rotate| function set the rotation in degrees to {angle}. Returns
-TRUE on success or FALSE on failure.
-
-vim:ft=help:

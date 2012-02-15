@@ -1,8 +1,0 @@
-ldap_t61_to_8859 -- Translate t61 characters to 8859 characters
-
-  string ldap_t61_to_8859(string value)~
-
-This function is currently not documented; only its argument list is
-available.
-
-vim:ft=help:

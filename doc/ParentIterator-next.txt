@@ -1,8 +1,0 @@
-ParentIterator::next -- Move the iterator forward
-
-  void ParentIterator::next()~
-
-This function is currently not documented; only the argument list is
-available.
-
-vim:ft=help:

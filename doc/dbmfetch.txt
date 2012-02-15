@@ -1,7 +1,0 @@
-dbmfetch -- Fetches a value for a key from a DBM database
-
-  string dbmfetch(resource dbm_identifier, string key)~
-
-Returns the value associated with {key}.
-
-vim:ft=help:

@@ -1,5 +1,0 @@
-msql_fieldtype -- Alias of msql_field_type
-
-This function is an alias of |msql_field_type|.
-
-vim:ft=help:

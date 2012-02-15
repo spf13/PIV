@@ -1,8 +1,0 @@
-RecursiveIteratorIterator::getSubIterator -- The current active sub iterator
-
-  RecursiveIterator RecursiveIteratorIterator::getSubIterator()~
-
-This function is currently not documented; only the argument list is
-available.
-
-vim:ft=help:

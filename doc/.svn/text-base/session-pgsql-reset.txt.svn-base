@@ -1,9 +1,0 @@
-session_pgsql_reset -- Reset connection to session database servers
-
-  bool session_pgsql_reset()~
-
-Reset the connection to the session database servers.
-
-Returns TRUE on success or &false; on failure.
-
-vim:ft=help:

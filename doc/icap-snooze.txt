@@ -1,9 +1,0 @@
-icap_snooze -- Snooze an alarm
-
-  string icap_snooze(int stream_id, int uid)~
-
-|icap_snooze| turns on an alarm for a calendar event specified by the {uid}.
-
-Returns TRUE.
-
-vim:ft=help:

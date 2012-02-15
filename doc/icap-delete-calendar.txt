@@ -1,8 +1,0 @@
-icap_delete_calendar -- Delete a calendar
-
-  string icap_delete_calendar(int stream_id, string calendar)~
-
-This function is currently not documented; only the argument list is
-available.
-
-vim:ft=help:

@@ -1,7 +1,0 @@
-mcal_create_calendar -- Create a new MCAL calendar
-
-  bool mcal_create_calendar(int stream, string calendar)~
-
-Creates a new calendar named {calendar}.
-
-vim:ft=help:

@@ -1,8 +1,0 @@
-PDF_end_pattern -- Finish pattern
-
-  bool PDF_end_pattern(resource p)~
-
-Finishes the pattern definition. Returns TRUE on success or &false; on
-failure.
-
-vim:ft=help:

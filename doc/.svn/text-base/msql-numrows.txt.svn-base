@@ -1,5 +1,0 @@
-msql_numrows -- Alias of msql_num_rows
-
-This function is an alias of |msql_num_rows|.
-
-vim:ft=help:

@@ -1,9 +1,0 @@
-mcal_event_set_recur_none -- Sets the recurrence of the streams global event
-structure
-
-  void mcal_event_set_recur_none(int stream)~
-
-|mcal_event_set_recur_none| sets the streams global event structure to not
-recur (event->recur_type is set to MCAL_RECUR_NONE).
-
-vim:ft=help:

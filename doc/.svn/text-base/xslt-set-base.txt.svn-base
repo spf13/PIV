@@ -1,5 +1,0 @@
-xslt_set_base -- Set the base URI for all XSLT transformations
-
-  void xslt_set_base(resource xh, string uri)~
-
-vim:ft=help:

@@ -1,8 +1,0 @@
-msession_get_data -- Get data session unstructured data
-
-  string msession_get_data(string session)~
-
-This function is currently not documented; only its argument list is
-available.
-
-vim:ft=help:

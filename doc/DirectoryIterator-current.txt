@@ -1,8 +1,0 @@
-DirectoryIterator::current -- Return this (needed for Iterator interface)
-
-  DirectoryIterator DirectoryIterator::current()~
-
-This function is currently not documented; only the argument list is
-available.
-
-vim:ft=help:

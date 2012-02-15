@@ -1,5 +1,0 @@
-date_create_from_format -- Alias of DateTime::createFromFormat
-
-This function is an alias of: DateTime::createFromFormat
-
-vim:ft=help:

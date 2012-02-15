@@ -1,7 +1,0 @@
-PDF_delete_table -- Delete table object
-
-  bool PDF_delete_table(resource pdfdoc, int table, string optlist)~
-
-Deletes a table and all associated data structures.
-
-vim:ft=help:

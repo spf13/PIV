@@ -1,8 +1,0 @@
-cpdf_setflat -- Sets flatness
-
-  bool cpdf_setflat(int pdf_document, float value)~
-
-The |cpdf_setflat| function set the flatness to a value between 0 and 100.
-Returns TRUE on success or FALSE on failure.
-
-vim:ft=help:

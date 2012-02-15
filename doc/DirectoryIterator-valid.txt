@@ -1,8 +1,0 @@
-DirectoryIterator::valid -- Check whether dir contains more entries
-
-  string DirectoryIterator::valid()~
-
-This function is currently not documented; only the argument list is
-available.
-
-vim:ft=help:

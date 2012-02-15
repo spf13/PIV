@@ -1,5 +1,0 @@
-ocisetprefetch -- Alias of oci_set_prefetch
-
-This function is an alias of: |oci_set_prefetch|.
-
-vim:ft=help:

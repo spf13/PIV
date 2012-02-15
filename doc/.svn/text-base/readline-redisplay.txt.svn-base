@@ -1,9 +1,0 @@
-readline_redisplay -- Redraws the display
-
-  void readline_redisplay()~
-
-Redraws readline to redraw the display.
-
-No value is returned.
-
-vim:ft=help:

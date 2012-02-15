@@ -1,8 +1,0 @@
-cpdf_newpath -- Starts a new path
-
-  bool cpdf_newpath(int pdf_document)~
-
-The |cpdf_newpath| starts a new path on the document given by the
-{pdf_document} parameter. Returns TRUE on success or FALSE on failure.
-
-vim:ft=help:

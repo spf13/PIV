@@ -1,8 +1,0 @@
-DirectoryIterator::getSize -- Get file size
-
-  int DirectoryIterator::getSize()~
-
-This function is currently not documented; only the argument list is
-available.
-
-vim:ft=help:

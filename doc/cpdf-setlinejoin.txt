@@ -1,9 +1,0 @@
-cpdf_setlinejoin -- Sets linejoin parameter
-
-  bool cpdf_setlinejoin(int pdf_document, int value)~
-
-The |cpdf_setlinejoin| function set the linejoin parameter between a {value}
-of 0 and 2. 0 = miter, 1 = round, 2 = bevel. Returns TRUE on success or FALSE
-on failure.
-
-vim:ft=help:

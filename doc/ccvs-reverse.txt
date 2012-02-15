@@ -1,8 +1,0 @@
-ccvs_reverse -- Perform a full reversal on an already-processed authorization
-
-  string ccvs_reverse(string session, string invoice)~
-
-This function is currently not documented; only the argument list is
-available.
-
-vim:ft=help:

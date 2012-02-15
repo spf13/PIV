@@ -1,9 +1,0 @@
-mysqli_fetch -- Alias for mysqli_stmt_fetch
-
-This function is an alias of |mysqli_stmt_fetch|.
-
-|mysqli_fetch| is deprecated and will be removed.
-
-|mysqli_stmt_fetch|
-
-vim:ft=help:

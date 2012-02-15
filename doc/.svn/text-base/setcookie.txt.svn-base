@@ -1,5 +1,0 @@
-setcookie -- Send a cookie
-
-  bool setcookie(string name [, string value [, int expire [, string path [, string domain [, bool secure [, bool httponly]]]]]])~
-
-vim:ft=help:

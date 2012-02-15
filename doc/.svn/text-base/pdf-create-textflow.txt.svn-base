@@ -1,7 +1,0 @@
-PDF_create_textflow -- Create textflow object
-
-  int PDF_create_textflow(resource pdfdoc, string text, string optlist)~
-
-Preprocesses text for later formatting and creates a textflow object.
-
-vim:ft=help:

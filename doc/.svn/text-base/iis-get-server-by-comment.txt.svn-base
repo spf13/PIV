@@ -1,9 +1,0 @@
-iis_get_server_by_comment -- Return the instance number associated with the
-Comment
-
-  int iis_get_server_by_comment(string comment)~
-
-This function is currently not documented; only its argument list is
-available.
-
-vim:ft=help:

@@ -1,9 +1,0 @@
-ccvs_command -- Performs a command which is peculiar to a single protocol, and
-thus is not available in the general CCVS API
-
-  string ccvs_command(string session, string type, string argval)~
-
-This function is currently not documented; only the argument list is
-available.
-
-vim:ft=help:

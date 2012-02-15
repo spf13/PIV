@@ -1,9 +1,0 @@
-iis_remove_server -- Removes the virtual web server indicated by
-ServerInstance
-
-  int iis_remove_server(int server_instance)~
-
-This function is currently not documented; only its argument list is
-available.
-
-vim:ft=help:

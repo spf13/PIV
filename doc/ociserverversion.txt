@@ -1,5 +1,0 @@
-ociserverversion -- Alias of oci_server_version
-
-This function is an alias of: |oci_server_version|.
-
-vim:ft=help:

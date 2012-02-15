@@ -1,8 +1,0 @@
-msession_set -- Set value in session
-
-  bool msession_set(string session, string name, string value)~
-
-This function is currently not documented; only its argument list is
-available.
-
-vim:ft=help:

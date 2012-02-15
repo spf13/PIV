@@ -1,9 +1,0 @@
-hw_Info -- Info about connection
-
-  string hw_info(int connection)~
-
-Returns information about the current connection.
-
-{connection} The connection identifier.
-
-vim:ft=help:

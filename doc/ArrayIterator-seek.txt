@@ -1,8 +1,0 @@
-ArrayIterator::seek -- Seek to position
-
-  void ArrayIterator::seek(int position)~
-
-This function is currently not documented; only the argument list is
-available.
-
-vim:ft=help:

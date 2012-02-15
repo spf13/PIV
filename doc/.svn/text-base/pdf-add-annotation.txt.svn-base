@@ -1,6 +1,0 @@
-PDF_add_annotation -- Add annotation [deprecated]
-
-This function is deprecated, use |PDF_create_annotation| with {type=Text}
-instead.
-
-vim:ft=help:

@@ -1,7 +1,0 @@
-mcal_rename_calendar -- Rename an MCAL calendar
-
-  bool mcal_rename_calendar(int stream, string old_name, string new_name)~
-
-Renames the calendar {old_name} to {new_name}.
-
-vim:ft=help:

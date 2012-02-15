@@ -1,8 +1,0 @@
-ccvs_return -- Transfer funds from the merchant to the credit card holder
-
-  string ccvs_return(string session, string invoice)~
-
-This function is currently not documented; only the argument list is
-available.
-
-vim:ft=help:

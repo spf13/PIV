@@ -1,7 +1,0 @@
-icap_close -- Close an ICAP stream
-
-  int icap_close(int icap_stream [, int flags])~
-
-Closes the given icap stream.
-
-vim:ft=help:

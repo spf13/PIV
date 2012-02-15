@@ -1,8 +1,0 @@
-msession_get -- Get value from session
-
-  string msession_get(string session, string name, string value)~
-
-This function is currently not documented; only its argument list is
-available.
-
-vim:ft=help:

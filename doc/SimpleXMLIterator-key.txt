@@ -1,8 +1,0 @@
-SimpleXMLIterator::key -- Return current SimpleXML key
-
-  mixed SimpleXMLIterator::key()~
-
-This function is currently not documented; only the argument list is
-available.
-
-vim:ft=help:

@@ -1,8 +1,0 @@
-msession_lock -- Lock a session
-
-  int msession_lock(string name)~
-
-This function is currently not documented; only its argument list is
-available.
-
-vim:ft=help:

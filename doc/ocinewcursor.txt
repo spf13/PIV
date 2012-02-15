@@ -1,5 +1,0 @@
-ocinewcursor -- Alias of oci_new_cursor
-
-This function is an alias of: |oci_new_cursor|.
-
-vim:ft=help:

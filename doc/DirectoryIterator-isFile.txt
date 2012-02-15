@@ -1,8 +1,0 @@
-DirectoryIterator::isFile -- Returns true if file is a regular file
-
-  bool DirectoryIterator::isFile()~
-
-This function is currently not documented; only the argument list is
-available.
-
-vim:ft=help:

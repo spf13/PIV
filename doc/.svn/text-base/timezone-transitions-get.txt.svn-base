@@ -1,5 +1,0 @@
-timezone_transitions_get -- Alias of DateTimeZone::getTransitions
-
-This function is an alias of: DateTimeZone::getTransitions
-
-vim:ft=help:

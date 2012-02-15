@@ -1,8 +1,0 @@
-DirectoryIterator::getOwner -- Get file owner
-
-  int DirectoryIterator::getOwner()~
-
-This function is currently not documented; only the argument list is
-available.
-
-vim:ft=help:

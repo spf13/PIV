@@ -1,5 +1,0 @@
-fputs -- Alias of fwrite
-
-This function is an alias of: |fwrite|.
-
-vim:ft=help:

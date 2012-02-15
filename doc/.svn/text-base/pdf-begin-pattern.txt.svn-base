@@ -1,7 +1,0 @@
-PDF_begin_pattern -- Start pattern definition
-
-  int PDF_begin_pattern(resource pdfdoc, float width, float height, float xstep, float ystep, int painttype)~
-
-Starts a new pattern definition.
-
-vim:ft=help:

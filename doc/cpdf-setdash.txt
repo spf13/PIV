@@ -1,9 +1,0 @@
-cpdf_setdash -- Sets dash pattern
-
-  bool cpdf_setdash(int pdf_document, float white, float black)~
-
-The |cpdf_setdash| function set the dash pattern {white} white units and
-{black} black units. If both are 0 a solid line is set. Returns TRUE on
-success or FALSE on failure.
-
-vim:ft=help:

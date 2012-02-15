@@ -1,5 +1,0 @@
-ocicancel -- Alias of oci_cancel
-
-This function is an alias of: |oci_cancel|.
-
-vim:ft=help:

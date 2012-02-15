@@ -1,5 +1,0 @@
-date_timezone_set -- Alias of DateTime::setTimezone
-
-This function is an alias of: DateTime::setTimezone
-
-vim:ft=help:

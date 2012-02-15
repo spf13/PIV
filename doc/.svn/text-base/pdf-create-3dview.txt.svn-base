@@ -1,9 +1,0 @@
-PDF_create_3dview -- Create 3D view
-
-  int PDF_create_3dview(resource pdfdoc, string username, string optlist)~
-
-Creates a 3D view.
-
-This function requires PDF 1.6.
-
-vim:ft=help:

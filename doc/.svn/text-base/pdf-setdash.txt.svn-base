@@ -1,8 +1,0 @@
-PDF_setdash -- Set simple dash pattern
-
-  bool PDF_setdash(resource pdfdoc, float b, float w)~
-
-Sets the current dash pattern to {b} black and {w} white units. Returns TRUE
-on success or &false; on failure.
-
-vim:ft=help:

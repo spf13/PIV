@@ -1,7 +1,0 @@
-PDF_setmiterlimit -- Set miter limit
-
-  bool PDF_setmiterlimit(resource pdfdoc, float miter)~
-
-Sets the miter limit.Returns TRUE on success or &false; on failure.
-
-vim:ft=help:

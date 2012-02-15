@@ -1,5 +1,0 @@
-pdf_set_font -- Deprecated: Selects a font face and size
-
-This function is deprecated, use |pdf_findfont| plus |pdf_setfont| instead.
-
-vim:ft=help:

@@ -1,9 +1,0 @@
-mcal_event_set_description -- Sets the description of the streams global event
-structure
-
-  void mcal_event_set_description(int stream, string description)~
-
-|mcal_event_set_description| sets the streams global event structure's
-description to the given string.
-
-vim:ft=help:

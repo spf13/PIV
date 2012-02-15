@@ -1,8 +1,0 @@
-cpdf_setlinewidth -- Sets line width
-
-  bool cpdf_setlinewidth(int pdf_document, float width)~
-
-The |cpdf_setlinewidth| function set the line width to {width}. Returns TRUE
-on success or FALSE on failure.
-
-vim:ft=help:

@@ -1,5 +1,0 @@
-wddx_deserialize -- Alias of wddx_unserialize
-
-This function is an alias of: |wddx_unserialize|.
-
-vim:ft=help:

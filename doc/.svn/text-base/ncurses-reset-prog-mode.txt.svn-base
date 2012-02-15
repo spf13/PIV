@@ -1,8 +1,0 @@
-ncurses_reset_prog_mode -- Resets the prog mode saved by def_prog_mode
-
-  int ncurses_reset_prog_mode()~
-
-This function is currently not documented; only its argument list is
-available.
-
-vim:ft=help:

@@ -1,8 +1,0 @@
-SimpleXMLIterator::valid -- Check whether SimpleXML contains more entries
-
-  bool SimpleXMLIterator::valid()~
-
-This function is currently not documented; only the argument list is
-available.
-
-vim:ft=help:

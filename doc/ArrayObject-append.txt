@@ -1,8 +1,0 @@
-ArrayObject::append -- Appends the value
-
-  void ArrayObject::append(mixed newval)~
-
-This function is currently not documented; only the argument list is
-available.
-
-vim:ft=help:

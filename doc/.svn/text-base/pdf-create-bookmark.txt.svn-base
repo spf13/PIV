@@ -1,7 +1,0 @@
-PDF_create_bookmark -- Create bookmark
-
-  int PDF_create_bookmark(resource pdfdoc, string text, string optlist)~
-
-Creates a bookmark subject to various options.
-
-vim:ft=help:

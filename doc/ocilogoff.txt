@@ -1,5 +1,0 @@
-ocilogoff -- Alias of oci_close
-
-This function is an alias of: |oci_close|.
-
-vim:ft=help:

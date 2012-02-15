@@ -1,5 +1,0 @@
-gzputs -- Alias of gzwrite
-
-This function is an alias of: |gzwrite|.
-
-vim:ft=help:

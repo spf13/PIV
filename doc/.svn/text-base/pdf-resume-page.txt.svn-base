@@ -1,7 +1,0 @@
-PDF_resume_page -- Resume page
-
-  bool PDF_resume_page(resource pdfdoc, string optlist)~
-
-Resumes a page to add more content to it.
-
-vim:ft=help:

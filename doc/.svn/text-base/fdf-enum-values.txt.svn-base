@@ -1,8 +1,0 @@
-fdf_enum_values -- Call a user defined function for each document value
-
-  bool fdf_enum_values(resource fdf_document, callback function [, mixed userdata])~
-
-This function is currently not documented; only its argument list is
-available.
-
-vim:ft=help:

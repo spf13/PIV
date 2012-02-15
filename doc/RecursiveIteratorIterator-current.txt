@@ -1,8 +1,0 @@
-RecursiveIteratorIterator::current -- Access the current element value
-
-  mixed RecursiveIteratorIterator::current()~
-
-This function is currently not documented; only the argument list is
-available.
-
-vim:ft=help:

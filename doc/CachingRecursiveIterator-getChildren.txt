@@ -1,9 +1,0 @@
-CachingRecursiveIterator::getChildren -- Return the inner iterator's children
-as a CachingRecursiveIterator
-
-  CachingRecursiveIterator CachingRecursiveIterator::getChildren()~
-
-This function is currently not documented; only the argument list is
-available.
-
-vim:ft=help:

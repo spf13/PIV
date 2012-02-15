@@ -1,8 +1,0 @@
-fdf_get_flags -- Gets the flags of a field
-
-  int fdf_get_flags(resource fdf_document, string fieldname, int whichflags)~
-
-This function is currently not documented; only its argument list is
-available.
-
-vim:ft=help:

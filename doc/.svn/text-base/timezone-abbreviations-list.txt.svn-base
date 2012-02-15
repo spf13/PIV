@@ -1,5 +1,0 @@
-timezone_abbreviations_list -- Alias of DateTimeZone::listAbbreviations
-
-This function is an alias of: DateTimeZone::listAbbreviations
-
-vim:ft=help:

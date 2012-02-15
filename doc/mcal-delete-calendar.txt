@@ -1,7 +1,0 @@
-mcal_delete_calendar -- Delete an MCAL calendar
-
-  bool mcal_delete_calendar(int stream, string calendar)~
-
-Deletes the calendar named {calendar}.
-
-vim:ft=help:
