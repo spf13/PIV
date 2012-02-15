@@ -1,0 +1,14 @@
+stats_stat_powersum -- Not documented
+
+  float stats_stat_powersum(array arr, float power)~
+
+This function is currently not documented; only its argument list is
+available.
+
+{arr}
+
+{power}
+
+
+
+vim:ft=help:

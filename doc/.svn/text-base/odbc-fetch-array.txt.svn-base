@@ -1,0 +1,21 @@
+odbc_fetch_array -- Fetch a result row as an associative array
+
+  array odbc_fetch_array(resource result [, int rownumber])~
+
+Fetch an associative array from an ODBC query. See the changelog below for
+when this function is available.
+
+{result} The result resource from |odbc_exec|.
+
+{rownumber} Optionally choose which row number to retrieve.
+
+Returns an array that corresponds to the fetched row, or FALSE if there are no
+more rows.
+
+Version Description 4.3.3 This function exists when compiled with IBM DB2 or
+UnixODBC support. 4.3.2 This function exists when compiled for Windows. 4.0.2
+This function exists when compiled with DBMaker support.
+
+|odbc_fetch_row| |odbc_fetch_object| |odbc_num_rows|
+
+vim:ft=help:

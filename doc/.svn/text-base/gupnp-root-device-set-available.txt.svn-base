@@ -1,0 +1,15 @@
+gupnp_root_device_set_available -- Set whether or not root_device is available
+
+  bool gupnp_root_device_set_available(resource root_device, bool available)~
+
+Controls whether or not root_device is available (announcing its presence).
+
+{root_device} A root device identifier, returned by |gupnp_root_device_new|.
+
+{available} Set TRUE if {root_device} should be available.
+
+Returns TRUE on success or &false; on failure.
+
+|gupnp_root_device_get_available|
+
+vim:ft=help:

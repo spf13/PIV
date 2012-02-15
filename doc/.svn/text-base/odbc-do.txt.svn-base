@@ -1,0 +1,5 @@
+odbc_do -- Alias of odbc_exec
+
+This function is an alias of: |odbc_exec|.
+
+vim:ft=help:

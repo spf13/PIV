@@ -1,0 +1,49 @@
+*cubrid_insert_id* -- Return an array with the IDs generated for the
+AUTO_INCREMENT columns
+
+  array cubrid_insert_id(string class_name [, resource conn_identifier])~
+
+This function returns an array with the IDs generated for the AUTO_INCREMENT
+columns that were updated by the previous INSERT query. It returns an array
+with all the AUTO_INCREMENT columns and their values. It returns 0 if the
+previous query does not generate new rows, or it returns FALSE on failure.
+
+{class_name} The name of the class (table) that was used in the last INSERT
+statement for which the auto increment values are retrieved.
+
+{conn_identifier} The connection identifier previously obtained by a call to
+|cubrid_connect|.
+
+An associative array with all the AUTO_INCREMENT columns and their values, on
+success.
+
+0, if the previous query does not generate new rows.
+
+FALSE on failure.
+
+|cubrid_insert_id| example
+
+<?php >
+  $conn = cubrid_connect("localhost", 33000, "demodb");
+  
+  @cubrid_execute($conn, "DROP TABLE cubrid_test");
+  cubrid_execute($conn, "CREATE TABLE cubrid_test (d int AUTO_INCREMENT(1, 2), t varchar)");
+  
+  for ($i = 0; $i < 10; $i++) {
+      cubrid_execute($conn, "INSERT INTO cubrid_test(t) VALUES('cubrid_test')");
+  }
+  
+  $id_list = cubrid_insert_id("cubrid_test");
+  var_dump($id_list);
+  
+  cubrid_disconnect($conn);
+?>
+
+The above example will output:
+
+  array(1) {
+    ["d"]=>
+    int(19)
+  }
+
+vim:ft=help:

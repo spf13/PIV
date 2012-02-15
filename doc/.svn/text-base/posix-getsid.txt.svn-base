@@ -1,0 +1,27 @@
+posix_getsid -- Get the current sid of the process
+
+  int posix_getsid(int pid)~
+
+Return the session id of the process {pid}. The session id of a process is the
+process group id of the session leader.
+
+{pid} The process identifier. If set to 0, the current process is assumed. If
+an invalid {pid} is specified, then FALSE is returned and an error is set
+which can be checked with |posix_get_last_error|.
+
+Returns the identifier, as an integer.
+
+Example use of |posix_getsid|
+
+<?php >
+  $pid = posix_getpid();
+  echo posix_getsid($pid); //8805
+?>
+
+
+
+
+
+|posix_getpgid| |posix_setsid| POSIX man page GETSID(2)
+
+vim:ft=help:

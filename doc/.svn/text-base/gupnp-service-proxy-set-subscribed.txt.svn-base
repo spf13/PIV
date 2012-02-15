@@ -1,0 +1,15 @@
+gupnp_service_proxy_set_subscribed -- (Un)subscribes to the service.
+
+  bool gupnp_service_proxy_set_subscribed(resource proxy, bool subscribed)~
+
+(Un)subscribes to the service.
+
+{proxy} A service proxy identifier.
+
+{subscribed} Set TRUE to subscribe to this service.
+
+Returns TRUE on success or &false; on failure.
+
+|gupnp_service_proxy_get_subscribed|
+
+vim:ft=help:

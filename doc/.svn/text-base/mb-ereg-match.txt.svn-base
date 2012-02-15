@@ -1,0 +1,21 @@
+mb_ereg_match -- Regular expression match for multibyte string
+
+  bool mb_ereg_match(string pattern, string string [, string option])~
+
+A regular expression match for a multibyte string
+
+{pattern} The regular expression pattern.
+
+{string} The string being evaluated.
+
+{option}
+
+Returns TRUE if {string} matches the regular expression {pattern}, FALSE if
+not.
+
+The internal encoding or the character encoding specified by
+|mb_regex_encoding| will be used as the character encoding for this function.
+
+|mb_regex_encoding| |mb_ereg|
+
+vim:ft=help:

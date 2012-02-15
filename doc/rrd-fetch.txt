@@ -1,0 +1,15 @@
+*rrd_fetch* -- Fetch the data for graph as array.
+
+  array rrd_fetch(string filename, array options)~
+
+Gets data for graph output from RRD database file as array. This function has
+same result as |rrd_graph|, but fetched data are returned as array, no image
+file is created.
+
+Filename of rrd database file.
+
+Array of options for resolution specification.
+
+Returns information about retrieved graph data.
+
+vim:ft=help:

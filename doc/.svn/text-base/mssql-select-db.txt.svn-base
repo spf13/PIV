@@ -1,0 +1,56 @@
+mssql_select_db -- Select MS SQL database
+
+  bool mssql_select_db(string database_name [, resource link_identifier])~
+
+|mssql_select_db| sets the current active database on the server that's
+associated with the specified link identifier.
+
+Every subsequent call to |mssql_query| will be made on the active database.
+
+{database_name} The database name.
+
+To escape the name of a database that contains spaces, hyphens ("-"), or any
+other exceptional characters, the database name must be enclosed in brackets,
+as is shown in the example, below. This technique must also be applied when
+selecting a database name that is also a reserved word (such as primary).
+
+{link_identifier} A MS SQL link identifier, returned by |mssql_connect| or
+|mssql_pconnect|.
+
+If no link identifier is specified, the last opened link is assumed. If no
+link is open, the function will try to establish a link as if |mssql_connect|
+was called, and use it.
+
+Returns TRUE on success or &false; on failure.
+
+|mssql_select_db| example
+
+<?php >
+  // Create a link to MSSQL
+  $link = mssql_connect('KALLESPC\SQLEXPRESS', 'sa', 'phpfi');
+  
+  // Select the database 'php'
+  mssql_select_db('php', $link);
+?>
+
+
+
+
+
+Escaping the database name with square brackets
+
+<?php >
+  // Create a link to MSSQL
+  $link = mssql_connect('KALLESPC\SQLEXPRESS', 'sa', 'phpfi');
+  
+  // Select the database 'my.database-name'
+  mssql_select_db('[my.database-name]', $link);
+?>
+
+
+
+
+
+|mssql_connect| |mssql_pconnect| |mssql_query|
+
+vim:ft=help:

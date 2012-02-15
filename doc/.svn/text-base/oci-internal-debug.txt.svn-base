@@ -1,0 +1,15 @@
+oci_internal_debug -- Enables or disables internal debug output
+
+  void oci_internal_debug(bool onoff)~
+
+Enables or disables internal debug output.
+
+{onoff} Set this to FALSE to turn debug output off or TRUE to turn it on.
+
+No value is returned.
+
+In PHP versions before 5.0.0 you must use |ociinternaldebug| instead. This
+name still can be used, it was left as alias of |oci_internal_debug| for
+downwards compatability. This, however, is deprecated and not recommended.
+
+vim:ft=help:

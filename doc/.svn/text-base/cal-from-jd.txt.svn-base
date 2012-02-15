@@ -1,0 +1,43 @@
+cal_from_jd -- Converts from Julian Day Count to a supported calendar
+
+  array cal_from_jd(int jd, int calendar)~
+
+|cal_from_jd| converts the Julian day given in {jd} into a date of the
+specified {calendar}. Supported {calendar} values are CAL_GREGORIAN,
+CAL_JULIAN, CAL_JEWISH and CAL_FRENCH.
+
+{jd} Julian day as integer
+
+{calendar} Calendar to convert to
+
+Returns an array containing calendar information like month, day, year, day of
+week, abbreviated and full names of weekday and month and the date in string
+form "month/day/year".
+
+|cal_from_jd| example
+
+<?php >
+  $today = unixtojd(mktime(0, 0, 0, 8, 16, 2003));
+  print_r(cal_from_jd($today, CAL_GREGORIAN));
+?>
+
+The above example will output:
+
+  Array
+  (
+      [date] => 8/16/2003
+      [month] => 8
+      [day] => 16
+      [year] => 2003
+      [dow] => 6
+      [abbrevdayname] => Sat
+      [dayname] => Saturday
+      [abbrevmonth] => Aug
+      [monthname] => August
+  )
+
+
+
+|cal_to_jd| |jdtofrench| |jdtogregorian| |jdtojewish| |jdtojulian| |jdtounix|
+
+vim:ft=help:

@@ -1,0 +1,13 @@
+gupnp_control_point_browse_stop -- Stop browsing
+
+  bool gupnp_control_point_browse_stop(resource cpoint)~
+
+Stop the search and calls user-defined callback.
+
+{cpoint} A control point identifier, returned by |gupnp_control_point_new|.
+
+Returns TRUE on success or &false; on failure.
+
+|gupnp_control_point_new| |gupnp_control_point_browse_start|
+
+vim:ft=help:

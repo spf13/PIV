@@ -1,0 +1,30 @@
+apc_fetch -- Fetch a stored variable from the cache
+
+  mixed apc_fetch(mixed key [, bool success])~
+
+Fetchs a stored variable from the cache.
+
+{key} The {key} used to store the value (with |apc_store|). If an array is
+passed then each element is fetched and returned.
+
+{success} Set to TRUE in success and FALSE in failure.
+
+The stored variable or array of variables on success; FALSE on failure
+
+A |apc_fetch| example
+
+<?php >
+  $bar = 'BAR';
+  apc_store('foo', $bar);
+  var_dump(apc_fetch('foo'));
+?>
+
+The above example will output:
+
+  string(3) "BAR"
+
+
+
+|apc_store| |apc_delete| APCIterator
+
+vim:ft=help:

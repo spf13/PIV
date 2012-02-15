@@ -1,0 +1,28 @@
+SCA_SoapProxy::createDataObject -- create an SDO
+
+  SDO_DataObject SCA_SoapProxy::createDataObject(string type_namespace_uri, string type_name)~
+
+This function is EXPERIMENTAL. The behaviour of this function, its name, and
+surrounding documentation may change without notice in a future release of
+PHP. This function should be used at your own risk.
+
+This method is used inside either an ordinary PHP script or an SCA component
+that needs to create an SDO to pass to a web service. The parameters are the
+desired SDO's namespace URI and type name. The namespace and type must be
+defined in the interface of the component that is to be called, so the
+namespace and type must be defined within the WSDL for the web service. If the
+web service is also an SCA component then the types will have been defined
+within one of the schema files which are specified on the @types annotation
+within the component for which the SCA_SoapProxy object is a proxy.
+
+{type_namespace_uri} The namespace of the type.
+
+{type_name} The name of the type.
+
+Returns the newly created SDO_DataObject.
+
+{SDO_TypeNotFoundException} Thrown if the namespaceURI and typeName do not
+correspond to a type found in the WSDL that was used to initialise this
+SCA_SoapProxy.
+
+vim:ft=help:

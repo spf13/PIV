@@ -1,0 +1,15 @@
+pcntl_wstopsig -- Returns the signal which caused the child to stop
+
+  int pcntl_wstopsig(int status)~
+
+Returns the number of the signal which caused the child to stop. This function
+is only useful if |pcntl_wifstopped| returned TRUE.
+
+{status} The {status} parameter is the status parameter supplied to a
+successful call to |pcntl_waitpid|.
+
+Returns the signal number.
+
+|pcntl_waitpid| |pcntl_wifstopped|
+
+vim:ft=help:

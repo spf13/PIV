@@ -1,0 +1,35 @@
+libxml_set_streams_context -- Set the streams context for the next libxml
+document load or write
+
+  void libxml_set_streams_context(resource streams_context)~
+
+Sets the streams context for the next libxml document load or write.
+
+{streams_context} The stream context resource (created with
+|stream_context_create|)
+
+No value is returned.
+
+A |libxml_set_streams_context| example
+
+<?php >
+  $opts = array(
+      'http' => array(
+          'user_agent' => 'PHP libxml agent',
+      )
+  );
+  
+  $context = stream_context_create($opts);
+  libxml_set_streams_context($context);
+  
+  // request a file through HTTP
+  $doc = DOMDocument::load('http://www.example.com/file.xml');
+?>
+
+
+
+
+
+|stream_context_create|
+
+vim:ft=help:

@@ -1,0 +1,8 @@
+msession_randstr -- Get random string
+
+  string msession_randstr(int param)~
+
+This function is currently not documented; only its argument list is
+available.
+
+vim:ft=help:

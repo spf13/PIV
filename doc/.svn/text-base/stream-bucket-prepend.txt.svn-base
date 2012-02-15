@@ -1,0 +1,8 @@
+stream_bucket_prepend -- Prepend bucket to brigade
+
+  void stream_bucket_prepend(resource brigade, resource bucket)~
+
+This function is currently not documented; only its argument list is
+available.
+
+vim:ft=help:

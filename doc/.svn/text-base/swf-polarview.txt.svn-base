@@ -1,0 +1,22 @@
+swf_polarview -- Define the viewer's position with polar coordinates
+
+  void swf_polarview(float dist, float azimuth, float incidence, float twist)~
+
+The |swf_polarview| function defines the viewer's position in polar
+coordinates.
+
+{dist} The distance between the viewpoint to the world space origin.
+
+{azimuth} Defines the azimuthal angle in the x,y coordinate plane, measured in
+distance from the y axis.
+
+{incidence} Defines the angle of incidence in the y,z plane, measured in
+distance from the z axis. The incidence angle is defined as the angle of the
+viewport relative to the z axis.
+
+{twist} Specifies the amount that the viewpoint is to be rotated about the
+line of sight using the right hand rule.
+
+No value is returned.
+
+vim:ft=help:

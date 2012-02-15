@@ -1,0 +1,12 @@
+rewinddir -- Rewind directory handle
+
+  void rewinddir([resource dir_handle])~
+
+Resets the directory stream indicated by {dir_handle} to the beginning of the
+directory.
+
+{dir_handle} The directory handle resource previously opened with |opendir|.
+If the directory handle is not specified, the last link opened by |opendir| is
+assumed.
+
+vim:ft=help:

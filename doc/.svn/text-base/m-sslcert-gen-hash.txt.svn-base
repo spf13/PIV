@@ -1,0 +1,12 @@
+m_sslcert_gen_hash -- Generate hash for SSL client certificate verification
+
+  string m_sslcert_gen_hash(string filename)~
+
+This function is currently not documented; only its argument list is
+available.
+
+{filename}
+
+
+
+vim:ft=help:

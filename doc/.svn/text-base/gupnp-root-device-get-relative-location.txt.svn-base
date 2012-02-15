@@ -1,0 +1,12 @@
+gupnp_root_device_get_relative_location -- Get the relative location of root
+device.
+
+  string gupnp_root_device_get_relative_location(resource root_device)~
+
+Get the relative location of root device.
+
+{root_device} A root device identifier, returned by |gupnp_root_device_new|.
+
+The relative location of root device
+
+vim:ft=help:

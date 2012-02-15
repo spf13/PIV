@@ -1,0 +1,14 @@
+getmypid -- Gets PHP's process ID
+
+  int getmypid()~
+
+Gets the current PHP process ID.
+
+Returns the current PHP process ID, or FALSE on error.
+
+Process IDs are not unique, thus they are a weak entropy source. We recommend
+against relying on pids in security-dependent contexts.
+
+|getmygid| |getmyuid| |get_current_user| |getmyinode| |getlastmod|
+
+vim:ft=help:

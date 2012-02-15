@@ -1,0 +1,8 @@
+PDF_setlinejoin -- Set linejoin parameter
+
+  bool PDF_setlinejoin(resource p, int value)~
+
+Sets the {linejoin} parameter to specify the shape at the corners of paths
+that are stroked. Returns TRUE on success or &false; on failure.
+
+vim:ft=help:

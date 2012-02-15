@@ -1,0 +1,11 @@
+libxml_clear_errors -- Clear libxml error buffer
+
+  void libxml_clear_errors()~
+
+|libxml_clear_errors| clears the libxml error buffer.
+
+No value is returned.
+
+|libxml_get_errors| |libxml_get_last_error|
+
+vim:ft=help:

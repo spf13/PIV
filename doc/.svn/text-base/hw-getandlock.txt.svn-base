@@ -1,0 +1,16 @@
+hw_GetAndLock -- Return object record and lock object
+
+  string hw_getandlock(int connection, int objectID)~
+
+Returns the object record for the object with ID {objectID}. It will also lock
+the object, so other users cannot access it until it is unlocked.
+
+{connection} The connection identifier.
+
+{objectID} The object identifier.
+
+Returns the object record for the object with ID {objectID}.
+
+|hw_unlock| |hw_getobject|
+
+vim:ft=help:

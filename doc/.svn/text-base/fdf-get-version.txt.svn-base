@@ -1,0 +1,17 @@
+fdf_get_version -- Gets version number for FDF API or file
+
+  string fdf_get_version([resource fdf_document])~
+
+Return the FDF version for the given document, or the toolkit API version
+number if no parameter is given.
+
+{fdf_document} The FDF document handle, returned by |fdf_create|, |fdf_open|
+or |fdf_open_string|.
+
+Returns the version as a string. For the current FDF toolkit 5.0 the API
+version number is 5.0 and the document version number is either 1.2, 1.3 or
+1.4.
+
+|fdf_set_version|
+
+vim:ft=help:

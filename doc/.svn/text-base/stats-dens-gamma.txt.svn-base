@@ -1,0 +1,16 @@
+stats_dens_gamma -- Not documented
+
+  float stats_dens_gamma(float x, float shape, float scale)~
+
+This function is currently not documented; only its argument list is
+available.
+
+{x}
+
+{shape}
+
+{scale}
+
+
+
+vim:ft=help:

@@ -1,0 +1,14 @@
+hw_Array2Objrec -- Convert attributes from object array to object record
+
+  string hw_array2objrec(array object_array)~
+
+Converts an {object_array} into an object record. Multiple attributes like
+'Title' in different languages are treated properly.
+
+{object_array} The array.
+
+Returns an object record.
+
+|hw_objrec2array|
+
+vim:ft=help:

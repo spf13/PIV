@@ -1,0 +1,9 @@
+PDF_shfill -- Fill area with shading
+
+  bool PDF_shfill(resource pdfdoc, int shading)~
+
+Fills an area with a shading, based on a shading object.
+
+This function requires PDF 1.4 or above.
+
+vim:ft=help:

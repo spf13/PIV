@@ -1,0 +1,12 @@
+judy_type -- Return the type of a Judy array
+
+  int judy_type(Judy array)~
+
+|judy_type| return an integer corresponding to the Judy type of the specified
+Judy {array}.
+
+The Judy Array to test.
+
+Return an integer corresponding to a Judy type.
+
+vim:ft=help:

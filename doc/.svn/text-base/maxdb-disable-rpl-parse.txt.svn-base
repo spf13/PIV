@@ -1,0 +1,8 @@
+maxdb_disable_rpl_parse -- Disable RPL parse
+
+  bool maxdb_disable_rpl_parse(resource link)~
+
+This function is currently not documented; only its argument list is
+available.
+
+vim:ft=help:

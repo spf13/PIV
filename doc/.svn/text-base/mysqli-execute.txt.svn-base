@@ -1,0 +1,9 @@
+mysqli_execute -- Alias for mysqli_stmt_execute
+
+This function is an alias of |mysqli_stmt_execute|.
+
+|mysqli_execute| is deprecated and will be removed.
+
+|mysqli_stmt_execute|
+
+vim:ft=help:

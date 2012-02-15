@@ -1,0 +1,14 @@
+newt_textbox_set_text --
+
+  void newt_textbox_set_text(resource textbox, string text)~
+
+This function is currently not documented; only its argument list is
+available.
+
+{textbox}
+
+{text}
+
+No value is returned.
+
+vim:ft=help:

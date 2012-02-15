@@ -1,0 +1,14 @@
+hw_api->parents -- Returns parents of an object
+
+  array parents(array parameter)~
+
+Retrieves the parents of an object. The parents can be further filtered by
+specifying an object query.
+
+{parameter} The parameter array contains the required elements
+'objectidentifier' and the optional elements 'attributeselector' and
+'objectquery'.
+
+The return value is an array of objects of type HW_API_Object or HW_API_Error.
+
+vim:ft=help:

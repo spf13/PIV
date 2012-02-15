@@ -1,0 +1,14 @@
+stats_covariance -- Computes the covariance of two data sets
+
+  float stats_covariance(array a, array b)~
+
+This function is currently not documented; only its argument list is
+available.
+
+{a}
+
+{b}
+
+
+
+vim:ft=help:

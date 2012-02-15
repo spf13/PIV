@@ -1,0 +1,12 @@
+printer_delete_font -- Delete a font
+
+  void printer_delete_font(resource font_handle)~
+
+The function deletes the selected font. For an example see
+|printer_select_font|.
+
+{font_handle} {font_handle} must be a valid handle to a font.
+
+No value is returned.
+
+vim:ft=help:

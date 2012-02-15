@@ -1,0 +1,17 @@
+ovrimos_exec -- Executes an SQL statement
+
+  int ovrimos_exec(int connection_id, string query)~
+
+Executes an SQL statement (query or update) and returns a result identifier.
+
+{connection_id} The Ovrimos connection identifier, returned by
+|ovrimos_connect|.
+
+{query} The SQL statement. Evidently, it should not contain parameters. Use
+|ovrimos_prepare| for prepared statements.
+
+Returns the result identifier as an integer, or FALSE on error.
+
+|ovrimos_execute| |ovrimos_prepare|
+
+vim:ft=help:

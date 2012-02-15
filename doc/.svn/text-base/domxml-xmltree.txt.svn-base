@@ -1,0 +1,20 @@
+domxml_xmltree -- Creates a tree of PHP objects from an XML document
+
+  DomDocument domxml_xmltree(string str)~
+
+The function parses the XML document in {str} and returns a tree PHP objects
+as the parsed document.
+
+This function is isolated from the other functions, which means you cannot
+access the tree with any of the other functions. Modifying it, for example by
+adding nodes, makes no sense since there is currently no way to dump it as an
+XML file.
+
+However this function may be valuable if you want to read a file and
+investigate the content.
+
+{str} The contents of the XML file.
+
+Returns a tree of Dom objects starting by a DomDocument.
+
+vim:ft=help:

@@ -1,0 +1,22 @@
+DomDocument->add_root -- Adds a root node [deprecated]
+
+  domelement DomDocument->add_root(string name)~
+
+Adds a root element node to a dom document and returns the new node. The
+element name is given in the passed parameter.
+
+Creating a simple HTML document header
+
+<?php >
+  $doc = domxml_new_doc("1.0");
+  $root = $doc->add_root("html");
+  $head = $root->new_child("head", "");
+  $head->new_child("title", "Hier der Titel");
+  echo htmlentities($doc->dump_mem());
+?>
+
+
+
+
+
+vim:ft=help:

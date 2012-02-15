@@ -1,0 +1,57 @@
+eval -- Evaluate a string as PHP code
+
+  mixed eval(string code_str)~
+
+Evaluates the string given in {code_str} as PHP code. Among other things, this
+can be useful for storing code in a database text field for later execution.
+
+There are some factors to keep in mind when using |eval|. Remember that the
+string passed must be valid PHP code, including things like terminating
+statements with a semicolon so the parser doesn't die on the line after the
+|eval|, and properly escaping things in {code_str}. To mix HTML output and PHP
+code you can use a closing PHP tag to leave PHP mode.
+
+Also remember that variables given values under |eval| will retain these
+values in the main script afterwards.
+
+{code_str} The code string to be evaluated. {code_str} does not have to
+contain PHP Opening tags.
+
+A return statement will immediately terminate the evaluation of the string .
+
+|eval| returns NULL unless return is called in the evaluated code, in which
+case the value passed to return is returned. If there is a parse error in the
+evaluated code, |eval| returns FALSE and execution of the following code
+continues normally. It is not possible to catch a parse error in |eval| using
+|set_error_handler|.
+
+|eval| example - simple text merge
+
+<?php >
+  $string = 'cup';
+  $name = 'coffee';
+  $str = 'This is a $string with my $name in it.';
+  echo $str. "\n";
+  eval("\$str = \"$str\";");
+  echo $str. "\n";
+?>
+
+The above example will output:
+
+  This is a $string with my $name in it.
+  This is a cup with my coffee in it.
+
+
+
+Because this is a language construct and not a function, it cannot be called
+using variable functions
+
+As with anything that outputs its result directly to the browser, the
+output-control functions can be used to capture the output of this function,
+and save it in a string (for example).
+
+In case of a fatal error in the evaluated code, the whole script exits.
+
+|call_user_func|
+
+vim:ft=help:

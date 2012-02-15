@@ -1,0 +1,30 @@
+*cubrid_lob_size* -- Get BLOB/CLOB data size
+
+  int cubrid_lob_size(resource lob_identifier)~
+
+|cubrid_lob_size| is used to get BLOB/CLOB data size.
+
+The maximum length of BLOB/CLOB data is the maximum file size creatable in an
+external storage. But there is no integer type such as long long in PHP. If
+you do need it, maybe you should use 64bit PHP.
+
+{lob_identifier} LOB identifier.
+
+LOB data size, when process is successful.
+
+FALSE, when process is unsuccessful.
+
+|cubrid_lob_size| example
+
+<?php >
+  $lobs = cubrid_lob_get($con, "SELECT doc_content FROM doc WHERE doc_id=5");
+  echo "Doc size:".cubrid_lob_size($lobs[0]);
+  cubrid_lob_export($conn, $lobs[0], "doc_5.txt");
+  cubrid_lob_close($lobs);
+?>
+
+
+
+|cubrid_lob_get| |cubrid_lob_close| |cubrid_lob_export| |cubrid_lob_send|
+
+vim:ft=help:

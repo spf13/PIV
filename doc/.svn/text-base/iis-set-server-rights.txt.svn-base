@@ -1,0 +1,8 @@
+iis_set_server_rights -- Sets server rights
+
+  int iis_set_server_rights(int server_instance, string virtual_path, int directory_flags)~
+
+This function is currently not documented; only its argument list is
+available.
+
+vim:ft=help:

@@ -1,0 +1,15 @@
+*rrd_restore* -- Restore the RRD file from XML dump.
+
+  bool rrd_restore(string xml_file, string rrd_file [, array options])~
+
+Restores the RRD file from the XML dump.
+
+XML filename for the dump of original RRD database file.
+
+Filename for the RRD file, which will be restored.
+
+Array of options for restoring. See man page for rrd restore.
+
+Returns TRUE on success, FALSE otherwise.
+
+vim:ft=help:

@@ -1,0 +1,15 @@
+hw_GetChildDocColl -- Object ids of child documents of collection
+
+  array hw_getchilddoccoll(int connection, int objectID)~
+
+Returns array of object ids for child documents of a collection.
+
+{connection} The connection identifier.
+
+{objectID} The object identifier.
+
+Returns an array of object ids.
+
+|hw_children| |hw_getchildcoll|
+
+vim:ft=help:

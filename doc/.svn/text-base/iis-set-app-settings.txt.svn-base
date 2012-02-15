@@ -1,0 +1,8 @@
+iis_set_app_settings -- Creates application scope for a virtual directory
+
+  int iis_set_app_settings(int server_instance, string virtual_path, string application_scope)~
+
+This function is currently not documented; only its argument list is
+available.
+
+vim:ft=help:

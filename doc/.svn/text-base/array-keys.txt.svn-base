@@ -1,0 +1,59 @@
+array_keys -- Return all the keys or a subset of the keys of an array
+
+  array array_keys(array input [, mixed search_value [, bool strict]])~
+
+|array_keys| returns the keys, numeric and string, from the {input} array.
+
+If the optional {search_value} is specified, then only the keys for that value
+are returned. Otherwise, all the keys from the {input} are returned.
+
+{input} An array containing keys to return.
+
+{search_value} If specified, then only keys containing these values are
+returned.
+
+{strict} Determines if strict comparison (===) should be used during the
+search.
+
+Returns an array of all the keys in {input}.
+
+Version Description 5.0.0 Added the {strict} parameter.
+
+|array_keys| example
+
+<?php >
+  $array = array(0 => 100, "color" => "red");
+  print_r(array_keys($array));
+  
+  $array = array("blue", "red", "green", "blue", "blue");
+  print_r(array_keys($array, "blue"));
+  
+  $array = array("color" => array("blue", "red", "green"),
+                 "size"  => array("small", "medium", "large"));
+  print_r(array_keys($array));
+?>
+
+The above example will output:
+
+  Array
+  (
+      [0] => 0
+      [1] => color
+  )
+  Array
+  (
+      [0] => 0
+      [1] => 3
+      [2] => 4
+  )
+  Array
+  (
+      [0] => color
+      [1] => size
+  )
+
+
+
+|array_values| |array_key_exists| |array_search|
+
+vim:ft=help:

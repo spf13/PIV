@@ -1,0 +1,21 @@
+msg_get_queue -- Create or attach to a message queue
+
+  resource msg_get_queue(int key [, int perms])~
+
+|msg_get_queue| returns an id that can be used to access the System V message
+queue with the given {key}. The first call creates the message queue with the
+optional {perms}. A second call to |msg_get_queue| for the same {key} will
+return a different message queue identifier, but both identifiers access the
+same underlying message queue.
+
+{key} Message queue numeric ID
+
+{perms} Queue permissions. Default to 0666. If the message queue already
+exists, the {perms} will be ignored.
+
+Returns a resource handle that can be used to access the System V message
+queue.
+
+|msg_remove_queue| |msg_receive| |msg_send| |msg_stat_queue| |msg_set_queue|
+
+vim:ft=help:

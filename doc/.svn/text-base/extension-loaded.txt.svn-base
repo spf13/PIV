@@ -1,0 +1,55 @@
+extension_loaded -- Find out whether an extension is loaded
+
+  bool extension_loaded(string name)~
+
+Finds out whether the extension is loaded.
+
+{name} The extension name.
+
+You can see the names of various extensions by using |phpinfo| or if you're
+using the CGI or CLI version of PHP you can use the -m switch to list all
+available extensions:
+
+  $ php -m
+  [PHP Modules]
+  xml
+  tokenizer
+  standard
+  sockets
+  session
+  posix
+  pcre
+  overload
+  mysql
+  mbstring
+  ctype
+  
+  [Zend Modules]
+
+
+
+Returns TRUE if the extension identified by {name} is loaded, FALSE otherwise.
+
+|extension_loaded| example
+
+<?php >
+  if (!extension_loaded('gd')) {
+      if (!dl('gd.so')) {
+          exit;
+      }
+  }
+?>
+
+
+
+
+
+Version Description 5.0.0 |extension_loaded| uses the internal extension name
+to test whether a certain extension is available or not. Most internal
+extension names are written in lower case but there may be extensions
+available which also use uppercase letters. Prior to PHP 5, this function
+compared the names case sensitively.
+
+|get_loaded_extensions| |get_extension_funcs| |phpinfo| |dl|
+
+vim:ft=help:

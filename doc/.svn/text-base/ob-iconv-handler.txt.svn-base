@@ -1,0 +1,28 @@
+ob_iconv_handler -- Convert character encoding as output buffer handler
+
+  string ob_iconv_handler(string contents, int status)~
+
+Converts the string encoded in {internal_encoding} to {output_encoding}.
+
+{internal_encoding} and {output_encoding} should be defined in the php.ini
+file or in |iconv_set_encoding|.
+
+See |ob_start| for information about this handler parameters.
+
+See |ob_start| for information about this handler return values.
+
+|ob_iconv_handler| example:
+
+<?php >
+  iconv_set_encoding("internal_encoding", "UTF-8");
+  iconv_set_encoding("output_encoding", "ISO-8859-1");
+  ob_start("ob_iconv_handler"); // start output buffering
+?>
+
+
+
+
+
+|iconv_get_encoding| |iconv_set_encoding| output-control functions
+
+vim:ft=help:

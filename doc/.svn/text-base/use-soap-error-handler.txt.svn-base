@@ -1,0 +1,16 @@
+use_soap_error_handler -- Set whether to use the SOAP error handler
+
+  bool use_soap_error_handler([bool handler])~
+
+This function sets whether or not to use the SOAP error handler in the SOAP
+server. It will return the previous value. If set to TRUE, details of errors
+in a SoapServer application will be sent to the clients. If FALSE, no
+information will be sent.
+
+{handler} Set to TRUE to send error details to clients.
+
+Returns the original value.
+
+|set_error_handler| |set_exception_handler|
+
+vim:ft=help:

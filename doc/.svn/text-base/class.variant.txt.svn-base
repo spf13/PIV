@@ -1,0 +1,74 @@
+VARIANT -- VARIANT class
+
+The VARIANT is COM's equivalent of the PHP zval; it is a structure that can
+contain a value with a range of different possible types. The VARIANT class
+provided by the COM extension allows you to have more control over the way
+that PHP passes values to and from COM.
+
+  object VARIANT::VARIANT([mixed value [, int type [, int codepage]]])~
+
+VARIANT class constructor. Parameters: value initial value. if omitted, or set
+to NULL an VT_EMPTY object is created.
+
+type specifies the content type of the VARIANT object. Possible values are one
+of the VT_XXX .
+
+In PHP versions prior to PHP 5, you could force PHP to pass a variant object
+by reference by OR'ing VT_BYREF with the {type}. In PHP 5, this hack is not
+supported; instead, PHP 5 can detect parameters passed by reference
+automatically; they do not even need to be passed as VARIANT objects.
+
+Consult the MSDN library for additional information on the VARIANT type.
+
+codepage specifies the codepage that is used to convert strings to unicode.
+See the parameter of the same name in the class for more information.
+
+PHP versions prior to PHP 5 define a number of (undocumented) virtual
+properties for instances of the VARIANT class; these properties have all been
+removed in PHP 5 in favour of its more natural syntax; these differences are
+best highlighted by example:
+
+Variant example, PHP 4.x style
+
+<?php >
+  $v = new VARIANT(42);
+  print "The type is " . $v->type . "<br/>";
+  print "The value is " . $v->value . "<br/>";
+?>
+
+
+
+
+
+Variant example, PHP 5 style
+
+<?php >
+  $v = new VARIANT(42);
+  print "The type is " . variant_get_type($v) . "<br/>";
+  print "The value is " . $v . "<br/>";
+?>
+
+
+
+
+
+The reason for the change is that, internally, the COM extension sees VARIANT,
+COM and DOTNET classes as the same thing, and the design philosophy for these
+classes is that all property and member accesses are passed through to COM
+with no interference. The new syntax is more natural and less effort, and most
+of the removed virtual properties didn't make any sense in a PHP context in
+any case.
+
+PHP 5 takes a much simpler approach to handling VARIANTs; when returning a
+value or fetching a variant property, the variant is converted to a PHP value
+only when there is a direct mapping between the types that would not result in
+a loss of information. In all other cases, the result is returned as an
+instance of the VARIANT class. You can force PHP to convert or evaluate the
+variant as a PHP native type by using a casting operator explicitly, or
+implicitly casting to a string by |print|ing it. You may use the wide range of
+variant functions to perform arithmetic operations on variants without forcing
+a conversion or risking a loss of data.
+
+See also |variant_get_type|.
+
+vim:ft=help:

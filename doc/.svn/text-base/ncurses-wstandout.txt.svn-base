@@ -1,0 +1,10 @@
+ncurses_wstandout -- Enter standout mode for a window
+
+  int ncurses_wstandout(resource window)~
+
+This function is currently not documented; only its argument list is
+available.
+
+{window}
+
+vim:ft=help:

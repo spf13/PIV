@@ -1,0 +1,9 @@
+swf_nextid -- Returns the next free object id
+
+  int swf_nextid()~
+
+The |swf_nextid| function returns the next available object id.
+
+Returns the id, as an integer.
+
+vim:ft=help:

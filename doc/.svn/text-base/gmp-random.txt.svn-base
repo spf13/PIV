@@ -1,0 +1,37 @@
+gmp_random -- Random number
+
+  resource gmp_random([int limiter])~
+
+Generate a random number. The number will be between zero and the number of
+bits per limb multiplied by {limiter}. If {limiter} is negative, negative
+numbers are generated.
+
+A limb is an internal GMP mechanism. The number of bits in a limb is not
+static, and can vary from system to system. Generally, the number of bits in a
+limb is either 16 or 32, but this is not guaranteed.
+
+{limiter} The limiter.
+
+It can be either a GMP number resource, or a numeric string given that it is
+possible to convert the latter to a number.
+
+A random GMP number.
+
+|gmp_random| example
+
+<?php >
+  $rand1 = gmp_random(1); // random number from 0 to 1 * bits per limb
+  $rand2 = gmp_random(2); // random number from 0 to 2 * bits per limb
+  
+  echo gmp_strval($rand1) . "\n";
+  echo gmp_strval($rand2) . "\n";
+?>
+
+The above example will output:
+
+  1915834968
+  8642564075890328087
+
+
+
+vim:ft=help:

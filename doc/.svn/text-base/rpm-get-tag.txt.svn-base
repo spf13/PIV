@@ -1,0 +1,34 @@
+rpm_get_tag -- Retrieves a header tag from an RPM file
+
+  mixed rpm_get_tag(resource rpmr, int tagnum)~
+
+|rpm_get_tag| will retrieve a given tag from the RPM file's header and return
+it.
+
+{rpmr} A file pointer resource successfully opened by |rpm_open|.
+
+{tagnum} The tag number to retrieve from the RPM header. This value can be
+specified using the list of constants defined by this module.
+
+The return value can be of various types depending on the {tagnum} supplied to
+the function.
+
+|rpm_get_tag| example
+
+<?php >
+  $file = "/path/to/file.rpm";
+  $rpmr = rpm_open($file);
+  
+  $name = rpm_get_tag($rpmr, RPMREADER_NAME);
+  echo "$name<br>\n";
+  
+  rpm_close($rpmr);
+?>
+
+
+
+
+
+|rpm_open| |rpm_close|
+
+vim:ft=help:

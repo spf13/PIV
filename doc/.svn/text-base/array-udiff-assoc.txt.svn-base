@@ -1,0 +1,83 @@
+array_udiff_assoc -- Computes the difference of arrays with additional index
+check, compares data by a callback function
+
+  array array_udiff_assoc(array array1, array array2 [, array ..., callback data_compare_func])~
+
+Computes the difference of arrays with additional index check, compares data
+by a callback function.
+
+Please note that this function only checks one dimension of a n-dimensional
+array. Of course you can check deeper dimensions by using, for example,
+array_udiff_assoc($array1[0], $array2[0], "some_comparison_func");.
+
+{array1} The first array.
+
+{array2} The second array.
+
+{data_compare_func} The callback comparison function.
+
+The user supplied callback function is used for comparison. It must return an
+integer less than, equal to, or greater than zero if the first argument is
+considered to be respectively less than, equal to, or greater than the second.
+
+|array_udiff_assoc| returns an array containing all the values from {array1}
+that are not present in any of the other arguments. Note that the keys are
+used in the comparison unlike |array_diff| and |array_udiff|. The comparison
+of arrays' data is performed by using an user-supplied callback. In this
+aspect the behaviour is opposite to the behaviour of |array_diff_assoc| which
+uses internal function for comparison.
+
+|array_udiff_assoc| example
+
+<?php >
+  class cr {
+      private $priv_member;
+      function cr($val)
+      {
+          $this->priv_member = $val;
+      }
+  
+      static function comp_func_cr($a, $b)
+      {
+          if ($a->priv_member === $b->priv_member) return 0;
+          return ($a->priv_member > $b->priv_member)? 1:-1;
+      }
+  }
+  
+  $a = array("0.1" => new cr(9), "0.5" => new cr(12), 0 => new cr(23), 1=> new cr(4), 2 => new cr(-15),);
+  $b = array("0.2" => new cr(9), "0.5" => new cr(22), 0 => new cr(3), 1=> new cr(4), 2 => new cr(-15),);
+  
+  $result = array_udiff_assoc($a, $b, array("cr", "comp_func_cr"));
+  print_r($result);
+?>
+
+The above example will output:
+
+  Array
+  (
+      [0.1] => cr Object
+          (
+              [priv_member:private] => 9
+          )
+  
+      [0.5] => cr Object
+          (
+              [priv_member:private] => 12
+          )
+  
+      [0] => cr Object
+          (
+              [priv_member:private] => 23
+          )
+  )
+
+
+
+In our example above you see the "1" => new cr(4) pair is present in both
+arrays and thus it is not in the output from the function.
+
+|array_diff| |array_diff_assoc| |array_diff_uassoc| |array_udiff|
+|array_udiff_uassoc| |array_intersect| |array_intersect_assoc|
+|array_uintersect| |array_uintersect_assoc| |array_uintersect_uassoc|
+
+vim:ft=help:

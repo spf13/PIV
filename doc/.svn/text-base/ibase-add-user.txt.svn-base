@@ -1,0 +1,15 @@
+ibase_add_user -- Add a user to a security database (only for IB6 or later)
+
+  bool ibase_add_user(resource service_handle, string user_name, string password [, string first_name [, string middle_name [, string last_name]]])~
+
+PHP 4 uses {server}, {dba_user_name} and {dba_user_password} instead of
+{service_handle} parameter.
+
+This function is currently not documented; only its argument list is
+available.
+
+Returns TRUE on success or &false; on failure.
+
+|ibase_modify_user| |ibase_delete_user|
+
+vim:ft=help:

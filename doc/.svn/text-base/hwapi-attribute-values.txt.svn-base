@@ -1,0 +1,9 @@
+hw_api_attribute->values -- Returns all values of the attribute
+
+  array values()~
+
+Gets all values of the attribute.
+
+Returns an array of attribute values.
+
+vim:ft=help:

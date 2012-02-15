@@ -1,0 +1,15 @@
+shm_remove_var -- Removes a variable from shared memory
+
+  bool shm_remove_var(resource shm_identifier, int variable_key)~
+
+Removes a variable with a given {variable_key} and frees the occupied memory.
+
+{shm_identifier} The shared memory identifier as returned by |shm_attach|
+
+{variable_key} The variable key.
+
+Returns TRUE on success or &false; on failure.
+
+|shm_remove|
+
+vim:ft=help:

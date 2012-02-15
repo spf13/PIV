@@ -1,0 +1,11 @@
+hw_api_object->insert -- Inserts new attribute
+
+  bool insert(HW_API_Attribute attribute)~
+
+Adds an attribute to the object.
+
+{attribute}
+
+Returns TRUE on success or &false; on failure.
+
+vim:ft=help:

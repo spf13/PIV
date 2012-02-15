@@ -1,0 +1,37 @@
+ctype_space -- Check for whitespace character(s)
+
+  bool ctype_space(string text)~
+
+Checks if all of the characters in the provided string, {text}, creates
+whitespace.
+
+{text} The tested string.
+
+Returns TRUE if every character in {text} creates some sort of white space,
+FALSE otherwise. Besides the blank character this also includes tab, vertical
+tab, line feed, carriage return and form feed characters.
+
+A |ctype_space| example
+
+<?php >
+  $strings = array('string1' => "\n\r\t", 'string2' => "\narf12", 'string3' => '\n\r\t');
+  foreach ($strings as $name => $testcase) {
+      if (ctype_space($testcase)) {
+          echo "The string '$name' consists of all whitespace characters.\n";
+      } else {
+          echo "The string '$name' does not consist of all whitespace characters.\n";
+      }
+  }
+?>
+
+The above example will output:
+
+  The string 'string1' consists of all whitespace characters.
+  The string 'string2' does not consist of all whitespace characters.
+  The string 'string3' does not consist of all whitespace characters.
+
+
+
+|ctype_cntrl| |ctype_graph| |ctype_punct|
+
+vim:ft=help:

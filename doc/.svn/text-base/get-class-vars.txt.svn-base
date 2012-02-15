@@ -1,0 +1,105 @@
+get_class_vars -- Get the default properties of the class
+
+  array get_class_vars(string class_name)~
+
+Get the default properties of the given class.
+
+{class_name} The class name
+
+Returns an associative array of declared properties visible from the current
+scope, with their default value. The resulting array elements are in the form
+of varname => value.
+
+Version Description 5.0.3 Depending on the scope, |get_class_vars| will only
+return the properties that can be accessed from the current scope. 5.0.2
+Calling |get_class_vars| will now expose all the properties as an array,
+unlike previous behaviour where protected and private properties were prefixed
+with nul bytes. 5.0.1 Calling |get_class_vars| will expose all properties, as
+when converting an object to a class. Prior to 4.2.0 Uninitialized class
+variables will not be reported by |get_class_vars|
+
+|get_class_vars| example
+
+<?php >
+  class myclass {
+  
+      var $var1; // this has no default value...
+      var $var2 = "xyz";
+      var $var3 = 100;
+      private $var4; // PHP 5
+  
+      // constructor
+      function myclass() {
+          // change some properties
+          $this->var1 = "foo";
+          $this->var2 = "bar";
+          return true;
+      }
+  
+  }
+  
+  $my_class = new myclass();
+  
+  $class_vars = get_class_vars(get_class($my_class));
+  
+  foreach ($class_vars as $name => $value) {
+      echo "$name : $value\n";
+  }
+?>
+
+The above example will output:
+
+  // Before PHP 4.2.0
+  var2 : xyz
+  var3 : 100
+  
+  // As of PHP 4.2.0
+  var1 :
+  var2 : xyz
+  var3 : 100
+
+
+
+|get_class_vars| and scoping behaviour
+
+<?php >
+  function format($array)
+  {
+      return implode('|', array_keys($array)) . "\r\n";
+  }
+  
+  class TestCase
+  {
+      public $a    = 1;
+      protected $b = 2;
+      private $c   = 3;
+  
+      public static function expose()
+      {
+          echo format(get_class_vars(__CLASS__));
+      }
+  }
+  
+  TestCase::expose();
+  echo format(get_class_vars('TestCase'));
+?>
+
+The above example will output:
+
+  // 5.0.0
+  a| * b| TestCase c
+  a| * b| TestCase c
+  
+  // 5.0.1 - 5.0.2
+  a|b|c
+  a|b|c
+  
+  // 5.0.3 +
+  a|b|c
+  a
+
+
+
+|get_class_methods| |get_object_vars|
+
+vim:ft=help:

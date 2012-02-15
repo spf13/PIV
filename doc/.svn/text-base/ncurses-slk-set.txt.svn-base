@@ -1,0 +1,14 @@
+ncurses_slk_set -- Sets function key labels
+
+  bool ncurses_slk_set(int labelnr, string label, int format)~
+
+This function is currently not documented; only its argument list is
+available.
+
+{labelnr}
+
+{label}
+
+{format}
+
+vim:ft=help:

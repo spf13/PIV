@@ -1,0 +1,30 @@
+ssh2_sftp -- Initialize SFTP subsystem
+
+  resource ssh2_sftp(resource session)~
+
+Request the SFTP subsystem from an already connected SSH2 server.
+
+{session} An SSH connection link identifier, obtained from a call to
+|ssh2_connect|.
+
+This method returns an SSH2 SFTP resource for use with all other ssh2_sftp_*()
+methods and the ssh2.sftp:// fopen wrapper.
+
+Opening a file via SFTP
+
+<?php >
+  $connection = ssh2_connect('shell.example.com', 22);
+  ssh2_auth_password($connection, 'username', 'password');
+  
+  $sftp = ssh2_sftp($connection);
+  
+  $stream = fopen("ssh2.sftp://$sftp/path/to/file", 'r');
+?>
+
+
+
+
+
+|ssh2_scp_recv| |ssh2_scp_send|
+
+vim:ft=help:

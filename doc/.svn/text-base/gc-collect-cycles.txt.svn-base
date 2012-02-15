@@ -1,0 +1,14 @@
+gc_collect_cycles -- Forces collection of any existing garbage cycles
+
+  int gc_collect_cycles()~
+
+This function is currently not documented; only its argument list is
+available.
+
+Forces collection of any existing garbage cycles.
+
+This function has no parameters.
+
+Returns number of collected cycles.
+
+vim:ft=help:

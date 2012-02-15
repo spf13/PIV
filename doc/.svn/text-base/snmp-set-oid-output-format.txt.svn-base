@@ -1,0 +1,45 @@
+snmp_set_oid_output_format -- Set the OID output format
+
+  bool snmp_set_oid_output_format(int oid_format)~
+
+|snmp_set_oid_output_format| sets the output format to be full or numeric.
+
+{oid_format} constants SNMP_OID_OUTPUT_FULLThe complete form like
+"iso.org.dod...." SNMP_OID_OUTPUT_NUMERICThe numeric form like
+".1.3.6.1.4.1.8072.3.2.10" SNMP_OID_OUTPUT_MODULEThe short form like
+"NET-SNMP-TC::linux" SNMP_OID_OUTPUT_SUFFIX SNMP_OID_OUTPUT_UCD
+SNMP_OID_OUTPUT_NONE The last four constants are expected to be added in PHP
+5.3.6 as of bug #53862.
+
+No value is returned.
+
+|snmp_set_oid_output_format| is only available when using the UCD SNMP
+library. This function is not available when using the Windows SNMP library.
+
+Using |snmprealwalk|
+
+<?php >
+   snmp_read_mib("/usr/share/mibs/netsnmp/NET-SNMP-TC");
+  
+   // default or SNMP_OID_OUTPUT_MODULE in PHP >= 5.3.6
+   print_r( snmprealwalk('localhost', 'public', 'RFC1213-MIB::sysObjectID') );
+  
+   snmp_set_oid_output_format(SNMP_OID_OUTPUT_NUMERIC);
+   print_r( snmprealwalk('localhost', 'public', 'RFC1213-MIB::sysObjectID') );
+  
+   snmp_set_oid_output_format(SNMP_OID_OUTPUT_FULL);
+   print_r( snmprealwalk('localhost', 'public', 'RFC1213-MIB::sysObjectID') );
+?>
+
+The above would output: Array ( [RFC1213-MIB::sysObjectID.0] => OID:
+NET-SNMP-TC::linux ) Array ( [.1.3.6.1.2.1.1.2.0] => OID:
+.1.3.6.1.4.1.8072.3.2.10 ) Array (
+[.iso.org.dod.internet.mgmt.mib-2.system.sysObjectID.0] => OID:
+.iso.org.dod.internet.private.enterprises.netSnmp.netSnmpEnumerations.netSnmpAgentOIDs.linux
+)
+
+
+
+
+
+vim:ft=help:

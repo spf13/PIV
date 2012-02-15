@@ -1,0 +1,10 @@
+PDF_open_image_file -- Read image from file [deprecated]
+
+  int PDF_open_image_file(resource p, string imagetype, string filename, string stringparam, int intparam)~
+
+Opens an image file.
+
+This function is deprecated since PDFlib version 5, use |PDF_load_image| with
+the colorize, ignoremask, invert, mask, masked, and page options instead.
+
+vim:ft=help:

@@ -1,0 +1,88 @@
+oci_fetch -- Fetches the next row from a query into internal buffers
+
+  bool oci_fetch(resource statement)~
+
+Fetches the next row from a query into internal buffers accessible either with
+|oci_result|, or by using variables previously defined with
+|oci_define_by_name|.
+
+See |oci_fetch_array| for general information about fetching data.
+
+{statement} A valid OCI8 statement identifier created by |oci_parse| and
+executed by |oci_execute|, or a REF CURSOR statement identifier.
+
+Returns TRUE on success or FALSE if there are no more rows in the {statement}.
+
+|oci_fetch| with defined variables
+
+<?php >
+  $conn = oci_connect('hr', 'welcome', 'localhost/XE');
+  if (!$conn) {
+      $e = oci_error();
+      trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
+  }
+  
+  $sql = 'SELECT location_id, city FROM locations WHERE location_id < 1200';
+  $stid = oci_parse($conn, $sql);
+  
+  // The defines MUST be done before executing
+  oci_define_by_name($stid, 'LOCATION_ID', $locid);
+  oci_define_by_name($stid, 'CITY', $city);
+  
+  oci_execute($stid);
+  
+  // Each fetch populates the previously defined variables with the next row's data
+  while (oci_fetch($stid)) {
+      echo "Location id $locid is $city<br>\n";
+  }
+  
+  // Displays:
+  //   Location id 1000 is Roma
+  //   Location id 1100 is Venice
+  
+  oci_free_statement($stid);
+  oci_close($conn);
+?>
+
+
+
+
+
+|oci_fetch| with |oci_result|
+
+<?php >
+  $conn = oci_connect('hr', 'welcome', 'localhost/XE');
+  if (!$conn) {
+      $e = oci_error();
+      trigger_error(htmlentities($e['message'], ENT_QUOTES), E_USER_ERROR);
+  }
+  
+  $sql = 'SELECT location_id, city FROM locations WHERE location_id < 1200';
+  $stid = oci_parse($conn, $sql);
+  oci_execute($stid);
+  
+  while (oci_fetch($stid)) {
+      echo oci_result($stid, 'LOCATION_ID') . " is ";
+      echo oci_result($stid, 'CITY') . "<br>\n";
+  }
+  
+  // Displays:
+  //   1000 is Roma
+  //   1100 is Venice
+  
+  oci_free_statement($stid);
+  oci_close($conn);
+?>
+
+
+
+
+
+In PHP versions before 5.0.0 use |ocifetch| instead. The old function name can
+still be used in current versions, however it is deprecated and not
+recommended.
+
+|oci_define_by_name| |oci_fetch_all| |oci_fetch_array| |oci_fetch_assoc|
+|oci_fetch_object| |oci_fetch_row| |oci_result|
+
+vim:ft=help:

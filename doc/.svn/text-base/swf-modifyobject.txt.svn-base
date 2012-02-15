@@ -1,0 +1,18 @@
+swf_modifyobject -- Modify an object
+
+  void swf_modifyobject(int depth, int how)~
+
+Updates the position and/or color of the object at the specified {depth}.
+
+{depth} The depth, as an integer.
+
+{how} Determines what is updated. {how} can either be the constant MOD_MATRIX
+or MOD_COLOR or it can be a combination of both.
+
+MOD_COLOR uses the current mulcolor (specified by the function |swf_mulcolor|)
+and addcolor (specified by the function |swf_addcolor|) to color the object.
+MOD_MATRIX uses the current matrix to position the object.
+
+No value is returned.
+
+vim:ft=help:

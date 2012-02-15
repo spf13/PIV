@@ -1,0 +1,11 @@
+swf_removeobject -- Remove an object
+
+  void swf_removeobject(int depth)~
+
+Removes the last object drawn at the depth specified by {depth}.
+
+{depth} The depth, as an integer.
+
+No value is returned.
+
+vim:ft=help:

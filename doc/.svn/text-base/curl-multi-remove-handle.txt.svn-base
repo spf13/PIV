@@ -1,0 +1,18 @@
+curl_multi_remove_handle -- Remove a multi handle from a set of cURL handles
+
+  int curl_multi_remove_handle(resource mh, resource ch)~
+
+Removes a given {ch} handle from the given {mh} handle. When the {ch} handle
+has been removed, it is again perfectly legal to run |curl_exec| on this
+handle. Removing the {ch} handle while being used, will effectively halt the
+transfer in progress involving that handle.
+
+{mh} A cURL multi handle returned by |curl_multi_init|.
+
+{ch} A cURL handle returned by |curl_init|.
+
+On success, returns a cURL handle, FALSE on failure.
+
+|curl_init| |curl_multi_init| |curl_multi_add_handle|
+
+vim:ft=help:

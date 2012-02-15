@@ -1,0 +1,21 @@
+domxml_version -- Gets the XML library version
+
+  string domxml_version()~
+
+Gets the version of the XML library currently used.
+
+The version of the XML library, as a string.
+
+|domxml_version| Example
+
+<?php >
+  echo domxml_version();
+?>
+
+The above example will output something similar to:
+
+  20607
+
+
+
+vim:ft=help:

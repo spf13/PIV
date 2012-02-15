@@ -1,0 +1,14 @@
+swf_fonttracking -- Set the current font tracking
+
+  void swf_fonttracking(float tracking)~
+
+Set the font tracking to the value specified by the {tracking} parameter. This
+function is used to increase the spacing between letters and text, positive
+values increase the space and negative values decrease the space between
+letters.
+
+{tracking} The font tracking.
+
+No value is returned.
+
+vim:ft=help:

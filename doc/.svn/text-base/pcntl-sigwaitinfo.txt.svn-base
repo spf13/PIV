@@ -1,0 +1,50 @@
+pcntl_sigwaitinfo -- Waits for signals
+
+  int pcntl_sigwaitinfo(array set [, array siginfo])~
+
+The |pcntl_sigwaitinfo| function suspends execution of the calling script
+until one of the signals given in {set} are delivered. If one of the signal is
+already pending (e.g. blocked by |pcntl_sigprocmask|), |pcntl_sigwaitinfo|
+will return immediately.
+
+{set} Array of signals to wait for.
+
+{siginfo} The {siginfo} parameter is set to an array containing informations
+about the signal.
+
+The following elements are set for all signals: signo: Signal number errno: An
+error number code: Signal code
+
+The following elements may be set for the SIGCHLD signal: status: Exit value
+or signal utime: User time consumed stime: System time consumed pid: Sending
+process ID uid: Real user ID of sending process
+
+The following elements may be set for the SIGILL, SIGFPE, SIGSEGV and SIGBUS
+signals: addr: Memory location which caused fault
+
+The following element may be set for the SIGPOLL signal: band: Band event fd:
+File descriptor number
+
+On success, |pcntl_sigwaitinfo| returns a signal number.
+
+|pcntl_sigwaitinfo| example
+
+<?php >
+  echo "Blocking SIGHUP signal\n";
+  pcntl_sigprocmask(SIG_BLOCK, array(SIGHUP));
+  
+  echo "Sending SIGHUP to self\n";
+  posix_kill(posix_getpid(), SIGHUP);
+  
+  echo "Waiting for signals\n";
+  $info = array();
+  pcntl_sigwaitinfo(array(SIGHUP), $info);
+?>
+
+
+
+
+
+|pcntl_sigprocmask| |pcntl_sigtimedwait|
+
+vim:ft=help:

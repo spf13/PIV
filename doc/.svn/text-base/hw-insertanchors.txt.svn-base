@@ -1,0 +1,10 @@
+hw_insertanchors -- Inserts only anchors into text
+
+  bool hw_insertanchors(int hwdoc, array anchorecs, array dest [, array urlprefixes])~
+
+This function is currently not documented; only its argument list is
+available.
+
+
+
+vim:ft=help:

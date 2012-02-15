@@ -1,0 +1,17 @@
+pcntl_wifsignaled -- Checks whether the status code represents a termination
+due to a signal
+
+  bool pcntl_wifsignaled(int status)~
+
+Checks whether the child process exited because of a signal which was not
+caught.
+
+{status} The {status} parameter is the status parameter supplied to a
+successful call to |pcntl_waitpid|.
+
+Returns TRUE if the child process exited because of a signal which was not
+caught, FALSE otherwise.
+
+|pcntl_waitpid| |pcntl_signal|
+
+vim:ft=help:

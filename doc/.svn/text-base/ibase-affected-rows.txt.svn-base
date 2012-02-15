@@ -1,0 +1,17 @@
+ibase_affected_rows -- Return the number of rows that were affected by the
+previous query
+
+  int ibase_affected_rows([resource link_identifier])~
+
+This function returns the number of rows that were affected by the previous
+query (INSERT, UPDATE or DELETE) that was executed from within the specified
+transaction context.
+
+{link_identifier} A transaction context. If {link_identifier} is a connection
+resource, its default transaction is used.
+
+Returns the number of rows as an integer.
+
+|ibase_query| |ibase_execute|
+
+vim:ft=help:

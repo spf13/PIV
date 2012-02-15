@@ -1,0 +1,48 @@
+basename -- Returns trailing name component of path
+
+  string basename(string path [, string suffix])~
+
+Given a string containing the path to a file or directory, this function will
+return the trailing name component.
+
+{path} A path.
+
+On Windows, both slash (/) and backslash (\) are used as directory separator
+character. In other environments, it is the forward slash (/).
+
+{suffix} If the name component ends in {suffix} this will also be cut off.
+
+Returns the base name of the given {path}.
+
+Version Description 4.1.0 The {suffix} parameter was added
+
+|basename| example
+
+<?php >
+  echo "1) ".basename("/etc/sudoers.d", ".d").PHP_EOL;
+  echo "2) ".basename("/etc/passwd").PHP_EOL;
+  echo "3) ".basename("/etc/").PHP_EOL;
+  echo "4) ".basename(".").PHP_EOL;
+  echo "5) ".basename("/");
+?>
+
+The above example will output:
+
+  1) sudoers
+  2) passwd
+  3) etc
+  4) .
+  5)
+
+
+
+|basename| operates naively on the input string, and is not aware of the
+actual filesystem, or path components such as "..".
+
+|basename| is locale aware, so for it to see the correct basename with
+multibyte character paths, the matching locale must be set using the
+|setlocale| function.
+
+|dirname| |pathinfo|
+
+vim:ft=help:

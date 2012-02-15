@@ -1,0 +1,45 @@
+stream_get_wrappers -- Retrieve list of registered streams
+
+  array stream_get_wrappers()~
+
+Retrieve list of registered streams available on the running system.
+
+Returns an indexed array containing the name of all stream wrappers available
+on the running system.
+
+|stream_get_wrappers| example
+
+<?php >
+  print_r(stream_get_wrappers());
+?>
+
+The above example will output something similar to:
+
+  Array
+  (
+      [0] => php
+      [1] => file
+      [2] => http
+      [3] => ftp
+      [4] => compress.bzip2
+      [5] => compress.zlib
+  )
+
+
+
+Checking for the existence of a stream wrapper
+
+<?php >
+  // check for the existence of the bzip2 stream wrapper
+  if (in_array('compress.bzip2', stream_get_wrappers())) {
+      echo 'compress.bzip2:// support enabled.';
+  } else {
+      echo 'compress.bzip2:// support not enabled.';
+  }
+?>
+
+
+
+
+
+vim:ft=help:

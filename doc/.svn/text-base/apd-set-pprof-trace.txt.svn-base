@@ -1,0 +1,26 @@
+apd_set_pprof_trace -- Starts the session debugging
+
+  string apd_set_pprof_trace([string dump_directory [, string fragment]])~
+
+Starts debugging to pprof_{process_id} in the dump directory.
+
+{dump_directory} The directory in which the profile dump file is written. If
+not set, the apd.dumpdir setting from the php.ini file is used.
+
+{fragment}
+
+Returns path of the destination file.
+
+|apd_set_pprof_trace| example
+
+<?php >
+  apd_set_pprof_trace();
+?>
+
+
+
+
+
+|apd_set_session_trace|
+
+vim:ft=help:

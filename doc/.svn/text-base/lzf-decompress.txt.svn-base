@@ -1,0 +1,14 @@
+lzf_decompress -- LZF decompression
+
+  string lzf_decompress(string data)~
+
+|lzf_compress| decompresses the given {data} string containing lzf encoded
+data.
+
+{data} The compressed string.
+
+Returns the decompressed data or FALSE if an error occurred.
+
+|lzf_compress|
+
+vim:ft=help:

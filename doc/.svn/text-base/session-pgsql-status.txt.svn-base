@@ -1,0 +1,8 @@
+session_pgsql_status -- Get current save handler status
+
+  array session_pgsql_status()~
+
+This function is currently not documented; only its argument list is
+available.
+
+vim:ft=help:

@@ -1,0 +1,34 @@
+pg_affected_rows -- Returns number of affected records (tuples)
+
+  int pg_affected_rows(resource result)~
+
+|pg_affected_rows| returns the number of tuples (instances/records/rows)
+affected by INSERT, UPDATE, and DELETE queries.
+
+This function used to be called |pg_cmdtuples|.
+
+{result} PostgreSQL query result resource, returned by |pg_query|,
+|pg_query_params| or |pg_execute| (among others).
+
+The number of rows affected by the query. If no tuple is affected, it will
+return 0.
+
+|pg_affected_rows| example
+
+<?php >
+  $result = pg_query($conn, "INSERT INTO authors VALUES ('Orwell', 2002, 'Animal Farm')");
+  
+  $cmdtuples = pg_affected_rows($result);
+  
+  echo $cmdtuples . " tuples are affected.\n";
+?>
+
+The above example will output:
+
+  1 tuples are affected.
+
+
+
+|pg_query| |pg_query_params| |pg_execute| |pg_num_rows|
+
+vim:ft=help:

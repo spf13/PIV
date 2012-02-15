@@ -1,0 +1,29 @@
+convert_uuencode -- Uuencode a string
+
+  string convert_uuencode(string data)~
+
+|convert_uuencode| encodes a string using the uuencode algorithm.
+
+Uuencode translates all strings (including binary's ones) into printable
+characters, making them safe for network transmissions. Uuencoded data is
+about 35% larger than the original.
+
+{data} The data to be encoded.
+
+Returns the uuencoded data.
+
+|convert_uuencode| example
+
+<?php >
+  $some_string = "test\ntext text\r\n";
+  
+  echo convert_uuencode($some_string);
+?>
+
+
+
+
+
+|convert_uudecode| |base64_encode|
+
+vim:ft=help:

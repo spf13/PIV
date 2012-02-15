@@ -1,0 +1,49 @@
+imagesavealpha -- Set the flag to save full alpha channel information (as
+opposed to single-color transparency) when saving PNG images
+
+  bool imagesavealpha(resource image, bool saveflag)~
+
+|imagesavealpha| sets the flag to attempt to save full alpha channel
+information (as opposed to single-color transparency) when saving PNG images.
+
+You have to unset alphablending (imagealphablending($im, false)), to use it.
+
+Alpha channel is not supported by all browsers, if you have problem with your
+browser, try to load your script with an alpha channel compliant browser, e.g.
+latest Mozilla.
+
+{ image}An image resource, returned by one of the image creation functions,
+such as |imagecreatetruecolor|.
+
+{saveflag} Whether to save the alpha channel or not. Default to FALSE.
+
+Returns TRUE on success or &false; on failure.
+
+|imagesavealpha| example
+
+<?php >
+  // Load a png image with alpha channels
+  $png = imagecreatefrompng('./alphachannel_example.png');
+  
+  // Do required operations
+  
+  // Turn off alpha blending and set alpha flag
+  imagealphablending($png, false);
+  imagesavealpha($png, true);
+  
+  // Output image to browser
+  header('Content-Type: image/png');
+  
+  imagepng($png);
+  imagedestroy($png);
+?>
+
+
+
+
+
+This function requires GD 2.0.1 or later (2.0.28 or later is recommended).
+
+|imagealphablending|
+
+vim:ft=help:

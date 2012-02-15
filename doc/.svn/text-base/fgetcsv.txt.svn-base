@@ -1,0 +1,64 @@
+fgetcsv -- Gets line from file pointer and parse for CSV fields
+
+  array fgetcsv(resource handle [, int length [, string delimiter [, string enclosure [, string escape]]]])~
+
+Similar to |fgets| except that |fgetcsv| parses the line it reads for fields
+in CSV format and returns an array containing the fields read.
+
+{handle} A valid file pointer to a file successfully opened by |fopen|,
+|popen|, or |fsockopen|.
+
+{length} Must be greater than the longest line (in characters) to be found in
+the CSV file (allowing for trailing line-end characters). It became optional
+in PHP 5. Omitting this parameter (or setting it to 0 in PHP 5.0.4 and later)
+the maximum line length is not limited, which is slightly slower.
+
+{delimiter} Set the field delimiter (one character only).
+
+{enclosure} Set the field enclosure character (one character only).
+
+{escape} Set the escape character (one character only). Defaults as a
+backslash.
+
+Returns an indexed array containing the fields read.
+
+A blank line in a CSV file will be returned as an array comprising a single
+null field, and will not be treated as an error.
+
+If PHP is not properly recognizing the line endings when reading files either
+on or created by a Macintosh computer, enabling the auto_detect_line_endings
+run-time configuration option may help resolve the problem.
+
+|fgetcsv| returns NULL if an invalid {handle} is supplied or FALSE on other
+errors, including end of file.
+
+Version Description 5.3.0 The {escape} parameter was added 4.3.5 |fgetcsv| is
+now binary safe 4.3.0 The {enclosure} parameter was added
+
+Read and print the entire contents of a CSV file
+
+<?php >
+  $row = 1;
+  if (($handle = fopen("test.csv", "r")) !== FALSE) {
+      while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+          $num = count($data);
+          echo "<p> $num fields in line $row: <br /></p>\n";
+          $row++;
+          for ($c=0; $c < $num; $c++) {
+              echo $data[$c] . "<br />\n";
+          }
+      }
+      fclose($handle);
+  }
+?>
+
+
+
+
+
+Locale setting is taken into account by this function. If LANG is e.g.
+en_US.UTF-8, files in one-byte encoding are read wrong by this function.
+
+|str_getcsv| |explode| |file| |pack| |fputcsv|
+
+vim:ft=help:

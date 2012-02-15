@@ -1,0 +1,14 @@
+m_transsend -- Finalize and send the transaction
+
+  int m_transsend(resource conn, int identifier)~
+
+This function is currently not documented; only its argument list is
+available.
+
+{ conn}An MCVE_CONN resource returned by |m_initengine|.
+
+{identifier}
+
+
+
+vim:ft=help:

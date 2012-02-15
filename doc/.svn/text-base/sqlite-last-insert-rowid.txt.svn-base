@@ -1,0 +1,22 @@
+SQLiteDatabase->lastInsertRowid -- Returns the rowid of the most recently
+inserted row
+
+  int sqlite_last_insert_rowid(resource dbhandle)~
+
+Object oriented style (method):
+
+  int lastInsertRowid(resource dbhandle)~
+
+Returns the rowid of the row that was most recently inserted into the database
+{dbhandle}, if it was created as an auto-increment field.
+
+You can create auto-increment fields in SQLite by declaring them as INTEGER
+PRIMARY KEY in your table schema.
+
+{dbhandle} The SQLite Database resource; returned from |sqlite_open| when used
+procedurally. This parameter is not required when using the object-oriented
+method.
+
+Returns the row id, as an integer.
+
+vim:ft=help:

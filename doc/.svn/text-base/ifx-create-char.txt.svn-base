@@ -1,0 +1,13 @@
+ifx_create_char -- Creates an char object
+
+  int ifx_create_char(string param)~
+
+Creates an char object.
+
+{param} The char content.
+
+Returns the new char object id, or FALSE on errors.
+
+|ifx_free_char|
+
+vim:ft=help:

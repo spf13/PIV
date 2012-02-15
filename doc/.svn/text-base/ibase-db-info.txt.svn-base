@@ -1,0 +1,8 @@
+ibase_db_info -- Request statistics about a database
+
+  string ibase_db_info(resource service_handle, string db, int action [, int argument])~
+
+This function is currently not documented; only its argument list is
+available.
+
+vim:ft=help:

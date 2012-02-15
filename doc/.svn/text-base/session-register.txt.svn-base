@@ -1,0 +1,11 @@
+session_register -- Register one or more global variables with the current
+session
+
+  bool session_register(mixed name [, mixed ...])~
+
+|session_register| accepts a variable number of arguments, any of which can be
+either a string holding the name of a variable or an array consisting of
+variable names or other arrays. For each name, |session_register| registers
+the global variable with that name in the current session.
+
+vim:ft=help:

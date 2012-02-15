@@ -1,0 +1,60 @@
+popen -- Opens process file pointer
+
+  resource popen(string command, string mode)~
+
+Opens a pipe to a process executed by forking the command given by command.
+
+{command} The command
+
+{mode} The mode
+
+Returns a file pointer identical to that returned by |fopen|, except that it
+is unidirectional (may only be used for reading or writing) and must be closed
+with |pclose|. This pointer may be used with |fgets|, |fgetss|, and |fwrite|.
+When the mode is 'r', the returned file pointer equals to the STDOUT of the
+command, when the mode is 'w', the returned file pointer equals to the STDIN
+of the command.
+
+If an error occurs, returns FALSE.
+
+|popen| example
+
+<?php >
+  $handle = popen("/bin/ls", "r");
+?>
+
+
+
+
+
+If the command to be executed could not be found, a valid resource is
+returned. This may seem odd, but makes sense; it allows you to access any
+error message returned by the shell: |popen| example
+
+<?php >
+  error_reporting(E_ALL);
+  
+  /* Add redirection so we can get stderr. */
+  $handle = popen('/path/to/executable 2>&amp;1', 'r');
+  echo "'$handle'; " . gettype($handle) . "\n";
+  $read = fread($handle, 2096);
+  echo $read;
+  pclose($handle);
+?>
+
+
+
+
+
+If you're looking for bi-directional support (two-way), use |proc_open|.
+
+When safe mode is enabled, you can only execute files within the
+safe_mode_exec_dir. For practical reasons, it is currently not allowed to have
+.. components in the path to the executable.
+
+With safe mode enabled, the command string is escaped with |escapeshellcmd|.
+Thus, echo y | echo x becomes echo y \| echo x.
+
+|pclose| |fopen| |proc_open|
+
+vim:ft=help:

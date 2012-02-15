@@ -1,0 +1,101 @@
+ob_start -- Turn on output buffering
+
+  bool ob_start([callback output_callback [, int chunk_size [, bool erase]]])~
+
+This function will turn output buffering on. While output buffering is active
+no output is sent from the script (other than headers), instead the output is
+stored in an internal buffer.
+
+The contents of this internal buffer may be copied into a string variable
+using |ob_get_contents|. To output what is stored in the internal buffer, use
+|ob_end_flush|. Alternatively, |ob_end_clean| will silently discard the buffer
+contents.
+
+Some web servers (e.g. Apache) change the working directory of a script when
+calling the callback function. You can change it back by e.g.
+chdir(dirname($_SERVER['SCRIPT_FILENAME'])) in the callback function.
+
+Output buffers are stackable, that is, you may call |ob_start| while another
+|ob_start| is active. Just make sure that you call |ob_end_flush| the
+appropriate number of times. If multiple output callback functions are active,
+output is being filtered sequentially through each of them in nesting order.
+
+{output_callback} An optional {output_callback} function may be specified.
+This function takes a string as a parameter and should return a string. The
+function will be called when the output buffer is flushed (sent) or cleaned
+(with |ob_flush|, |ob_clean| or similar function) or when the output buffer is
+flushed to the browser at the end of the request. When {output_callback} is
+called, it will receive the contents of the output buffer as its parameter and
+is expected to return a new output buffer as a result, which will be sent to
+the browser. If the {output_callback} is not a callable function, this
+function will return FALSE.
+
+If the callback function has two parameters, the second parameter is filled
+with a bit-field consisting of PHP_OUTPUT_HANDLER_START,
+PHP_OUTPUT_HANDLER_CONT and PHP_OUTPUT_HANDLER_END.
+
+If {output_callback} returns FALSE original input is sent to the browser.
+
+The {output_callback} parameter may be bypassed by passing a NULL value.
+
+|ob_end_clean|, |ob_end_flush|, |ob_clean|, |ob_flush| and |ob_start| may not
+be called from a callback function. If you call them from callback function,
+the behavior is undefined. If you would like to delete the contents of a
+buffer, return "" (a null string) from callback function. You can't even call
+functions using the output buffering functions like print_r($expression, true)
+or highlight_file($filename, true) from a callback function.
+
+In PHP 4.0.4, |ob_gzhandler| was introduced to facilitate sending gz-encoded
+data to web browsers that support compressed web pages. |ob_gzhandler|
+determines what type of content encoding the browser will accept and will
+return its output accordingly.
+
+{chunk_size} If the optional parameter {chunk_size} is passed, the buffer will
+be flushed after any output call which causes the buffer's length to equal or
+exceed {chunk_size}. Default value 0 means that the function is called only in
+the end, other special value 1 sets {chunk_size} to 4096.
+
+{erase} If the optional parameter {erase} is set to FALSE, the buffer will not
+be deleted until the script finishes. This causes that flushing and cleaning
+functions would issue a notice and return FALSE if called.
+
+Returns TRUE on success or &false; on failure.
+
+Version Description 4.3.2 This function was changed to return FALSE in case
+the passed {output_callback} can not be executed. 4.2.0 Added the {erase}
+parameter.
+
+User defined callback function example
+
+<?php >
+  function callback($buffer)
+  {
+    // replace all the apples with oranges
+    return (str_replace("apples", "oranges", $buffer));
+  }
+  
+  ob_start("callback");
+?>
+  <html>
+  <body>
+  <p>It's like comparing apples to oranges.</p>
+  </body>
+  </html>
+<?php >
+  ob_end_flush();
+?>
+
+The above example will output:
+
+  <html>
+  <body>
+  <p>It's like comparing oranges to oranges.</p>
+  </body>
+  </html>
+
+
+
+|ob_get_contents| |ob_end_clean| |ob_end_flush| |ob_implicit_flush|
+|ob_gzhandler| |ob_iconv_handler| |mb_output_handler| |ob_tidyhandler|
+
+vim:ft=help:

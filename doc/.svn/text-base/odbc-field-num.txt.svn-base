@@ -1,0 +1,15 @@
+odbc_field_num -- Return column number
+
+  int odbc_field_num(resource result_id, string field_name)~
+
+Gets the number of the column slot that corresponds to the named field in the
+given result identifier.
+
+{result_id} The result identifier.
+
+{field_name} The field name.
+
+Returns the field number as a integer, or FALSE on error. Field numbering
+starts at 1.
+
+vim:ft=help:

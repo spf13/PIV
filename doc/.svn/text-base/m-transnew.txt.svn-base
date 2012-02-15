@@ -1,0 +1,12 @@
+m_transnew -- Start a new transaction
+
+  int m_transnew(resource conn)~
+
+This function is currently not documented; only its argument list is
+available.
+
+{ conn}An MCVE_CONN resource returned by |m_initengine|.
+
+
+
+vim:ft=help:

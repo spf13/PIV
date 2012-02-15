@@ -1,0 +1,37 @@
+symlink -- Creates a symbolic link
+
+  bool symlink(string target, string link)~
+
+|symlink| creates a symbolic link to the existing {target} with the specified
+name {link}.
+
+{target} Target of the link.
+
+{link} The link name.
+
+Returns TRUE on success or &false; on failure.
+
+Version Description 5.3.0 This function is now available on Windows platforms
+(Vista, Server 2008 or greater).
+
+Create a symbolic link
+
+<?php >
+  $target = 'uploads.php';
+  $link = 'uploads';
+  symlink($target, $link);
+  
+  echo readlink($link);
+?>
+
+
+
+
+
+For Windows only: This function will only function if the system you run PHP
+from is Windows Vista/Windows Server 2008 or greater. Windows versions prior
+to that does not support symbolic links.
+
+|link| |readlink| |linkinfo|
+
+vim:ft=help:

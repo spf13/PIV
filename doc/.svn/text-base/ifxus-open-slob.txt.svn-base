@@ -1,0 +1,16 @@
+ifxus_open_slob -- Opens an slob object
+
+  int ifxus_open_slob(int bid, int mode)~
+
+Opens an slob object. {bid} should be an existing slob id.
+
+{bid} An existing slob id.
+
+{mode} A combination of IFX_LO_RDONLY, IFX_LO_WRONLY, IFX_LO_APPEND
+IFX_LO_RDWR, IFX_LO_BUFFER, IFX_LO_NOBUFFER.
+
+Returns the new slob object-id, or FALSE on errors.
+
+|ifxus_close_slob| |ifxus_free_slob|
+
+vim:ft=help:

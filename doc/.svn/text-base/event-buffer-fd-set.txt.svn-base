@@ -1,0 +1,11 @@
+event_buffer_fd_set -- Change a buffered event file descriptor
+
+  void event_buffer_fd_set(resource bevent, resource fd)~
+
+Changes the file descriptor on which the buffered event operates.
+
+{bevent} Valid buffered event resource.
+
+{fd} Valid PHP stream, must be castable to file descriptor.
+
+vim:ft=help:

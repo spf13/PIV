@@ -1,0 +1,11 @@
+ncurses_del_panel -- Remove panel from the stack and delete it (but not the
+associated window)
+
+  bool ncurses_del_panel(resource panel)~
+
+This function is currently not documented; only its argument list is
+available.
+
+{panel}
+
+vim:ft=help:

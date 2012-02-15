@@ -1,0 +1,14 @@
+unregister_tick_function -- De-register a function for execution on each tick
+
+  void unregister_tick_function(string function_name)~
+
+De-registers the function named by {function_name} so it is no longer executed
+when a tick is called.
+
+{function_name} The function name, as a string.
+
+No value is returned.
+
+|register_tick_function|
+
+vim:ft=help:

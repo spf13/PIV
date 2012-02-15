@@ -1,0 +1,18 @@
+newt_checkbox_tree --
+
+  resource newt_checkbox_tree(int left, int top, int height [, int flags])~
+
+This function is currently not documented; only its argument list is
+available.
+
+{left}
+
+{top}
+
+{height}
+
+{flags}
+
+
+
+vim:ft=help:

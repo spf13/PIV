@@ -1,0 +1,11 @@
+mailparse_msg_get_part_data -- Returns an associative array of info about the
+message
+
+  array mailparse_msg_get_part_data(resource mimemail)~
+
+This function is currently not documented; only its argument list is
+available.
+
+{mimemail} A valid MIME resource.
+
+vim:ft=help:

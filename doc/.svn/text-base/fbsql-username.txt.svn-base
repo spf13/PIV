@@ -1,0 +1,20 @@
+fbsql_username -- Get or set the username for the connection
+
+  string fbsql_username(resource link_identifier [, string username])~
+
+Get or set the username used for the connection.
+
+{ link_identifier}A FrontBase link identifier returned by |fbsql_connect| or
+|fbsql_pconnect|.
+
+If optional and not specified, the function will try to find an open link to
+the FrontBase server and if no such link is found it will try to create one as
+if |fbsql_connect| was called with no arguments.
+
+{username} If provided, this is the new username to set.
+
+Returns the current username used with the connection, as a string.
+
+|fbsql_password| |fbsql_hostname|
+
+vim:ft=help:

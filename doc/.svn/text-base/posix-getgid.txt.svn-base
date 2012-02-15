@@ -1,0 +1,23 @@
+posix_getgid -- Return the real group ID of the current process
+
+  int posix_getgid()~
+
+Return the numeric real group ID of the current process.
+
+Returns the real group id, as an integer.
+
+|posix_getgid| example This example will print out the real group id, even
+once the effective group id has been changed.
+
+<?php >
+  echo 'My real group id is '.posix_getgid(); //20
+  posix_setegid(40);
+  echo 'My real group id is '.posix_getgid(); //20
+  echo 'My effective group id is '.posix_getegid(); //40
+?>
+
+
+
+|posix_getgrgid| |posix_getegid| |posix_setgid| POSIX man page GETGID(2)
+
+vim:ft=help:

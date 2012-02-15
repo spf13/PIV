@@ -1,0 +1,7 @@
+PDF_get_value -- Get numerical parameter
+
+  float PDF_get_value(resource p, string key, float modifier)~
+
+Gets the value of some PDFlib parameter with numerical type.
+
+vim:ft=help:

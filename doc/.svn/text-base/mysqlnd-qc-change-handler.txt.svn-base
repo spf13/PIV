@@ -1,0 +1,42 @@
+mysqlnd_qc_change_handler -- Change current storage handler
+
+  bool mysqlnd_qc_change_handler(mixed handler)~
+
+Sets the storage handler used by the query cache. A list of available storage
+handler can be obtained from |mysqlnd_qc_get_handler|. Which storage are
+available depends on the compile time configuration of the query cache plugin.
+The default storage handler is always available. All other storage handler
+must be enabled explicitly when building the extension.
+
+Handler can be of type string representing the name of a built-in storage
+handler or an object of type mysqlnd_qc_handler_default. The names of the
+built-in storage handler are default, APC, MEMCACHE, sqlite.
+
+Returns TRUE on success or &false; on failure.
+
+If changing the storage handler fails a catchable fatal error will be thrown.
+The query cache cannot operate if the previous storage handler has been
+shutdown but no new storage handler has been installed.
+
+The example shows the output from the built-in default storage handler. Other
+storage handler may report different data.
+
+<?php >
+  var_dump(mysqlnd_qc_change_handler("memcache"));
+  
+  if (true === mysqlnd_qc_change_handler("default"))
+    printf("Default storage handler activated");
+  
+  /* Catchable fatal error */
+  var_dump(mysqlnd_qc_change_handler("unknown"));
+?>
+
+The above examples will output:
+
+  bool(true)
+  Default storage handler activated
+  Catchable fatal error: mysqlnd_qc_change_handler(): Unknown handler 'unknown' in (file) on line (line)
+
+Installation |mysqlnd_qc_get_handler|
+
+vim:ft=help:

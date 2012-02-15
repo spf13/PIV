@@ -1,0 +1,35 @@
+cairo_surface_set_device_offset -- Description
+
+  void cairo_surface_set_device_offset(CairoSurface surface, float x, float y)~
+
+The function description goes here.
+
+This function is currently not documented; only its argument list is
+available.
+
+{surface} Description...
+
+{x} Description...
+
+{y} Description...
+
+What is returned on success and failure
+
+When does this function issue E_* level errors, and/or throw exceptions.
+
+|cairo_surface_set_device_offset| example Any text that describes the purpose
+of the example, or what goes on in the example should be here.
+
+<?php >
+  /* ... */
+?>
+
+The above example will output something similar to:
+
+  ...
+
+
+
+|related function name here|
+
+vim:ft=help:

@@ -1,0 +1,51 @@
+wincache_rplist_fileinfo -- Retrieves information about resolve file path
+cache
+
+  array wincache_rplist_fileinfo([bool summaryonly])~
+
+Retrieves information about cached mappings between relative file paths and
+corresponding absolute file paths.
+
+Array of meta data about the resolve file path cache or FALSE on failure
+
+The array returned by this function contains the following elements:
+total_file_count - total number of file path mappings stored in the cache
+
+rplist_entries - an array that contains the information about all the cached
+file paths: resolve_path - path to a file
+
+subkey_data - corresponding absolute path to a file
+
+A |wincache_rplist_fileinfo| example
+
+  <pre>
+<?php >
+  print_r(wincache_rplist_fileinfo());
+?>
+  </pre>
+
+The above example will output:
+
+  Array
+  (
+      [total_file_count] => 5
+      [rplist_entries] => Array
+          (
+              [1] => Array
+                  (
+                      [resolve_path] => checkcache.php
+                      [subkey_data] => c:\inetpub\wwwroot|c:\inetpub\wwwroot\checkcache.php
+                  )
+  
+              [2] => Array (...iterates for each cached file)
+          )
+  )
+
+
+
+|wincache_fcache_meminfo| |wincache_fcache_fileinfo|
+|wincache_ocache_fileinfo| |wincache_ocache_meminfo| |wincache_rplist_meminfo|
+|wincache_refresh_if_changed| |wincache_ucache_meminfo| |wincache_ucache_info|
+|wincache_scache_info| |wincache_scache_meminfo|
+
+vim:ft=help:

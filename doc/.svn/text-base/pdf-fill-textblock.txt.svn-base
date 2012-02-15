@@ -1,0 +1,9 @@
+PDF_fill_textblock -- Fill text block with variable data
+
+  int PDF_fill_textblock(resource pdfdoc, int page, string blockname, string text, string optlist)~
+
+Fills a text block with variable data according to its properties.
+
+This function is only available in the PDFlib Personalization Server (PPS).
+
+vim:ft=help:

@@ -1,0 +1,14 @@
+ifx_free_result -- Releases resources for the query
+
+  bool ifx_free_result(resource result_id)~
+
+Releases resources for the query associated with {result_id}.
+
+{result_id} {result_id} is a valid resultid returned by |ifx_query| or
+|ifx_prepare| (select type queries only!).
+
+Returns TRUE on success or &false; on failure.
+
+|ifx_do|
+
+vim:ft=help:

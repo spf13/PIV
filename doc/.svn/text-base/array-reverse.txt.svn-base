@@ -1,0 +1,55 @@
+array_reverse -- Return an array with elements in reverse order
+
+  array array_reverse(array array [, bool preserve_keys])~
+
+Takes an input {array} and returns a new array with the order of the elements
+reversed.
+
+{array} The input array.
+
+{preserve_keys} If set to TRUE keys are preserved.
+
+Returns the reversed array.
+
+Version Description 4.0.3 The {preserve_keys} parameter was added.
+
+|array_reverse| example
+
+<?php >
+  $input  = array("php", 4.0, array("green", "red"));
+  $result = array_reverse($input);
+  $result_keyed = array_reverse($input, true);
+?>
+
+This makes both $result and $result_keyed have the same elements, but note the
+difference between the keys. The printout of $result and $result_keyed will
+be:
+
+  Array
+  (
+      [0] => Array
+          (
+              [0] => green
+              [1] => red
+          )
+  
+      [1] => 4
+      [2] => php
+  )
+  Array
+  (
+      [2] => Array
+          (
+              [0] => green
+              [1] => red
+          )
+  
+      [1] => 4
+      [0] => php
+  )
+
+
+
+|array_flip|
+
+vim:ft=help:

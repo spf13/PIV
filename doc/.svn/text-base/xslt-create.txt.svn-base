@@ -1,0 +1,39 @@
+xslt_create -- Create a new XSLT processor
+
+  resource xslt_create()~
+
+Create and return a new XSLT processor resource for manipulation by the other
+XSLT functions.
+
+Returns an XSLT processor link identifier on success, or FALSE on error.
+
+|xslt_create| example
+
+<?php >
+  function xml2html($xmldata, $xsl)
+  {
+      /* $xmldata -> your XML */
+      /* $xsl -> XSLT file */
+  
+      $path = 'include';
+      $arguments = array('/_xml' => $xmldata);
+      $xsltproc = xslt_create();
+      xslt_set_encoding($xsltproc, 'ISO-8859-1');
+      $html =
+          xslt_process($xsltproc, 'arg:/_xml', "$path/$xsl", NULL, $arguments);
+  
+      if (empty($html)) {
+         die('XSLT processing error: '. xslt_error($xsltproc));
+      }
+      xslt_free($xsltproc);
+      return $html;
+  }
+?>
+
+
+
+
+
+|xslt_free|
+
+vim:ft=help:

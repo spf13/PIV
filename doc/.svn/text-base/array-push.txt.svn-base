@@ -1,0 +1,49 @@
+array_push -- Push one or more elements onto the end of array
+
+  int array_push(array array, mixed var [, mixed ...])~
+
+|array_push| treats {array} as a stack, and pushes the passed variables onto
+the end of {array}. The length of {array} increases by the number of variables
+pushed. Has the same effect as:
+
+<?php >
+  $array[] = $var;
+?>
+
+repeated for each {var}.
+
+If you use |array_push| to add one element to the array it's better to use
+$array[] = because in that way there is no overhead of calling a function.
+
+|array_push| will raise a warning if the first argument is not an array. This
+differs from the $var[] behaviour where a new array is created.
+
+{array} The input array.
+
+{var} The pushed value.
+
+Returns the new number of elements in the array.
+
+|array_push| example
+
+<?php >
+  $stack = array("orange", "banana");
+  array_push($stack, "apple", "raspberry");
+  print_r($stack);
+?>
+
+The above example will output:
+
+  Array
+  (
+      [0] => orange
+      [1] => banana
+      [2] => apple
+      [3] => raspberry
+  )
+
+
+
+|array_pop| |array_shift| |array_unshift|
+
+vim:ft=help:

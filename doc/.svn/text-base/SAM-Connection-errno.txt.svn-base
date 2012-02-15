@@ -1,0 +1,28 @@
+SAMConnection->errno -- Contains the unique numeric error code of the last
+executed SAM operation.
+
+Contains the numeric error code of the last executed SAM operation on this
+connection. If the last operation completed successfully this property
+contains 0.
+
+An integer greater than zero indicates the last error type encountered on the
+connection. Zero indicates that the last operation on this connection
+completed successfully.
+
+Using the error number and description properties
+
+<?php >
+  $conn = new SAMConnection();
+  $conn->connect(SAM_WMQ, array(SAM_HOST => 'localhost', SAM_PORT => 1506));
+  $msg = new SAMMessage('This is a simple text item');
+  if (!$conn->send('topic://test', $msg)) {
+      // The Send failed!
+      echo "Send failed ($conn->errno) $conn->error";
+  }
+?>
+
+
+
+
+
+vim:ft=help:

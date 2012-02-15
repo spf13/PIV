@@ -1,0 +1,25 @@
+sqrt -- Square root
+
+  float sqrt(float arg)~
+
+Returns the square root of {arg}.
+
+{arg} The argument to process
+
+The square root of {arg} or the special value NAN for negative numbers.
+
+|sqrt| example
+
+<?php >
+  // Precision depends on your precision directive
+  echo sqrt(9); // 3
+  echo sqrt(10); // 3.16227766 ...
+?>
+
+
+
+
+
+|pow|
+
+vim:ft=help:

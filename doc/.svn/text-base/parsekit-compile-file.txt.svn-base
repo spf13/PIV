@@ -1,0 +1,46 @@
+parsekit_compile_file -- Compile a string of PHP code and return the resulting
+op array
+
+  array parsekit_compile_file(string filename [, array errors [, int options]])~
+
+This function is EXPERIMENTAL. The behaviour of this function, its name, and
+surrounding documentation may change without notice in a future release of
+PHP. This function should be used at your own risk.
+
+{filename} A string containing the name of the file to compile. Similar to the
+argument to |include|.
+
+{errors} A 2D hash of errors (including fatal errors) encountered during
+compilation. Returned by reference.
+
+{options} One of either PARSEKIT_QUIET or PARSEKIT_SIMPLE. To produce varying
+degrees of verbosity in the returned output.
+
+Returns a complex multi-layer array structure as detailed below.
+
+|parsekit_compile_file| example
+
+<?php >
+  var_dump(parsekit_compile_file('hello_world.php', $errors, PARSEKIT_SIMPLE));
+?>
+
+The above example will output:
+
+  array(5) {
+    [0]=>
+    string(37) "ZEND_ECHO UNUSED 'Hello World' UNUSED"
+    [1]=>
+    string(30) "ZEND_RETURN UNUSED NULL UNUSED"
+    [2]=>
+    string(42) "ZEND_HANDLE_EXCEPTION UNUSED UNUSED UNUSED"
+    ["function_table"]=>
+    NULL
+    ["class_table"]=>
+    NULL
+  }
+
+
+
+|parsekit_compile_string|
+
+vim:ft=help:

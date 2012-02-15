@@ -1,0 +1,38 @@
+array_change_key_case -- Changes all keys in an array
+
+  array array_change_key_case(array input [, int case])~
+
+Returns an array with all keys from {input} lowercased or uppercased. Numbered
+indices are left as is.
+
+{input} The array to work on
+
+{case} Either CASE_UPPER or CASE_LOWER (default)
+
+Returns an array with its keys lower or uppercased, or FALSE if {input} is not
+an array.
+
+Throws E_WARNING if {input} is not an array.
+
+|array_change_key_case| example
+
+<?php >
+  $input_array = array("FirSt" => 1, "SecOnd" => 4);
+  print_r(array_change_key_case($input_array, CASE_UPPER));
+?>
+
+The above example will output:
+
+  Array
+  (
+      [FIRST] => 1
+      [SECOND] => 4
+  )
+
+
+
+If an array has indices that will be the same once run through this function
+(e.g. "keY" and "kEY"), the value that is later in the array will override
+other indices.
+
+vim:ft=help:

@@ -1,0 +1,162 @@
+natsort -- Sort an array using a "natural order" algorithm
+
+  bool natsort(array array)~
+
+This function implements a sort algorithm that orders alphanumeric strings in
+the way a human being would while maintaining key/value associations. This is
+described as a "natural ordering". An example of the difference between this
+algorithm and the regular computer string sorting algorithms (used in |sort|)
+can be seen in the example below.
+
+{array} The input array.
+
+Returns TRUE on success or &false; on failure.
+
+|natsort| examples demonstrating basic usage
+
+<?php >
+  $array1 = $array2 = array("img12.png", "img10.png", "img2.png", "img1.png");
+  
+  asort($array1);
+  echo "Standard sorting\n";
+  print_r($array1);
+  
+  natsort($array2);
+  echo "\nNatural order sorting\n";
+  print_r($array2);
+?>
+
+The above example will output:
+
+  Standard sorting
+  Array
+  (
+      [3] => img1.png
+      [1] => img10.png
+      [0] => img12.png
+      [2] => img2.png
+  )
+  
+  Natural order sorting
+  Array
+  (
+      [3] => img1.png
+      [2] => img2.png
+      [1] => img10.png
+      [0] => img12.png
+  )
+
+For more information see: Martin Pool's Natural Order String Comparison page.
+
+
+
+|natsort| examples demonstrating potential gotchas
+
+<?php >
+  echo "Negative numbers\n";
+  $negative = array('-5','3','-2','0','-1000','9','1');
+  print_r($negative);
+  natsort($negative);
+  print_r($negative);
+  
+  echo "Zero padding\n";
+  $zeros = array('09', '8', '10', '009', '011', '0'); 
+  print_r($zeros);
+  natsort($zeros);
+  print_r($zeros);
+  
+  echo "Other characters interfering\n";
+  $images_oops = array('image_1.jpg','image_12.jpg', 'image_21.jpg', 'image_4.jpg');
+  print_r($images_oops);
+  natsort($images_oops);
+  print_r($images_oops);
+  
+  echo "Sort by keys\n";
+  $smoothie = array('orange' => 1, 'apple' => 1, 'yogurt' => 4, 'banana' => 4);
+  print_r($smoothie);
+  uksort( $smoothie, 'strnatcmp');
+  print_r($smoothie);
+?>
+
+The above example will output:
+
+  Negative numbers
+  Array
+  (
+      [0] => -5
+      [1] => 3
+      [2] => -2
+      [3] => 0
+      [4] => -1000
+      [5] => 9
+      [6] => 1
+  )
+  Array
+  (
+      [2] => -2
+      [0] => -5
+      [4] => -1000
+      [3] => 0
+      [6] => 1
+      [1] => 3
+      [5] => 9
+  )
+  
+  Zero padding
+  Array
+  (
+      [0] => 09
+      [1] => 8
+      [2] => 10
+      [3] => 009
+      [4] => 011
+      [5] => 0
+  )
+  Array
+  (
+      [5] => 0
+      [1] => 8
+      [3] => 009
+      [0] => 09
+      [2] => 10
+      [4] => 011
+  )
+  
+  Other characters interfering
+  Array
+  (
+      [0] => image_1.jpg
+      [1] => image_12.jpg
+      [2] => image_21.jpg
+      [3] => image_4.jpg
+  )
+  Array
+  (
+      [0] => image_1.jpg
+      [3] => image_4.jpg
+      [1] => image_12.jpg
+      [2] => image_21.jpg
+  )
+  
+  Sort by keys
+  Array
+  (
+      [orange] => 1
+      [apple]  => 1
+      [yogurt] => 4
+      [banana] => 4
+  )
+  Array
+  (
+      [apple]  => 1
+      [banana] => 4
+      [orange] => 1
+      [yogurt] => 4
+  )
+
+
+
+|natcasesort| The comparison of array sorting functions |strnatcmp|
+|strnatcasecmp|
+
+vim:ft=help:

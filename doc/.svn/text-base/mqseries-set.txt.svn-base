@@ -1,0 +1,20 @@
+mqseries_set -- MQSeries MQSET
+
+  void mqseries_set(resource hconn, resource hobj, int selectorcount, array selectors, int intattrcount, array intattrs, int charattrlength, array charattrs, resource compCode, resource reason)~
+
+The |mqseries_set| (MQSET) call is used to change the attributes of an object
+represented by a handle. The object must be a queue.
+
+{hConn} Connection handle.
+
+This handle represents the connection to the queue manager.
+
+{compCode} Completion code.
+
+{reason} Reason code qualifying the compCode.
+
+No value is returned.
+
+|mqseries_inq|
+
+vim:ft=help:

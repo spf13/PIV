@@ -1,0 +1,24 @@
+get_html_translation_table -- Returns the translation table used by
+htmlspecialchars and htmlentities
+
+  array get_html_translation_table([int table [, int quote_style [, string charset_hint]]])~
+
+|get_html_translation_table| will return the translation table that is used
+internally for |htmlspecialchars| and |htmlentities| with the default charset.
+
+Special characters can be encoded in several ways. E.g. " can be encoded as ",
+&#34; or &#x22. |get_html_translation_table| returns only the most common form
+for them.
+
+{table} There are two new constants (HTML_ENTITIES, HTML_SPECIALCHARS) that
+allow you to specify the table you want.
+
+{quote_style} Like the |htmlspecialchars| and |htmlentities| functions you can
+optionally specify the {quote_style} you are working with. See the description
+of these modes in |htmlspecialchars|.
+
+{charset_hint} Like |htmlentities|, it takes an optional third argument
+{charset} which defines character set used in conversion. Presently, the
+ISO-8859-1 character set is used as the default.
+
+vim:ft=help:

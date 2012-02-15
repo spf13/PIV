@@ -1,0 +1,28 @@
+getlastmod -- Gets time of last page modification
+
+  int getlastmod()~
+
+Gets the time of the last modification of the current page.
+
+If you're interested in getting the last modification time of a different
+file, consider using |filemtime|.
+
+Returns the time of the last modification of the current page. The value
+returned is a Unix timestamp, suitable for feeding to |date|. Returns FALSE on
+error.
+
+|getlastmod| example
+
+<?php >
+  // outputs e.g. 'Last modified: March 04 1998 20:43:59.'
+  echo "Last modified: " . date ("F d Y H:i:s.", getlastmod());
+?>
+
+
+
+
+
+|date| |getmyuid| |getmygid| |get_current_user| |getmyinode| |getmypid|
+|filemtime|
+
+vim:ft=help:

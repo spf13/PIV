@@ -1,0 +1,7 @@
+PDF_arc -- Draw a counterclockwise circular arc segment
+
+  bool PDF_arc(resource p, float x, float y, float r, float alpha, float beta)~
+
+Adds a counterclockwise circular arc.
+
+vim:ft=help:

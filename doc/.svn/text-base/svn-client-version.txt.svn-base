@@ -1,0 +1,25 @@
+svn_client_version -- Returns the version of the SVN client libraries
+
+  string svn_client_version()~
+
+Returns the version of the SVN client libraries
+
+String version number, usually in form of x.y.z.
+
+This function is EXPERIMENTAL. The behaviour of this function, its name, and
+surrounding documentation may change without notice in a future release of
+PHP. This function should be used at your own risk.
+
+Basic example
+
+<?php >
+  echo svn_client_version();
+?>
+
+The above example will output something similar to:
+
+  1.3.1
+
+
+
+vim:ft=help:

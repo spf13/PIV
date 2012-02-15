@@ -1,0 +1,9 @@
+mysqli_get_metadata -- Alias for mysqli_stmt_result_metadata
+
+This function is an alias of |mysqli_stmt_result_metadata|.
+
+|mysqli_get_metadata| is deprecated and will be removed.
+
+|mysqli_stmt_result_metadata|
+
+vim:ft=help:

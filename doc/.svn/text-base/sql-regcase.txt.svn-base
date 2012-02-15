@@ -1,0 +1,36 @@
+sql_regcase -- Make regular expression for case insensitive match
+
+  string sql_regcase(string string)~
+
+Creates a regular expression for a case insensitive match.
+
+This function has been DEPRECATED as of PHP 5.3.0. Relying on this feature is
+highly discouraged.
+
+{string} The input string.
+
+Returns a valid regular expression which will match {string}, ignoring case.
+This expression is {string} with each alphabetic character converted to a
+bracket expression; this bracket expression contains that character's
+uppercase and lowercase form. Other characters remain unchanged.
+
+|sql_regcase| example
+
+<?php >
+  echo sql_regcase("Foo - bar.");
+?>
+
+The above example will output:
+
+  [Ff][Oo][Oo] - [Bb][Aa][Rr].
+
+
+
+This can be used to achieve case insensitive pattern matching in products
+which support only case sensitive regular expressions.
+
+As of PHP 5.3.0, the regex extension is deprecated in favor of the PCRE
+extension. Calling this function will issue an E_DEPRECATED notice. See the
+list of differences for help on converting to PCRE.
+
+vim:ft=help:

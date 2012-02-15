@@ -1,0 +1,16 @@
+ncurses_savetty -- Saves terminal state
+
+  bool ncurses_savetty()~
+
+This function is EXPERIMENTAL. The behaviour of this function, its name, and
+surrounding documentation may change without notice in a future release of
+PHP. This function should be used at your own risk.
+
+Saves the current terminal state. The saved terminal state can be restored
+with |ncurses_resetty|.
+
+Always returns FALSE.
+
+|ncurses_resetty|
+
+vim:ft=help:

@@ -1,0 +1,21 @@
+strrev -- Reverse a string
+
+  string strrev(string string)~
+
+Returns {string}, reversed.
+
+{string} The string to be reversed.
+
+Returns the reversed string.
+
+Reversing a string with |strrev|
+
+<?php >
+  echo strrev("Hello world!"); // outputs "!dlrow olleH"
+?>
+
+
+
+
+
+vim:ft=help:

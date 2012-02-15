@@ -1,0 +1,55 @@
+SwishSearch->setPhraseDelimiter -- Set the phrase delimiter
+
+  void SwishSearch->setPhraseDelimiter(string delimiter)~
+
+This function is EXPERIMENTAL. The behaviour of this function, its name, and
+surrounding documentation may change without notice in a future release of
+PHP. This function should be used at your own risk.
+
+{delimiter} Phrase delimiter character. The default delimiter is
+double-quotes.
+
+No value is returned.
+
+Basic |SwishSearch->setPhraseDelimiter| example
+
+<?php >
+  try {
+  
+      $swish = new Swish("index.swish-e");
+      $search = $swish->prepare();
+  
+      $results = $search->execute('"every time"'); //looking for "every time"
+      echo "First query found: ", $results->hits, " hits\n";
+  
+      $search->setPhraseDelimiter("'");
+      $results = $search->execute("'every time'"); //the same query, but using different delimiter
+      echo "Second query found: ", $results->hits, " hits\n";
+  
+      $search->setPhraseDelimiter('"');
+      $results = $search->execute("'every time'"); //looking for "every" and "time"
+      echo "Third query found: ", $results->hits, " hits\n";
+  
+      //let's look at parsed words
+      var_dump($results->getParsedWords("index.swish-e"));
+  
+  } catch (SwishException $e) {
+      echo $e->getMessage(), "\n";
+  }
+?>
+
+The above example will output something similar to:
+
+  First query found: 1 hits
+  Second query found: 1 hits
+  Third query found: 2 hits
+  array(2) {
+    [0]=>
+    string(5) "every"
+    [1]=>
+    string(4) "time"
+  }
+
+
+
+vim:ft=help:

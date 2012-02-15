@@ -1,0 +1,9 @@
+simplexml_load_file -- Interprets an XML file into an object
+
+  object simplexml_load_file(string filename [, string class_name [, int options [, string ns [, bool is_prefix]]]])~
+
+Convert the well-formed XML document in the given file to an object.
+
+{filename} Path to the XML file
+
+vim:ft=help:

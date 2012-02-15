@@ -1,0 +1,31 @@
+pg_connection_busy -- Get connection is busy or not
+
+  bool pg_connection_busy(resource connection)~
+
+|pg_connection_busy| determines whether or not a connection is busy. If it is
+busy, a previous query is still executing. If |pg_get_result| is used on the
+connection, it will be blocked.
+
+{connection} PostgreSQL database connection resource.
+
+Returns TRUE if the connection is busy, FALSE otherwise.
+
+|pg_connection_busy| example
+
+<?php >
+    $dbconn = pg_connect("dbname=publisher") or die("Could not connect");
+    $bs = pg_connection_busy($dbconn);
+    if ($bs) {
+        echo 'connection is busy';
+    } else {
+       echo 'connection is not busy';
+    }
+?>
+
+
+
+
+
+|pg_connection_status| |pg_get_result|
+
+vim:ft=help:

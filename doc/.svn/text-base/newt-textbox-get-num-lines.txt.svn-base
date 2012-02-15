@@ -1,0 +1,12 @@
+newt_textbox_get_num_lines --
+
+  int newt_textbox_get_num_lines(resource textbox)~
+
+This function is currently not documented; only its argument list is
+available.
+
+{textbox}
+
+
+
+vim:ft=help:

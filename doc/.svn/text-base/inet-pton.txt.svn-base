@@ -1,0 +1,30 @@
+inet_pton -- Converts a human readable IP address to its packed in_addr
+representation
+
+  string inet_pton(string address)~
+
+This function converts a human readable IPv4 or IPv6 address (if PHP was built
+with IPv6 support enabled) into an address family appropriate 32bit or 128bit
+binary structure.
+
+{address} A human readable IPv4 or IPv6 address.
+
+Returns the in_addr representation of the given {address}
+
+|inet_pton| Example
+
+<?php >
+  $in_addr = inet_pton('127.0.0.1');
+   
+  $in6_addr = inet_pton('::1');
+?>
+
+
+
+
+
+Version Description 5.3.0 This function is now available on Windows platforms.
+
+|ip2long| |long2ip| |inet_ntop|
+
+vim:ft=help:

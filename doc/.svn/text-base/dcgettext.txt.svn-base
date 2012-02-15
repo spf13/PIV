@@ -1,0 +1,18 @@
+dcgettext -- Overrides the domain for a single lookup
+
+  string dcgettext(string domain, string message, int category)~
+
+This function allows you to override the current domain for a single message
+lookup.
+
+{domain} The domain
+
+{message} The message
+
+{category} The category
+
+A string on success.
+
+|gettext|
+
+vim:ft=help:

@@ -1,0 +1,48 @@
+PDO::pgsqlLOBCreate -- Creates a new large object
+
+  string PDO::pgsqlLOBCreate()~
+
+|PDO::pgsqlLOBCreate| creates a large object and returns the OID of that
+object. You may then open a stream on the object using |PDO::pgsqlLOBOpen| to
+read or write data to it. The OID can be stored in columns of type OID and be
+used to reference the large object, without causing the row to grow
+arbitrarily large. The large object will continue to live in the database
+until it is removed by calling |PDO::pgsqlLOBUnlink|.
+
+Large objects can be up to 2GB in size, but are cumbersome to use; you need to
+ensure that |PDO::pgsqlLOBUnlink| is called prior to deleting the last row
+that references its OID from your database. In addition, large objects have no
+access controls. As an alternative, try the bytea column type; recent versions
+of PostgreSQL allow bytea columns of up to 1GB in size and transparently
+manage the storage for optimal row size.
+
+This function must be called within a transaction.
+
+|PDO::pgsqlLOBCreate| takes no parameters.
+
+Returns the OID of the newly created large object on success, or FALSE on
+failure.
+
+A |PDO::pgsqlLOBCreate| example This example creates a new large object and
+copies the contents of a file into it. The OID is then stored into a table.
+
+<?php >
+  $db = new PDO('pgsql:dbname=test host=localhost', $user, $pass);
+  $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+  $db->beginTransaction();
+  $oid = $db->pgsqlLOBCreate();
+  $stream = $db->pgsqlLOBOpen($oid, 'w');
+  $local = fopen($filename, 'rb');
+  stream_copy_to_stream($local, $stream);
+  $local = null;
+  $stream = null;
+  $stmt = $db->prepare("INSERT INTO BLOBS (ident, oid) VALUES (?, ?)");
+  $stmt->execute(array($some_id, $oid));
+  $db->commit();
+?>
+
+
+
+|PDO::pgsqlLOBOpen| |PDO::pgsqlLOBUnlink| |pg_lo_create|
+
+vim:ft=help:

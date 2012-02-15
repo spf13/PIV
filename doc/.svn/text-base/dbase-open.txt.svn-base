@@ -1,0 +1,43 @@
+dbase_open -- Opens a database
+
+  int dbase_open(string filename, int mode)~
+
+|dbase_open| opens a dBase database with the given access mode.
+
+When safe mode is enabled, PHP checks whether the files or directories being
+operated upon have the same UID (owner) as the script that is being executed.
+
+This function is affected by open_basedir.
+
+{filename} The name of the database. It can be a relative or absolute path to
+the file where dBase will store your data.
+
+{mode} An integer which correspond to those for the open() system call
+(Typically 0 means read-only, 1 means write-only, and 2 means read and write).
+
+You can't open a dBase file in write-only mode as the function will fail to
+read the headers information and thus you can't use 1 as {mode}.
+
+Opening a dBase database file
+
+<?php >
+  // open in read-only mode
+  $db = dbase_open('/tmp/test.dbf', 0);
+  
+  if ($db) {
+    // read some data ..
+    
+    dbase_close($db);
+  }
+?>
+
+
+
+
+
+Returns a database link identifier if the database is successfully opened, or
+FALSE if an error occurred.
+
+|dbase_create| |dbase_close|
+
+vim:ft=help:

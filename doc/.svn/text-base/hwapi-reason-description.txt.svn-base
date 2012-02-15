@@ -1,0 +1,9 @@
+hw_api_reason->description -- Returns description of reason
+
+  string description()~
+
+Returns the description of a reason
+
+Returns the description, as a string.
+
+vim:ft=help:

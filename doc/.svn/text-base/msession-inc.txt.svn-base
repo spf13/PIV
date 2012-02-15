@@ -1,0 +1,8 @@
+msession_inc -- Increment value in session
+
+  string msession_inc(string session, string name)~
+
+This function is currently not documented; only its argument list is
+available.
+
+vim:ft=help:

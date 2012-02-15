@@ -1,0 +1,34 @@
+printer_select_font -- Select a font
+
+  void printer_select_font(resource printer_handle, resource font_handle)~
+
+The function selects a font to draw text.
+
+{printer_handle} {printer_handle} must be a valid printer handle.
+
+{font_handle} {font_handle} must be a valid font handle.
+
+No value is returned.
+
+|printer_select_font| example
+
+<?php >
+  $handle = printer_open();
+  printer_start_doc($handle, "My Document");
+  printer_start_page($handle);
+  
+  $font = printer_create_font("Arial", 148, 76, PRINTER_FW_MEDIUM, false, false, false, -50);
+  printer_select_font($handle, $font);
+  printer_draw_text($handle, "PHP is simply cool", 40, 40);
+  printer_delete_font($font);
+  
+  printer_end_page($handle);
+  printer_end_doc($handle);
+  printer_close($handle);
+?>
+
+
+
+
+
+vim:ft=help:

@@ -1,0 +1,22 @@
+oci_field_precision -- Tell the precision of a field
+
+  int oci_field_precision(resource statement, int field)~
+
+Returns precision of the {field}.
+
+For FLOAT columns, precision is nonzero and scale is -127. If precision is 0,
+then column is NUMBER. Else it's NUMBER(precision, scale).
+
+{statement} A valid OCI statement identifier.
+
+{field} Can be the field's index (1-based) or name.
+
+Returns the precision as an integer, or FALSE on errors.
+
+In PHP versions before 5.0.0 you must use |ocicolumnprecision| instead. This
+name still can be used, it was left as alias of |oci_field_precision| for
+downwards compatability. This, however, is deprecated and not recommended.
+
+|oci_field_scale| |oci_field_type|
+
+vim:ft=help:

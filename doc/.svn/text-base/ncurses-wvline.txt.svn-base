@@ -1,0 +1,15 @@
+ncurses_wvline -- Draws a vertical line in a window at current position using
+an attributed character and max. n characters long
+
+  int ncurses_wvline(resource window, int charattr, int n)~
+
+This function is currently not documented; only its argument list is
+available.
+
+{window}
+
+{charattr}
+
+{n}
+
+vim:ft=help:

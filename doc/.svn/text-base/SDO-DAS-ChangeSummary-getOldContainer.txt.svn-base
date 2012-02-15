@@ -1,0 +1,17 @@
+SDO_DAS_ChangeSummary::getOldContainer -- Get the old container for a deleted
+SDO_DataObject
+
+  SDO_DataObject SDO_DAS_ChangeSummary::getOldContainer(SDO_DataObject data_object)~
+
+This function is EXPERIMENTAL. The behaviour of this function, its name, and
+surrounding documentation may change without notice in a future release of
+PHP. This function should be used at your own risk.
+
+Get the old container (SDO_DataObject) for a deleted SDO_DataObject.
+
+{data_object} The SDO_DataObject which has been deleted and whose container we
+wish to identify.
+
+The old containing data object of the deleted SDO_DataObject.
+
+vim:ft=help:

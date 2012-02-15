@@ -1,0 +1,20 @@
+dbplus_sql -- Perform SQL query
+
+  resource dbplus_sql(string query [, string server [, string dbpath]])~
+
+This function is currently not documented; only its argument list is
+available.
+
+{query}
+
+{server}
+
+{dbpath}
+
+
+
+This function is EXPERIMENTAL. The behaviour of this function, its name, and
+surrounding documentation may change without notice in a future release of
+PHP. This function should be used at your own risk.
+
+vim:ft=help:

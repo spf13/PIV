@@ -1,0 +1,32 @@
+mssql_min_message_severity -- Sets the minimum message severity
+
+  void mssql_min_message_severity(int severity)~
+
+Sets the minimum message severity.
+
+{severity} The new message severity.
+
+No value is returned.
+
+|mssql_min_message_severity| example
+
+<?php >
+  // Connect to MSSQL
+  mssql_connect('KALLESPC\SQLEXPRESS', 'sa', 'phpfi');
+  
+  // Set the minimum message severity to 17, this
+  // will not show any messages issued by the underlaying
+  // API when we select a non-existent database below
+  mssql_min_message_severity(17);
+  
+  // Select a non-existent database
+  mssql_select_db('THIS_DATABASE_DOES_NOT_EXISTS');
+?>
+
+The above example will output:
+
+  mssql_select_db(): Unable to select database:  THIS_DATABASE_DOES_NOT_EXISTS
+
+
+
+vim:ft=help:

@@ -1,0 +1,11 @@
+rrd_error -- Gets latest error message.
+
+  string rrd_error()~
+
+Returns latest global rrd error message.
+
+This function has no parameters.
+
+Latest error message.
+
+vim:ft=help:

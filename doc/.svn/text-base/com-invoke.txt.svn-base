@@ -1,0 +1,26 @@
+com_invoke -- Calls a COM component's method [deprecated]
+
+  mixed com_invoke(resource com_object, string function_name [, mixed function_parameters])~
+
+|com_invoke| invokes the method named {function_name} of the COM component
+referenced by {com_object}. |com_invoke| returns FALSE on error, returns the
+{function_name}'s return value on success. All the extra parameters
+{function_parameters} are passed to the method {function_name}.
+
+Don't use com_invoke(), use OO syntax instead
+
+<?php >
+  // do this
+  $val = $obj->method($one, $two);
+  // instead of this:
+  $val = com_invoke($obj, 'method', $one, $two);
+?>
+
+
+
+
+
+This function does not exist in PHP 5; instead, you should use the regular and
+more natural OO syntax to access properties or call methods.
+
+vim:ft=help:

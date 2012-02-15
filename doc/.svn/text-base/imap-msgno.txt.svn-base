@@ -1,0 +1,17 @@
+imap_msgno -- Gets the message sequence number for the given UID
+
+  int imap_msgno(resource imap_stream, int uid)~
+
+Returns the message sequence number for the given {uid}.
+
+This function is the inverse of |imap_uid|.
+
+{ imap_stream}An IMAP stream returned by |imap_open|.
+
+{uid} The message UID
+
+Returns the message sequence number for the given {uid}.
+
+|imap_uid|
+
+vim:ft=help:

@@ -1,0 +1,22 @@
+gupnp_service_info_get_introspection -- Get resource introspection of service
+
+  mixed gupnp_service_info_get_introspection(resource proxy [, mixed callback [, mixed arg]])~
+
+Get resource introspection of service or register callback if corresponding
+parameter was passed.
+
+{proxy} A service proxy identifier.
+
+{callback} The callback function to be called when introspection object is
+ready. Typically, callback function takes on three parameters. The
+{introspection} parameter's identifier being the first, {error} parameter's
+message being the second, and the {arg} is third.
+
+{arg} User data for {callback}.
+
+Return true if callback function was defined. Return introspection identifier
+if callback function was omited.
+
+Issues E_WARNING with not valid callback function.
+
+vim:ft=help:

@@ -1,0 +1,22 @@
+SQLiteDatabase->lastError -- Returns the error code of the last error for a
+database
+
+  int sqlite_last_error(resource dbhandle)~
+
+Object oriented style (method):
+
+  int lastError(resource dbhandle)~
+
+Returns the error code from the last operation performed on {dbhandle} (the
+database handle), or 0 when no error occurred. A human readable description of
+the error code can be retrieved using |sqlite_error_string|.
+
+{dbhandle} The SQLite Database resource; returned from |sqlite_open| when used
+procedurally. This parameter is not required when using the object-oriented
+method.
+
+Returns an error code, or 0 if no error occurred.
+
+|sqlite_error_string|
+
+vim:ft=help:

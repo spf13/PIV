@@ -1,0 +1,98 @@
+preg_split -- Split string by a regular expression
+
+  array preg_split(string pattern, string subject [, int limit [, int flags]])~
+
+Split the given string by a regular expression.
+
+{pattern} The pattern to search for, as a string.
+
+{subject} The input string.
+
+{limit} If specified, then only substrings up to {limit} are returned with the
+rest of the string being placed in the last substring. A {limit} of -1, 0 or
+null means "no limit" and, as is standard across PHP, you can use null to skip
+to the {flags} parameter.
+
+{flags} {flags} can be any combination of the following flags (combined with
+the | bitwise operator): PREG_SPLIT_NO_EMPTY If this flag is set, only
+non-empty pieces will be returned by |preg_split|.
+
+PREG_SPLIT_DELIM_CAPTURE If this flag is set, parenthesized expression in the
+delimiter pattern will be captured and returned as well.
+
+PREG_SPLIT_OFFSET_CAPTURE If this flag is set, for every occurring match the
+appendant string offset will also be returned. Note that this changes the
+return value in an array where every element is an array consisting of the
+matched string at offset 0 and its string offset into {subject} at offset 1.
+
+Returns an array containing substrings of {subject} split along boundaries
+matched by {pattern}.
+
+Version Description 4.3.0 The PREG_SPLIT_OFFSET_CAPTURE was added 4.0.5 The
+PREG_SPLIT_DELIM_CAPTURE was added
+
+|preg_split| example : Get the parts of a search string
+
+<?php >
+  // split the phrase by any number of commas or space characters,
+  // which include " ", \r, \t, \n and \f
+  $keywords = preg_split("/[\s,]+/", "hypertext language, programming");
+?>
+
+
+
+
+
+Splitting a string into component characters
+
+<?php >
+  $str = 'string';
+  $chars = preg_split('//', $str, -1, PREG_SPLIT_NO_EMPTY);
+  print_r($chars);
+?>
+
+
+
+
+
+Splitting a string into matches and their offsets
+
+<?php >
+  $str = 'hypertext language programming';
+  $chars = preg_split('/ /', $str, -1, PREG_SPLIT_OFFSET_CAPTURE);
+  print_r($chars);
+?>
+
+The above example will output:
+
+  Array
+  (
+      [0] => Array
+          (
+              [0] => hypertext
+              [1] => 0
+          )
+  
+      [1] => Array
+          (
+              [0] => language
+              [1] => 10
+          )
+  
+      [2] => Array
+          (
+              [0] => programming
+              [1] => 19
+          )
+  
+  )
+
+
+
+If you don't need the power of regular expressions, you can choose faster
+(albeit simpler) alternatives like |explode| or |str_split|.
+
+PCRE Patterns |implode| |preg_match| |preg_match_all| |preg_replace|
+|preg_last_error|
+
+vim:ft=help:

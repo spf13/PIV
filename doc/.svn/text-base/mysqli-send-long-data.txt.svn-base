@@ -1,0 +1,9 @@
+mysqli_send_long_data -- Alias for mysqli_stmt_send_long_data
+
+This function is an alias of |mysqli_stmt_send_long_data|.
+
+|mysqli_send_long_data| is deprecated and will be removed.
+
+|mysqli_stmt_send_long_data|
+
+vim:ft=help:

@@ -1,0 +1,18 @@
+ibase_blob_open -- Open blob for retrieving data parts
+
+  resource ibase_blob_open(resource link_identifier, string blob_id)~
+
+  resource ibase_blob_open(resource link_identifier, string blob_id, string blob_id)~
+
+Opens an existing BLOB for reading.
+
+{link_identifier} An InterBase link identifier. If omitted, the last opened
+link is assumed.
+
+{blob_id} A BLOB id.
+
+Returns a BLOB handle for later use with |ibase_blob_get| or FALSE on failure.
+
+|ibase_blob_close| |ibase_blob_echo| |ibase_blob_get|
+
+vim:ft=help:

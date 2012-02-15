@@ -1,0 +1,12 @@
+printer_delete_brush -- Delete a brush
+
+  void printer_delete_brush(resource brush_handle)~
+
+The function deletes the selected brush. For an example see
+|printer_select_brush|.
+
+{brush_handle} {brush_handle} must be a valid handle to a brush.
+
+No value is returned.
+
+vim:ft=help:

@@ -1,0 +1,108 @@
+flock -- Portable advisory file locking
+
+  bool flock(resource handle, int operation [, int wouldblock])~
+
+|flock| allows you to perform a simple reader/writer model which can be used
+on virtually every platform (including most Unix derivatives and even
+Windows).
+
+On versions of PHP before 5.3.2, the lock is released also by |fclose| (which
+is also called automatically when script finished).
+
+PHP supports a portable way of locking complete files in an advisory way
+(which means all accessing programs have to use the same way of locking or it
+will not work). By default, this function will block until the requested lock
+is acquired; this may be controlled (on non-Windows platforms) with the
+LOCK_NB option documented below.
+
+{handle} A file system pointer resource that is typically created using
+|fopen|.
+
+{operation} {operation} is one of the following: LOCK_SH to acquire a shared
+lock (reader).
+
+LOCK_EX to acquire an exclusive lock (writer).
+
+LOCK_UN to release a lock (shared or exclusive).
+
+It is also possible to add LOCK_NB as a bitmask to one of the above operations
+if you don't want |flock| to block while locking. (not supported on Windows)
+
+{wouldblock} The optional third argument is set to TRUE if the lock would
+block (EWOULDBLOCK errno condition). (not supported on Windows)
+
+Returns TRUE on success or &false; on failure.
+
+Version Description 5.3.2 The automatic unlocking when the file's resource
+handle is closed was removed. Unlocking now always has to be done manually.
+4.0.1 The LOCK_XXX constants were added. Prior to that you must use 1 for
+LOCK_SH, 2 for LOCK_EX, 3 for LOCK_UN and 4 for LOCK_NB
+
+|flock| example
+
+<?php >
+  $fp = fopen("/tmp/lock.txt", "r+");
+  
+  if (flock($fp, LOCK_EX)) { // do an exclusive lock
+      ftruncate($fp, 0); // truncate file
+      fwrite($fp, "Write something here\n");
+      flock($fp, LOCK_UN); // release the lock
+  } else {
+      echo "Couldn't get the lock!";
+  }
+  
+  fclose($fp);
+?>
+
+
+
+
+
+|flock| using the LOCK_NB option
+
+<?php >
+  $fp = fopen('/tmp/lock.txt', 'r+');
+  
+  /* Activate the LOCK_NB option on an LOCK_EX operation */
+  if(!flock($fp, LOCK_EX | LOCK_NB)) {
+      echo 'Unable to obtain lock';
+      exit(-1);
+  }
+  
+  /* ... */
+  
+  fclose($fp);
+?>
+
+
+
+
+
+|flock| uses mandatory locking instead of advisory locking on Windows.
+Mandatory locking is also supported on Linux and System V based operating
+systems via the usual mechanism supported by the fcntl() system call: that is,
+if the file in question has the setgid permission bit set and the group
+execution bit cleared. On Linux, the file system will also need to be mounted
+with the mand option for this to work.
+
+Because |flock| requires a file pointer, you may have to use a special lock
+file to protect access to a file that you intend to truncate by opening it in
+write mode (with a "w" or "w+" argument to |fopen|).
+
+May only be used on file pointers returned by |fopen| for local files, or file
+pointers pointing to userspace streams that implement the
+|streamWrapper::stream_lock| method.
+
+Assigning another value to {handle} argument in subsequent code will release
+the lock.
+
+On some operating systems |flock| is implemented at the process level. When
+using a multithreaded server API like ISAPI you may not be able to rely on
+|flock| to protect files against other PHP scripts running in parallel threads
+of the same server instance!
+
+|flock| is not supported on antiquated filesystems like FAT and its derivates
+and will therefore always return FALSE under this environments (this is
+especially true for Windows 98 users).
+
+vim:ft=help:

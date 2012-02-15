@@ -1,0 +1,16 @@
+imap_rfc822_parse_headers -- Parse mail headers from a string
+
+  object imap_rfc822_parse_headers(string headers [, string defaulthost])~
+
+Gets an object of various header elements, similar to |imap_header|.
+
+{headers} The parsed headers data
+
+{defaulthost} The default host name
+
+Returns an object similar to the one returned by |imap_header|, except for the
+flags and other properties that come from the IMAP server.
+
+|imap_rfc822_parse_adrlist|
+
+vim:ft=help:

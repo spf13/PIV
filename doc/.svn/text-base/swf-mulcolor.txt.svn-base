@@ -1,0 +1,24 @@
+swf_mulcolor -- Sets the global multiply color to the rgba value specified
+
+  void swf_mulcolor(float r, float g, float b, float a)~
+
+Sets the global multiply color to the given one. This color is then implicitly
+used by the |swf_placeobject|, |swf_modifyobject| and |swf_addbuttonrecord|
+functions.
+
+The color of the object will be multiplied by the given color values when the
+object is written to the screen.
+
+{r} Red value
+
+{g} Green value
+
+{b} Blue value
+
+{a} Alpha value
+
+These parameters can be either positive or negative.
+
+No value is returned.
+
+vim:ft=help:

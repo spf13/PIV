@@ -1,0 +1,15 @@
+*rrd_update* -- Updates the RRD database.
+
+  bool rrd_update(string filename, array options)~
+
+Updates the RRD database. The input data is time interpolated according to the
+properties of the RRD database file.
+
+Filename for RRD database file, which will be updated.
+
+Options for rrd create - list of strings. See man page of rrd update for whole
+list of options.
+
+Returns TRUE on success, FALSE when error occurs.
+
+vim:ft=help:

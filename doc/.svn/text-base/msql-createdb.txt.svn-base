@@ -1,0 +1,5 @@
+msql_createdb -- Alias of msql_create_db
+
+This function is an alias of: |msql_create_db|.
+
+vim:ft=help:

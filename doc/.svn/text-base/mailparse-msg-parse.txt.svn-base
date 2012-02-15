@@ -1,0 +1,16 @@
+mailparse_msg_parse -- Incrementally parse data into buffer
+
+  bool mailparse_msg_parse(resource mimemail, string data)~
+
+Incrementally parse data into the supplied mime mail resource.
+
+This function allow you to stream portions of a file at a time, rather than
+read and parse the whole thing.
+
+{mimemail} A valid MIME resource.
+
+{data}
+
+Returns TRUE on success or &false; on failure.
+
+vim:ft=help:

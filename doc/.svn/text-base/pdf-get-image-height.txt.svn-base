@@ -1,0 +1,6 @@
+PDF_get_image_height -- Get image height [deprecated]
+
+This function is deprecated since PDFlib version 3, use |PDF_get_value| with
+the parameter {imageheight} instead.
+
+vim:ft=help:

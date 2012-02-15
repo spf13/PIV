@@ -1,0 +1,107 @@
+trim -- Strip whitespace (or other characters) from the beginning and end of a
+string
+
+  string trim(string str [, string charlist])~
+
+This function returns a string with whitespace stripped from the beginning and
+end of {str}. Without the second parameter, |trim| will strip these
+characters: " " (ASCII 32 (0x20)), an ordinary space.
+
+"\t" (ASCII 9 (0x09)), a tab.
+
+"\n" (ASCII 10 (0x0A)), a new line (line feed).
+
+"\r" (ASCII 13 (0x0D)), a carriage return.
+
+"\0" (ASCII 0 (0x00)), the NUL-byte.
+
+"\x0B" (ASCII 11 (0x0B)), a vertical tab.
+
+{str} The string that will be trimmed.
+
+{charlist} Optionally, the stripped characters can also be specified using the
+{charlist} parameter. Simply list all characters that you want to be stripped.
+With .. you can specify a range of characters.
+
+The trimmed string.
+
+Version Description 4.1.0 The optional {charlist} parameter was added.
+
+Usage example of |trim|
+
+<?php >
+  $text   = "\t\tThese are a few words :) ...  ";
+  $binary = "\x09Example string\x0A";
+  $hello  = "Hello World";
+  var_dump($text, $binary, $hello);
+  
+  print "\n";
+  
+  $trimmed = trim($text);
+  var_dump($trimmed);
+  
+  $trimmed = trim($text, " \t.");
+  var_dump($trimmed);
+  
+  $trimmed = trim($hello, "Hdle");
+  var_dump($trimmed);
+  
+  // trim the ASCII control characters at the beginning and end of $binary
+  // (from 0 to 31 inclusive)
+  $clean = trim($binary, "\x00..\x1F");
+  var_dump($clean);
+?>
+
+The above example will output:
+
+  string(32) "        These are a few words :) ...  "
+  string(16) "    Example string
+  "
+  string(11) "Hello World"
+  
+  string(28) "These are a few words :) ..."
+  string(24) "These are a few words :)"
+  string(5) "o Wor"
+  string(14) "Example string"
+
+
+
+Trimming array values with |trim|
+
+<?php >
+  function trim_value(&amp;$value) 
+  { 
+      $value = trim($value); 
+  }
+  
+  $fruit = array('apple','banana ', ' cranberry ');
+  var_dump($fruit);
+  
+  array_walk($fruit, 'trim_value');
+  var_dump($fruit);
+?>
+
+The above example will output:
+
+  array(3) {
+    [0]=>
+    string(5) "apple"
+    [1]=>
+    string(7) "banana "
+    [2]=>
+    string(11) " cranberry "
+  }
+  array(3) {
+    [0]=>
+    string(5) "apple"
+    [1]=>
+    string(6) "banana"
+    [2]=>
+    string(9) "cranberry"
+  }
+
+
+
+|ltrim| |rtrim|
+
+vim:ft=help:

@@ -1,0 +1,34 @@
+getservbyname -- Get port number associated with an Internet service and
+protocol
+
+  int getservbyname(string service, string protocol)~
+
+|getservbyname| returns the Internet port which corresponds to {service} for
+the specified {protocol} as per /etc/services.
+
+{service} The Internet service name, as a string.
+
+{protocol} {protocol} is either "tcp" or "udp" (in lowercase).
+
+Returns the port number, or FALSE if {service} or {protocol} is not found.
+
+|getservbyname| example
+
+<?php >
+  $services = array('http', 'ftp', 'ssh', 'telnet', 'imap',
+  'smtp', 'nicname', 'gopher', 'finger', 'pop3', 'www');
+  
+  foreach ($services as $service) {
+      $port = getservbyname($service, 'tcp');
+      echo $service . ": " . $port . "<br />\n";
+  }
+?>
+
+
+
+
+
+|getservbyport| http://www.iana.org/assignments/port-numbers for a complete
+list of port numbers.
+
+vim:ft=help:

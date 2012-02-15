@@ -1,0 +1,17 @@
+ps_get_parameter -- Gets certain parameters
+
+  string ps_get_parameter(resource psdoc, string name [, float modifier])~
+
+Gets several parameters which were directly set by |ps_set_parameter| or
+indirectly by one of the other functions. Parameters are by definition string
+values. This function cannot be used to retrieve resources which were also set
+by |ps_set_parameter|.
+
+The parameter {name} can have the following values.
+
+fontname The name of the currently active font or the font whose identifier is
+passed in parameter {modifier}.
+
+fontencoding The encoding of the currently active font.
+
+vim:ft=help:

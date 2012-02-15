@@ -1,0 +1,15 @@
+SQLiteUnbuffered->fetchObject -- Fetches the next row from a result set as an
+object
+
+  object sqlite_fetch_object(resource result [, string class_name [, array ctor_params [, bool decode_binary]]])~
+
+Object oriented style (method):
+
+  object fetchObject(resource result [, string class_name [, array ctor_params [, bool decode_binary [, string class_name [, array ctor_params [, bool decode_binary]]]]]])~
+
+  object fetchObject(resource result [, string class_name [, array ctor_params [, bool decode_binary [, string class_name [, array ctor_params [, bool decode_binary [, string class_name [, array ctor_params [, bool decode_binary]]]]]]]]])~
+
+This function is currently not documented; only its argument list is
+available.
+
+vim:ft=help:

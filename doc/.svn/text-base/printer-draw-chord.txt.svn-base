@@ -1,0 +1,56 @@
+printer_draw_chord -- Draw a chord
+
+  void printer_draw_chord(resource printer_handle, int rec_x, int rec_y, int rec_x1, int rec_y1, int rad_x, int rad_y, int rad_x1, int rad_y1)~
+
+The function simply draws an chord.
+
+{printer_handle} {printer_handle} must be a valid printer handle.
+
+{rec_x} {rec_x} is the upper left x coordinate of the bounding rectangle.
+
+{rec_y} {rec_y} is the upper left y coordinate of the bounding rectangle.
+
+{rec_x1} {rec_x1} is the lower right x coordinate of the bounding rectangle.
+
+{rec_y1} {rec_y1} is the lower right y coordinate of the bounding rectangle.
+
+{rad_x} {rad_x} is x coordinate of the radial defining the beginning of the
+chord.
+
+{rad_y} {rad_y} is y coordinate of the radial defining the beginning of the
+chord.
+
+{rad_x1} {rad_x1} is x coordinate of the radial defining the end of the chord.
+
+{rad_y1} {rad_y1} is y coordinate of the radial defining the end of the chord.
+
+No value is returned.
+
+|printer_draw_chord| example
+
+<?php >
+  $handle = printer_open();
+  printer_start_doc($handle, "My Document");
+  printer_start_page($handle);
+  
+  $pen = printer_create_pen(PRINTER_PEN_SOLID, 2, "000000");
+  printer_select_pen($handle, $pen);
+  
+  $brush = printer_create_brush(PRINTER_BRUSH_SOLID, "2222FF");
+  printer_select_brush($handle, $brush);
+  
+  printer_draw_chord($handle, 1, 1, 500, 500, 1, 1, 500, 1);
+  
+  printer_delete_brush($brush);
+  printer_delete_pen($pen);
+  
+  printer_end_page($handle);
+  printer_end_doc($handle);
+  printer_close($handle);
+?>
+
+
+
+
+
+vim:ft=help:

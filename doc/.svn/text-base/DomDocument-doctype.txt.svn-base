@@ -1,0 +1,11 @@
+DomDocument->doctype -- Returns the document type
+
+  domdocumenttype DomDocument->doctype()~
+
+This function returns an object of class DomDocumentType. In versions of PHP
+before 4.3 this has been the class Dtd, but the DOM Standard does not know
+such a class.
+
+See also the methods of class DomDocumentType.
+
+vim:ft=help:

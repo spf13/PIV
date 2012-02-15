@@ -1,0 +1,11 @@
+mysqli_master_query -- Enforce execution of a query on the master in a
+master/slave setup
+
+  bool mysqli_master_query(mysqli link, string query)~
+
+This function is currently not documented; only its argument list is
+available.
+
+This function has been DEPRECATED and REMOVED as of PHP 5.3.0.
+
+vim:ft=help:

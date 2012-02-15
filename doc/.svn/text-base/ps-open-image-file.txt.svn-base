@@ -1,0 +1,22 @@
+ps_open_image_file -- Opens image from file
+
+  int ps_open_image_file(resource psdoc, string type, string filename [, string stringparam [, int intparam]])~
+
+Loads an image for later use.
+
+{psdoc} Resource identifier of the postscript file as returned by |ps_new|.
+
+{type} The type of the image. Possible values are png, jpeg, or eps.
+
+{filename} The name of the file containing the image data.
+
+{stringparam} Not used.
+
+{intparam} Not used.
+
+Returns identifier of image or zero in case of an error. The identifier is a
+positive number greater than 0.
+
+|ps_open_image| |ps_place_image| |ps_close_image|
+
+vim:ft=help:

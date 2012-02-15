@@ -1,0 +1,50 @@
+pg_last_notice -- Returns the last notice message from PostgreSQL server
+
+  string pg_last_notice(resource connection)~
+
+|pg_last_notice| returns the last notice message from the PostgreSQL server on
+the specified {connection}. The PostgreSQL server sends notice messages in
+several cases, for instance when creating a SERIAL column in a table.
+
+With |pg_last_notice|, you can avoid issuing useless queries by checking
+whether or not the notice is related to your transaction.
+
+Notice message tracking can be set to optional by setting 1 for
+pgsql.ignore_notice in php.ini.
+
+Notice message logging can be set to optional by setting 0 for
+pgsql.log_notice in php.ini. Unless pgsql.ignore_notice is set to 0, notice
+message cannot be logged.
+
+{connection} PostgreSQL database connection resource.
+
+A string containing the last notice on the given {connection}, or FALSE on
+error.
+
+Version Description 4.3.0 This function is now fully implemented. Earlier
+versions ignores database connection parameter. 4.3.0 The pgsql.ignore_notice
+and pgsql.log_notice php.ini directives were added. 4.0.6 PHP 4.0.6 has
+problem with notice message handling. Use of the PostgreSQL module with PHP
+4.0.6 is not recommended even if you are not using |pg_last_notice|.
+
+|pg_last_notice| example
+
+<?php >
+    $pgsql_conn = pg_connect("dbname=mark host=localhost");
+    
+    $res = pg_query("CREATE TABLE test (id SERIAL)");
+    
+    $notice = pg_last_notice($pgsql_conn);
+    
+    echo $notice;
+?>
+
+The above example will output:
+
+  CREATE TABLE will create implicit sequence "test_id_seq" for "serial" column "test.id"
+
+
+
+|pg_query| |pg_last_error|
+
+vim:ft=help:

@@ -1,0 +1,16 @@
+sybase_min_server_severity -- Sets minimum server severity
+
+  void sybase_min_server_severity(int severity)~
+
+|sybase_min_server_severity| sets the minimum server severity level.
+
+{severity}
+
+No value is returned.
+
+This function is only available when using the CT library interface to Sybase,
+and not with the DB library.
+
+|sybase_min_client_severity|
+
+vim:ft=help:

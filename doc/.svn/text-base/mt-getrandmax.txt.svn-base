@@ -1,0 +1,29 @@
+mt_getrandmax -- Show largest possible random value
+
+  int mt_getrandmax()~
+
+Returns the maximum value that can be returned by a call to |mt_rand|.
+
+Returns the maximum random value returned by |mt_rand|
+
+Calculate a random floating-point number
+
+<?php >
+  function randomFloat($min = 0, $max = 1) {
+      return $min + mt_rand() / mt_getrandmax() * ($max - $min);
+  }
+  
+  var_dump(randomFloat());
+  var_dump(randomFloat(2, 20));
+?>
+
+The above example will output something similar to:
+
+  float(0.91601131712832)
+  float(16.511210331931)
+
+
+
+|mt_rand| |mt_srand| |getrandmax|
+
+vim:ft=help:

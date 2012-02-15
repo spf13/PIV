@@ -1,0 +1,30 @@
+chroot -- Change the root directory
+
+  bool chroot(string directory)~
+
+Changes the root directory of the current process to {directory}, and changes
+the current working directory to "/".
+
+This function is only available to GNU and BSD systems, and only when using
+the CLI, CGI or Embed SAPI. Also, this function requires root privileges.
+
+{directory} The path to change the root directory to.
+
+Returns TRUE on success or &false; on failure.
+
+|chroot| example
+
+<?php >
+  chroot("/path/to/your/chroot/");
+  echo getcwd();
+?>
+
+The above example will output:
+
+  /
+
+
+
+This function is not implemented on Windows platforms.
+
+vim:ft=help:

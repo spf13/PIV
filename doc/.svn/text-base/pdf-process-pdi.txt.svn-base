@@ -1,0 +1,7 @@
+PDF_process_pdi -- Process imported PDF document
+
+  int PDF_process_pdi(resource pdfdoc, int doc, int page, string optlist)~
+
+Processes certain elements of an imported PDF document.
+
+vim:ft=help:

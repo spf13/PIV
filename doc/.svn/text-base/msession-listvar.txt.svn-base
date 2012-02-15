@@ -1,0 +1,12 @@
+msession_listvar -- List sessions with variable
+
+  array msession_listvar(string name)~
+
+Used for searching sessions with common attributes.
+
+{name} The name being searched.
+
+Returns an associative array of value/session for all sessions with a variable
+named {name}.
+
+vim:ft=help:

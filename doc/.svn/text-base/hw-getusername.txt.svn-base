@@ -1,0 +1,11 @@
+hw_getusername -- Name of currently logged in user
+
+  string hw_getusername(int connection)~
+
+Returns the username of the connection.
+
+{connection} The connection identifier.
+
+Returns the username as a string.
+
+vim:ft=help:

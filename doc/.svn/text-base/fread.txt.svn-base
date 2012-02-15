@@ -1,0 +1,85 @@
+fread -- Binary-safe file read
+
+  string fread(resource handle, int length)~
+
+|fread| reads up to {length} bytes from the file pointer referenced by
+{handle}. Reading stops as soon as one of the following conditions is met:
+{length} bytes have been read
+
+EOF (end of file) is reached
+
+a packet becomes available or the socket timeout occurs (for network streams)
+
+if the stream is read buffered and it does not represent a plain file, at most
+one read of up to a number of bytes equal to the chunk size (usually 8192) is
+made; depending on the previously buffered data, the size of the returned data
+may be larger than the chunk size.
+
+{handle} A file system pointer resource that is typically created using
+|fopen|.
+
+{length} Up to {length} number of bytes read.
+
+Returns the read string or FALSE on failure.
+
+A simple |fread| example
+
+<?php >
+  // get contents of a file into a string
+  $filename = "/usr/local/something.txt";
+  $handle = fopen($filename, "r");
+  $contents = fread($handle, filesize($filename));
+  fclose($handle);
+?>
+
+
+
+
+
+Binary |fread| example On systems which differentiate between binary and text
+files (i.e. Windows) the file must be opened with 'b' included in |fopen| mode
+parameter.
+
+<?php >
+  $filename = "c:\\files\\somepic.gif";
+  $handle = fopen($filename, "rb");
+  $contents = fread($handle, filesize($filename));
+  fclose($handle);
+?>
+
+
+
+Remote |fread| examples When reading from anything that is not a regular local
+file, such as streams returned when reading remote files or from |popen| and
+|fsockopen|, reading will stop after a packet is available. This means that
+you should collect the data together in chunks as shown in the examples below.
+
+<?php >
+  // For PHP 5 and up
+  $handle = fopen("http://www.example.com/", "rb");
+  $contents = stream_get_contents($handle);
+  fclose($handle);
+?>
+
+<?php >
+  $handle = fopen("http://www.example.com/", "rb");
+  $contents = '';
+  while (!feof($handle)) {
+    $contents .= fread($handle, 8192);
+  }
+  fclose($handle);
+?>
+
+
+
+If you just want to get the contents of a file into a string, use
+|file_get_contents| as it has much better performance than the code above.
+
+Note that |fread| reads from the current position of the file pointer. Use
+|ftell| to find the current position of the pointer and |rewind| to rewind the
+pointer position.
+
+|fwrite| |fopen| |fsockopen| |popen| |fgets| |fgetss| |fscanf| |file|
+|fpassthru| |ftell| |rewind|
+
+vim:ft=help:

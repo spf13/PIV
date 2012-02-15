@@ -1,0 +1,12 @@
+newt_set_help_callback --
+
+  void newt_set_help_callback(mixed function)~
+
+This function is currently not documented; only its argument list is
+available.
+
+{function}
+
+No value is returned.
+
+vim:ft=help:

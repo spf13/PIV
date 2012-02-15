@@ -1,0 +1,12 @@
+ncurses_meta -- Enables/Disable 8-bit meta key information
+
+  int ncurses_meta(resource window, bool 8bit)~
+
+This function is currently not documented; only its argument list is
+available.
+
+{window}
+
+{8bit}
+
+vim:ft=help:

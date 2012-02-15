@@ -1,0 +1,36 @@
+mysqlnd_qc_set_user_handlers -- Sets the callback functions for a user-defined
+procedural storage handler
+
+  bool mysqlnd_qc_set_user_handlers(string get_hash, string find_query_in_cache, string return_to_cache, string add_query_to_cache_if_not_exists, string query_is_select, string update_query_run_time_stats, string get_stats, string clear_cache)~
+
+Sets the callback functions for a user-defined procedural storage handler.
+
+Name of the user function implementing the storage handler get_hash
+functionality.
+
+Name of the user function implementing the storage handler find_in_cache
+functionality.
+
+Name of the user function implementing the storage handler return_to_cache
+functionality.
+
+Name of the user function implementing the storage handler
+add_query_to_cache_if_not_exists functionality.
+
+Name of the user function implementing the storage handler query_is_select
+functionality.
+
+Name of the user function implementing the storage handler
+update_query_run_time_stats functionality.
+
+Name of the user function implementing the storage handler get_stats
+functionality.
+
+Name of the user function implementing the storage handler clear_cache
+functionality.
+
+Returns TRUE on success or FALSE on FAILURE.
+
+Procedural user-defined storage handler example
+
+vim:ft=help:

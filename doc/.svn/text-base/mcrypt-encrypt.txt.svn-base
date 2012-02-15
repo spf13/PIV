@@ -1,0 +1,54 @@
+mcrypt_encrypt -- Encrypts plaintext with given parameters
+
+  string mcrypt_encrypt(string cipher, string key, string data, string mode [, string iv])~
+
+Encrypts the data and returns it.
+
+{cipher} One of the MCRYPT_ciphername constants, or the name of the algorithm
+as string.
+
+{key} The key with which the data will be encrypted. If it's smaller than the
+required keysize, it is padded with '\0'. It is better not to use ASCII
+strings for keys.
+
+It is recommended to use the mhash functions to create a key from a string.
+
+{data} The data that will be encrypted with the given {cipher} and {mode}. If
+the size of the data is not n * blocksize, the data will be padded with '\0'.
+
+The returned crypttext can be larger than the size of the data that was given
+by {data}.
+
+{mode} One of the MCRYPT_MODE_modename constants, or one of the following
+strings: "ecb", "cbc", "cfb", "ofb", "nofb" or "stream".
+
+{iv} Used for the initialization in CBC, CFB, OFB modes, and in some
+algorithms in STREAM mode. If you do not supply an IV, while it is needed for
+an algorithm, the function issues a warning and uses an IV with all its bytes
+set to '\0'.
+
+Returns the encrypted data, as a string.
+
+|mcrypt_encrypt| Example
+
+<?php >
+      $iv_size = mcrypt_get_iv_size(MCRYPT_RIJNDAEL_256, MCRYPT_MODE_ECB);
+      $iv = mcrypt_create_iv($iv_size, MCRYPT_RAND);
+      $key = "This is a very secret key";
+      $text = "Meet me at 11 o'clock behind the monument.";
+      echo strlen($text) . "\n";
+  
+      $crypttext = mcrypt_encrypt(MCRYPT_RIJNDAEL_256, $key, $text, MCRYPT_MODE_ECB, $iv);
+      echo strlen($crypttext) . "\n";
+?>
+
+The above example will output:
+
+  42
+  64
+
+
+
+See also |mcrypt_module_open| for a more advanced API and an example.
+
+vim:ft=help:

@@ -1,0 +1,16 @@
+hw_GetText -- Retrieve text document
+
+  int hw_gettext(int connection, int objectID [, mixed rootID/prefix])~
+
+Returns the document with object ID {objectID}. If the document has anchors
+which can be inserted, they will be inserted already.
+
+This function will only work for pure text documents. It will not open a
+special data connection and therefore blocks the control connection during the
+transfer.
+
+{connection} The connection identifier.
+
+{objectID} The object identifier.
+
+vim:ft=help:

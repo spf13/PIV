@@ -1,0 +1,10 @@
+PDF_get_pdi_value -- Get PDI numerical parameter [deprecated]
+
+  float PDF_get_pdi_value(resource p, string key, int doc, int page, int reserved)~
+
+Gets the contents of a PDI document parameter with numerical type.
+
+This function is deprecated since PDFlib version 7, use |PDF_pcos_get_number|
+instead.
+
+vim:ft=help:

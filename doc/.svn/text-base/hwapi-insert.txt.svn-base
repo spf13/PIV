@@ -1,0 +1,28 @@
+hw_api->insert -- Inserts a new object
+
+  hw_api_object insert(array parameter)~
+
+Insert a new object. The object type can be user, group, document or anchor.
+Depending on the type other object attributes has to be set.
+
+{parameter} The parameter array contains the required elements 'object' and
+'content' (if the object is a document) and the optional parameters
+'parameters', 'mode' and 'attributeSelector'. The 'object' must contain all
+attributes of the object. 'parameters' is an object as well holding further
+attributes like the destination (attribute key is 'Parent'). 'content' is the
+content of the document. 'mode' can be a combination of the following flags:
+HW_API_INSERT_NORMAL The object in inserted into the server.
+
+HW_API_INSERT_FORCE_VERSION_CONTROL
+
+HW_API_INSERT_AUTOMATIC_CHECKOUT
+
+HW_API_INSERT_PLAIN
+
+HW_API_INSERT_KEEP_TIME_MODIFIED
+
+HW_API_INSERT_DELAY_INDEXING
+
+
+
+vim:ft=help:

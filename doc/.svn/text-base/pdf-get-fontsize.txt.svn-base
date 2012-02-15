@@ -1,0 +1,6 @@
+PDF_get_fontsize -- Font handling [deprecated]
+
+This function is deprecated since PDFlib version 3, use |PDF_get_value| with
+the parameter {fontsize}instead.
+
+vim:ft=help:

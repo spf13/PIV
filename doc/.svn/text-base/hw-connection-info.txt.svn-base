@@ -1,0 +1,11 @@
+hw_connection_info -- Prints information about the connection to Hyperwave
+server
+
+  void hw_connection_info(int link)~
+
+This function is currently not documented; only its argument list is
+available.
+
+
+
+vim:ft=help:

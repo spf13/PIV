@@ -1,0 +1,22 @@
+dbplus_aql -- Perform AQL query
+
+  resource dbplus_aql(string query [, string server [, string dbpath]])~
+
+Executes an AQL {query} on the given {server} and {dbpath}.
+
+{query} The AQL query to be executed. Further information on the AQL
+(Algebraic Query Language) is provided in the original db++ manual.
+
+{server}
+
+{dbpath}
+
+Returns a relation handle on success. The result data may be fetched from this
+relation by calling |dbplus_next| and |dbplus_curr|. Other relation access
+functions will not work on a result relation.
+
+This function is EXPERIMENTAL. The behaviour of this function, its name, and
+surrounding documentation may change without notice in a future release of
+PHP. This function should be used at your own risk.
+
+vim:ft=help:

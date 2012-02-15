@@ -1,0 +1,9 @@
+openal_source_create -- Generate a source resource
+
+  resource openal_source_create()~
+
+Returns an Open AL(Source) resource on success or FALSE on failure.
+
+|openal_source_set| |openal_source_play| |openal_source_destroy|
+
+vim:ft=help:

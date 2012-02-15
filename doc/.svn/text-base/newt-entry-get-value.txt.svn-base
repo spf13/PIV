@@ -1,0 +1,12 @@
+newt_entry_get_value --
+
+  string newt_entry_get_value(resource entry)~
+
+This function is currently not documented; only its argument list is
+available.
+
+{entry}
+
+
+
+vim:ft=help:

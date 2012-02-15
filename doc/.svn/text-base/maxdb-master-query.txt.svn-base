@@ -1,0 +1,9 @@
+maxdb_master_query -- Enforce execution of a query on the master in a
+master/slave setup
+
+  bool maxdb_master_query(resource link, string query)~
+
+This function is currently not documented; only its argument list is
+available.
+
+vim:ft=help:

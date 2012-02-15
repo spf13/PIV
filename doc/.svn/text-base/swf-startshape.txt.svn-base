@@ -1,0 +1,13 @@
+swf_startshape -- Start a complex shape
+
+  void swf_startshape(int objid)~
+
+Starts a complex shape.
+
+{objid} The object id.
+
+No value is returned.
+
+|swf_endshape|
+
+vim:ft=help:

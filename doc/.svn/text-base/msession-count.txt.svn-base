@@ -1,0 +1,8 @@
+msession_count -- Get session count
+
+  int msession_count()~
+
+This function is currently not documented; only its argument list is
+available.
+
+vim:ft=help:

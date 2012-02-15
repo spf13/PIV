@@ -1,0 +1,8 @@
+msession_get_array -- Get array of msession variables
+
+  array msession_get_array(string session)~
+
+This function is currently not documented; only its argument list is
+available.
+
+vim:ft=help:

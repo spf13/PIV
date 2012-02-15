@@ -1,0 +1,5 @@
+mysqli_escape_string -- Alias of mysqli_real_escape_string
+
+This function is an alias of: |mysqli_real_escape_string|.
+
+vim:ft=help:

@@ -1,0 +1,45 @@
+printer_list -- Return an array of printers attached to the server
+
+  array printer_list(int enumtype [, string name [, int level]])~
+
+The function enumerates available printers and their capabilities.
+
+{enumtype} {enumtype} must be one of the following predefined constants:
+PRINTER_ENUM_LOCAL: enumerates the locally installed printers.
+
+PRINTER_ENUM_NAME: enumerates the printer of {name}, can be a server, domain
+or print provider.
+
+PRINTER_ENUM_SHARED: this parameter can't be used alone, it has to be OR'ed
+with other parameters, i.e. PRINTER_ENUM_LOCAL to detect the locally shared
+printers.
+
+PRINTER_ENUM_DEFAULT: (Win9.x only) enumerates the default printer.
+
+PRINTER_ENUM_CONNECTIONS: (WinNT/2000 only) enumerates the printers to which
+the user has made connections.
+
+PRINTER_ENUM_NETWORK: (WinNT/2000 only) enumerates network printers in the
+computer's domain. Only valid if {level} is 1.
+
+PRINTER_ENUM_REMOTE: (WinNT/2000 only) enumerates network printers and print
+servers in the computer's domain. Only valid if {level} is 1.
+
+{name} Used with PRINTER_ENUM_NAME.
+
+{level} {level} sets the level of information request. Can be 1,2,4 or 5.
+
+Return an array of printers.
+
+|printer_list| example
+
+<?php >
+  /* detect locally shared printer */
+  var_dump(printer_list(PRINTER_ENUM_LOCAL | PRINTER_ENUM_SHARED));
+?>
+
+
+
+
+
+vim:ft=help:

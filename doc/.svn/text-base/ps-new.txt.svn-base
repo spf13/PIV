@@ -1,0 +1,14 @@
+ps_new -- Creates a new PostScript document object
+
+  resource ps_new()~
+
+Creates a new document instance. It does not create the file on disk or in
+memory, it just sets up everything. |ps_new| is usually followed by a call of
+|ps_open_file| to actually create the postscript document.
+
+Resource of PostScript document or FALSE on failure. The return value is
+passed to all other functions as the first argument.
+
+|ps_delete|
+
+vim:ft=help:

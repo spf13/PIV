@@ -1,0 +1,15 @@
+ssdeep_fuzzy_compare -- Calculates the match score between two fuzzy hash
+signatures
+
+  int ssdeep_fuzzy_compare(string signature1, string signature2)~
+
+Calculates the match score between {signature1} and {signature2} using
+context-triggered piecewise hashing, and returns the match score.
+
+The first fuzzy hash signature string.
+
+The second fuzzy hash signature string.
+
+Returns an integer from 0 to 100 on success, FALSE otherwise.
+
+vim:ft=help:

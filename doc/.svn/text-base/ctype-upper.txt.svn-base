@@ -1,0 +1,36 @@
+ctype_upper -- Check for uppercase character(s)
+
+  bool ctype_upper(string text)~
+
+Checks if all of the characters in the provided string, {text}, are uppercase
+characters.
+
+{text} The tested string.
+
+Returns TRUE if every character in {text} is an uppercase letter in the
+current locale.
+
+A |ctype_upper| example (using the default locale)
+
+<?php >
+  $strings = array('AKLWC139', 'LMNSDO', 'akwSKWsm');
+  foreach ($strings as $testcase) {
+      if (ctype_upper($testcase)) {
+          echo "The string $testcase consists of all uppercase letters.\n";
+      } else {
+          echo "The string $testcase does not consist of all uppercase letters.\n";
+      }
+  }
+?>
+
+The above example will output:
+
+  The string AKLWC139 does not consist of all uppercase letters.
+  The string LMNSDO consists of all uppercase letters.
+  The string akwSKWsm does not consist of all uppercase letters.
+
+
+
+|ctype_alpha| |ctype_lower| |setlocale|
+
+vim:ft=help:

@@ -1,0 +1,11 @@
+OCI-Lob->load -- Returns large object's contents
+
+  string load()~
+
+Returns large object's contents. As script execution is terminated when the
+memory_limit is reached, ensure that the LOB does not exceed this limit. In
+most cases it's recommended to use instead.
+
+Returns the contents of the object, or FALSE on errors.
+
+vim:ft=help:

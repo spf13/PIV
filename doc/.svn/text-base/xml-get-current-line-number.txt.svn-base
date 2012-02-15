@@ -1,0 +1,14 @@
+xml_get_current_line_number -- Get current line number for an XML parser
+
+  int xml_get_current_line_number(resource parser)~
+
+Gets the current line number for the given XML parser.
+
+{parser} A reference to the XML parser to get line number from.
+
+This function returns FALSE if {parser} does not refer to a valid parser, or
+else it returns which line the parser is currently at in its data buffer.
+
+|xml_get_current_column_number| |xml_get_current_byte_index|
+
+vim:ft=help:

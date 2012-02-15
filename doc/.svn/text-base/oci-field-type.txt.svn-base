@@ -1,0 +1,57 @@
+oci_field_type -- Returns field's data type
+
+  mixed oci_field_type(resource statement, int field)~
+
+Returns a field's data type.
+
+{statement} A valid OCI statement identifier.
+
+{field} Can be the field's index (1-based) or name.
+
+Returns the field data type as a string, or FALSE on errors.
+
+|oci_field_type| example
+
+<?php >
+  $conn = oci_connect("scott", "tiger");
+  $stmt = oci_parse($conn, "SELECT * FROM emp");
+  oci_execute($stmt);
+  
+  echo "<table border=\"1\">";
+  echo "<tr>";
+  echo "<th>Name</th>";
+  echo "<th>Type</th>";
+  echo "<th>Length</th>";
+  echo "</tr>";
+  
+  $ncols = oci_num_fields($stmt);
+  
+  for ($i = 1; $i <= $ncols; $i++) {
+      $column_name  = oci_field_name($stmt, $i);
+      $column_type  = oci_field_type($stmt, $i);
+      $column_size  = oci_field_size($stmt, $i);
+  
+      echo "<tr>";
+      echo "<td>$column_name</td>";
+      echo "<td>$column_type</td>";
+      echo "<td>$column_size</td>";
+      echo "</tr>";
+  }
+  
+  echo "</table>\n";
+  
+  oci_free_statement($stmt);
+  oci_close($conn);
+?>
+
+
+
+
+
+In PHP versions before 5.0.0 you must use |ocicolumntype| instead. This name
+still can be used, it was left as alias of |oci_field_type| for downwards
+compatability. This, however, is deprecated and not recommended.
+
+|oci_num_fields| |oci_field_name| |oci_field_size|
+
+vim:ft=help:

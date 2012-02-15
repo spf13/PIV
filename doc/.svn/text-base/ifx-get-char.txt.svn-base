@@ -1,0 +1,13 @@
+ifx_get_char -- Return the content of the char object
+
+  string ifx_get_char(int bid)~
+
+Returns the content of the char object.
+
+{bid} The char object-id.
+
+Returns the contents as a string, or FALSE on errors.
+
+|ifx_get_blob|
+
+vim:ft=help:

@@ -1,0 +1,14 @@
+hwapi_hgcsp -- Returns object of class hw_api
+
+  HW_API hwapi_hgcsp(string hostname [, int port])~
+
+Opens a connection to the Hyperwave server on host {hostname}. The protocol
+used is HGCSP.
+
+{hostname} The host name.
+
+{port} If you do not pass a port number, 418 is used.
+
+Returns an instance of HW_API.
+
+vim:ft=help:

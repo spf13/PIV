@@ -1,0 +1,17 @@
+px_set_tablename -- Sets the name of a table (deprecated)
+
+  void px_set_tablename(resource pxdoc, string name)~
+
+Sets the table name of a paradox database, which was created with
+|px_create_fp|. This function is deprecated use |px_set_parameter| instead.
+
+{pxdoc} Resource identifier of the paradox database as returned by |px_new|.
+
+{tablename} The name of the table. If it is not set explicitly it will be set
+to the name of the database file.
+
+Returns NULL on success or FALSE on failure.
+
+|px_set_parameter|
+
+vim:ft=help:

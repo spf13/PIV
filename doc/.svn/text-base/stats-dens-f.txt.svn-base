@@ -1,0 +1,16 @@
+stats_dens_f --
+
+  float stats_dens_f(float x, float dfr1, float dfr2)~
+
+This function is currently not documented; only its argument list is
+available.
+
+{x}
+
+{dfr1}
+
+{dfr2}
+
+
+
+vim:ft=help:

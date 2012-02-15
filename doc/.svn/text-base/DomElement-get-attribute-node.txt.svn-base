@@ -1,0 +1,34 @@
+DomElement->get_attribute_node -- Returns the node of the given attribute
+
+  DomAttribute get_attribute_node(string name)~
+
+Returns the node of the given attribute in the current element.
+
+{name} The name of the seeked attribute. This parameter is case sensitive.
+
+Returns the node of the attribute as a DomAttribute or FALSE if no attribute
+with the given {name} is found.
+
+Getting an attribute node
+
+<?php >
+  include("example.inc");
+  
+  if (!$dom = domxml_open_mem($xmlstr)) {
+      echo "Error while parsing the document\n";
+      exit;
+  }
+  
+  $root = $dom->document_element();
+  if ($attribute = $root->get_attribute_node('language')) {
+      echo 'Language is: ' . $attribute->value() . "\n";
+  }
+?>
+
+
+
+
+
+Use .
+
+vim:ft=help:

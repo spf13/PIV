@@ -1,0 +1,65 @@
+array_diff_ukey -- Computes the difference of arrays using a callback function
+on the keys for comparison
+
+  array array_diff_ukey(array array1, array array2 [, array ..., callback key_compare_func])~
+
+Compares the keys from {array1} against the keys from {array2} and returns the
+difference. This function is like |array_diff| except the comparison is done
+on the keys instead of the values.
+
+Unlike |array_diff_key| an user supplied callback function is used for the
+indices comparison, not internal function.
+
+{array1} The array to compare from
+
+{array2} An array to compare against
+
+{...} More arrays to compare against
+
+{key_compare_func} callback function to use. The callback function must return
+an integer less than, equal to, or greater than zero if the first argument is
+considered to be respectively less than, equal to, or greater than the second.
+
+Returns an array containing all the entries from {array1} that are not present
+in any of the other arrays.
+
+|array_diff_ukey| example
+
+<?php >
+  function key_compare_func($key1, $key2)
+  {
+      if ($key1 == $key2)
+          return 0;
+      else if ($key1 > $key2)
+          return 1;
+      else
+          return -1;
+  }
+  
+  $array1 = array('blue'  => 1, 'red'  => 2, 'green'  => 3, 'purple' => 4);
+  $array2 = array('green' => 5, 'blue' => 6, 'yellow' => 7, 'cyan'   => 8);
+  
+  var_dump(array_diff_ukey($array1, $array2, 'key_compare_func'));
+?>
+
+The above example will output:
+
+  array(2) {
+    ["red"]=>
+    int(2)
+    ["purple"]=>
+    int(4)
+  }
+
+
+
+This function only checks one dimension of a n-dimensional array. Of course
+you can check deeper dimensions by using array_diff_ukey($array1[0],
+$array2[0], 'callback_func');.
+
+|array_diff| |array_udiff| |array_diff_assoc| |array_diff_uassoc|
+|array_udiff_assoc| |array_udiff_uassoc| |array_diff_key| |array_intersect|
+|array_intersect_assoc| |array_intersect_uassoc| |array_intersect_key|
+|array_intersect_ukey|
+
+vim:ft=help:

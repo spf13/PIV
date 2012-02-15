@@ -1,0 +1,22 @@
+mb_split -- Split multibyte string using regular expression
+
+  array mb_split(string pattern, string string [, int limit])~
+
+Split a multibyte {string} using regular expression {pattern} and returns the
+result as an array.
+
+{pattern} The regular expression pattern.
+
+{string} The string being split.
+
+{limit} If optional parameter {limit} is specified, it will be split in
+{limit} elements as maximum.
+
+The result as an array.
+
+The internal encoding or the character encoding specified by
+|mb_regex_encoding| will be used as the character encoding for this function.
+
+|mb_regex_encoding| |mb_ereg|
+
+vim:ft=help:

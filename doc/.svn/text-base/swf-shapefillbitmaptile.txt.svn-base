@@ -1,0 +1,13 @@
+swf_shapefillbitmaptile -- Set current fill mode to tiled bitmap
+
+  void swf_shapefillbitmaptile(int bitmapid)~
+
+Sets the fill to bitmap tile, empty spaces will be filled by the bitmap.
+
+{bitmapid} The bitmap id.
+
+No value is returned.
+
+|swf_shapefillbitmapclip|
+
+vim:ft=help:

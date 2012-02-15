@@ -1,0 +1,21 @@
+ncurses_mvhline -- Set new position and draw a horizontal line using an
+attributed character and max. n characters long
+
+  int ncurses_mvhline(int y, int x, int attrchar, int n)~
+
+This function is EXPERIMENTAL. The behaviour of this function, its name, and
+surrounding documentation may change without notice in a future release of
+PHP. This function should be used at your own risk.
+
+This function is currently not documented; only its argument list is
+available.
+
+{y}
+
+{x}
+
+{attrchar}
+
+{n}
+
+vim:ft=help:

@@ -1,0 +1,48 @@
+dbase_get_record_with_names -- Gets a record from a database as an associative
+array
+
+  array dbase_get_record_with_names(int dbase_identifier, int record_number)~
+
+Gets a record from a dBase database as an associative array.
+
+{dbase_identifier} The database link identifier, returned by |dbase_open| or
+|dbase_create|.
+
+{record_number} The index of the record.
+
+An associative array with the record. This will also include a key named
+deleted which is set to 1 if the record has been marked for deletion (see
+|dbase_delete_record|).
+
+Each field is converted to the appropriate PHP type, except: Dates are left as
+strings.
+
+Integers that would have caused an overflow (> 32 bits) are returned as
+strings.
+
+On error, |dbase_get_record_with_names| will return FALSE.
+
+Listing all the registered members in the database
+
+<?php >
+  // open in read-only mode
+  $db = dbase_open('/tmp/test.dbf', 0);
+  
+  if ($db) {
+    $record_numbers = dbase_numrecords($db);
+    for ($i = 1; $i <= $record_numbers; $i++) {
+        $row = dbase_get_record_with_names($db, $i);
+        if ($row['ismember'] == 1) {
+            echo "Member #$i: " . trim($row['name']) . "\n";
+        }
+    }
+  }
+?>
+
+
+
+
+
+|dbase_get_record|
+
+vim:ft=help:

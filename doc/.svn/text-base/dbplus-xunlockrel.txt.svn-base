@@ -1,0 +1,15 @@
+dbplus_xunlockrel -- Free exclusive lock on relation
+
+  int dbplus_xunlockrel(resource relation)~
+
+Releases an exclusive lock previously obtained by |dbplus_xlockrel|.
+
+{relation} A relation opened by |dbplus_open|.
+
+
+
+This function is EXPERIMENTAL. The behaviour of this function, its name, and
+surrounding documentation may change without notice in a future release of
+PHP. This function should be used at your own risk.
+
+vim:ft=help:

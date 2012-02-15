@@ -1,0 +1,125 @@
+call_user_func -- Call a user function given by the first parameter
+
+  mixed call_user_func(callback function [, mixed parameter [, mixed ...]])~
+
+Call a user defined function given by the {function} parameter.
+
+{function} The function to be called. Class methods may also be invoked
+statically using this function by passing array($classname, $methodname) to
+this parameter. Additionally class methods of an object instance may be called
+by passing array($objectinstance, $methodname) to this parameter.
+
+{parameter} Zero or more parameters to be passed to the function.
+
+Note that the parameters for |call_user_func| are not passed by reference.
+|call_user_func| example and references
+
+<?php >
+  error_reporting(E_ALL);
+  function increment(&amp;$var)
+  {
+      $var++;
+  }
+  
+  $a = 0;
+  call_user_func('increment', $a);
+  echo $a."\n";
+  
+  call_user_func_array('increment', array(&amp;$a)); // You can use this instead before PHP 5.3
+  echo $a."\n";
+?>
+
+The above example will output:
+
+  0
+  1
+
+
+
+Returns the function result, or FALSE on error.
+
+Version Description 5.3.0 The interpretation of object oriented keywords like
+parent and self has changed. Previously, calling them using the double colon
+syntax would emit an E_STRICT warning because they were interpreted as static.
+
+|call_user_func| example
+
+<?php >
+  function barber($type)
+  {
+      echo "You wanted a $type haircut, no problem\n";
+  }
+  call_user_func('barber', "mushroom");
+  call_user_func('barber', "shave");
+?>
+
+The above example will output:
+
+  You wanted a mushroom haircut, no problem
+  You wanted a shave haircut, no problem
+
+|call_user_func| using namespace name
+
+<?php >
+  namespace Foobar;
+  
+  class Foo {
+      static public function test() {
+          print "Hello world!\n";
+      }
+  }
+  
+  call_user_func(__NAMESPACE__ .'\Foo::test'); // As of PHP 5.3.0
+  call_user_func(array(__NAMESPACE__ .'\Foo', 'test')); // As of PHP 5.3.0
+?>
+
+The above example will output:
+
+  Hello world!
+  Hello world!
+
+Using a class method with |call_user_func|
+
+<?php >
+  class myclass {
+      static function say_hello()
+      {
+          echo "Hello!\n";
+      }
+  }
+  
+  $classname = "myclass";
+  
+  call_user_func(array($classname, 'say_hello'));
+  call_user_func($classname .'::say_hello'); // As of 5.2.3
+  
+  $myobject = new myclass();
+  
+  call_user_func(array($myobject, 'say_hello'));
+?>
+
+The above example will output:
+
+  Hello!
+  Hello!
+  Hello!
+
+Using lambda function with |call_user_func|
+
+<?php >
+  call_user_func(function($arg) { print "[$arg]\n"; }, 'test'); /* As of PHP 5.3.0 */
+?>
+
+The above example will output:
+
+  [test]
+
+
+
+Callbacks registered with functions such as |call_user_func| and
+|call_user_func_array| will not be called if there is an uncaught exception
+thrown in a previous callback.
+
+|call_user_func_array| |is_callable| information about the callback type
+
+vim:ft=help:

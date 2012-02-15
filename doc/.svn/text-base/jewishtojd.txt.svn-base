@@ -1,0 +1,21 @@
+JewishToJD -- Converts a date in the Jewish Calendar to Julian Day Count
+
+  int jewishtojd(int month, int day, int year)~
+
+Although this function can handle dates all the way back to the year 1 (3761
+B.C.), such use may not be meaningful. The Jewish calendar has been in use for
+several thousand years, but in the early days there was no formula to
+determine the start of a month. A new month was started when the new moon was
+first observed.
+
+{month} The month as a number from 1 to 13
+
+{day} The day as a number from 1 to 30
+
+{year} The year as a number between 1 and 9999
+
+The julian day for the given jewish date as an integer.
+
+|jdtojewish| |cal_to_jd|
+
+vim:ft=help:

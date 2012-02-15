@@ -1,0 +1,17 @@
+newt_centered_window -- Open a centered window of the specified size
+
+  int newt_centered_window(int width, int height [, string title])~
+
+Open a centered window of the specified size.
+
+{width} Window width
+
+{height} Window height
+
+{title} Window title
+
+Undefined value.
+
+|newt_pop_window| |newt_open_window|
+
+vim:ft=help:

@@ -1,0 +1,20 @@
+openssl_x509_parse -- Parse an X509 certificate and return the information as
+an array
+
+  array openssl_x509_parse(mixed x509cert [, bool shortnames])~
+
+|openssl_x509_parse| returns information about the supplied {x509cert},
+including fields such as subject name, issuer name, purposes, valid from and
+valid to dates etc.
+
+{x509cert}
+
+{shortnames} {shortnames} controls how the data is indexed in the array - if
+{shortnames} is TRUE (the default) then fields will be indexed with the short
+name form, otherwise, the long name form will be used - e.g.: CN is the
+shortname form of commonName.
+
+The structure of the returned data is (deliberately) not yet documented, as it
+is still subject to change.
+
+vim:ft=help:

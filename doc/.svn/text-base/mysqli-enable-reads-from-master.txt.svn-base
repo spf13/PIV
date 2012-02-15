@@ -1,0 +1,10 @@
+mysqli_enable_reads_from_master -- Enable reads from master
+
+  bool mysqli_enable_reads_from_master(mysqli link)~
+
+This function is currently not documented; only its argument list is
+available.
+
+This function has been DEPRECATED and REMOVED as of PHP 5.3.0.
+
+vim:ft=help:

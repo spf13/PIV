@@ -1,0 +1,13 @@
+ob_clean -- Clean (erase) the output buffer
+
+  void ob_clean()~
+
+This function discards the contents of the output buffer.
+
+This function does not destroy the output buffer like |ob_end_clean| does.
+
+No value is returned.
+
+|ob_flush| |ob_end_flush| |ob_end_clean|
+
+vim:ft=help:

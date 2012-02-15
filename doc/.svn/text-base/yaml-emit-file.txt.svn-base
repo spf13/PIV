@@ -1,0 +1,22 @@
+yaml_emit_file -- Send the YAML representation of a value to a file
+
+  bool yaml_emit_file(string filename, mixed data [, int encoding [, int linebreak]])~
+
+Generate a YAML representation of the provided {data} in the {filename}.
+
+{filename} Path to the file.
+
+{data} The {data} being encoded. Can be any type except a resource.
+
+{encoding} Output character encoding chosen from YAML_ANY_ENCODING,
+YAML_UTF8_ENCODING, YAML_UTF16LE_ENCODING, YAML_UTF16BE_ENCODING. Defaults to
+YAML_ANY_ENCODING.
+
+{linebreak} Output linebreak style chosen from YAML_ANY_BREAK, YAML_CR_BREAK,
+YAML_LN_BREAK, YAML_CRLN_BREAK. Defaults to YAML_ANY_BREAK.
+
+Returns TRUE on success.
+
+|yaml_emit| |yaml_parse|
+
+vim:ft=help:

@@ -1,0 +1,27 @@
+DomXsltStylesheet->result_dump_mem -- Dumps the result from a
+XSLT-Transformation back into a string
+
+  string result_dump_mem(DomDocument xmldoc)~
+
+Since always returns a well-formed XML DomDocument, no matter what output
+method was declared in <xsl:output> and similar attributes/elements, it's of
+not much use, if you want to output HTML 4 or text data.
+
+This function on the contrary honors <xsl:output method="html|text"> and other
+output control directives. See the example for instruction on how to use it.
+
+Outputting the result of a XSLT transformation
+
+<?php >
+  $filename = "stylesheet.xsl";
+  $xmldoc = domxml_open_file("data.xml");
+  $xsldoc = domxml_xslt_stylesheet_file($filename);
+  $result =  $xsldoc->process($xmldoc);
+  echo $xsldoc->result_dump_mem($result);     
+?>
+
+
+
+
+
+vim:ft=help:

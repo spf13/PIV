@@ -1,0 +1,5 @@
+stream_register_wrapper -- Alias of stream_wrapper_register
+
+This function is an alias of: |stream_wrapper_register|.
+
+vim:ft=help:

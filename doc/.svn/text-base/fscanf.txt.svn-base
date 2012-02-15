@@ -1,0 +1,59 @@
+fscanf -- Parses input from a file according to a format
+
+  mixed fscanf(resource handle, string format [, mixed ...])~
+
+The function |fscanf| is similar to |sscanf|, but it takes its input from a
+file associated with {handle} and interprets the input according to the
+specified {format}, which is described in the documentation for |sprintf|.
+
+Any whitespace in the format string matches any whitespace in the input
+stream. This means that even a tab \t in the format string can match a single
+space character in the input stream.
+
+Each call to |fscanf| reads one line from the file.
+
+{handle} A file system pointer resource that is typically created using
+|fopen|.
+
+{format} The specified format as described in the |sprintf| documentation.
+
+{...} The optional assigned values.
+
+If only two parameters were passed to this function, the values parsed will be
+returned as an array. Otherwise, if optional parameters are passed, the
+function will return the number of assigned values. The optional parameters
+must be passed by reference.
+
+Version Description 4.3.0 Before this time, the maximum number of characters
+read from the file was 512 (or up to the first \n, whichever came first). But
+now, arbitrarily long lines will be read and scanned.
+
+|fscanf| Example
+
+<?php >
+  $handle = fopen("users.txt", "r");
+  while ($userinfo = fscanf($handle, "%s\t%s\t%s\n")) {
+      list ($name, $profession, $countrycode) = $userinfo;
+      //... do something with the values
+  }
+  fclose($handle);
+?>
+
+
+
+
+
+Contents of users.txt
+
+  javier  argonaut        pe
+  hiroshi sculptor        jp
+  robert  slacker us
+  luigi   florist it
+
+
+
+
+
+|fread| |fgets| |fgetss| |sscanf| |printf| |sprintf|
+
+vim:ft=help:

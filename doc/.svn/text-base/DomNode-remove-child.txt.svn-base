@@ -1,0 +1,36 @@
+DomNode->remove_child -- Removes child from list of children
+
+  domtext DomNode->remove_child(domtext oldchild)~
+
+This functions removes a child from a list of children. If child cannot be
+removed or is not a child the function will return FALSE. If the child could
+be removed the functions returns the old child.
+
+Removing a child
+
+<?php >
+  include("example.inc");
+  
+  if (!$dom = domxml_open_mem($xmlstr)) {
+    echo "Error while parsing the document\n";
+    exit;
+  }
+  
+  $elements = $dom->get_elements_by_tagname("tbody");
+  $element = $elements[0];
+  $children = $element->child_nodes();
+  $child = $element->remove_child($children[0]);
+  
+  echo "<PRE>";
+  $xmlfile = $dom->dump_mem(true);
+  echo htmlentities($xmlfile);
+  echo "</PRE>";
+?>
+
+
+
+
+
+See also |domnode_append_child|.
+
+vim:ft=help:

@@ -1,0 +1,24 @@
+ps_string_geometry -- Gets geometry of a string
+
+  array ps_string_geometry(resource psdoc, string text [, int fontid [, float size]])~
+
+This function is similar to |ps_stringwidth| but returns an array of
+dimensions containing the width, ascender, and descender of the text.
+
+{psdoc} Resource identifier of the postscript file as returned by |ps_new|.
+
+{text} The text for which the geometry is to be calculated.
+
+{fontid} The identifier of the font to be used. If not font is specified the
+current font will be used.
+
+{size} The size of the font. If no size is specified the current size is used.
+
+An array of the dimensions of a string. The element 'width' contains the width
+of the string as returned by |ps_stringwidth|. The element 'descender'
+contains the maximum descender and 'ascender' the maximum ascender of the
+string.
+
+|ps_continue_text| |ps_stringwidth|
+
+vim:ft=help:

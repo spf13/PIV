@@ -1,0 +1,8 @@
+fdf_get_opt -- Gets a value from the opt array of a field
+
+  mixed fdf_get_opt(resource fdf_document, string fieldname [, int element])~
+
+This function is currently not documented; only its argument list is
+available.
+
+vim:ft=help:

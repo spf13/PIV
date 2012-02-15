@@ -1,0 +1,9 @@
+hw_api_error->count -- Returns number of reasons
+
+  int count()~
+
+Returns the number of error reasons.
+
+Returns the number of errors, as an integer.
+
+vim:ft=help:

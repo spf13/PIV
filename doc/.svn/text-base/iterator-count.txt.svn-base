@@ -1,0 +1,24 @@
+iterator_count -- Count the elements in an iterator
+
+  int iterator_count(Traversable iterator)~
+
+Count the elements in an iterator.
+
+{iterator} The iterator being counted.
+
+The number of elements in {iterator}.
+
+|iterator_count| example
+
+<?php >
+  $iterator = new ArrayIterator(array('recipe'=>'pancakes', 'egg', 'milk', 'flour'));
+  var_dump(iterator_count($iterator));
+?>
+
+The above example will output:
+
+  int(4)
+
+
+
+vim:ft=help:

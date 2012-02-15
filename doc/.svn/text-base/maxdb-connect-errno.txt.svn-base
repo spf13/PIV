@@ -1,0 +1,36 @@
+maxdb_connect_errno -- Returns the error code from last connect call
+
+  int maxdb_connect_errno()~
+
+The |maxdb_connect_errno| function will return the last error code number for
+last call to |maxdb_connect|. If no errors have occured, this function will
+return zero.
+
+An error code value for the last call to |maxdb_connect|, if it failed. zero
+means no error occurred.
+
+maxdb_connect_errno sample
+
+<?php >
+  $link = maxdb_connect("localhost", "XXXXXXXX", "YYYYYYYYY");
+  
+  if (!$link) {
+     printf("Can't connect to localhost. Errorcode: %d\n", maxdb_connect_errno());
+  }
+?>
+
+
+
+
+
+The above example will output something similar to:
+
+
+
+  PHP Warning:  maxdb_connect(): -4008 POS(1) Unknown user name/password combination [08004] <...>
+  Can't connect to localhost. Errorcode: -4008
+
+|maxdb_connect| |maxdb_connect_error| |maxdb_errno| |maxdb_error|
+|maxdb_sqlstate|
+
+vim:ft=help:

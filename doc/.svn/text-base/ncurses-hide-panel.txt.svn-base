@@ -1,0 +1,10 @@
+ncurses_hide_panel -- Remove panel from the stack, making it invisible
+
+  int ncurses_hide_panel(resource panel)~
+
+This function is currently not documented; only its argument list is
+available.
+
+{panel}
+
+vim:ft=help:

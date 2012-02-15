@@ -1,0 +1,48 @@
+tidy_access_count -- Returns the Number of Tidy accessibility warnings
+encountered for specified document
+
+  int tidy_access_count(tidy object)~
+
+|tidy_access_count| returns the number of accessibility warnings found for the
+specified document.
+
+{object} The Tidy object.
+
+Returns the number of warnings.
+
+|tidy_access_count| example
+
+<?php >
+  $html ='<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+  <html><head><title>Title</title></head>
+  <body>
+  
+  <p><img src="img.png"></p>
+  
+  </body></html>';
+  
+  
+  // select the accessibility check level: 1, 2 or 3
+  $config = array('accessibility-check' => 3);
+  
+  $tidy = new tidy();
+  $tidy->parseString($html, $config);
+  $tidy->cleanRepair();
+  
+  /* Never forget to call this! */
+  $tidy->diagnose();
+  
+  echo tidy_access_count($tidy); //5
+?>
+
+
+
+
+
+Due to the design of the TidyLib, you must call |tidy_diagnose| before
+|tidy_access_count| or it will return always 0. You must also need to enable
+the accessibility-check option.
+
+|tidy_error_count| |tidy_warning_count|
+
+vim:ft=help:

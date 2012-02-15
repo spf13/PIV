@@ -1,0 +1,39 @@
+Swish::__construct -- Construct a Swish object
+
+  void Swish::__construct(string index_names)~
+
+This function is EXPERIMENTAL. The behaviour of this function, its name, and
+surrounding documentation may change without notice in a future release of
+PHP. This function should be used at your own risk.
+
+{index_names} The list of index files separated by spaces.
+
+No value is returned.
+
+Throws SwishException on error.
+
+A |Swish::__construct| example
+
+<?php >
+  try {
+      $swish = new Swish("index1 index2");
+  } catch (SwishException $e) {
+      echo $e->getMessage(), "\n";
+  }
+  
+  foreach ($swish->indexes as $index) {
+      var_dump($index["name"]);
+      var_dump($index["headers"]["Total Words"]);
+  }
+?>
+
+The above example will output something similar to:
+
+  string(6) "index1"
+  int(1888)
+  string(6) "index2"
+  int(2429)
+
+
+
+vim:ft=help:

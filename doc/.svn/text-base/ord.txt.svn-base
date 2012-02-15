@@ -1,0 +1,28 @@
+ord -- Return ASCII value of character
+
+  int ord(string string)~
+
+Returns the ASCII value of the first character of {string}.
+
+This function complements |chr|.
+
+{string} A character.
+
+Returns the ASCII value as an integer.
+
+|ord| example
+
+<?php >
+  $str = "\n";
+  if (ord($str) == 10) {
+      echo "The first character of \$str is a line feed.\n";
+  }
+?>
+
+
+
+
+
+|chr| An ASCII-table
+
+vim:ft=help:

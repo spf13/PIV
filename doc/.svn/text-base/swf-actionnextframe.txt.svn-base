@@ -1,0 +1,11 @@
+swf_actionnextframe -- Go forward one frame
+
+  void swf_actionnextframe()~
+
+Go forward one frame.
+
+No value is returned.
+
+|swf_actionprevframe|
+
+vim:ft=help:

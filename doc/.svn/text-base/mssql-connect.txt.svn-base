@@ -1,0 +1,48 @@
+mssql_connect -- Open MS SQL server connection
+
+  resource mssql_connect([string servername [, string username [, string password [, bool new_link]]]])~
+
+|mssql_connect| establishes a connection to a MS SQL server.
+
+The link to the server will be closed as soon as the execution of the script
+ends, unless it's closed earlier by explicitly calling |mssql_close|.
+
+{servername} The MS SQL server. It can also include a port number, e.g.
+hostname:port (Linux), or hostname,port (Windows).
+
+{username} The username.
+
+{password} The password.
+
+{new_link} If a second call is made to |mssql_connect| with the same
+arguments, no new link will be established, but instead, the link identifier
+of the already opened link will be returned. This parameter modifies this
+behavior and makes |mssql_connect| always open a new link, even if
+|mssql_connect| was called before with the same parameters.
+
+Returns a MS SQL link identifier on success, or FALSE on error.
+
+Version Description 4.4.1 and 5.1.0 The {new_link} parameter was added
+
+|mssql_connect| example
+
+<?php >
+  // Server in the this format: <computer>\<instance name> or 
+  // <server>,<port> when using a non default port number
+  $server = 'KALLESPC\SQLEXPRESS';
+  
+  // Connect to MSSQL
+  $link = mssql_connect($server, 'sa', 'phpfi');
+  
+  if (!$link) {
+      die('Something went wrong while connecting to MSSQL');
+  }
+?>
+
+
+
+
+
+|mssql_close| |mssql_pconnect|
+
+vim:ft=help:

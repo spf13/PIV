@@ -1,0 +1,15 @@
+pcntl_wtermsig -- Returns the signal which caused the child to terminate
+
+  int pcntl_wtermsig(int status)~
+
+Returns the number of the signal that caused the child process to terminate.
+This function is only useful if |pcntl_wifsignaled| returned TRUE.
+
+{status} The {status} parameter is the status parameter supplied to a
+successful call to |pcntl_waitpid|.
+
+Returns the signal number, as an integer.
+
+|pcntl_waitpid| |pcntl_signal| |pcntl_wifsignaled|
+
+vim:ft=help:

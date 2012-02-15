@@ -1,0 +1,46 @@
+oci_num_rows -- Returns number of rows affected during statement execution
+
+  int oci_num_rows(resource statement)~
+
+Gets the number of rows affected during statement execution.
+
+{statement} A valid OCI statement identifier.
+
+Returns the number of rows affected as an integer, or FALSE on errors.
+
+|oci_num_rows| example
+
+<?php >
+  $conn = oci_connect("scott", "tiger");
+  
+  $stmt = oci_parse($conn, "create table emp2 as select * from emp");
+  oci_execute($stmt);
+  echo oci_num_rows($stmt) . " rows inserted.<br />";
+  oci_free_statement($stmt);
+  
+  $stmt = oci_parse($conn, "delete from emp2");
+  oci_execute($stmt, OCI_DEFAULT);
+  echo oci_num_rows($stmt) . " rows deleted.<br />";
+  oci_commit($conn);
+  oci_free_statement($stmt);
+  
+  $stmt = oci_parse($conn, "drop table emp2");
+  oci_execute($stmt);
+  oci_free_statement($stmt);
+  
+  oci_close($conn);
+?>
+
+
+
+
+
+This function does not return number of rows selected! For SELECT statements
+this function will return the number of rows, that were fetched to the buffer
+with |oci_fetch*| functions.
+
+In PHP versions before 5.0.0 you must use |ocirowcount| instead. This name
+still can be used, it was left as alias of |oci_num_rows| for downwards
+compatability. This, however, is deprecated and not recommended.
+
+vim:ft=help:

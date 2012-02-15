@@ -1,0 +1,16 @@
+ncurses_def_prog_mode -- Saves terminals (program) mode
+
+  bool ncurses_def_prog_mode()~
+
+This function is EXPERIMENTAL. The behaviour of this function, its name, and
+surrounding documentation may change without notice in a future release of
+PHP. This function should be used at your own risk.
+
+Saves the current terminal modes for program (in curses) for use by
+|ncurses_reset_prog_mode|.
+
+Returns FALSE on success, otherwise TRUE.
+
+|ncurses_reset_prog_mode|
+
+vim:ft=help:

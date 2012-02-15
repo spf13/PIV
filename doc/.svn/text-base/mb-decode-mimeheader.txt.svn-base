@@ -1,0 +1,13 @@
+mb_decode_mimeheader -- Decode string in MIME header field
+
+  string mb_decode_mimeheader(string str)~
+
+Decodes encoded-word string {str} in MIME header.
+
+{str} The string being decoded.
+
+The decoded string in internal character encoding.
+
+|mb_encode_mimeheader|
+
+vim:ft=help:

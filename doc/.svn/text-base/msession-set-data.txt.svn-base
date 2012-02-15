@@ -1,0 +1,8 @@
+msession_set_data -- Set data session unstructured data
+
+  bool msession_set_data(string session, string value)~
+
+This function is currently not documented; only its argument list is
+available.
+
+vim:ft=help:

@@ -1,0 +1,16 @@
+newt_label --
+
+  resource newt_label(int left, int top, string text)~
+
+This function is currently not documented; only its argument list is
+available.
+
+{left}
+
+{top}
+
+{text}
+
+
+
+vim:ft=help:

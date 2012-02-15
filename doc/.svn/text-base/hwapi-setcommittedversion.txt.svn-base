@@ -1,0 +1,13 @@
+hw_api->setcommittedversion -- Commits version other than last version
+
+  hw_api_object setcommittedversion(array parameter)~
+
+Commits a version of a document. The committed version is the one which is
+visible to users with read access. By default the last version is the
+committed version.
+
+{parameter}
+
+
+
+vim:ft=help:

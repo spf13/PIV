@@ -1,0 +1,16 @@
+ovrimos_field_name -- Returns the output column name
+
+  string ovrimos_field_name(int result_id, int field_number)~
+
+Returns the output column name at the index specified.
+
+{result_id} A result identifier, returned by |ovrimos_execute| or
+|ovrimos_exec|.
+
+{field_number} The field number. Starts at 1.
+
+Returns the field name as a string, or FALSE on error.
+
+|ovrimos_field_len| |ovrimos_field_num| |ovrimos_field_type|
+
+vim:ft=help:

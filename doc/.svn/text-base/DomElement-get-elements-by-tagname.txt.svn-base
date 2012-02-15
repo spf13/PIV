@@ -1,0 +1,34 @@
+DomElement->get_elements_by_tagname -- Gets elements by tagname
+
+  array get_elements_by_tagname(string name)~
+
+Gets all the sub elements with the specific {name} within the current element.
+
+{name} The name of the seeked element.
+
+Returns an array of DomElement objects.
+
+Getting a content
+
+<?php >
+  if (!$dom = domxml_open_mem($xmlstr)) {
+    echo "Error while parsing the document\n";
+    exit;
+  }
+  
+  $root = $dom->document_element();
+  
+  $node_array = $root->get_elements_by_tagname('element');
+  
+  foreach ($node_array as $node) {
+      echo ' - ' . $node->get_content() . "\n";
+  }
+?>
+
+
+
+
+
+Use .
+
+vim:ft=help:

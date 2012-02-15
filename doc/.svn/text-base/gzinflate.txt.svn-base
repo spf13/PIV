@@ -1,0 +1,31 @@
+gzinflate -- Inflate a deflated string
+
+  string gzinflate(string data [, int length])~
+
+This function inflate a deflated string.
+
+{data} The data compressed by |gzdeflate|.
+
+{length} The maximum length of data to decode.
+
+The original uncompressed data or FALSE on error.
+
+The function will return an error if the uncompressed data is more than 32768
+times the length of the compressed input {data} or more than the optional
+parameter {length}.
+
+|gzinflate| example
+
+<?php >
+  $compressed   = gzdeflate('Compress me', 9);
+  $uncompressed = gzinflate($compressed);
+  echo $uncompressed;
+?>
+
+
+
+
+
+|gzdeflate| |gzcompress| |gzuncompress| |gzencode|
+
+vim:ft=help:

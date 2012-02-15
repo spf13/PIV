@@ -1,0 +1,12 @@
+stats_stat_gennch -- Not documented
+
+  float stats_stat_gennch(int n)~
+
+This function is currently not documented; only its argument list is
+available.
+
+{n}
+
+
+
+vim:ft=help:

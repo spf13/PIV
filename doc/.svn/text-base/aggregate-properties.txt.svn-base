@@ -1,0 +1,19 @@
+aggregate_properties -- Dynamic aggregation of class properties to an object
+
+  void aggregate_properties(object object, string class_name)~
+
+Aggregates all properties defined in a class to an existing object, except for
+properties whose names start with an underscore character (_) which are
+considered private to the aggregated class.
+
+{object}
+
+{class_name}
+
+No value is returned.
+
+|aggregate| |aggregate_methods| |aggregate_methods_by_list|
+|aggregate_methods_by_regexp| |aggregate_properties|
+|aggregate_properties_by_list| |aggregate_properties_by_regexp| |deaggregate|
+
+vim:ft=help:

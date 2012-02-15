@@ -1,0 +1,10 @@
+DomNode->set_content -- Sets content of node
+
+  bool DomNode->set_content(string content)~
+
+This function is currently not documented; only its argument list is
+available.
+
+
+
+vim:ft=help:

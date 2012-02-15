@@ -1,0 +1,18 @@
+hw_Identify -- Identifies as user
+
+  string hw_identify(int link, string username, string password)~
+
+Identifies as user with {username} and {password}. Identification is only
+valid for the current session. I do not think this function will be needed
+very often. In most cases it will be easier to identify with the opening of
+the connection.
+
+{link} The connection identifier.
+
+{username} The username.
+
+{password} The password.
+
+|hw_connect|
+
+vim:ft=help:

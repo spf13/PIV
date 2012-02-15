@@ -1,0 +1,15 @@
+gupnp_service_proxy_remove_notify -- Cancels the variable change notification
+
+  bool gupnp_service_proxy_remove_notify(resource proxy, string value)~
+
+Cancels the variable change notification.
+
+{proxy} A service proxy identifier.
+
+{value} The variable to add notification for.
+
+Returns TRUE on success or &false; on failure.
+
+|gupnp_service_proxy_add_notify|
+
+vim:ft=help:

@@ -1,0 +1,20 @@
+odbc_pconnect -- Open a persistent database connection
+
+  resource odbc_pconnect(string dsn, string user, string password [, int cursor_type])~
+
+Opens a persistent database connection.
+
+This function is much like |odbc_connect|, except that the connection is not
+really closed when the script has finished. Future requests for a connection
+with the same {dsn}, {user}, {password} combination (via |odbc_connect| and
+|odbc_pconnect|) can reuse the persistent connection.
+
+See |odbc_connect| for details.
+
+Returns an ODBC connection id or 0 (FALSE) on error.
+
+Persistent connections have no effect if PHP is used as a CGI program.
+
+|odbc_connect| Persistent Database Connections
+
+vim:ft=help:

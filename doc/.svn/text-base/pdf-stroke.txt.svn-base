@@ -1,0 +1,8 @@
+PDF_stroke -- Stroke path
+
+  bool PDF_stroke(resource p)~
+
+Strokes the path with the current color and line width, and clear it. Returns
+TRUE on success or &false; on failure.
+
+vim:ft=help:

@@ -1,0 +1,28 @@
+stream_get_filters -- Retrieve list of registered filters
+
+  array stream_get_filters()~
+
+Retrieve the list of registered filters on the running system.
+
+Returns an indexed array containing the name of all stream filters available.
+
+Using |stream_get_filters|
+
+<?php >
+  $streamlist = stream_get_filters();
+  print_r($streamlist);
+?>
+
+The above example will output something similar to:
+
+  Array (
+    [0] => string.rot13
+    [1] => string.toupper
+    [2] => string.tolower
+    [3] => string.base64
+    [4] => string.quoted-printable
+  )
+
+
+
+vim:ft=help:

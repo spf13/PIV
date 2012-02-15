@@ -1,0 +1,16 @@
+mysqli->send_query -- Send the query and return
+
+Object oriented style
+
+  bool send_query(string query)~
+
+Procedural style
+
+  bool mysqli_send_query(string query, mysqli link, string query)~
+
+This function is currently not documented; only its argument list is
+available.
+
+This function has been DEPRECATED and REMOVED as of PHP 5.3.0.
+
+vim:ft=help:

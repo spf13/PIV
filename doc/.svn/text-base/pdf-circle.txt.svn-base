@@ -1,0 +1,7 @@
+PDF_circle -- Draw a circle
+
+  bool PDF_circle(resource pdfdoc, float x, float y, float r)~
+
+Adds a circle. Returns TRUE on success or &false; on failure.
+
+vim:ft=help:

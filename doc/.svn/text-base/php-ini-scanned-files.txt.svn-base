@@ -1,0 +1,40 @@
+php_ini_scanned_files -- Return a list of .ini files parsed from the
+additional ini dir
+
+  string php_ini_scanned_files()~
+
+|php_ini_scanned_files| returns a comma-separated list of configuration files
+parsed after php.ini. These files are found in a directory defined by the
+--with-config-file-scan-dir option which is set during compilation.
+
+The returned configuration files also include the path as declared in the
+--with-config-file-scan-dir option.
+
+Returns a comma-separated string of .ini files on success. Each comma is
+followed by a newline. If the directive --with-config-file-scan-dir wasn't
+set, FALSE is returned. If it was set and the directory was empty, an empty
+string is returned. If a file is unrecognizable, the file will still make it
+into the returned string but a PHP error will also result. This PHP error will
+be seen both at compile time and while using |php_ini_scanned_files|.
+
+A simple example to list the returned ini files
+
+<?php >
+  if ($filelist = php_ini_scanned_files()) {
+      if (strlen($filelist) > 0) {
+          $files = explode(',', $filelist);
+  
+          foreach ($files as $file) {
+              echo "<li>" . trim($file) . "</li>\n";
+          }
+      }
+  }
+?>
+
+
+
+
+
+|ini_set| |phpinfo| |php_ini_loaded_file|
+
+vim:ft=help:

@@ -1,0 +1,16 @@
+curl_multi_getcontent -- Return the content of a cURL handle if
+CURLOPT_RETURNTRANSFER is set
+
+  string curl_multi_getcontent(resource ch)~
+
+If CURLOPT_RETURNTRANSFER is an option that is set for a specific handle, then
+this function will return the content of that cURL handle in the form of a
+string.
+
+{ch} A cURL handle returned by |curl_init|.
+
+Return the content of a cURL handle if CURLOPT_RETURNTRANSFER is set.
+
+|curl_multi_init|
+
+vim:ft=help:

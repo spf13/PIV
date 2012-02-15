@@ -1,0 +1,16 @@
+acosh -- Inverse hyperbolic cosine
+
+  float acosh(float arg)~
+
+Returns the inverse hyperbolic cosine of {arg}, i.e. the value whose
+hyperbolic cosine is {arg}.
+
+{arg} The value to process
+
+The inverse hyperbolic cosine of {arg}
+
+Version Description 5.3.0 This function is now available on all platforms
+
+|cosh| |acos| |asinh| |atanh|
+
+vim:ft=help:

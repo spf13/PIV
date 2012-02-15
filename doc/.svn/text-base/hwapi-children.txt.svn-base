@@ -1,0 +1,14 @@
+hw_api->children -- Returns children of an object
+
+  array children(array parameter)~
+
+Retrieves the children of a collection or the attributes of a document. The
+children can be further filtered by specifying an object query.
+
+{parameter} The parameter array contains the required elements
+'objectIdentifier' and the optional elements 'attributeSelector' and
+'objectQuery'.
+
+The return value is an array of objects of type HW_API_Object or HW_API_Error.
+
+vim:ft=help:

@@ -1,0 +1,26 @@
+session_unregister -- Unregister a global variable from the current session
+
+  bool session_unregister(string name)~
+
+|session_unregister| unregisters the global variable named {name} from the
+current session.
+
+This function has been DEPRECATED as of PHP 5.3.0. Relying on this feature is
+highly discouraged.
+
+{name} The variable name.
+
+Returns TRUE on success or &false; on failure.
+
+If $_SESSION (or $HTTP_SESSION_VARS for PHP 4.0.6 or less) is used, use
+|unset| to unregister a session variable. Do not |unset| $_SESSION itself as
+this will disable the special function of the $_SESSION superglobal.
+
+This function does not unset the corresponding global variable for {name}, it
+only prevents the variable from being saved as part of the session. You must
+call |unset| to remove the corresponding global variable.
+
+If you are using $_SESSION (or $HTTP_SESSION_VARS), do not use
+|session_register|, |session_is_registered| and |session_unregister|.
+
+vim:ft=help:

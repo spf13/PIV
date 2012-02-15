@@ -1,0 +1,37 @@
+wincache_ucache_inc -- Increments the value associated with the key
+
+  mixed wincache_ucache_inc(string key [, int inc_by [, bool success]])~
+
+Increments the value associated with the {key} by 1 or as specified by
+{inc_by}.
+
+{key} The {key} that was used to store the variable in the cache. {key} is
+case sensitive.
+
+{inc_by} The value by which the variable associated with the {key} will get
+incremented. If the argument is a floating point number it will be truncated
+to nearest integer. The variable associated with the {key} should be of type
+long, otherwise the function fails and returns FALSE.
+
+{success} Will be set to TRUE on success and FALSE on failure.
+
+Returns the incremented value on success and FALSE on failure.
+
+Using |wincache_ucache_inc|
+
+<?php >
+  wincache_ucache_set('counter', 1);
+  var_dump(wincache_ucache_inc('counter', 2921, $success));
+  var_dump($success);
+?>
+
+The above example will output:
+
+  int(2922) 
+  bool(true)
+
+
+
+|wincache_ucache_dec| |wincache_ucache_cas|
+
+vim:ft=help:

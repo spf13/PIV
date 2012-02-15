@@ -1,0 +1,37 @@
+dio_stat -- Gets stat information about the file descriptor fd
+
+  array dio_stat(resource fd)~
+
+|dio_stat| returns information about the given file descriptor.
+
+{fd} The file descriptor returned by |dio_open|.
+
+Returns an associative array with the following keys: "device" - device
+
+"inode" - inode
+
+"mode" - mode
+
+"nlink" - number of hard links
+
+"uid" - user id
+
+"gid" - group id
+
+"device_type" - device type (if inode device)
+
+"size" - total size in bytes
+
+"blocksize" - blocksize
+
+"blocks" - number of blocks allocated
+
+"atime" - time of last access
+
+"mtime" - time of last modification
+
+"ctime" - time of last change
+
+On error |dio_stat| returns NULL.
+
+vim:ft=help:

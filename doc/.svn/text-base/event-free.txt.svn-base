@@ -1,0 +1,9 @@
+event_free -- Free event resource
+
+  void event_free(resource event)~
+
+Frees previously created event resource.
+
+{event} Valid event resource.
+
+vim:ft=help:

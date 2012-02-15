@@ -1,0 +1,9 @@
+hw_api_attribute->value -- Returns value of the attribute
+
+  string value()~
+
+Gets the value of the attribute.
+
+Returns the value, as a string.
+
+vim:ft=help:

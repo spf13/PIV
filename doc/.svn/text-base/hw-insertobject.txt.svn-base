@@ -1,0 +1,20 @@
+hw_InsertObject -- Inserts an object record
+
+  int hw_insertobject(int connection, string object_rec, string parameter)~
+
+Inserts an object into the server.
+
+Note: If you want to insert an Anchor, the attribute Position has always been
+set either to a start/end value or to 'invisible'. Invisible positions are
+needed if the annotation has no corresponding link in the annotation text.
+
+{connection} The connection identifier.
+
+{object_rec} The object can be any valid hyperwave object.
+
+{parameter} See the HG-CSP documentation for a detailed information on how the
+parameters have to be.
+
+|hw_pipedocument| |hw_insertdocument| |hw_insdoc| |hw_inscoll|
+
+vim:ft=help:

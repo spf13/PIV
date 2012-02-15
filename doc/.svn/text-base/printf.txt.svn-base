@@ -1,0 +1,17 @@
+printf -- Output a formatted string
+
+  int printf(string format [, mixed args [, mixed ...]])~
+
+Produces output according to {format}.
+
+{format} See |sprintf| for a description of {format}.
+
+{args}
+
+{...}
+
+Returns the length of the outputted string.
+
+|print| |sprintf| |vprintf| |sscanf| |fscanf| |flush|
+
+vim:ft=help:

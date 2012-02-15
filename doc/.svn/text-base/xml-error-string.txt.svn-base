@@ -1,0 +1,14 @@
+xml_error_string -- Get XML parser error string
+
+  string xml_error_string(int code)~
+
+Gets the XML parser error string associated with the given {code}.
+
+{code} An error code from |xml_get_error_code|.
+
+Returns a string with a textual description of the error {code}, or FALSE if
+no description was found.
+
+|xml_get_error_code|
+
+vim:ft=help:

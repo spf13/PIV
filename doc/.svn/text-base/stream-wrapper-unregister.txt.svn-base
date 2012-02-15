@@ -1,0 +1,14 @@
+stream_wrapper_unregister -- Unregister a URL wrapper
+
+  bool stream_wrapper_unregister(string protocol)~
+
+Allows you to disable an already defined stream wrapper. Once the wrapper has
+been disabled you may override it with a user-defined wrapper using
+|stream_wrapper_register| or reenable it later on with
+|stream_wrapper_restore|.
+
+{protocol}
+
+Returns TRUE on success or &false; on failure.
+
+vim:ft=help:

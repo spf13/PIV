@@ -1,0 +1,33 @@
+apache_get_modules -- Get a list of loaded Apache modules
+
+  array apache_get_modules()~
+
+Get a list of loaded Apache modules.
+
+An array of loaded Apache modules.
+
+Version Description 5.0.0 Became available when using Apache 1, or the PHP
+Apache 2 filter API. Before this time, it was only available when using the
+Apache 2 handler API.
+
+|apache_get_modules| example
+
+<?php >
+  print_r(apache_get_modules());
+?>
+
+The above example will output something similar to:
+
+  Array
+  (
+      [0] => core
+      [1] => http_core
+      [2] => mod_so
+      [3] => sapi_apache2
+      [4] => mod_mime
+      [5] => mod_rewrite
+  )
+
+
+
+vim:ft=help:

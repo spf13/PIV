@@ -1,0 +1,11 @@
+hw_api->info -- Returns information about server configuration
+
+  array info(array parameter)~
+
+Returns information about server configuration.
+
+{parameter}
+
+
+
+vim:ft=help:

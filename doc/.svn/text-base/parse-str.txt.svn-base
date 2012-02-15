@@ -1,0 +1,46 @@
+parse_str -- Parses the string into variables
+
+  void parse_str(string str [, array arr])~
+
+Parses {str} as if it were the query string passed via a URL and sets
+variables in the current scope.
+
+To get the current QUERY_STRING, you may use the variable
+$_SERVER['QUERY_STRING']. Also, you may want to read the section on variables
+from external sources.
+
+The magic_quotes_gpc setting affects the output of this function, as
+|parse_str| uses the same mechanism that PHP uses to populate the $_GET,
+$_POST, etc. variables.
+
+{str} The input string.
+
+{arr} If the second parameter {arr} is present, variables are stored in this
+variable as array elements instead.
+
+No value is returned.
+
+Version Description 4.0.3 The {arr} parameter was added
+
+Using |parse_str|
+
+<?php >
+  $str = "first=value&amp;arr[]=foo+bar&arr[]=baz";
+  parse_str($str);
+  echo $first;  // value
+  echo $arr[0]; // foo bar
+  echo $arr[1]; // baz
+  
+  parse_str($str, $output);
+  echo $output['first'];  // value
+  echo $output['arr'][0]; // foo bar
+  echo $output['arr'][1]; // baz
+?>
+
+
+
+
+
+|parse_url| |pathinfo| |http_build_query| |get_magic_quotes_gpc| |urldecode|
+
+vim:ft=help:

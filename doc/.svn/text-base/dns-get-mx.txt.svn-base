@@ -1,0 +1,5 @@
+dns_get_mx -- Alias of getmxrr
+
+This function is an alias of: |getmxrr|.
+
+vim:ft=help:

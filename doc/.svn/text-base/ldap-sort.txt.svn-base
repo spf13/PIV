@@ -1,0 +1,8 @@
+ldap_sort -- Sort LDAP result entries
+
+  bool ldap_sort(resource link, resource result, string sortfilter)~
+
+This function is currently not documented; only its argument list is
+available.
+
+vim:ft=help:

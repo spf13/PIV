@@ -1,0 +1,41 @@
+next -- Advance the internal array pointer of an array
+
+  mixed next(array array)~
+
+|next| behaves like |current|, with one difference. It advances the internal
+array pointer one place forward before returning the element value. That means
+it returns the next array value and advances the internal array pointer by
+one.
+
+{array} The array being affected.
+
+Returns the array value in the next place that's pointed to by the internal
+array pointer, or FALSE if there are no more elements.
+
+This function may return Boolean FALSE, but may also return a non-Boolean
+value which evaluates to FALSE, such as 0 or "". Please read the section on
+Booleans for more information. Use the === operator for testing the return
+value of this function.
+
+Example use of |next| and friends
+
+<?php >
+  $transport = array('foot', 'bike', 'car', 'plane');
+  $mode = current($transport); // $mode = 'foot';
+  $mode = next($transport);    // $mode = 'bike';
+  $mode = next($transport);    // $mode = 'car';
+  $mode = prev($transport);    // $mode = 'bike';
+  $mode = end($transport);     // $mode = 'plane';
+?>
+
+
+
+
+
+You won't be able to distinguish the end of an array from a boolean FALSE
+element. To properly traverse an array which may contain FALSE elements, see
+the |each| function.
+
+|current| |end| |prev| |reset| |each|
+
+vim:ft=help:

@@ -1,0 +1,10 @@
+xptr_new_context -- Create new XPath Context
+
+  XPathContext xptr_new_context()~
+
+This function is currently not documented; only its argument list is
+available.
+
+
+
+vim:ft=help:

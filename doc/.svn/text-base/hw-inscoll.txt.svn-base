@@ -1,0 +1,16 @@
+hw_InsColl -- Insert collection
+
+  int hw_inscoll(int connection, int objectID, array object_array)~
+
+Inserts a new collection with attributes as in {object_array} into collection
+with object ID {objectID}.
+
+{connection} The connection identifier.
+
+{objectID}
+
+{object_array}
+
+
+
+vim:ft=help:

@@ -1,0 +1,13 @@
+bson_decode -- Deserializes a BSON object into a PHP array
+
+  array bson_decode(string bson)~
+
+This function is very beta and entirely useless for 99% of users. It is only
+useful if you're doing something weird, such as writing your own driver on top
+of the PHP driver.
+
+{bson} The BSON to be deserialized.
+
+Returns the deserialized BSON object.
+
+vim:ft=help:

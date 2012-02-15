@@ -1,0 +1,36 @@
+tidy_get_output -- Return a string representing the parsed tidy markup
+
+  string tidy_get_output(tidy object)~
+
+Gets a string with the repaired html.
+
+{object} The Tidy object.
+
+Returns the parsed tidy markup.
+
+|tidy_get_output| example
+
+<?php >
+  $html = '<p>paragraph</i>';
+  $tidy = tidy_parse_string($html);
+  
+  $tidy->cleanRepair();
+  
+  echo tidy_get_output($tidy);
+?>
+
+The above example will output:
+
+  <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+  <html>
+  <head>
+  <title></title>
+  </head>
+  <body>
+  <p>paragraph</p>
+  </body>
+  </html>
+
+
+
+vim:ft=help:

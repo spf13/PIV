@@ -1,0 +1,21 @@
+posix_getuid -- Return the real user ID of the current process
+
+  int posix_getuid()~
+
+Return the numeric real user ID of the current process.
+
+Returns the user id, as an integer
+
+Example use of |posix_getuid|
+
+<?php >
+  echo posix_getuid(); //10000
+?>
+
+
+
+
+
+|posix_getpwuid| POSIX man page GETUID(2)
+
+vim:ft=help:

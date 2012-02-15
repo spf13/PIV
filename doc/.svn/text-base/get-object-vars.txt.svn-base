@@ -1,0 +1,64 @@
+get_object_vars -- Gets the properties of the given object
+
+  array get_object_vars(object object)~
+
+Gets the accessible non-static properties of the given {object} according to
+scope.
+
+{object} An object instance.
+
+Returns an associative array of defined object accessible non-static
+properties for the specified {object} in scope. If a property have not been
+assigned a value, it will be returned with a NULL value.
+
+Version Description 5.3.0 This function now returns NULL if the {object} isn't
+an object. prior to 5.3.0 If the {object} isn't an object, then
+|get_object_vars| would return FALSE prior to 4.2.0 If the variables declared
+in the class of which the {object} is an instance, have not been assigned a
+value, those will not be returned in the array
+
+Use of |get_object_vars|
+
+<?php >
+  class foo {
+      private $a;
+      public $b = 1;
+      public $c;
+      private $d;
+      static $e;
+     
+      public function test() {
+          var_dump(get_object_vars($this));
+      }
+  }
+  
+  $test = new foo;
+  var_dump(get_object_vars($test));
+  
+  $test->test();
+?>
+
+The above example will output:
+
+  array(2) {
+    ["b"]=>
+    int(1)
+    ["c"]=>
+    NULL
+  }
+  array(4) {
+    ["a"]=>
+    NULL
+    ["b"]=>
+    int(1)
+    ["c"]=>
+    NULL
+    ["d"]=>
+    NULL
+  }
+
+
+
+|get_class_methods| |get_class_vars|
+
+vim:ft=help:

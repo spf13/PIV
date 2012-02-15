@@ -1,0 +1,20 @@
+ldap_modify -- Modify an LDAP entry
+
+  bool ldap_modify(resource link_identifier, string dn, array entry)~
+
+Modify the existing entries in the LDAP directory. The structure of the entry
+is same as in |ldap_add|.
+
+{link_identifier} An LDAP link identifier, returned by |ldap_connect|.
+
+{dn} The distinguished name of an LDAP entity.
+
+{entry}
+
+Returns TRUE on success or &false; on failure.
+
+This function is binary-safe.
+
+|ldap_rename|
+
+vim:ft=help:

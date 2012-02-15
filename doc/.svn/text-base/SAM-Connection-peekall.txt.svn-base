@@ -1,0 +1,53 @@
+SAMConnection->peekAll -- Read one or more messages from a queue without
+removing it from the queue.
+
+  array peekAll(string target [, array properties])~
+
+{target} The identity of the queue from which messages should be peeked.
+
+{properties} An optional associative array of properties describing other
+parameters to control the peek operation. Property name Possible values
+SAM_CORRELID This is the target correlation id string of messages to be
+peeked. This would typically have been returned by a "send" request.
+SAM_MESSAGEID This is the message id string of a message which is to be
+peeked.
+
+This method returns an array of SAMMessage objects or FALSE if an error
+occurs.
+
+Retrieve all messages in a queue without removing them
+
+<?php >
+  $msgArray = $conn->peekAll('queue://receive/test');
+  if ($msgArray) {
+     foreach ( $msgArray as $key => $msg) {
+         echo "Message $key: body = $msg->body\n";
+     }
+  } else {
+     echo "PeekAll failed ($conn->errno) $conn->error";
+  }
+?>
+
+
+
+
+
+Retrieve all messages from a queue with a matching correlation id
+
+<?php >
+     $msgArray = $conn->peekAll('queue://receive/test', array(SAM_CORRELID => $correlId ));
+     if ($msgArray) {
+  
+        foreach ( $msgArray as $key => $msg) {
+              echo "Message $key: body = $msg->body\n";
+           }
+     } else {
+        echo "PeekAll failed ($conn->errno) $conn->error";
+     }
+?>
+
+
+
+
+
+vim:ft=help:

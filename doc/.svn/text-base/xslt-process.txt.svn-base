@@ -1,0 +1,26 @@
+xslt_process -- Perform an XSLT transformation
+
+  mixed xslt_process(resource xh, string xmlcontainer, string xslcontainer [, string resultcontainer [, array arguments [, array parameters]]])~
+
+The |xslt_process| function is the crux of the XSLT extension. It allows you
+to perform an XSLT transformation using almost any type of input source - the
+containers. This is accomplished through the use of argument buffers -- a
+concept taken from the Sablotron XSLT processor (currently the only XSLT
+processor this extension supports). The input containers default to a filename
+'containing' the document to be processed.
+
+{xh} The XSLT processor link identifier, created with |xslt_create|.
+
+{xmlcontainer} Path to XML file or placeholder for the XML argument.
+
+{xslcontainer} Path to XSL file or placeholder for the XML argument.
+
+{resultcontainer} The result container defaults to a filename for the
+transformed document. If the result container is not specified - i.e. NULL -
+than the result is returned.
+
+{arguments} Instead of files as the XML and XSLT arguments to the
+|xslt_process| function, you can specify "argument place holders" which are
+then substituted by values given in the {arguments} array.
+
+vim:ft=help:

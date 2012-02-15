@@ -1,0 +1,28 @@
+DomNode->owner_document -- Returns the document this node belongs to
+
+  domdocument DomNode->owner_document()~
+
+This function returns the document the current node belongs to.
+
+The following example will create two identical lists of children. Finding the
+document of a node
+
+<?php >
+  $doc = domxml_new_doc("1.0");
+  $node = $doc->create_element("para");
+  $node = $doc->append_child($node);
+  $children = $doc->children();
+  print_r($children);
+  
+  $doc2 = $node->owner_document();
+  $children = $doc2->children();
+  print_r($children);
+?>
+
+
+
+
+
+See also |domnode_insert_before|.
+
+vim:ft=help:

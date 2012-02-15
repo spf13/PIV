@@ -1,0 +1,6 @@
+PDF_get_font -- Get font [deprecated]
+
+This function is deprecated since PDFlib version 3, use |PDF_get_value| with
+the parameter {font} instead.
+
+vim:ft=help:

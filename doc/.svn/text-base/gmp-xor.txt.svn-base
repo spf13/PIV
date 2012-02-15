@@ -1,0 +1,32 @@
+gmp_xor -- Bitwise XOR
+
+  resource gmp_xor(resource a, resource b)~
+
+Calculates bitwise exclusive OR (XOR) of two GMP numbers.
+
+{a} It can be either a GMP number resource, or a numeric string given that it
+is possible to convert the latter to a number.
+
+{b} It can be either a GMP number resource, or a numeric string given that it
+is possible to convert the latter to a number.
+
+A GMP number resource.
+
+|gmp_xor| example
+
+<?php >
+  $xor1 = gmp_init("1101101110011101", 2);
+  $xor2 = gmp_init("0110011001011001", 2);
+  
+  $xor3 = gmp_xor($xor1, $xor2);
+  
+  echo gmp_strval($xor3, 2) . "\n";
+?>
+
+The above example will output:
+
+  1011110111000100
+
+
+
+vim:ft=help:

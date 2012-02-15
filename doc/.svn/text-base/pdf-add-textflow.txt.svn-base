@@ -1,0 +1,8 @@
+PDF_add_textflow -- Create Textflow or add text to existing Textflow
+
+  int PDF_add_textflow(resource pdfdoc, int textflow, string text, string optlist)~
+
+Creates a Textflow object, or adds text and explicit options to an existing
+Textflow.
+
+vim:ft=help:

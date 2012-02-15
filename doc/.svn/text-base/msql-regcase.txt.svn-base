@@ -1,0 +1,5 @@
+msql_regcase -- Alias of sql_regcase
+
+This function is an alias of |sql_regcase|.
+
+vim:ft=help:

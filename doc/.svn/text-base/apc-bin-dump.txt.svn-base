@@ -1,0 +1,19 @@
+apc_bin_dump -- Get a binary dump of the given files and user variables
+
+  string apc_bin_dump([array files [, array user_vars]])~
+
+Returns a binary dump of the given files and user variables from the APC
+cache. A NULL for files or user_vars signals a dump of every entry, whereas
+array() will dump nothing.
+
+The files. Passing in NULL signals a dump of every entry, while passing in
+|array| will dump nothing.
+
+The user vars. Passing in NULL signals a dump of every entry, while passing in
+|array| will dump nothing.
+
+Returns a binary dump of the given files and user variables from the APC
+cache, FALSE if APC is not enabled, or NULL if an unknown error is
+encountered.
+
+vim:ft=help:

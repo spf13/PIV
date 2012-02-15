@@ -1,0 +1,12 @@
+*rrd_xport* -- Export the information about database.
+
+  array rrd_xport(array options)~
+
+Exports the information about RRD database file. This data can be converted to
+XML file via user space PHP script and the restored back as RRD database file.
+
+Array of options for the export, see rrd export man page.
+
+Array with information about RRD database file, FALSE when error occurs.
+
+vim:ft=help:

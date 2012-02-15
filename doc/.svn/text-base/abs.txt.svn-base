@@ -1,0 +1,27 @@
+abs -- Absolute value
+
+  number abs(mixed number)~
+
+Returns the absolute value of {number}.
+
+{number} The numeric value to process
+
+The absolute value of {number}. If the argument {number} is of type float, the
+return type is also float, otherwise it is integer (as float usually has a
+bigger value range than integer).
+
+|abs| example
+
+<?php >
+  $abs = abs(-4.2); // $abs = 4.2; (double/float)
+  $abs2 = abs(5);   // $abs2 = 5; (integer)
+  $abs3 = abs(-5);  // $abs3 = 5; (integer)
+?>
+
+
+
+
+
+|gmp_abs| |gmp_sign|
+
+vim:ft=help:

@@ -1,0 +1,35 @@
+array_rand -- Pick one or more random entries out of an array
+
+  mixed array_rand(array input [, int num_req])~
+
+Picks one or more random entries out of an array, and returns the key (or
+keys) of the random entries.
+
+{input} The input array.
+
+{num_req} Specifies how many entries you want to pick. Trying to pick more
+elements than there are in the array will result in an E_WARNING level error.
+
+If you are picking only one entry, |array_rand| returns the key for a random
+entry. Otherwise, it returns an array of keys for the random entries. This is
+done so that you can pick random keys as well as values out of the array.
+
+Version Description 5.2.10 The resulting array of keys is no longer shuffled.
+4.2.0The random number generator is seeded automatically.
+
+|array_rand| example
+
+<?php >
+  $input = array("Neo", "Morpheus", "Trinity", "Cypher", "Tank");
+  $rand_keys = array_rand($input, 2);
+  echo $input[$rand_keys[0]] . "\n";
+  echo $input[$rand_keys[1]] . "\n";
+?>
+
+
+
+
+
+|shuffle|
+
+vim:ft=help:

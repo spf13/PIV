@@ -1,0 +1,8 @@
+PDF_add_thumbnail -- Add thumbnail for current page
+
+  bool PDF_add_thumbnail(resource pdfdoc, int image)~
+
+Adds an existing image as thumbnail for the current page. Returns TRUE on
+success or &false; on failure.
+
+vim:ft=help:

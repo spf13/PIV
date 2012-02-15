@@ -1,0 +1,14 @@
+ovrimos_rollback -- Rolls back the transaction
+
+  bool ovrimos_rollback(int connection_id)~
+
+Rolls back the transaction.
+
+{connection_id} The Ovrimos connection identifier, returned by
+|ovrimos_connect|.
+
+Returns TRUE on success or &false; on failure.
+
+|ovrimos_commit|
+
+vim:ft=help:

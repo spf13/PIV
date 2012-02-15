@@ -1,0 +1,34 @@
+ifx_fieldproperties -- List of SQL fieldproperties
+
+  array ifx_fieldproperties(resource result_id)~
+
+Returns the Informix SQL fieldproperties of every field in the query as an
+associative array. Properties are encoded as:
+"SQLTYPE;length;precision;scale;ISNULLABLE" where SQLTYPE = the Informix type
+like "SQLVCHAR" etc. and ISNULLABLE = "Y" or "N".
+
+{result_id} {result_id} is a valid resultid returned by |ifx_query| or
+|ifx_prepare| (select type queries only!).
+
+Returns an associative array with fieldnames as key and the SQL
+fieldproperties as data for a query with {result_id}. Returns FALSE on errors.
+
+Informix SQL fieldproperties
+
+<?php >
+  $properties = ifx_fieldproperties($resultid);
+  if (!isset($properties)) {
+      /* ... error ... */
+  }
+  foreach ($properties as $fname => $val) {
+      echo "$fname:\t property = $val\n";
+  }
+?>
+
+
+
+
+
+|ifx_fieldtypes|
+
+vim:ft=help:

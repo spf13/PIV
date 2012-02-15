@@ -1,0 +1,12 @@
+DomNode->dump_node -- Dumps a single node
+
+  string DomNode->dump_node()~
+
+This function is currently not documented; only its argument list is
+available.
+
+
+
+See also |domdocument_dump_mem|.
+
+vim:ft=help:

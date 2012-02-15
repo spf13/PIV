@@ -1,0 +1,13 @@
+cyrus_bind -- Bind callbacks to a Cyrus IMAP connection
+
+  bool cyrus_bind(resource connection, array callbacks)~
+
+Binds callbacks to a Cyrus IMAP connection.
+
+{connection} The connection handle.
+
+{callbacks} An array of callbacks.
+
+Returns TRUE on success or &false; on failure.
+
+vim:ft=help:

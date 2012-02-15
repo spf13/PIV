@@ -1,0 +1,16 @@
+asinh -- Inverse hyperbolic sine
+
+  float asinh(float arg)~
+
+Returns the inverse hyperbolic sine of {arg}, i.e. the value whose hyperbolic
+sine is {arg}.
+
+{arg} The argument to process
+
+The inverse hyperbolic sine of {arg}
+
+Version Description 5.3.0 This function is now available on all platforms
+
+|sinh| |asin| |acosh| |atanh|
+
+vim:ft=help:

@@ -1,0 +1,11 @@
+ming_setcubicthreshold -- Set cubic threshold
+
+  void ming_setcubicthreshold(int threshold)~
+
+Sets the threshold error for drawing cubic beziers.
+
+{threshold} The Threshold. Lower is more accurate, hence larger file size.
+
+No value is returned.
+
+vim:ft=help:

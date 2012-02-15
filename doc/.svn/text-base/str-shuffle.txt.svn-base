@@ -1,0 +1,27 @@
+str_shuffle -- Randomly shuffles a string
+
+  string str_shuffle(string str)~
+
+|str_shuffle| shuffles a string. One permutation of all possible is created.
+
+{str} The input string.
+
+Returns the shuffled string.
+
+|str_shuffle| example
+
+<?php >
+  $str = 'abcdef';
+  $shuffled = str_shuffle($str);
+  
+  // This will echo something like: bfdaec
+  echo $shuffled;
+?>
+
+
+
+
+
+|shuffle| |rand|
+
+vim:ft=help:

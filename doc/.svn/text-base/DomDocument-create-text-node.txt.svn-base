@@ -1,0 +1,16 @@
+DomDocument->create_text_node -- Create new text node
+
+  domtext DomDocument->create_text_node(string content)~
+
+This function returns a new instance of class DomText. The content of the text
+is the value of the passed parameter. This node will not show up in the
+document unless it is inserted with (e.g.) |domnode_append_child|.
+
+The return value is FALSE if an error occurred.
+
+See also |domnode_append_child|, |domdocument_create_element|,
+|domdocument_create_comment|, |domdocument_create_text|,
+|domdocument_create_attribute|, |domdocument_create_processing_instruction|,
+|domdocument_create_entity_reference|, and |domnode_insert_before|.
+
+vim:ft=help:

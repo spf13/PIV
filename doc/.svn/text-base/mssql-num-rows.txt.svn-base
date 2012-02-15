@@ -1,0 +1,34 @@
+mssql_num_rows -- Gets the number of rows in result
+
+  int mssql_num_rows(resource result)~
+
+|mssql_num_rows| returns the number of rows in a result set.
+
+{result} The result resource that is being evaluated. This result comes from a
+call to |mssql_query|.
+
+Returns the number of rows, as an integer.
+
+|mssql_num_rows| example
+
+<?php >
+  // Connect to MSSQL and select the database
+  $link = mssql_connect('KALLESPC\SQLEXPRESS', 'sa', 'phpfi');
+  mssql_select_db('php');
+  
+  // Select all our records from a table
+  $query = mssql_query('SELECT * FROM [php].[dbo].[persons]');
+  
+  echo 'Total records in database: ' . mssql_num_rows($query);
+  
+  // Clean up
+  mssql_free_result($query);
+?>
+
+
+
+
+
+|mssql_query| |mssql_fetch_row|
+
+vim:ft=help:

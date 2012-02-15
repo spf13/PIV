@@ -1,0 +1,23 @@
+swf_shapecurveto -- Draw a quadratic bezier curve between two points
+
+  void swf_shapecurveto(float x1, float y1, float x2, float y2)~
+
+Draws a quadratic bezier curve from the current location, though the two given
+points.
+
+The current position is then set to the point defined by the {x2} and {y2}
+parameters.
+
+{x1} x-coordinate of the first point.
+
+{y1} y-coordinate of the first point.
+
+{x2} x-coordinate of the second point.
+
+{y2} y-coordinate of the second point.
+
+No value is returned.
+
+|swf_shapecurveto3|
+
+vim:ft=help:

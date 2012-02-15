@@ -1,0 +1,27 @@
+call_user_method_array -- Call a user method given with an array of parameters
+[deprecated]
+
+  mixed call_user_method_array(string method_name, object obj, array params)~
+
+The |call_user_method_array| function is deprecated as of PHP 4.1.0.
+
+{method_name} The method name being called.
+
+{obj} The object that {method_name} is being called on.
+
+{params} An array of parameters.
+
+|call_user_method_array| alternative
+
+<?php >
+  call_user_func_array(array($obj, $method_name), $params);
+  call_user_func_array(array(&amp;$obj, $method_name), $params); // PHP 4
+?>
+
+
+
+
+
+|call_user_func_array| |call_user_func|
+
+vim:ft=help:

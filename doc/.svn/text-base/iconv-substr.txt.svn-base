@@ -1,0 +1,39 @@
+iconv_substr -- Cut out part of a string
+
+  string iconv_substr(string str, int offset [, int length [, string charset]])~
+
+Cuts a portion of {str} specified by the {offset} and {length} parameters.
+
+{str} The original string.
+
+{offset} If {offset} is non-negative, |iconv_substr| cuts the portion out of
+{str} beginning at {offset}'th character, counting from zero.
+
+If {offset} is negative, |iconv_substr| cuts out the portion beginning at the
+position, {offset} characters away from the end of {str}.
+
+{length} If {length} is given and is positive, the return value will contain
+at most {length} characters of the portion that begins at {offset} (depending
+on the length of {string}).
+
+If negative {length} is passed, |iconv_substr| cuts the portion out of {str}
+from the {offset}'th character up to the character that is {length} characters
+away from the end of the string. In case {offset} is also negative, the start
+position is calculated beforehand according to the rule explained above.
+
+{charset} If {charset} parameter is omitted, {string} are assumed to be
+encoded in iconv.internal_encoding.
+
+Note that {offset} and {length} parameters are always deemed to represent
+offsets that are calculated on the basis of the character set determined by
+{charset}, whilst the counterpart |substr| always takes these for byte
+offsets.
+
+Returns the portion of {str} specified by the {offset} and {length}
+parameters.
+
+If {str} is shorter than {offset} characters long, FALSE will be returned.
+
+|substr| |mb_substr| |mb_strcut|
+
+vim:ft=help:

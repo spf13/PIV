@@ -1,0 +1,25 @@
+session_get_cookie_params -- Get the session cookie parameters
+
+  array session_get_cookie_params()~
+
+Gets the session cookie parameters.
+
+Returns an array with the current session cookie information, the array
+contains the following items: "lifetime" - The lifetime of the cookie in
+seconds.
+
+"path" - The path where information is stored.
+
+"domain" - The domain of the cookie.
+
+"secure" - The cookie should only be sent over secure connections.
+
+"httponly" - The cookie can only be accessed through the HTTP protocol.
+
+Version Description 5.2.0 The "httponly" entry was added in the returned
+array. 4.0.4 The "secure" entry was added in the returned array.
+
+session.cookie_lifetime session.cookie_path session.cookie_domain
+session.cookie_secure session.cookie_httponly |session_set_cookie_params|
+
+vim:ft=help:

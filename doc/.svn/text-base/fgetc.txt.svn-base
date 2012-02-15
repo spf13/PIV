@@ -1,0 +1,38 @@
+fgetc -- Gets character from file pointer
+
+  string fgetc(resource handle)~
+
+Gets a character from the given file pointer.
+
+{handle} The file pointer must be valid, and must point to a file successfully
+opened by |fopen| or |fsockopen| (and not yet closed by |fclose|).
+
+Returns a string containing a single character read from the file pointed to
+by {handle}. Returns FALSE on EOF.
+
+This function may return Boolean FALSE, but may also return a non-Boolean
+value which evaluates to FALSE, such as 0 or "". Please read the section on
+Booleans for more information. Use the === operator for testing the return
+value of this function.
+
+A |fgetc| example
+
+<?php >
+  $fp = fopen('somefile.txt', 'r');
+  if (!$fp) {
+      echo 'Could not open file somefile.txt';
+  }
+  while (false !== ($char = fgetc($fp))) {
+      echo "$char\n";
+  }
+?>
+
+
+
+
+
+This function is binary-safe.
+
+|fread| |fopen| |popen| |fsockopen| |fgets|
+
+vim:ft=help:

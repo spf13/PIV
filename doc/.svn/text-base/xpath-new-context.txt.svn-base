@@ -1,0 +1,9 @@
+xpath_new_context -- Creates new xpath context
+
+  XPathContext xpath_new_context(domdocument dom_document)~
+
+Creates a new xpath context.
+
+|xpath_eval|
+
+vim:ft=help:

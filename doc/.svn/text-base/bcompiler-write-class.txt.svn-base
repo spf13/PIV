@@ -1,0 +1,43 @@
+bcompiler_write_class -- Writes an defined class as bytecodes
+
+  bool bcompiler_write_class(resource filehandle, string className [, string extends])~
+
+Reads the bytecodes from PHP for an existing class, and writes them to the
+open file handle.
+
+{filehandle} A file handle as returned by |fopen|.
+
+{className} The class name, as a string.
+
+{extends}
+
+Returns TRUE on success or &false; on failure.
+
+|bcompiler_write_class| example
+
+<?php >
+  $fh = fopen("/tmp/example","w");
+  bcompiler_write_header($fh);
+  bcompiler_write_class($fh,"DB");
+  // you must write DB_common before DB_mysql, as DB_mysql extends DB_common.
+  bcompiler_write_class($fh,"DB_common");
+  bcompiler_write_class($fh,"DB_mysql");
+  bcompiler_write_footer($fh);
+  fclose($fh);
+?>
+
+
+
+
+
+This function is EXPERIMENTAL. The behaviour of this function, its name, and
+surrounding documentation may change without notice in a future release of
+PHP. This function should be used at your own risk.
+
+This function does not perform dependency checking, so make sure you write the
+classes in an order that will not result in an undefined class error occurring
+when you load it.
+
+|bcompiler_write_header| |bcompiler_write_footer|
+
+vim:ft=help:

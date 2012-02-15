@@ -1,0 +1,14 @@
+gc_enable -- Activates the circular reference collector
+
+  void gc_enable()~
+
+This function is currently not documented; only its argument list is
+available.
+
+Activates the circular reference collector.
+
+This function has no parameters.
+
+No value is returned.
+
+vim:ft=help:

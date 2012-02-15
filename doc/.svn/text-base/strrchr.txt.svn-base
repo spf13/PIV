@@ -1,0 +1,40 @@
+strrchr -- Find the last occurrence of a character in a string
+
+  string strrchr(string haystack, mixed needle)~
+
+This function returns the portion of {haystack} which starts at the last
+occurrence of {needle} and goes until the end of {haystack}.
+
+{haystack} The string to search in
+
+{needle} If {needle} contains more than one character, only the first is used.
+This behavior is different from that of |strstr|.
+
+If {needle} is not a string, it is converted to an integer and applied as the
+ordinal value of a character.
+
+This function returns the portion of string, or FALSE if {needle} is not
+found.
+
+Version Description 4.3.0 This function is now binary safe.
+
+|strrchr| example
+
+<?php >
+  // get last directory in $PATH
+  $dir = substr(strrchr($PATH, ":"), 1);
+  
+  // get everything after last newline
+  $text = "Line 1\nLine 2\nLine 3";
+  $last = substr(strrchr($text, 10), 1 );
+?>
+
+
+
+
+
+This function is binary-safe.
+
+|strstr| |substr| |stristr|
+
+vim:ft=help:

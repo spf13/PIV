@@ -1,0 +1,17 @@
+readline_callback_handler_remove -- Removes a previously installed callback
+handler and restores terminal settings
+
+  bool readline_callback_handler_remove()~
+
+Removes a previously installed callback handler and restores terminal
+settings.
+
+Returns TRUE if a previously installed callback handler was removed, or FALSE
+if one could not be found.
+
+See |readline_callback_handler_install| for an example of how to use the
+readline callback interface.
+
+|readline_callback_handler_install| |readline_callback_read_char|
+
+vim:ft=help:

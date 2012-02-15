@@ -1,0 +1,56 @@
+classkit_import -- Import new class method definitions from a file
+
+  array classkit_import(string filename)~
+
+This function cannot be used to manipulate the currently running (or chained)
+method.
+
+This function is EXPERIMENTAL. The behaviour of this function, its name, and
+surrounding documentation may change without notice in a future release of
+PHP. This function should be used at your own risk.
+
+{filename} The filename of the class method definitions to import
+
+Associative array of imported methods
+
+|classkit_import| example
+
+<?php >
+  // file: newclass.php
+  class Example {
+      function foo() {
+          return "bar!\n";
+      }
+  }
+?>
+
+<?php >
+  // requires newclass.php (see above)
+  class Example {
+      function foo() {
+          return "foo!\n";
+      }
+  }
+  
+  $e = new Example();
+  
+  // output original
+  echo $e->foo();
+  
+  // import replacement method
+  classkit_import('newclass.php');
+  
+  // output imported
+  echo $e->foo();
+?>
+
+The above example will output:
+
+  foo!
+  bar!
+
+
+
+|classkit_method_add| |classkit_method_copy|
+
+vim:ft=help:

@@ -1,0 +1,21 @@
+SDO_DataFactory::create -- Create an SDO_DataObject
+
+  void SDO_DataFactory::create(string type_namespace_uri, string type_name)~
+
+This function is EXPERIMENTAL. The behaviour of this function, its name, and
+surrounding documentation may change without notice in a future release of
+PHP. This function should be used at your own risk.
+
+Create a new SDO_DataObject given the data object's namespace URI and type
+name.
+
+{type_namespace_uri} The namespace of the type.
+
+{type_name} The name of the type.
+
+Returns the newly created SDO_DataObject.
+
+{SDO_TypeNotFoundException} Thrown if the namespaceURI and typeName do not
+correspond to a type known to this data factory.
+
+vim:ft=help:

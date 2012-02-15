@@ -1,0 +1,26 @@
+yp_order -- Returns the order number for a map
+
+  int yp_order(string domain, string map)~
+
+Gets the order number for a map.
+
+{domain}
+
+{map}
+
+Returns the order number for a map or FALSE on error.
+
+Example for the NIS order
+
+<?php >
+      $number = yp_order($domain, $mapname);
+      echo "Order number for this map is: " . $number;
+?>
+
+
+
+
+
+|yp_get_default_domain|
+
+vim:ft=help:

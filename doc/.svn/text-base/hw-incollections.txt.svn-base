@@ -1,0 +1,26 @@
+hw_InCollections -- Check if object ids in collections
+
+  array hw_incollections(int connection, array object_id_array, array collection_id_array, int return_collections)~
+
+Checks whether a set of objects (documents or collections) specified by the
+{object_id_array} is part of the collections listed in {collection_id_array}.
+
+{connection} The connection identifier.
+
+{object_id_array} An array of object ids.
+
+{collection_id_array} An array of collection ids.
+
+{return_collections} When set to 0, the subset of object ids that is part of
+the collections (i.e., the documents or collections that are children of one
+or more collections of collection ids or their subcollections, recursively) is
+returned as an array.
+
+When set to 1, the set of collections that have one or more objects of this
+subset as children are returned as an array. This option allows a client to,
+e.g., highlight the part of the collection hierarchy that contains the matches
+of a previous query, in a graphical overview.
+
+Returns an array of object ids.
+
+vim:ft=help:

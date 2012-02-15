@@ -1,0 +1,30 @@
+SDO_DAS_Relational::createRootDataObject -- Returns the special root object in
+an otherwise empty data graph. Used when creating a data graph from scratch.
+
+  SDODataObject SDO_DAS_Relational::createRootDataObject()~
+
+This function is EXPERIMENTAL. The behaviour of this function, its name, and
+surrounding documentation may change without notice in a future release of
+PHP. This function should be used at your own risk.
+
+Returns the special root object at the top of an otherwise empty data graph.
+This call is used when the application wants to create a data graph from
+scratch, without having called |executeQuery| to create a data graph.
+
+The special root object has one multi-valued containment property, with a name
+of the application root type that was passed when the Relational DAS was
+constructed. The property can take values of only that type. The only thing
+that the application can usefully do with the root type is to call
+|createDataObject| on it, passing the name of the application root type, in
+order to create a data object of their own application type.
+
+None.
+
+The root object.
+
+None.
+
+Please see the Examples section in the general information about the
+Relational DAS for many examples of calling this method.
+
+vim:ft=help:

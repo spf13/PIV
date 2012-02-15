@@ -1,0 +1,17 @@
+m_setssl_files -- Set certificate key files and certificates if server
+requires client certificate verification
+
+  int m_setssl_files(resource conn, string sslkeyfile, string sslcertfile)~
+
+This function is currently not documented; only its argument list is
+available.
+
+{ conn}An MCVE_CONN resource returned by |m_initengine|.
+
+{sslkeyfile}
+
+{sslcertfile}
+
+
+
+vim:ft=help:

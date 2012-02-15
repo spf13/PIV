@@ -1,0 +1,28 @@
+hw_getremotechildren -- Gets children of remote document
+
+  mixed hw_getremotechildren(int connection, string object_record)~
+
+Returns the children of a remote document. Children of a remote document are
+remote documents itself. This makes sense if a database query has to be
+narrowed and is explained in Hyperwave Programmers' Guide.
+
+If you want to use this function you should be very familiar with HGIs. You
+should also consider to use PHP instead of Hyperwave to access external
+sources. Adding database support by a Hyperwave gateway should be more
+difficult than doing it in PHP.
+
+{connection} The connection identifier.
+
+{object_record} The object record.
+
+If the number of children is 1 the function will return the document itself
+formatted by the Hyperwave Gateway Interface (HGI). If the number of children
+is greater than 1 it will return an array of object record with each maybe the
+input value for another call to |hw_getremotechildren|. Those object records
+are virtual and do not exist in the Hyperwave server, therefore they do not
+have a valid object ID. How exactly such an object record looks like is up to
+the HGI.
+
+|hw_getremote|
+
+vim:ft=help:

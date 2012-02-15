@@ -1,0 +1,32 @@
+pg_get_pid -- Gets the backend's process ID
+
+  int pg_get_pid(resource connection)~
+
+|pg_get_pid| gets the backend's (database server process) PID. The PID is
+useful to determine whether or not a NOTIFY message received via
+|pg_get_notify| is sent from another process or not.
+
+{connection} PostgreSQL database connection resource.
+
+The backend database process ID.
+
+PostgreSQL backend PID
+
+<?php >
+  $conn = pg_pconnect("dbname=publisher");
+  if (!$conn) {
+    echo "An error occured.\n";
+    exit;
+  }
+  
+  // Backend process PID. Use PID with pg_get_notify()
+  $pid = pg_get_pid($conn);
+?>
+
+
+
+
+
+|pg_get_notify|
+
+vim:ft=help:

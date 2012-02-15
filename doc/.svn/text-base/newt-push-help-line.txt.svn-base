@@ -1,0 +1,16 @@
+newt_push_help_line -- Saves the current help line on a stack, and displays
+the new line
+
+  void newt_push_help_line([string text])~
+
+Saves the current help line on a stack, and displays the new line.
+
+{text} New help text message
+
+If not specified, the help line is cleared.
+
+No value is returned.
+
+|newt_pop_help_line|
+
+vim:ft=help:

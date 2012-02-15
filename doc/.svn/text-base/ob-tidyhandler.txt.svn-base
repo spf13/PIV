@@ -1,0 +1,37 @@
+ob_tidyhandler -- ob_start callback function to repair the buffer
+
+  string ob_tidyhandler(string input [, int mode])~
+
+Callback function for |ob_start| to repair the buffer.
+
+{input} The buffer.
+
+{mode} The buffer mode.
+
+Returns the modified buffer.
+
+|ob_tidyhandler| example
+
+<?php >
+  ob_start('ob_tidyhandler');
+  
+  echo '<p>test</i>';
+?>
+
+The above example will output:
+
+  <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 3.2//EN">
+  <html>
+  <head>
+  <title></title>
+  </head>
+  <body>
+  <p>test</p>
+  </body>
+  </html>
+
+
+
+|ob_start|
+
+vim:ft=help:

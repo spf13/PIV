@@ -1,0 +1,12 @@
+xml_parser_free -- Free an XML parser
+
+  bool xml_parser_free(resource parser)~
+
+Frees the given XML {parser}.
+
+{parser} A reference to the XML parser to free.
+
+This function returns FALSE if {parser} does not refer to a valid parser, or
+else it frees the parser and returns TRUE.
+
+vim:ft=help:

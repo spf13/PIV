@@ -1,0 +1,15 @@
+ncurses_has_ic -- Check for insert- and delete-capabilities
+
+  bool ncurses_has_ic()~
+
+This function is EXPERIMENTAL. The behaviour of this function, its name, and
+surrounding documentation may change without notice in a future release of
+PHP. This function should be used at your own risk.
+
+Checks whether the terminal has insert and delete capabilities.
+
+Returns TRUE if the terminal has insert/delete-capabilities, FALSE otherwise.
+
+|ncurses_has_il|
+
+vim:ft=help:

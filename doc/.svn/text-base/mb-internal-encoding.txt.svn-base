@@ -1,0 +1,34 @@
+mb_internal_encoding -- Set/Get internal character encoding
+
+  mixed mb_internal_encoding([string encoding])~
+
+Set/Get the internal character encoding
+
+{encoding} {encoding} is the character encoding name used for the HTTP input
+character encoding conversion, HTTP output character encoding conversion, and
+the default character encoding for string functions defined by the mbstring
+module.
+
+If {encoding} is set, then Returns TRUE on success or &false; on failure. If
+{encoding} is omitted, then the current character encoding name is returned.
+
+|mb_internal_encoding| example
+
+<?php >
+  /* Set internal character encoding to UTF-8 */
+  mb_internal_encoding("UTF-8");
+  
+  /* Display current internal character encoding */
+  echo mb_internal_encoding();
+?>
+
+
+
+
+
+The internal encoding or the character encoding specified by
+|mb_regex_encoding| will be used as the character encoding for this function.
+
+|mb_http_input| |mb_http_output| |mb_detect_order|
+
+vim:ft=help:

@@ -1,0 +1,51 @@
+xmlrpc_encode_request -- Generates XML for a method request
+
+  string xmlrpc_encode_request(string method, mixed params [, array output_options])~
+
+This function is EXPERIMENTAL. The behaviour of this function, its name, and
+surrounding documentation may change without notice in a future release of
+PHP. This function should be used at your own risk.
+
+{method} Name of the method to call.
+
+{params} Method parameters compatible with method signature.
+
+{output_options} Array specifying output options may contain (default values
+are emphasised): output_type: php, xml
+
+verbosity: no_white_space, newlines_only, pretty
+
+escaping: cdata, non-ascii, non-print, markup (may be a string with one value
+or an array with multiple values)
+
+version: simple, xmlrpc, soap 1.1, auto
+
+encoding: iso-8859-1, other character set supported by iconv
+
+Returns a string containing the XML representation of the request.
+
+XMLRPC client functions example
+
+<?php >
+  $request = xmlrpc_encode_request("method", array(1, 2, 3));
+  $context = stream_context_create(array('http' => array(
+      'method' => "POST",
+      'header' => "Content-Type: text/xml",
+      'content' => $request
+  )));
+  $file = file_get_contents("http://www.example.com/xmlrpc", false, $context);
+  $response = xmlrpc_decode($file);
+  if ($response &amp;& xmlrpc_is_fault($response)) {
+      trigger_error("xmlrpc: $response[faultString] ($response[faultCode])");
+  } else {
+      print_r($response);
+  }
+?>
+
+
+
+
+
+|stream_context_create| |file_get_contents| |xmlrpc_decode|
+
+vim:ft=help:

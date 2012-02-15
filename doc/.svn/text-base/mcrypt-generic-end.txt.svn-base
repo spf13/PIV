@@ -1,0 +1,12 @@
+mcrypt_generic_end -- This function terminates encryption
+
+  bool mcrypt_generic_end(resource td)~
+
+This function is deprecated, use |mcrypt_generic_deinit| instead. It can cause
+crashes when used with |mcrypt_module_close| due to multiple buffer frees.
+
+This function terminates encryption specified by the encryption descriptor
+({td}). Actually it clears all buffers, and closes all the modules used.
+Returns FALSE on error, or TRUE on success.
+
+vim:ft=help:

@@ -1,0 +1,72 @@
+ovrimos_result_all -- Prints the whole result set as an HTML table
+
+  int ovrimos_result_all(int result_id [, string format])~
+
+Prints the whole result set as an HTML table.
+
+{result_id} A result identifier, returned by |ovrimos_execute| or
+|ovrimos_exec|.
+
+{format} Optional HTML attributes for the generated table element.
+
+Returns the number of rows in the generated table.
+
+This will execute an SQL statement and print the result in an HTML table.
+Prepare a statement, execute, and view the result
+
+<?php >
+  $conn = ovrimos_connect("db_host", "8001", "admin", "password");
+  if ($conn != 0) {
+      echo "Connection ok!";
+      $res = ovrimos_prepare($conn, "select table_id, table_name
+                                      from sys.tables where table_id = 7");
+      if ($res != 0) {
+          echo "Prepare ok!";
+          if (ovrimos_execute($res, array(3))) {
+              echo "Execute ok!\n";
+              ovrimos_result_all($res);
+          } else {
+              echo "Execute not ok!";
+          }
+          ovrimos_free_result($res);
+      } else {
+          echo "Prepare not ok!\n";
+      }
+      ovrimos_close($conn);
+  }
+?>
+
+
+
+
+
+|ovrimos_result_all| with meta-information
+
+<?php >
+  $conn = ovrimos_connect("db_host", "8001", "admin", "password");
+  if ($conn != 0) {
+      echo "Connection ok!";
+      $res = ovrimos_exec($conn, "select table_id, table_name
+                                   from sys.tables where table_id = 1");
+      if ($res != 0) {
+          echo "Statement ok! cursor=" . ovrimos_cursor($res) . "\n";
+          $colnb = ovrimos_num_fields($res);
+          echo "Output columns=" . $colnb . "\n";
+          for ($i=1; $i <= $colnb; $i++) {
+              $name = ovrimos_field_name($res, $i);
+              $type = ovrimos_field_type($res, $i);
+              $len = ovrimos_field_len($res, $i);
+              echo "Column " . $i . " name=" . $name . " type=" . $type . " len=" . $len . "\n";
+          }
+          ovrimos_result_all($res);
+          ovrimos_free_result($res);
+      }
+      ovrimos_close($conn);
+  }
+?>
+
+
+
+
+
+vim:ft=help:

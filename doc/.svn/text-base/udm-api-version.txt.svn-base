@@ -1,0 +1,26 @@
+udm_api_version -- Get mnoGoSearch API version
+
+  int udm_api_version()~
+
+Gets the mnoGoSearch API version.
+
+This function allows the user to identify which API functions are available,
+e.g. |udm_get_doc_count| function is only available in mnoGoSearch 3.1.11 or
+later.
+
+|udm_api_version| returns the mnoGoSearch API version number. E.g. if
+mnoGoSearch 3.1.10 API is used, this function will return 30110.
+
+|udm_api_version| example
+
+<?php >
+  if (udm_api_version() >= 30111) {
+      echo  "Total number of URLs in database: " . udm_get_doc_count($udm) . "<br />\n";
+  }
+?>
+
+
+
+
+
+vim:ft=help:

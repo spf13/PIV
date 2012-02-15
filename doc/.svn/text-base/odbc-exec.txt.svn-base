@@ -1,0 +1,19 @@
+odbc_exec -- Prepare and execute an SQL statement
+
+  resource odbc_exec(resource connection_id, string query_string [, int flags])~
+
+Sends an SQL statement to the database server.
+
+{connection_id} The ODBC connection identifier, see |odbc_connect| for
+details.
+
+{query_string} The SQL statement.
+
+{flags} This parameter is currently not used.
+
+Returns an ODBC result identifier if the SQL command was executed
+successfully, or FALSE on error.
+
+|odbc_prepare| |odbc_execute|
+
+vim:ft=help:

@@ -1,0 +1,31 @@
+gzdeflate -- Deflate a string
+
+  string gzdeflate(string data [, int level])~
+
+This function compress the given string using the DEFLATE data format.
+
+For details on the DEFLATE compression algorithm see the document "DEFLATE
+Compressed Data Format Specification version 1.3" (RFC 1951).
+
+{data} The data to deflate.
+
+{level} The level of compression. Can be given as 0 for no compression up to 9
+for maximum compression. If not given, the default compression level will be
+the default compression level of the zlib library.
+
+The deflated string or FALSE if an error occurred.
+
+|gzdeflate| example
+
+<?php >
+  $compressed = gzdeflate('Compress me', 9);
+  echo $compressed;
+?>
+
+
+
+
+
+|gzinflate| |gzcompress| |gzuncompress| |gzencode|
+
+vim:ft=help:

@@ -1,0 +1,19 @@
+DomNode->replace_child -- Replaces a child
+
+  domelement DomNode->replace_child(domelement newnode, domelement oldnode)~
+
+(PHP 4.2) This function replaces the child {oldnode} with the passed new node.
+If the new node is already a child it will not be added a second time. If the
+old node cannot be found the function returns FALSE. If the replacement
+succeeds the old node is returned.
+
+(PHP 4.3) This function replaces the child {oldnode} with the passed
+{newnode}, even if the new node already is a child of the DomNode. If
+{newnode} was already inserted in the document it is first unlinked from its
+existing context. If the old node cannot be found the function returns FALSE.
+If the replacement succeeds the old node is returned. (This behaviour is
+according to the W3C specs).
+
+See also |domnode_append_child|
+
+vim:ft=help:

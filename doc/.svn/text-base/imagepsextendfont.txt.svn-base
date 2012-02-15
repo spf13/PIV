@@ -1,0 +1,35 @@
+imagepsextendfont -- Extend or condense a font
+
+  bool imagepsextendfont(resource font_index, float extend)~
+
+Extend or condense a font ({font_index}), if the value of the {extend}
+parameter is less than one you will be condensing the font.
+
+{font_index} A font resource, returned by |imagepsloadfont|.
+
+{extend} Extension value, must be greater than 0.
+
+Returns TRUE on success or &false; on failure.
+
+|imagepsextendfont| example
+
+<?php >
+  // Load a .pfb font file
+  $font = imagepsloadfont('./px3l.pfb');
+  
+  // Extend the font by 2.5
+  imagepsextendfont($font, 2.5);
+  
+  // Do any operations with the font here
+  
+  // Free the font from memory
+  imagepsfreefont($font);
+?>
+
+
+
+
+
+This function is only available if PHP is compiled using --with-t1lib[=DIR].
+
+vim:ft=help:

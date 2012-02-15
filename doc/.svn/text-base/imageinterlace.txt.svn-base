@@ -1,0 +1,36 @@
+imageinterlace -- Enable or disable interlace
+
+  int imageinterlace(resource image [, int interlace])~
+
+|imageinterlace| turns the interlace bit on or off.
+
+If the interlace bit is set and the image is used as a JPEG image, the image
+is created as a progressive JPEG.
+
+{ image}An image resource, returned by one of the image creation functions,
+such as |imagecreatetruecolor|.
+
+{interlace} If non-zero, the image will be interlaced, else the interlace bit
+is turned off.
+
+Returns 1 if the interlace bit is set for the image, 0 otherwise.
+
+Turn on interlacing using |imageinterlace|
+
+<?php >
+  // Create an image instance
+  $im = imagecreatefromgif('php.gif');
+  
+  // Enable interlancing
+  imageinterlace($im, true);
+  
+  // Save the interlaced image
+  imagegif($im, './php_interlaced.gif');
+  imagedestroy($im);
+?>
+
+
+
+
+
+vim:ft=help:

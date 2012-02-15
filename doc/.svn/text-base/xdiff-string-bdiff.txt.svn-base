@@ -1,0 +1,18 @@
+xdiff_string_bdiff -- Make binary diff of two strings
+
+  string xdiff_string_bdiff(string old_data, string new_data)~
+
+Makes a binary diff of two strings and returns the result. This function works
+with both text and binary data. Resulting patch can be later applied using
+|xdiff_string_bpatch|/|xdiff_file_bpatch|.
+
+{old_data} First string with binary data. It acts as "old" data.
+
+{new_data} Second string with binary data. It acts as "new" data.
+
+Returns string with binary diff containing differences between "old" and "new"
+data or FALSE if an internal error occurred.
+
+|xdiff_string_bpatch|
+
+vim:ft=help:

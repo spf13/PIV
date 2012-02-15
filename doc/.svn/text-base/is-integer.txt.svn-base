@@ -1,0 +1,5 @@
+is_integer -- Alias of is_int
+
+This function is an alias of: |is_int|.
+
+vim:ft=help:

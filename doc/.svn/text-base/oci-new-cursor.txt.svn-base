@@ -1,0 +1,82 @@
+oci_new_cursor -- Allocates and returns a new cursor (statement handle)
+
+  resource oci_new_cursor(resource connection)~
+
+Allocates a new statement handle on the specified connection.
+
+{connection} An Oracle connection identifier, returned by |oci_connect| or
+|oci_pconnect|.
+
+Returns a new statement handle, or FALSE on error.
+
+Using REF CURSOR in an Oracle's stored procedure
+
+<?php >
+  // suppose your stored procedure info.output returns a ref cursor in :data
+  
+  $conn = oci_connect("scott", "tiger");
+  $curs = oci_new_cursor($conn);
+  $stmt = oci_parse($conn, "begin info.output(:data); end;");
+  
+  oci_bind_by_name($stmt, "data", $curs, -1, OCI_B_CURSOR);
+  oci_execute($stmt);
+  oci_execute($curs);
+  
+  while ($data = oci_fetch_row($curs)) {
+      var_dump($data);
+  }
+  
+  oci_free_statement($stmt);
+  oci_free_statement($curs);
+  oci_close($conn);
+?>
+
+
+
+
+
+Using REF CURSOR in an Oracle's select statement
+
+<?php >
+  echo "<html><body>";
+  $conn = oci_connect("scott", "tiger");
+  $count_cursor = "CURSOR(select count(empno) num_emps from emp " .
+                  "where emp.deptno = dept.deptno) as EMPCNT from dept";
+  $stmt = oci_parse($conn, "select deptno,dname,$count_cursor");
+  
+  oci_execute($stmt);
+  echo "<table border=\"1\">";
+  echo "<tr>";
+  echo "<th>DEPT NAME</th>";
+  echo "<th>DEPT #</th>";
+  echo "<th># EMPLOYEES</th>";
+  echo "</tr>";
+  
+  while ($data = oci_fetch_assoc($stmt)) {
+      echo "<tr>";
+      $dname  = $data["DNAME"];
+      $deptno = $data["DEPTNO"];
+      echo "<td>$dname</td>";
+      echo "<td>$deptno</td>";
+      oci_execute($data["EMPCNT"]);
+      while ($subdata = oci_fetch_assoc($data["EMPCNT"])) {
+          $num_emps = $subdata["NUM_EMPS"];
+          echo  "<td>$num_emps</td>";
+      }
+      echo "</tr>";
+  }
+  echo "</table>";
+  echo "</body></html>";
+  oci_free_statement($stmt);
+  oci_close($conn);
+?>
+
+
+
+
+
+In PHP versions before 5.0.0 you must use |ocinewcursor| instead. This name
+still can be used, it was left as alias of |oci_new_cursor| for downwards
+compatability. This, however, is deprecated and not recommended.
+
+vim:ft=help:

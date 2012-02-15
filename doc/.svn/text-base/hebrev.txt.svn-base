@@ -1,0 +1,18 @@
+hebrev -- Convert logical Hebrew text to visual text
+
+  string hebrev(string hebrew_text [, int max_chars_per_line])~
+
+Converts logical Hebrew text to visual text.
+
+The function tries to avoid breaking words.
+
+{hebrew_text} A Hebrew input string.
+
+{max_chars_per_line} This optional parameter indicates maximum number of
+characters per line that will be returned.
+
+Returns the visual string.
+
+|hebrevc|
+
+vim:ft=help:

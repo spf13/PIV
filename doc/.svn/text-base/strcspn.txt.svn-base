@@ -1,0 +1,45 @@
+strcspn -- Find length of initial segment not matching mask
+
+  int strcspn(string str1, string str2 [, int start [, int length]])~
+
+Returns the length of the initial segment of {str1} which does not contain any
+of the characters in {str2}.
+
+{str1} The first string.
+
+{str2} The second string.
+
+{start} The start position of the string to examine.
+
+{length} The length of the string to examine.
+
+Returns the length of the segment as an integer.
+
+Version Description 4.3.0 The {start} and {length} were added
+
+|strcspn| example
+
+<?php >
+  $a = strcspn('abcd',  'apple');
+  $b = strcspn('abcd',  'banana');
+  $c = strcspn('hello', 'l');
+  $d = strcspn('hello', 'world');
+  
+  var_dump($a);
+  var_dump($b);
+  var_dump($c);
+  var_dump($d);
+?>
+
+The above example will output:
+
+  int(0)
+  int(0)
+  int(2)
+  int(2)
+
+This function is binary-safe.
+
+|strspn|
+
+vim:ft=help:

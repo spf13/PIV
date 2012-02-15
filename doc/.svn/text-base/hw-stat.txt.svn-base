@@ -1,0 +1,10 @@
+hw_stat -- Returns status string
+
+  string hw_stat(int link)~
+
+This function is currently not documented; only its argument list is
+available.
+
+
+
+vim:ft=help:

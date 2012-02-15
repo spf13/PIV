@@ -1,0 +1,49 @@
+ibase_blob_import -- Create blob, copy file in it, and close it
+
+  string ibase_blob_import(resource link_identifier, resource file_handle)~
+
+  string ibase_blob_import(resource link_identifier, resource file_handle, resource file_handle)~
+
+This function creates a BLOB, reads an entire file into it, closes it and
+returns the assigned BLOB id.
+
+{link_identifier} An InterBase link identifier. If omitted, the last opened
+link is assumed.
+
+{file_handle} The file handle is a handle returned by |fopen|.
+
+Returns the BLOB id on success, or FALSE on error.
+
+|ibase_blob_import| example
+
+<?php >
+  $dbh = ibase_connect($host, $username, $password);
+  $filename = '/tmp/bar';
+  
+  $fd = fopen($filename, 'r');
+  if ($fd) {
+  
+      $blob = ibase_blob_import($dbh, $fd);
+      fclose($fd);
+  
+      if (!is_string($blob)) {
+          // import failed
+      } else {
+          $query = "INSERT INTO foo (name, data) VALUES ('$filename', ?)";
+          $prepared = ibase_prepare($dbh, $query);
+          if (!ibase_execute($prepared, $blob)) {
+              // record insertion failed
+          }
+      }
+  } else {
+      // unable to open the data file
+  }
+?>
+
+
+
+
+
+|ibase_blob_add| |ibase_blob_cancel| |ibase_blob_close| |ibase_blob_create|
+
+vim:ft=help:

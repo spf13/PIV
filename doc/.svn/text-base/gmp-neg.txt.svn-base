@@ -1,0 +1,28 @@
+gmp_neg -- Negate number
+
+  resource gmp_neg(resource a)~
+
+Returns the negative value of a number.
+
+{a} It can be either a GMP number resource, or a numeric string given that it
+is possible to convert the latter to a number.
+
+Returns -{a}, as a GMP number.
+
+|gmp_neg| example
+
+<?php >
+  $neg1 = gmp_neg("1");
+  echo gmp_strval($neg1) . "\n";
+  $neg2 = gmp_neg("-1");
+  echo gmp_strval($neg2) . "\n";
+?>
+
+The above example will output:
+
+  -1
+  1
+
+
+
+vim:ft=help:

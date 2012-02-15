@@ -1,0 +1,40 @@
+pg_field_type -- Returns the type name for the corresponding field number
+
+  string pg_field_type(resource result, int field_number)~
+
+|pg_field_type| returns a string containing the base type name of the given
+{field_number} in the given PostgreSQL {result} resource.
+
+If the field uses a PostgreSQL domain (rather than a basic type), it is the
+name of the domain's underlying type that is returned, rather than the name of
+the domain itself.
+
+This function used to be called |pg_fieldtype|.
+
+{result} PostgreSQL query result resource, returned by |pg_query|,
+|pg_query_params| or |pg_execute| (among others).
+
+{field_number} Field number, starting from 0.
+
+A string containing the base name of the field's type, or FALSE on error.
+
+Getting information about fields
+
+<?php >
+    $dbconn = pg_connect("dbname=publisher") or die("Could not connect");
+  
+    // Assume 'title' is a varchar type
+    $res = pg_query($dbconn, "select title from authors where author = 'Orwell'");
+  
+    echo "Title field type: ", pg_field_type($res, 0);
+?>
+
+The above example will output:
+
+  Title field type: varchar
+
+
+
+|pg_field_prtlen| |pg_field_name| |pg_field_type_oid|
+
+vim:ft=help:

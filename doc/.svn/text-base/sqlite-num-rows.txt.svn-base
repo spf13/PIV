@@ -1,0 +1,48 @@
+SQLiteResult->numRows -- Returns the number of rows in a buffered result set
+
+  int sqlite_num_rows(resource result)~
+
+Object oriented style (method):
+
+  int numRows(resource result)~
+
+Returns the number of rows in the buffered {result} set.
+
+{result} The SQLite result resource. This parameter is not required when using
+the object-oriented method.
+
+This function cannot be used with unbuffered result handles.
+
+Returns the number of rows, as an integer.
+
+Procedural example
+
+<?php >
+  $db = sqlite_open('mysqlitedb');
+  $result = sqlite_query($db, "SELECT * FROM mytable WHERE name='John Doe'");
+  $rows = sqlite_num_rows($result);
+  
+  echo "Number of rows: $rows";
+?>
+
+
+
+
+
+Object-oriented example
+
+<?php >
+  $db = new SQLiteDatabase('mysqlitedb');
+  $result = $db->query("SELECT * FROM mytable WHERE name='John Doe'");
+  $rows = $result->numRows();
+  
+  echo "Number of rows: $rows";
+?>
+
+
+
+
+
+|sqlite_changes| |sqlite_query| |sqlite_num_fields|
+
+vim:ft=help:

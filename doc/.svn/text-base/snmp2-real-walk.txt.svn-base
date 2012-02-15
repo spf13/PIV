@@ -1,0 +1,39 @@
+snmp2_real_walk -- Return all objects including their respective object ID
+within the specified one
+
+  array snmp2_real_walk(string host, string community, string object_id [, string timeout [, string retries]])~
+
+The |snmp2_real_walk| function is used to traverse over a number of SNMP
+objects starting from {object_id} and return not only their values but also
+their object ids.
+
+The hostname of the SNMP agent (server).
+
+The read community.
+
+The SNMP object id which precedes the wanted one.
+
+The number of microseconds until the first timeout.
+
+The number of retries in case timeouts occur.
+
+Returns an associative array of the SNMP object ids and their values on
+success or FALSE on error. In case of an error, an E_WARNING message is shown.
+
+Using |snmp2_real_walk|
+
+<?php >
+   print_r(snmp2_real_walk("localhost", "public", "IF-MIB::ifName"));
+?>
+
+The above will output something like: Array ( [IF-MIB::ifName.1] => STRING: lo
+[IF-MIB::ifName.2] => STRING: eth0 [IF-MIB::ifName.3] => STRING: eth2
+[IF-MIB::ifName.4] => STRING: sit0 [IF-MIB::ifName.5] => STRING: sixxs )
+
+
+
+
+
+|snmp2_walk|
+
+vim:ft=help:

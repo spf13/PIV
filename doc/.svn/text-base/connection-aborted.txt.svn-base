@@ -1,0 +1,12 @@
+connection_aborted -- Check whether client disconnected
+
+  int connection_aborted()~
+
+Checks whether the client disconnected.
+
+Returns 1 if client disconnected, 0 otherwise.
+
+|connection_status| |ignore_user_abort| Connection Handling for a complete
+description of connection handling in PHP.
+
+vim:ft=help:

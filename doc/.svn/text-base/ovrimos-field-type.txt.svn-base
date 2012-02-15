@@ -1,0 +1,16 @@
+ovrimos_field_type -- Returns the type of the output column
+
+  int ovrimos_field_type(int result_id, int field_number)~
+
+Returns the type of the output column
+
+{result_id} A result identifier, returned by |ovrimos_execute| or
+|ovrimos_exec|.
+
+{field_number} A 1-based index.
+
+Returns the field type as an integer, or FALSE on error.
+
+|ovrimos_field_len| |ovrimos_field_name| |ovrimos_field_num|
+
+vim:ft=help:

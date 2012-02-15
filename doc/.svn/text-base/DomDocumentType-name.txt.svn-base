@@ -1,0 +1,29 @@
+DomDocumentType->name -- Returns name of document type
+
+  string name()~
+
+This function returns the name of the document type.
+
+Returns the name of the DomDocumentType, as a string.
+
+Getting the document type's name
+
+<?php >
+  include("example.inc");
+  
+  if (!$dom = domxml_open_mem($xmlstr)) {
+      echo "Error while parsing the document\n";
+      exit;
+  }
+  
+  $doctype = $dom->doctype();
+  echo $doctype->name(); // chapter
+?>
+
+
+
+
+
+Use the name property of the DOMDocumentType object.
+
+vim:ft=help:

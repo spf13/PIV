@@ -1,0 +1,11 @@
+SDO_DAS_XML_Document::setXMLVersion -- Sets the given string as xml version
+
+  void SDO_DAS_XML_Document::setXMLVersion(string xmlVersion)~
+
+Sets the given string as xml version.
+
+{xmlVersion} xml version string.
+
+None.
+
+vim:ft=help:

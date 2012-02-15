@@ -1,0 +1,10 @@
+fdf_header -- Sets FDF-specific output headers
+
+  void fdf_header()~
+
+This is a convenience function to set appropriate HTTP headers for FDF output.
+It sets the Content-type: to application/vnd.fdf.
+
+No value is returned.
+
+vim:ft=help:

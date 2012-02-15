@@ -1,0 +1,41 @@
+imageistruecolor -- Finds whether an image is a truecolor image
+
+  bool imageistruecolor(resource image)~
+
+|imageistruecolor| finds whether the image {image} is a truecolor image.
+
+{ image}An image resource, returned by one of the image creation functions,
+such as |imagecreatetruecolor|.
+
+Returns TRUE if the {image} is truecolor, FALSE otherwise.
+
+Simple detection of true color image instances using |imageistruecolor|
+
+<?php >
+  // $im is an image instance
+  
+  // Check if image is a true color image or not
+  if(!imageistruecolor($im))
+  {
+      // Create a new true color image instance
+      $tc = imagecreatetruecolor(imagesx($im), imagesy($im));
+  
+      imagecopy($tc, $im, 0, 0, 0, 0, imagesx($im), imagesy($im));
+      imagedestroy($im);
+  
+      $im = $tc;
+      $tc = NULL;
+  }
+  
+  // Continue working with image instance
+?>
+
+
+
+
+
+This function requires GD 2.0.1 or later (2.0.28 or later is recommended).
+
+|imagecreatetruecolor|
+
+vim:ft=help:

@@ -1,0 +1,13 @@
+lcg_value -- Combined linear congruential generator
+
+  float lcg_value()~
+
+|lcg_value| returns a pseudo random number in the range of (0, 1). The
+function combines two CGs with periods of 2^31 - 85 and 2^31 - 249. The period
+of this function is equal to the product of both primes.
+
+A pseudo random float value in the range of (0, 1)
+
+|rand| |mt_rand|
+
+vim:ft=help:

@@ -1,0 +1,8 @@
+PDF_delete_pvf -- Delete PDFlib virtual file
+
+  int PDF_delete_pvf(resource pdfdoc, string filename)~
+
+Deletes a named virtual file and frees its data structures (but not the
+contents).
+
+vim:ft=help:

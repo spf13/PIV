@@ -1,0 +1,5 @@
+fbsql_tablename -- Alias of fbsql_table_name
+
+This function is an alias of: |fbsql_table_name|.
+
+vim:ft=help:

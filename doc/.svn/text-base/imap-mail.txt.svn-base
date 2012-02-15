@@ -1,0 +1,31 @@
+imap_mail -- Send an email message
+
+  bool imap_mail(string to, string subject, string message [, string additional_headers [, string cc [, string bcc [, string rpath]]]])~
+
+This function allows sending of emails with correct handling of Cc and Bcc
+receivers.
+
+The parameters {to}, {cc} and {bcc} are all strings and are all parsed as
+RFC822 address lists.
+
+{to} The receiver
+
+{subject} The mail subject
+
+{message} The mail body
+
+{additional_headers} As string with additional headers to be set on the mail
+
+{cc}
+
+{bcc} The receivers specified in {bcc} will get the mail, but are excluded
+from the headers.
+
+{rpath} Use this parameter to specify return path upon mail delivery failure.
+This is useful when using PHP as a mail client for multiple users.
+
+Returns TRUE on success or &false; on failure.
+
+|mail|
+
+vim:ft=help:

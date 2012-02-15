@@ -1,0 +1,12 @@
+newt_refresh -- Updates modified portions of the screen
+
+  void newt_refresh()~
+
+To increase performance, newt only updates the display when it needs to, not
+when the program tells it to write to the terminal. Applications can force
+newt to immediately update modified portions of the screen by calling this
+function.
+
+No value is returned.
+
+vim:ft=help:

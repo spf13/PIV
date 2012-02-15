@@ -1,0 +1,31 @@
+snmp_set_enum_print -- Return all values that are enums with their enum value
+instead of the raw integer
+
+  bool snmp_set_enum_print(int enum_print)~
+
+This function toggles if snmpwalk/snmpget etc. should automatically lookup
+enum values in the MIB and return them together with their human readable
+string.
+
+As the value is interpreted as boolean by the Net-SNMP library, it can only be
+"0" or "1".
+
+Using |snmp_set_enum_print|
+
+<?php >
+   snmp_set_enum_print(0);
+   echo snmpget('localhost', 'public', 'IF-MIB::ifOperStatus.3') . "\n";
+   snmp_set_enum_print(1);
+   echo snmpget('localhost', 'public', 'IF-MIB::ifOperStatus.3') . "\n";
+?>
+
+
+
+
+
+The above would return INTEGER: up(1) INTEGER: 1
+
+|snmp_set_enum_print| is only available when using the UCD SNMP library. This
+function is not available when using the Windows SNMP library.
+
+vim:ft=help:

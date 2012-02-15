@@ -1,0 +1,19 @@
+odbc_errormsg -- Get the last error message
+
+  string odbc_errormsg([resource connection_id])~
+
+Returns a string containing the last ODBC error message, or an empty string if
+there has been no errors.
+
+{connection_id} The ODBC connection identifier, see |odbc_connect| for
+details.
+
+If {connection_id} is specified, the last state of that connection is
+returned, else the last state of any connection is returned.
+
+This function returns meaningful value only if last odbc query failed (i.e.
+|odbc_exec| returned FALSE).
+
+|odbc_error| |odbc_exec|
+
+vim:ft=help:

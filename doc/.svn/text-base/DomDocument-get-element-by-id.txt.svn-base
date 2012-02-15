@@ -1,0 +1,15 @@
+DomDocument->get_element_by_id -- Searches for an element with a certain id
+
+  domelement DomDocument->get_element_by_id(string id)~
+
+This function is similar to |domdocument_get_elements_by_tagname| but searches
+for an element with a given id. According to the DOM standard this requires a
+DTD which defines the attribute ID to be of type ID, though the current
+implementation simply does an xpath search for "//*[@ID = '%s']". This does
+not comply to the DOM standard which requires to return null if it is not
+known which attribute is of type id. This behaviour is likely to be fixed, so
+do not rely on the current behaviour.
+
+See also |domdocument_get_elements_by_tagname|
+
+vim:ft=help:

@@ -1,0 +1,54 @@
+gupnp_context_timeout_add -- Sets a function to be called at regular intervals
+
+  bool gupnp_context_timeout_add(resource context, int timeout, mixed callback [, mixed arg])~
+
+Sets a function to be called at regular intervals.
+
+{context} A context identifier, returned by |gupnp_context_new|.
+
+{timeout} A timeout in miliseconds.
+
+{callback} The callback function calling every {timeout} period of time.
+Typically, callback function takes on {arg} parameter.
+
+{arg} User data for {callback}.
+
+Returns TRUE on success or &false; on failure.
+
+Create new UPnP context and set callback
+
+<?php >
+  $user_data = "user data";
+  
+  function timeout_cb($arg)
+  {
+      printf("Call timeout_cb, user data: '%s'", $arg);
+      return true;
+  }
+  
+  /* Create the UPnP context */
+  $context = gupnp_context_new();
+  
+  if (!$context) {
+   die("Error creating the GUPnP context\n");
+  }
+  
+  /* Create root device */
+  $dev = gupnp_root_device_new($context, "/devicedesc.xml");
+  
+  /* Set callback for timeout */
+  gupnp_context_timeout_add($context, 5000, "timeout_cb", $user_data);
+  
+  /* Run the main loop */
+  gupnp_root_device_start($dev);
+?>
+
+
+
+
+
+Issues E_WARNING with not valid callback function.
+
+|gupnp_context_new|
+
+vim:ft=help:

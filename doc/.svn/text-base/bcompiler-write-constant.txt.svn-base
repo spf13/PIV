@@ -1,0 +1,36 @@
+bcompiler_write_constant -- Writes a defined constant as bytecodes
+
+  bool bcompiler_write_constant(resource filehandle, string constantName)~
+
+Reads the bytecodes from PHP for an existing constant, and writes them to the
+open file handle.
+
+{filehandle} A file handle as returned by |fopen|.
+
+{constantName} The name of the defined constant, as a string.
+
+Returns TRUE on success or &false; on failure.
+
+|bcompiler_write_constant| example
+
+<?php >
+  define("MODULE_MAX", 30);
+  
+  $fh = fopen("/tmp/example","w");
+  bcompiler_write_header($fh);
+  bcompiler_write_constant($fh,"MODULE_MAX");
+  bcompiler_write_footer($fh);
+  fclose($fh);
+?>
+
+
+
+
+
+This function is EXPERIMENTAL. The behaviour of this function, its name, and
+surrounding documentation may change without notice in a future release of
+PHP. This function should be used at your own risk.
+
+|bcompiler_write_header| |bcompiler_write_footer|
+
+vim:ft=help:

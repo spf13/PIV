@@ -1,0 +1,60 @@
+round -- Rounds a float
+
+  float round(float val [, int precision [, int mode]])~
+
+Returns the rounded value of {val} to specified {precision} (number of digits
+after the decimal point). {precision} can also be negative or zero (default).
+
+PHP doesn't handle strings like "12,300.2" correctly by default. See
+converting from strings.
+
+{val} The value to round
+
+{precision} The optional number of decimal digits to round to.
+
+{mode} One of PHP_ROUND_HALF_UP, PHP_ROUND_HALF_DOWN, PHP_ROUND_HALF_EVEN, or
+PHP_ROUND_HALF_ODD.
+
+The rounded value
+
+|round| examples
+
+<?php >
+  echo round(3.4);         // 3
+  echo round(3.5);         // 4
+  echo round(3.6);         // 4
+  echo round(3.6, 0);      // 4
+  echo round(1.95583, 2);  // 1.96
+  echo round(1241757, -3); // 1242000
+  echo round(5.045, 2);    // 5.05
+  echo round(5.055, 2);    // 5.06
+?>
+
+
+
+
+
+{mode} examples
+
+<?php >
+  echo round(9.5, 0, PHP_ROUND_HALF_UP);   // 10
+  echo round(9.5, 0, PHP_ROUND_HALF_DOWN); // 9
+  echo round(9.5, 0, PHP_ROUND_HALF_EVEN); // 10
+  echo round(9.5, 0, PHP_ROUND_HALF_ODD);  // 9
+  
+  echo round(8.5, 0, PHP_ROUND_HALF_UP);   // 9
+  echo round(8.5, 0, PHP_ROUND_HALF_DOWN); // 8
+  echo round(8.5, 0, PHP_ROUND_HALF_EVEN); // 8
+  echo round(8.5, 0, PHP_ROUND_HALF_ODD);  // 9
+?>
+
+
+
+
+
+Version Description 5.3.0 The {mode} parameter was introduced. 5.2.7 The inner
+workings of |round| was changed to conform to the C99 standard.
+
+|ceil| |floor| |number_format|
+
+vim:ft=help:

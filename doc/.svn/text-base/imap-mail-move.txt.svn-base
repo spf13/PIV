@@ -1,0 +1,24 @@
+imap_mail_move -- Move specified messages to a mailbox
+
+  bool imap_mail_move(resource imap_stream, string msglist, string mailbox [, int options])~
+
+Moves mail messages specified by {msglist} to the specified {mailbox}.
+
+{ imap_stream}An IMAP stream returned by |imap_open|.
+
+{msglist} {msglist} is a range not just message numbers (as described in
+RFC2060).
+
+{mailbox} The mailbox name, see |imap_open| for more information
+
+{options} {options} is a bitmask and may contain the single option: CP_UID -
+the sequence numbers contain UIDS
+
+Returns TRUE on success or &false; on failure.
+
+|imap_mail_move| will flag the original mail with a delete flag, to
+successfully delete it a call to the |imap_expunge| function must be made.
+
+|imap_mail_copy|
+
+vim:ft=help:

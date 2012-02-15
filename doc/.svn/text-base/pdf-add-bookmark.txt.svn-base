@@ -1,0 +1,6 @@
+PDF_add_bookmark -- Add bookmark for current page [deprecated]
+
+This function is deprecated since PDFlib version 6, use |PDF_create_bookmark|
+instead.
+
+vim:ft=help:

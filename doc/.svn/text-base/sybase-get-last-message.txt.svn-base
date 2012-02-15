@@ -1,0 +1,11 @@
+sybase_get_last_message -- Returns the last message from the server
+
+  string sybase_get_last_message()~
+
+|sybase_get_last_message| returns the last message reported by the server.
+
+Returns the message as a string.
+
+|sybase_min_message_severity|
+
+vim:ft=help:

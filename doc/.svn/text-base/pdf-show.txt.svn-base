@@ -1,0 +1,8 @@
+PDF_show -- Output text at current position
+
+  bool PDF_show(resource pdfdoc, string text)~
+
+Prints {text} in the current font and size at the current position. Returns
+TRUE on success or &false; on failure.
+
+vim:ft=help:

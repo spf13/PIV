@@ -1,0 +1,12 @@
+m_transactionssent -- Check to see if outgoing buffer is clear
+
+  int m_transactionssent(resource conn)~
+
+This function is currently not documented; only its argument list is
+available.
+
+{ conn}An MCVE_CONN resource returned by |m_initengine|.
+
+
+
+vim:ft=help:

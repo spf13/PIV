@@ -1,0 +1,41 @@
+imagecolorclosesthwb -- Get the index of the color which has the hue, white
+and blackness
+
+  int imagecolorclosesthwb(resource image, int red, int green, int blue)~
+
+Get the index of the color which has the hue, white and blackness nearest the
+given color.
+
+{ image}An image resource, returned by one of the image creation functions,
+such as |imagecreatetruecolor|.
+
+{red} Value of red component.
+
+{green} Value of green component.
+
+{blue} Value of blue component.
+
+Returns an integer with the index of the color which has the hue, white and
+blackness nearest the given color.
+
+Example of using |imagecolorclosesthwb|
+
+<?php >
+  $im = imagecreatefromgif('php.gif');
+  
+  echo 'HWB: ' . imagecolorclosesthwb($im, 116, 115, 152);
+  
+  imagedestroy($im);
+?>
+
+The above example will output something similar to:
+
+  HWB: 33
+
+
+
+Version Description 5.3.0 This function is now available on Windows
+
+|imagecolorclosest|
+
+vim:ft=help:

@@ -1,0 +1,14 @@
+hw_api->link -- Creates a link to an object
+
+  bool link(array parameter)~
+
+Creates a link to an object. Accessing this link is like accessing the object
+to links points to.
+
+{parameter} The parameter array contains the required elements
+'objectIdentifier' and 'destinationParentIdentifier'.
+'destinationParentIdentifier' is the target collection.
+
+The function returns TRUE on success or an error object.
+
+vim:ft=help:

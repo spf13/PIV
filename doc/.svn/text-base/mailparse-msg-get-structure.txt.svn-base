@@ -1,0 +1,11 @@
+mailparse_msg_get_structure -- Returns an array of mime section names in the
+supplied message
+
+  array mailparse_msg_get_structure(resource mimemail)~
+
+This function is currently not documented; only its argument list is
+available.
+
+{mimemail} A valid MIME resource.
+
+vim:ft=help:

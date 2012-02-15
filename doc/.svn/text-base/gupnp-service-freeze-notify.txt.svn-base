@@ -1,0 +1,14 @@
+gupnp_service_freeze_notify -- Freeze new notifications
+
+  bool gupnp_service_freeze_notify(resource service)~
+
+Causes new notifications to be queued up until |gupnp_service_thaw_notify| is
+called.
+
+{service} A service identifier.
+
+Returns TRUE on success or &false; on failure.
+
+|gupnp_service_notify| |gupnp_service_thaw_notify|
+
+vim:ft=help:

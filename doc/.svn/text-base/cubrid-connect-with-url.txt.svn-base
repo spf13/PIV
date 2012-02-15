@@ -1,0 +1,14 @@
+cubrid_connect_with_url -- Establish the environment for connecting to CUBRID
+server
+
+  resource cubrid_connect_with_url(string conn_url [, string userid [, string passwd]])~
+
+The |cubrid_connect_with_url| function is used to establish the environment
+for connecting to your server by using connection information passed with an
+url string argument. If the HA feature is enabled in CUBRID, you must specify
+the connection information of the standby server, which is used for failover
+when failure occurs, in the url string argument of this function. If the user
+name and password is not given, then the "PUBLIC" connection will be made by
+default.
+
+vim:ft=help:

@@ -1,0 +1,14 @@
+connection_timeout -- Check if the script timed out
+
+  int connection_timeout()~
+
+Determines whether the script timed out.
+
+Returns 1 if the script timed out, 0 otherwise.
+
+This function is deprecated, and doesn't even exist anymore as of 4.0.5.
+
+|connection_status| Connection Handling for a complete description of
+connection handling in PHP.
+
+vim:ft=help:

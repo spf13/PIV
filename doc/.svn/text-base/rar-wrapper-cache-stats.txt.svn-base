@@ -1,0 +1,14 @@
+rar_wrapper_cache_stats -- Cache hits and misses for the URL wrapper
+
+  string rar_wrapper_cache_stats()~
+
+
+
+This function is currently not documented; only its argument list is
+available.
+
+This function has no parameters.
+
+
+
+vim:ft=help:

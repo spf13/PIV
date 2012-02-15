@@ -1,0 +1,18 @@
+msql_list_dbs -- List mSQL databases on server
+
+  resource msql_list_dbs([resource link_identifier])~
+
+|msql_list_tables| lists the databases available on the specified
+{link_identifier}.
+
+{ link_identifier}The mSQL connection. If not specified, the last link opened
+by |msql_connect| is assumed. If no such link is found, the function will try
+to establish a link as if |msql_connect| was called, and use it.
+
+Returns a result set which may be traversed with any function that fetches
+result sets, such as |msql_fetch_array|. On failure, this function will return
+FALSE.
+
+|msql_list_tables| |msql_list_fields|
+
+vim:ft=help:

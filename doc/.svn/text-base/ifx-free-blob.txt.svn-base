@@ -1,0 +1,13 @@
+ifx_free_blob -- Deletes the blob object
+
+  bool ifx_free_blob(int bid)~
+
+Deletes the blobobject for the given blob object-id.
+
+{bid} The BLOB object id.
+
+Returns TRUE on success or &false; on failure.
+
+|ifx_create_blob|
+
+vim:ft=help:

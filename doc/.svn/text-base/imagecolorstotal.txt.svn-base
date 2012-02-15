@@ -1,0 +1,33 @@
+imagecolorstotal -- Find out the number of colors in an image's palette
+
+  int imagecolorstotal(resource image)~
+
+Returns the number of colors in an image palette.
+
+{image} An image resource, returned by one of the image creation functions,
+such as |imagecreatefromgif|.
+
+Returns the number of colors in the specified image's palette or 0 for
+truecolor images.
+
+Getting total number of colors in an image using |imagecolorstotal|
+
+<?php >
+  // Create image instance
+  $im = imagecreatefromgif('php.gif');
+  
+  echo 'Total colors in image: ' . imagecolorstotal($im);
+  
+  // Free image
+  imagedestroy($im);
+?>
+
+The above example will output something similar to:
+
+  Total colors in image: 128
+
+
+
+|imagecolorat| |imagecolorsforindex| |imageistruecolor|
+
+vim:ft=help:

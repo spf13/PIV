@@ -1,0 +1,10 @@
+udm_crc32 -- Return CRC32 checksum of given string
+
+  int udm_crc32(resource agent, string str)~
+
+This function is currently not documented; only its argument list is
+available.
+
+
+
+vim:ft=help:

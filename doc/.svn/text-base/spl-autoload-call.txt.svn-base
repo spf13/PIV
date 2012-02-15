@@ -1,0 +1,13 @@
+spl_autoload_call -- Try all registered __autoload() function to load the
+requested class
+
+  void spl_autoload_call(string class_name)~
+
+This function can be used to manually search for a class or interface using
+the registered __autoload functions.
+
+{class_name} The class name being searched.
+
+No value is returned.
+
+vim:ft=help:

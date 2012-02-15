@@ -1,0 +1,19 @@
+iconv_strlen -- Returns the character count of string
+
+  int iconv_strlen(string str [, string charset])~
+
+In contrast to |strlen|, |iconv_strlen| counts the occurrences of characters
+in the given byte sequence {str} on the basis of the specified character set,
+the result of which is not necessarily identical to the length of the string
+in byte.
+
+{str} The string.
+
+{charset} If {charset} parameter is omitted, {str} is assumed to be encoded in
+iconv.internal_encoding.
+
+Returns the character count of {str}, as an integer.
+
+|strlen| |mb_strlen|
+
+vim:ft=help:

@@ -1,0 +1,13 @@
+event_buffer_enable -- Enable a buffered event
+
+  bool event_buffer_enable(resource bevent, int events)~
+
+Enables the specified buffered event.
+
+{bevent} Valid buffered event resource.
+
+{events} Any combination of EV_READ and EV_WRITE.
+
+|event_buffer_enable| returns TRUE on success or FALSE on error.
+
+vim:ft=help:

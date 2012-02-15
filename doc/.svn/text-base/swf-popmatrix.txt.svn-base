@@ -1,0 +1,11 @@
+swf_popmatrix -- Restore a previous transformation matrix
+
+  void swf_popmatrix()~
+
+Restores a previous transformation matrix.
+
+No value is returned.
+
+|swf_pushmatrix|
+
+vim:ft=help:

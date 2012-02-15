@@ -1,0 +1,19 @@
+ibase_blob_echo -- Output blob contents to browser
+
+  bool ibase_blob_echo(string blob_id)~
+
+  bool ibase_blob_echo(string blob_id, resource link_identifier, string blob_id)~
+
+This function opens a BLOB for reading and sends its contents directly to
+standard output (the browser, in most cases).
+
+{link_identifier} An InterBase link identifier. If omitted, the last opened
+link is assumed.
+
+{blob_id}
+
+Returns TRUE on success or &false; on failure.
+
+|ibase_blob_open| |ibase_blob_close| |ibase_blob_get|
+
+vim:ft=help:

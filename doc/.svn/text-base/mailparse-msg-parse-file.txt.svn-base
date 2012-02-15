@@ -1,0 +1,15 @@
+mailparse_msg_parse_file -- Parses a file
+
+  resource mailparse_msg_parse_file(string filename)~
+
+Parses a file. This is the optimal way of parsing a mail file that you have on
+disk.
+
+{filename} Path to the file holding the message. The file is opened and
+streamed through the parser.
+
+Returns a MIME resource representing the structure, or FALSE on error.
+
+|mailparse_msg_free| |mailparse_msg_create|
+
+vim:ft=help:

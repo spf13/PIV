@@ -1,0 +1,35 @@
+array_count_values -- Counts all the values of an array
+
+  array array_count_values(array input)~
+
+|array_count_values| returns an array using the values of the {input} array as
+keys and their frequency in {input} as values.
+
+{input} The array of values to count
+
+Returns an associative array of values from {input} as keys and their count as
+value.
+
+Throws E_WARNING for every element which is not string or integer.
+
+|array_count_values| example
+
+<?php >
+  $array = array(1, "hello", 1, "world", "hello");
+  print_r(array_count_values($array));
+?>
+
+The above example will output:
+
+  Array
+  (
+      [1] => 2
+      [hello] => 2
+      [world] => 1
+  )
+
+
+
+|count| |array_unique| |array_values| |count_chars|
+
+vim:ft=help:

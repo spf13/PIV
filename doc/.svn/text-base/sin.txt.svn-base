@@ -1,0 +1,26 @@
+sin -- Sine
+
+  float sin(float arg)~
+
+|sin| returns the sine of the {arg} parameter. The {arg} parameter is in
+radians.
+
+{arg} A value in radians
+
+The sine of {arg}
+
+|sin| example
+
+<?php >
+  // Precision depends on your precision directive
+  echo sin(deg2rad(60));  //  0.866025403 ...
+  echo sin(60);           // -0.304810621 ...
+?>
+
+
+
+
+
+|asin| |sinh| |cos| |tan| |deg2rad|
+
+vim:ft=help:

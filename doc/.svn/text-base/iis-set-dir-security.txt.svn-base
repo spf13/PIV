@@ -1,0 +1,8 @@
+iis_set_dir_security -- Sets Directory Security
+
+  int iis_set_dir_security(int server_instance, string virtual_path, int directory_flags)~
+
+This function is currently not documented; only its argument list is
+available.
+
+vim:ft=help:

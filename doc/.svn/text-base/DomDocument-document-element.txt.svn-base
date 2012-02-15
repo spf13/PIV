@@ -1,0 +1,34 @@
+DomDocument->document_element -- Returns root element node
+
+  domelement DomDocument->document_element()~
+
+This function returns the root element node of a document.
+
+The following example returns just the element with name CHAPTER and prints
+it. The other node -- the comment -- is not returned. Retrieving root element
+
+<?php >
+  include("example.inc");
+  
+  if (!$dom = domxml_open_mem($xmlstr)) {
+    echo "Error while parsing the document\n";
+    exit;
+  }
+  
+  $root = $dom->document_element();
+  print_r($root);
+?>
+
+The above example will output:
+
+  domelement Object
+  (
+      [type] => 1
+      [tagname] => chapter
+      [0] => 6
+      [1] => 137960648
+  )
+
+
+
+vim:ft=help:

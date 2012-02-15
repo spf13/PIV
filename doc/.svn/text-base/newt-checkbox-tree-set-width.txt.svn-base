@@ -1,0 +1,14 @@
+newt_checkbox_tree_set_width --
+
+  void newt_checkbox_tree_set_width(resource checkbox_tree, int width)~
+
+This function is currently not documented; only its argument list is
+available.
+
+{checkbox_tree}
+
+{width}
+
+No value is returned.
+
+vim:ft=help:

@@ -1,0 +1,20 @@
+newt_run_form -- Runs a form
+
+  resource newt_run_form(resource form)~
+
+This function runs the form passed to it.
+
+{form} Form component
+
+The component which caused the form to stop running.
+
+Notice that this function doesn't fit in with newt's normal naming convention.
+It is an older interface which will not work for all forms. It was left in
+newt only for legacy applications. It is a simpler interface than the new
+|newt_form_run| though, and is still used quite often as a result. When an
+application is done with a form, it destroys the form and all of the
+components the form contains.
+
+|newt_form_run| |newt_form_destroy|
+
+vim:ft=help:

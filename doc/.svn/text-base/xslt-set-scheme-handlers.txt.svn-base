@@ -1,0 +1,70 @@
+xslt_set_scheme_handlers -- Set the scheme handlers for the XSLT processor
+
+  void xslt_set_scheme_handlers(resource xh, array handlers)~
+
+Registers the scheme handlers (XPath handlers) for the document.
+
+{xh} The XSLT processor link identifier, created with |xslt_create|.
+
+{handlers} An array with the following keys: "get_all", "open", "get", "put",
+and "close".
+
+Every entry must be a function name or an array in the following format:
+array($obj, "method").
+
+Note that the given array does not need to contain all of the different scheme
+handler elements (although it can), but it only needs to conform to the
+"handler" => "fonction" format described above.
+
+Each of the individual scheme handler functions called are in the formats
+below:
+
+  string   get_all(resource processor, string scheme, string rest)
+  resource open(resource processor, string scheme, string rest)
+  int      get(resource processor, resource fp, string &amp;data)
+  int      put(resource processor, resource fp, string data)
+  void     close(resource processor, resource fp)
+
+
+
+No value is returned.
+
+|xslt_set_scheme_handlers| example For example, here is an implementation of
+the "file_exists()" PHP function.
+
+<?php >
+  // Definition of the handler
+  function mySchemeHandler($processor, $scheme, $rest)
+  {
+      $rest = substr($rest,1);    // to remove the first / automatically added by the engine
+      if ($scheme == 'file_exists') {
+          // result is embedded in a small xml string
+          return '<?xml version="1.0" encoding="UTF-8"?><root>' . (file_exists($rest) ? 'true' : 'false') . '</root>';
+      }
+  }
+  
+  $SchemeHandlerArray = array('get_all' => 'mySchemeHandler');
+  
+  // Start the engine
+  $params = array();
+  $xh = xslt_create();
+  
+  xslt_set_scheme_handlers($xh, $SchemeHandlerArray);
+  
+  $result = xslt_process($xh, "myFile.xml", "myFile.xsl", NULL, array(), $params);
+  xslt_free($xh);
+  
+  echo $result;
+?>
+
+Then, inside the stylesheet, you can test whether a certain file exists with:
+
+  <xsl:if test="document('file_exists:anotherXMLfile.xml')/root='true'">
+   <!-- The file exist -->
+  </xsl:if>
+
+
+
+|xslt_set_scheme_handler|
+
+vim:ft=help:

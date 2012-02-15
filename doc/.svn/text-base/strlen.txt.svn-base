@@ -1,0 +1,30 @@
+strlen -- Get string length
+
+  int strlen(string string)~
+
+Returns the length of the given {string}.
+
+{string} The string being measured for length.
+
+The length of the {string} on success, and 0 if the {string} is empty.
+
+A |strlen| example
+
+<?php >
+  $str = 'abcdef';
+  echo strlen($str); // 6
+  
+  $str = ' ab cd ';
+  echo strlen($str); // 7
+?>
+
+
+
+
+
+|strlen| returns NULL when executed on arrays, and an E_WARNING level error is
+emitted.
+
+|count| |mb_strlen|
+
+vim:ft=help:

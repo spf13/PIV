@@ -1,0 +1,50 @@
+snmp3_real_walk -- Return all objects including their respective object ID
+within the specified one
+
+  array snmp3_real_walk(string host, string sec_name, string sec_level, string auth_protocol, string auth_passphrase, string priv_protocol, string priv_passphrase, string object_id [, string timeout [, string retries]])~
+
+The |snmp3_real_walk| function is used to traverse over a number of SNMP
+objects starting from {object_id} and return not only their values but also
+their object ids.
+
+The hostname of the SNMP agent (server).
+
+the security name, usually some kind of username
+
+the security level (noAuthNoPriv|authNoPriv|authPriv)
+
+the authentication protocol (MD5 or SHA)
+
+the authentication pass phrase
+
+the privacy protocol (DES or AES)
+
+the privacy pass phrase
+
+The SNMP object id.
+
+The number of microseconds until the first timeout.
+
+The number of retries in case of timeouts.
+
+Returns an associative array of the SNMP object ids and their values on
+success or FALSE on error. In case of an error, an E_WARNING message is shown.
+
+Using |snmp3_real_walk|
+
+<?php >
+   var_export(snmp3_real_walk('localhost', 'james', 'authPriv', 'SHA', 'secret007', 'AES', 'secret007', 'IF-MIB::ifName'));
+?>
+
+The above will output something like: array ( 'IF-MIB::ifName.1' => 'STRING:
+lo', 'IF-MIB::ifName.2' => 'STRING: eth0', 'IF-MIB::ifName.3' => 'STRING:
+eth2', 'IF-MIB::ifName.4' => 'STRING: sit0', 'IF-MIB::ifName.5' => 'STRING:
+sixxs', )
+
+
+
+
+
+|snmpwalk|
+
+vim:ft=help:

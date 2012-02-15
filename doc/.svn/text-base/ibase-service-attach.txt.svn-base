@@ -1,0 +1,8 @@
+ibase_service_attach -- Connect to the service manager
+
+  resource ibase_service_attach(string host, string dba_username, string dba_password)~
+
+This function is currently not documented; only its argument list is
+available.
+
+vim:ft=help:

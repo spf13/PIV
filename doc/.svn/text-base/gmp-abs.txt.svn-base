@@ -1,0 +1,29 @@
+gmp_abs -- Absolute value
+
+  resource gmp_abs(resource a)~
+
+Get the absolute value of a number.
+
+{a} It can be either a GMP number resource, or a numeric string given that it
+is possible to convert the latter to a number.
+
+Returns the absolute value of {a}, as a GMP number.
+
+|gmp_abs| example
+
+<?php >
+  $abs1 = gmp_abs("274982683358");
+  $abs2 = gmp_abs("-274982683358");
+  
+  echo gmp_strval($abs1) . "\n";
+  echo gmp_strval($abs2) . "\n";
+?>
+
+The above example will output:
+
+  274982683358
+  274982683358
+
+
+
+vim:ft=help:

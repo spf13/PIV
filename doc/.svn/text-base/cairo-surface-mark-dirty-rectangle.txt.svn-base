@@ -1,0 +1,39 @@
+cairo_surface_mark_dirty_rectangle -- Description
+
+  void cairo_surface_mark_dirty_rectangle(CairoSurface surface, float x, float y, float width, float height)~
+
+The function description goes here.
+
+This function is currently not documented; only its argument list is
+available.
+
+{surface} Description...
+
+{x} Description...
+
+{y} Description...
+
+{width} Description...
+
+{height} Description...
+
+What is returned on success and failure
+
+When does this function issue E_* level errors, and/or throw exceptions.
+
+|cairo_surface_mark_dirty_rectangle| example Any text that describes the
+purpose of the example, or what goes on in the example should be here.
+
+<?php >
+  /* ... */
+?>
+
+The above example will output something similar to:
+
+  ...
+
+
+
+|related function name here|
+
+vim:ft=help:

@@ -1,0 +1,15 @@
+odbc_close -- Close an ODBC connection
+
+  void odbc_close(resource connection_id)~
+
+Closes down the connection to the database server.
+
+{connection_id} The ODBC connection identifier, see |odbc_connect| for
+details.
+
+No value is returned.
+
+This function will fail if there are open transactions on this connection. The
+connection will remain open in this case.
+
+vim:ft=help:

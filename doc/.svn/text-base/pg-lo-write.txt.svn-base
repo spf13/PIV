@@ -1,0 +1,41 @@
+pg_lo_write -- Write to a large object
+
+  int pg_lo_write(resource large_object, string data [, int len])~
+
+|pg_lo_write| writes data into a large object at the current seek position.
+
+To use the large object interface, it is necessary to enclose it within a
+transaction block.
+
+This function used to be called |pg_lowrite|.
+
+{large_object} PostgreSQL large object (LOB) resource, returned by
+|pg_lo_open|.
+
+{data} The data to be written to the large object. If {len} is specified and
+is less than the length of {data}, only {len} bytes will be written.
+
+{len} An optional maximum number of bytes to write. Must be greater than zero
+and no greater than the length of {data}. Defaults to the length of {data}.
+
+The number of bytes written to the large object, or FALSE on error.
+
+|pg_lo_write| example
+
+<?php >
+     $doc_oid = 189762345;
+     $data = "This will overwrite the start of the large object.";
+     $database = pg_connect("dbname=jacarta");
+     pg_query($database, "begin");
+     $handle = pg_lo_open($database, $doc_oid, "w");
+     $data = pg_lo_write($handle, $data);
+     pg_query($database, "commit");
+?>
+
+
+
+
+
+|pg_lo_create| |pg_lo_open|
+
+vim:ft=help:

@@ -1,0 +1,16 @@
+yaz_es_result -- Inspects Extended Services Result
+
+  array yaz_es_result(resource id)~
+
+This function inspects the last returned Extended Service result from a
+server. An Extended Service is initiated by either |yaz_item_order| or
+|yaz_es|.
+
+{id} The connection resource returned by |yaz_connect|.
+
+Returns array with element targetReference for the reference for the extended
+service operation (generated and returned from the server).
+
+|yaz_es|
+
+vim:ft=help:

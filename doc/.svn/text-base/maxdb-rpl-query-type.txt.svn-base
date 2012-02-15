@@ -1,0 +1,14 @@
+maxdb::rpl_query_type -- Returns RPL query type
+
+Procedural style
+
+  int maxdb_rpl_query_type(resource link)~
+
+Object oriented style
+
+  int maxdb::rpl_query_type(resource link)~
+
+This function is currently not documented; only its argument list is
+available.
+
+vim:ft=help:

@@ -1,0 +1,12 @@
+newt_listbox_clear_selection --
+
+  void newt_listbox_clear_selection(resource listbox)~
+
+This function is currently not documented; only its argument list is
+available.
+
+{listbox}
+
+No value is returned.
+
+vim:ft=help:

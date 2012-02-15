@@ -1,0 +1,12 @@
+stats_rand_gen_int -- Generates random integer between 1 and 2147483562
+
+  int stats_rand_gen_int()~
+
+This function is currently not documented; only its argument list is
+available.
+
+
+
+
+
+vim:ft=help:

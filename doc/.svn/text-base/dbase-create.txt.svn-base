@@ -1,0 +1,48 @@
+dbase_create -- Creates a database
+
+  int dbase_create(string filename, array fields)~
+
+|dbase_create| creates a dBase database with the given definition.
+
+When safe mode is enabled, PHP checks whether the files or directories being
+operated upon have the same UID (owner) as the script that is being executed.
+
+This function is affected by open_basedir.
+
+{filename} The name of the database. It can be a relative or absolute path to
+the file where dBase will store your data.
+
+{fields} An array of arrays, each array describing the format of one field of
+the database. Each field consists of a name, a character indicating the field
+type, and optionally, a length, and a precision.
+
+The fieldnames are limited in length and must not exceed 10 chars.
+
+Returns a database link identifier if the database is successfully created, or
+FALSE if an error occurred.
+
+Creating a dBase database file
+
+<?php >
+  // database "definition"
+  $def = array(
+    array("date",     "D"),
+    array("name",     "C",  50),
+    array("age",      "N",   3, 0),
+    array("email",    "C", 128),
+    array("ismember", "L")
+  );
+  
+  // creation
+  if (!dbase_create('/tmp/test.dbf', $def)) {
+    echo "Error, can't create the database\n";
+  }
+?>
+
+
+
+
+
+|dbase_open| |dbase_close|
+
+vim:ft=help:

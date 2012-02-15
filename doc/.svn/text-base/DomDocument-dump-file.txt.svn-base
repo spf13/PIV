@@ -1,0 +1,32 @@
+DomDocument->dump_file -- Dumps the internal XML tree back into a file
+
+  string DomDocument->dump_file(string filename [, bool compressionmode [, bool format]])~
+
+Creates an XML document from the dom representation. This function usually is
+called after building a new dom document from scratch as in the example below.
+The {format} specifies whether the output should be neatly formatted, or not.
+The first parameter specifies the name of the filename and the second
+parameter, whether it should be compressed or not.
+
+Creating a simple HTML document header
+
+<?php >
+  $doc = domxml_new_doc("1.0");
+  $root = $doc->create_element("HTML");
+  $root = $doc->append_child($root);
+  $head = $doc->create_element("HEAD");
+  $head = $root->append_child($head);
+  $title = $doc->create_element("TITLE");
+  $title = $head->append_child($title);
+  $text = $doc->create_text_node("This is the title");
+  $text = $title->append_child($text);
+  $doc->dump_file("/tmp/test.xml", false, true);
+?>
+
+
+
+
+
+See also |domdocument_dump_mem|, and |domdocument_html_dump_mem|.
+
+vim:ft=help:

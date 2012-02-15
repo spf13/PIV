@@ -1,0 +1,5 @@
+posix_errno -- Alias of posix_get_last_error
+
+This function is an alias of: |posix_get_last_error|.
+
+vim:ft=help:

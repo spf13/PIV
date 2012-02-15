@@ -1,0 +1,34 @@
+mssql_free_statement -- Free statement memory
+
+  bool mssql_free_statement(resource stmt)~
+
+|mssql_free_statement| only needs to be called if you are worried about using
+too much memory while your script is running. All statement memory will
+automatically be freed when the script ends. You may call
+|mssql_free_statement| with the statement identifier as an argument and the
+associated statement memory will be freed.
+
+{stmt} Statement resource, obtained with |mssql_init|.
+
+Returns TRUE on success or &false; on failure.
+
+|mssql_free_statement| example
+
+<?php >
+  // Create a new statement
+  $stmt = mssql_init('test');
+  
+  // Bind values here and execute the statement
+  
+  // once we're done, we clear it from the memory
+  // using mssql_free_statement like so:
+  mssql_free_statement($stmt);
+?>
+
+
+
+
+
+|mssql_bind| |mssql_execute| |mssql_init| |mssql_free_result|
+
+vim:ft=help:

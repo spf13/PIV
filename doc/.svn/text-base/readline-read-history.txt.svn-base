@@ -1,0 +1,11 @@
+readline_read_history -- Reads the history
+
+  bool readline_read_history([string filename])~
+
+This function reads a command history from a file.
+
+{filename} Path to the filename containing the command history.
+
+Returns TRUE on success or &false; on failure.
+
+vim:ft=help:

@@ -1,0 +1,15 @@
+socket_close -- Closes a socket resource
+
+  void socket_close(resource socket)~
+
+|socket_close| closes the socket resource given by {socket}. This function is
+specific to sockets and cannot be used on any other type of resources.
+
+{socket} A valid socket resource created with |socket_create| or
+|socket_accept|.
+
+No value is returned.
+
+|socket_bind| |socket_listen| |socket_create| |socket_strerror|
+
+vim:ft=help:

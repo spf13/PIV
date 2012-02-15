@@ -1,0 +1,13 @@
+*rrd_first* -- Gets the timestamp of the first sample from rrd file.
+
+  int rrd_first(string file [, int raaindex])~
+
+Returns the first data sample from the specified RRA of the RRD file.
+
+Filename for a rrd file.
+
+The index number of the RRA that is to be examined. Default value is 0.
+
+Integer number of unix timestamp, FALSE if some error occurs.
+
+vim:ft=help:

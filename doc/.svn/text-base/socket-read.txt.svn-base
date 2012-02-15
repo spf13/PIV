@@ -1,0 +1,34 @@
+socket_read -- Reads a maximum of length bytes from a socket
+
+  string socket_read(resource socket, int length [, int type])~
+
+The function |socket_read| reads from the socket resource {socket} created by
+the |socket_create| or |socket_accept| functions.
+
+{socket} A valid socket resource created with |socket_create| or
+|socket_accept|.
+
+{length} The maximum number of bytes read is specified by the {length}
+parameter. Otherwise you can use &#92;r, &#92;n, or &#92;0 to end reading
+(depending on the {type} parameter, see below).
+
+{type} Optional {type} parameter is a named constant: PHP_BINARY_READ
+(Default) - use the system recv() function. Safe for reading binary data.
+
+PHP_NORMAL_READ - reading stops at \n or \r.
+
+|socket_read| returns the data as a string on success, or FALSE on error
+(including if the remote host has closed the connection). The error code can
+be retrieved with |socket_last_error|. This code may be passed to
+|socket_strerror| to get a textual representation of the error.
+
+|socket_read| returns a zero length string ("") when there is no more data to
+read.
+
+Version Description 4.1.0 The default value for {type} was changed from
+PHP_NORMAL_READ to PHP_BINARY_READ
+
+|socket_accept| |socket_bind| |socket_connect| |socket_listen|
+|socket_last_error| |socket_strerror| |socket_write|
+
+vim:ft=help:

@@ -1,0 +1,12 @@
+newt_cls --
+
+  void newt_cls()~
+
+This function is currently not documented; only its argument list is
+available.
+
+
+
+No value is returned.
+
+vim:ft=help:

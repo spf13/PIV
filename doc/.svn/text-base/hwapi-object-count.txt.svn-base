@@ -1,0 +1,11 @@
+hw_api_object->count -- Returns number of attributes
+
+  int count(array parameter)~
+
+Returns the number of attributes.
+
+{parameter}
+
+Returns the number as an integer.
+
+vim:ft=help:

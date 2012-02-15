@@ -1,0 +1,58 @@
+hash_algos -- Return a list of registered hashing algorithms
+
+  array hash_algos()~
+
+Returns a numerically indexed array containing the list of supported hashing
+algorithms.
+
+|hash_algos| example As of PHP 5.1.2, |hash_algos| will return the following
+list of algorithm names.
+
+<?php >
+  print_r(hash_algos());
+?>
+
+The above example will output:
+
+  Array
+  (
+      [0] => md4
+      [1] => md5
+      [2] => sha1
+      [3] => sha256
+      [4] => sha384
+      [5] => sha512
+      [6] => ripemd128
+      [7] => ripemd160
+      [8] => whirlpool
+      [9] => tiger128,3
+      [10] => tiger160,3
+      [11] => tiger192,3
+      [12] => tiger128,4
+      [13] => tiger160,4
+      [14] => tiger192,4
+      [15] => snefru
+      [16] => gost
+      [17] => adler32
+      [18] => crc32
+      [19] => crc32b
+      [20] => haval128,3
+      [21] => haval160,3
+      [22] => haval192,3
+      [23] => haval224,3
+      [24] => haval256,3
+      [25] => haval128,4
+      [26] => haval160,4
+      [27] => haval192,4
+      [28] => haval224,4
+      [29] => haval256,4
+      [30] => haval128,5
+      [31] => haval160,5
+      [32] => haval192,5
+      [33] => haval224,5
+      [34] => haval256,5
+  )
+
+
+
+vim:ft=help:

@@ -1,0 +1,15 @@
+openssl_x509_check_private_key -- Checks if a private key corresponds to a
+certificate
+
+  bool openssl_x509_check_private_key(mixed cert, mixed key)~
+
+Checks whether the given {key} is the private key that corresponds to {cert}.
+
+{cert} The certificate.
+
+{key} The private key.
+
+Returns TRUE if {key} is the private key that corresponds to {cert}, or FALSE
+otherwise.
+
+vim:ft=help:

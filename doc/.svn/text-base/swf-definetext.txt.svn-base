@@ -1,0 +1,44 @@
+swf_definetext -- Define a text string
+
+  void swf_definetext(int objid, string str, int docenter)~
+
+Defines a text string using the current font and font size.
+
+{objid} The object id.
+
+{str} The text, as a string.
+
+{docenter} The {docenter} is where the word is centered, if {docenter} is 1,
+then the word is centered in x.
+
+No value is returned.
+
+Horizontal text example
+
+<?php >
+  $Xposition = 50;
+  $Yposition = 50;
+  $Zposition = 0;
+  $Obj_depth = 1;
+  
+  $char = 'THIS IS THE TEXT';
+  
+  swf_pushmatrix();
+  
+  swf_definefont (swf_nextid(), "Mod");
+  swf_fontsize(10);
+  
+  $secondid = swf_nextid();
+  swf_definetext($secondid, $char, 1);
+  swf_translate($Xposition, $Yposition, Zposition);
+  swf_placeobject($secondid, $Obj_depth);
+  swf_popmatrix();
+?>
+
+
+
+
+
+|swf_definefont|
+
+vim:ft=help:

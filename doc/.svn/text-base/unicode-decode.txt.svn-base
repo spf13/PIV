@@ -1,0 +1,27 @@
+unicode_decode -- Convert a binary string into a Unicode string
+
+  unicode unicode_decode(string input, string encoding [, int errmode])~
+
+Convert a binary string encoded in {encoding} to a unicode string.
+
+{input} Try string that is converted.
+
+{encoding} The encoding of {input}.
+
+{errmode} Conversion error mode. This parameter determines the action to take
+when the converter cannot convert a character. For a list of available modes,
+refer to |unicode_set_error_mode|. If the parameter is not set, the global
+error mode is used.
+
+A unicode string or FALSE on failure.
+
+Emits a E_WARNING level error if a converter cannot be created for the desired
+{encoding}.
+
+This function is EXPERIMENTAL. The behaviour of this function, its name, and
+surrounding documentation may change without notice in a future release of
+PHP. This function should be used at your own risk.
+
+|unicode_set_error_mode| |unicode_encode|
+
+vim:ft=help:

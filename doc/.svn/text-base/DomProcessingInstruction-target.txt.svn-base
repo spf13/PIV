@@ -1,0 +1,12 @@
+DomProcessingInstruction->target -- Returns the target of a
+ProcessingInstruction node
+
+  string target()~
+
+This method gets the target of the ProcessingInstruction node.
+
+Returns the target of the Processing Instruction.
+
+Use the target property of DOMProcessingInstruction.
+
+vim:ft=help:

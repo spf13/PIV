@@ -1,0 +1,17 @@
+ibase_param_info -- Return information about a parameter in a prepared query
+
+  array ibase_param_info(resource query, int param_number)~
+
+Returns an array with information about a parameter after a query has been
+prepared.
+
+{query} An InterBase prepared query handle.
+
+{param_number} Parameter offset.
+
+Returns an array with the following keys: name, alias, relation, length and
+type.
+
+|ibase_field_info| |ibase_num_params|
+
+vim:ft=help:

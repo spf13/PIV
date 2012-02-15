@@ -1,0 +1,16 @@
+ovrimos_longreadlen -- Specifies how many bytes are to be retrieved from long
+datatypes
+
+  bool ovrimos_longreadlen(int result_id, int length)~
+
+Specifies how many bytes are to be retrieved from long datatypes (long varchar
+and long varbinary).
+
+{result_id} A result identifier, returned by |ovrimos_execute| or
+|ovrimos_exec|.
+
+{length} The number of bytes to retrieve. Default is zero.
+
+Returns TRUE.
+
+vim:ft=help:

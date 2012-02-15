@@ -1,0 +1,49 @@
+array_diff_key -- Computes the difference of arrays using keys for comparison
+
+  array array_diff_key(array array1, array array2 [, array ...])~
+
+Compares the keys from {array1} against the keys from {array2} and returns the
+difference. This function is like |array_diff| except the comparison is done
+on the keys instead of the values.
+
+{array1} The array to compare from
+
+{array2} An array to compare against
+
+{...} More arrays to compare against
+
+Returns an array containing all the entries from {array1} whose keys are not
+present in any of the other arrays.
+
+|array_diff_key| example The two keys from the key => value pairs are
+considered equal only if (string) $key1 === (string) $key2 . In other words a
+strict type check is executed so the string representation must be the same.
+
+<?php >
+  $array1 = array('blue'  => 1, 'red'  => 2, 'green'  => 3, 'purple' => 4);
+  $array2 = array('green' => 5, 'blue' => 6, 'yellow' => 7, 'cyan'   => 8);
+  
+  var_dump(array_diff_key($array1, $array2));
+?>
+
+The above example will output:
+
+  array(2) {
+    ["red"]=>
+    int(2)
+    ["purple"]=>
+    int(4)
+  }
+
+
+
+This function only checks one dimension of a n-dimensional array. Of course
+you can check deeper dimensions by using array_diff_key($array1[0],
+$array2[0]);.
+
+|array_diff| |array_udiff| |array_diff_assoc| |array_diff_uassoc|
+|array_udiff_assoc| |array_udiff_uassoc| |array_diff_ukey| |array_intersect|
+|array_intersect_assoc| |array_intersect_uassoc| |array_intersect_key|
+|array_intersect_ukey|
+
+vim:ft=help:

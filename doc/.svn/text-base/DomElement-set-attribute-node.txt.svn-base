@@ -1,0 +1,10 @@
+DomElement->set_attribute_node -- Adds new attribute
+
+  DomNode set_attribute_node(DomNode attr)~
+
+This function is currently not documented; only its argument list is
+available.
+
+
+
+vim:ft=help:

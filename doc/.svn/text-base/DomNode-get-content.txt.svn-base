@@ -1,0 +1,29 @@
+DomNode->get_content -- Gets content of node
+
+  string DomNode->get_content()~
+
+This function returns the content of the actual node.
+
+Getting a content
+
+<?php >
+  if (!$dom = domxml_open_mem($xmlstr)) {
+    echo "Error while parsing the document\n";
+    exit;
+  }
+  
+  $root = $dom->document_element();
+  
+  $node_array = $root->get_elements_by_tagname("element");
+  
+  for ($i = 0; $i<count($node_array); $i++) {
+      $node = $node_array[$i];
+      echo "The element[$i] is: " . $node->get_content();
+  }
+?>
+
+
+
+
+
+vim:ft=help:

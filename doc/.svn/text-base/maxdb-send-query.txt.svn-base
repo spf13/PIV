@@ -1,0 +1,14 @@
+maxdb::send_query -- Send the query and return
+
+Procedural style
+
+  bool maxdb_send_query(resource link, string query)~
+
+Object oriented style
+
+  bool maxdb::send_query(resource link, string query, string query)~
+
+This function is currently not documented; only its argument list is
+available.
+
+vim:ft=help:

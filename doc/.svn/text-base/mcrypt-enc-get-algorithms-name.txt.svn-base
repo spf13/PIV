@@ -1,0 +1,28 @@
+mcrypt_enc_get_algorithms_name -- Returns the name of the opened algorithm
+
+  string mcrypt_enc_get_algorithms_name(resource td)~
+
+This function returns the name of the algorithm.
+
+{td} The encryption descriptor.
+
+Returns the name of the opened algorithm as a string.
+
+|mcrypt_enc_get_algorithms_name| example
+
+<?php >
+  $td = mcrypt_module_open(MCRYPT_CAST_256, '', MCRYPT_MODE_CFB, '');
+  echo mcrypt_enc_get_algorithms_name($td). "\n";
+  
+  $td = mcrypt_module_open('cast-256', '', MCRYPT_MODE_CFB, '');
+  echo mcrypt_enc_get_algorithms_name($td). "\n";
+?>
+
+The above example will output:
+
+  CAST-256
+  CAST-256
+
+
+
+vim:ft=help:

@@ -1,0 +1,48 @@
+realpath_cache_get -- Get realpath cache entries
+
+  array realpath_cache_get()~
+
+Get the contents of the realpath cache.
+
+Returns an array of realpath cache entries. The keys are original path
+entries, and the values are arrays of data items, containing the resolved
+path, expiration date, and other options kept in the cache.
+
+|realpath_cache_get| example
+
+<?php >
+  var_dump(realpath_cache_get());
+?>
+
+The above example will output something similar to:
+
+  array(2) {
+    ["/test"]=>
+    array(4) {
+      ["key"]=>
+      int(123456789)
+      ["is_dir"]=>
+      bool(true)
+      ["realpath"]=>
+      string(5) "/test"
+      ["expires"]=>
+      int(1260318939)
+    }
+    ["/test/test.php"]=>
+    array(4) {
+      ["key"]=>
+      int(987654321)
+      ["is_dir"]=>
+      bool(false)
+      ["realpath"]=>
+      string(12) "/root/test.php"
+      ["expires"]=>
+      int(1260318939)
+    }
+  }
+
+
+
+|realpath_cache_size|
+
+vim:ft=help:

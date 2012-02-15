@@ -1,0 +1,8 @@
+msession_connect -- Connect to msession server
+
+  bool msession_connect(string host, string port)~
+
+This function is currently not documented; only its argument list is
+available.
+
+vim:ft=help:

@@ -1,0 +1,7 @@
+PDF_get_parameter -- Get string parameter
+
+  string PDF_get_parameter(resource p, string key, float modifier)~
+
+Gets the contents of some PDFlib parameter with string type.
+
+vim:ft=help:

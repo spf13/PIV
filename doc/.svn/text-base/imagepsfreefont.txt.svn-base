@@ -1,0 +1,31 @@
+imagepsfreefont -- Free memory used by a PostScript Type 1 font
+
+  bool imagepsfreefont(resource font_index)~
+
+|imagepsfreefont| frees memory used by a PostScript Type 1 font.
+
+{font_index} A font resource, returned by |imagepsloadfont|.
+
+Returns TRUE on success or &false; on failure.
+
+|imagepsfreefont| example
+
+<?php >
+  // Load a .pfb font file
+  $font = imagepsloadfont('./bchbi.pfb');
+  
+  // Do any operations with the font here
+  
+  // Free the font from memory
+  imagepsfreefont($font);
+?>
+
+
+
+
+
+This function is only available if PHP is compiled using --with-t1lib[=DIR].
+
+|imagepsloadfont|
+
+vim:ft=help:

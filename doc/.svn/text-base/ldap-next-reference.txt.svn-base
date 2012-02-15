@@ -1,0 +1,8 @@
+ldap_next_reference -- Get next reference
+
+  resource ldap_next_reference(resource link, resource entry)~
+
+This function is currently not documented; only its argument list is
+available.
+
+vim:ft=help:

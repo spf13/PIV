@@ -1,0 +1,11 @@
+OCI-Lob->import -- Imports file data to the LOB
+
+  bool import(string filename)~
+
+Writes data from the {filename} in to the current position of large object.
+
+{filename} Path to the file.
+
+Returns TRUE on success or &false; on failure.
+
+vim:ft=help:

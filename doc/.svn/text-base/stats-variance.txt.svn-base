@@ -1,0 +1,14 @@
+stats_variance -- Returns the population variance
+
+  float stats_variance(array a [, bool sample])~
+
+This function is currently not documented; only its argument list is
+available.
+
+{a}
+
+{sample}
+
+
+
+vim:ft=help:

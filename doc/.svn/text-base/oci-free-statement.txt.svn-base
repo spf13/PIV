@@ -1,0 +1,12 @@
+oci_free_statement -- Frees all resources associated with statement or cursor
+
+  bool oci_free_statement(resource statement)~
+
+Frees resources associated with Oracle's cursor or statement, which was
+received from as a result of |oci_parse| or obtained from Oracle.
+
+{statement} A valid OCI statement identifier.
+
+Returns TRUE on success or &false; on failure.
+
+vim:ft=help:

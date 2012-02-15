@@ -1,0 +1,11 @@
+hw_api->dcstat -- Returns statistics about document cache server
+
+  hw_api_object dcstat(array parameter)~
+
+Returns statistics about document cache server.
+
+{parameter}
+
+
+
+vim:ft=help:

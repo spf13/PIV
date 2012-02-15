@@ -1,0 +1,12 @@
+ovrimos_free_result -- Frees the specified result_id
+
+  bool ovrimos_free_result(int result_id)~
+
+Frees the specified result identifier.
+
+{result_id} A result identifier, returned by |ovrimos_execute| or
+|ovrimos_exec|.
+
+Returns TRUE.
+
+vim:ft=help:

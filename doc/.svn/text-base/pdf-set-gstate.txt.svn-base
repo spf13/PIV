@@ -1,0 +1,7 @@
+PDF_set_gstate -- Activate graphics state object
+
+  bool PDF_set_gstate(resource pdfdoc, int gstate)~
+
+Activates a graphics state object.
+
+vim:ft=help:

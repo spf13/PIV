@@ -1,0 +1,45 @@
+fnmatch -- Match filename against a pattern
+
+  bool fnmatch(string pattern, string string [, int flags])~
+
+|fnmatch| checks if the passed {string} would match the given shell wildcard
+{pattern}.
+
+{pattern} The shell wildcard pattern.
+
+{string} The tested string. This function is especially useful for filenames,
+but may also be used on regular strings.
+
+The average user may be used to shell patterns or at least in their simplest
+form to '?' and '*' wildcards so using |fnmatch| instead of |preg_match| for
+frontend search expression input may be way more convenient for
+non-programming users.
+
+{flags} The value of {flags} can be any combination of the following flags,
+joined with the binary OR (|) operator. A list of possible flags for |fnmatch|
+{Flag} Description FNM_NOESCAPE Disable backslash escaping. FNM_PATHNAME Slash
+in string only matches slash in the given pattern. FNM_PERIOD Leading period
+in string must be exactly matched by period in the given pattern. FNM_CASEFOLD
+Caseless match. Part of the GNU extension.
+
+Returns TRUE if there is a match, FALSE otherwise.
+
+Version Description 5.3.0 This function is now available on Windows platforms.
+
+Checking a color name against a shell wildcard pattern
+
+<?php >
+  if (fnmatch("*gr[ae]y", $color)) {
+    echo "some form of gray ...";
+  }
+?>
+
+
+
+
+
+For now this function is not available on non-POSIX compliant systems.
+
+|glob| |preg_match| |sscanf| |printf| |sprintf|
+
+vim:ft=help:

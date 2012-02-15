@@ -1,0 +1,41 @@
+ob_get_flush -- Flush the output buffer, return it as a string and turn off
+output buffering
+
+  string ob_get_flush()~
+
+|ob_get_flush| flushes the output buffer, return it as a string and turns off
+output buffering.
+
+This function is similar to |ob_end_flush|, except that this function returns
+the buffer as a string.
+
+Returns the output buffer or FALSE if no buffering is active.
+
+|ob_get_flush| example
+
+<?php >
+  //using output_buffering=On
+  print_r(ob_list_handlers());
+  
+  //save buffer in a file
+  $buffer = ob_get_flush();
+  file_put_contents('buffer.txt', $buffer);
+  
+  print_r(ob_list_handlers());
+?>
+
+The above example will output:
+
+  Array
+  (
+      [0] => default output handler
+  )
+  Array
+  (
+  )
+
+
+
+|ob_end_clean| |ob_end_flush| |ob_list_handlers|
+
+vim:ft=help:

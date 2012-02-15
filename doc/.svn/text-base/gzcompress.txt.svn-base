@@ -1,0 +1,33 @@
+gzcompress -- Compress a string
+
+  string gzcompress(string data [, int level])~
+
+This function compress the given string using the ZLIB data format.
+
+For details on the ZLIB compression algorithm see the document "ZLIB
+Compressed Data Format Specification version 3.3" (RFC 1950).
+
+This is not the same as gzip compression, which includes some header data. See
+|gzencode| for gzip compression.
+
+{data} The data to compress.
+
+{level} The level of compression. Can be given as 0 for no compression up to 9
+for maximum compression.
+
+The compressed string or FALSE if an error occurred.
+
+|gzcompress| example
+
+<?php >
+  $compressed = gzcompress('Compress me', 9);
+  echo $compressed;
+?>
+
+
+
+
+
+|gzdeflate| |gzinflate| |gzuncompress| |gzencode|
+
+vim:ft=help:

@@ -1,0 +1,31 @@
+DomDocumentType->system_id -- Returns the system id of document type
+
+  string system_id()~
+
+Returns the system id of the document type.
+
+Returns the system id of the DomDocumentType, as a string.
+
+Retrieving the system id
+
+<?php >
+  include("example.inc");
+  
+  if (!$dom = domxml_open_mem($xmlstr)) {
+    echo "Error while parsing the document\n";
+    exit;
+  }
+  
+  $doctype = $dom->doctype();
+  echo $doctype->system_id();
+?>
+
+The above example will output:
+
+  /share/sgml/Norman_Walsh/db3xml10/db3xml10.dtd
+
+
+
+Use the systemId property of the DOMDocumentType object.
+
+vim:ft=help:

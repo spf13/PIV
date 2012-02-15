@@ -1,0 +1,32 @@
+printer_create_brush -- Create a new brush
+
+  resource printer_create_brush(int style, string color)~
+
+The function creates a new brush and returns a handle to it. A brush is used
+to fill shapes. For an example see |printer_select_brush|.
+
+{style} {style} must be one of the following constants: PRINTER_BRUSH_SOLID:
+creates a brush with a solid color.
+
+PRINTER_BRUSH_DIAGONAL: creates a brush with a 45-degree upward left-to-right
+hatch ( / ).
+
+PRINTER_BRUSH_CROSS: creates a brush with a cross hatch ( + ).
+
+PRINTER_BRUSH_DIAGCROSS: creates a brush with a 45 cross hatch ( x ).
+
+PRINTER_BRUSH_FDIAGONAL: creates a brush with a 45-degree downward
+left-to-right hatch ( \ ).
+
+PRINTER_BRUSH_HORIZONTAL: creates a brush with a horizontal hatch ( - ).
+
+PRINTER_BRUSH_VERTICAL: creates a brush with a vertical hatch ( | ).
+
+PRINTER_BRUSH_CUSTOM: creates a custom brush from an BMP file. The second
+parameter is used to specify the BMP instead of the RGB color code.
+
+{color} {color} must be a color in RGB hex format, i.e. "000000" for black.
+
+Returns a brush handle or FALSE on error.
+
+vim:ft=help:

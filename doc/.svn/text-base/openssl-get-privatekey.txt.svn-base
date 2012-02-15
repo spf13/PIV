@@ -1,0 +1,5 @@
+openssl_get_privatekey -- Alias of openssl_pkey_get_private
+
+This function is an alias of: |openssl_pkey_get_private|.
+
+vim:ft=help:

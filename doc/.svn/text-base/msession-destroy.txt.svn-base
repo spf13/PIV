@@ -1,0 +1,8 @@
+msession_destroy -- Destroy a session
+
+  bool msession_destroy(string name)~
+
+This function is currently not documented; only its argument list is
+available.
+
+vim:ft=help:

@@ -1,0 +1,26 @@
+cubrid_lob_close -- Close BLOB/CLOB data
+
+  bool cubrid_lob_close(array lob_identifier_array)~
+
+|cubrid_lob_close| is used to close all BLOB/CLOB returned from
+|cubrid_lob_get|.
+
+{lob_identifier_array} LOB identifier array return from cubrid_lob_get.
+
+TRUE, when process is successful.
+
+FALSE, when process is unsuccessful.
+
+|cubrid_lob_close| example
+
+<?php >
+  $lobs = cubrid_lob_get($con, "SELECT doc_content FROM doc WHERE doc_id=5");
+  cubrid_lob_export($conn, $lobs[0], "doc_5.txt");
+  cubrid_lob_close($lobs);
+?>
+
+
+
+|cubrid_lob_get| |cubrid_lob_size| |cubrid_lob_export| |cubrid_lob_send|
+
+vim:ft=help:

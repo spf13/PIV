@@ -1,0 +1,18 @@
+imap_renamemailbox -- Rename an old mailbox to new mailbox
+
+  bool imap_renamemailbox(resource imap_stream, string old_mbox, string new_mbox)~
+
+This function renames on old mailbox to new mailbox (see |imap_open| for the
+format of {mbox} names).
+
+{ imap_stream}An IMAP stream returned by |imap_open|.
+
+{old_mbox} The old mailbox name, see |imap_open| for more information
+
+{new_mbox} The new mailbox name, see |imap_open| for more information
+
+Returns TRUE on success or &false; on failure.
+
+|imap_createmailbox| |imap_deletemailbox|
+
+vim:ft=help:

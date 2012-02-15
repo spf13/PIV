@@ -1,0 +1,17 @@
+enchant_broker_request_pwl_dict -- creates a dictionary using a PWL file
+
+  resource enchant_broker_request_pwl_dict(resource broker, string filename)~
+
+Creates a dictionary using a PWL file. A PWL file is personal word file one
+word per line.
+
+{broker} Broker resource
+
+{filename} Path to the PWL file.
+
+Returns a dictionary resource on success or FALSE on failure.
+
+|enchant_dict_describe| |enchant_broker_dict_exists|
+|enchant_broker_free_dict|
+
+vim:ft=help:

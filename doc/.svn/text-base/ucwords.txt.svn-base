@@ -1,0 +1,35 @@
+ucwords -- Uppercase the first character of each word in a string
+
+  string ucwords(string str)~
+
+Returns a string with the first character of each word in {str} capitalized,
+if that character is alphabetic.
+
+The definition of a word is any string of characters that is immediately after
+a whitespace (These are: space, form-feed, newline, carriage return,
+horizontal tab, and vertical tab).
+
+{str} The input string.
+
+Returns the modified string.
+
+|ucwords| example
+
+<?php >
+  $foo = 'hello world!';
+  $foo = ucwords($foo);             // Hello World!
+  
+  $bar = 'HELLO WORLD!';
+  $bar = ucwords($bar);             // HELLO WORLD!
+  $bar = ucwords(strtolower($bar)); // Hello World!
+?>
+
+
+
+
+
+This function is binary-safe.
+
+|strtoupper| |strtolower| |ucfirst| |mb_convert_case|
+
+vim:ft=help:

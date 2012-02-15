@@ -1,0 +1,52 @@
+oci_set_client_identifier -- Sets the client identifier
+
+  bool oci_set_client_identifier(resource connection, string client_identifier)~
+
+Sets the client identifier used by various database components to identify
+lightweight application users who authenticate as the same database user.
+
+The client identifier is registered with the database when the next
+'roundtrip' from PHP to the database occurs, typically when an SQL statement
+is executed.
+
+The identifier can subsequently be queried from database administration views
+such as V$SESSION. It can be used with DBMS_MONITOR.CLIENT_ID_TRACE_ENABLE for
+tracing. It can be used for auditing.
+
+The value may be retained across persistent connections.
+
+{connection} An Oracle connection identifier, returned by |oci_connect|,
+|oci_pconnect|, or |oci_new_connect|.
+
+{client_identifier} User chosen string up to 64 bytes long.
+
+Returns TRUE on success or &false; on failure.
+
+Setting the client identifier to the application user
+
+<?php >
+  // Find the application user's login name
+  session_start();
+  $un = my_validate_session($_SESSION['username']);
+  $c = oci_connect('myschema', 'welcome', 'localhost/XE');
+  
+  // Tell Oracle who that user is
+  oci_set_client_identifier($c, $un);
+  
+  // The next roundtrip to the database will piggyback the identifier
+  $s = oci_parse($c, 'select mydata from mytable');
+  oci_execute($s);
+  
+  // ...
+?>
+
+
+
+
+
+Some but not all OCI8 functions cause roundtrips. Roundtrips to the database
+may not occur with queries when result caching is enabled.
+
+|oci_set_module_name| |oci_set_action| |oci_set_client_info|
+
+vim:ft=help:

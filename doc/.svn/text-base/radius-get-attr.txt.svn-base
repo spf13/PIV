@@ -1,0 +1,11 @@
+radius_get_attr -- Extracts an attribute
+
+  mixed radius_get_attr(resource radius_handle)~
+
+Like Radius requests, each response may contain zero or more attributes. After
+a response has been received successfully by |radius_send_request|, its
+attributes can be extracted one by one using |radius_get_attr|. Each time
+|radius_get_attr| is called, it gets the next attribute from the current
+response.
+
+vim:ft=help:

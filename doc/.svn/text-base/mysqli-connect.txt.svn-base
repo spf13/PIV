@@ -1,0 +1,5 @@
+mysqli_connect -- Alias of mysqli::__construct
+
+This function is an alias of: mysqli::__construct
+
+vim:ft=help:

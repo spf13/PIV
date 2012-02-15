@@ -1,0 +1,14 @@
+stats_stat_innerproduct --
+
+  float stats_stat_innerproduct(array arr1, array arr2)~
+
+This function is currently not documented; only its argument list is
+available.
+
+{arr1}
+
+{arr2}
+
+
+
+vim:ft=help:

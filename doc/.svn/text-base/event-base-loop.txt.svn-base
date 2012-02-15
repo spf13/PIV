@@ -1,0 +1,15 @@
+event_base_loop -- Handle events
+
+  int event_base_loop(resource event_base [, int flags])~
+
+Starts event loop for the specified event base.
+
+{event_base} Valid event base resource.
+
+{flags} Optional parameter, which can take any combination of EVLOOP_ONCE and
+EVLOOP_NONBLOCK.
+
+|event_base_loop| returns 0 on success, -1 on error and 1 if no events were
+registered.
+
+vim:ft=help:

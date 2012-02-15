@@ -1,0 +1,16 @@
+SDO_Model_Type::getProperty -- Get an SDO_Model_Property of the type
+
+  SDO_Model_Property SDO_Model_Type::getProperty(mixed identifier)~
+
+This function is EXPERIMENTAL. The behaviour of this function, its name, and
+surrounding documentation may change without notice in a future release of
+PHP. This function should be used at your own risk.
+
+Get an SDO_Model_Property of the type, identified by its property index or
+property name.
+
+{identifier} The property index or property name.
+
+Returns the SDO_Model_Property.
+
+vim:ft=help:

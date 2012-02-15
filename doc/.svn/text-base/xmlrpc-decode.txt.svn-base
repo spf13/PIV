@@ -1,0 +1,20 @@
+xmlrpc_decode -- Decodes XML into native PHP types
+
+  mixed xmlrpc_decode(string xml [, string encoding])~
+
+This function is EXPERIMENTAL. The behaviour of this function, its name, and
+surrounding documentation may change without notice in a future release of
+PHP. This function should be used at your own risk.
+
+{xml} XML response returned by XMLRPC method.
+
+{encoding} Input encoding supported by iconv.
+
+Returns either an array, or an integer, or a string, or a boolean according to
+the response returned by the XMLRPC method.
+
+See example by |xmlrpc_encode_request|.
+
+|xmlrpc_encode_request| |xmlrpc_is_fault|
+
+vim:ft=help:

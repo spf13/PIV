@@ -1,0 +1,8 @@
+msession_list -- List all sessions
+
+  array msession_list()~
+
+This function is currently not documented; only its argument list is
+available.
+
+vim:ft=help:

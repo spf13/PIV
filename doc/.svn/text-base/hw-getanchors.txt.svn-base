@@ -1,0 +1,13 @@
+hw_GetAnchors -- Object ids of anchors of document
+
+  array hw_getanchors(int connection, int objectID)~
+
+Returns an array of object ids with anchors of the specified document.
+
+{connection} The connection identifier.
+
+{objectID} The document object id.
+
+Returns an array of object ids.
+
+vim:ft=help:

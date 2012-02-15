@@ -1,0 +1,35 @@
+gmp_sign -- Sign of number
+
+  int gmp_sign(resource a)~
+
+Checks the sign of a number.
+
+{a} It can be either a GMP number resource, or a numeric string given that it
+is possible to convert the latter to a number.
+
+Returns 1 if {a} is positive, -1 if {a} is negative, and 0 if {a} is zero.
+
+|gmp_sign| example
+
+<?php >
+  // positive
+  echo gmp_sign("500") . "\n";
+  
+  // negative
+  echo gmp_sign("-500") . "\n";
+  
+  // zero
+  echo gmp_sign("0") . "\n";
+?>
+
+The above example will output:
+
+  1
+  -1
+  0
+
+
+
+|gmp_abs| |abs|
+
+vim:ft=help:

@@ -1,0 +1,27 @@
+sys_get_temp_dir -- Returns directory path used for temporary files
+
+  string sys_get_temp_dir()~
+
+Returns the path of the directory PHP stores temporary files in by default.
+
+Returns the path of the temporary directory.
+
+|sys_get_temp_dir| example
+
+<?php >
+  // Create a temporary file in the temporary 
+  // files directory using sys_get_temp_dir()
+  $temp_file = tempnam(sys_get_temp_dir(), 'Tux');
+  
+  echo $temp_file;
+?>
+
+The above example will output something similar to:
+
+  C:\Windows\Temp\TuxA318.tmp
+
+
+
+|tmpfile| |tempnam|
+
+vim:ft=help:

@@ -1,0 +1,23 @@
+stomp_version -- Gets the current stomp extension version
+
+  string stomp_version()~
+
+Returns a string containing the version of the current stomp extension.
+
+This function has no parameters.
+
+It returns the current stomp extension version
+
+|stomp_version| example
+
+<?php >
+  var_dump(stomp_version());
+?>
+
+The above example will output something similar to:
+
+  string(5) "0.2.0"
+
+
+
+vim:ft=help:

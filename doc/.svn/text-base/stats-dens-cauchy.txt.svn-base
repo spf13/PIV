@@ -1,0 +1,16 @@
+stats_dens_cauchy -- Not documented
+
+  float stats_dens_cauchy(float x, float ave, float stdev)~
+
+This function is currently not documented; only its argument list is
+available.
+
+{x}
+
+{ave}
+
+{stdev}
+
+
+
+vim:ft=help:

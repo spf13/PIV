@@ -1,0 +1,28 @@
+bcdiv -- Divide two arbitrary precision numbers
+
+  string bcdiv(string left_operand, string right_operand [, int scale])~
+
+Divides the {left_operand} by the {right_operand}.
+
+{left_operand} The left operand, as a string.
+
+{right_operand} The right operand, as a string.
+
+{ scale}This optional parameter is used to set the number of digits after the
+decimal place in the result. You can also set the global default scale for all
+functions by using |bcscale|.
+
+Returns the result of the division as a string, or NULL if {right_operand} is
+0.
+
+|bcdiv| example
+
+<?php >
+  echo bcdiv('105', '6.55957', 3);  // 16.007
+?>
+
+
+
+|bcmul|
+
+vim:ft=help:

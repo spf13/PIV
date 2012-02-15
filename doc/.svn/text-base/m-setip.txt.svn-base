@@ -1,0 +1,16 @@
+m_setip -- Set the connection method to IP
+
+  int m_setip(resource conn, string host, int port)~
+
+This function is currently not documented; only its argument list is
+available.
+
+{ conn}An MCVE_CONN resource returned by |m_initengine|.
+
+{host}
+
+{port}
+
+
+
+vim:ft=help:

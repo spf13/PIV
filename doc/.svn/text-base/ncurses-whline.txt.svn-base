@@ -1,0 +1,15 @@
+ncurses_whline -- Draws a horizontal line in a window at current position
+using an attributed character and max. n characters long
+
+  int ncurses_whline(resource window, int charattr, int n)~
+
+This function is currently not documented; only its argument list is
+available.
+
+{window}
+
+{charattr}
+
+{n}
+
+vim:ft=help:

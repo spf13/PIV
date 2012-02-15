@@ -1,0 +1,50 @@
+posix_getgrnam -- Return info about a group by name
+
+  array posix_getgrnam(string name)~
+
+Gets information about a group provided its name.
+
+{name} The name of the group
+
+The array elements returned are: The group information array Element
+Description name The name element contains the name of the group. This is a
+short, usually less than 16 character "handle" of the group, not the real,
+full name. This should be the same as the {name} parameter used when calling
+the function, and hence redundant. passwd The passwd element contains the
+group's password in an encrypted format. Often, for example on a system
+employing "shadow" passwords, an asterisk is returned instead. gid Group ID of
+the group in numeric form. members This consists of an array of string's for
+all the members in the group.
+
+Version Description 4.2.0 Prior to this version, members was simply an integer
+representing the number of members in the group, and the member names were
+returned with numerical indices.
+
+Example use of |posix_getgrnam|
+
+<?php >
+  $groupinfo = posix_getgrnam("toons");
+  
+  print_r($groupinfo);
+?>
+
+The above example will output something similar to:
+
+  Array
+  (
+      [name]    => toons
+      [passwd]  => x
+      [members] => Array
+          (
+              [0] => tom
+              [1] => jerry
+          )
+      [gid]     => 42
+  )
+
+
+
+|posix_getegid| |posix_getgrgid| |filegroup| |stat| safe_mode_gid POSIX man
+page GETGRNAM(3)
+
+vim:ft=help:

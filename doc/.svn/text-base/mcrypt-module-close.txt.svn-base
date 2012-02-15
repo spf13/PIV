@@ -1,0 +1,13 @@
+mcrypt_module_close -- Closes the mcrypt module
+
+  bool mcrypt_module_close(resource td)~
+
+Closes the specified encryption handle.
+
+{td} The encryption descriptor.
+
+Returns TRUE on success or &false; on failure.
+
+|mcrypt_module_open|
+
+vim:ft=help:

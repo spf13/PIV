@@ -1,0 +1,42 @@
+restore_exception_handler -- Restores the previously defined exception handler
+function
+
+  bool restore_exception_handler()~
+
+Used after changing the exception handler function using
+|set_exception_handler|, to revert to the previous exception handler (which
+could be the built-in or a user defined function).
+
+This function always returns TRUE.
+
+|restore_exception_handler| example
+
+<?php >
+      function exception_handler_1(Exception $e)
+      {
+          echo '[' . __FUNCTION__ . '] ' . $e->getMessage();
+      }
+  
+      function exception_handler_2(Exception $e)
+      {
+          echo '[' . __FUNCTION__ . '] ' . $e->getMessage();
+      }
+  
+      set_exception_handler('exception_handler_1');
+      set_exception_handler('exception_handler_2');
+  
+      restore_exception_handler();
+  
+      throw new Exception('This triggers the first exception handler...');
+?>
+
+The above example will output:
+
+  [exception_handler_1] This triggers the first exception handler...
+
+
+
+|set_exception_handler| |set_error_handler| |restore_error_handler|
+|error_reporting|
+
+vim:ft=help:

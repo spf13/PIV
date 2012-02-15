@@ -1,0 +1,8 @@
+msession_unlock -- Unlock a session
+
+  int msession_unlock(string session, int key)~
+
+This function is currently not documented; only its argument list is
+available.
+
+vim:ft=help:

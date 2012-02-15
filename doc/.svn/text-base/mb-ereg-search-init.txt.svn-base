@@ -1,0 +1,23 @@
+mb_ereg_search_init -- Setup string and regular expression for a multibyte
+regular expression match
+
+  bool mb_ereg_search_init(string string [, string pattern [, string option]])~
+
+|mb_ereg_search_init| sets {string} and {pattern} for a multibyte regular
+expression. These values are used for |mb_ereg_search|, |mb_ereg_search_pos|,
+and |mb_ereg_search_regs|.
+
+{string} The search string.
+
+{pattern} The search pattern.
+
+{option} The search option.
+
+Returns TRUE on success or &false; on failure.
+
+The internal encoding or the character encoding specified by
+|mb_regex_encoding| will be used as the character encoding for this function.
+
+|mb_regex_encoding| |mb_ereg_search_regs|
+
+vim:ft=help:

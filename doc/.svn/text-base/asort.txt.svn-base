@@ -1,0 +1,43 @@
+asort -- Sort an array and maintain index association
+
+  bool asort(array array [, int sort_flags])~
+
+This function sorts an array such that array indices maintain their
+correlation with the array elements they are associated with. This is used
+mainly when sorting associative arrays where the actual element order is
+significant.
+
+{array} The input array.
+
+{sort_flags} You may modify the behavior of the sort using the optional
+parameter {sort_flags}, for details see |sort|.
+
+Returns TRUE on success or &false; on failure.
+
+|asort| example
+
+<?php >
+  $fruits = array("d" => "lemon", "a" => "orange", "b" => "banana", "c" => "apple");
+  asort($fruits);
+  foreach ($fruits as $key => $val) {
+      echo "$key = $val\n";
+  }
+?>
+
+The above example will output:
+
+  c = apple
+  b = banana
+  d = lemon
+  a = orange
+
+The fruits have been sorted in alphabetical order, and the index associated
+with each element has been maintained.
+
+
+
+
+
+|arsort| The comparison of array sorting functions
+
+vim:ft=help:

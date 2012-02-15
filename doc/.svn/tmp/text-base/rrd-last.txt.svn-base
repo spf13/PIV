@@ -1,0 +1,11 @@
+*rrd_last* -- Gets unix timestamp of the last sample.
+
+  int rrd_last(string filename)~
+
+Returns the UNIX timestamp of the most recent update of the RRD database.
+
+Filename for the RRD database file.
+
+Integer as unix timestamp of the most recent data of the RRD database.
+
+vim:ft=help:

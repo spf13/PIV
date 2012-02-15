@@ -1,0 +1,53 @@
+mysql_pconnect -- Open a persistent connection to a MySQL server
+
+  resource mysql_pconnect([string server [, string username [, string password [, int client_flags]]]])~
+
+Establishes a persistent connection to a MySQL server.
+
+|mysql_pconnect| acts very much like |mysql_connect| with two major
+differences.
+
+First, when connecting, the function would first try to find a (persistent)
+link that's already open with the same host, username and password. If one is
+found, an identifier for it will be returned instead of opening a new
+connection.
+
+Second, the connection to the SQL server will not be closed when the execution
+of the script ends. Instead, the link will remain open for future use
+(|mysql_close| will not close links established by |mysql_pconnect|).
+
+This type of link is therefore called 'persistent'.
+
+{server} The MySQL server. It can also include a port number. e.g.
+"hostname:port" or a path to a local socket e.g. ":/path/to/socket" for the
+localhost.
+
+If the PHP directive mysql.default_host is undefined (default), then the
+default value is 'localhost:3306'
+
+{username} The username. Default value is the name of the user that owns the
+server process.
+
+{password} The password. Default value is an empty password.
+
+{client_flags} The {client_flags} parameter can be a combination of the
+following constants: 128 (enable LOAD DATA LOCAL handling), MYSQL_CLIENT_SSL,
+MYSQL_CLIENT_COMPRESS, MYSQL_CLIENT_IGNORE_SPACE or MYSQL_CLIENT_INTERACTIVE.
+
+Returns a MySQL persistent link identifier on success, or FALSE on failure.
+
+Version Description 4.3.0 Added the {client_flags} parameter.
+
+Note, that these kind of links only work if you are using a module version of
+PHP. See the Persistent Database Connections section for more information.
+
+Using persistent connections can require a bit of tuning of your Apache and
+MySQL configurations to ensure that you do not exceed the number of
+connections allowed by MySQL.
+
+You can suppress the error message on failure by prepending a @ to the
+function name.
+
+|mysql_connect| Persistent Database Connections
+
+vim:ft=help:

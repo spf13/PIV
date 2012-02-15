@@ -1,0 +1,35 @@
+imagegammacorrect -- Apply a gamma correction to a GD image
+
+  bool imagegammacorrect(resource image, float inputgamma, float outputgamma)~
+
+Applies gamma correction to the given gd {image} given an input and an output
+gamma.
+
+{ image}An image resource, returned by one of the image creation functions,
+such as |imagecreatetruecolor|.
+
+{inputgamma} The input gamma.
+
+{outputgamma} The output gamma.
+
+Returns TRUE on success or &false; on failure.
+
+|imagegammacorrect| usage
+
+<?php >
+  // Create image instance
+  $im = imagecreatefromgif('php.gif');
+  
+  // Correct gamma, out = 1.537
+  imagegammacorrect($im, 1.0, 1.537);
+  
+  // Save and free image
+  imagegif($im, './php_gamma_corrected.gif');
+  imagedestroy($im);
+?>
+
+
+
+
+
+vim:ft=help:

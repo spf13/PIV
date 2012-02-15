@@ -1,0 +1,8 @@
+iis_start_server -- Starts the virtual web server
+
+  int iis_start_server(int server_instance)~
+
+This function is currently not documented; only its argument list is
+available.
+
+vim:ft=help:

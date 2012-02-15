@@ -1,0 +1,41 @@
+cairo_pattern_add_color_stop_rgba -- Description
+
+  void cairo_pattern_add_color_stop_rgba(CairoGradientPattern pattern, float offset, float red, float green, float blue, float alpha)~
+
+The function description goes here.
+
+This function is currently not documented; only its argument list is
+available.
+
+{pattern} Description...
+
+{offset} Description...
+
+{red} Description...
+
+{green} Description...
+
+{blue} Description...
+
+{alpha} Description...
+
+What is returned on success and failure
+
+When does this function issue E_* level errors, and/or throw exceptions.
+
+|cairo_pattern_add_color_stop_rgba| example Any text that describes the
+purpose of the example, or what goes on in the example should be here.
+
+<?php >
+  /* ... */
+?>
+
+The above example will output something similar to:
+
+  ...
+
+
+
+|related function name here|
+
+vim:ft=help:

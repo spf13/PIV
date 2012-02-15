@@ -1,0 +1,49 @@
+curl_multi_init -- Returns a new cURL multi handle
+
+  resource curl_multi_init()~
+
+Allows the processing of multiple cURL handles in parallel.
+
+This function has no parameters.
+
+Returns a cURL multi handle resource on success, FALSE on failure.
+
+|curl_multi_init| example This example will create two cURL handles, add them
+to a multi handle, and then run them in parallel.
+
+<?php >
+  // create both cURL resources
+  $ch1 = curl_init();
+  $ch2 = curl_init();
+  
+  // set URL and other appropriate options
+  curl_setopt($ch1, CURLOPT_URL, "http://www.example.com/");
+  curl_setopt($ch1, CURLOPT_HEADER, 0);
+  curl_setopt($ch2, CURLOPT_URL, "http://www.php.net/");
+  curl_setopt($ch2, CURLOPT_HEADER, 0);
+  
+  //create the multiple cURL handle
+  $mh = curl_multi_init();
+  
+  //add the two handles
+  curl_multi_add_handle($mh,$ch1);
+  curl_multi_add_handle($mh,$ch2);
+  
+  $running=null;
+  //execute the handles
+  do {
+      usleep(10000);
+      curl_multi_exec($mh,$running);
+  } while ($running > 0);
+  
+  //close the handles
+  curl_multi_remove_handle($mh, $ch1);
+  curl_multi_remove_handle($mh, $ch2);
+  curl_multi_close($mh);
+?>
+
+
+
+|curl_init| |curl_multi_close|
+
+vim:ft=help:

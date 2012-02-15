@@ -1,0 +1,18 @@
+log1p -- Returns log(1 + number), computed in a way that is accurate even when
+the value of number is close to zero
+
+  float log1p(float number)~
+
+|log1p| returns log(1 + {number}) computed in a way that is accurate even when
+the value of {number} is close to zero. |log| might only return log(1) in this
+case due to lack of precision.
+
+{number} The argument to process
+
+log(1 + {number})
+
+Version Description 5.3.0 This function is now available on all platforms
+
+|expm1| |log| |log10|
+
+vim:ft=help:

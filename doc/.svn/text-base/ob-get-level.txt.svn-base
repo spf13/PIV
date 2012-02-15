@@ -1,0 +1,12 @@
+ob_get_level -- Return the nesting level of the output buffering mechanism
+
+  int ob_get_level()~
+
+Returns the nesting level of the output buffering mechanism.
+
+Returns the level of nested output buffering handlers or zero if output
+buffering is not active.
+
+|ob_start| |ob_get_contents|
+
+vim:ft=help:

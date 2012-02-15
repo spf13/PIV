@@ -1,0 +1,27 @@
+JulianToJD -- Converts a Julian Calendar date to Julian Day Count
+
+  int juliantojd(int month, int day, int year)~
+
+Valid Range for Julian Calendar 4713 B.C. to 9999 A.D.
+
+Although this function can handle dates all the way back to 4713 B.C., such
+use may not be meaningful. The calendar was created in 46 B.C., but the
+details did not stabilize until at least 8 A.D., and perhaps as late at the
+4th century. Also, the beginning of a year varied from one culture to another
+- not all accepted January as the first month.
+
+Remember, the current calendar system being used worldwide is the Gregorian
+calendar. |gregoriantojd| can be used to convert such dates to their Julian
+Day count.
+
+{month} The month as a number from 1 (for January) to 12 (for December)
+
+{day} The day as a number from 1 to 31
+
+{year} The year as a number between -4713 and 9999
+
+The julian day for the given julian date as an integer.
+
+|jdtojulian| |cal_to_jd|
+
+vim:ft=help:

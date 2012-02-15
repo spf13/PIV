@@ -1,0 +1,27 @@
+ifx_num_fields -- Returns the number of columns in the query
+
+  int ifx_num_fields(resource result_id)~
+
+After preparing or executing a query, this call gives you the number of
+columns in the query.
+
+{result_id} {result_id} is a valid resultid returned by |ifx_query| or
+|ifx_prepare| (select type queries only!).
+
+Returns the number of columns in query for {result_id}, or FALSE on errors.
+
+|ifx_num_fields| Example
+
+<?php >
+  $conn_id = ifx_connect("db", "user", "password");
+  $res_id = ifx_query("select * from systables", $conn_id);
+  echo ifx_num_fields($res_id);
+?>
+
+
+
+
+
+|ifx_num_rows|
+
+vim:ft=help:

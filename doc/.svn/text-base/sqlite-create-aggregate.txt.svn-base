@@ -1,0 +1,31 @@
+SQLiteDatabase->createAggregate -- Register an aggregating UDF for use in SQL
+statements
+
+  void sqlite_create_aggregate(resource dbhandle, string function_name, callback step_func, callback finalize_func [, int num_args])~
+
+Object oriented style (method):
+
+  void createAggregate(resource dbhandle, string function_name, callback step_func, callback finalize_func [, int num_args, string function_name, callback step_func, callback finalize_func [, int num_args]])~
+
+|sqlite_create_aggregate| is similar to |sqlite_create_function| except that
+it registers functions that can be used to calculate a result aggregated
+across all the rows of a query.
+
+The key difference between this function and |sqlite_create_function| is that
+two functions are required to manage the aggregate; {step_func} is called for
+each row of the result set. Your PHP function should accumulate the result and
+store it into the aggregation context. Once all the rows have been processed,
+{finalize_func} will be called and it should then take the data from the
+aggregation context and return the result. Callback functions should return a
+type understood by SQLite (i.e. scalar type).
+
+{dbhandle} The SQLite Database resource; returned from |sqlite_open| when used
+procedurally. This parameter is not required when using the object-oriented
+method.
+
+{function_name} The name of the function used in SQL statements.
+
+{step_func} Callback function called for each row of the result set. Function
+parameters are &$context, $value, ....
+
+vim:ft=help:

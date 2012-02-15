@@ -1,0 +1,37 @@
+mssql_get_last_message -- Returns the last message from the server
+
+  string mssql_get_last_message()~
+
+Gets the last message from the MS-SQL server
+
+This function has no parameters.
+
+Returns last error message from server, or an empty string if no error
+messages are returned from MSSQL.
+
+|mssql_get_last_message| example
+
+<?php >
+  // Connect to MSSQL and select the database
+  mssql_connect('KALLESPC\SQLEXPRESS', 'sa', 'phpfi');
+  mssql_select_db('php');
+  
+  // Make a query that will fail
+  $query = @mssql_query('SELECT * FROM [php].[dbo].[not-found]');
+  
+  if (!$query) {
+      // The query has failed, print a nice error message
+      // using mssql_get_last_message()
+      die('MSSQL error: ' . mssql_get_last_message());
+  }
+?>
+
+The above example will output something similar to:
+
+  MSSQL error: Invalid object name 'php.dbo.not-found'.
+
+
+
+|mssql_min_error_severity| |mssql_min_message_severity|
+
+vim:ft=help:

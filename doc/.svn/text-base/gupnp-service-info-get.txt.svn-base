@@ -1,0 +1,12 @@
+gupnp_service_info_get -- Get full info of service
+
+  array gupnp_service_info_get(resource proxy)~
+
+Get full info of service.
+
+{proxy} A service proxy identifier.
+
+Return array wich contains the information of the service (like location, url,
+udn and etc).
+
+vim:ft=help:

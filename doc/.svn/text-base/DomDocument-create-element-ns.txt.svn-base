@@ -1,0 +1,22 @@
+DomDocument->create_element_ns -- Create new element node with an associated
+namespace
+
+  domelement DomDocument->create_element_ns(string uri, string name [, string prefix])~
+
+This function returns a new instance of class DomElement. The tag name of the
+element is the value of the passed parameter {name}. The URI of the namespace
+is the value of the passed parameter {uri}. If there is already a namespace
+declaration with the same uri in the root-node of the document, the prefix of
+this is taken, otherwise it will take the one provided in the optional
+parameter {prefix} or generate a random one. This node will not show up in the
+document unless it is inserted with (e.g.) |domnode_append_child|.
+
+The return value is FALSE if an error occurred.
+
+See also |domdocument_create_element_ns|, |domnode_add_namespace|,
+|domnode_set_namespace|, |domnode_append_child|, |domdocument_create_text|,
+|domdocument_create_comment|, |domdocument_create_attribute|,
+|domdocument_create_processing_instruction|,
+|domdocument_create_entity_reference|, and |domnode_insert_before|.
+
+vim:ft=help:

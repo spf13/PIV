@@ -1,0 +1,38 @@
+SDO_DAS_XML::createDocument -- Creates an XML Document object from scratch,
+without the need to load a document from a file or string.
+
+  SDO_DAS_XML_Document SDO_DAS_XML::createDocument([string document_element_name])~
+
+  SDO_DAS_XML_Document SDO_DAS_XML::createDocument([string document_element_name, string document_element_namespace_URI, string document_element_name [, SDO_DataObject dataobject]])~
+
+Creates an XML Document object. This will contain just one empty root element
+on which none of the properties will have been set. The purpose of this call
+is to allow an application to create an XML document from scratch without the
+need to load a document from a file or string. The document that is created
+will be as if a document had been loaded that contained just a single empty
+document element with no attributes set or elements within it.
+
+|createDocument| may need to be told what the document element is. This will
+not be necessary in simple cases. When there is no ambiguity then no parameter
+need be passed to the method. However it is possible to load more than one
+schema file into the same XML DAS and in this case there may be more than one
+possible document element defined: furthermore it is even possible that there
+are two possible document elements that differ only in the namespace. To cope
+with these cases it is possible to specify either the document element name,
+or both the document element name and namespace to the method.
+
+{document_element_name} The name of the document element. Only needed if there
+is more than one possibility.
+
+{document_element_namespace_URI} The namespace part of the document element
+name. Only needed if there is more than one possible document element with the
+same name.
+
+{dataobject}
+
+Returns an SDO_XML_DAS_Document object on success.
+
+{SDO_UnsupportedOperationException} Thrown if an element name or element name
+and namespace URI is passed, but not found in the underlying model.
+
+vim:ft=help:

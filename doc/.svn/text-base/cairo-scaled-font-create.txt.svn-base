@@ -1,0 +1,37 @@
+cairo_scaled_font_create -- Description
+
+  CairoScaledFont cairo_scaled_font_create(CairoFontFace fontface, CairoMatrix matrix, CairoMatrix ctm, CairoFontOptions fontoptions)~
+
+The function description goes here.
+
+This function is currently not documented; only its argument list is
+available.
+
+{fontface} Description...
+
+{matrix} Description...
+
+{ctm} Description...
+
+{fontoptions} Description...
+
+What is returned on success and failure
+
+When does this function issue E_* level errors, and/or throw exceptions.
+
+|cairo_scaled_font_create| example Any text that describes the purpose of the
+example, or what goes on in the example should be here.
+
+<?php >
+  /* ... */
+?>
+
+The above example will output something similar to:
+
+  ...
+
+
+
+|related function name here|
+
+vim:ft=help:

@@ -1,0 +1,10 @@
+udm_close_stored -- Close connection to stored
+
+  int udm_close_stored(resource agent, int link)~
+
+This function is currently not documented; only its argument list is
+available.
+
+
+
+vim:ft=help:

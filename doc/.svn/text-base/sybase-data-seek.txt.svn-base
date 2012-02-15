@@ -1,0 +1,17 @@
+sybase_data_seek -- Moves internal row pointer
+
+  bool sybase_data_seek(resource result_identifier, int row_number)~
+
+|sybase_data_seek| moves the internal row pointer of the Sybase result
+associated with the specified result identifier to pointer to the specified
+row number. The next call to |sybase_fetch_row| would return that row.
+
+{result_identifier}
+
+{row_number}
+
+Returns TRUE on success or &false; on failure.
+
+|sybase_fetch_row|
+
+vim:ft=help:

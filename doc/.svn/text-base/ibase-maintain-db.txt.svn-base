@@ -1,0 +1,10 @@
+ibase_maintain_db -- Execute a maintenance command on the database server
+
+  bool ibase_maintain_db(resource service_handle, string db, int action [, int argument])~
+
+This function is currently not documented; only its argument list is
+available.
+
+Returns TRUE on success or &false; on failure.
+
+vim:ft=help:

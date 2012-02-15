@@ -1,0 +1,12 @@
+oci_cancel -- Cancels reading from cursor
+
+  bool oci_cancel(resource statement)~
+
+Invalidates a cursor, freeing all associated resources and cancels the ability
+to read from it.
+
+{statement} An OCI statement.
+
+Returns TRUE on success or &false; on failure.
+
+vim:ft=help:

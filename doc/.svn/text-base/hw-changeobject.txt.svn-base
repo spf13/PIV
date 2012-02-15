@@ -1,0 +1,10 @@
+hw_changeobject -- Changes attributes of an object (obsolete)
+
+  bool hw_changeobject(int link, int objid, array attributes)~
+
+This function is currently not documented; only its argument list is
+available.
+
+
+
+vim:ft=help:

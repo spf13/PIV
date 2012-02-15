@@ -1,0 +1,9 @@
+mysqli_bind_result -- Alias for mysqli_stmt_bind_result
+
+This function is an alias of |mysqli_stmt_bind_result|.
+
+|mysqli_bind_result| is deprecated and will be removed.
+
+|mysqli_stmt_bind_result|
+
+vim:ft=help:

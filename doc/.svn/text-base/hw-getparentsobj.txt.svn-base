@@ -1,0 +1,16 @@
+hw_GetParentsObj -- Object records of parents
+
+  array hw_getparentsobj(int connection, int objectID)~
+
+Returns object records and statistical information about the object records.
+Each object record belongs to a parent of the object with ID {objectID}.
+
+{connection} The connection identifier.
+
+{objectID} The object identifier.
+
+Returns an indexed array of object records plus an associated array with
+statistical information about the object records. The associated array is the
+last entry of the returned array.
+
+vim:ft=help:

@@ -1,0 +1,11 @@
+openal_context_create -- Create an audio processing context
+
+  resource openal_context_create(resource device)~
+
+An Open AL(Device) resource (previously created by |openal_device_open|).
+
+Returns an Open AL(Context) resource on success or FALSE on failure.
+
+|openal_device_open| |openal_context_destroy|
+
+vim:ft=help:

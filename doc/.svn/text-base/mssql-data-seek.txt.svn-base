@@ -1,0 +1,47 @@
+mssql_data_seek -- Moves internal row pointer
+
+  bool mssql_data_seek(resource result_identifier, int row_number)~
+
+|mssql_data_seek| moves the internal row pointer of the MS SQL result
+associated with the specified result identifier to point to the specified row
+number, first row being number 0. The next call to |mssql_fetch_row| would
+return that row.
+
+{result_identifier} The result resource that is being evaluated.
+
+{row_number} The desired row number of the new result pointer.
+
+Returns TRUE on success or &false; on failure.
+
+|mssql_data_seek| example
+
+<?php >
+  // Connect to MSSQL and select the database
+  $link = mssql_connect('MANGO\SQLEXPRESS', 'sa', 'phpfi');
+  mssql_select_db('php', $link);
+  
+  // Select all people
+  $result = mssql_query('SELECT [name], [age] FROM [persons] WHERE [age] >= 13');
+  
+  if (!$result) {
+      die('Query failed.');
+  }
+  
+  // Select every 4th student in the results
+  for ($i = mssql_num_rows($result) - 1; $i % 4; $i++) {
+      if (!mssql_data_seek($result, $i)) {
+          continue;
+      }
+  
+      // Fetch the row ...
+  }
+  
+  // Free the query result
+  mssql_free_result($result);
+?>
+
+
+
+
+
+vim:ft=help:

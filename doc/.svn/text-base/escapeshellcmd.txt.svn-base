@@ -1,0 +1,11 @@
+escapeshellcmd -- Escape shell metacharacters
+
+  string escapeshellcmd(string command)~
+
+|escapeshellcmd| escapes any characters in a string that might be used to
+trick a shell command into executing arbitrary commands. This function should
+be used to make sure that any data coming from user input is escaped before
+this data is passed to the |exec| or |system| functions, or to the backtick
+operator.
+
+vim:ft=help:

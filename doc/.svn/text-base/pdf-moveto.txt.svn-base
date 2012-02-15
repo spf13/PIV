@@ -1,0 +1,8 @@
+PDF_moveto -- Set current point
+
+  bool PDF_moveto(resource p, float x, float y)~
+
+Sets the current point for graphics output. Returns TRUE on success or &false;
+on failure.
+
+vim:ft=help:

@@ -1,0 +1,45 @@
+min -- Find lowest value
+
+  mixed min(array values)~
+
+  mixed min(array values, mixed value1, mixed value2 [, mixed value3...])~
+
+If the first and only parameter is an array, |min| returns the lowest value in
+that array. If at least two parameters are provided, |min| returns the
+smallest of these values.
+
+PHP will evaluate a non-numeric string as 0 if compared to integer, but still
+return the string if it's seen as the numerically lowest value. If multiple
+arguments evaluate to 0, |min| will return the lowest alphanumerical string
+value if any strings are given, else a numeric 0 is returned.
+
+{values} An array containing the values.
+
+|min| returns the numerically lowest of the parameter values.
+
+Example uses of |min|
+
+<?php >
+  echo min(2, 3, 1, 6, 7);  // 1
+  echo min(array(2, 4, 5)); // 2
+  
+  echo min(0, 'hello');     // 0
+  echo min('hello', 0);     // hello
+  echo min('hello', -1);    // -1
+  
+  // With multiple arrays, min compares from left to right
+  // so in our example: 2 == 2, but 4 < 5
+  $val = min(array(2, 4, 8), array(2, 5, 1)); // array(2, 4, 8)
+  
+  // If both an array and non-array are given, the array
+  // is never returned as it's considered the largest
+  $val = min('string', array(2, 5, 7), 42);   // string
+?>
+
+
+
+
+
+|max| |count|
+
+vim:ft=help:

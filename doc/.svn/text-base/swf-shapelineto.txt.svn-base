@@ -1,0 +1,14 @@
+swf_shapelineto -- Draw a line
+
+  void swf_shapelineto(float x, float y)~
+
+Draws a line to the {x} and {y} coordinates. The current position is then set
+to that point.
+
+{x} x-coordinate of the target.
+
+{y} y-coordinate of the target.
+
+No value is returned.
+
+vim:ft=help:

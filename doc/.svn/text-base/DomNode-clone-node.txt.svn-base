@@ -1,0 +1,10 @@
+DomNode->clone_node -- Clones a node
+
+  domelement DomNode->clone_node()~
+
+This function is currently not documented; only its argument list is
+available.
+
+
+
+vim:ft=help:

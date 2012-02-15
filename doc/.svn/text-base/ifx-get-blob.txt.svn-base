@@ -1,0 +1,13 @@
+ifx_get_blob -- Return the content of a blob object
+
+  string ifx_get_blob(int bid)~
+
+Returns the content of the blob object.
+
+{bid} The BLOB object id.
+
+The contents of the BLOB as a string, or FALSE on errors.
+
+|ifx_get_char|
+
+vim:ft=help:

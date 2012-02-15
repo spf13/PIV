@@ -1,0 +1,16 @@
+*rrd_graph* -- Creates image from a data.
+
+  array rrd_graph(string filename, array options)~
+
+Creates image for a particular data from RRD file.
+
+Filename for the RRD file.
+
+Options for rrd graph generating. See man page of rrd graph for all possible
+options. All options (data definitions, variable defintions, etc.) are
+allowed.
+
+Array with information about generated image is returned, FALSE if error
+occurs.
+
+vim:ft=help:

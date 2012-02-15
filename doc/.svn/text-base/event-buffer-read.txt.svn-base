@@ -1,0 +1,11 @@
+event_buffer_read -- Read data from a buffered event
+
+  string event_buffer_read(resource bevent, int data_size)~
+
+Reads data from the input buffer of the buffered event.
+
+{bevent} Valid buffered event resource.
+
+{data_size} Data size in bytes.
+
+vim:ft=help:

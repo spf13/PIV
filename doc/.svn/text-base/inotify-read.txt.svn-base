@@ -1,0 +1,18 @@
+inotify_read -- Read events from an inotify instance
+
+  array inotify_read(resource inotify_instance)~
+
+Read inotify events from an inotify instance.
+
+{inotify_instance} Resource returned by |inotify_init|
+
+An array of inotify events or FALSE if no events was pending and
+{inotify_instance} is non-blocking. Each event is an array with the following
+keys: wd is a watch descriptor returned by |inotify_add_watch| mask is a bit
+mask of events cookie is a unique id to connect related events (e.g.
+IN_MOVE_FROM and IN_MOVE_TO) name is the name of a file (e.g. if a file was
+modified in a watched directory)
+
+|inotify_init| |stream_select| |stream_set_blocking| |inotify_queue_len|
+
+vim:ft=help:

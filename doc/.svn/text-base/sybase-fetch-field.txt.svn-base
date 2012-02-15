@@ -1,0 +1,30 @@
+sybase_fetch_field -- Get field information from a result
+
+  object sybase_fetch_field(resource result [, int field_offset])~
+
+|sybase_fetch_field| can be used in order to obtain information about fields
+in a certain query result.
+
+{result}
+
+{field_offset} If the field offset isn't specified, the next field that wasn't
+yet retrieved by |sybase_fetch_field| is retrieved.
+
+Returns an object containing field information.
+
+The properties of the object are:
+
+name - column name. if the column is a result of a function, this property is
+set to computed#N, where #N is a serial number.
+
+column_source - the table from which the column was taken
+
+max_length - maximum length of the column
+
+numeric - 1 if the column is numeric
+
+type - datatype of the column
+
+|sybase_field_seek|
+
+vim:ft=help:

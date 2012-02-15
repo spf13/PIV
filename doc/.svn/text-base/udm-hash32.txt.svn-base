@@ -1,0 +1,16 @@
+udm_hash32 -- Return Hash32 checksum of gived string
+
+  int udm_hash32(resource agent, string str)~
+
+|udm_hash32| will take a string {str} and return a quite unique 32-bit hash
+number from it.
+
+{agent} A link to Agent, received after call to |udm_alloc_agent|.
+
+{str} The input string.
+
+Returns a 32-bit hash number.
+
+|udm_alloc_agent|
+
+vim:ft=help:

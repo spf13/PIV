@@ -1,0 +1,13 @@
+posix_ttyname -- Determine terminal device name
+
+  string posix_ttyname(int fd)~
+
+Returns a string for the absolute path to the current terminal device that is
+open on the file descriptor {fd}.
+
+{fd} The file descriptor.
+
+On success, returns a string of the absolute path of the {fd}. On failure,
+returns FALSE
+
+vim:ft=help:

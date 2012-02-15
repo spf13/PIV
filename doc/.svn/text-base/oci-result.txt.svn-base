@@ -1,0 +1,25 @@
+oci_result -- Returns field's value from the fetched row
+
+  mixed oci_result(resource statement, mixed field)~
+
+Returns the data from {field} in the current row, fetched by |oci_fetch|.
+
+For details on the data type mapping performed by the OCI8 extension, see the
+datatypes supported by the driver
+
+{statement}
+
+{field} Can be either use the column number (1-based) or the column name (in
+uppercase).
+
+Returns everything as strings except for abstract types (ROWIDs, LOBs and
+FILEs). Returns FALSE on error.
+
+In PHP versions before 5.0.0 you must use |ociresult| instead. This name still
+can be used, it was left as alias of |oci_result| for downwards compatability.
+This, however, is deprecated and not recommended.
+
+|oci_fetch_array| |oci_fetch_assoc| |oci_fetch_object| |oci_fetch_row|
+|oci_fetch_all|
+
+vim:ft=help:

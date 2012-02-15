@@ -1,0 +1,43 @@
+ftp_chmod -- Set permissions on a file via FTP
+
+  int ftp_chmod(resource ftp_stream, int mode, string filename)~
+
+Sets the permissions on the specified remote file to {mode}.
+
+{ftp_stream} The link identifier of the FTP connection.
+
+{mode} The new permissions, given as an octal value.
+
+{filename} The remote file.
+
+Returns the new file permissions on success or FALSE on error.
+
+|ftp_chmod| example
+
+<?php >
+  $file = 'public_html/index.php';
+  
+  // set up basic connection
+  $conn_id = ftp_connect($ftp_server);
+  
+  // login with username and password
+  $login_result = ftp_login($conn_id, $ftp_user_name, $ftp_user_pass);
+  
+  // try to chmod $file to 644
+  if (ftp_chmod($conn_id, 0644, $file) !== false) {
+   echo "$file chmoded successfully to 644\n";
+  } else {
+   echo "could not chmod $file\n";
+  }
+  
+  // close the connection
+  ftp_close($conn_id);
+?>
+
+
+
+
+
+|chmod|
+
+vim:ft=help:

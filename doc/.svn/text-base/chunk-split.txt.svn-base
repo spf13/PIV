@@ -1,0 +1,30 @@
+chunk_split -- Split a string into smaller chunks
+
+  string chunk_split(string body [, int chunklen [, string end]])~
+
+Can be used to split a string into smaller chunks which is useful for e.g.
+converting |base64_encode| output to match RFC 2045 semantics. It inserts
+{end} every {chunklen} characters.
+
+{body} The string to be chunked.
+
+{chunklen} The chunk length.
+
+{end} The line ending sequence.
+
+Returns the chunked string.
+
+|chunk_split| example
+
+<?php >
+  // format $data using RFC 2045 semantics
+  $new_string = chunk_split(base64_encode($data));
+?>
+
+
+
+
+
+|str_split| |explode| |split| |wordwrap| RFC 2045
+
+vim:ft=help:

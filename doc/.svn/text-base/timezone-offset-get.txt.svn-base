@@ -1,0 +1,5 @@
+timezone_offset_get -- Alias of DateTimeZone::getOffset
+
+This function is an alias of: DateTimeZone::getOffset
+
+vim:ft=help:

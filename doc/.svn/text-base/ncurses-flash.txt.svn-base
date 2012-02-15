@@ -1,0 +1,15 @@
+ncurses_flash -- Flash terminal screen (visual bell)
+
+  bool ncurses_flash()~
+
+This function is EXPERIMENTAL. The behaviour of this function, its name, and
+surrounding documentation may change without notice in a future release of
+PHP. This function should be used at your own risk.
+
+Flashes the screen, and if its not possible, sends an audible alert (bell).
+
+Returns FALSE on success, otherwise TRUE.
+
+|ncurses_beep|
+
+vim:ft=help:

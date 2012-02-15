@@ -1,0 +1,15 @@
+zip_entry_compressionmethod -- Retrieve the compression method of a directory
+entry
+
+  string zip_entry_compressionmethod(resource zip_entry)~
+
+Returns the compression method of the directory entry specified by
+{zip_entry}.
+
+{zip_entry} A directory entry returned by |zip_read|.
+
+The compression method.
+
+|zip_open| |zip_read|
+
+vim:ft=help:

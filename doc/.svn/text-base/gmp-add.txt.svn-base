@@ -1,0 +1,32 @@
+gmp_add -- Add numbers
+
+  resource gmp_add(resource a, resource b)~
+
+Add two numbers.
+
+{a} A number that will be added.
+
+It can be either a GMP number resource, or a numeric string given that it is
+possible to convert the latter to a number.
+
+{b} A number that will be added.
+
+It can be either a GMP number resource, or a numeric string given that it is
+possible to convert the latter to a number.
+
+A GMP number representing the sum of the arguments.
+
+|gmp_add| example
+
+<?php >
+  $sum = gmp_add("123456789012345", "76543210987655");
+  echo gmp_strval($sum) . "\n";
+?>
+
+The above example will output:
+
+  200000000000000
+
+
+
+vim:ft=help:

@@ -1,0 +1,9 @@
+PDF_define_layer -- Create layer definition
+
+  int PDF_define_layer(resource pdfdoc, string name, string optlist)~
+
+Creates a new layer definition.
+
+This function requires PDF 1.5.
+
+vim:ft=help:

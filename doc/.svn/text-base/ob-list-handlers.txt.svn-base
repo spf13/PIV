@@ -1,0 +1,49 @@
+ob_list_handlers -- List all output handlers in use
+
+  array ob_list_handlers()~
+
+Lists all output handlers in use.
+
+This will return an array with the output handlers in use (if any). If
+output_buffering is enabled or an anonymous function was used with |ob_start|,
+|ob_list_handlers| will return "default output handler".
+
+|ob_list_handlers| example
+
+<?php >
+  //using output_buffering=On
+  print_r(ob_list_handlers());
+  ob_end_flush();
+  
+  ob_start("ob_gzhandler");
+  print_r(ob_list_handlers());
+  ob_end_flush();
+  
+  // anonymous functions
+  ob_start(create_function('$string', 'return $string;'));
+  print_r(ob_list_handlers());
+  ob_end_flush();
+?>
+
+The above example will output:
+
+  Array
+  (
+      [0] => default output handler
+  )
+  
+  Array
+  (
+      [0] => ob_gzhandler
+  )
+  
+  Array
+  (
+      [0] => default output handler
+  )
+
+
+
+|ob_end_clean| |ob_end_flush| |ob_get_flush| |ob_start|
+
+vim:ft=help:

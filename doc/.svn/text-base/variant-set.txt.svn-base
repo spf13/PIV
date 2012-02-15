@@ -1,0 +1,14 @@
+variant_set -- Assigns a new value for a variant object
+
+  void variant_set(variant variant, mixed value)~
+
+Converts {value} to a variant and assigns it to the {variant} object; no new
+variant object is created, and the old value of {variant} is freed/released.
+
+{variant} The variant.
+
+{value}
+
+No value is returned.
+
+vim:ft=help:

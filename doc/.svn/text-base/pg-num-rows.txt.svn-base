@@ -1,0 +1,32 @@
+pg_num_rows -- Returns the number of rows in a result
+
+  int pg_num_rows(resource result)~
+
+|pg_num_rows| will return the number of rows in a PostgreSQL result resource.
+
+This function used to be called |pg_numrows|.
+
+{result} PostgreSQL query result resource, returned by |pg_query|,
+|pg_query_params| or |pg_execute| (among others).
+
+The number of rows in the result. On error, -1 is returned.
+
+|pg_num_rows| example
+
+<?php >
+  $result = pg_query($conn, "SELECT 1");
+  
+  $rows = pg_num_rows($result);
+  
+  echo $rows . " row(s) returned.\n";
+?>
+
+The above example will output:
+
+  1 row(s) returned.
+
+
+
+|pg_num_fields| |pg_affected_rows|
+
+vim:ft=help:

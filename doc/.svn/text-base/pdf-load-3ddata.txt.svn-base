@@ -1,0 +1,9 @@
+PDF_load_3ddata -- Load 3D model
+
+  int PDF_load_3ddata(resource pdfdoc, string filename, string optlist)~
+
+Loads a 3D model from a disk-based or virtual file.
+
+This function requires PDF 1.6.
+
+vim:ft=help:

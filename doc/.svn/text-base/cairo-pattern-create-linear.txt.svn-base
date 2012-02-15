@@ -1,0 +1,37 @@
+cairo_pattern_create_linear -- Description
+
+  CairoPattern cairo_pattern_create_linear(float x0, float y0, float x1, float y1)~
+
+The function description goes here.
+
+This function is currently not documented; only its argument list is
+available.
+
+{x0} Description...
+
+{y0} Description...
+
+{x1} Description...
+
+{y1} Description...
+
+What is returned on success and failure
+
+When does this function issue E_* level errors, and/or throw exceptions.
+
+|cairo_pattern_create_linear| example Any text that describes the purpose of
+the example, or what goes on in the example should be here.
+
+<?php >
+  /* ... */
+?>
+
+The above example will output something similar to:
+
+  ...
+
+
+
+|related function name here|
+
+vim:ft=help:

@@ -1,0 +1,120 @@
+db2_connect -- Returns a connection to a database
+
+  resource db2_connect(string database, string username, string password [, array options])~
+
+Creates a new connection to an IBM DB2 Universal Database, IBM Cloudscape, or
+Apache Derby database.
+
+{database} For a cataloged connection to a database, {database} represents the
+database alias in the DB2 client catalog.
+
+For an uncataloged connection to a database, {database} represents a complete
+connection string in the following format:
+
+  DATABASE=
+
+
+
+  database
+
+
+
+  ;HOSTNAME=
+
+
+
+  hostname
+
+
+
+  ;PORT=
+
+
+
+  port
+
+
+
+  ;PROTOCOL=TCPIP;UID=
+
+
+
+  username
+
+
+
+  ;PWD=
+
+
+
+  password
+
+
+
+  ;
+
+where the parameters represent the following values: {database} The name of
+the database.
+
+{hostname} The hostname or IP address of the database server.
+
+{port} The TCP/IP port on which the database is listening for requests.
+
+{username} The username with which you are connecting to the database.
+
+{password} The password with which you are connecting to the database.
+
+{username} The username with which you are connecting to the database.
+
+For uncataloged connections, you must pass a NULL value or empty string.
+
+{password} The password with which you are connecting to the database.
+
+For uncataloged connections, you must pass a NULL value or empty string.
+
+{options} An associative array of connection options that affect the behavior
+of the connection, where valid array keys include: {autocommit} Passing the
+DB2_AUTOCOMMIT_ON value turns autocommit on for this connection handle.
+
+Passing the DB2_AUTOCOMMIT_OFF value turns autocommit off for this connection
+handle.
+
+{DB2_ATTR_CASE} Passing the DB2_CASE_NATURAL value specifies that column names
+are returned in natural case.
+
+Passing the DB2_CASE_LOWER value specifies that column names are returned in
+lower case.
+
+Passing the DB2_CASE_UPPER value specifies that column names are returned in
+upper case.
+
+{CURSOR} Passing the DB2_FORWARD_ONLY value specifies a forward-only cursor
+for a statement resource. This is the default cursor type and is supported on
+all database servers.
+
+Passing the DB2_SCROLLABLE value specifies a scrollable cursor for a statement
+resource. This mode enables random access to rows in a result set, but
+currently is supported only by IBM DB2 Universal Database.
+
+The following new option is available in ibm_db2 version 1.7.0 and later.
+{trustedcontext} Passing the DB2_TRUSTED_CONTEXT_ENABLE value turns trusted
+context on for this connection handle. This parameter cannot be set using
+|db2_set_option|.
+
+This key works only if the database is cataloged (even if the database is
+local), or if you specify the full DSN when you create the connection.
+
+To catalog the database, use following commands:
+
+  db2 catalog tcpip node loopback remote
+
+  server
+
+  db2 catalog database
+
+  as
+
+  at node loopback
+  db2 "update dbm cfg using svcename
+
+vim:ft=help:

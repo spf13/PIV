@@ -1,0 +1,8 @@
+PDF_closepath_fill_stroke -- Close, fill and stroke current path
+
+  bool PDF_closepath_fill_stroke(resource p)~
+
+Closes the path, fills, and strokes it. Returns TRUE on success or &false; on
+failure.
+
+vim:ft=help:

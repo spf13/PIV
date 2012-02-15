@@ -1,0 +1,39 @@
+cubrid_error_code -- Get error code for the most recent function call
+
+  int cubrid_error_code()~
+
+The |cubrid_error_code| function is used to get the error code of the error
+that occurred during the API execution. Usually, it gets the error code when
+API returns false as its return value.
+
+This function has no parameters.
+
+Error code of the error that occurred, or 0 (zero) if no error occurred.
+
+
+
+|cubrid_error_code| example
+
+<?php >
+  $conn = cubrid_connect("localhost", 33000, "demodb");
+  $req = cubrid_prepare($conn , "SELECT * FROM code WHERE s_name=?");
+  
+  $req = @cubrid_execute($req);
+  if (!$req) {
+      printf("Error facility: %d\nError code: %d\nError msg: %s\n", 
+          cubrid_error_code_facility(), cubrid_error_code(), cubrid_error_msg());
+  
+      cubrid_disconnect($conn);
+      exit;
+  }
+?>
+
+The above example will output:
+
+  Error facility: 4
+  Error code: -2015
+  Error msg: Some parameter not binded
+
+|cubrid_error_code_facility| |cubrid_error_msg|
+
+vim:ft=help:

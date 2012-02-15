@@ -1,0 +1,14 @@
+dotnet_load -- Loads a DOTNET module
+
+  int dotnet_load(string assembly_name [, string datatype_name [, int codepage]])~
+
+This function is EXPERIMENTAL. The behaviour of this function, its name, and
+surrounding documentation may change without notice in a future release of
+PHP. This function should be used at your own risk.
+
+This function is currently not documented; only its argument list is
+available.
+
+Version Description 4.1.0 The {codepage} parameter was added
+
+vim:ft=help:

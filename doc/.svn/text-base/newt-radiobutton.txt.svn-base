@@ -1,0 +1,20 @@
+newt_radiobutton --
+
+  resource newt_radiobutton(int left, int top, string text, bool is_default [, resource prev_button])~
+
+This function is currently not documented; only its argument list is
+available.
+
+{left}
+
+{top}
+
+{text}
+
+{is_default}
+
+{prev_button}
+
+
+
+vim:ft=help:

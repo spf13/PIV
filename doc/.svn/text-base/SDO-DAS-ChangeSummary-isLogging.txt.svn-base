@@ -1,0 +1,16 @@
+SDO_DAS_ChangeSummary::isLogging -- Test to see whether change logging is
+switched on
+
+  bool SDO_DAS_ChangeSummary::isLogging()~
+
+This function is EXPERIMENTAL. The behaviour of this function, its name, and
+surrounding documentation may change without notice in a future release of
+PHP. This function should be used at your own risk.
+
+Test to see whether change logging is switched on.
+
+None.
+
+Returns TRUE if change logging is on, otherwise returns FALSE.
+
+vim:ft=help:

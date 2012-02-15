@@ -1,0 +1,36 @@
+mb_strimwidth -- Get truncated string with specified width
+
+  string mb_strimwidth(string str, int start, int width [, string trimmarker [, string encoding]])~
+
+Truncates string {str} to specified {width}.
+
+{str} The string being decoded.
+
+{start} The start position offset. Number of characters from the beginning of
+string. (First character is 0)
+
+{width} The width of the desired trim.
+
+{trimmarker} A string that is added to the end of string when string is
+truncated.
+
+{encoding} The {encoding} parameter is the character encoding. If it is
+omitted, the internal character encoding value will be used.
+
+The truncated string. If {trimmarker} is set, {trimmarker} is appended to the
+return value.
+
+|mb_strimwidth| example
+
+<?php >
+  echo mb_strimwidth("Hello World", 0, 10, "...");
+  // outputs Hello W...
+?>
+
+
+
+
+
+|mb_strwidth| |mb_internal_encoding|
+
+vim:ft=help:

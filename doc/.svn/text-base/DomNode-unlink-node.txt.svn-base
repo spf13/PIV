@@ -1,0 +1,10 @@
+DomNode->unlink_node -- Deletes node
+
+  void DomNode->unlink_node()~
+
+This function is currently not documented; only its argument list is
+available.
+
+
+
+vim:ft=help:

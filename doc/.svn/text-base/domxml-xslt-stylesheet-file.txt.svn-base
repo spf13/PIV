@@ -1,0 +1,17 @@
+domxml_xslt_stylesheet_file -- Creates a DomXsltStylesheet Object from an XSL
+document in a file
+
+  DomXsltStylesheet domxml_xslt_stylesheet_file(string xsl_file)~
+
+Creates a DomXsltStylesheet object from the given XSL file.
+
+{xsl_file} The path to the XSL document, as a string.
+
+Returns a new instance of DomXsltStylesheet.
+
+Call |XSLTProcessor::importStylesheet| with DOMDocument::load($xsl_file) as
+parameter.
+
+|domxml_xslt_stylesheet| |domxml_xslt_stylesheet_doc|
+
+vim:ft=help:

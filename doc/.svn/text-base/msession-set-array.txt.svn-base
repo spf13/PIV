@@ -1,0 +1,8 @@
+msession_set_array -- Set msession variables from an array
+
+  void msession_set_array(string session, array tuples)~
+
+This function is currently not documented; only its argument list is
+available.
+
+vim:ft=help:

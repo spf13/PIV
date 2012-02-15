@@ -1,0 +1,14 @@
+newt_checkbox_tree_get_multi_selection --
+
+  array newt_checkbox_tree_get_multi_selection(resource checkboxtree, string seqnum)~
+
+This function is currently not documented; only its argument list is
+available.
+
+{checkboxtree}
+
+{seqnum}
+
+
+
+vim:ft=help:

@@ -1,0 +1,77 @@
+socket_get_option -- Gets socket options for the socket
+
+  mixed socket_get_option(resource socket, int level, int optname)~
+
+The |socket_get_option| function retrieves the value for the option specified
+by the {optname} parameter for the specified {socket}.
+
+{socket} A valid socket resource created with |socket_create| or
+|socket_accept|.
+
+{level} The {level} parameter specifies the protocol level at which the option
+resides. For example, to retrieve options at the socket level, a {level}
+parameter of SOL_SOCKET would be used. Other levels, such as TCP, can be used
+by specifying the protocol number of that level. Protocol numbers can be found
+by using the |getprotobyname| function.
+
+{optname} Available Socket Options Option Description Type SO_DEBUG Reports
+whether debugging information is being recorded. int SO_BROADCAST Reports
+whether transmission of broadcast messages is supported. int SO_REUSEADDR
+Reports whether local addresses can be reused. int SO_KEEPALIVE Reports
+whether connections are kept active with periodic transmission of messages. If
+the connected socket fails to respond to these messages, the connection is
+broken and processes writing to that socket are notified with a SIGPIPE
+signal. int SO_LINGER Reports whether the {socket} lingers on |socket_close|
+if data is present. By default, when the socket is closed, it attempts to send
+all unsent data. In the case of a connection-oriented socket, |socket_close|
+will wait for its peer to acknowledge the data.
+
+If l_onoff is non-zero and l_linger is zero, all the unsent data will be
+discarded and RST (reset) is sent to the peer in the case of a
+connection-oriented socket.
+
+On the other hand, if l_onoff is non-zero and l_linger is non-zero,
+|socket_close| will block until all the data is sent or the time specified in
+l_linger elapses. If the socket is non-blocking, |socket_close| will fail and
+return an error.
+
+array. The array will contain two keys: l_onoff and l_linger. SO_OOBINLINE
+Reports whether the {socket} leaves out-of-band data inline. int SO_SNDBUF
+Reports the size of the send buffer. int SO_RCVBUF Reports the size of the
+receive buffer. int SO_ERROR Reports information about error status and clears
+it. int (cannot be set by |socket_set_option|) SO_TYPE Reports the {socket}
+type (e.g. SOCK_STREAM). int (cannot be set by |socket_set_option|)
+SO_DONTROUTE Reports whether outgoing messages bypass the standard routing
+facilities. int SO_RCVLOWAT Reports the minimum number of bytes to process for
+{socket} input operations. int SO_RCVTIMEO Reports the timeout value for input
+operations. array. The array will contain two keys: sec which is the seconds
+part on the timeout value and usec which is the microsecond part of the
+timeout value. SO_SNDTIMEO Reports the timeout value specifying the amount of
+time that an output function blocks because flow control prevents data from
+being sent. array. The array will contain two keys: sec which is the seconds
+part on the timeout value and usec which is the microsecond part of the
+timeout value. SO_SNDLOWAT Reports the minimum number of bytes to process for
+{socket} output operations. int TCP_NODELAY Reports whether the Nagle TCP
+algorithm is disabled. int
+
+Returns the value of the given option, or FALSE on errors.
+
+|socket_set_option| example
+
+<?php >
+  $socket = socket_create_listen(1223);
+  
+  $linger = array('l_linger' => 1, 'l_onoff' => 1);
+  socket_set_option($socket, SOL_SOCKET, SO_LINGER, $linger);
+  
+  var_dump(socket_get_option($socket, SOL_SOCKET, SO_REUSEADDR));
+?>
+
+
+
+
+
+Version Description 4.3.0 The name of this function was changed. It used to be
+called socket_getopt().
+
+vim:ft=help:

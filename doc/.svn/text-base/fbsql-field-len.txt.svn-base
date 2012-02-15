@@ -1,0 +1,13 @@
+fbsql_field_len -- Returns the length of the specified field
+
+  int fbsql_field_len(resource result [, int field_offset])~
+
+Returns the length of the specified field.
+
+{result} A result pointer returned by |fbsql_list_fields|.
+
+{field_offset} The numerical offset of the field. The field index starts at 0.
+
+Returns the length of the specified field.
+
+vim:ft=help:

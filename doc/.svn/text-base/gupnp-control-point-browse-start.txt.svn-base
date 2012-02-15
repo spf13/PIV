@@ -1,0 +1,49 @@
+gupnp_control_point_browse_start -- Start browsing
+
+  bool gupnp_control_point_browse_start(resource cpoint)~
+
+Start the search and calls user-defined callback.
+
+{cpoint} A control point identifier, returned by |gupnp_control_point_new|.
+
+Returns TRUE on success or &false; on failure.
+
+Create new UPnP context and start browsing
+
+<?php >
+  function device_proxy_available_cb($proxy, $arg)
+  {
+      $info = gupnp_device_info_get($proxy);
+  
+      $type = $info['device_type'];
+      $location = $info['location'];
+  
+      printf("Device available:\n");
+      printf("type:     %s\n", $type);
+      printf("location: %s\n", $location);
+  }
+  
+  /* Create the UPnP context */
+  $context = gupnp_context_new();
+  
+  if (!$context) {
+   die("Error creating the GUPnP context\n");
+  }
+  
+  /* We're interested in everything */
+  $cp = gupnp_control_point_new($context, "ssdp:all");
+  
+  gupnp_control_point_callback_set($cp, 
+      GUPNP_SIGNAL_DEVICE_PROXY_AVAILABLE, 'device_proxy_available_cb');
+  
+  /* Start for browsing */
+  gupnp_control_point_browse_start($cp);
+?>
+
+
+
+
+
+|gupnp_control_point_new| |gupnp_control_point_browse_stop|
+
+vim:ft=help:

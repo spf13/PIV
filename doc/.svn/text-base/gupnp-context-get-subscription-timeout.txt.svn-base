@@ -1,0 +1,14 @@
+gupnp_context_get_subscription_timeout -- Get the event subscription timeout
+
+  int gupnp_context_get_subscription_timeout(resource context)~
+
+Get the event subscription timeout (in seconds), or 0 meaning there is no
+timeout.
+
+{context} A context identifier, returned by |gupnp_context_new|.
+
+The event subscription timeout in seconds.
+
+|gupnp_context_new| |gupnp_context_set_subscription_timeout|
+
+vim:ft=help:

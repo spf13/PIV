@@ -1,0 +1,11 @@
+newt_checkbox_tree_get_current -- Returns checkbox tree selected item
+
+  mixed newt_checkbox_tree_get_current(resource checkboxtree)~
+
+This method returns checkbox tree selected tem.
+
+{checkboxtree}
+
+Returns current (selected) checkbox tree item.
+
+vim:ft=help:

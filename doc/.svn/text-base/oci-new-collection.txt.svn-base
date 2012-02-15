@@ -1,0 +1,21 @@
+oci_new_collection -- Allocates new collection object
+
+  OCI-Collection oci_new_collection(resource connection, string tdo [, string schema])~
+
+Allocates a new collection object.
+
+{connection} An Oracle connection identifier, returned by |oci_connect| or
+|oci_pconnect|.
+
+{tdo} Should be a valid named type (uppercase).
+
+{schema} Should point to the scheme, where the named type was created. The
+name of the current user is the default value.
+
+Returns a new OCICollection object or FALSE on error.
+
+In PHP versions before 5.0.0 you must use |ocinewcollection| instead. This
+name still can be used, it was left as alias of |oci_new_collection| for
+downwards compatability. This, however, is deprecated and not recommended.
+
+vim:ft=help:

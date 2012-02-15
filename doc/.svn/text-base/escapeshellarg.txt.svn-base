@@ -1,0 +1,28 @@
+escapeshellarg -- Escape a string to be used as a shell argument
+
+  string escapeshellarg(string arg)~
+
+|escapeshellarg| adds single quotes around a string and quotes/escapes any
+existing single quotes allowing you to pass a string directly to a shell
+function and having it be treated as a single safe argument. This function
+should be used to escape individual arguments to shell functions coming from
+user input. The shell functions include |exec|, |system| and the backtick
+operator.
+
+{arg} The argument that will be escaped.
+
+The escaped string.
+
+|escapeshellarg| example
+
+<?php >
+  system('ls '.escapeshellarg($dir));
+?>
+
+
+
+
+
+|escapeshellcmd| |exec| |popen| |system| backtick operator
+
+vim:ft=help:

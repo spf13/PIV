@@ -1,0 +1,15 @@
+hw_Unlock -- Unlock object
+
+  bool hw_unlock(int connection, int objectID)~
+
+Unlocks a document, so other users regain access.
+
+{connection} The connection identifier.
+
+{objectID} The document object identifier.
+
+Returns TRUE on success or &false; on failure.
+
+|hw_getandlock|
+
+vim:ft=help:

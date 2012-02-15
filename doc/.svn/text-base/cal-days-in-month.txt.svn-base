@@ -1,0 +1,28 @@
+cal_days_in_month -- Return the number of days in a month for a given year and
+calendar
+
+  int cal_days_in_month(int calendar, int month, int year)~
+
+This function will return the number of days in the {month} of {year} for the
+specified {calendar}.
+
+{calendar} Calendar to use for calculation
+
+{month} Month in the selected calendar
+
+{year} Year in the selected calendar
+
+The length in days of the selected month in the given calendar
+
+|cal_days_in_month| example
+
+<?php >
+  $num = cal_days_in_month(CAL_GREGORIAN, 8, 2003); // 31
+  echo "There was $num days in August 2003";
+?>
+
+
+
+
+
+vim:ft=help:

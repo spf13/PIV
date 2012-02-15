@@ -1,0 +1,23 @@
+posix_ctermid -- Get path name of controlling terminal
+
+  string posix_ctermid()~
+
+Generates a string which is the pathname for the current controlling terminal
+for the process. On error this will set errno, which can be checked using
+|posix_get_last_error|
+
+Upon successful completion, returns string of the pathname to the current
+controlling terminal. Otherwise FALSE is returned and errno is set, which can
+be checked with |posix_get_last_error|.
+
+|posix_ctermid| example This example will display the path to the current TTY.
+
+<?php >
+  echo "I am running from ".posix_ctermid();
+?>
+
+
+
+|posix_ttyname| |posix_get_last_error|
+
+vim:ft=help:

@@ -1,0 +1,63 @@
+imagexbm -- Output XBM image to browser or file
+
+  bool imagexbm(resource image, string filename [, int foreground])~
+
+Outputs or save an XBM version of the given {image}.
+
+{ image}An image resource, returned by one of the image creation functions,
+such as |imagecreatetruecolor|.
+
+{filename} The path to save the file to. If not set or NULL, the raw image
+stream will be outputted directly.
+
+{foreground} You can set the foreground color with this parameter by setting
+an identifier obtained from |imagecolorallocate|. The default foreground color
+is black.
+
+Returns TRUE on success or &false; on failure.
+
+Saving an XBM file
+
+<?php >
+  // Create a blank image and add some text
+  $im = imagecreatetruecolor(120, 20);
+  $text_color = imagecolorallocate($im, 233, 14, 91);
+  imagestring($im, 1, 5, 5,  'A Simple Text String', $text_color);
+  
+  // Save the image
+  imagexbm($im, 'simpletext.xbm');
+  
+  // Free up memory
+  imagedestroy($im);
+?>
+
+
+
+
+
+Saving an XBM file with a different foreground color
+
+<?php >
+  // Create a blank image and add some text
+  $im = imagecreatetruecolor(120, 20);
+  $text_color = imagecolorallocate($im, 233, 14, 91);
+  imagestring($im, 1, 5, 5,  'A Simple Text String', $text_color);
+  
+  // Set a replacement foreground color
+  $foreground_color = imagecolorallocate($im, 255, 0, 0);
+  
+  // Save the image
+  imagexbm($im, NULL, $foreground_color);
+  
+  // Free up memory
+  imagedestroy($im);
+?>
+
+
+
+
+
+This function is only available if PHP is compiled with the bundled version of
+the GD library.
+
+vim:ft=help:

@@ -1,0 +1,11 @@
+swf_endbutton -- End the definition of the current button
+
+  void swf_endbutton()~
+
+The |swf_endbutton| function ends the definition of the current button.
+
+No value is returned.
+
+|swf_startbutton|
+
+vim:ft=help:

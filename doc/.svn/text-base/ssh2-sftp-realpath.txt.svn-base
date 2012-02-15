@@ -1,0 +1,30 @@
+ssh2_sftp_realpath -- Resolve the realpath of a provided path string
+
+  string ssh2_sftp_realpath(resource sftp, string filename)~
+
+Translates {filename} into the effective real path on the remote filesystem.
+
+{sftp} An SSH2 SFTP resource opened by |ssh2_sftp|.
+
+{filename}
+
+Returns the real path as a string.
+
+Resolving a pathname
+
+<?php >
+  $connection = ssh2_connect('shell.example.com', 22);
+  ssh2_auth_password($connection, 'username', 'password');
+  $sftp = ssh2_sftp($connection);
+  
+  $realpath = ssh2_sftp_realpath($sftp, '/home/username/../../../..//./usr/../etc/passwd');
+  /* $realpath is now: '/etc/passwd' */
+?>
+
+
+
+
+
+|realpath| |ssh2_sftp_symlink| |ssh2_sftp_readlink|
+
+vim:ft=help:

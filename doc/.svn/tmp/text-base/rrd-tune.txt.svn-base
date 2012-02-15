@@ -1,0 +1,15 @@
+*rrd_tune* -- Tunes some RRD file header options.
+
+  bool rrd_tune(string filename, array options)~
+
+Change some options in the RRD header file. E.g. renames the source for the
+the data etc.
+
+Filename for the RRD database file.
+
+Options with RRD database file properties, which will be changed. See rrd tune
+man page for details.
+
+Returns TRUE on success, FALSE otherwise.
+
+vim:ft=help:

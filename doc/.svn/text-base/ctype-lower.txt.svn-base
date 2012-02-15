@@ -1,0 +1,36 @@
+ctype_lower -- Check for lowercase character(s)
+
+  bool ctype_lower(string text)~
+
+Checks if all of the characters in the provided string, {text}, are lowercase
+letters.
+
+{text} The tested string.
+
+Returns TRUE if every character in {text} is a lowercase letter in the current
+locale.
+
+A |ctype_lower| example (using the default locale)
+
+<?php >
+  $strings = array('aac123', 'qiutoas', 'QASsdks');
+  foreach ($strings as $testcase) {
+      if (ctype_lower($testcase)) {
+          echo "The string $testcase consists of all lowercase letters.\n";
+      } else {
+          echo "The string $testcase does not consist of all lowercase letters.\n";
+      }
+  }
+?>
+
+The above example will output:
+
+  The string aac123 does not consist of all lowercase letters.
+  The string qiutoas consists of all lowercase letters.
+  The string QASsdks does not consist of all lowercase letters.
+
+
+
+|ctype_alpha| |ctype_upper| |setlocale|
+
+vim:ft=help:

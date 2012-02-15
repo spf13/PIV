@@ -1,0 +1,14 @@
+gupnp_service_introspection_get_state_variable -- Returns the state variable
+data
+
+  array gupnp_service_introspection_get_state_variable(resource introspection, string variable_name)~
+
+Returns the state variable data by the name {variable_name} in this service.
+
+{introspection} A introspection identifier.
+
+{variable_name} The name of the variable to retreive.
+
+Return the state variable data or FALSE.
+
+vim:ft=help:

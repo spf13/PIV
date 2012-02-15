@@ -1,0 +1,12 @@
+openssl_free_key -- Free key resource
+
+  void openssl_free_key(resource key_identifier)~
+
+|openssl_free_key| frees the key associated with the specified
+{key_identifier} from memory.
+
+{key_identifier}
+
+No value is returned.
+
+vim:ft=help:

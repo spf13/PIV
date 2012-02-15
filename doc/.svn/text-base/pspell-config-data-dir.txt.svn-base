@@ -1,0 +1,12 @@
+pspell_config_data_dir -- location of language data files
+
+  bool pspell_config_data_dir(int conf, string directory)~
+
+This function is currently not documented; only its argument list is
+available.
+
+
+
+Returns TRUE on success or &false; on failure.
+
+vim:ft=help:

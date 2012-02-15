@@ -1,0 +1,8 @@
+iis_start_service -- Starts the service defined by ServiceId
+
+  int iis_start_service(string service_id)~
+
+This function is currently not documented; only its argument list is
+available.
+
+vim:ft=help:

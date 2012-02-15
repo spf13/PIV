@@ -1,0 +1,32 @@
+DomElement->tagname -- Returns the name of the current element
+
+  string tagname()~
+
+Returns the name of the current node. Calling this function is the same as
+accessing the tagname property, or calling on the current node.
+
+Returns the name of the current DomElement node.
+
+Getting the node name
+
+<?php >
+  include("example.inc");
+  
+  if (!$dom = domxml_open_mem($xmlstr)) {
+      echo "Error while parsing the document\n";
+      exit;
+  }
+  
+  $root = $dom->document_element();
+  echo $root->tagname();   // chapter
+  echo $root->tagname;     // chapter
+  echo $root->node_name(); // chapter
+?>
+
+
+
+
+
+Use the tagName property of the DOMElement object.
+
+vim:ft=help:

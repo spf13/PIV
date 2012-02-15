@@ -1,0 +1,52 @@
+count_chars -- Return information about characters used in a string
+
+  mixed count_chars(string string [, int mode])~
+
+Counts the number of occurrences of every byte-value (0..255) in {string} and
+returns it in various ways.
+
+{string} The examined string.
+
+{mode} See return values.
+
+Depending on {mode} |count_chars| returns one of the following: 0 - an array
+with the byte-value as key and the frequency of every byte as value.
+
+1 - same as 0 but only byte-values with a frequency greater than zero are
+listed.
+
+2 - same as 0 but only byte-values with a frequency equal to zero are listed.
+
+3 - a string containing all unique characters is returned.
+
+4 - a string containing all not used characters is returned.
+
+|count_chars| example
+
+<?php >
+  $data = "Two Ts and one F.";
+  
+  foreach (count_chars($data, 1) as $i => $val) {
+     echo "There were $val instance(s) of \"" , chr($i) , "\" in the string.\n";
+  }
+?>
+
+The above example will output:
+
+  There were 4 instance(s) of " " in the string.
+  There were 1 instance(s) of "." in the string.
+  There were 1 instance(s) of "F" in the string.
+  There were 2 instance(s) of "T" in the string.
+  There were 1 instance(s) of "a" in the string.
+  There were 1 instance(s) of "d" in the string.
+  There were 1 instance(s) of "e" in the string.
+  There were 2 instance(s) of "n" in the string.
+  There were 2 instance(s) of "o" in the string.
+  There were 1 instance(s) of "s" in the string.
+  There were 1 instance(s) of "w" in the string.
+
+
+
+|strpos| |substr_count|
+
+vim:ft=help:

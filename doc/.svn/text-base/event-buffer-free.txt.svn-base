@@ -1,0 +1,9 @@
+event_buffer_free -- Destroy buffered event
+
+  void event_buffer_free(resource bevent)~
+
+Destroys the specified buffered event and frees all the resources associated.
+
+{bevent} Valid buffered event resource.
+
+vim:ft=help:

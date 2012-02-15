@@ -1,0 +1,23 @@
+ncurses_getmaxyx -- Returns the size of a window
+
+  void ncurses_getmaxyx(resource window, int y, int x)~
+
+This function is EXPERIMENTAL. The behaviour of this function, its name, and
+surrounding documentation may change without notice in a future release of
+PHP. This function should be used at your own risk.
+
+Gets the horizontal and vertical size of the given {window} into the given
+variables.
+
+Variables must be passed as reference, so they are updated when the user
+changes the terminal size.
+
+{window} The measured window
+
+{x} This will be set to the window width
+
+{y} This will be set to the window height
+
+No value is returned.
+
+vim:ft=help:

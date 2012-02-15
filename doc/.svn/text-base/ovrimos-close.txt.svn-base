@@ -1,0 +1,14 @@
+ovrimos_close -- Closes the connection to ovrimos
+
+  void ovrimos_close(int connection)~
+
+Closes the specified {connection} to Ovrimos. This has the effect of rolling
+back uncommitted transactions.
+
+{connection} The Ovrimos connection identifier, returned by |ovrimos_connect|.
+
+No value is returned.
+
+|ovrimos_connect|
+
+vim:ft=help:

@@ -1,0 +1,20 @@
+oci_field_type_raw -- Tell the raw Oracle data type of the field
+
+  int oci_field_type_raw(resource statement, int field)~
+
+Returns Oracle's raw data type of the {field}.
+
+However, if you want to get field's type, then |oci_field_type| will suit you
+better.
+
+{statement} A valid OCI statement identifier.
+
+{field} Can be the field's index (1-based) or name.
+
+Returns Oracle's raw data type as a string, or FALSE on errors.
+
+In PHP versions before 5.0.0 you must use |ocicolumntyperaw| instead. This
+name still can be used, it was left as alias of |oci_field_type_raw| for
+downwards compatability. This, however, is deprecated and not recommended.
+
+vim:ft=help:

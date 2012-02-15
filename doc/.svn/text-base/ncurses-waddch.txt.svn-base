@@ -1,0 +1,13 @@
+ncurses_waddch -- Adds character at current position in a window and advance
+cursor
+
+  int ncurses_waddch(resource window, int ch)~
+
+This function is currently not documented; only its argument list is
+available.
+
+{window}
+
+{ch}
+
+vim:ft=help:

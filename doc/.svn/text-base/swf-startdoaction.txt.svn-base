@@ -1,0 +1,13 @@
+swf_startdoaction -- Start a description of an action list for the current
+frame
+
+  void swf_startdoaction()~
+
+Starts the description of an action list for the current frame. This must be
+called before actions are defined for the current frame.
+
+No value is returned.
+
+|swf_enddoaction|
+
+vim:ft=help:

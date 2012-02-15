@@ -1,0 +1,44 @@
+DomDocument->xinclude -- Substitutes XIncludes in a DomDocument Object
+
+  int DomDocument->xinclude()~
+
+This function substitutes XIncludes in a DomDocument object.
+
+Substituting Xincludes
+
+<?php >
+  // include.xml contains :
+  // <child>test</child> 
+  
+  $xml = '<?xml version="1.0"?>
+  <root xmlns:xi="http://www.w3.org/2001/XInclude">
+    <xi:include href="include.xml">
+      <xi:fallback>
+        <error>xinclude: include.xml not found</error>
+      </xi:fallback>
+    </xi:include>
+  </root>';
+  
+  $domxml = domxml_open_mem($xml);
+  $domxml->xinclude();
+  
+  echo $domxml->dump_mem();
+?>
+
+The above example will output:
+
+  <?xml version="1.0"?>
+  <root xmlns:xi="http://www.w3.org/2001/XInclude">
+    <child>test</child>
+  </root>
+
+If include.xml doesn't exist, you'll see:
+
+  <?xml version="1.0"?>
+  <root xmlns:xi="http://www.w3.org/2001/XInclude">
+    <error>xinclude:dom.xml not found</error>
+  </root>
+
+
+
+vim:ft=help:

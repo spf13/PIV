@@ -1,0 +1,48 @@
+iterator_to_array -- Copy the iterator into an array
+
+  array iterator_to_array(Traversable iterator [, bool use_keys])~
+
+Copy the elements of an iterator into an array.
+
+{iterator} The iterator being copied.
+
+{use_keys} Whether to use the iterator element keys as index.
+
+An array containing the elements of the {iterator}.
+
+Version Description 5.2.1 The {use_keys} parameter was added.
+
+|iterator_to_array| example
+
+<?php >
+  $iterator = new ArrayIterator(array('recipe'=>'pancakes', 'egg', 'milk', 'flour'));
+  var_dump(iterator_to_array($iterator, true));
+  var_dump(iterator_to_array($iterator, false));
+?>
+
+The above example will output:
+
+  array(4) {
+    ["recipe"]=>
+    string(8) "pancakes"
+    [0]=>
+    string(3) "egg"
+    [1]=>
+    string(4) "milk"
+    [2]=>
+    string(5) "flour"
+  }
+  array(4) {
+    [0]=>
+    string(8) "pancakes"
+    [1]=>
+    string(3) "egg"
+    [2]=>
+    string(4) "milk"
+    [3]=>
+    string(5) "flour"
+  }
+
+
+
+vim:ft=help:

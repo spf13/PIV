@@ -1,0 +1,37 @@
+socket_set_nonblock -- Sets nonblocking mode for file descriptor fd
+
+  bool socket_set_nonblock(resource socket)~
+
+The |socket_set_nonblock| function sets the O_NONBLOCK flag on the socket
+specified by the {socket} parameter.
+
+When an operation (e.g. receive, send, connect, accept, ...) is performed on a
+non-blocking socket, the script not pause its execution until it receives a
+signal or it can perform the operation. Rather, if the operation would result
+in a block, the called function will fail.
+
+{socket} A valid socket resource created with |socket_create| or
+|socket_accept|.
+
+Returns TRUE on success or &false; on failure.
+
+|socket_set_nonblock| example
+
+<?php >
+  $socket = socket_create_listen(1223);
+  socket_set_nonblock($socket);
+  
+  socket_accept($socket);
+?>
+
+This example creates a listening socket on all interfaces on port 1223 and
+sets the socket to O_NONBLOCK mode. |socket_accept| will immediately fail
+unless there is a pending connection exactly at this moment.
+
+
+
+
+
+|socket_set_block| |socket_set_option|
+
+vim:ft=help:

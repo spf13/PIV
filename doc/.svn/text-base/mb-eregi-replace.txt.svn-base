@@ -1,0 +1,30 @@
+mb_eregi_replace -- Replace regular expression with multibyte support ignoring
+case
+
+  string mb_eregi_replace(string pattern, string replace, string string [, string option])~
+
+Scans {string} for matches to {pattern}, then replaces the matched text with
+{replacement}.
+
+{pattern} The regular expression pattern. Multibyte characters may be used.
+The case will be ignored.
+
+{replace} The replacement text.
+
+{string} The searched string.
+
+{option} {option} has the same meaning as in |mb_ereg_replace|.
+
+The resultant string or FALSE on error.
+
+The internal encoding or the character encoding specified by
+|mb_regex_encoding| will be used as the character encoding for this function.
+
+Never use the e modifier when working on untrusted input. No automatic
+escaping will happen (as known from |preg_replace|). Not taking care of this
+will most likely create remote code execution vulnerabilities in your
+application.
+
+|mb_regex_encoding| |mb_ereg_replace|
+
+vim:ft=help:

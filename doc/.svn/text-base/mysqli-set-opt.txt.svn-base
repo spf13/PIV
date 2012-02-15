@@ -1,0 +1,5 @@
+mysqli_set_opt -- Alias of mysqli_options
+
+This function is an alias of |mysqli_options|.
+
+vim:ft=help:

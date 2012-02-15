@@ -1,0 +1,37 @@
+restore_error_handler -- Restores the previous error handler function
+
+  bool restore_error_handler()~
+
+Used after changing the error handler function using |set_error_handler|, to
+revert to the previous error handler (which could be the built-in or a user
+defined function).
+
+This function always returns TRUE.
+
+|restore_error_handler| example Decide if |unserialize| caused an error, then
+restore the original error handler.
+
+<?php >
+  function unserialize_handler($errno, $errstr)
+  {
+      echo "Invalid serialized value.\n";
+  }
+  
+  $serialized = 'foo';
+  set_error_handler('unserialize_handler');
+  $original = unserialize($serialized);
+  restore_error_handler();
+?>
+
+The above example will output:
+
+  Invalid serialized value.
+
+
+
+Calling |restore_error_handler| from the error_handler function is ignored.
+
+|error_reporting| |set_error_handler| |restore_exception_handler|
+|trigger_error|
+
+vim:ft=help:

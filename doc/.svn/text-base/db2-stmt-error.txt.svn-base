@@ -1,0 +1,23 @@
+db2_stmt_error -- Returns a string containing the SQLSTATE returned by an SQL
+statement
+
+  string db2_stmt_error([resource stmt])~
+
+Returns a string containing the SQLSTATE value returned by an SQL statement.
+
+If you do not pass a statement resource as an argument to |db2_stmt_error|,
+the driver returns the SQLSTATE value associated with the last attempt to
+return a statement resource, for example, from |db2_prepare| or |db2_exec|.
+
+To learn what the SQLSTATE value means, you can issue the following command at
+a DB2 Command Line Processor prompt: db2 '? {sqlstate-value}'. You can also
+call |db2_stmt_errormsg| to retrieve an explicit error message and the
+associated SQLCODE value.
+
+{stmt} A valid statement resource.
+
+Returns a string containing an SQLSTATE value.
+
+|db2_conn_error| |db2_conn_errormsg| |db2_stmt_errormsg|
+
+vim:ft=help:

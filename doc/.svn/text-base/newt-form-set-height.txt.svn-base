@@ -1,0 +1,14 @@
+newt_form_set_height --
+
+  void newt_form_set_height(resource form, int height)~
+
+This function is currently not documented; only its argument list is
+available.
+
+{form}
+
+{height}
+
+No value is returned.
+
+vim:ft=help:

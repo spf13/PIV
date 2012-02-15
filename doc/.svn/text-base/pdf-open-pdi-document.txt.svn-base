@@ -1,0 +1,7 @@
+PDF_open_pdi_document -- Prepare a pdi document
+
+  int PDF_open_pdi_document(resource p, string filename, string optlist)~
+
+Open a disk-based or virtual PDF document and prepare it for later use.
+
+vim:ft=help:

@@ -1,0 +1,5 @@
+PDF_add_outline -- Add bookmark for current page [deprecated]
+
+This function is deprecated, use |PDF_create_bookmark| instead.
+
+vim:ft=help:

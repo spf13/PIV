@@ -1,0 +1,77 @@
+print_r -- Prints human-readable information about a variable
+
+  mixed print_r(mixed expression [, bool return])~
+
+|print_r| displays information about a variable in a way that's readable by
+humans.
+
+|print_r|, |var_dump| and |var_export| will also show protected and private
+properties of objects with PHP 5. Static class members will not be shown.
+
+Remember that |print_r| will move the array pointer to the end. Use |reset| to
+bring it back to beginning.
+
+{expression} The expression to be printed.
+
+{return} If you would like to capture the output of |print_r|, use the
+{return} parameter. When this parameter is set to TRUE, |print_r| will return
+the information rather than print it.
+
+If given a string, integer or float, the value itself will be printed. If
+given an array, values will be presented in a format that shows keys and
+elements. Similar notation is used for objects.
+
+When the {return} parameter is TRUE, this function will return a string.
+Otherwise, the return value is TRUE.
+
+This function uses internal output buffering with this parameter so it can not
+be used inside an |ob_start| callback function.
+
+Version Description 4.3.0 The {return} parameter was added. If you need to
+capture the output of |print_r| with an older version of PHP prior, use the
+output-control functions. 4.0.4 Prior to PHP 4.0.4, |print_r| will continue
+forever if given an array or object that contains a direct or indirect
+reference to itself. An example is print_r($GLOBALS) because $GLOBALS is
+itself a global variable that contains a reference to itself.
+
+|print_r| example
+
+  <pre>
+<?php >
+  $a = array ('a' => 'apple', 'b' => 'banana', 'c' => array ('x', 'y', 'z'));
+  print_r ($a);
+?>
+  </pre>
+
+The above example will output:
+
+  <pre>
+  Array
+  (
+      [a] => apple
+      [b] => banana
+      [c] => Array
+          (
+              [0] => x
+              [1] => y
+              [2] => z
+          )
+  )
+  </pre>
+
+
+
+{return} parameter example
+
+<?php >
+  $b = array ('m' => 'monkey', 'foo' => 'bar', 'x' => array ('x', 'y', 'z'));
+  $results = print_r($b, true); // $results now contains output from print_r
+?>
+
+
+
+
+
+|ob_start| |var_dump| |var_export|
+
+vim:ft=help:

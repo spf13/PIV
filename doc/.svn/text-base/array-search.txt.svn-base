@@ -1,0 +1,48 @@
+array_search -- Searches the array for a given value and returns the
+corresponding key if successful
+
+  mixed array_search(mixed needle, array haystack [, bool strict])~
+
+Searches {haystack} for {needle}.
+
+{needle} The searched value.
+
+If {needle} is a string, the comparison is done in a case-sensitive manner.
+
+{haystack} The array.
+
+{strict} If the third parameter {strict} is set to TRUE then the
+|array_search| function will search for identical elements in the {haystack}.
+This means it will also check the types of the {needle} in the {haystack}, and
+objects must be the same instance.
+
+Returns the key for {needle} if it is found in the array, FALSE otherwise.
+
+If {needle} is found in {haystack} more than once, the first matching key is
+returned. To return the keys for all matching values, use |array_keys| with
+the optional {search_value} parameter instead.
+
+This function may return Boolean FALSE, but may also return a non-Boolean
+value which evaluates to FALSE, such as 0 or "". Please read the section on
+Booleans for more information. Use the === operator for testing the return
+value of this function.
+
+Version Description 4.2.0 Prior to PHP 4.2.0, |array_search| returns NULL on
+failure instead of FALSE.
+
+|array_search| example
+
+<?php >
+  $array = array(0 => 'blue', 1 => 'red', 2 => 'green', 3 => 'red');
+  
+  $key = array_search('green', $array); // $key = 2;
+  $key = array_search('red', $array);   // $key = 1;
+?>
+
+
+
+
+
+|array_keys| |array_values| |array_key_exists| |in_array|
+
+vim:ft=help:

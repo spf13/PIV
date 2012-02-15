@@ -1,0 +1,31 @@
+array_values -- Return all the values of an array
+
+  array array_values(array input)~
+
+|array_values| returns all the values from the {input} array and indexes
+numerically the array.
+
+{input} The array.
+
+Returns an indexed array of values.
+
+|array_values| example
+
+<?php >
+  $array = array("size" => "XL", "color" => "gold");
+  print_r(array_values($array));
+?>
+
+The above example will output:
+
+  Array
+  (
+      [0] => XL
+      [1] => gold
+  )
+
+
+
+|array_keys|
+
+vim:ft=help:

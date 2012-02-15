@@ -1,0 +1,17 @@
+fam_resume_monitor -- Resume suspended monitoring
+
+  bool fam_resume_monitor(resource fam, resource fam_monitor)~
+
+Resumes monitoring of a resource previously suspended using
+|fam_suspend_monitor|.
+
+{fam} A resource representing a connection to the FAM service returned by
+|fam_open|
+
+{fam_monitor} A resource returned by one of the fam_monitor_XXX functions
+
+Returns TRUE on success or &false; on failure.
+
+|fam_suspend_monitor|
+
+vim:ft=help:

@@ -1,0 +1,14 @@
+imap_8bit -- Convert an 8bit string to a quoted-printable string
+
+  string imap_8bit(string string)~
+
+Convert an 8bit string to a quoted-printable string (according to RFC2045,
+section 6.7).
+
+{string} The 8bit string to convert
+
+Returns a quoted-printable string.
+
+|imap_qprint|
+
+vim:ft=help:

@@ -1,0 +1,34 @@
+stream_set_write_buffer -- Sets write file buffering on the given stream
+
+  int stream_set_write_buffer(resource stream, int buffer)~
+
+Sets the buffering for write operations on the given {stream} to {buffer}
+bytes.
+
+Output using |fwrite| is normally buffered at 8K. This means that if there are
+two processes wanting to write to the same output stream (a file), each is
+paused after 8K of data to allow the other to write.
+
+{stream} The file pointer.
+
+{buffer} The number of bytes to buffer. If {buffer} is 0 then write operations
+are unbuffered. This ensures that all writes with |fwrite| are completed
+before other processes are allowed to write to that output stream.
+
+Returns 0 on success, or EOF if the request cannot be honored.
+
+|stream_set_write_buffer| example The following example demonstrates how to
+use |stream_set_write_buffer| to create an unbuffered stream.
+
+<?php >
+  $fp = fopen($file, "w");
+  if ($fp) {
+    stream_set_write_buffer($fp, 0);
+    fwrite($fp, $output);
+    fclose($fp);
+  }
+?>
+
+
+
+vim:ft=help:

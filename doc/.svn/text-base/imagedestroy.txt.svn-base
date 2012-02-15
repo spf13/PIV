@@ -1,0 +1,28 @@
+imagedestroy -- Destroy an image
+
+  bool imagedestroy(resource image)~
+
+|imagedestroy| frees any memory associated with image {image}.
+
+{ image}An image resource, returned by one of the image creation functions,
+such as |imagecreatetruecolor|.
+
+Returns TRUE on success or &false; on failure.
+
+Using |imagedestroy| example
+
+<?php >
+  // create a 100 x 100 image
+  $im = imagecreatetruecolor(100, 100);
+  
+  // alter or save the image
+  
+  // frees image from memory
+  imagedestroy($im);
+?>
+
+
+
+
+
+vim:ft=help:

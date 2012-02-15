@@ -1,0 +1,12 @@
+stats_skew -- Computes the skewness of the data in the array
+
+  float stats_skew(array a)~
+
+This function is currently not documented; only its argument list is
+available.
+
+{a}
+
+
+
+vim:ft=help:

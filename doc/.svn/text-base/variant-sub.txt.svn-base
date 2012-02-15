@@ -1,0 +1,33 @@
+variant_sub -- Subtracts the value of the right variant from the left variant
+value
+
+  mixed variant_sub(mixed left, mixed right)~
+
+Subtracts {right} from {left}.
+
+{left} The left operand.
+
+{right} The right operand.
+
+As with all the variant arithmetic functions, the parameters for this function
+can be either a PHP native type (integer, string, floating point, boolean or
+NULL), or an instance of a COM, VARIANT or DOTNET class. PHP native types will
+be converted to variants using the same rules as found in the constructor for
+the class. COM and DOTNET objects will have the value of their default
+property taken and used as the variant value.
+
+The variant arithmetic functions are wrappers around the similarly named
+functions in the COM library; for more information on these functions, consult
+the MSDN library. The PHP functions are named slightly differently; for
+example |variant_add| in PHP corresponds to VarAdd() in the MSDN
+documentation.
+
+Variant Subtraction Rules If Then Both expressions are of the string type
+Subtraction One expression is a string type and the other a character
+Subtraction One expression is numeric and the other is a string Subtraction.
+Both expressions are numeric Subtraction Either expression is NULL NULL is
+returned Both expressions are empty Empty string is returned
+
+|variant_add|
+
+vim:ft=help:

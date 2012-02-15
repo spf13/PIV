@@ -1,0 +1,16 @@
+hw_Document_Attributes -- Object record of hw_document
+
+  string hw_document_attributes(int hw_document)~
+
+Returns the object record of the document.
+
+For backward compatibility, |hw_documentattributes| is also accepted. This is
+deprecated, however.
+
+{hw_document} The document identifier.
+
+Returns the object record of the document.
+
+|hw_document_bodytag| |hw_document_size|
+
+vim:ft=help:

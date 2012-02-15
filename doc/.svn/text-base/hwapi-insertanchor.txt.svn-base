@@ -1,0 +1,19 @@
+hw_api->insertanchor -- Inserts a new object of type anchor
+
+  hw_api_object insertanchor(array parameter)~
+
+This function is a shortcut for |hwapi_insert|. It inserts an object of type
+anchor and sets some of the attributes required for an anchor.
+
+{parameter} The parameter array contains the required elements 'object' and
+'documentIdentifier' and the optional elements 'destinationIdentifier',
+'parameter', 'hint' and 'attributeSelector'. The 'documentIdentifier'
+specifies the document where the anchor shall be inserted. The target of the
+anchor is set in 'destinationIdentifier' if it already exists. If the target
+does not exists the element 'hint' has to be set to the name of object which
+is supposed to be inserted later. Once it is inserted the anchor target is
+resolved automatically.
+
+
+
+vim:ft=help:

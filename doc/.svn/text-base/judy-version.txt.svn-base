@@ -1,0 +1,12 @@
+judy_version -- Return or print the current PHP Judy version
+
+  string judy_version()~
+
+Return a string of the PHP Judy version. If the return value is not used, the
+string will be printed.
+
+This function has no parameters.
+
+Return a string of the PHP Judy version.
+
+vim:ft=help:

@@ -1,0 +1,20 @@
+dbplus_first -- Get first tuple from relation
+
+  int dbplus_first(resource relation, array tuple)~
+
+Reads the data for the first tuple for the given {relation}, makes it the
+current tuple and pass it back as an associative array in {tuple}.
+
+{relation} A relation opened by |dbplus_open|.
+
+{tuple}
+
+Returns DBPLUS_ERR_NOERR on success or a db++ error code on failure.
+
+This function is EXPERIMENTAL. The behaviour of this function, its name, and
+surrounding documentation may change without notice in a future release of
+PHP. This function should be used at your own risk.
+
+|dbplus_curr| |dbplus_prev| |dbplus_next| |dbplus_last| |dbplus_errcode|
+
+vim:ft=help:

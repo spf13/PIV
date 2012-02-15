@@ -1,0 +1,8 @@
+PDF_show_xy -- Output text at given position
+
+  bool PDF_show_xy(resource p, string text, float x, float y)~
+
+Prints {text} in the current font. Returns TRUE on success or &false; on
+failure.
+
+vim:ft=help:

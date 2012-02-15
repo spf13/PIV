@@ -1,0 +1,11 @@
+getrandmax -- Show largest possible random value
+
+  int getrandmax()~
+
+Returns the maximum value that can be returned by a call to |rand|.
+
+The largest possible random value returned by |rand|
+
+|rand| |srand| |mt_getrandmax|
+
+vim:ft=help:

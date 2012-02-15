@@ -1,0 +1,63 @@
+spliti -- Split string into array by regular expression case insensitive
+
+  array spliti(string pattern, string string [, int limit])~
+
+Splits a {string} into array by regular expression.
+
+This function is identical to |split| except that this ignores case
+distinction when matching alphabetic characters.
+
+This function has been DEPRECATED as of PHP 5.3.0. Relying on this feature is
+highly discouraged.
+
+{pattern} Case insensitive regular expression.
+
+If you want to split on any of the characters which are considered special by
+regular expressions, you'll need to escape them first. If you think |spliti|
+(or any other regex function, for that matter) is doing something weird,
+please read the file regex.7, included in the regex/ subdirectory of the PHP
+distribution. It's in manpage format, so you'll want to do something along the
+lines of man /usr/local/src/regex/regex.7 in order to read it.
+
+{string} The input string.
+
+{limit} If {limit} is set, the returned array will contain a maximum of
+{limit} elements with the last element containing the whole rest of {string}.
+
+Returns an array of strings, each of which is a substring of {string} formed
+by splitting it on boundaries formed by the case insensitive regular
+expression {pattern}.
+
+If there are n occurrences of {pattern}, the returned array will contain n+1
+items. For example, if there is no occurrence of {pattern}, an array with only
+one element will be returned. Of course, this is also true if {string} is
+empty. If an error occurs, |spliti| returns FALSE.
+
+This example splits a string using 'a' as the separator : |spliti| example
+
+<?php >
+  $string = "aBBBaCCCADDDaEEEaGGGA";
+  $chunks = spliti ("a", $string, 5);
+  print_r($chunks);
+?>
+
+The above example will output:
+
+  Array
+  (
+    [0] =>
+    [1] => BBB
+    [2] => CCC
+    [3] => DDD
+    [4] => EEEaGGGA
+  )
+
+
+
+As of PHP 5.3.0, the regex extension is deprecated in favor of the PCRE
+extension. Calling this function will issue an E_DEPRECATED notice. See the
+list of differences for help on converting to PCRE.
+
+|preg_split| |split| |explode| |implode|
+
+vim:ft=help:

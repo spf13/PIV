@@ -1,0 +1,8 @@
+iis_stop_service -- Stops the service defined by ServiceId
+
+  int iis_stop_service(string service_id)~
+
+This function is currently not documented; only its argument list is
+available.
+
+vim:ft=help:

@@ -1,0 +1,100 @@
+aggregate_info -- Gets aggregation information for a given object
+
+  array aggregate_info(object object)~
+
+Gets the aggregation information for the given {object}.
+
+{object}
+
+Returns the aggregation information as an associative array of arrays of
+methods and properties. The key for the main array is the name of the
+aggregated class.
+
+Using |aggregate_info|
+
+<?php >
+  class Slicer {
+      var $vegetable;
+  
+      function Slicer($vegetable) 
+      {
+          $this->vegetable = $vegetable;
+      }
+  
+      function slice_it($num_cuts) 
+      {
+          echo "Doing some simple slicing\n";
+          for ($i=0; $i < $num_cuts; $i++) {
+              // do some slicing
+          }
+      }
+  }
+  
+  class Dicer {
+      var $vegetable;
+      var $rotation_angle = 90;   // degrees
+  
+      function Dicer($vegetable) 
+      {
+          $this->vegetable = $vegetable;
+      }
+  
+      function dice_it($num_cuts) 
+      {
+          echo "Cutting in one direction\n";
+          for ($i=0; $i < $num_cuts; $i++) {
+              // do some cutting
+          }
+          $this->rotate($this->rotation_angle);
+          echo "Cutting in a second direction\n";
+          for ($i=0; $i < $num_cuts; $i++) {
+              // do some more cutting
+          }
+      }
+  
+      function rotate($deg) 
+      {
+          echo "Now rotating {$this->vegetable} {$deg} degrees\n";
+      }
+  
+      function _secret_super_dicing($num_cuts) 
+      {
+          // so secret we cannot show you ;-)
+      }
+  }
+  
+  $obj = new Slicer('onion');
+  aggregate($obj, 'Dicer');
+  print_r(aggregate_info($obj));
+?>
+
+The above example will output:
+
+  Array
+  (
+      [dicer] => Array
+          (
+              [methods] => Array
+                  (
+                      [0] => dice_it
+                      [1] => rotate
+                  )
+  
+              [properties] => Array
+                  (
+                      [0] => rotation_angle
+                  )
+  
+          )
+  
+  )
+
+As you can see, all properties and methods of the Dicer class have been
+aggregated into our new object, with the exception of the class constructor
+and the method _secret_super_dicing
+
+|aggregate| |aggregate_methods| |aggregate_methods_by_list|
+|aggregate_methods_by_regexp| |aggregate_properties|
+|aggregate_properties_by_list| |aggregate_properties_by_regexp| |deaggregate|
+
+vim:ft=help:

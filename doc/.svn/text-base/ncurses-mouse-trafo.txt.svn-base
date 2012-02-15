@@ -1,0 +1,14 @@
+ncurses_mouse_trafo -- Transforms coordinates
+
+  bool ncurses_mouse_trafo(int y, int x, bool toscreen)~
+
+This function is currently not documented; only its argument list is
+available.
+
+{y}
+
+{x}
+
+{toscreen}
+
+vim:ft=help:

@@ -1,0 +1,59 @@
+cubrid_fetch -- Fetch the next row from a result set
+
+  mixed cubrid_fetch(resource result [, int type])~
+
+The |cubrid_fetch| function is used to get a single row from the query result.
+The cursor automatically moves to the next row after getting the result.
+
+{result} {result} comes from a call to |cubrid_execute|
+
+{type} Array type of the fetched result CUBRID_NUM, CUBRID_ASSOC, CUBRID_BOTH,
+CUBRID_OBJECT.
+
+Result array or object, when process is successful.
+
+FALSE, when process is unsuccessful.
+
+The result can be received either as an array or as an object, and you can
+decide which data type to use by setting the {type} argument. The {type}
+variable can be set to one of the following values:
+
+When {type} argument is omitted, the result will be received using CUBRID_BOTH
+option as default. When you want to receive query result in object data type,
+the column name of the result must obey the naming rules for identifiers in
+PHP. For example, column name such as "count(*)" cannot be received in object
+type.
+
+|cubrid_fetch| example
+
+<?php >
+  $conn = cubrid_connect("localhost", 33088, "demodb");
+  $req = cubrid_execute($conn, "SELECT * FROM stadium WHERE nation_code='GRE' AND seats > 10000");
+  
+  printf("%-40s %-10s %-6s %-20s\n", "name", "area", "seats", "address");
+  while ($row = cubrid_fetch($req)) {
+      printf("%-40s %-10s %-6s %-20s\n", 
+          $row["name"], $row["area"], $row["seats"], $row["address"]);
+  }
+  
+  cubrid_close_request($req);
+  
+  cubrid_disconnect($conn);
+?>
+
+The above example will output:
+
+  name                                     area       seats  address             
+  Panathinaiko Stadium                     86300.00   50000  Athens, Greece      
+  Olympic Stadium                          54700.00   13000  Athens, Greece      
+  Olympic Indoor Hall                      34100.00   18800  Athens, Greece      
+  Olympic Hall                             52400.00   21000  Athens, Greece      
+  Olympic Aquatic Centre                   42500.00   11500  Athens, Greece      
+  Markopoulo Olympic Equestrian Centre     64000.00   15000  Markopoulo, Athens, Greece
+  Faliro Coastal Zone Olympic Complex      34650.00   12171  Faliro, Athens, Greece
+  Athens Olympic Stadium                   120400.00  71030  Maroussi, Athens, Greece 
+  Ano Liossia                              34000.00   12000  Ano Liosia, Athens, Greece
+
+|cubrid_execute|
+
+vim:ft=help:

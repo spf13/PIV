@@ -1,0 +1,69 @@
+uasort -- Sort an array with a user-defined comparison function and maintain
+index association
+
+  bool uasort(array array, callback cmp_function)~
+
+This function sorts an array such that array indices maintain their
+correlation with the array elements they are associated with, using a
+user-defined comparison function.
+
+This is used mainly when sorting associative arrays where the actual element
+order is significant.
+
+{array} The input array.
+
+{cmp_function} See |usort| and |uksort| for examples of user-defined
+comparison functions.
+
+Returns TRUE on success or &false; on failure.
+
+Basic |uasort| example
+
+<?php >
+  // Comparison function
+  function cmp($a, $b) {
+      if ($a == $b) {
+          return 0;
+      }
+      return ($a < $b) ? -1 : 1;
+  }
+  
+  // Array to be sorted
+  $array = array('a' => 4, 'b' => 8, 'c' => -1, 'd' => -9, 'e' => 2, 'f' => 5, 'g' => 3, 'h' => -4);
+  print_r($array);
+  
+  // Sort and print the resulting array
+  uasort($array, 'cmp');
+  print_r($array);
+?>
+
+The above example will output:
+
+  Array
+  (
+      [a] => 4
+      [b] => 8
+      [c] => -1
+      [d] => -9
+      [e] => 2
+      [f] => 5
+      [g] => 3
+      [h] => -4
+  )
+  Array
+  (
+      [d] => -9
+      [h] => -4
+      [c] => -1
+      [e] => 2
+      [g] => 3
+      [a] => 4
+      [f] => 5
+      [b] => 8
+  )
+
+
+
+|usort| The comparison of array sorting functions
+
+vim:ft=help:

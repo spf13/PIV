@@ -1,0 +1,19 @@
+m_getcellbynum -- Get a specific cell from a comma delimited response by
+column number
+
+  string m_getcellbynum(resource conn, int identifier, int column, int row)~
+
+This function is currently not documented; only its argument list is
+available.
+
+{ conn}An MCVE_CONN resource returned by |m_initengine|.
+
+{identifier}
+
+{column}
+
+{row}
+
+
+
+vim:ft=help:

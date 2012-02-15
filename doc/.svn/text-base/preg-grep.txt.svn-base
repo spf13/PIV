@@ -1,0 +1,38 @@
+preg_grep -- Return array entries that match the pattern
+
+  array preg_grep(string pattern, array input [, int flags])~
+
+Returns the array consisting of the elements of the {input} array that match
+the given {pattern}.
+
+{pattern} The pattern to search for, as a string.
+
+{input} The input array.
+
+{flags} If set to PREG_GREP_INVERT, this function returns the elements of the
+input array that do not match the given {pattern}.
+
+Returns an array indexed using the keys from the {input} array.
+
+Version Description 4.2.0 The {flags} parameter was added. 4.0.4 Prior to this
+version, the returned array was indexed regardless of the keys of the {input}
+array.
+
+If you want to reproduce this old behavior, use |array_values| on the returned
+array to reindex the values.
+
+|preg_grep| example
+
+<?php >
+  // return all array elements
+  // containing floating point numbers
+  $fl_array = preg_grep("/^(\d+)?\.\d+$/", $array);
+?>
+
+
+
+
+
+PCRE Patterns |preg_match_all| |preg_filter| |preg_last_error|
+
+vim:ft=help:

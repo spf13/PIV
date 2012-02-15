@@ -1,0 +1,35 @@
+cairo_image_surface_create -- Description
+
+  CairoImageSurface cairo_image_surface_create(int format, int width, int height)~
+
+The function description goes here.
+
+This function is currently not documented; only its argument list is
+available.
+
+{format} Description...
+
+{width} Description...
+
+{height} Description...
+
+What is returned on success and failure
+
+When does this function issue E_* level errors, and/or throw exceptions.
+
+|cairo_image_surface_create| example Any text that describes the purpose of
+the example, or what goes on in the example should be here.
+
+<?php >
+  /* ... */
+?>
+
+The above example will output something similar to:
+
+  ...
+
+
+
+|related function name here|
+
+vim:ft=help:

@@ -1,0 +1,27 @@
+ceil -- Round fractions up
+
+  float ceil(float value)~
+
+Returns the next highest integer value by rounding up {value} if necessary.
+
+{value} The value to round
+
+{value} rounded up to the next highest integer. The return value of |ceil| is
+still of type float as the value range of float is usually bigger than that of
+integer.
+
+|ceil| example
+
+<?php >
+  echo ceil(4.3);    // 5
+  echo ceil(9.999);  // 10
+  echo ceil(-3.14);  // -3
+?>
+
+
+
+
+
+|floor| |round|
+
+vim:ft=help:

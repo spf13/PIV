@@ -1,0 +1,13 @@
+gupnp_root_device_start -- Start main loop
+
+  bool gupnp_root_device_start(resource root_device)~
+
+Start root server's main loop.
+
+{root_device} A root device identifier, returned by |gupnp_root_device_new|.
+
+Returns TRUE on success or &false; on failure.
+
+|gupnp_root_device_stop|
+
+vim:ft=help:

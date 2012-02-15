@@ -1,0 +1,27 @@
+SAMConnection->isConnected -- Queries whether a connection is established to a
+Messaging Server
+
+  bool isConnected()~
+
+Calling the "isConnected" method on a Connection object will check whether the
+PHP script is connected to a messaging server. No messages can be sent or
+received unless a connection has been established with a Messaging server.
+
+This method returns TRUE if the SAMConnection object is successfully connected
+to a Messaging server or FALSE otherwise.
+
+Checking whether there us a connection to a Messaging Server
+
+<?php >
+  if ($conn->isConnected()) {
+    echo 'Connection is active.';
+  } else {
+    echo 'No active connection!';
+  }
+?>
+
+
+
+
+
+vim:ft=help:

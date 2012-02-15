@@ -1,0 +1,41 @@
+domxml_open_file -- Creates a DOM object from an XML file
+
+  DomDocument domxml_open_file(string filename [, int mode [, array error]])~
+
+The function parses the XML document in the given file.
+
+{filename} The path to the XML file. The file is accessed in read-only mode.
+
+{mode} This optional parameter can be used to change the behavior of this
+function.
+
+You can use one of the following constants for it: DOMXML_LOAD_PARSING
+(default), DOMXML_LOAD_VALIDATING or DOMXML_LOAD_RECOVERING. You can add to it
+also DOMXML_LOAD_DONT_KEEP_BLANKS, DOMXML_LOAD_SUBSTITUTE_ENTITIES and
+DOMXML_LOAD_COMPLETE_ATTRS by bitwise or.
+
+{error} If used, it will contain the error messages. {error} must be passed in
+by reference.
+
+Returns a DomDocument instance of the given file.
+
+Opening an XML document from a file
+
+<?php >
+  if (!$dom = domxml_open_file("example.xml")) {
+    echo "Error while parsing the document\n";
+    exit;
+  }
+  
+  $root = $dom->document_element();
+?>
+
+
+
+
+
+Version Description 4.3.0 The parameters {mode} and {error} were added.
+
+|domxml_open_mem| |domxml_new_doc|
+
+vim:ft=help:

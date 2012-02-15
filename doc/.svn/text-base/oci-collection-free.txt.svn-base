@@ -1,0 +1,10 @@
+OCI-Collection->free -- Frees the resources associated with the collection
+object
+
+  bool free()~
+
+Frees the resources associated with the collection object.
+
+Returns TRUE on success or &false; on failure.
+
+vim:ft=help:

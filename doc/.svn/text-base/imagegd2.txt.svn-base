@@ -1,0 +1,67 @@
+imagegd2 -- Output GD2 image to browser or file
+
+  bool imagegd2(resource image [, string filename [, int chunk_size [, int type]]])~
+
+Outputs a GD2 image to the given {filename}.
+
+{ image}An image resource, returned by one of the image creation functions,
+such as |imagecreatetruecolor|.
+
+{filename} The path to save the file to. If not set or NULL, the raw image
+stream will be outputted directly.
+
+{chunk_size} Chunk size.
+
+{type} Either IMG_GD2_RAW or IMG_GD2_COMPRESSED. Default is IMG_GD2_RAW.
+
+Returns TRUE on success or &false; on failure.
+
+Outputting a GD2 image
+
+<?php >
+  // Create a blank image and add some text
+  $im = imagecreatetruecolor(120, 20);
+  $text_color = imagecolorallocate($im, 233, 14, 91);
+  imagestring($im, 1, 5, 5,  "A Simple Text String", $text_color);
+  
+  // Output the image
+  imagegd2($im);
+  
+  // Free up memory
+  imagedestroy($im);
+?>
+
+
+
+
+
+Saving a GD2 image
+
+<?php >
+  // Create a blank image and add some text
+  $im = imagecreatetruecolor(120, 20);
+  $text_color = imagecolorallocate($im, 233, 14, 91);
+  imagestring($im, 1, 5, 5,  "A Simple Text String", $text_color);
+  
+  // Save the gd2 image
+  // The file format for GD2 images is .gd2, see http://www.libgd.org/GdFileFormats
+  imagegd2($im, 'simple.gd2');
+  
+  // Free up memory
+  imagedestroy($im);
+?>
+
+
+
+
+
+This function requires GD 2.0.1 or later (2.0.28 or later is recommended).
+
+The GD2 format is commonly used to allow fast loading of parts of images. Note
+that the GD2 format is only usable in GD2-compatible applications.
+
+Version Description 4.3.2 {chunk_size} and {type} were added.
+
+|imagegd|
+
+vim:ft=help:

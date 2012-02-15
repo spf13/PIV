@@ -1,0 +1,25 @@
+shmop_size -- Get size of shared memory block
+
+  int shmop_size(int shmid)~
+
+|shmop_size| is used to get the size, in bytes of the shared memory block.
+
+{shmid} The shared memory block identifier created by |shmop_open|
+
+Returns an int, which represents the number of bytes the shared memory block
+occupies.
+
+Getting the size of the shared memory block
+
+<?php >
+  $shm_size = shmop_size($shm_id);
+?>
+
+
+
+
+
+This example will put the size of shared memory block identified by $shm_id
+into $shm_size.
+
+vim:ft=help:

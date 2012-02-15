@@ -1,0 +1,37 @@
+*cubrid_num_cols* -- Return the number of columns in the result set
+
+  int cubrid_num_cols(resource req_identifier)~
+
+The |cubrid_num_cols| function is used to get the number of columns from the
+query result. It can only be used when the query executed is a select
+sentence.
+
+{req_identifier} Request identifier.
+
+Number of columns, when process is successful.
+
+-1, if SQL sentence is not SELECT.
+
+|cubrid_num_cols| example
+
+<?php >
+  $conn = cubrid_connect("localhost", 33000, "demodb");
+  
+  $req = cubrid_execute($conn, "SELECT * FROM code");
+  
+  $row_num = cubrid_num_rows($req);
+  $col_num = cubrid_num_cols($req);
+  
+  printf("Row Num: %d\nColumn Num: %d\n", $row_num, $col_num);
+  
+  cubrid_disconnect($conn);
+?>
+
+The above example will output:
+
+  Row Num: 6
+  Column Num: 2
+
+|cubrid_execute| |cubrid_num_rows|
+
+vim:ft=help:

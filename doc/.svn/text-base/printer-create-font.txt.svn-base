@@ -1,0 +1,45 @@
+printer_create_font -- Create a new font
+
+  resource printer_create_font(string face, int height, int width, int font_weight, bool italic, bool underline, bool strikeout, int orientation)~
+
+The function creates a new font and returns a handle to it. A font is used to
+draw text. For an example see |printer_select_font|.
+
+{face} {face} must be a string specifying the font face.
+
+{height} {height} specifies the font height.
+
+{width} {width} specifies the font width.
+
+{font_weight} The {font_weight} specifies the font weight (400 is normal), and
+can be one of the following predefined constants. PRINTER_FW_THIN: sets the
+font weight to thin (100).
+
+PRINTER_FW_ULTRALIGHT: sets the font weight to ultra light (200).
+
+PRINTER_FW_LIGHT: sets the font weight to light (300).
+
+PRINTER_FW_NORMAL: sets the font weight to normal (400).
+
+PRINTER_FW_MEDIUM: sets the font weight to medium (500).
+
+PRINTER_FW_BOLD: sets the font weight to bold (700).
+
+PRINTER_FW_ULTRABOLD: sets the font weight to ultra bold (800).
+
+PRINTER_FW_HEAVY: sets the font weight to heavy (900).
+
+{italic} {italic} can be TRUE or FALSE, and sets whether the font should be
+italic.
+
+{underline} {underline} can be TRUE or FALSE, and sets whether the font should
+be underlined.
+
+{strikeout} {strikeout} can be TRUE or FALSE, and sets whether the font should
+be stroked out.
+
+{orientaton} {orientation} specifies a rotation.
+
+Returns a font handle on success or FALSE on error.
+
+vim:ft=help:

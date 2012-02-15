@@ -1,0 +1,19 @@
+expm1 -- Returns exp(number) - 1, computed in a way that is accurate even when
+the value of number is close to zero
+
+  float expm1(float arg)~
+
+|expm1| returns the equivalent to 'exp({arg}) - 1' computed in a way that is
+accurate even if the value of {arg} is near zero, a case where 'exp ({arg}) -
+1' would be inaccurate due to subtraction of two numbers that are nearly
+equal.
+
+{arg} The argument to process
+
+'e' to the power of {arg} minus one
+
+Version Description 5.3.0 This function is now available on all platforms
+
+|log1p| |exp|
+
+vim:ft=help:

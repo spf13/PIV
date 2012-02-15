@@ -1,0 +1,19 @@
+hw_GetObjectByQueryObj -- Search object
+
+  array hw_getobjectbyqueryobj(int connection, string query, int max_hits)~
+
+Searches for objects on the whole server and returns an array of object
+records.
+
+{connection} The connection identifier.
+
+{query} The query will only work with indexed attributes.
+
+{max_hits} The maximum number of matches is limited to {max_hits}. If
+{max_hits} is set to -1 the maximum number of matches is unlimited.
+
+Returns an array of object records.
+
+|hw_getobjectbyquery|
+
+vim:ft=help:

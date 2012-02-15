@@ -1,0 +1,15 @@
+long2ip -- Converts an (IPv4) Internet network address into a string in
+Internet standard dotted format
+
+  string long2ip(string proper_address)~
+
+The function |long2ip| generates an Internet address in dotted format (i.e.:
+aaa.bbb.ccc.ddd) from the proper address representation.
+
+{proper_address} A proper address representation.
+
+Returns the Internet IP address as a string.
+
+|ip2long|
+
+vim:ft=help:

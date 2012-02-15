@@ -1,0 +1,21 @@
+fbsql_list_tables -- List tables in a FrontBase database
+
+  resource fbsql_list_tables(string database [, resource link_identifier])~
+
+Returns a result pointer describing the {database}.
+
+{database} The database name.
+
+{ link_identifier}A FrontBase link identifier returned by |fbsql_connect| or
+|fbsql_pconnect|.
+
+If optional and not specified, the function will try to find an open link to
+the FrontBase server and if no such link is found it will try to create one as
+if |fbsql_connect| was called with no arguments.
+
+Returns a result pointer which can be used with the |fbsql_tablename| function
+to read the actual table names, or FALSE on error.
+
+|fbsql_list_fields| |fbsql_list_dbs|
+
+vim:ft=help:

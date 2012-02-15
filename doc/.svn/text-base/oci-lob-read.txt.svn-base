@@ -1,0 +1,15 @@
+OCI-Lob->read -- Reads part of the large object
+
+  string read(int length)~
+
+Reads {length} bytes from the current position of LOB's internal pointer.
+
+Reading stops when {length} bytes have been read or end of the large object is
+reached. Internal pointer of the large object will be shifted on the amount of
+bytes read.
+
+{length} The length of data to read, in bytes.
+
+Returns the contents as a string, or FALSE on failure.
+
+vim:ft=help:

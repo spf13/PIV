@@ -1,0 +1,26 @@
+preg_match -- Perform a regular expression match
+
+  int preg_match(string pattern, string subject [, array matches [, int flags [, int offset]]])~
+
+Searches {subject} for a match to the regular expression given in {pattern}.
+
+{pattern} The pattern to search for, as a string.
+
+{subject} The input string.
+
+{matches} If {matches} is provided, then it is filled with the results of
+search. $matches[0] will contain the text that matched the full pattern,
+$matches[1] will have the text that matched the first captured parenthesized
+subpattern, and so on.
+
+{flags} {flags} can be the following flag: PREG_OFFSET_CAPTURE If this flag is
+passed, for every occurring match the appendant string offset will also be
+returned. Note that this changes the value of {matches} into an array where
+every element is an array consisting of the matched string at offset 0 and its
+string offset into {subject} at offset 1.
+
+{offset} Normally, the search starts from the beginning of the subject string.
+The optional parameter {offset} can be used to specify the alternate place
+from which to start the search (in bytes).
+
+vim:ft=help:

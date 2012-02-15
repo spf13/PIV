@@ -1,0 +1,29 @@
+gnupg_geterror -- Returns the errortext, if a function fails
+
+  string gnupg_geterror(resource identifier)~
+
+{identifier} The gnupg identifier, from a call to |gnupg_init| or gnupg.
+
+Returns an errortext, if an error has occurred, otherwise FALSE.
+
+Procedural |gnupg_geterror| example
+
+<?php >
+  $res = gnupg_init();
+  echo gnupg_geterror($res);
+?>
+
+
+
+OO |gnupg_geterror| example
+
+<?php >
+  $gpg = new gnupg();
+  echo $gpg -> geterror();
+?>
+
+
+
+
+
+vim:ft=help:

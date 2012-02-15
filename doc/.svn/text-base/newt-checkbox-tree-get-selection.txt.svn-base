@@ -1,0 +1,12 @@
+newt_checkbox_tree_get_selection --
+
+  array newt_checkbox_tree_get_selection(resource checkboxtree)~
+
+This function is currently not documented; only its argument list is
+available.
+
+{checkboxtree}
+
+
+
+vim:ft=help:

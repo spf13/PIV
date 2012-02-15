@@ -1,0 +1,16 @@
+yaz_error -- Returns error description
+
+  string yaz_error(resource id)~
+
+|yaz_error| returns an English text message corresponding to the last error
+number as returned by |yaz_errno|.
+
+{id} The connection resource returned by |yaz_connect|.
+
+Returns an error text message for server (last request), identified by
+parameter {id}. An empty string is returned if the last operation was
+successful.
+
+|yaz_errno| |yaz_addinfo|
+
+vim:ft=help:

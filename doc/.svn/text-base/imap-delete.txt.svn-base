@@ -1,0 +1,50 @@
+imap_delete -- Mark a message for deletion from current mailbox
+
+  bool imap_delete(resource imap_stream, int msg_number [, int options])~
+
+Marks messages listed in {msg_number} for deletion. Messages marked for
+deletion will stay in the mailbox until either |imap_expunge| is called or
+|imap_close| is called with the optional parameter CL_EXPUNGE.
+
+{ imap_stream}An IMAP stream returned by |imap_open|.
+
+{msg_number} The message number
+
+{options} You can set the FT_UID which tells the function to treat the
+{msg_number} argument as an UID.
+
+Returns TRUE.
+
+|imap_delete| example
+
+<?php >
+  $mbox = imap_open("{imap.example.org}INBOX", "username", "password")
+      or die("Can't connect: " . imap_last_error());
+  
+  $check = imap_mailboxmsginfo($mbox);
+  echo "Messages before delete: " . $check->Nmsgs . "<br />\n";
+  
+  imap_delete($mbox, 1);
+  
+  $check = imap_mailboxmsginfo($mbox);
+  echo "Messages after  delete: " . $check->Nmsgs . "<br />\n";
+  
+  imap_expunge($mbox);
+  
+  $check = imap_mailboxmsginfo($mbox);
+  echo "Messages after expunge: " . $check->Nmsgs . "<br />\n";
+  
+  imap_close($mbox);
+?>
+
+
+
+
+
+POP3 mailboxes do not have their message flags saved between connections, so
+|imap_expunge| must be called during the same connection in order for messages
+marked for deletion to actually be purged.
+
+|imap_undelete| |imap_expunge| |imap_close|
+
+vim:ft=help:

@@ -1,0 +1,35 @@
+restore_include_path -- Restores the value of the include_path configuration
+option
+
+  void restore_include_path()~
+
+Restores the include_path configuration option back to its original master
+value as set in php.ini
+
+No value is returned.
+
+|restore_include_path| example
+
+<?php >
+  echo get_include_path();  // .:/usr/local/lib/php
+  
+  set_include_path('/inc');
+  
+  echo get_include_path();  // /inc
+  
+  // Works as of PHP 4.3.0
+  restore_include_path();
+  
+  // Works in all PHP versions
+  ini_restore('include_path');
+  
+  echo get_include_path();  // .:/usr/local/lib/php
+?>
+
+
+
+
+
+|ini_restore| |get_include_path| |set_include_path| |include|
+
+vim:ft=help:

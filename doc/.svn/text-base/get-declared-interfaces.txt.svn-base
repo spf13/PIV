@@ -1,0 +1,33 @@
+get_declared_interfaces -- Returns an array of all declared interfaces
+
+  array get_declared_interfaces()~
+
+Gets the declared interfaces.
+
+Returns an array of the names of the declared interfaces in the current
+script.
+
+|get_declared_interfaces| example
+
+<?php >
+  print_r(get_declared_interfaces());
+?>
+
+The above example will output something similar to:
+
+  Array
+  (
+      [0] => Traversable
+      [1] => IteratorAggregate
+      [2] => Iterator
+      [3] => ArrayAccess
+      [4] => reflector
+      [5] => RecursiveIterator
+      [6] => SeekableIterator
+  )
+
+
+
+|get_declared_classes| |class_implements|
+
+vim:ft=help:

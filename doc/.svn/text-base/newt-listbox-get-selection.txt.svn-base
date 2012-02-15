@@ -1,0 +1,12 @@
+newt_listbox_get_selection --
+
+  array newt_listbox_get_selection(resource listbox)~
+
+This function is currently not documented; only its argument list is
+available.
+
+{listbox}
+
+
+
+vim:ft=help:

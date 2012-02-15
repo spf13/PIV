@@ -1,0 +1,102 @@
+*cubrid_bind* -- Bind variables to a prepared statement as parameters
+
+  bool cubrid_bind(resource req_identifier, int bind_index, string bind_value [, string bind_value_type])~
+
+The |cubrid_bind| function is used to bind values in a |cubrid_prepare|
+variable, a various types in PHP and corresponding types in SQL. If
+bind_value_type is not given, string will be the default.
+
+Known issue: If column data type is CLOB, binding parameter will fail. This
+bug will fixed later.
+
+The following table shows the types of substitute values.
+
+CUBRID Bind Date Types Support Bind Type Corresponding SQL Type Supported
+STRING CHAR, VARCHAR NCHAR NCHAR, NVARCHAR BIT BIT, VARBIT NUMERIC or NUMBER
+SHORT, INT, NUMERIC FLOAT FLOAT DOUBLE DOUBLE TIME TIME DATE DATE TIMESTAMP
+TIMESTAMP OBJECT OBJECT BLOB BLOB CLOB CLOB NULL NULL Not supported SET SET
+MULTISET MULTISET SEQUENCE SEQUENCE
+
+{req_identifier} Request identifier as a result of |cubrid_prepare|.
+
+{bind_index} Index for binding.
+
+{bind_value} Actual value for binding.
+
+{bind_index} A type of the value to bind. (It is omitted by default. Thus,
+system internally use string by default. However, you need to specify the
+exact type of the value as an argument when they are NCHAR, BIT, or
+BLOB/CLOB).
+
+TRUE, when process is successful.
+
+FALSE, when process is unsuccessful.
+
+Version Description 8.3.1 Added BLOB/CLOB data types support.
+
+|cubrid_bind| example
+
+<?php >
+  $conn = cubrid_connect("localhost", 33000, "demodb");
+  
+  $result = cubrid_execute($conn, "SELECT code FROM event WHERE sports='Basketball' and gender='M'");
+  $row = cubrid_fetch_array($result, CUBRID_ASSOC);
+  $event_code = $row["code"];
+  
+  cubrid_close_request($result);
+  
+  $game_req = cubrid_prepare($conn, "SELECT athlete_code FROM game WHERE host_year=1992 and event_code=? and nation_code='USA'");
+  cubrid_bind($game_req, 1, $event_code, "number");
+  cubrid_execute($game_req);
+  
+  printf("--- Dream Team (1992 United States men's Olympic basketball team) ---\n");
+  while ($athlete_code = cubrid_fetch_array($game_req, CUBRID_NUM)) {
+      $athlete_req = cubrid_prepare($conn, "SELECT name FROM athlete WHERE code=? AND nation_code='USA' AND event='Basketball' AND gender='M'");
+      cubrid_bind($athlete_req, 1, $athlete_code[0], "number");
+      cubrid_execute($athlete_req);
+      $row = cubrid_fetch_assoc($athlete_req);
+      printf("%s\n", $row["name"]);
+  }
+  
+  cubrid_close_request($game_req);
+  cubrid_close_request($athlete_req);
+  
+  cubrid_disconnect($conn);
+?>
+
+The above example will output:
+
+  --- Dream Team (1992 United States men's Olympic basketball team) ---
+  Stockton John
+  Robinson David
+  Pippen Scottie
+  Mullin C.
+  Malone Karl
+  Laettner C.
+  Jordan Michael
+  Johnson Earvin
+  Ewing Patrick
+  Drexler Clyde
+  Bird Larry
+  Barkley Charles
+
+|cubrid_bind| BLOB/CLOB example
+
+<?php >
+  $con = cubrid_connect("localhost", 33000, "foo");
+  if ($con) {
+      $sql = "INSERT INTO php_cubrid_lob_test(doc_content) VALUES(?)"; 
+      $req = cubrid_prepare($con, $sql); 
+  
+      $fp = fopen("book.txt", "rb");
+  
+      cubrid_bind($req, 1, $fp, "blob"); 
+      cubrid_execute($req);  
+  }
+?>
+
+
+
+|cubrid_execute| |cubrid_prepare|
+
+vim:ft=help:

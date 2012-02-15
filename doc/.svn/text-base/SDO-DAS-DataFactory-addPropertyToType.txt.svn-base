@@ -1,0 +1,63 @@
+SDO_DAS_DataFactory::addPropertyToType -- Adds a property to a type
+
+  void SDO_DAS_DataFactory::addPropertyToType(string parent_type_namespace_uri, string parent_type_name, string property_name, string type_namespace_uri, string type_name [, array options])~
+
+This function is EXPERIMENTAL. The behaviour of this function, its name, and
+surrounding documentation may change without notice in a future release of
+PHP. This function should be used at your own risk.
+
+Adds a property to a type. The type must already be known to the
+SDO_DAS_DataFactory (i.e. have been added using addType()). The property
+becomes a property of the type. This is how the graph model for the structure
+of an SDO_DataObject is built.
+
+{parent_type_namespace_uri} The namespace URI for the parent type.
+
+{parent_type_name} The type name for the parent type.
+
+{property_name} The name by which the property will be known in the parent
+type.
+
+{type_namespace_uri} The namespace URI for the type of the property.
+
+{type_name} The type name for the type of the property
+
+{options} This array holds one or more key=>value pairs to set attribute
+values for the property. The optional keywords are:
+
+{many} A flag to say whether the property is many-valued. A value of 'true'
+adds the property as a many-valued property (default is 'false').
+
+{readOnly} A flag to say whether the property is read-only. A value of 'true'
+means the property value cannot be modified through the SDO application APIs
+(default is 'false').
+
+{containment} A flag to say whether the property is contained by the parent. A
+value of 'true' means the property is contained by the parent. A value of
+'false' results in a non-containment reference (default is 'true'). This flag
+is only interpreted when adding properties which are data object types,
+otherwise it is ignored.
+
+{default} A default value for the property. Omitting this key means that the
+property does not have a default value. A property can only have a default
+value if it is a single-valued data type (primitive).
+
+None.
+
+Version Description 0.5.2 Optional parameters many, readOnly, and containment
+deprecated in favour of the options array.
+
+A |SDO_DAS_DataFactory::addPropertyToType| example The following adds an
+'addressline' property to a Person type. The person type is identified by its
+namespace, 'PersonNS', and type name, 'PersonType'. The type of the
+'addressline' property is a many-valued SDO data type (primitive) with
+namespace 'commonj.sdo' and type name 'String'.
+
+<?php >
+    $df->addPropertyToType('PersonNS', 'PersonType',
+      'addressline', 'commonj.sdo', 'String', array('many'=>true));
+?>
+
+
+
+vim:ft=help:

@@ -1,0 +1,7 @@
+DomNode->prefix -- Returns name space prefix of node
+
+  string DomNode->prefix()~
+
+Returns the name space prefix of the node.
+
+vim:ft=help:

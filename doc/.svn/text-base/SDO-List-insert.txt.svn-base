@@ -1,0 +1,27 @@
+SDO_List::insert -- Insert into a list
+
+  void SDO_List::insert(mixed value [, int index])~
+
+This function is EXPERIMENTAL. The behaviour of this function, its name, and
+surrounding documentation may change without notice in a future release of
+PHP. This function should be used at your own risk.
+
+Insert a new element at a specified position in the list. All subsequent list
+items are moved up.
+
+{value} The new value to be inserted. This can be either a primitive or an
+SDO_DataObject.
+
+{index} The position at which to insert the new element. If this argument is
+not specified then the new value will be appended.
+
+None.
+
+{SDO_IndexOutOfBoundsException} Thrown if the list index is less than zero or
+greater than the size of the list.
+
+{SDO_InvalidConversionException} Thrown if the type of the new value does not
+match the type for the list (e.g. the type of the many-valued property that
+the list represents).
+
+vim:ft=help:

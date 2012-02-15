@@ -1,0 +1,13 @@
+gmp_cmp -- Compare numbers
+
+  int gmp_cmp(resource a, resource b)~
+
+Compares two numbers.
+
+{a} It can be either a GMP number resource, or a numeric string given that it
+is possible to convert the latter to a number.
+
+{b} It can be either a GMP number resource, or a numeric string given that it
+is possible to convert the latter to a number.
+
+vim:ft=help:

@@ -1,0 +1,7 @@
+PDF_load_iccprofile -- Search and prepare ICC profile
+
+  int PDF_load_iccprofile(resource pdfdoc, string profilename, string optlist)~
+
+Searches for an ICC profile, and prepares it for later use.
+
+vim:ft=help:

@@ -1,0 +1,33 @@
+*cubrid_lob_get* -- Get BLOB/CLOB data
+
+  array cubrid_lob_get(resource conn_identifier, string SQL)~
+
+|cubrid_lob_get| is used to get BLOB/CLOB meta info from CUBRID database,
+CUBRID gets BLOB/CLOB by executing the SQL statement, and returns all LOBs as
+a resource array. Be sure that the SQL retrieves only one column and its data
+type is BLOB or CLOB.
+
+Remember to use |cubrid_lob_close| to release the LOBs if you don't need it
+any more.
+
+{conn_identifier} Connection identifier.
+
+{SQL} SQL to be executed.
+
+Return an array of LOB resources, when process is successful.
+
+FALSE, when process is unsuccessful.
+
+|cubrid_lob_get| example
+
+<?php >
+  $lobs = cubrid_lob_get($con, "SELECT doc_content FROM doc WHERE doc_id=5");
+  cubrid_lob_export($conn, $lobs[0], "doc_5.txt");
+  cubrid_lob_close($lobs);
+?>
+
+
+
+|cubrid_lob_close| |cubrid_lob_size| |cubrid_lob_export| |cubrid_lob_send|
+
+vim:ft=help:

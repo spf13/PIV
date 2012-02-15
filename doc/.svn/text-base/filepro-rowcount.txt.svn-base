@@ -1,0 +1,14 @@
+filepro_rowcount -- Find out how many rows are in a filePro database
+
+  int filepro_rowcount()~
+
+Returns the number of rows in the opened filePro database.
+
+When safe mode is enabled, PHP checks whether the files or directories being
+operated upon have the same UID (owner) as the script that is being executed.
+
+Returns the number of rows in the opened filePro database, or FALSE on errors.
+
+|filepro|
+
+vim:ft=help:

@@ -1,0 +1,22 @@
+xslt_set_scheme_handler -- Set Scheme handlers for a XSLT processor
+
+  void xslt_set_scheme_handler(resource xh, array handlers)~
+
+Set Scheme handlers on the resource handle given by {xh}.
+
+{xh} The XSLT processor link identifier, created with |xslt_create|.
+
+{handlers} Scheme handlers should be an array with the format (all elements
+are optional):
+
+  array(
+  [get_all] => get all handler,
+  [open] => open handler,
+  [get] => get handler,
+  [put] => put handler,
+  [close] => close handler
+  )
+
+No value is returned.
+
+vim:ft=help:

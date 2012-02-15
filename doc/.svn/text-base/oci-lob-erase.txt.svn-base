@@ -1,0 +1,17 @@
+OCI-Lob->erase -- Erases a specified portion of the internal LOB data
+
+  int erase([int offset [, int length]])~
+
+Erases a specified portion of the internal LOB data starting at a specified
+{offset}. If called without parameters, it erases all LOB data.
+
+For BLOBs, erasing means that the existing LOB value is overwritten with
+zero-bytes. For CLOBs, the existing LOB value is overwritten with spaces.
+
+{offset}
+
+{length}
+
+Returns the actual number of characters/bytes erased or FALSE on failure.
+
+vim:ft=help:

@@ -1,0 +1,8 @@
+ldap_first_reference -- Return first reference
+
+  resource ldap_first_reference(resource link, resource result)~
+
+This function is currently not documented; only its argument list is
+available.
+
+vim:ft=help:

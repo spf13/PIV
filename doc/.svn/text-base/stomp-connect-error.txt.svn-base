@@ -1,0 +1,27 @@
+stomp_connect_error -- Returns a string description of the last connect error
+
+  string stomp_connect_error()~
+
+Returns a string description of the last connect error.
+
+This function has no parameters.
+
+A string that describes the error, or NULL if no error occurred.
+
+|stomp_connect_error| example
+
+<?php >
+  $link = stomp_connect('http://localhost:61613');
+  
+  if(!$link) {
+      die('Connection failed: ' . stomp_connect_error());
+  }
+?>
+
+The above example will output something similar to:
+
+  Connection failed: Invalid Broker URI scheme
+
+
+
+vim:ft=help:

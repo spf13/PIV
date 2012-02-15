@@ -1,0 +1,13 @@
+stats_rand_gen_ipoisson -- Generates a single random deviate from a Poisson
+distribution with mean "mu" (mu >= 0.0).
+
+  int stats_rand_gen_ipoisson(float mu)~
+
+This function is currently not documented; only its argument list is
+available.
+
+{mu}
+
+
+
+vim:ft=help:

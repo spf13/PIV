@@ -1,0 +1,25 @@
+ifx_errormsg -- Returns error message of last Informix call
+
+  string ifx_errormsg([int errorcode])~
+
+Returns the Informix error message associated with the most recent Informix
+error.
+
+{errorcode} If specified, the function will return the message corresponding
+to the specified code.
+
+Return the error message, as a string.
+
+|ifx_errormsg| example
+
+<?php >
+  printf("%s\n<br>", ifx_errormsg(-201));
+?>
+
+
+
+
+
+|ifx_error|
+
+vim:ft=help:

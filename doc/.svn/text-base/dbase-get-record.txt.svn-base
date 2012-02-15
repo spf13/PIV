@@ -1,0 +1,26 @@
+dbase_get_record -- Gets a record from a database as an indexed array
+
+  array dbase_get_record(int dbase_identifier, int record_number)~
+
+Gets a record from a database as an indexed array.
+
+{dbase_identifier} The database link identifier, returned by |dbase_open| or
+|dbase_create|.
+
+{record_number} The index of the record.
+
+An indexed array with the record. This array will also include an associative
+key named deleted which is set to 1 if the record has been marked for deletion
+(see |dbase_delete_record|).
+
+Each field is converted to the appropriate PHP type, except: Dates are left as
+strings.
+
+Integers that would have caused an overflow (> 32 bits) are returned as
+strings.
+
+On error, |dbase_get_record| will return FALSE.
+
+|dbase_get_record_with_names|
+
+vim:ft=help:

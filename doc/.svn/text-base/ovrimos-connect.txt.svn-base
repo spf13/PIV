@@ -1,0 +1,39 @@
+ovrimos_connect -- Connect to the specified database
+
+  int ovrimos_connect(string host, string dborport, string user, string password)~
+
+Connects to the specified database.
+
+{host} A host name or IP address.
+
+{dborport} Either a database name, or the port number to connect to.
+
+{user} The user name.
+
+{password} Password associated with {user}.
+
+Returns a connection identifier (greater than 0) on success, or 0 on failure.
+
+|ovrimos_connect| Example
+
+<?php >
+  $conn = ovrimos_connect("server.example.com", "8001", "admin", "password");
+  if ($conn != 0) {
+      echo "Connection ok!";
+      $res = ovrimos_exec($conn, "select table_id, table_name from sys.tables");
+      if ($res != 0) {
+          echo "Statement ok!";
+          ovrimos_result_all($res);
+          ovrimos_free_result($res);
+      }
+      ovrimos_close($conn);
+  }
+?>
+
+
+
+
+
+|ovrimos_close|
+
+vim:ft=help:

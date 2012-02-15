@@ -1,0 +1,14 @@
+newt_create_grid --
+
+  resource newt_create_grid(int cols, int rows)~
+
+This function is currently not documented; only its argument list is
+available.
+
+{cols}
+
+{rows}
+
+
+
+vim:ft=help:

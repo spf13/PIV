@@ -1,0 +1,30 @@
+gupnp_service_action_get -- Retrieves the specified action arguments
+
+  mixed gupnp_service_action_get(resource action, string name, int type)~
+
+Retrieves the specified action arguments.
+
+{action} A service action identifier.
+
+{name} The name of the variable to retrieve.
+
+{type} The type of the variable to retrieve. Type can be one of the following
+values: GUPNP_TYPE_BOOLEAN Type of the variable is boolean.
+
+GUPNP_TYPE_INT Type of the variable is integer.
+
+GUPNP_TYPE_LONG Type of the variable is long.
+
+GUPNP_TYPE_DOUBLE Type of the variable is double.
+
+GUPNP_TYPE_FLOAT Type of the variable is float.
+
+GUPNP_TYPE_STRING Type of the variable is string.
+
+The value of the variable.
+
+Issues E_WARNING with not correctly defined type of the variable.
+
+|gupnp_service_action_set|
+
+vim:ft=help:

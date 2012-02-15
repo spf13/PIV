@@ -1,0 +1,36 @@
+mcrypt_generic -- This function encrypts data
+
+  string mcrypt_generic(resource td, string data)~
+
+This function encrypts data. The data is padded with "\0" to make sure the
+length of the data is n * blocksize. This function returns the encrypted data.
+Note that the length of the returned string can in fact be longer then the
+input, due to the padding of the data.
+
+If you want to store the encrypted data in a database make sure to store the
+entire string as returned by mcrypt_generic, or the string will not entirely
+decrypt properly. If your original string is 10 characters long and the block
+size is 8 (use |mcrypt_enc_get_block_size| to determine the blocksize), you
+would need at least 16 characters in your database field. Note the string
+returned by |mdecrypt_generic| will be 16 characters as well...use rtrim($str,
+"\0") to remove the padding.
+
+If you are for example storing the data in a MySQL database remember that
+varchar fields automatically have trailing spaces removed during insertion. As
+encrypted data can end in a space (ASCII 32), the data will be damaged by this
+removal. Store data in a tinyblob/tinytext (or larger) field instead.
+
+{td} The encryption descriptor.
+
+The encryption handle should always be initialized with |mcrypt_generic_init|
+with a key and an IV before calling this function. Where the encryption is
+done, you should free the encryption buffers by calling
+|mcrypt_generic_deinit|. See |mcrypt_module_open| for an example.
+
+{data} The data to encrypt.
+
+Returns the encrypted data.
+
+|mdecrypt_generic| |mcrypt_generic_init| |mcrypt_generic_deinit|
+
+vim:ft=help:

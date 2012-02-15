@@ -1,0 +1,92 @@
+mysqlnd_qc_get_cache_info -- Returns information on the current handler, the
+number of cache entries and cache entries, if available
+
+  array mysqlnd_qc_get_cache_info()~
+
+
+
+This function has no parameters.
+
+Returns information on the current handler, the number of cache entries and
+cache entries, if available. If and what data will be returned for the cache
+entries is subject to the active storage handler. Storage handler are free to
+return any data. Storage handler are recommended to return at least the data
+provided by the default handler, if technically possible.
+
+The example shows the output from the built-in default storage handler. Other
+storage handler may report different data.
+
+<?php >
+  /* Populate the cache, e.g. using mysqli */
+  $mysqli = new mysqli("host", "user", "password", "schema");
+  $mysqli->query("/*" . MYSQLND_QC_ENABLE_SWITCH . "*/SELECT id FROM test");
+  
+  /* Display cache information */
+  var_dump(mysqlnd_qc_get_cache_info());
+?>
+
+The above examples will output:
+
+  array(4) {
+   ["num_entries"]=>
+   int(1)
+   ["handler"]=>
+   string(7) "default"
+   ["handler_version"]=>
+   string(5) "1.0.0"
+   ["data"]=>
+   array(1) {
+     ["Localhost via UNIX socket 3306 user schema|/*qc=on*/SELECT id FROM test"]=>
+     array(2) {
+       ["statistics"]=>
+       array(11) {
+         ["rows"]=>
+         int(6)
+         ["stored_size"]=>
+         int(101)
+         ["cache_hits"]=>
+         int(0)
+         ["run_time"]=>
+         int(471)
+         ["store_time"]=>
+         int(27)
+         ["min_run_time"]=>
+         int(0)
+         ["max_run_time"]=>
+         int(0)
+         ["min_store_time"]=>
+         int(0)
+         ["max_store_time"]=>
+         int(0)
+         ["avg_run_time"]=>
+         int(0)
+         ["avg_store_time"]=>
+         int(0)
+       }
+       ["metadata"]=>
+       array(1) {
+         [0]=>
+         array(8) {
+           ["name"]=>
+           string(2) "id"
+           ["orig_name"]=>
+           string(2) "id"
+           ["table"]=>
+           string(4) "test"
+           ["orig_table"]=>
+           string(4) "test"
+           ["db"]=>
+           string(4) "schema"
+           ["max_length"]=>
+           int(1)
+           ["length"]=>
+           int(11)
+           ["type"]=>
+           int(3)
+         }
+       }
+     }
+   }
+  }
+
+vim:ft=help:

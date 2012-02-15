@@ -1,0 +1,15 @@
+ifx_update_blob -- Updates the content of the blob object
+
+  bool ifx_update_blob(int bid, string content)~
+
+Updates the content of the blob object for the given blob object {bid}.
+
+{bid} A BLOB object identifier.
+
+{content} The new data, as a string.
+
+Returns TRUE on success or &false; on failure.
+
+|ifx_update_char|
+
+vim:ft=help:

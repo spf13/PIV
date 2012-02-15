@@ -1,0 +1,126 @@
+substr -- Return part of a string
+
+  string substr(string string, int start [, int length])~
+
+Returns the portion of {string} specified by the {start} and {length}
+parameters.
+
+{string} The input string. Must be one character or longer.
+
+{start} If {start} is non-negative, the returned string will start at the
+{start}'th position in {string}, counting from zero. For instance, in the
+string 'abcdef', the character at position 0 is 'a', the character at position
+2 is 'c', and so forth.
+
+If {start} is negative, the returned string will start at the {start}'th
+character from the end of {string}.
+
+If {string} is less than or equal to {start} characters long, FALSE will be
+returned.
+
+Using a negative {start}
+
+<?php >
+  $rest = substr("abcdef", -1);    // returns "f"
+  $rest = substr("abcdef", -2);    // returns "ef"
+  $rest = substr("abcdef", -3, 1); // returns "d"
+?>
+
+
+
+
+
+{length} If {length} is given and is positive, the string returned will
+contain at most {length} characters beginning from {start} (depending on the
+length of {string}).
+
+If {length} is given and is negative, then that many characters will be
+omitted from the end of {string} (after the start position has been calculated
+when a {start} is negative). If {start} denotes the position of this
+truncation or beyond, false will be returned.
+
+If {length} is given and is 0, FALSE or NULL an empty string will be returned.
+
+If {length} is omitted, the substring starting from {start} until the end of
+the string will be returned.
+
+Using a negative {length}
+
+<?php >
+  $rest = substr("abcdef", 0, -1);  // returns "abcde"
+  $rest = substr("abcdef", 2, -1);  // returns "cde"
+  $rest = substr("abcdef", 4, -4);  // returns false
+  $rest = substr("abcdef", -3, -1); // returns "de"
+?>
+
+
+
+Returns the extracted part of string, or FALSE on failure or an empty string.
+
+Version Description 5.2.2 - 5.2.6 If the {start} parameter indicates the
+position of a negative truncation or beyond, false is returned. Other versions
+get the string from start.
+
+Basic |substr| usage
+
+<?php >
+  echo substr('abcdef', 1);     // bcdef
+  echo substr('abcdef', 1, 3);  // bcd
+  echo substr('abcdef', 0, 4);  // abcd
+  echo substr('abcdef', 0, 8);  // abcdef
+  echo substr('abcdef', -1, 1); // f
+  
+  // Accessing single characters in a string
+  // can also be achieved using "square brackets"
+  $string = 'abcdef';
+  echo $string[0];                 // a
+  echo $string[3];                 // d
+  echo $string[strlen($string)-1]; // f
+?>
+
+
+
+|substr| casting behaviour
+
+<?php >
+  class apple {
+      public function __toString() {
+          return "green";
+      }
+  }
+  
+  echo "1) ".var_export(substr("pear", 0, 2), true).PHP_EOL;
+  echo "2) ".var_export(substr(54321, 0, 2), true).PHP_EOL;
+  echo "3) ".var_export(substr(new apple(), 0, 2), true).PHP_EOL;
+  echo "4) ".var_export(substr(true, 0, 1), true).PHP_EOL;
+  echo "5) ".var_export(substr(false, 0, 1), true).PHP_EOL;
+  echo "6) ".var_export(substr("", 0, 1), true).PHP_EOL;
+  echo "7) ".var_export(substr(1.2e3, 0, 4), true).PHP_EOL;
+?>
+
+The above example will output:
+
+  1) 'pe'
+  2) '54'
+  3) 'gr'
+  4) '1'
+  5) false
+  6) false
+  7) '1200'
+
+
+
+Returns FALSE on error.
+
+<?php >
+  var_dump(substr('a', 1)); // bool(false)
+?>
+
+
+
+
+
+|strrchr| |substr_replace| |preg_match| |trim| |mb_substr| |wordwrap| String
+access and modification by character
+
+vim:ft=help:

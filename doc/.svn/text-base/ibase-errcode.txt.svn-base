@@ -1,0 +1,12 @@
+ibase_errcode -- Return an error code
+
+  int ibase_errcode()~
+
+Returns the error code that resulted from the most recent InterBase function
+call.
+
+Returns the error code as an integer, or FALSE if no error occurred.
+
+|ibase_errmsg|
+
+vim:ft=help:

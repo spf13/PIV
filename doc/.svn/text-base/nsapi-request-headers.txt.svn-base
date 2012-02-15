@@ -1,0 +1,32 @@
+nsapi_request_headers -- Fetch all HTTP request headers
+
+  array nsapi_request_headers()~
+
+|nsapi_request_headers| gets all the HTTP headers in the current request. This
+is only supported when PHP runs as a NSAPI module.
+
+Prior to PHP 4.3.3, |getallheaders| was only available for the Apache servers.
+After PHP 4.3.3, |getallheaders| is an alias for |nsapi_request_headers| if
+you use the NSAPI module.
+
+You can also get at the value of the common CGI variables by reading them from
+the $_SERVER superglobal, which works whether or not you are using PHP as a
+NSAPI module.
+
+Returns an associative array with all the HTTP headers.
+
+|nsapi_request_headers| example
+
+<?php >
+  $headers = nsapi_request_headers();
+  
+  foreach ($headers as $header => $value) {
+    echo "$header: $value <br />\n";
+  }
+?>
+
+
+
+
+
+vim:ft=help:

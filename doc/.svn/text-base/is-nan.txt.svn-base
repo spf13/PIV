@@ -1,0 +1,30 @@
+is_nan -- Finds whether a value is not a number
+
+  bool is_nan(float val)~
+
+Checks whether {val} is 'not a number', like the result of acos(1.01).
+
+{val} The value to check
+
+Returns TRUE if {val} is 'not a number', else FALSE.
+
+|is_nan| example
+
+<?php >
+  // Invalid calculation, will return a 
+  // NaN value
+  $nan = acos(8);
+  
+  var_dump($nan, is_nan($nan));
+?>
+
+The above example will output:
+
+  float(NAN)
+  bool(true)
+
+
+
+|is_finite| |is_infinite|
+
+vim:ft=help:

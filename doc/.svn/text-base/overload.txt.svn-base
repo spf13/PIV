@@ -1,0 +1,14 @@
+overload -- Enable property and method call overloading for a class
+
+  void overload(string class_name)~
+
+The |overload| function will enable property and method call overloading for a
+class identified by {class_name}.
+
+{class_name} The overloaded class name, as a string
+
+No value is returned.
+
+See an example in the introductory section of this part.
+
+vim:ft=help:

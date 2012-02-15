@@ -1,0 +1,8 @@
+iis_add_server -- Creates a new virtual web server
+
+  int iis_add_server(string path, string comment, string server_ip, int port, string host_name, int rights, int start_server)~
+
+This function is currently not documented; only its argument list is
+available.
+
+vim:ft=help:

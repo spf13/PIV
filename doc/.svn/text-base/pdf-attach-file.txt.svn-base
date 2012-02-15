@@ -1,0 +1,11 @@
+PDF_attach_file -- Add file attachment for current page [deprecated]
+
+  bool PDF_attach_file(resource pdfdoc, float llx, float lly, float urx, float ury, string filename, string description, string author, string mimetype, string icon)~
+
+Adds a file attachment annotation. Returns TRUE on success or &false; on
+failure.
+
+This function is deprecated since PDFlib version 6, use
+|PDF_create_annotation| with {type=FileAttachment} instead.
+
+vim:ft=help:

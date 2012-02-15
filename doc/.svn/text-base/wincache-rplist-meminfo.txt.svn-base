@@ -1,0 +1,53 @@
+wincache_rplist_meminfo -- Retrieves information about memory usage by the
+resolve file path cache
+
+  array wincache_rplist_meminfo()~
+
+Retrieves information about memory usage by resolve file path cache.
+
+Array of meta data that describes memory usage by resolve file path cache. or
+FALSE on failure
+
+The array returned by this function contains the following elements:
+memory_total - amount of memory in bytes allocated for the resolve file path
+cache
+
+memory_free - amount of free memory in bytes available for the resolve file
+path cache
+
+num_used_blks - number of memory blocks used by the resolve file path cache
+
+num_free_blks - number of free memory blocks available for the resolve file
+path cache
+
+memory_overhead - amount of memory in bytes used for the internal structures
+of resolve file path cache
+
+A |wincache_rplist_meminfo| example
+
+  <pre>
+<?php >
+  print_r(wincache_rplist_meminfo());
+?>
+  </pre>
+
+The above example will output:
+
+  Array
+  (
+      [memory_total] => 9437184
+      [memory_free] => 9416744
+      [num_used_blks] => 23
+      [num_free_blks] => 1
+      [memory_overhead] => 416
+  )
+
+
+
+|wincache_fcache_fileinfo| |wincache_fcache_meminfo|
+|wincache_ocache_fileinfo| |wincache_ocache_meminfo|
+|wincache_rplist_fileinfo| |wincache_refresh_if_changed|
+|wincache_ucache_meminfo| |wincache_ucache_info| |wincache_scache_info|
+|wincache_scache_meminfo|
+
+vim:ft=help:

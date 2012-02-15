@@ -1,0 +1,11 @@
+swf_pushmatrix -- Push the current transformation matrix back onto the stack
+
+  void swf_pushmatrix()~
+
+Pushes the current transformation matrix back onto the stack.
+
+No value is returned.
+
+|swf_popmatrix|
+
+vim:ft=help:

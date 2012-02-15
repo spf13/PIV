@@ -1,0 +1,21 @@
+mcrypt_module_get_supported_key_sizes -- Returns an array with the supported
+keysizes of the opened algorithm
+
+  array mcrypt_module_get_supported_key_sizes(string algorithm [, string lib_dir])~
+
+Returns an array with the key sizes supported by the specified algorithm. If
+it returns an empty array then all key sizes between 1 and
+|mcrypt_module_get_algo_key_size| are supported by the algorithm.
+
+{algorithm} The algorithm to be used.
+
+{lib_dir} The optional {lib_dir} parameter can contain the location where the
+algorithm module is on the system.
+
+Returns an array with the key sizes supported by the specified algorithm. If
+it returns an empty array then all key sizes between 1 and
+|mcrypt_module_get_algo_key_size| are supported by the algorithm.
+
+|mcrypt_enc_get_supported_key_sizes|
+
+vim:ft=help:

@@ -1,0 +1,13 @@
+swf_actiongeturl -- Get a URL from a Shockwave Flash movie
+
+  void swf_actiongeturl(string url, string target)~
+
+Gets the URL specified by the parameter {url} with the given { target}.
+
+{url} The URL, as a string.
+
+{target} The target, as a string.
+
+No value is returned.
+
+vim:ft=help:

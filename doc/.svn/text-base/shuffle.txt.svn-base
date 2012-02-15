@@ -1,0 +1,33 @@
+shuffle -- Shuffle an array
+
+  bool shuffle(array array)~
+
+This function shuffles (randomizes the order of the elements in) an array.
+
+{array} The array.
+
+Returns TRUE on success or &false; on failure.
+
+|shuffle| example
+
+<?php >
+  $numbers = range(1, 20);
+  shuffle($numbers);
+  foreach ($numbers as $number) {
+      echo "$number ";
+  }
+?>
+
+
+
+
+
+Version Description 4.2.0The random number generator is seeded automatically.
+
+This function assigns new keys to the elements in {array}. It will remove any
+existing keys that may have been assigned, rather than just reordering the
+keys.
+
+The comparison of array sorting functions
+
+vim:ft=help:

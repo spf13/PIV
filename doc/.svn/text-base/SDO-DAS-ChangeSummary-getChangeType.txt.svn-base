@@ -1,0 +1,24 @@
+SDO_DAS_ChangeSummary::getChangeType -- Get the type of change made to an
+SDO_DataObject
+
+  int SDO_DAS_ChangeSummary::getChangeType(SDO_DataObject dataObject)~
+
+This function is EXPERIMENTAL. The behaviour of this function, its name, and
+surrounding documentation may change without notice in a future release of
+PHP. This function should be used at your own risk.
+
+Get the type of change which has been made to the supplied SDO_DataObject.
+
+{dataObject} The SDO_DataObject which has been changed.
+
+The type of change which has been made. The change type is expressed as an
+enumeration and will be one of the following four values:
+SDO_DAS_ChangeSummary::NONE
+
+SDO_DAS_ChangeSummary::MODIFICATION
+
+SDO_DAS_ChangeSummary::ADDITION
+
+SDO_DAS_ChangeSummary::DELETION
+
+vim:ft=help:

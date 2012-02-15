@@ -1,0 +1,24 @@
+yp_err_string -- Returns the error string associated with the given error code
+
+  string yp_err_string(int errorcode)~
+
+Returns the error message associated with the given error code. Useful to
+indicate what exactly went wrong.
+
+{errorcode} The error code.
+
+Returns the error message, as a string.
+
+Example for NIS errors
+
+<?php >
+  echo "Error: " . yp_err_string(yp_errno());
+?>
+
+
+
+
+
+|yp_errno|
+
+vim:ft=help:

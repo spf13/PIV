@@ -1,0 +1,7 @@
+PDF_create_gstate -- Create graphics state object
+
+  int PDF_create_gstate(resource pdfdoc, string optlist)~
+
+Creates a graphics state object subject to various options.
+
+vim:ft=help:

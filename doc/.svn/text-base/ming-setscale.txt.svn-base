@@ -1,0 +1,12 @@
+ming_setscale -- Set the global scaling factor.
+
+  void ming_setscale(float scale)~
+
+Sets the scale of the output SWF. Inside the SWF file, coordinates are
+measured in TWIPS, rather than PIXELS. There are 20 TWIPS in 1 pixel.
+
+{scale} The scale to be set.
+
+No value is returned.
+
+vim:ft=help:

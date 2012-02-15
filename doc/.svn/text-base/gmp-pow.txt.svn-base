@@ -1,0 +1,34 @@
+gmp_pow -- Raise number into power
+
+  resource gmp_pow(resource base, int exp)~
+
+Raise {base} into power {exp}.
+
+{base} The base number.
+
+It can be either a GMP number resource, or a numeric string given that it is
+possible to convert the latter to a number.
+
+{exp} The positive power to raise the {base}.
+
+The new (raised) number, as a GMP number. The case of 0^0 yields 1.
+
+|gmp_pow| example
+
+<?php >
+  $pow1 = gmp_pow("2", 31);
+  echo gmp_strval($pow1) . "\n";
+  $pow2 = gmp_pow("0", 0);
+  echo gmp_strval($pow2) . "\n";
+  $pow3 = gmp_pow("2", -1); // Negative exp, generates warning
+  echo gmp_strval($pow3) . "\n";
+?>
+
+The above example will output:
+
+  2147483648
+  1
+
+
+
+vim:ft=help:

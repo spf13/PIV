@@ -1,0 +1,12 @@
+ming_setswfcompression -- Sets the SWF output compression
+
+  void ming_setswfcompression(int level)~
+
+Sets the SWF output compression level.
+
+{level} The new compression level. Should be a value between 1 and 9
+inclusive.
+
+No value is returned.
+
+vim:ft=help:

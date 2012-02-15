@@ -1,0 +1,24 @@
+gethostname -- Gets the host name
+
+  string gethostname()~
+
+|gethostname| gets the standard host name for the local machine.
+
+Returns a string with the hostname on success, otherwise FALSE is returned.
+
+A simple |gethostname| example
+
+<?php >
+  echo gethostname(); // may output e.g,: sandie
+  
+  // Or, an option that also works before PHP 5.3
+  echo php_uname('n'); // may output e.g,: sandie
+?>
+
+
+
+
+
+|gethostbyname| |gethostbyaddr| |php_uname|
+
+vim:ft=help:

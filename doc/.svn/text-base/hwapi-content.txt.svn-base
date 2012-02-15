@@ -1,0 +1,21 @@
+hw_api->content -- Returns content of an object
+
+  HW_API_Content content(array parameter)~
+
+This function returns the content of a document as an object of type
+hw_api_content.
+
+{parameter} The parameter array contains the required elements
+'objectidentifier' and the optional element 'mode'. The mode can be one of the
+constants HW_API_CONTENT_ALLLINKS, HW_API_CONTENT_REACHABLELINKS or
+HW_API_CONTENT_PLAIN.
+
+HW_API_CONTENT_ALLLINKS means to insert all anchors even if the destination is
+not reachable.
+
+HW_API_CONTENT_REACHABLELINKS tells this method to insert only reachable links
+and HW_API_CONTENT_PLAIN will lead to document without any links.
+
+Returns an instance of hw_api_content.
+
+vim:ft=help:

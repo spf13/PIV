@@ -1,0 +1,10 @@
+ncurses_wgetch -- Reads a character from keyboard (window)
+
+  int ncurses_wgetch(resource window)~
+
+This function is currently not documented; only its argument list is
+available.
+
+{window}
+
+vim:ft=help:

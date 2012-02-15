@@ -1,0 +1,13 @@
+hw_api->dstofsrcanchor -- Returns destination of a source anchor
+
+  hw_api_object dstofsrcanchor(array parameter)~
+
+Retrieves the destination object pointed by the specified source anchors. The
+destination object can either be a destination anchor or a whole document.
+
+{parameter} The parameters array contains the required element
+'objectIdentifier' and the optional element 'attributeSelector'.
+
+
+
+vim:ft=help:

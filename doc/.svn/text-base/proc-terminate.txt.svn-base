@@ -1,0 +1,26 @@
+proc_terminate -- Kills a process opened by proc_open
+
+  bool proc_terminate(resource process [, int signal])~
+
+Signals a {process} (created using |proc_open|) that it should terminate.
+|proc_terminate| returns immediately and does not wait for the process to
+terminate.
+
+|proc_terminate| allows you terminate the process and continue with other
+tasks. You may poll the process (to see if it has stopped yet) by using the
+|proc_get_status| function.
+
+{process} The |proc_open| resource that will be closed.
+
+{signal} This optional parameter is only useful on POSIX operating systems;
+you may specify a signal to send to the process using the kill(2) system call.
+The default is SIGTERM.
+
+Returns the termination status of the process that was run.
+
+Version Description 5.2.2 Previous versions used to destroy the given process
+{resource}.
+
+|proc_open| |proc_close| |proc_get_status|
+
+vim:ft=help:

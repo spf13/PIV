@@ -1,0 +1,15 @@
+shm_has_var -- Check whether a specific entry exists
+
+  bool shm_has_var(resource shm_identifier, int variable_key)~
+
+Checks whether a specific key exists inside a shared memory segment.
+
+{shm_identifier} Shared memory segment, obtained from |shm_attach|.
+
+{variable_key} The variable key.
+
+Returns TRUE if the entry exists, otherwise FALSE
+
+|shm_get_var| |shm_put_var|
+
+vim:ft=help:

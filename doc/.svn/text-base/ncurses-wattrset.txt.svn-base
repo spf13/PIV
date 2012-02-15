@@ -1,0 +1,12 @@
+ncurses_wattrset -- Set the attributes for a window
+
+  int ncurses_wattrset(resource window, int attrs)~
+
+This function is currently not documented; only its argument list is
+available.
+
+{window}
+
+{attrs}
+
+vim:ft=help:

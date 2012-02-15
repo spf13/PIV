@@ -1,0 +1,35 @@
+cairo_svg_surface_create -- Description
+
+  CairoSvgSurface cairo_svg_surface_create(string file, float width, float height)~
+
+The function description goes here.
+
+This function is currently not documented; only its argument list is
+available.
+
+{file} Description...
+
+{width} Description...
+
+{height} Description...
+
+What is returned on success and failure
+
+When does this function issue E_* level errors, and/or throw exceptions.
+
+|cairo_svg_surface_create| example Any text that describes the purpose of the
+example, or what goes on in the example should be here.
+
+<?php >
+  /* ... */
+?>
+
+The above example will output something similar to:
+
+  ...
+
+
+
+|related function name here|
+
+vim:ft=help:

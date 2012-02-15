@@ -1,0 +1,15 @@
+ps_open_memory_image -- Takes an GD image and returns an image for placement
+in a PS document
+
+  int ps_open_memory_image(resource psdoc, int gd)~
+
+This function is currently not documented; only its argument list is
+available.
+
+
+
+{psdoc} Resource identifier of the postscript file as returned by |ps_new|.
+
+{gd}
+
+vim:ft=help:

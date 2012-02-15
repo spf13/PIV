@@ -1,0 +1,36 @@
+SAMConnection::setDebug -- Turn on or off additional debugging output.
+
+The "setdebug" method is used to turn on or off additional debugging output.
+The SAM framework will provide method/function entry and exit trace data plus
+additional information. Protocol specific implementations also provide extra
+output.
+
+  void setDebug(bool switch)~
+
+{switch} If this parameter is set to TRUE additional debugging output will be
+provided. If the value is set to FALSE output of additional information will
+be stopped.
+
+No value is returned.
+
+Turn on debugging output
+
+<?php >
+  $conn->setdebug(TRUE);
+?>
+
+
+
+
+
+Turn off debugging output
+
+<?php >
+  $conn->setdebug(FALSE);
+?>
+
+
+
+
+
+vim:ft=help:

@@ -1,0 +1,5 @@
+timezone_open -- Alias of DateTimeZone::__construct
+
+This function is an alias of: DateTimeZone::__construct
+
+vim:ft=help:

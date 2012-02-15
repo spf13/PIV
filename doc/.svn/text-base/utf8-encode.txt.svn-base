@@ -1,0 +1,20 @@
+utf8_encode -- Encodes an ISO-8859-1 string to UTF-8
+
+  string utf8_encode(string data)~
+
+This function encodes the string {data} to UTF-8, and returns the encoded
+version. UTF-8 is a standard mechanism used by Unicode for encoding wide
+character values into a byte stream. UTF-8 is transparent to plain ASCII
+characters, is self-synchronized (meaning it is possible for a program to
+figure out where in the bytestream characters start) and can be used with
+normal string comparison functions for sorting and such. PHP encodes UTF-8
+characters in up to four bytes, like this: UTF-8 encoding bytes bits
+representation 1 7 0bbbbbbb 2 11 110bbbbb 10bbbbbb 3 16 1110bbbb 10bbbbbb
+10bbbbbb 4 21 11110bbb 10bbbbbb 10bbbbbb 10bbbbbb Each b represents a bit that
+can be used to store character data.
+
+{data} An ISO-8859-1 string.
+
+Returns the UTF-8 translation of {data}.
+
+vim:ft=help:

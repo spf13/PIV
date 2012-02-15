@@ -1,0 +1,11 @@
+PDF_setgray_stroke -- Set stroke color to gray [deprecated]
+
+  bool PDF_setgray_stroke(resource p, float g)~
+
+Sets the current stroke color to a gray value between 0 and 1 inclusive.
+Returns TRUE on success or &false; on failure.
+
+This function is deprecated since PDFlib version 4, use |PDF_setcolor|
+instead.
+
+vim:ft=help:

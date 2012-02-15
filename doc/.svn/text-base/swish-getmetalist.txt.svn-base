@@ -1,0 +1,42 @@
+Swish->getMetaList -- Get the list of meta entries for the index
+
+  array Swish->getMetaList(string index_name)~
+
+This function is EXPERIMENTAL. The behaviour of this function, its name, and
+surrounding documentation may change without notice in a future release of
+PHP. This function should be used at your own risk.
+
+{index_name} The name of the index file.
+
+Returns an array of meta entries for the given index.
+
+Basic |Swish->getMetaList| example
+
+<?php >
+  try {
+  
+      $swish = new Swish("index.swish-e");
+      var_dump($swish->getMetaList("index.swish-e"));
+  
+  } catch (SwishException $e) {
+      echo $e->getMessage(), "\n";
+  }
+?>
+
+The above example will output something similar to:
+
+  array(1) {
+    [0]=>
+    array(3) {
+      ["Name"]=>
+      string(12) "swishdefault"
+      ["Type"]=>
+      int(0)
+      ["ID"]=>
+      int(1)
+    }
+  }
+
+
+
+vim:ft=help:

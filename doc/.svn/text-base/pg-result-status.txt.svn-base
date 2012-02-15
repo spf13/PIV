@@ -1,0 +1,49 @@
+pg_result_status -- Get status of query result
+
+  mixed pg_result_status(resource result [, int type])~
+
+|pg_result_status| returns the status of a result resource, or the PostgreSQL
+command completion tag associated with the result
+
+{result} PostgreSQL query result resource, returned by |pg_query|,
+|pg_query_params| or |pg_execute| (among others).
+
+{type} Either PGSQL_STATUS_LONG to return the numeric status of the {result},
+or PGSQL_STATUS_STRING to return the command tag of the {result}. If not
+specified, PGSQL_STATUS_LONG is the default.
+
+Possible return values are PGSQL_EMPTY_QUERY, PGSQL_COMMAND_OK,
+PGSQL_TUPLES_OK, PGSQL_COPY_OUT, PGSQL_COPY_IN, PGSQL_BAD_RESPONSE,
+PGSQL_NONFATAL_ERROR and PGSQL_FATAL_ERROR if PGSQL_STATUS_LONG is specified.
+Otherwise, a string containing the PostgreSQL command tag is returned.
+
+Version Description 4.3.0 The {type} parameter was added.
+
+|pg_result_status| example
+
+<?php >
+  // Connect to the database
+  $conn = pg_pconnect("dbname=publisher");
+  
+  // Execute a COPY
+  $result = pg_query($conn, "COPY authors FROM STDIN;");
+  
+  // Get the result status
+  $status = pg_result_status($result);
+  
+  // Determine status
+  if ($status == PGSQL_COPY_IN)
+     echo "Copy began.";
+  else
+     echo "Copy failed.";
+?>
+
+The above example will output:
+
+  Copy began.
+
+
+
+|pg_connection_status|
+
+vim:ft=help:
