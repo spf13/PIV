@@ -1,4 +1,4 @@
-*maxdb::store_result* -- Transfers a result set from a prepared statement
+*maxdb_stmt::store_result* -- Transfers a result set from a prepared statement
 
 Procedural style
 
@@ -6,7 +6,7 @@ Procedural style
 
 Object oriented style
 
-  object maxdb::store_result(resource stmt)~
+  object maxdb_stmt::store_result(resource stmt)~
 
 |maxdb_stmt_store_result| has no functionally effect and should not be used
 for retrieving data from MaxDB server.
