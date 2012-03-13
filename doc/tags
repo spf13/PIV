@@ -2253,7 +2253,6 @@ maxdb::rpl_query_type	maxdb-rpl-query-type.txt	/*maxdb::rpl_query_type*
 maxdb::send_query	maxdb-send-query.txt	/*maxdb::send_query*
 maxdb::ssl_set	maxdb-ssl-set.txt	/*maxdb::ssl_set*
 maxdb::stat	maxdb-stat.txt	/*maxdb::stat*
-maxdb::store_result	maxdb-stmt-store-result.txt	/*maxdb::store_result*
 maxdb::store_result	maxdb-store-result.txt	/*maxdb::store_result*
 maxdb::use_result	maxdb-use-result.txt	/*maxdb::use_result*
 maxdb_bind_param	maxdb-bind-param.txt	/*maxdb_bind_param*
@@ -2313,6 +2312,7 @@ maxdb_stmt::prepare	maxdb-stmt-prepare.txt	/*maxdb_stmt::prepare*
 maxdb_stmt::reset	maxdb-stmt-reset.txt	/*maxdb_stmt::reset*
 maxdb_stmt::result_metadata	maxdb-stmt-result-metadata.txt	/*maxdb_stmt::result_metadata*
 maxdb_stmt::send_long_data	maxdb-stmt-send-long-data.txt	/*maxdb_stmt::send_long_data*
+maxdb_stmt::store_result	maxdb-stmt-store-result.txt	/*maxdb_stmt::store_result*
 maxdb_stmt_sqlstate	maxdb-stmt-sqlstate.txt	/*maxdb_stmt_sqlstate*
 maxdb_thread_safe	maxdb-thread-safe.txt	/*maxdb_thread_safe*
 mb_check_encoding	mb-check-encoding.txt	/*mb_check_encoding*
