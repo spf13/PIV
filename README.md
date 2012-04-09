@@ -10,7 +10,7 @@ Special care has been taken to include the best, keep them up to date and make s
 __It doesn't attempt to include the best _programming_ plugins, so you can use the plugins you prefer.__
 
 The bottom of this readme includes a list of many great plugins that work well with PIV. 
-If you are looking for an excellent VIM configuration, please checkout [The Ultimate VIM Configuration][http://spf13.com/post/ultimate-vim-config].
+If you are looking for an excellent VIM configuration, please checkout [The Ultimate VIM Configuration](http://spf13.com/post/ultimate-vim-config).
 
 ## Features
 
@@ -24,7 +24,7 @@ to 5.1.4.
 ### Better Fold Support
 This plugin can fold PHP functions and/or classes, properties with their PhpDoc, 
 without manually adding marker style folds ({{{ and }}})
-[[http://www.vim.org/scripts/script.php?script_id=1623]]
+http://www.vim.org/scripts/script.php?script_id=1623
 
 Can be turned off by setting 
     let g:DisableAutoPHPFolding = 1
@@ -87,7 +87,7 @@ Simply hit K (shift+k) on any function to see full documentation file for that f
 ## Recommendations
 It isn't my intention to provide php specific functionality when a good general purpose solution exists.
 
-The following plugins are recommended and can be found in my [Ultimate VIM Configuration][http://spf13.com/post/ultimate-vim-config].
+The following plugins are recommended and can be found in my [Ultimate VIM Configuration](http://spf13.com/post/ultimate-vim-config).
 
  * [Snipmate](http://github.com/msanders/snipmate.vim)
  * [NerdCommenter](http://github.com/scrooloose/nerdcommenter.git)
