@@ -58,7 +58,6 @@ setlocal smartindent
 " Linewidth to 79, because of the formatoptions this is only valid for
 " comments
 setlocal textwidth=79
-set formatoptions=qrocb
 
 setlocal nowrap     " Do not wrap lines automatically
 
