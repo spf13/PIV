@@ -99,3 +99,5 @@ The following plugins are recommended and can be found in my [Ultimate VIM Confi
  * [CheckSyntax](http://www.vim.org/scripts/script.php?script_id=1431)
  * [Surrounding](http://github.com/msanders/vim-files/blob/master/plugin/surrounding.vim)
  * [AutoCloseTag](http://www.vim.org/scripts/script.php?script_id=2591)
+ * [AutoTag](http://www.vim.org/scripts/script.php?script_id=1343)
+ * [vim-php-namespace](https://github.com/arnaud-lb/vim-php-namespace)
