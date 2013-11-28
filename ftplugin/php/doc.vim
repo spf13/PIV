@@ -97,6 +97,10 @@ let g:pdv_cfg_License = "PHP Version 3.0 {@link http://www.php.net/license/3_0.t
 
 let g:pdv_cfg_ReturnVal = "void"
 
+
+" Add foldmarker
+let g:pdv_cfg_foldmarker = 1
+
 " Whether to create @uses tags for implementation of interfaces and inheritance
 let g:pdv_cfg_Uses = 1
 
@@ -312,7 +316,9 @@ func! PhpDocFunc()
     " Local indent
     let l:txtBOL = g:pdv_cfg_BOL . l:indent
 
-		exec l:txtBOL . "/* " . l:scope ." ".  funcname . "(" . l:params . ") {{" . "{ */ " . g:pdv_cfg_EOL
+    if g:pdv_cfg_foldmarker == 1
+        exec l:txtBOL . "/* " . l:scope ." ".  funcname . "(" . l:params . ") {{" . "{ */ " . g:pdv_cfg_EOL
+    endif
 	
     exe l:txtBOL . g:pdv_cfg_CommentHead . g:pdv_cfg_EOL
 	" added folding
@@ -358,7 +364,9 @@ func! PhpDocFunc()
 	" Close the comment block.
 	exe l:txtBOL . g:pdv_cfg_CommentTail . g:pdv_cfg_EOL
 
-	return l:modifier ." ". l:funcname . PhpDocFuncEndAuto()
+    if g:pdv_cfg_foldmarker == 1
+        return l:modifier ." ". l:funcname . PhpDocFuncEndAuto()
+    endif
 endfunc
 
 " }}}  
