@@ -88,11 +88,15 @@ let g:pdv_cfg_CommentSingle = "//"
 
 " Default values
 let g:pdv_cfg_Type = "mixed"
-" let g:pdv_cfg_Package = "Framework"
+let g:pdv_cfg_display_Package = 1
 let g:pdv_cfg_Package = "Webdav"
+let g:pdv_cfg_display_Version = 1
 let g:pdv_cfg_Version = "//autogen//"
+let g:pdv_cfg_display_Author = 1
 let g:pdv_cfg_Author = ""
+let g:pdv_cfg_display_Copyright = 1
 let g:pdv_cfg_Copyright = "Copyright (c) 2010 All rights reserved."
+let g:pdv_cfg_display_License = 1
 let g:pdv_cfg_License = "PHP Version 3.0 {@link http://www.php.net/license/3_0.txt}"
 
 let g:pdv_cfg_ReturnVal = "void"
@@ -461,11 +465,22 @@ func! PhpDocClass()
 	if l:final != ""
         exe l:txtBOL . g:pdv_cfg_Commentn . "@final" . g:pdv_cfg_EOL
     endif
-	exe l:txtBOL . g:pdv_cfg_Commentn . "@package " . g:pdv_cfg_Package . g:pdv_cfg_EOL
-	exe l:txtBOL . g:pdv_cfg_Commentn . "@version " . g:pdv_cfg_Version . g:pdv_cfg_EOL
-	exe l:txtBOL . g:pdv_cfg_Commentn . "@copyright " . g:pdv_cfg_Copyright . g:pdv_cfg_EOL
-	exe l:txtBOL . g:pdv_cfg_Commentn . "@author " . g:pdv_cfg_Author g:pdv_cfg_EOL
-	exe l:txtBOL . g:pdv_cfg_Commentn . "@license " . g:pdv_cfg_License . g:pdv_cfg_EOL
+
+    if g:pdv_cfg_display_Package == 1
+        exe l:txtBOL . g:pdv_cfg_Commentn . "@package " . g:pdv_cfg_Package . g:pdv_cfg_EOL
+    endif
+    if g:pdv_cfg_display_Version == 1
+        exe l:txtBOL . g:pdv_cfg_Commentn . "@version " . g:pdv_cfg_Version . g:pdv_cfg_EOL
+    endif
+    if g:pdv_cfg_display_Copyright == 1
+        exe l:txtBOL . g:pdv_cfg_Commentn . "@copyright " . g:pdv_cfg_Copyright . g:pdv_cfg_EOL
+    endif
+    if g:pdv_cfg_display_Author == 1
+        exe l:txtBOL . g:pdv_cfg_Commentn . "@author " . g:pdv_cfg_Author g:pdv_cfg_EOL
+    endif
+    if g:pdv_cfg_display_License == 1
+        exe l:txtBOL . g:pdv_cfg_Commentn . "@license " . g:pdv_cfg_License . g:pdv_cfg_EOL
+    endif
 
 	" Close the comment block.
 	exe l:txtBOL . g:pdv_cfg_CommentTail . g:pdv_cfg_EOL
