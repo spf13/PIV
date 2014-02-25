@@ -2,9 +2,20 @@
 " Language:	PHP
 " Author:	John Wellesz <John.wellesz (AT) teaser (DOT) fr>
 " URL:		http://www.2072productions.com/vim/indent/php.vim
-" Last Change:	2010 July 26th
+" Last Change:	2013 February 23rd
 " Newsletter:	http://www.2072productions.com/?to=php-indent-for-vim-newsletter.php
-" Version:	1.33
+" Version:	1.36
+"
+" Changes: 1.36		- Added support for short array declaration (Thanks to
+"			  Warren Seymour)
+"
+" Changes: 1.35		- New option: PHP_outdentSLComments to add extra
+"			  indentation to single-line comments.
+"
+"
+" Changes: 1.34		- Fix: string with /* would be treated as comment
+"			  start when using single quote. (Thanks to Manic Chuang
+"			  for the fix)
 "
 "
 " Changes: 1.33		- Rewrote Switch(){case:default:} handling from
@@ -247,7 +258,7 @@
 " NOTE: This script must be used with PHP syntax ON and with the php syntax
 "	script by Lutz Eymers (http://www.isp.de/data/php.vim ) or with the
 "	script by Peter Hodge (http://www.vim.org/scripts/script.php?script_id=1571 )
-"	the later is bundled by default with Vim 7.
+"	the later is bunbdled by default with Vim 7.
 "
 "
 "	In the case you have syntax errors in your script such as HereDoc end
@@ -303,6 +314,8 @@
 " Options: PHP_vintage_case_default_indent = 1 (defaults to 0) to add a meaningless indent
 "		    befaore 'case:' and 'default":' statement in switch blocks.
 "
+" Options: PHP_outdentSLComments = # of sw (defaults to 0) to outdent single line PHP
+"		    comments (// and # or /**/).
 "
 " Remove all the comments from this file:
 " :%s /^\s*".*\({{{\|xxx\)\@<!\n\c//g
@@ -324,11 +337,18 @@ let b:did_indent = 1
 let php_sync_method = 0
 
 
-" Apply PHP_default_indenting option
+" Apply options
+
 if exists("PHP_default_indenting")
     let b:PHP_default_indenting = PHP_default_indenting * &sw
 else
     let b:PHP_default_indenting = 0
+endif
+
+if exists("PHP_outdentSLComments")
+    let b:PHP_outdentSLComments = PHP_outdentSLComments * &sw
+else
+    let b:PHP_outdentSLComments = 0
 endif
 
 if exists("PHP_BracesAtCodeLevel")
@@ -500,11 +520,13 @@ function! Skippmatch2()
 
     let line = getline(".")
 
-   if line =~ '\%(".*\)\@<=/\*\%(.*"\)\@=' || line =~ '\%(\%(//\|#\).*\)\@<=/\*'
-       return 1
-   else
-       return 0
-   endif
+    " Skip opening /* if they are inside a string or preceded  by a single
+    " line comment starter
+    if line =~ "\\([\"']\\).*/\\*.*\\1" || line =~ '\%(//\|#\).*/\*'
+        return 1
+    else
+        return 0
+    endif
 endfun
 
 function! Skippmatch()	" {{{
@@ -649,7 +671,7 @@ function! IslinePHP (lnum, tofind) " {{{
     endif
 endfunction " }}}
 
-let s:notPhpHereDoc = '\%(break\|return\|continue\|exit\|else\)'
+let s:notPhpHereDoc = '\%(break\|return\|continue\|exit\|die\|else\)'
 let s:blockstart = '\%(\%(\%(}\s*\)\=else\%(\s\+\)\=\)\=if\>\|else\>\|while\>\|switch\>\|case\>\|default\>\|for\%(each\)\=\>\|declare\>\|class\>\|interface\>\|abstract\>\|try\>\|catch\>\)'
 
 " make sure the options needed for this script to work correctly are set here
@@ -717,7 +739,7 @@ function! GetPhpIndent()
     if !b:PHP_indentinghuge && b:PHP_lastindented > b:PHP_indentbeforelast
 	if b:PHP_indentbeforelast
 	    let b:PHP_indentinghuge = 1
-	    echom 'Large indenting detected, speed optimizations engaged (v1.33)'
+	    " echom 'Large indenting detected, speed optimizations engaged (v1.34)'
 	endif
 	let b:PHP_indentbeforelast = b:PHP_lastindented
     endif
@@ -727,7 +749,7 @@ function! GetPhpIndent()
     " status variable (we restart from scratch)
     if b:InPHPcode_checked && prevnonblank(v:lnum - 1) != b:PHP_lastindented
 	if b:PHP_indentinghuge
-	    echom 'Large indenting deactivated'
+	    " echom 'Large indenting deactivated'
 	    let b:PHP_indentinghuge = 0
 	    let b:PHP_CurrentIndentLevel = b:PHP_default_indenting
 	endif
@@ -793,7 +815,7 @@ function! GetPhpIndent()
 	    let b:InPHPcode = 0
 	    let b:UserIsTypingComment = 0
 	    " Then we have to find a php start tag...
-	    let b:InPHPcode_tofind = '<?\%(.*?>\)\@!\|<script.*>'
+	    let b:InPHPcode_tofind = s:PHP_startindenttag
 	endif
     endif "!b:InPHPcode_checked }}}
 
@@ -884,7 +906,9 @@ function! GetPhpIndent()
 
     " Align correctly multi // or # lines
     " Indent successive // or # comment the same way the first is {{{
+    let addSpecial = 0
     if cline =~ '^\s*\%(//\|#\|/\*.*\*/\s*$\)'
+	let addSpecial = b:PHP_outdentSLComments
 	if b:PHP_LastIndentedWasComment == 1
 	    return indent(real_PHP_lastindented)
 	endif
@@ -956,7 +980,7 @@ function! GetPhpIndent()
 
     " Hit the start of the file, use default indent.
     if lnum == 0
-	return b:PHP_default_indenting
+	return b:PHP_default_indenting + addSpecial
     endif
 
 
@@ -995,12 +1019,12 @@ function! GetPhpIndent()
     " if optimized mode is active and nor current or previous line are an 'else'
     " or the end of a possible bracketless thing then indent the same as the previous
     " line
-    if last_line =~ '[;}]'.endline && last_line !~ '^)' && last_line !~# s:defaultORcase " Added && last_line !~ '^)' on 2007-12-30
+    if last_line =~ '[;}]'.endline && last_line !~ '^[)\]]' && last_line !~# s:defaultORcase
 	if ind==b:PHP_default_indenting
 	    " if no indentation for the previous line
-	    return b:PHP_default_indenting
+	    return b:PHP_default_indenting + addSpecial
 	elseif b:PHP_indentinghuge && ind==b:PHP_CurrentIndentLevel && cline !~# '^\s*\%(else\|\%(case\|default\).*:\|[})];\=\)' && last_line !~# '^\s*\%(\%(}\s*\)\=else\)' && getline(GetLastRealCodeLNum(lnum - 1))=~';'.endline
-	    return b:PHP_CurrentIndentLevel
+	    return b:PHP_CurrentIndentLevel + addSpecial
 	endif
     endif
 
@@ -1056,7 +1080,7 @@ function! GetPhpIndent()
 	let ind = ind + &sw " we indent one level further when the preceding line is not stated
 	"echo "42"
 	"call getchar()
-	return ind
+	return ind + addSpecial
 
 	" If the last line is terminated by ';' or if it's a closing '}'
 	" We need to check if this isn't the end of a multilevel non '{}'
@@ -1077,7 +1101,7 @@ function! GetPhpIndent()
 	"
 	"			$thing =
 	"				"something";
-    elseif (ind != b:PHP_default_indenting || last_line =~ '^)' ) && last_line =~ terminated " Added || last_line =~ '^)' on 2007-12-30 (array indenting problem broke other things)
+    elseif (ind != b:PHP_default_indenting || last_line =~ '^[)\]]' ) && last_line =~ terminated " Added || last_line =~ '^)' on 2007-12-30 (array indenting problem broke other things)
 	" If we are here it means that the previous line is:
 	" - a *;$ line
 	" - a [beginning-blanck] } followed by anything but a { $
@@ -1169,7 +1193,7 @@ function! GetPhpIndent()
 	    " from acting in some special cases
 	    let b:PHP_CurrentIndentLevel = b:PHP_default_indenting
 
-	    return ind
+	    return ind + addSpecial
 	endif
 	" if nothing was done lets the old script continue
     endif
@@ -1200,9 +1224,9 @@ function! GetPhpIndent()
 	" the last line isn't a .*; or a }$ line
 	" Indent correctly multilevel and multiline '(.*)' things
 
-	" if the last line is a [{(]$ or a multiline function call (or array
+	" if the last line is a [{(\[]$ or a multiline function call (or array
 	" declaration) with already one parameter on the opening ( line
-	if last_line =~# '[{(]'.endline || last_line =~? '\h\w*\s*(.*,$' && AntepenultimateLine !~ '[,(]'.endline
+	if last_line =~# '[{(\[]'.endline || last_line =~? '\h\w*\s*(.*,$' && AntepenultimateLine !~ '[,(]'.endline
 
 	    if !b:PHP_BracesAtCodeLevel || last_line !~# '^\s*{'
 		let ind = ind + &sw
@@ -1214,7 +1238,7 @@ function! GetPhpIndent()
 		" case and default are not indented inside blocks
 		let b:PHP_CurrentIndentLevel = ind
 
-		return ind
+		return ind + addSpecial
 	    endif
 
 	    " If the last line isn't empty and ends with a '),' then check if the
@@ -1258,12 +1282,12 @@ function! GetPhpIndent()
     "echo "end"
     "call getchar()
     " If the current line closes a multiline function call or array def
-    if cline =~  '^\s*);\='
+    if cline =~  '^\s*[)\]];\='
 	let ind = ind - &sw
     endif
 
     let b:PHP_CurrentIndentLevel = ind
-    return ind
+    return ind + addSpecial
 endfunction
 
 " vim: set ts=8 sw=4 sts=4:
