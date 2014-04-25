@@ -35,8 +35,12 @@ endfunction
 
 " {{{ Settings
 " First the global PHP configuration
-let php_sql_query=1 " to highlight SQL syntax in strings
-let php_htmlInStrings=1 " to highlight HTML in string
+if (!exists('php_sql_query'))
+    let php_sql_query=1 " to highlight SQL syntax in strings
+endif
+if (!exists('php_htmlInStrings'))
+    let php_htmlInStrings=1 " to highlight HTML in string
+endif
 let php_noShortTags = 1 " to disable short tags 
 let PHP_autoformatcomment = 1
 let php_sync_method = -1
