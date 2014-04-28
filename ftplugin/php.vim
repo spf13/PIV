@@ -35,11 +35,21 @@ endfunction
 
 " {{{ Settings
 " First the global PHP configuration
-let php_sql_query=1 " to highlight SQL syntax in strings
-let php_html_in_strings=1 " to highlight HTML in string
-let php_noShortTags = 1 " to disable short tags
-let PHP_autoformatcomment = 1
-let php_sync_method = -1
+if (!exists('php_sql_query'))
+    let php_sql_query=1 " to highlight SQL syntax in strings
+endif
+if (!exists('php_html_in_strings'))
+    let php_html_in_strings=1 " to highlight HTML in string
+endif
+if (!exists('php_noShortTags'))
+    let php_noShortTags = 1 " to disable short tags
+endif
+if (!exists('php_autoformatcomment'))
+    let PHP_autoformatcomment = 1
+endif
+if (!exists('php_sync_method'))
+    let php_sync_method = -1
+endif
 if (!exists('php_folding'))
    let php_folding = 1  "to enable folding for classes and functions
 endif
