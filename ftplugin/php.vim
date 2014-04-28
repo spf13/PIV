@@ -1,12 +1,12 @@
 " File:        php.vim
 " Description: PHP Integration for VIM plugin
-" 			   This file is a considerable fork of the original 
+" 			   This file is a considerable fork of the original
 " 			   PDV written by Tobias Schlitt <toby@php.net>.
 " Maintainer:  Steve Francia <piv@spf13.com> <http://spf13.com>
 " Version:     0.9
 " Last Change: 7th January 2012
-" 
-" 
+"
+"
 " Section: script init stuff {{{1
 if exists("loaded_piv")
     finish
@@ -35,11 +35,21 @@ endfunction
 
 " {{{ Settings
 " First the global PHP configuration
-let php_sql_query=1 " to highlight SQL syntax in strings
-let php_htmlInStrings=1 " to highlight HTML in string
-let php_noShortTags = 1 " to disable short tags 
-let PHP_autoformatcomment = 1
-let php_sync_method = -1
+if (!exists('php_sql_query'))
+    let php_sql_query=1 " to highlight SQL syntax in strings
+endif
+if (!exists('php_html_in_strings'))
+    let php_html_in_strings=1 " to highlight HTML in string
+endif
+if (!exists('php_noShortTags'))
+    let php_noShortTags = 1 " to disable short tags
+endif
+if (!exists('php_autoformatcomment'))
+    let PHP_autoformatcomment = 1
+endif
+if (!exists('php_sync_method'))
+    let php_sync_method = -1
+endif
 if (!exists('php_folding'))
    let php_folding = 1  "to enable folding for classes and functions
 endif
@@ -152,15 +162,15 @@ func! PhpAlign() range
 			continue
 		endif
 		" \{-\} matches ungreed *
-        let l:index = substitute (getline (l:line), '^\s*\(.\{-\}\)\s*\S\{0,1}=\S\{0,1\}\s.*$', '\1', "") 
+        let l:index = substitute (getline (l:line), '^\s*\(.\{-\}\)\s*\S\{0,1}=\S\{0,1\}\s.*$', '\1', "")
         let l:indexlength = strlen (l:index)
         let l:maxlength = l:indexlength > l:maxlength ? l:indexlength : l:maxlength
         let l:line = l:line + 1
     endwhile
-    
+
 	let l:line = a:firstline
 	let l:format = "%s%-" . l:maxlength . "s %s %s"
-    
+
 	while l:line <= l:endline
 		if getline (l:line) =~ '^\s*\/\/.*$'
 			let l:line = l:line + 1
@@ -178,7 +188,7 @@ func! PhpAlign() range
     let &g:paste = l:paste
 endfunc
 
-" }}}   
+" }}}
 
 function! s:CreateNMap(target, combo)
     if !hasmapto(a:target, 'n')
