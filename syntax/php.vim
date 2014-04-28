@@ -2,7 +2,7 @@
 " Language: PHP 5.3 & up
 " Maintainer: Paul Garvin <paul@paulgarvin.net>
 " Last Change:  April 2, 2010
-" URL: 
+" URL:
 "
 " Former Maintainer:  Peter Hodge <toomuchphp-vim@yahoo.com>
 " Former URL: http://www.vim.org/scripts/script.php?script_id=1571
@@ -65,7 +65,7 @@ unlet! b:current_syntax
 syntax spell default
 
 " Set sync method if none declared
-if !exists("php_sync_method")
+if (!exists("php_sync_method") || php_sync_method==1)
   if exists("php_minlines")
     let php_sync_method=php_minlines
   else
@@ -80,16 +80,16 @@ syn sync clear
 unlet! b:current_syntax
 syn cluster sqlTop remove=sqlString,sqlComment
 
-if exists("php_sql_query")
+if (!exists("php_sql_query") || php_sql_query==1)
   syn cluster phpAddStrings contains=@sqlTop
 endif
 
-if exists("php_html_in_strings")
+if (!exists("php_html_in_strings") || php_html_in_strings==1)
   syn cluster phpAddStrings add=@htmlTop
 endif
 
 syn case match
- 
+
 " Superglobals
 syn keyword phpSuperglobals GLOBALS _GET _POST _REQUEST _FILES _COOKIE _SERVER _SESSION _ENV HTTP_RAW_POST_DATA php_errormsg http_response_header argc argv contained
 
