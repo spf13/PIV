@@ -95,7 +95,7 @@ let g:pdv_cfg_Version = "//autogen//"
 let g:pdv_cfg_display_Author = 1
 let g:pdv_cfg_Author = ""
 let g:pdv_cfg_display_Copyright = 1
-let g:pdv_cfg_Copyright = "Copyright (c) 2010 All rights reserved."
+let g:pdv_cfg_Copyright = "Copyright (c) " . strftime("%Y") . " All rights reserved."
 let g:pdv_cfg_display_License = 1
 let g:pdv_cfg_License = "PHP Version 3.0 {@link http://www.php.net/license/3_0.txt}"
 
