@@ -126,18 +126,6 @@ if g:PIVAutoClose
 endif
 " }}} Automatic close char mapping
 
-
-" {{{ Wrap visual selections with chars
-
-vnoremap <buffer> ( "zdi(<C-R>z)<ESC>
-vnoremap <buffer> { "zdi{<C-R>z}<ESC>
-vnoremap <buffer> [ "zdi[<C-R>z]<ESC>
-vnoremap <buffer> ' "zdi'<C-R>z'<ESC>
-" Removed in favor of register addressing
-" :vnoremap " "zdi"<C-R>z"<ESC>
-
-" }}} Wrap visual selections with chars
-
 " {{{ Dictionary completion
 setlocal dictionary-=$VIMRUNTIME/bundle/PIV/misc/funclist.txt dictionary+=$VIMRUNTIME/bundle/PIV/misc/funclist.txt
 
